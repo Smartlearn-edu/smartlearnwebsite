@@ -30,6 +30,10 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     document.documentElement.dir = isRTL ? "rtl" : "ltr";
     document.documentElement.lang = lang;
+    document.documentElement.style.setProperty(
+      "--site-font",
+      isRTL ? "'Tajawal', sans-serif" : "'Cairo', sans-serif"
+    );
     try {
       localStorage.setItem("sl-lang", lang);
     } catch {}

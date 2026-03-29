@@ -11,21 +11,26 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    --site-font: 'Cairo', sans-serif;
   }
 
   body {
     background-color: #07070f;
     color: #b0b8cc;
     -webkit-font-smoothing: antialiased;
-    font-family: 'Cairo', sans-serif;
+    font-family: var(--site-font);
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Cairo', sans-serif;
+    font-family: var(--site-font);
   }
 }
 
 @layer utilities {
+  [dir="rtl"], [dir="rtl"] * {
+    font-family: 'Tajawal', sans-serif !important;
+  }
+
   .gradient-text {
     background: linear-gradient(135deg, #a855f7 0%, #c084fc 100%);
     -webkit-background-clip: text;
