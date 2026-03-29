@@ -90,6 +90,12 @@
   }
 }
 
+/* Force Righteous for all elements in English/LTR mode — overrides inline styles */
+[dir="ltr"],
+[dir="ltr"] * {
+  font-family: 'Righteous', sans-serif !important;
+}
+
 /* Force Tajawal for all elements in Arabic/RTL mode — overrides inline styles */
 [dir="rtl"],
 [dir="rtl"] * {
