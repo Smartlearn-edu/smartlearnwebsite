@@ -1,7 +1,10 @@
 import { motion } from "framer-motion";
 import { Award, ExternalLink } from "lucide-react";
+import { useT } from "@/i18n";
 
 export function AboutSection() {
+  const { t } = useT();
+
   return (
     <section id="about" className="py-24 px-6">
       <div className="max-w-6xl mx-auto">
@@ -21,13 +24,13 @@ export function AboutSection() {
               fontFamily: "'Cairo', sans-serif",
             }}
           >
-            👤 About
+            {t.about.badge}
           </div>
           <h2
             className="text-4xl md:text-5xl font-black text-white mb-4"
             style={{ fontFamily: "'Cairo', sans-serif" }}
           >
-            Who Is Behind <span className="gradient-text">Smart Learn</span>
+            {t.about.heading} <span className="gradient-text">{t.about.headingGradient}</span>
           </h2>
         </motion.div>
 
@@ -55,13 +58,13 @@ export function AboutSection() {
                   className="text-xl font-black text-white"
                   style={{ fontFamily: "'Cairo', sans-serif" }}
                 >
-                  Mohammad Nabil
+                  {t.about.name}
                 </h3>
                 <p
                   className="text-sm text-slate-500"
                   style={{ fontFamily: "'Cairo', sans-serif" }}
                 >
-                  Founder, Smart Learn · Egypt 🇪🇬
+                  {t.about.role}
                 </p>
               </div>
             </div>
@@ -70,10 +73,7 @@ export function AboutSection() {
               className="text-slate-400 leading-relaxed mb-6"
               style={{ fontFamily: "'Cairo', sans-serif" }}
             >
-              A top-rated freelancer and LMS architect bridging the gap between online academies
-              and cutting-edge AI technology. Since 2020, I've been building and scaling Moodle
-              platforms for institutions worldwide — from plugin development and migrations to full
-              AI integration and n8n automation.
+              {t.about.bio}
             </p>
 
             <div className="flex flex-wrap gap-3">
@@ -89,7 +89,7 @@ export function AboutSection() {
                   fontFamily: "'Cairo', sans-serif",
                 }}
               >
-                Mostaql Profile
+                {t.about.mostaql}
                 <ExternalLink size={13} />
               </a>
               <a
@@ -104,7 +104,7 @@ export function AboutSection() {
                   fontFamily: "'Cairo', sans-serif",
                 }}
               >
-                Khamsat Profile
+                {t.about.khamsat}
                 <ExternalLink size={13} />
               </a>
             </div>
@@ -137,18 +137,17 @@ export function AboutSection() {
                     className="font-black text-white mb-1"
                     style={{ fontFamily: "'Cairo', sans-serif" }}
                   >
-                    Moodle Community Expert
+                    {t.about.communityExpert}
                   </h4>
                   <p
                     className="text-sm text-slate-400 leading-relaxed"
                     style={{ fontFamily: "'Cairo', sans-serif" }}
                   >
-                    Recipient of the{" "}
+                    {t.about.badgeDesc.split(t.about.badgeHighlight)[0]}
                     <span style={{ color: "#c084fc", fontWeight: 700 }}>
-                      Particularly Helpful Moodle Badge
-                    </span>{" "}
-                    every year from 2020–2025, awarded by the Moodle.org community for sustained,
-                    high-quality technical contributions.
+                      {t.about.badgeHighlight}
+                    </span>
+                    {t.about.badgeDesc.split(t.about.badgeHighlight)[1]}
                   </p>
                   <a
                     href="https://moodle.org"
@@ -157,7 +156,7 @@ export function AboutSection() {
                     className="inline-flex items-center gap-1 text-sm mt-3 font-bold"
                     style={{ color: "#a855f7", fontFamily: "'Cairo', sans-serif" }}
                   >
-                    View on Moodle.org →
+                    {t.about.viewMoodle}
                   </a>
                 </div>
               </div>
@@ -171,9 +170,9 @@ export function AboutSection() {
               }}
             >
               {[
-                { value: "100,000+", label: "Users Managed" },
-                { value: "70+", label: "Projects" },
-                { value: "5+", label: "Years" },
+                { value: "100,000+", label: t.about.stat1Label },
+                { value: "70+", label: t.about.stat2Label },
+                { value: "5+", label: t.about.stat3Label },
               ].map((stat) => (
                 <div key={stat.label} className="text-center">
                   <div

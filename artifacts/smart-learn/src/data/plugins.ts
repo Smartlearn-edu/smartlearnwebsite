@@ -1,13 +1,18 @@
 export type Category = "All" | "AI-Powered" | "Analytics & Reporting" | "Course Tools" | "Platform & Admin";
 
+export type CategoryAr = "الكل" | "مدعوم بالذكاء الاصطناعي" | "التحليلات والتقارير" | "أدوات المقرر" | "المنصة والإدارة";
+
 export interface Plugin {
   name: string;
+  nameAr: string;
   slug: string;
   type: string;
   moodle: string;
   category: Exclude<Category, "All">;
+  categoryAr: Exclude<CategoryAr, "الكل">;
   free: boolean;
   features: string[];
+  featuresAr: string[];
   placeholder?: boolean;
 }
 
@@ -19,13 +24,23 @@ export const CATEGORIES: Category[] = [
   "Platform & Admin",
 ];
 
+export const CATEGORIES_AR: CategoryAr[] = [
+  "الكل",
+  "مدعوم بالذكاء الاصطناعي",
+  "التحليلات والتقارير",
+  "أدوات المقرر",
+  "المنصة والإدارة",
+];
+
 export const plugins: Plugin[] = [
   {
     name: "Quiz AI Chat",
+    nameAr: "محادثة الذكاء الاصطناعي للاختبار",
     slug: "local_qai",
     type: "local",
     moodle: "Moodle 4.0+",
     category: "AI-Powered",
+    categoryAr: "مدعوم بالذكاء الاصطناعي",
     free: false,
     features: [
       "AI tutor embedded inside every quiz attempt",
@@ -33,13 +48,21 @@ export const plugins: Plugin[] = [
       "5 context levels to balance detail vs. API cost",
       "Token-saving mode: sends context only on first message",
     ],
+    featuresAr: [
+      "مرشد ذكاء اصطناعي مدمج داخل كل محاولة اختبار",
+      "شروحات على مستوى السؤال ومحادثة عن الأداء الكلي",
+      "5 مستويات سياق للموازنة بين التفصيل وتكلفة الـAPI",
+      "وضع توفير التوكن: يرسل السياق عند الرسالة الأولى فقط",
+    ],
   },
   {
     name: "Chat with Assignment",
+    nameAr: "محادثة مع المهمة",
     slug: "local_chatwithassignment",
     type: "local",
     moodle: "Moodle 4.0+",
     category: "AI-Powered",
+    categoryAr: "مدعوم بالذكاء الاصطناعي",
     free: false,
     features: [
       "AI chat on assignment feedback & rubric scores",
@@ -47,13 +70,21 @@ export const plugins: Plugin[] = [
       "Custom teacher instructions per assignment",
       "GDPR-compliant with student data portability",
     ],
+    featuresAr: [
+      "محادثة ذكاء اصطناعي حول تغذية المهمة ودرجات الروبريك",
+      "5 مستويات سياق من الدرجة فقط حتى التقديم الكامل",
+      "تعليمات معلم مخصصة لكل مهمة",
+      "متوافق مع GDPR مع قابلية نقل بيانات الطالب",
+    ],
   },
   {
     name: "Smart Grade AI",
+    nameAr: "تصحيح ذكي بالذكاء الاصطناعي",
     slug: "local_smartgradeai",
     type: "local",
     moodle: "Moodle 4.0+",
     category: "AI-Powered",
+    categoryAr: "مدعوم بالذكاء الاصطناعي",
     free: false,
     features: [
       "Human-in-the-loop AI grading with teacher review",
@@ -61,13 +92,21 @@ export const plugins: Plugin[] = [
       "Multi-model: GPT-4, Claude, Gemini, DeepSeek",
       "n8n integration for flexible grading workflows",
     ],
+    featuresAr: [
+      "تصحيح ذكاء اصطناعي مع حلقة مراجعة بشرية من المعلم",
+      "واعٍ بالروبريك: يختار المستويات ويكتب التعليقات",
+      "متعدد النماذج: GPT-4 وClaude وGemini وDeepSeek",
+      "تكامل n8n لسير عمل تصحيح مرنة",
+    ],
   },
   {
     name: "AI Rubric Generator",
+    nameAr: "مولّد روبريك بالذكاء الاصطناعي",
     slug: "local_airubricgenerator",
     type: "local",
     moodle: "Moodle 4.5+",
     category: "AI-Powered",
+    categoryAr: "مدعوم بالذكاء الاصطناعي",
     free: false,
     features: [
       "Generate rubrics from assignment description with AI",
@@ -75,13 +114,21 @@ export const plugins: Plugin[] = [
       "Test rubric on sample submissions before saving",
       "Also generates full assignment descriptions by course section",
     ],
+    featuresAr: [
+      "إنشاء روبريك من وصف المهمة بالذكاء الاصطناعي",
+      "خيارات الأسلوب والإطار (Bloom وSOLO وأكاديمي…)",
+      "اختبار الروبريك على تقديمات نموذجية قبل الحفظ",
+      "يُنشئ أيضاً أوصاف مهام كاملة حسب قسم المقرر",
+    ],
   },
   {
     name: "Adaptive Study Plan",
+    nameAr: "خطة دراسة تكيفية",
     slug: "mod_adaptiveplan",
     type: "mod",
     moodle: "Moodle 4.0+",
     category: "AI-Powered",
+    categoryAr: "مدعوم بالذكاء الاصطناعي",
     free: false,
     features: [
       "AI-generated personalised study schedules per student",
@@ -89,13 +136,21 @@ export const plugins: Plugin[] = [
       "Dynamic checklists from course activity metadata",
       "AI chat coach to adjust deadlines on demand",
     ],
+    featuresAr: [
+      "جداول دراسة مخصصة يُنشئها الذكاء الاصطناعي لكل طالب",
+      "استبيان استيعاب للساعات والمعرفة السابقة",
+      "قوائم مهام ديناميكية من بيانات أنشطة المقرر",
+      "مدرب محادثة ذكي لتعديل المواعيد النهائية عند الطلب",
+    ],
   },
   {
     name: "Smart Dashboard",
+    nameAr: "لوحة تحكم ذكية",
     slug: "local_smartdashboard",
     type: "local",
     moodle: "Moodle 4.0+",
     category: "Analytics & Reporting",
+    categoryAr: "التحليلات والتقارير",
     free: false,
     features: [
       "All-in-one analytics: student progress, grading, payments",
@@ -103,13 +158,21 @@ export const plugins: Plugin[] = [
       "Revenue analytics with category breakdown charts",
       "CSV export for all data sections, dark UI with sidebar",
     ],
+    featuresAr: [
+      "تحليلات شاملة: تقدم الطلاب والتصحيح والمدفوعات",
+      "تتبع إكمال متعدد المقررات مع تعمق لكل طالب",
+      "تحليلات الإيرادات مع مخططات تفصيل الفئات",
+      "تصدير CSV لجميع أقسام البيانات وواجهة داكنة بشريط جانبي",
+    ],
   },
   {
     name: "Student Grades Report",
+    nameAr: "تقرير درجات الطالب",
     slug: "report_studentgrades",
     type: "report",
     moodle: "Moodle 4.0+",
     category: "Analytics & Reporting",
+    categoryAr: "التحليلات والتقارير",
     free: true,
     features: [
       "Export all enrolled course grades as one HTML file",
@@ -117,13 +180,21 @@ export const plugins: Plugin[] = [
       "18+ colour settings, RTL support, Word-compatible output",
       "Students & authorised admins can view cross-course records",
     ],
+    featuresAr: [
+      "تصدير جميع درجات المقررات المسجلة كملف HTML واحد",
+      "هيكل درجات هرمي مع الفئات والمجاميع",
+      "أكثر من 18 إعداد ألوان ودعم RTL وإخراج متوافق مع Word",
+      "الطلاب والمسؤولون المخوّلون يمكنهم عرض سجلات متعددة المقررات",
+    ],
   },
   {
     name: "HTML Grade Export",
+    nameAr: "تصدير درجات HTML",
     slug: "gradereport_htmlexport",
     type: "gradereport",
     moodle: "Moodle 4.0+",
     category: "Analytics & Reporting",
+    categoryAr: "التحليلات والتقارير",
     free: true,
     features: [
       "Per-course grade export as beautifully styled HTML",
@@ -131,13 +202,21 @@ export const plugins: Plugin[] = [
       "18+ colour themes, site logo integration, print-ready CSS",
       "GDPR-compliant, full RTL & accessibility support",
     ],
+    featuresAr: [
+      "تصدير درجات كل مقرر كـHTML منسق بجمال",
+      "تنزيل ZIP جماعي لجميع الطلاب دفعة واحدة",
+      "أكثر من 18 ثيم ألوان وتكامل شعار الموقع وCSS جاهز للطباعة",
+      "متوافق مع GDPR ودعم كامل لـRTL وإمكانية الوصول",
+    ],
   },
   {
     name: "Gap Close",
+    nameAr: "سد الفجوات",
     slug: "mod_gapclose",
     type: "mod",
     moodle: "Moodle 4.0+",
     category: "Course Tools",
+    categoryAr: "أدوات المقرر",
     free: true,
     features: [
       "Auto-detects incorrect answers across all course quizzes",
@@ -145,13 +224,21 @@ export const plugins: Plugin[] = [
       "Native Moodle Question Engine with live feedback",
       "Resumable sessions; restart to scan for fresh gaps",
     ],
+    featuresAr: [
+      "يكتشف تلقائياً الإجابات الخاطئة في جميع اختبارات المقرر",
+      "يبني جلسة مراجعة مركّزة من فجوات الطالب",
+      "محرك أسئلة Moodle الأصلي مع تغذية راجعة فورية",
+      "جلسات قابلة للاستئناف؛ أعد التشغيل للبحث عن فجوات جديدة",
+    ],
   },
   {
     name: "Protected PDF",
+    nameAr: "PDF محمي",
     slug: "mod_protectedpdf",
     type: "mod",
     moodle: "Moodle 3.10+",
     category: "Course Tools",
+    categoryAr: "أدوات المقرر",
     free: true,
     features: [
       "Watermarks every PDF download with student name & email",
@@ -159,33 +246,47 @@ export const plugins: Plugin[] = [
       "Access-controlled to enrolled, authenticated users only",
       "Moodle completion tracking & backup/restore support",
     ],
+    featuresAr: [
+      "يضع علامة مائية على كل تنزيل PDF باسم الطالب وبريده",
+      "تراكب لكل صفحة بواسطة FPDI على الملف الأصلي",
+      "وصول محكوم للمستخدمين المسجلين والمصادق عليهم فقط",
+      "دعم تتبع الإكمال والنسخ الاحتياطي والاستعادة في Moodle",
+    ],
   },
   {
     name: "Private YouTube",
+    nameAr: "يوتيوب خاص",
     slug: "mod_privateyoutube",
     type: "mod",
     moodle: "Moodle 4.0+",
     category: "Course Tools",
+    categoryAr: "أدوات المقرر",
     free: true,
     placeholder: true,
     features: [],
+    featuresAr: [],
   },
   {
     name: "Smart Catalog",
+    nameAr: "كتالوج ذكي",
     slug: "local_smartcatalog",
     type: "local",
     moodle: "Moodle 4.0+",
     category: "Course Tools",
+    categoryAr: "أدوات المقرر",
     free: false,
     placeholder: true,
     features: [],
+    featuresAr: [],
   },
   {
     name: "Credit Enrollment",
+    nameAr: "تسجيل بالرصيد",
     slug: "enrol_credit",
     type: "enrol",
     moodle: "Moodle 4.0+",
     category: "Course Tools",
+    categoryAr: "أدوات المقرر",
     free: true,
     features: [
       "Students spend a credit balance to enrol in courses",
@@ -193,13 +294,21 @@ export const plugins: Plugin[] = [
       "Auto-deducted on successful enrolment with balance display",
       "Enrolment keys, periods & max user limits supported",
     ],
+    featuresAr: [
+      "يستخدم الطلاب رصيد ائتماني للتسجيل في المقررات",
+      "تكلفة الرصيد لكل مقرر تُهيأ من قِبَل المسؤولين",
+      "يُخصم تلقائياً عند التسجيل الناجح مع عرض الرصيد",
+      "دعم مفاتيح التسجيل والفترات وحدود المستخدمين القصوى",
+    ],
   },
   {
     name: "Custom Home Redirect",
+    nameAr: "إعادة توجيه الصفحة الرئيسية",
     slug: "local_customhome",
     type: "local",
     moodle: "Moodle 4.0+",
     category: "Platform & Admin",
+    categoryAr: "المنصة والإدارة",
     free: true,
     features: [
       "Replace Moodle front page with any custom URL",
@@ -207,13 +316,21 @@ export const plugins: Plugin[] = [
       "Emergency bypass via ?noredirect=1 query parameter",
       "AI Prompt Generator builds a landing page from live Moodle data",
     ],
+    featuresAr: [
+      "استبدال صفحة Moodle الأمامية بأي URL مخصص",
+      "تجاوز للمسؤول — لا يُقفَل مسؤولو الموقع أبداً",
+      "تجاوز طارئ عبر معامل ?noredirect=1",
+      "مولّد البرومبت الذكي يبني صفحة هبوط من بيانات Moodle الحية",
+    ],
   },
   {
     name: "Parent Assign",
+    nameAr: "تعيين ولي الأمر",
     slug: "local_parentassign",
     type: "local",
     moodle: "Moodle 4.1+",
     category: "Platform & Admin",
+    categoryAr: "المنصة والإدارة",
     free: true,
     features: [
       "Auto-creates parent accounts from student profile fields",
@@ -221,39 +338,59 @@ export const plugins: Plugin[] = [
       "Forced password reset on first parent login",
       "Scheduled task sweeps for bulk-uploaded student users",
     ],
+    featuresAr: [
+      "يُنشئ حسابات الوالدين تلقائياً من حقول ملف الطالب",
+      "يُنشئ كلمات مرور آمنة ويرسل رسائل ترحيب",
+      "إعادة تعيين إجبارية لكلمة المرور عند أول تسجيل دخول للوالد",
+      "مهمة مجدولة لمسح مستخدمي الطلاب المُحمَّلين جماعياً",
+    ],
   },
   {
     name: "Quick Login",
+    nameAr: "تسجيل دخول سريع",
     slug: "local_qlogin",
     type: "local",
     moodle: "Moodle 4.0+",
     category: "Platform & Admin",
+    categoryAr: "المنصة والإدارة",
     free: true,
     placeholder: true,
     features: [],
+    featuresAr: [],
   },
   {
     name: "Balance Updater",
+    nameAr: "محدّث الرصيد",
     slug: "local_balanceupdater",
     type: "local",
     moodle: "Moodle 4.0+",
     category: "Platform & Admin",
+    categoryAr: "المنصة والإدارة",
     free: false,
     placeholder: true,
     features: [],
+    featuresAr: [],
   },
   {
     name: "Kashier Payment Gateway",
+    nameAr: "بوابة دفع كاشير",
     slug: "paygw_kashier",
     type: "paygw",
     moodle: "Moodle 4.0+",
     category: "Platform & Admin",
+    categoryAr: "المنصة والإدارة",
     free: false,
     features: [
       "Native Moodle payment gateway for Kashier (Egypt)",
       "Secure server-to-server webhook with HMAC verification",
       "Supports EGP, USD, EUR and GBP currencies",
       "Built-in sandbox mode for safe integration testing",
+    ],
+    featuresAr: [
+      "بوابة دفع Moodle الأصلية لكاشير (مصر)",
+      "Webhook آمن من خادم إلى خادم مع التحقق بـHMAC",
+      "دعم عملات EGP وUSD وEUR وGBP",
+      "وضع بيئة اختبار مدمجة لاختبار التكامل بأمان",
     ],
   },
 ];

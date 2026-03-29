@@ -1,33 +1,27 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { Send, CheckCircle, Mail, MapPin } from "lucide-react";
+import { useT } from "@/i18n";
 
 export function ContactSection() {
-  const [fields, setFields] = useState({
-    name: "",
-    email: "",
-    service: "",
-    message: "",
-  });
+  const { t } = useT();
+  const [fields, setFields] = useState({ name: "", email: "", service: "", message: "" });
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [submitted, setSubmitted] = useState(false);
 
   function validate() {
     const e: Record<string, string> = {};
-    if (!fields.name.trim()) e.name = "Name is required";
-    if (!fields.email.trim()) e.email = "Email is required";
-    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(fields.email)) e.email = "Enter a valid email";
-    if (!fields.message.trim()) e.message = "Please describe your project";
+    if (!fields.name.trim()) e.name = t.contact.errName;
+    if (!fields.email.trim()) e.email = t.contact.errEmailRequired;
+    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(fields.email)) e.email = t.contact.errEmailInvalid;
+    if (!fields.message.trim()) e.message = t.contact.errMessage;
     return e;
   }
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     const errs = validate();
-    if (Object.keys(errs).length) {
-      setErrors(errs);
-      return;
-    }
+    if (Object.keys(errs).length) { setErrors(errs); return; }
     setErrors({});
     setSubmitted(true);
     setFields({ name: "", email: "", service: "", message: "" });
@@ -59,19 +53,19 @@ export function ContactSection() {
               fontFamily: "'Cairo', sans-serif",
             }}
           >
-            📧 Contact
+            {t.contact.badge}
           </div>
           <h2
             className="text-4xl md:text-5xl font-black text-white mb-4"
             style={{ fontFamily: "'Cairo', sans-serif" }}
           >
-            Let's Build <span className="gradient-text">Together</span>
+            {t.contact.heading} <span className="gradient-text">{t.contact.headingGradient}</span>
           </h2>
           <p
             className="text-slate-400 max-w-md mx-auto text-lg"
             style={{ fontFamily: "'Cairo', sans-serif" }}
           >
-            Have a project in mind? I'll reply within 24 hours.
+            {t.contact.subtitle}
           </p>
         </motion.div>
 
@@ -102,7 +96,7 @@ export function ContactSection() {
                     className="text-xs text-slate-500 uppercase tracking-widest mb-1"
                     style={{ fontFamily: "'Cairo', sans-serif" }}
                   >
-                    Email
+                    {t.contact.emailLabel}
                   </p>
                   <p
                     className="text-white font-semibold text-sm"
@@ -124,19 +118,19 @@ export function ContactSection() {
                     className="text-xs text-slate-500 uppercase tracking-widest mb-1"
                     style={{ fontFamily: "'Cairo', sans-serif" }}
                   >
-                    Location
+                    {t.contact.locationLabel}
                   </p>
                   <p
                     className="text-white font-semibold text-sm"
                     style={{ fontFamily: "'Cairo', sans-serif" }}
                   >
-                    Egypt 🇪🇬
+                    {t.contact.locationValue}
                   </p>
                   <p
                     className="text-slate-500 text-xs mt-0.5"
                     style={{ fontFamily: "'Cairo', sans-serif" }}
                   >
-                    Available for remote work worldwide 🌍
+                    {t.contact.locationRemote}
                   </p>
                 </div>
               </div>
@@ -154,19 +148,19 @@ export function ContactSection() {
                 className="text-sm text-slate-300 font-semibold mb-2"
                 style={{ fontFamily: "'Cairo', sans-serif" }}
               >
-                Typical response time
+                {t.contact.responseLabel}
               </p>
               <p
                 className="text-2xl font-black gradient-text"
                 style={{ fontFamily: "'Cairo', sans-serif" }}
               >
-                &lt; 24 hours
+                {t.contact.responseValue}
               </p>
               <p
                 className="text-xs text-slate-500 mt-1"
                 style={{ fontFamily: "'Cairo', sans-serif" }}
               >
-                Mon – Sat
+                {t.contact.responseDays}
               </p>
             </div>
           </motion.div>
@@ -189,20 +183,20 @@ export function ContactSection() {
                   className="text-xl font-black text-white"
                   style={{ fontFamily: "'Cairo', sans-serif" }}
                 >
-                  Message Sent!
+                  {t.contact.successTitle}
                 </h3>
                 <p
                   className="text-slate-400 text-sm max-w-xs"
                   style={{ fontFamily: "'Cairo', sans-serif" }}
                 >
-                  Thanks for reaching out. I'll reply within 24 hours.
+                  {t.contact.successDesc}
                 </p>
                 <button
                   onClick={() => setSubmitted(false)}
                   className="text-sm font-semibold transition-colors mt-2"
                   style={{ color: "#a855f7", fontFamily: "'Cairo', sans-serif" }}
                 >
-                  Send another message
+                  {t.contact.sendAnother}
                 </button>
               </div>
             ) : (
@@ -213,13 +207,13 @@ export function ContactSection() {
                       className="text-xs text-slate-500 uppercase tracking-widest mb-2 block"
                       style={{ fontFamily: "'Cairo', sans-serif" }}
                     >
-                      Your Name *
+                      {t.contact.nameLabel}
                     </label>
                     <input
                       type="text"
                       value={fields.name}
                       onChange={(e) => setFields({ ...fields, name: e.target.value })}
-                      placeholder="Mohammad Ali"
+                      placeholder={t.contact.namePlaceholder}
                       className="w-full rounded-xl px-4 py-3 text-sm text-white placeholder-slate-600 transition-all duration-200"
                       style={inputStyle(!!errors.name)}
                     />
@@ -237,13 +231,13 @@ export function ContactSection() {
                       className="text-xs text-slate-500 uppercase tracking-widest mb-2 block"
                       style={{ fontFamily: "'Cairo', sans-serif" }}
                     >
-                      Email Address *
+                      {t.contact.emailFieldLabel}
                     </label>
                     <input
                       type="email"
                       value={fields.email}
                       onChange={(e) => setFields({ ...fields, email: e.target.value })}
-                      placeholder="you@example.com"
+                      placeholder={t.contact.emailPlaceholder}
                       className="w-full rounded-xl px-4 py-3 text-sm text-white placeholder-slate-600 transition-all duration-200"
                       style={inputStyle(!!errors.email)}
                     />
@@ -263,7 +257,7 @@ export function ContactSection() {
                     className="text-xs text-slate-500 uppercase tracking-widest mb-2 block"
                     style={{ fontFamily: "'Cairo', sans-serif" }}
                   >
-                    Service Needed
+                    {t.contact.serviceLabel}
                   </label>
                   <select
                     value={fields.service}
@@ -275,12 +269,14 @@ export function ContactSection() {
                       fontFamily: "'Cairo', sans-serif",
                     }}
                   >
-                    <option value="" style={{ background: "#0d0d1a" }}>Select a service…</option>
-                    <option value="moodle-core" style={{ background: "#0d0d1a" }}>Moodle Installation / Migration</option>
-                    <option value="plugins" style={{ background: "#0d0d1a" }}>Plugin Development</option>
-                    <option value="ai" style={{ background: "#0d0d1a" }}>AI Integration (Chatbot / RAG)</option>
-                    <option value="n8n" style={{ background: "#0d0d1a" }}>n8n Automation</option>
-                    <option value="training" style={{ background: "#0d0d1a" }}>Training & Support</option>
+                    <option value="" style={{ background: "#0d0d1a" }}>
+                      {t.contact.servicePlaceholder}
+                    </option>
+                    {t.contact.serviceOptions.map((opt) => (
+                      <option key={opt.value} value={opt.value} style={{ background: "#0d0d1a" }}>
+                        {opt.label}
+                      </option>
+                    ))}
                   </select>
                 </div>
 
@@ -289,12 +285,12 @@ export function ContactSection() {
                     className="text-xs text-slate-500 uppercase tracking-widest mb-2 block"
                     style={{ fontFamily: "'Cairo', sans-serif" }}
                   >
-                    Project Description *
+                    {t.contact.messageLabel}
                   </label>
                   <textarea
                     value={fields.message}
                     onChange={(e) => setFields({ ...fields, message: e.target.value })}
-                    placeholder="Tell me about your project, your platform size, and what you'd like to achieve…"
+                    placeholder={t.contact.messagePlaceholder}
                     rows={4}
                     className="w-full rounded-xl px-4 py-3 text-sm text-white placeholder-slate-600 resize-none transition-all duration-200"
                     style={inputStyle(!!errors.message)}
@@ -319,7 +315,7 @@ export function ContactSection() {
                   }}
                 >
                   <Send size={15} />
-                  Send Message
+                  {t.contact.submitBtn}
                 </button>
               </form>
             )}

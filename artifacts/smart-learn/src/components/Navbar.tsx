@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
-import { Menu, X, ArrowLeft } from "lucide-react";
+import { Menu, X, ArrowLeft, ArrowRight } from "lucide-react";
 import { useLocation, Link } from "wouter";
+import { useT } from "@/i18n";
 
 const LOGO_URL =
   "https://smartlearn.education/pluginfile.php/1/theme_moove/logo/1774651533/2024-10-31_01-57-removebg-preview.png";
@@ -12,20 +13,21 @@ export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [logoError, setLogoError] = useState(false);
   const [location] = useLocation();
+  const { t, lang, isRTL, toggle } = useT();
 
   const isServicePage = location.startsWith("/services/");
 
   const homeLinks = [
-    { label: "Home", href: "#home" },
-    { label: "Services", href: "#services" },
-    { label: "About", href: "#about" },
-    { label: "Contact", href: "#contact" },
+    { label: t.nav.home, href: "#home" },
+    { label: t.nav.services, href: "#services" },
+    { label: t.nav.about, href: "#about" },
+    { label: t.nav.contact, href: "#contact" },
   ];
 
   const serviceLinks = [
-    { label: "Services", href: "/#services" },
-    { label: "About", href: "/#about" },
-    { label: "Contact", href: "/#contact" },
+    { label: t.nav.services, href: "/#services" },
+    { label: t.nav.about, href: "/#about" },
+    { label: t.nav.contact, href: "/#contact" },
   ];
 
   const navLinks = isServicePage ? serviceLinks : homeLinks;
@@ -58,6 +60,8 @@ export function Navbar() {
       </div>
     );
 
+  const BackIcon = isRTL ? ArrowRight : ArrowLeft;
+
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -76,8 +80,8 @@ export function Navbar() {
               className="flex items-center gap-1.5 text-sm text-slate-400 hover:text-white transition-colors"
               style={font}
             >
-              <ArrowLeft size={15} />
-              Back to Home
+              <BackIcon size={15} />
+              {t.nav.backToHome}
             </Link>
           )}
           <Link href={isServicePage ? "/" : "/#home"} className="flex items-center gap-2.5">
@@ -85,7 +89,7 @@ export function Navbar() {
           </Link>
         </div>
 
-        <nav className="hidden md:flex items-center gap-8">
+        <nav className="hidden md:flex items-center gap-6">
           {navLinks.map((l) => (
             <a
               key={l.label}
@@ -101,17 +105,44 @@ export function Navbar() {
             className="text-sm px-4 py-2 rounded-lg font-semibold text-white transition-all duration-200 hover:opacity-90"
             style={{ background: "linear-gradient(135deg, #6900A3, #a855f7)", ...font }}
           >
-            Hire Me
+            {t.nav.hireMe}
           </a>
+          <button
+            onClick={toggle}
+            className="flex items-center gap-1.5 text-sm px-3 py-1.5 rounded-lg font-bold transition-all duration-200 hover:opacity-80"
+            style={{
+              background: "rgba(255,255,255,0.05)",
+              border: "1px solid rgba(255,255,255,0.1)",
+              color: "#c084fc",
+              ...font,
+            }}
+            aria-label={lang === "en" ? "Switch to Arabic" : "Switch to English"}
+          >
+            {lang === "en" ? "🇸🇦 AR" : "🇬🇧 EN"}
+          </button>
         </nav>
 
-        <button
-          className="md:hidden text-slate-400 hover:text-white p-1"
-          onClick={() => setOpen(!open)}
-          aria-label="Toggle menu"
-        >
-          {open ? <X size={20} /> : <Menu size={20} />}
-        </button>
+        <div className="flex items-center gap-2 md:hidden">
+          <button
+            onClick={toggle}
+            className="flex items-center text-sm px-2.5 py-1.5 rounded-lg font-bold transition-all duration-200"
+            style={{
+              background: "rgba(255,255,255,0.05)",
+              border: "1px solid rgba(255,255,255,0.1)",
+              color: "#c084fc",
+              ...font,
+            }}
+          >
+            {lang === "en" ? "AR" : "EN"}
+          </button>
+          <button
+            className="text-slate-400 hover:text-white p-1"
+            onClick={() => setOpen(!open)}
+            aria-label="Toggle menu"
+          >
+            {open ? <X size={20} /> : <Menu size={20} />}
+          </button>
+        </div>
       </div>
 
       {open && (
@@ -126,8 +157,8 @@ export function Navbar() {
               style={font}
               onClick={() => setOpen(false)}
             >
-              <ArrowLeft size={14} />
-              Back to Home
+              <BackIcon size={14} />
+              {t.nav.backToHome}
             </Link>
           )}
           {navLinks.map((l) => (

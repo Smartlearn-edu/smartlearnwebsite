@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Server, ArrowRight, Check, Shield, Zap, Clock, HeadphonesIcon } from "lucide-react";
 import { Helmet } from "react-helmet-async";
 import { Navbar } from "@/components/Navbar";
+import { useT } from "@/i18n";
 
 const font: React.CSSProperties = { fontFamily: "'Cairo', sans-serif" };
 
@@ -12,142 +13,247 @@ const gradientText: React.CSSProperties = {
   backgroundClip: "text",
 };
 
-/* ── Service cards ────────────────────────────────────────────────── */
-const services = [
-  {
-    icon: "🚀",
-    title: "Fresh Installation",
-    description:
-      "A production-ready Moodle site from scratch — server included if you need it. I configure the full stack before Moodle even touches the server.",
-    bullets: [
-      "Any Moodle version (latest stable or custom)",
-      "Ubuntu + aapanel, Nginx/Apache, MySQL, PHP & SSL setup",
-      "Works on shared hosting, VPS, dedicated, or cloud",
-      "Post-install hardening, cron, and cache configuration",
-    ],
-    note: "Pricing depends on hosting type and server complexity.",
-  },
-  {
-    icon: "⬆️",
-    title: "Upgrading",
-    description:
-      "Jump safely from any Moodle version to your target release — including multi-version leaps. No guesswork, no surprises.",
-    bullets: [
-      "Full database + files backup before anything is touched",
-      "Staging upgrade to validate compatibility before going live",
-      "Plugin compatibility audit and replacements sourced",
-      "Minimal production downtime, rollback plan in place",
-    ],
-    note: "Cost scales with the number of version jumps and installed plugins.",
-  },
-  {
-    icon: "🔄",
-    title: "Server Migration",
-    description:
-      "Move your entire Moodle site to a new host or provider without losing a single course, grade, or user record.",
-    bullets: [
-      "Full database export, transfer, and import verified",
-      "Moodledata file sync and integrity check",
-      "DNS cutover with zero data loss",
-      "Post-migration functional and performance testing",
-    ],
-    note: "Pricing varies by database size and source environment complexity.",
-  },
-  {
-    icon: "🛡️",
-    title: "Ongoing Maintenance",
-    description:
-      "Keep your Moodle healthy month after month with a retainer plan — so problems never reach your users.",
-    bullets: [
-      "Core and plugin updates on a regular schedule",
-      "Server health checks and database optimisation",
-      "Cron monitoring, cache management, and log review",
-      "Backup verification and disaster recovery testing",
-    ],
-    note: "Available as monthly or quarterly retainer plans.",
-  },
-  {
-    icon: "🔧",
-    title: "Troubleshooting & Fixes",
-    description:
-      "Something is broken and you need it fixed fast. I diagnose, explain, and resolve — with emergency response available.",
-    bullets: [
-      "White screens, 500 errors, and plugin conflicts",
-      "Slow page loads and database query bottlenecks",
-      "Broken grading, missing files, or enrolment issues",
-      "Emergency slots with priority response time",
-    ],
-    note: "Hourly or fixed-price depending on scope.",
-  },
-  {
-    icon: "⚙️",
-    title: "Configuration & Customisation",
-    description:
-      "Get every Moodle setting tuned for your institution — from role permissions and authentication to themes and language packs.",
-    bullets: [
-      "Theme setup and custom CSS/logo branding",
-      "Role and capability configuration for your workflows",
-      "LDAP/OAuth/SSO authentication integration",
-      "Language packs, RTL support, and localisation",
-    ],
-    note: "Quoted per project based on requirements.",
-  },
-];
+const servicesData = {
+  en: [
+    {
+      icon: "🚀",
+      title: "Fresh Installation",
+      description:
+        "A production-ready Moodle site from scratch — server included if you need it. I configure the full stack before Moodle even touches the server.",
+      bullets: [
+        "Any Moodle version (latest stable or custom)",
+        "Ubuntu + aapanel, Nginx/Apache, MySQL, PHP & SSL setup",
+        "Works on shared hosting, VPS, dedicated, or cloud",
+        "Post-install hardening, cron, and cache configuration",
+      ],
+      note: "Pricing depends on hosting type and server complexity.",
+    },
+    {
+      icon: "⬆️",
+      title: "Upgrading",
+      description:
+        "Jump safely from any Moodle version to your target release — including multi-version leaps. No guesswork, no surprises.",
+      bullets: [
+        "Full database + files backup before anything is touched",
+        "Staging upgrade to validate compatibility before going live",
+        "Plugin compatibility audit and replacements sourced",
+        "Minimal production downtime, rollback plan in place",
+      ],
+      note: "Cost scales with the number of version jumps and installed plugins.",
+    },
+    {
+      icon: "🔄",
+      title: "Server Migration",
+      description:
+        "Move your entire Moodle site to a new host or provider without losing a single course, grade, or user record.",
+      bullets: [
+        "Full database export, transfer, and import verified",
+        "Moodledata file sync and integrity check",
+        "DNS cutover with zero data loss",
+        "Post-migration functional and performance testing",
+      ],
+      note: "Pricing varies by database size and source environment complexity.",
+    },
+    {
+      icon: "🛡️",
+      title: "Ongoing Maintenance",
+      description:
+        "Keep your Moodle healthy month after month with a retainer plan — so problems never reach your users.",
+      bullets: [
+        "Core and plugin updates on a regular schedule",
+        "Server health checks and database optimisation",
+        "Cron monitoring, cache management, and log review",
+        "Backup verification and disaster recovery testing",
+      ],
+      note: "Available as monthly or quarterly retainer plans.",
+    },
+    {
+      icon: "🔧",
+      title: "Troubleshooting & Fixes",
+      description:
+        "Something is broken and you need it fixed fast. I diagnose, explain, and resolve — with emergency response available.",
+      bullets: [
+        "White screens, 500 errors, and plugin conflicts",
+        "Slow page loads and database query bottlenecks",
+        "Broken grading, missing files, or enrolment issues",
+        "Emergency slots with priority response time",
+      ],
+      note: "Hourly or fixed-price depending on scope.",
+    },
+    {
+      icon: "⚙️",
+      title: "Configuration & Customisation",
+      description:
+        "Get every Moodle setting tuned for your institution — from role permissions and authentication to themes and language packs.",
+      bullets: [
+        "Theme setup and custom CSS/logo branding",
+        "Role and capability configuration for your workflows",
+        "LDAP/OAuth/SSO authentication integration",
+        "Language packs, RTL support, and localisation",
+      ],
+      note: "Quoted per project based on requirements.",
+    },
+  ],
+  ar: [
+    {
+      icon: "🚀",
+      title: "التثبيت الجديد",
+      description:
+        "موقع Moodle جاهز للإنتاج من الصفر — الخادم مشمول إن احتجت. أعد إعداد الحزمة الكاملة قبل أن يُلمس Moodle أصلاً.",
+      bullets: [
+        "أي إصدار من Moodle (أحدث إصدار مستقر أو مخصص)",
+        "Ubuntu + aapanel وNginx/Apache وMySQL وPHP وSSL",
+        "يعمل على الاستضافة المشتركة والـVPS والخوادم المخصصة والسحابة",
+        "تصليب ما بعد التثبيت وإعداد Cron والكاش",
+      ],
+      note: "السعر يعتمد على نوع الاستضافة وتعقيد الخادم.",
+    },
+    {
+      icon: "⬆️",
+      title: "الترقية",
+      description:
+        "انتقل بأمان من أي إصدار Moodle إلى الإصدار المستهدف — بما فيه القفز عبر إصدارات متعددة. لا تخمين ولا مفاجآت.",
+      bullets: [
+        "نسخ احتياطي كامل للقاعدة والملفات قبل أي تعديل",
+        "ترقية على بيئة مرحلية للتحقق من التوافق",
+        "تدقيق توافق الإضافات وتوفير البدائل",
+        "أدنى توقف في الإنتاج مع خطة تراجع جاهزة",
+      ],
+      note: "التكلفة تتناسب مع عدد إصدارات القفز والإضافات المثبتة.",
+    },
+    {
+      icon: "🔄",
+      title: "نقل الخادم",
+      description:
+        "انقل موقع Moodle بالكامل إلى مضيف أو مزود جديد دون فقدان مقرر أو درجة أو سجل مستخدم.",
+      bullets: [
+        "تصدير واستيراد قاعدة البيانات الكاملة مع التحقق",
+        "مزامنة ملفات Moodle وفحص التكامل",
+        "تحويل DNS بلا فقدان بيانات",
+        "اختبار وظيفي وأداء ما بعد النقل",
+      ],
+      note: "السعر يتفاوت بحسب حجم قاعدة البيانات وتعقيد البيئة المصدر.",
+    },
+    {
+      icon: "🛡️",
+      title: "الصيانة المستمرة",
+      description:
+        "حافظ على Moodle في أفضل حالاته شهراً بشهر بخطة شهرية — لتظل المشكلات بعيدة عن المستخدمين.",
+      bullets: [
+        "تحديث القلب والإضافات بشكل منتظم",
+        "فحوصات صحة الخادم وتحسين قاعدة البيانات",
+        "مراقبة Cron والكاش ومراجعة السجلات",
+        "التحقق من النسخ الاحتياطية واختبار التعافي من الكوارث",
+      ],
+      note: "متاح كخطط شهرية أو ربع سنوية.",
+    },
+    {
+      icon: "🔧",
+      title: "استكشاف الأخطاء والإصلاح",
+      description:
+        "هناك خلل وتحتاج إلى إصلاح سريع. أشخّص وأشرح وأحل — مع خيار الاستجابة الطارئة.",
+      bullets: [
+        "الشاشات البيضاء وأخطاء 500 وتعارضات الإضافات",
+        "بطء تحميل الصفحات واختناقات استعلامات قاعدة البيانات",
+        "مشكلات التصحيح والملفات المفقودة وقضايا التسجيل",
+        "خانات طارئة بأوقات استجابة ذات أولوية",
+      ],
+      note: "بالساعة أو بسعر ثابت بحسب النطاق.",
+    },
+    {
+      icon: "⚙️",
+      title: "التهيئة والتخصيص",
+      description:
+        "اضبط كل إعداد في Moodle لمؤسستك — من أذونات الأدوار والمصادقة إلى القوالب وحزم اللغات.",
+      bullets: [
+        "إعداد القالب والعلامة التجارية بـCSS/شعار مخصص",
+        "تهيئة الأدوار والصلاحيات لسير عملك",
+        "تكامل مصادقة LDAP/OAuth/SSO",
+        "حزم اللغات ودعم RTL والتعريب",
+      ],
+      note: "يُقتبس لكل مشروع بناءً على المتطلبات.",
+    },
+  ],
+};
 
-/* ── Process steps ────────────────────────────────────────────────── */
-const steps = [
-  {
-    num: "01",
-    title: "Discovery Call",
-    desc: "We discuss your current setup, goals, timeline, and any constraints — free of charge.",
-  },
-  {
-    num: "02",
-    title: "Proposal & Quote",
-    desc: "You receive a detailed scope document with a fixed-price quote and delivery timeline.",
-  },
-  {
-    num: "03",
-    title: "Staging First",
-    desc: "All work happens on a staging copy. Production is never touched until everything is validated.",
-  },
-  {
-    num: "04",
-    title: "Go Live",
-    desc: "Deployment to production with minimal downtime and a verified rollback plan ready.",
-  },
-  {
-    num: "05",
-    title: "Handover & Support",
-    desc: "Documentation, admin walkthrough, and a 30-day support window included with every project.",
-  },
-];
+const stepsData = {
+  en: [
+    { num: "01", title: "Discovery Call", desc: "We discuss your current setup, goals, timeline, and any constraints — free of charge." },
+    { num: "02", title: "Proposal & Quote", desc: "You receive a detailed scope document with a fixed-price quote and delivery timeline." },
+    { num: "03", title: "Staging First", desc: "All work happens on a staging copy. Production is never touched until everything is validated." },
+    { num: "04", title: "Go Live", desc: "Deployment to production with minimal downtime and a verified rollback plan ready." },
+    { num: "05", title: "Handover & Support", desc: "Documentation, admin walkthrough, and a 30-day support window included with every project." },
+  ],
+  ar: [
+    { num: "01", title: "مكالمة الاستكشاف", desc: "نناقش إعدادك الحالي وأهدافك وجدولك الزمني وأي قيود — مجاناً." },
+    { num: "02", title: "العرض والتسعير", desc: "تتلقى وثيقة نطاق تفصيلية مع عرض سعر ثابت وجدول تسليم." },
+    { num: "03", title: "البيئة المرحلية أولاً", desc: "كل العمل يتم على نسخة مرحلية. لا تُمس بيئة الإنتاج حتى يتحقق كل شيء." },
+    { num: "04", title: "الإطلاق", desc: "النشر على الإنتاج بأدنى توقف وخطة تراجع محققة." },
+    { num: "05", title: "التسليم والدعم", desc: "توثيق وشرح للمسؤول و30 يوم دعم مشمول مع كل مشروع." },
+  ],
+};
 
-/* ── Trust points ─────────────────────────────────────────────────── */
-const trust = [
-  {
-    Icon: Shield,
-    title: "Staging-First Approach",
-    desc: "Every change is tested on a copy before touching production. No surprises, no emergency rollbacks.",
+const trustData = {
+  en: [
+    { Icon: Shield, title: "Staging-First Approach", desc: "Every change is tested on a copy before touching production. No surprises, no emergency rollbacks." },
+    { Icon: Zap, title: "Fixed-Price Quotes", desc: "You know the exact cost before work starts. No scope creep, no hidden charges." },
+    { Icon: Clock, title: "24-Hour Response", desc: "All project enquiries answered within one business day. Emergency slots available for urgent issues." },
+    { Icon: HeadphonesIcon, title: "Arabic & English Support", desc: "Egypt-based expert serving regional and international clients in both languages." },
+  ],
+  ar: [
+    { Icon: Shield, title: "النهج المرحلي أولاً", desc: "كل تغيير يُختبر على نسخة قبل لمس الإنتاج. لا مفاجآت ولا تراجعات طارئة." },
+    { Icon: Zap, title: "أسعار ثابتة", desc: "تعرف التكلفة الدقيقة قبل بدء العمل. لا توسع في النطاق ولا رسوم خفية." },
+    { Icon: Clock, title: "استجابة في 24 ساعة", desc: "جميع الاستفسارات تُجاب في يوم عمل واحد. خانات طارئة لحالات الضرورة." },
+    { Icon: HeadphonesIcon, title: "دعم بالعربية والإنجليزية", desc: "خبير مصري يخدم العملاء الإقليميين والدوليين بكلتا اللغتين." },
+  ],
+};
+
+const heroData = {
+  en: {
+    badge: "Smart Learn · Moodle Core",
+    title1: "Moodle ",
+    titleGradient: "Core Services",
+    tagline: "Installation, upgrading, migration, maintenance & fixing — handled by a verified Moodle Community Expert.",
+    desc: "Whether you're launching a new platform, rescuing a broken one, or keeping a healthy one running — I've done it for institutions across Egypt and the Arab world.",
+    ctaPrimary: "Get a Quote",
+    ctaSecondary: "All Services",
+    sectionHeading: "What's",
+    sectionGradient: "included",
+    sectionSub: "Six core service areas — pick one or bundle multiple together for a better rate.",
+    processHeading: "How it",
+    processGradient: "works",
+    processSub: "A simple, transparent process — no surprises at any stage.",
+    ctaTitle: "Ready to get started?",
+    ctaDesc: "Describe your Moodle project and I'll send you a detailed proposal with timeline and fixed price — usually within 24 hours.",
+    ctaBtn: "Get a Quote",
   },
-  {
-    Icon: Zap,
-    title: "Fixed-Price Quotes",
-    desc: "You know the exact cost before work starts. No scope creep, no hidden charges.",
+  ar: {
+    badge: "Smart Learn · Moodle الأساسي",
+    title1: "خدمات Moodle ",
+    titleGradient: "الأساسية",
+    tagline: "التثبيت والترقية والنقل والصيانة والإصلاح — بيد خبير معتمد من مجتمع Moodle.",
+    desc: "سواء كنت تطلق منصة جديدة أو تنقذ أخرى معطوبة أو تحافظ على ثالثة صحية — لدي الخبرة اللازمة مع المؤسسات في مصر والعالم العربي.",
+    ctaPrimary: "احصل على عرض سعر",
+    ctaSecondary: "جميع الخدمات",
+    sectionHeading: "ما",
+    sectionGradient: "يشمله",
+    sectionSub: "ستة مجالات خدمية أساسية — اختر واحداً أو ادمج عدة خدمات معاً للحصول على سعر أفضل.",
+    processHeading: "كيف",
+    processGradient: "يعمل",
+    processSub: "عملية بسيطة وشفافة — لا مفاجآت في أي مرحلة.",
+    ctaTitle: "هل أنت مستعد للبدء؟",
+    ctaDesc: "صف مشروع Moodle الخاص بك وسأرسل لك اقتراحاً تفصيلياً بجدول زمني وسعر ثابت — عادةً في غضون 24 ساعة.",
+    ctaBtn: "احصل على عرض سعر",
   },
-  {
-    Icon: Clock,
-    title: "24-Hour Response",
-    desc: "All project enquiries answered within one business day. Emergency slots available for urgent issues.",
-  },
-  {
-    Icon: HeadphonesIcon,
-    title: "Arabic & English Support",
-    desc: "Egypt-based expert serving regional and international clients in both languages.",
-  },
-];
+};
 
 export function MoodleCorePage() {
+  const { lang, t } = useT();
+  const hero = heroData[lang];
+  const services = servicesData[lang];
+  const steps = stepsData[lang];
+  const trust = trustData[lang];
+
   return (
     <>
       <Helmet>
@@ -161,147 +267,66 @@ export function MoodleCorePage() {
       <div className="min-h-screen" style={{ backgroundColor: "#07070f" }}>
         <Navbar />
 
-        {/* ── Hero ──────────────────────────────────────────────── */}
         <section className="relative pt-32 pb-20 px-6 overflow-hidden">
-          <div
-            className="absolute inset-0 pointer-events-none"
-            style={{
-              background:
-                "radial-gradient(ellipse 70% 50% at 50% 0%, rgba(105,0,163,0.2) 0%, transparent 70%)",
-            }}
-          />
+          <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 70% 50% at 50% 0%, rgba(105,0,163,0.2) 0%, transparent 70%)" }} />
           <div className="max-w-4xl mx-auto text-center relative z-10">
-            <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
+            <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}
               className="inline-flex items-center justify-center w-16 h-16 rounded-2xl mb-6"
-              style={{
-                background: "rgba(168,85,247,0.15)",
-                border: "1px solid rgba(168,85,247,0.25)",
-              }}
-            >
+              style={{ background: "rgba(168,85,247,0.15)", border: "1px solid rgba(168,85,247,0.25)" }}>
               <Server size={28} style={{ color: "#c084fc" }} />
             </motion.div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.05 }}
+            <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.05 }}
               className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-4"
-              style={{
-                background: "rgba(105,0,163,0.15)",
-                border: "1px solid rgba(168,85,247,0.3)",
-                color: "#c084fc",
-                ...font,
-              }}
-            >
-              Smart Learn · Moodle Core
+              style={{ background: "rgba(105,0,163,0.15)", border: "1px solid rgba(168,85,247,0.3)", color: "#c084fc", ...font }}>
+              {hero.badge}
             </motion.div>
 
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-4xl md:text-6xl font-black text-white leading-tight mb-5"
-              style={font}
-            >
-              Moodle{" "}
-              <span style={gradientText}>Core Services</span>
+            <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.1 }}
+              className="text-4xl md:text-6xl font-black text-white leading-tight mb-5" style={font}>
+              {hero.title1}<span style={gradientText}>{hero.titleGradient}</span>
             </motion.h1>
 
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.18 }}
-              className="text-lg md:text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed mb-4"
-              style={font}
-            >
-              Installation, upgrading, migration, maintenance & fixing — handled by a verified Moodle Community Expert.
+            <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.18 }}
+              className="text-lg md:text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed mb-4" style={font}>
+              {hero.tagline}
             </motion.p>
 
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.25 }}
-              className="text-base text-slate-500 max-w-xl mx-auto leading-relaxed mb-10"
-              style={font}
-            >
-              Whether you're launching a new platform, rescuing a broken one, or keeping a healthy one running — I've done it for institutions across Egypt and the Arab world.
+            <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.25 }}
+              className="text-base text-slate-500 max-w-xl mx-auto leading-relaxed mb-10" style={font}>
+              {hero.desc}
             </motion.p>
 
-            <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.32 }}
-              className="flex items-center justify-center gap-4 flex-wrap"
-            >
-              <a
-                href="/#contact"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-black text-sm text-white transition-all duration-200 hover:opacity-90 hover:scale-105"
-                style={{
-                  background: "linear-gradient(135deg, #6900A3, #a855f7)",
-                  boxShadow: "0 0 28px rgba(105,0,163,0.4)",
-                  ...font,
-                }}
-              >
-                Get a Quote <ArrowRight size={15} />
+            <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.32 }}
+              className="flex items-center justify-center gap-4 flex-wrap">
+              <a href="/#contact" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-black text-sm text-white transition-all duration-200 hover:opacity-90 hover:scale-105"
+                style={{ background: "linear-gradient(135deg, #6900A3, #a855f7)", boxShadow: "0 0 28px rgba(105,0,163,0.4)", ...font }}>
+                {hero.ctaPrimary} <ArrowRight size={15} />
               </a>
-              <a
-                href="/#services"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-bold text-sm transition-all duration-200 hover:opacity-80"
-                style={{
-                  background: "rgba(255,255,255,0.05)",
-                  border: "1px solid rgba(255,255,255,0.1)",
-                  color: "#94a3b8",
-                  ...font,
-                }}
-              >
-                All Services
+              <a href="/#services" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-bold text-sm transition-all duration-200 hover:opacity-80"
+                style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)", color: "#94a3b8", ...font }}>
+                {hero.ctaSecondary}
               </a>
             </motion.div>
           </div>
         </section>
 
-        {/* ── Services Grid ──────────────────────────────────────── */}
         <section className="py-16 px-6">
           <div className="max-w-6xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-              className="text-center mb-12"
-            >
+            <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }} className="text-center mb-12">
               <h2 className="text-2xl md:text-3xl font-black text-white mb-3" style={font}>
-                What's <span style={gradientText}>included</span>
+                {hero.sectionHeading} <span style={gradientText}>{hero.sectionGradient}</span>
               </h2>
-              <p className="text-slate-500 text-base max-w-lg mx-auto" style={font}>
-                Six core service areas — pick one or bundle multiple together for a better rate.
-              </p>
+              <p className="text-slate-500 text-base max-w-lg mx-auto" style={font}>{hero.sectionSub}</p>
             </motion.div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
               {services.map((svc, i) => (
-                <motion.div
-                  key={svc.title}
-                  initial={{ opacity: 0, y: 24 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.45, delay: i * 0.07 }}
-                  className="rounded-2xl p-6 flex flex-col"
-                  style={{
-                    background: "rgba(255,255,255,0.03)",
-                    border: "1px solid rgba(168,85,247,0.12)",
-                  }}
-                >
+                <motion.div key={svc.title} initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.45, delay: i * 0.07 }}
+                  className="rounded-2xl p-6 flex flex-col" style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(168,85,247,0.12)" }}>
                   <div className="text-2xl mb-3">{svc.icon}</div>
-                  <h3 className="text-base font-black text-white mb-2" style={font}>
-                    {svc.title}
-                  </h3>
-                  <p className="text-sm text-slate-400 leading-relaxed mb-4" style={font}>
-                    {svc.description}
-                  </p>
+                  <h3 className="text-base font-black text-white mb-2" style={font}>{svc.title}</h3>
+                  <p className="text-sm text-slate-400 leading-relaxed mb-4" style={font}>{svc.description}</p>
                   <ul className="space-y-1.5 flex-1 mb-4">
                     {svc.bullets.map((b) => (
                       <li key={b} className="flex items-start gap-2">
@@ -310,77 +335,35 @@ export function MoodleCorePage() {
                       </li>
                     ))}
                   </ul>
-                  <p
-                    className="text-xs mt-auto pt-3 border-t"
-                    style={{
-                      color: "#64748b",
-                      borderColor: "rgba(255,255,255,0.06)",
-                      ...font,
-                    }}
-                  >
-                    {svc.note}
-                  </p>
+                  <p className="text-xs mt-auto pt-3 border-t" style={{ color: "#64748b", borderColor: "rgba(255,255,255,0.06)", ...font }}>{svc.note}</p>
                 </motion.div>
               ))}
             </div>
           </div>
         </section>
 
-        {/* ── How it works ──────────────────────────────────────── */}
         <section className="py-16 px-6">
           <div className="max-w-4xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-              className="text-center mb-12"
-            >
+            <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }} className="text-center mb-12">
               <h2 className="text-2xl md:text-3xl font-black text-white mb-3" style={font}>
-                How it <span style={gradientText}>works</span>
+                {hero.processHeading} <span style={gradientText}>{hero.processGradient}</span>
               </h2>
-              <p className="text-slate-500 text-base max-w-md mx-auto" style={font}>
-                A simple, transparent process — no surprises at any stage.
-              </p>
+              <p className="text-slate-500 text-base max-w-md mx-auto" style={font}>{hero.processSub}</p>
             </motion.div>
 
             <div className="relative">
-              {/* Connector line */}
-              <div
-                className="absolute left-7 top-8 bottom-8 w-px hidden md:block"
-                style={{ background: "linear-gradient(to bottom, rgba(168,85,247,0.4), rgba(168,85,247,0.05))" }}
-              />
+              <div className="absolute start-7 top-8 bottom-8 w-px hidden md:block" style={{ background: "linear-gradient(to bottom, rgba(168,85,247,0.4), rgba(168,85,247,0.05))" }} />
               <div className="space-y-4">
                 {steps.map((step, i) => (
-                  <motion.div
-                    key={step.num}
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.45, delay: i * 0.08 }}
-                    className="flex items-start gap-5 rounded-2xl px-6 py-5"
-                    style={{
-                      background: "rgba(255,255,255,0.025)",
-                      border: "1px solid rgba(255,255,255,0.06)",
-                    }}
-                  >
-                    <div
-                      className="w-8 h-8 rounded-xl flex items-center justify-center flex-shrink-0 text-xs font-black"
-                      style={{
-                        background: "linear-gradient(135deg, #6900A3, #a855f7)",
-                        color: "#fff",
-                        ...font,
-                      }}
-                    >
+                  <motion.div key={step.num} initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.45, delay: i * 0.08 }}
+                    className="flex items-start gap-5 rounded-2xl px-6 py-5" style={{ background: "rgba(255,255,255,0.025)", border: "1px solid rgba(255,255,255,0.06)" }}>
+                    <div className="w-8 h-8 rounded-xl flex items-center justify-center flex-shrink-0 text-xs font-black"
+                      style={{ background: "linear-gradient(135deg, #6900A3, #a855f7)", color: "#fff", ...font }}>
                       {step.num}
                     </div>
                     <div>
-                      <h4 className="text-sm font-black text-white mb-1" style={font}>
-                        {step.title}
-                      </h4>
-                      <p className="text-sm text-slate-400 leading-relaxed" style={font}>
-                        {step.desc}
-                      </p>
+                      <h4 className="text-sm font-black text-white mb-1" style={font}>{step.title}</h4>
+                      <p className="text-sm text-slate-400 leading-relaxed" style={font}>{step.desc}</p>
                     </div>
                   </motion.div>
                 ))}
@@ -389,90 +372,43 @@ export function MoodleCorePage() {
           </div>
         </section>
 
-        {/* ── Why Smart Learn ───────────────────────────────────── */}
         <section className="py-16 px-6">
           <div className="max-w-5xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-              className="text-center mb-12"
-            >
+            <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }} className="text-center mb-12">
               <h2 className="text-2xl md:text-3xl font-black text-white mb-3" style={font}>
-                Why <span style={gradientText}>Smart Learn</span>
+                {t.whySL.split(" ")[0]} <span style={gradientText}>{t.whySL.split(" ").slice(1).join(" ")}</span>
               </h2>
             </motion.div>
-
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
               {trust.map(({ Icon, title, desc }, i) => (
-                <motion.div
-                  key={title}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.45, delay: i * 0.08 }}
-                  className="rounded-2xl p-5 text-center"
-                  style={{
-                    background: "rgba(255,255,255,0.03)",
-                    border: "1px solid rgba(168,85,247,0.1)",
-                  }}
-                >
-                  <div
-                    className="w-11 h-11 rounded-xl flex items-center justify-center mx-auto mb-4"
-                    style={{ background: "rgba(168,85,247,0.12)" }}
-                  >
+                <motion.div key={title} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.45, delay: i * 0.08 }}
+                  className="rounded-2xl p-5 text-center" style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(168,85,247,0.1)" }}>
+                  <div className="w-11 h-11 rounded-xl flex items-center justify-center mx-auto mb-4" style={{ background: "rgba(168,85,247,0.12)" }}>
                     <Icon size={20} style={{ color: "#a855f7" }} />
                   </div>
-                  <h4 className="text-sm font-black text-white mb-2" style={font}>
-                    {title}
-                  </h4>
-                  <p className="text-xs text-slate-500 leading-relaxed" style={font}>
-                    {desc}
-                  </p>
+                  <h4 className="text-sm font-black text-white mb-2" style={font}>{title}</h4>
+                  <p className="text-xs text-slate-500 leading-relaxed" style={font}>{desc}</p>
                 </motion.div>
               ))}
             </div>
           </div>
         </section>
 
-        {/* ── CTA ───────────────────────────────────────────────── */}
         <section className="py-16 px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }}
             className="max-w-2xl mx-auto text-center rounded-2xl py-14 px-8"
-            style={{
-              background: "linear-gradient(135deg, rgba(105,0,163,0.15) 0%, rgba(168,85,247,0.08) 100%)",
-              border: "1px solid rgba(168,85,247,0.25)",
-            }}
-          >
-            <h2 className="text-2xl md:text-3xl font-black text-white mb-3" style={font}>
-              Ready to get started?
-            </h2>
-            <p className="text-slate-400 mb-8 leading-relaxed" style={font}>
-              Describe your Moodle project and I'll send you a detailed proposal with timeline and fixed price — usually within 24 hours.
-            </p>
-            <a
-              href="/#contact"
-              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-black text-sm text-white transition-all duration-200 hover:opacity-90 hover:scale-105"
-              style={{
-                background: "linear-gradient(135deg, #6900A3, #a855f7)",
-                boxShadow: "0 0 36px rgba(105,0,163,0.4)",
-                ...font,
-              }}
-            >
-              Get a Quote <ArrowRight size={16} />
+            style={{ background: "linear-gradient(135deg, rgba(105,0,163,0.15) 0%, rgba(168,85,247,0.08) 100%)", border: "1px solid rgba(168,85,247,0.25)" }}>
+            <h2 className="text-2xl md:text-3xl font-black text-white mb-3" style={font}>{hero.ctaTitle}</h2>
+            <p className="text-slate-400 mb-8 leading-relaxed" style={font}>{hero.ctaDesc}</p>
+            <a href="/#contact" className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-black text-sm text-white transition-all duration-200 hover:opacity-90 hover:scale-105"
+              style={{ background: "linear-gradient(135deg, #6900A3, #a855f7)", boxShadow: "0 0 36px rgba(105,0,163,0.4)", ...font }}>
+              {hero.ctaBtn} <ArrowRight size={16} />
             </a>
           </motion.div>
         </section>
 
         <footer className="py-8 px-6 text-center border-t border-white/[0.04]">
-          <p className="text-sm text-slate-600" style={font}>
-            © {new Date().getFullYear()} Smart Learn · Mohammad Nabil · Egypt
-          </p>
+          <p className="text-sm text-slate-600" style={font}>© {new Date().getFullYear()} {t.footer}</p>
         </footer>
       </div>
     </>

@@ -1,71 +1,25 @@
 import { motion } from "framer-motion";
 import { Server, Puzzle, Bot, Workflow, GraduationCap, ArrowRight } from "lucide-react";
 import { Link } from "wouter";
+import { useT } from "@/i18n";
 
-const services = [
-  {
-    icon: Server,
-    iconColor: "#c084fc",
-    iconBg: "rgba(168,85,247,0.12)",
-    slug: "moodle-core",
-    title: "Moodle Installation, Migration & Maintenance",
-    description:
-      "Full lifecycle Moodle management: fresh installations, version upgrades, server migrations, performance tuning, and ongoing maintenance. I handle everything from initial setup to disaster recovery so your platform stays online and fast.",
-    tags: ["Installation", "Upgrades", "Migration", "Performance", "Bug Fixing"],
-    image: "/img/service-moodle.png",
-    highlight: false,
-  },
-  {
-    icon: Puzzle,
-    iconColor: "#a855f7",
-    iconBg: "rgba(168,85,247,0.12)",
-    slug: "plugins",
-    title: "Plugin Development",
-    description:
-      "Custom Moodle plugin development tailored to your exact requirements. With 4 free plugins published on Moodle.org and 10+ premium plugins, I build activity modules, blocks, local plugins, themes, and custom integrations.",
-    tags: ["4 Free on Moodle.org", "10+ Premium Plugins", "PHP", "Moodle API"],
-    image: "/img/service-plugins.png",
-    highlight: true,
-  },
-  {
-    icon: Bot,
-    iconColor: "#c084fc",
-    iconBg: "rgba(168,85,247,0.12)",
-    slug: "ai",
-    title: "AI Integration for Moodle",
-    description:
-      "Embed AI directly into your Moodle platform: RAG-powered chatbots for every course, Video-to-Text pipelines so students can query lecture content, AI-assisted grading, and LLM-based admin tools that make teaching smarter.",
-    tags: ["RAG Chatbots", "LLM Integration", "Video-to-Text", "AI Grading"],
-    image: "/img/service-ai.png",
-    highlight: false,
-  },
-  {
-    icon: Workflow,
-    iconColor: "#a855f7",
-    iconBg: "rgba(168,85,247,0.12)",
-    slug: "n8n",
-    title: "n8n Automation for Moodle",
-    description:
-      "End-to-end automation using n8n and the Moodle REST API: automated grading workflows, enrollment triggers, notification pipelines, and full RAG system builds. Eliminate repetitive admin work for good.",
-    tags: ["n8n", "Auto-Grading", "REST API", "Webhooks", "RAG Systems"],
-    image: "/img/service-n8n.png",
-    highlight: false,
-  },
-  {
-    icon: GraduationCap,
-    iconColor: "#c084fc",
-    iconBg: "rgba(168,85,247,0.12)",
-    slug: "training",
-    title: "Training & Technical Support",
-    description:
-      "Practical training programs for Moodle administrators and teachers at online academies, schools, and course platforms. Ongoing technical support, documentation, troubleshooting, and remote assistance.",
-    tags: ["Admin Training", "Teacher Training", "Remote Support", "Docs"],
-    image: "/img/service-training.png",
-    highlight: false,
-  },
-];
+const slugs = ["moodle-core", "plugins", "ai", "n8n", "training"] as const;
+const icons = [Server, Puzzle, Bot, Workflow, GraduationCap];
+const highlights = [false, true, false, false, false];
 
 export function ServicesSection() {
+  const { t } = useT();
+
+  const services = t.services.items.map((item, i) => ({
+    ...item,
+    slug: slugs[i],
+    icon: icons[i],
+    iconColor: i % 2 === 0 ? "#c084fc" : "#a855f7",
+    iconBg: "rgba(168,85,247,0.12)",
+    highlight: highlights[i],
+    image: `/img/service-${slugs[i] === "moodle-core" ? "moodle" : slugs[i]}.png`,
+  }));
+
   return (
     <section id="services" className="py-24 px-6">
       <div className="max-w-6xl mx-auto">
@@ -85,32 +39,31 @@ export function ServicesSection() {
               fontFamily: "'Cairo', sans-serif",
             }}
           >
-            ⚡ Services
+            {t.services.badge}
           </div>
           <h2
             className="text-4xl md:text-5xl font-black text-white mb-4"
             style={{ fontFamily: "'Cairo', sans-serif" }}
           >
-            What I <span className="gradient-text">Deliver</span>
+            {t.services.heading} <span className="gradient-text">{t.services.headingGradient}</span>
           </h2>
           <p
             className="text-slate-400 max-w-xl mx-auto text-lg leading-relaxed"
             style={{ fontFamily: "'Cairo', sans-serif" }}
           >
-            Five focused service areas to cover every aspect of building, improving, and scaling
-            your Moodle-powered education platform.
+            {t.services.subtitle}
           </p>
         </motion.div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.slice(0, 3).map((svc, i) => (
-            <ServiceCard key={svc.slug} svc={svc} i={i} />
+            <ServiceCard key={svc.slug} svc={svc} i={i} learnMore={t.services.learnMore} featured={t.services.featured} />
           ))}
         </div>
 
         <div className="grid md:grid-cols-2 gap-6 mt-6 max-w-4xl mx-auto">
           {services.slice(3).map((svc, i) => (
-            <ServiceCard key={svc.slug} svc={svc} i={i + 3} />
+            <ServiceCard key={svc.slug} svc={svc} i={i + 3} learnMore={t.services.learnMore} featured={t.services.featured} />
           ))}
         </div>
       </div>
@@ -118,12 +71,28 @@ export function ServicesSection() {
   );
 }
 
+type SvcItem = {
+  title: string;
+  description: string;
+  tags: string[];
+  slug: (typeof slugs)[number];
+  icon: typeof Server;
+  iconColor: string;
+  iconBg: string;
+  highlight: boolean;
+  image: string;
+};
+
 function ServiceCard({
   svc,
   i,
+  learnMore,
+  featured,
 }: {
-  svc: (typeof services)[0];
+  svc: SvcItem;
   i: number;
+  learnMore: string;
+  featured: string;
 }) {
   const Icon = svc.icon;
   return (
@@ -145,14 +114,14 @@ function ServiceCard({
     >
       {svc.highlight && (
         <div
-          className="absolute top-3 right-3 z-10 text-xs font-bold px-2.5 py-1 rounded-full"
+          className="absolute top-3 end-3 z-10 text-xs font-bold px-2.5 py-1 rounded-full"
           style={{
             background: "linear-gradient(135deg, #6900A3, #a855f7)",
             color: "#fff",
             fontFamily: "'Cairo', sans-serif",
           }}
         >
-          Featured
+          {featured}
         </div>
       )}
 
@@ -170,7 +139,7 @@ function ServiceCard({
           }}
         />
         <div
-          className="absolute bottom-3 left-4 w-10 h-10 rounded-xl flex items-center justify-center"
+          className="absolute bottom-3 start-4 w-10 h-10 rounded-xl flex items-center justify-center"
           style={{ background: svc.iconBg, backdropFilter: "blur(8px)" }}
         >
           <Icon size={20} style={{ color: svc.iconColor }} />
@@ -216,10 +185,11 @@ function ServiceCard({
             fontFamily: "'Cairo', sans-serif",
           }}
         >
-          Learn More
+          {learnMore}
           <ArrowRight size={15} />
         </Link>
       </div>
     </motion.div>
   );
 }
+

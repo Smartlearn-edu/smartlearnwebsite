@@ -1,13 +1,10 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Layers } from "lucide-react";
-
-const stats = [
-  { value: "100,000+", label: "Users Managed" },
-  { value: "70+", label: "Projects Done" },
-  { value: "5+", label: "Years Experience" },
-];
+import { useT } from "@/i18n";
 
 export function HeroSection() {
+  const { t } = useT();
+
   return (
     <section
       id="home"
@@ -46,7 +43,7 @@ export function HeroSection() {
             className="w-1.5 h-1.5 rounded-full animate-pulse"
             style={{ backgroundColor: "#a855f7" }}
           />
-          Available for Projects · Egypt 🇪🇬
+          {t.hero.badge}
         </motion.div>
 
         <motion.h1
@@ -56,10 +53,10 @@ export function HeroSection() {
           className="text-5xl md:text-7xl font-black text-white leading-[1.1] tracking-tight mb-6"
           style={{ fontFamily: "'Cairo', sans-serif" }}
         >
-          Expert Moodle &{" "}
-          <span className="gradient-text">AI Automation</span>
+          {t.hero.title1}{" "}
+          <span className="gradient-text">{t.hero.titleGradient}</span>
           <br />
-          for Education
+          {t.hero.title2}
         </motion.h1>
 
         <motion.p
@@ -69,8 +66,7 @@ export function HeroSection() {
           className="text-lg md:text-xl text-slate-400 max-w-2xl mx-auto mb-10 leading-relaxed"
           style={{ fontFamily: "'Cairo', sans-serif" }}
         >
-          I help educational institutions scale smarter — with high-performance LMS infrastructure,
-          AI-powered chatbots, and workflow automation that actually saves time.
+          {t.hero.subtitle}
         </motion.p>
 
         <motion.div
@@ -88,7 +84,7 @@ export function HeroSection() {
               fontFamily: "'Cairo', sans-serif",
             }}
           >
-            Start a Project
+            {t.hero.ctaPrimary}
             <ArrowRight size={16} />
           </a>
           <a
@@ -101,7 +97,7 @@ export function HeroSection() {
             }}
           >
             <Layers size={16} />
-            See My Services
+            {t.hero.ctaSecondary}
           </a>
         </motion.div>
 
@@ -111,7 +107,11 @@ export function HeroSection() {
           transition={{ duration: 0.6, delay: 0.45, ease: "easeOut" }}
           className="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-16"
         >
-          {stats.map((s, i) => (
+          {[
+            { value: t.hero.stat1Value, label: t.hero.stat1Label },
+            { value: t.hero.stat2Value, label: t.hero.stat2Label },
+            { value: t.hero.stat3Value, label: t.hero.stat3Label },
+          ].map((s, i) => (
             <div key={i} className="text-center">
               <div
                 className="text-3xl md:text-4xl font-black mb-1 gradient-text"
@@ -137,7 +137,7 @@ export function HeroSection() {
         className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1"
       >
         <span className="text-xs text-slate-700" style={{ fontFamily: "'Cairo', sans-serif" }}>
-          scroll down
+          {t.hero.scrollDown}
         </span>
         <div className="w-px h-8 bg-gradient-to-b from-slate-700 to-transparent" />
       </motion.div>

@@ -4,8 +4,11 @@ import { HeroSection } from "@/components/sections/HeroSection";
 import { ServicesSection } from "@/components/sections/ServicesSection";
 import { AboutSection } from "@/components/sections/AboutSection";
 import { ContactSection } from "@/components/sections/ContactSection";
+import { useT } from "@/i18n";
 
 export default function Home() {
+  const { t } = useT();
+
   return (
     <>
       <Helmet>
@@ -67,8 +70,8 @@ export default function Home() {
         <ContactSection />
 
         <footer className="py-8 px-6 text-center border-t border-white/[0.04]">
-          <p className="text-sm text-slate-600">
-            © {new Date().getFullYear()} Smart Learn · Mohammad Nabil · Egypt
+          <p className="text-sm text-slate-600" style={{ fontFamily: "'Cairo', sans-serif" }}>
+            © {new Date().getFullYear()} {t.footer}
           </p>
         </footer>
       </div>
