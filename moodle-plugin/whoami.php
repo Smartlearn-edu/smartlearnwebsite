@@ -41,11 +41,17 @@ require_once(__DIR__ . '/../../config.php');
 // ---------------------------------------------------------------------------
 // CORS headers — must be sent before any output.
 // ---------------------------------------------------------------------------
-$allowed_origin = 'https://services.smartlearn.education';
+// Production origin. The dev origin below is for testing only — remove it
+// (or comment it out) once services.smartlearn.education is live.
+$allowed_origins = [
+    'https://services.smartlearn.education',
+    // DEV TESTING ONLY — Replit preview domain. Remove before going live.
+    'https://2fdff9a8-b609-4b46-b6f1-a4bc141a1de0-00-1on7eow5h1x5p.worf.replit.dev',
+];
 $origin = isset($_SERVER['HTTP_ORIGIN']) ? $_SERVER['HTTP_ORIGIN'] : '';
 
-if ($origin === $allowed_origin) {
-    header('Access-Control-Allow-Origin: ' . $allowed_origin);
+if (in_array($origin, $allowed_origins, true)) {
+    header('Access-Control-Allow-Origin: ' . $origin);
     header('Access-Control-Allow-Credentials: true');
     header('Access-Control-Allow-Methods: GET, OPTIONS');
     header('Access-Control-Allow-Headers: Content-Type, Accept');
