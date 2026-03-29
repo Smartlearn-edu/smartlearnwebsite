@@ -6,6 +6,8 @@ import { N8nPage } from "./N8nPage";
 import { TrainingPage } from "./TrainingPage";
 import { Navbar } from "@/components/Navbar";
 import { Link } from "wouter";
+import { useT } from "@/i18n";
+import { DirectionalArrow } from "@/components/DirectionalArrow";
 
 const pageMap: Record<string, React.ComponentType> = {
   "moodle-core": MoodleCorePage,
@@ -15,11 +17,18 @@ const pageMap: Record<string, React.ComponentType> = {
   training: TrainingPage,
 };
 
+const notFound = {
+  en: { heading: "Page not found", back: "Back to Home" },
+  ar: { heading: "الصفحة غير موجودة", back: "العودة إلى الرئيسية" },
+};
+
 export function ServiceRouter() {
   const params = useParams<{ slug: string }>();
+  const { lang } = useT();
   const Page = pageMap[params.slug];
 
   if (!Page) {
+    const txt = notFound[lang];
     return (
       <div
         className="min-h-screen flex flex-col items-center justify-center"
@@ -32,7 +41,7 @@ export function ServiceRouter() {
             className="text-2xl font-black text-white mb-4"
             style={{ fontFamily: "'Cairo', sans-serif" }}
           >
-            Page not found
+            {txt.heading}
           </h1>
           <Link
             href="/"
@@ -42,7 +51,8 @@ export function ServiceRouter() {
               fontFamily: "'Cairo', sans-serif",
             }}
           >
-            ← Back to Home
+            <DirectionalArrow size={16} />
+            {txt.back}
           </Link>
         </div>
       </div>
