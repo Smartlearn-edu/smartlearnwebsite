@@ -6,8 +6,7 @@ export const ar = {
     about: "عن النظام",
     contact: "تواصل معنا",
     hireMe: "وظّفني",
-    studentLogin: "تسجيل الدخول",
-    myMoodle: "مودل الخاص بي",
+    dashboard: "لوحتي",
   },
   hero: {
     badge: "متاح للمشاريع · مصر 🇪🇬",
