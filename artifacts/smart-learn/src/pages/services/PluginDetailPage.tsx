@@ -295,7 +295,9 @@ export function PluginDetailPage() {
 
         <footer className="py-8 px-6 text-center border-t border-white/[0.04]">
           <p className="text-sm text-slate-600" style={font}>
-            © {new Date().getFullYear()} Smart Learn · Mohammad Nabil · Egypt
+            {lang === "ar"
+              ? `© ${new Date().getFullYear()} سمارت ليرن · محمد نبيل · مصر`
+              : `© ${new Date().getFullYear()} Smart Learn · Mohammad Nabil · Egypt`}
           </p>
         </footer>
       </div>
