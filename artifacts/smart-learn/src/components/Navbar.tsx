@@ -62,6 +62,9 @@ export function Navbar() {
 
   const BackIcon = isRTL ? ArrowRight : ArrowLeft;
 
+  const langLabel = lang === "en" ? "🇸🇦 عربي" : "🇬🇧 EN";
+  const langLabelShort = lang === "en" ? "عربي" : "EN";
+
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -118,23 +121,11 @@ export function Navbar() {
             }}
             aria-label={lang === "en" ? "Switch to Arabic" : "Switch to English"}
           >
-            {lang === "en" ? "🇸🇦 AR" : "🇬🇧 EN"}
+            {langLabel}
           </button>
         </nav>
 
         <div className="flex items-center gap-2 md:hidden">
-          <button
-            onClick={toggle}
-            className="flex items-center text-sm px-2.5 py-1.5 rounded-lg font-bold transition-all duration-200"
-            style={{
-              background: "rgba(255,255,255,0.05)",
-              border: "1px solid rgba(255,255,255,0.1)",
-              color: "#c084fc",
-              ...font,
-            }}
-          >
-            {lang === "en" ? "AR" : "EN"}
-          </button>
           <button
             className="text-slate-400 hover:text-white p-1"
             onClick={() => setOpen(!open)}
@@ -172,6 +163,18 @@ export function Navbar() {
               {l.label}
             </a>
           ))}
+          <button
+            onClick={() => { toggle(); setOpen(false); }}
+            className="flex items-center gap-2 text-sm px-3 py-2 rounded-lg font-bold transition-all duration-200 self-start"
+            style={{
+              background: "rgba(255,255,255,0.05)",
+              border: "1px solid rgba(255,255,255,0.1)",
+              color: "#c084fc",
+              ...font,
+            }}
+          >
+            {langLabelShort === "عربي" ? "🇸🇦" : "🇬🇧"} {langLabelShort}
+          </button>
         </div>
       )}
     </header>

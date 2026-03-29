@@ -1,7 +1,8 @@
 import { motion } from "framer-motion";
-import { LucideIcon, ArrowRight } from "lucide-react";
+import { LucideIcon } from "lucide-react";
 import { Helmet } from "react-helmet-async";
 import { Navbar } from "@/components/Navbar";
+import { DirectionalArrow } from "@/components/DirectionalArrow";
 
 export interface SubSection {
   title: string;
@@ -189,7 +190,7 @@ export function ServicePage({
               }}
             >
               Get a Quote
-              <ArrowRight size={16} />
+              <DirectionalArrow size={16} />
             </a>
           </motion.div>
         </section>

@@ -1,7 +1,8 @@
 import { motion } from "framer-motion";
-import { Server, Puzzle, Bot, Workflow, GraduationCap, ArrowRight } from "lucide-react";
+import { Server, Puzzle, Bot, Workflow, GraduationCap } from "lucide-react";
 import { Link } from "wouter";
 import { useT } from "@/i18n";
+import { DirectionalArrow } from "@/components/DirectionalArrow";
 
 const slugs = ["moodle-core", "plugins", "ai", "n8n", "training"] as const;
 const icons = [Server, Puzzle, Bot, Workflow, GraduationCap];
@@ -186,7 +187,7 @@ function ServiceCard({
           }}
         >
           {learnMore}
-          <ArrowRight size={15} />
+          <DirectionalArrow size={15} />
         </Link>
       </div>
     </motion.div>

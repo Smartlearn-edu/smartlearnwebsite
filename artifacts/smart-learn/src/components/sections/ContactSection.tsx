@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import { Send, CheckCircle, Mail, MapPin } from "lucide-react";
 import { useT } from "@/i18n";
+import { DirectionalArrow } from "@/components/DirectionalArrow";
 
 export function ContactSection() {
   const { t } = useT();

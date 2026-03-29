@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
-import { ArrowRight, Layers } from "lucide-react";
+import { Layers } from "lucide-react";
 import { useT } from "@/i18n";
+import { DirectionalArrow } from "@/components/DirectionalArrow";
 
 export function HeroSection() {
   const { t } = useT();
@@ -85,7 +86,7 @@ export function HeroSection() {
             }}
           >
             {t.hero.ctaPrimary}
-            <ArrowRight size={16} />
+            <DirectionalArrow size={16} />
           </a>
           <a
             href="#services"

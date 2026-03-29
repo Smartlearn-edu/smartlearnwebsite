@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
-import { Server, ArrowRight, Check, Shield, Zap, Clock, HeadphonesIcon } from "lucide-react";
+import { DirectionalArrow } from "@/components/DirectionalArrow";
+import { Server, Check, Shield, Zap, Clock, HeadphonesIcon } from "lucide-react";
 import { Helmet } from "react-helmet-async";
 import { Navbar } from "@/components/Navbar";
 import { useT } from "@/i18n";
@@ -301,7 +302,7 @@ export function MoodleCorePage() {
               className="flex items-center justify-center gap-4 flex-wrap">
               <a href="/#contact" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-black text-sm text-white transition-all duration-200 hover:opacity-90 hover:scale-105"
                 style={{ background: "linear-gradient(135deg, #6900A3, #a855f7)", boxShadow: "0 0 28px rgba(105,0,163,0.4)", ...font }}>
-                {hero.ctaPrimary} <ArrowRight size={15} />
+                {hero.ctaPrimary} <DirectionalArrow size={15} />
               </a>
               <a href="/#services" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-bold text-sm transition-all duration-200 hover:opacity-80"
                 style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)", color: "#94a3b8", ...font }}>
@@ -402,7 +403,7 @@ export function MoodleCorePage() {
             <p className="text-slate-400 mb-8 leading-relaxed" style={font}>{hero.ctaDesc}</p>
             <a href="/#contact" className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-black text-sm text-white transition-all duration-200 hover:opacity-90 hover:scale-105"
               style={{ background: "linear-gradient(135deg, #6900A3, #a855f7)", boxShadow: "0 0 36px rgba(105,0,163,0.4)", ...font }}>
-              {hero.ctaBtn} <ArrowRight size={16} />
+              {hero.ctaBtn} <DirectionalArrow size={16} />
             </a>
           </motion.div>
         </section>

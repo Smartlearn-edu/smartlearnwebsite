@@ -1,10 +1,11 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Puzzle, ArrowRight, Check } from "lucide-react";
+import { Puzzle, Check } from "lucide-react";
 import { Helmet } from "react-helmet-async";
 import { Navbar } from "@/components/Navbar";
 import { plugins, CATEGORIES, CATEGORIES_AR, type Category, type CategoryAr, type Plugin } from "@/data/plugins";
 import { useT } from "@/i18n";
+import { DirectionalArrow } from "@/components/DirectionalArrow";
 
 const font: React.CSSProperties = { fontFamily: "'Cairo', sans-serif" };
 const gradientText: React.CSSProperties = {
@@ -193,7 +194,7 @@ export function PluginsPage() {
             <p className="text-slate-400 mb-8 leading-relaxed" style={font}>{hero.ctaDesc}</p>
             <a href="/#contact" className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-black text-sm text-white transition-all duration-200 hover:opacity-90 hover:scale-105"
               style={{ background: "linear-gradient(135deg, #6900A3, #a855f7)", boxShadow: "0 0 36px rgba(105,0,163,0.4)", ...font }}>
-              {hero.ctaBtn} <ArrowRight size={16} />
+              {hero.ctaBtn} <DirectionalArrow size={16} />
             </a>
           </motion.div>
         </section>
@@ -267,7 +268,7 @@ function PluginCard({ plugin, i, lang, hero }: { plugin: Plugin; i: number; lang
         className="inline-flex items-center justify-center gap-1.5 w-full py-2.5 rounded-xl text-sm font-bold text-white transition-all duration-200 hover:opacity-90"
         style={{ background: "linear-gradient(135deg, #6900A3, #a855f7)", ...font }}>
         {plugin.free ? hero.getPlugin : hero.contactPricing}
-        <ArrowRight size={13} />
+        <DirectionalArrow size={13} />
       </a>
     </motion.div>
   );
