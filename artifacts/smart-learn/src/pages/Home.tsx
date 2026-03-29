@@ -1,15 +1,9 @@
 import { Helmet } from "react-helmet-async";
 import { Navbar } from "@/components/Navbar";
-import { BentoGrid } from "@/components/BentoGrid";
-import { HeroTile } from "@/components/tiles/HeroTile";
-import { AuthorityTile } from "@/components/tiles/AuthorityTile";
-import { ScaleTile } from "@/components/tiles/ScaleTile";
-import { ServiceAITile } from "@/components/tiles/ServiceAITile";
-import { ServiceN8nTile } from "@/components/tiles/ServiceN8nTile";
-import { ServiceMoodleTile } from "@/components/tiles/ServiceMoodleTile";
-import { FounderTile } from "@/components/tiles/FounderTile";
-import { ServiceTrainingTile } from "@/components/tiles/ServiceTrainingTile";
-import { ContactTile } from "@/components/tiles/ContactTile";
+import { HeroSection } from "@/components/sections/HeroSection";
+import { ServicesSection } from "@/components/sections/ServicesSection";
+import { AboutSection } from "@/components/sections/AboutSection";
+import { ContactSection } from "@/components/sections/ContactSection";
 
 export default function Home() {
   return (
@@ -38,19 +32,45 @@ export default function Home() {
         <meta property="og:image:height" content="630" />
       </Helmet>
 
-      <div className="min-h-screen bg-slate-950">
+      <div className="min-h-screen" style={{ backgroundColor: "#07070f" }}>
         <Navbar />
-        <BentoGrid>
-          <HeroTile index={0} />
-          <AuthorityTile index={1} />
-          <ScaleTile index={2} />
-          <ServiceAITile index={3} />
-          <ServiceN8nTile index={4} />
-          <ServiceMoodleTile index={5} />
-          <FounderTile index={6} />
-          <ServiceTrainingTile index={7} />
-          <ContactTile index={8} />
-        </BentoGrid>
+        <HeroSection />
+
+        <div
+          className="max-w-6xl mx-auto"
+          style={{
+            height: "1px",
+            background: "linear-gradient(90deg, transparent, rgba(255,255,255,0.06), transparent)",
+          }}
+        />
+
+        <ServicesSection />
+
+        <div
+          className="max-w-6xl mx-auto"
+          style={{
+            height: "1px",
+            background: "linear-gradient(90deg, transparent, rgba(255,255,255,0.06), transparent)",
+          }}
+        />
+
+        <AboutSection />
+
+        <div
+          className="max-w-6xl mx-auto"
+          style={{
+            height: "1px",
+            background: "linear-gradient(90deg, transparent, rgba(255,255,255,0.06), transparent)",
+          }}
+        />
+
+        <ContactSection />
+
+        <footer className="py-8 px-6 text-center border-t border-white/[0.04]">
+          <p className="text-sm text-slate-600">
+            © {new Date().getFullYear()} Smart Learn · Mohammad Nabil · Egypt
+          </p>
+        </footer>
       </div>
     </>
   );

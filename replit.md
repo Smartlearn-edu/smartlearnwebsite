@@ -103,9 +103,9 @@ Smart Learn portfolio site for Mohammad Nabil — Moodle expert & AI automation 
 - Icons: Lucide React
 - Fonts: Space Grotesk (headings), DM Sans (body) via Google Fonts
 - SEO: react-helmet-async with full title, description, keywords, OG tags
-- Layout: 9-tile bento grid (CSS Grid, 4 cols at md breakpoint)
-- Tiles: HeroTile, AuthorityTile, ScaleTile, ServiceAITile, ServiceN8nTile, ServiceMoodleTile, FounderTile, ServiceTrainingTile, ContactTile
-- Contact form: UI-only (div-based, no form tag), validation + success state
+- Layout: Full vertical scroll, section-based (Hero → Services → About → Contact)
+- Sections: HeroSection (full-screen, stats row, animated CTAs), ServicesSection (2x2 card grid, main focus), AboutSection (bio + credentials), ContactSection (form + info panel)
+- Contact form: native `<form>` with useState validation, success state, required/email checks
 - Dev: `pnpm --filter @workspace/smart-learn run dev`
 
 ### `scripts` (`@workspace/scripts`)
