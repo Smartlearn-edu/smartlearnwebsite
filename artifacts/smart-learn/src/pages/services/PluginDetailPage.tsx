@@ -177,10 +177,17 @@ export function PluginDetailPage() {
   const { pluginSlug } = useParams<{ pluginSlug: string }>();
   const { lang, isRTL } = useT();
   const t = ui[lang];
-  const { data: plugins = [] } = usePlugins();
+  const { data: plugins = [], isFetching } = usePlugins();
   const plugin = plugins.find((p) => p.slug === pluginSlug);
 
   if (!plugin) {
+    if (isFetching) {
+      return (
+        <div className="min-h-screen flex items-center justify-center" style={{ backgroundColor: "#07070f" }}>
+          <Navbar />
+        </div>
+      );
+    }
     return (
       <div className="min-h-screen flex flex-col items-center justify-center" style={{ backgroundColor: "#07070f" }}>
         <Navbar />
