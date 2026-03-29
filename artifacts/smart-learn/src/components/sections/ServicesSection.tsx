@@ -1,11 +1,13 @@
 import { motion } from "framer-motion";
-import { Server, Puzzle, Bot, Workflow, GraduationCap, ArrowUpRight } from "lucide-react";
+import { Server, Puzzle, Bot, Workflow, GraduationCap, ArrowRight } from "lucide-react";
+import { Link } from "wouter";
 
 const services = [
   {
     icon: Server,
     iconColor: "#c084fc",
     iconBg: "rgba(168,85,247,0.12)",
+    slug: "moodle-core",
     title: "Moodle Installation, Migration & Maintenance",
     description:
       "Full lifecycle Moodle management: fresh installations, version upgrades, server migrations, performance tuning, and ongoing maintenance. I handle everything from initial setup to disaster recovery so your platform stays online and fast.",
@@ -17,6 +19,7 @@ const services = [
     icon: Puzzle,
     iconColor: "#a855f7",
     iconBg: "rgba(168,85,247,0.12)",
+    slug: "plugins",
     title: "Plugin Development",
     description:
       "Custom Moodle plugin development tailored to your exact requirements. With 4 free plugins published on Moodle.org and 10+ premium plugins, I build activity modules, blocks, local plugins, themes, and custom integrations.",
@@ -28,6 +31,7 @@ const services = [
     icon: Bot,
     iconColor: "#c084fc",
     iconBg: "rgba(168,85,247,0.12)",
+    slug: "ai",
     title: "AI Integration for Moodle",
     description:
       "Embed AI directly into your Moodle platform: RAG-powered chatbots for every course, Video-to-Text pipelines so students can query lecture content, AI-assisted grading, and LLM-based admin tools that make teaching smarter.",
@@ -39,6 +43,7 @@ const services = [
     icon: Workflow,
     iconColor: "#a855f7",
     iconBg: "rgba(168,85,247,0.12)",
+    slug: "n8n",
     title: "n8n Automation for Moodle",
     description:
       "End-to-end automation using n8n and the Moodle REST API: automated grading workflows, enrollment triggers, notification pipelines, and full RAG system builds. Eliminate repetitive admin work for good.",
@@ -50,6 +55,7 @@ const services = [
     icon: GraduationCap,
     iconColor: "#c084fc",
     iconBg: "rgba(168,85,247,0.12)",
+    slug: "training",
     title: "Training & Technical Support",
     description:
       "Practical training programs for Moodle administrators and teachers at online academies, schools, and course platforms. Ongoing technical support, documentation, troubleshooting, and remote assistance.",
@@ -98,13 +104,13 @@ export function ServicesSection() {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.slice(0, 3).map((svc, i) => (
-            <ServiceCard key={svc.title} svc={svc} i={i} />
+            <ServiceCard key={svc.slug} svc={svc} i={i} />
           ))}
         </div>
 
         <div className="grid md:grid-cols-2 gap-6 mt-6 max-w-4xl mx-auto">
           {services.slice(3).map((svc, i) => (
-            <ServiceCard key={svc.title} svc={svc} i={i + 3} />
+            <ServiceCard key={svc.slug} svc={svc} i={i + 3} />
           ))}
         </div>
       </div>
@@ -127,7 +133,7 @@ function ServiceCard({
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: i * 0.08, ease: "easeOut" }}
       whileHover={{ y: -5, transition: { type: "spring", stiffness: 300, damping: 20 } }}
-      className="group relative rounded-2xl overflow-hidden cursor-default flex flex-col"
+      className="group relative rounded-2xl overflow-hidden flex flex-col"
       style={{
         background: svc.highlight
           ? "linear-gradient(160deg, rgba(105,0,163,0.2) 0%, rgba(168,85,247,0.08) 100%)"
@@ -185,7 +191,7 @@ function ServiceCard({
           {svc.description}
         </p>
 
-        <div className="flex flex-wrap gap-1.5 mb-4">
+        <div className="flex flex-wrap gap-1.5 mb-5">
           {svc.tags.map((tag) => (
             <span
               key={tag}
@@ -202,14 +208,17 @@ function ServiceCard({
           ))}
         </div>
 
-        <a
-          href="#contact"
-          className="inline-flex items-center gap-1.5 text-sm font-bold transition-all duration-200 opacity-0 group-hover:opacity-100"
-          style={{ color: "#a855f7", fontFamily: "'Cairo', sans-serif" }}
+        <Link
+          href={`/services/${svc.slug}`}
+          className="inline-flex items-center justify-center gap-2 w-full py-2.5 rounded-xl font-bold text-sm text-white transition-all duration-200 hover:opacity-90"
+          style={{
+            background: "linear-gradient(135deg, #6900A3, #a855f7)",
+            fontFamily: "'Cairo', sans-serif",
+          }}
         >
-          Get a Quote
-          <ArrowUpRight size={14} />
-        </a>
+          Learn More
+          <ArrowRight size={15} />
+        </Link>
       </div>
     </motion.div>
   );
