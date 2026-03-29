@@ -1,9 +1,11 @@
-import { motion } from "framer-motion";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { useParams } from "wouter";
 import { Helmet } from "react-helmet-async";
 import {
   Check, ArrowLeft, ArrowRight, Download, MessageCircle,
   Tag, Cpu, Wrench, ExternalLink, ImageIcon,
+  ChevronLeft, ChevronRight,
 } from "lucide-react";
 import { Navbar } from "@/components/Navbar";
 import { plugins } from "@/data/plugins";
@@ -22,7 +24,6 @@ const gradientText: React.CSSProperties = {
 const ui = {
   en: {
     back: "Back to Plugins",
-    features: "Key Features",
     about: "About This Plugin",
     images: "Screenshots",
     pricing: "Pricing",
@@ -35,16 +36,15 @@ const ui = {
     setupPrice: "Setup starts at",
     setupBtn: "Hire Me for n8n Setup",
     moodle: "Requires",
-    type: "Type",
     notFound: "Plugin not found",
     backHome: "Back to Plugins",
     placeholderImg: "Screenshots coming soon",
     usd: "USD",
     oneTime: "one-time",
+    of: "of",
   },
   ar: {
     back: "العودة إلى الإضافات",
-    features: "المميزات الرئيسية",
     about: "حول هذه الإضافة",
     images: "لقطات الشاشة",
     pricing: "التسعير",
@@ -57,14 +57,110 @@ const ui = {
     setupPrice: "يبدأ الإعداد من",
     setupBtn: "وظّفني لإعداد n8n",
     moodle: "يتطلب",
-    type: "النوع",
     notFound: "الإضافة غير موجودة",
     backHome: "العودة إلى الإضافات",
     placeholderImg: "لقطات الشاشة قريباً",
     usd: "دولار",
     oneTime: "مرة واحدة",
+    of: "من",
   },
 };
+
+function ImageSlider({ images, slug, name }: { images: string[]; slug: string; name: string }) {
+  const [current, setCurrent] = useState(0);
+  const [direction, setDirection] = useState(0);
+
+  function go(next: number) {
+    setDirection(next > current ? 1 : -1);
+    setCurrent(next);
+  }
+
+  function prev() {
+    go((current - 1 + images.length) % images.length);
+  }
+
+  function next() {
+    go((current + 1) % images.length);
+  }
+
+  if (images.length === 0) return null;
+
+  const variants = {
+    enter: (d: number) => ({ x: d > 0 ? 60 : -60, opacity: 0 }),
+    center: { x: 0, opacity: 1 },
+    exit: (d: number) => ({ x: d > 0 ? -60 : 60, opacity: 0 }),
+  };
+
+  return (
+    <div>
+      {/* Main image with arrows */}
+      <div className="relative rounded-2xl overflow-hidden bg-white/[0.02] border border-white/[0.06]"
+        style={{ minHeight: 240 }}>
+        <AnimatePresence custom={direction} mode="wait">
+          <motion.img
+            key={current}
+            custom={direction}
+            variants={variants}
+            initial="enter"
+            animate="center"
+            exit="exit"
+            transition={{ duration: 0.25, ease: "easeInOut" }}
+            src={`/plugins/${slug}/${images[current]}`}
+            alt={`${name} screenshot ${current + 1}`}
+            className="w-full h-auto block"
+            style={{ maxHeight: 520, objectFit: "contain", backgroundColor: "#f8fafc" }}
+          />
+        </AnimatePresence>
+
+        {/* Left arrow */}
+        {images.length > 1 && (
+          <button onClick={prev}
+            className="absolute left-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full flex items-center justify-center transition-all hover:scale-110"
+            style={{ background: "rgba(105,0,163,0.75)", backdropFilter: "blur(8px)" }}>
+            <ChevronLeft size={18} className="text-white" />
+          </button>
+        )}
+
+        {/* Right arrow */}
+        {images.length > 1 && (
+          <button onClick={next}
+            className="absolute right-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full flex items-center justify-center transition-all hover:scale-110"
+            style={{ background: "rgba(105,0,163,0.75)", backdropFilter: "blur(8px)" }}>
+            <ChevronRight size={18} className="text-white" />
+          </button>
+        )}
+
+        {/* Counter badge */}
+        <div className="absolute bottom-3 right-3 px-2.5 py-1 rounded-full text-xs font-bold text-white"
+          style={{ background: "rgba(0,0,0,0.55)", backdropFilter: "blur(6px)" }}>
+          {current + 1} / {images.length}
+        </div>
+      </div>
+
+      {/* Thumbnail strip */}
+      {images.length > 1 && (
+        <div className="flex gap-2 mt-3 overflow-x-auto pb-1" style={{ scrollbarWidth: "none" }}>
+          {images.map((img, i) => (
+            <button key={i} onClick={() => go(i)}
+              className="flex-shrink-0 rounded-lg overflow-hidden transition-all duration-200"
+              style={{
+                border: i === current
+                  ? "2px solid #a855f7"
+                  : "2px solid rgba(255,255,255,0.08)",
+                opacity: i === current ? 1 : 0.55,
+              }}>
+              <img
+                src={`/plugins/${slug}/${img}`}
+                alt={`thumbnail ${i + 1}`}
+                style={{ width: 80, height: 52, objectFit: "cover", display: "block", backgroundColor: "#f8fafc" }}
+              />
+            </button>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
 
 export function PluginDetailPage() {
   const { pluginSlug } = useParams<{ pluginSlug: string }>();
@@ -79,7 +175,8 @@ export function PluginDetailPage() {
         <div className="text-center px-6">
           <p className="text-6xl mb-6">404</p>
           <h1 className="text-2xl font-black text-white mb-4" style={font}>{t.notFound}</h1>
-          <Link href="/services/plugins" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-bold text-sm text-white"
+          <Link href="/services/plugins"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-bold text-sm text-white"
             style={{ background: "linear-gradient(135deg, #6900A3, #a855f7)", ...font }}>
             {t.backHome}
           </Link>
@@ -115,7 +212,7 @@ export function PluginDetailPage() {
           </Link>
         </div>
 
-        {/* Hero */}
+        {/* ── 1. HERO: badges + name + features ── */}
         <section className="max-w-5xl mx-auto px-6 py-8">
           <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
             {/* Badges row */}
@@ -140,14 +237,14 @@ export function PluginDetailPage() {
               )}
             </div>
 
-            {/* Name */}
+            {/* Plugin name */}
             <h1 className="text-4xl md:text-5xl font-black text-white mb-6 leading-tight" style={font}>
               <span style={gradientText}>{name}</span>
             </h1>
 
             {/* Features quick grid */}
             {features.length > 0 && (
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-2">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {features.map((f, i) => (
                   <div key={i} className="flex items-start gap-3 p-3 rounded-xl border border-white/[0.05] bg-white/[0.02]">
                     <span className="mt-0.5 flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center bg-purple-600/30">
@@ -161,49 +258,11 @@ export function PluginDetailPage() {
           </motion.div>
         </section>
 
-        {/* Images */}
-        <section className="max-w-5xl mx-auto px-6 py-8">
-          <h2 className="text-lg font-black text-white mb-4" style={font}>{t.images}</h2>
-          {plugin.images.length > 0 ? (
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {plugin.images.map((img, i) => (
-                <motion.div key={i} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: i * 0.1 }}
-                  className="rounded-2xl overflow-hidden border border-white/[0.06] bg-white/[0.02]">
-                  <img src={`/plugins/${plugin.slug}/${img}`} alt={`${name} screenshot ${i + 1}`}
-                    className="w-full h-auto object-cover" />
-                </motion.div>
-              ))}
-            </div>
-          ) : (
-            <div className="rounded-2xl border border-dashed border-white/10 bg-white/[0.01] flex flex-col items-center justify-center py-16 gap-3 text-slate-600">
-              <ImageIcon size={40} strokeWidth={1} />
-              <p className="text-sm">{t.placeholderImg}</p>
-            </div>
-          )}
-        </section>
-
-        {/* Description */}
-        <section className="max-w-5xl mx-auto px-6 py-8">
-          <div className="rounded-2xl border border-white/[0.06] bg-white/[0.02] p-8">
-            <h2 className="text-lg font-black text-white mb-5 flex items-center gap-2" style={font}>
-              <Wrench size={18} className="text-purple-400" />
-              {t.about}
-            </h2>
-            <div className="prose prose-invert max-w-none">
-              {description.split("\n\n").map((para, i) => (
-                <p key={i} className="text-slate-300 leading-relaxed mb-4 last:mb-0 text-sm md:text-base">
-                  {para}
-                </p>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Pricing */}
+        {/* ── 2. PRICING ── */}
         <section className="max-w-5xl mx-auto px-6 py-8">
           <h2 className="text-lg font-black text-white mb-5" style={font}>{t.pricing}</h2>
-
           <div className="grid grid-cols-1 gap-4">
+
             {isPaid && !isSetupPlugin && (
               <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4 }}
                 className="rounded-2xl border border-purple-500/30 bg-gradient-to-br from-purple-900/20 to-purple-800/10 p-8">
@@ -245,7 +304,6 @@ export function PluginDetailPage() {
 
             {isSetupPlugin && (
               <>
-                {/* Free download card */}
                 {plugin.downloadUrl && (
                   <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4 }}
                     className="rounded-2xl border border-emerald-500/30 bg-gradient-to-br from-emerald-900/10 to-emerald-800/5 p-8">
@@ -265,7 +323,6 @@ export function PluginDetailPage() {
                   </motion.div>
                 )}
 
-                {/* n8n setup offer card */}
                 <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1, duration: 0.4 }}
                   className="rounded-2xl border border-purple-500/30 bg-gradient-to-br from-purple-900/20 to-purple-800/10 p-8">
                   <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-6">
@@ -279,7 +336,7 @@ export function PluginDetailPage() {
                         {t.setupPrice} <span className="text-purple-300">${plugin.setupPrice} {t.usd}</span>
                       </div>
                     </div>
-                    <a href={`https://wa.me/201005822858?text=Hi! I need the n8n workflow setup for the Smart Grade AI plugin.`}
+                    <a href="https://wa.me/201005822858?text=Hi! I need the n8n workflow setup for the Smart Grade AI plugin."
                       target="_blank" rel="noopener noreferrer"
                       className="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl font-black text-white text-sm transition-all hover:opacity-90 hover:scale-105 self-end md:self-center"
                       style={{ background: "linear-gradient(135deg, #6900A3, #a855f7)", boxShadow: "0 0 36px rgba(105,0,163,0.4)", ...font }}>
@@ -291,6 +348,66 @@ export function PluginDetailPage() {
               </>
             )}
           </div>
+        </section>
+
+        {/* ── 3. DESCRIPTION ── */}
+        <section className="max-w-5xl mx-auto px-6 py-8">
+          <div className="rounded-2xl border border-white/[0.06] bg-white/[0.02] p-8">
+            <h2 className="text-lg font-black text-white mb-6 flex items-center gap-2" style={font}>
+              <Wrench size={18} className="text-purple-400" />
+              {t.about}
+            </h2>
+            <div className="space-y-4">
+              {description.split("\n\n").map((block, i) => {
+                if (block.startsWith("###")) {
+                  return (
+                    <h3 key={i} className="text-base font-black text-purple-300 mt-6 mb-2" style={font}>
+                      {block.replace(/^###\s*/, "")}
+                    </h3>
+                  );
+                }
+                if (block.startsWith("**") && block.endsWith("**")) {
+                  return (
+                    <p key={i} className="text-white font-bold text-sm" style={font}>
+                      {block.replace(/\*\*/g, "")}
+                    </p>
+                  );
+                }
+                if (block.startsWith("- ") || block.includes("\n- ")) {
+                  const items = block.split("\n").filter(l => l.trim().startsWith("- "));
+                  return (
+                    <ul key={i} className="space-y-2">
+                      {items.map((item, j) => (
+                        <li key={j} className="flex items-start gap-2 text-sm text-slate-300">
+                          <span className="mt-1 flex-shrink-0 w-4 h-4 rounded-full bg-purple-600/30 flex items-center justify-center">
+                            <Check size={9} className="text-purple-300" />
+                          </span>
+                          <span dangerouslySetInnerHTML={{ __html: item.replace(/^-\s*/, "").replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>") }} />
+                        </li>
+                      ))}
+                    </ul>
+                  );
+                }
+                return (
+                  <p key={i} className="text-slate-300 leading-relaxed text-sm md:text-base"
+                    dangerouslySetInnerHTML={{ __html: block.replace(/\*\*(.+?)\*\*/g, "<strong style='color:#e2e8f0'>$1</strong>") }} />
+                );
+              })}
+            </div>
+          </div>
+        </section>
+
+        {/* ── 4. SCREENSHOTS (slider) ── */}
+        <section className="max-w-5xl mx-auto px-6 py-8">
+          <h2 className="text-lg font-black text-white mb-5" style={font}>{t.images}</h2>
+          {plugin.images.length > 0 ? (
+            <ImageSlider images={plugin.images} slug={plugin.slug} name={name} />
+          ) : (
+            <div className="rounded-2xl border border-dashed border-white/10 bg-white/[0.01] flex flex-col items-center justify-center py-16 gap-3 text-slate-600">
+              <ImageIcon size={40} strokeWidth={1} />
+              <p className="text-sm" style={font}>{t.placeholderImg}</p>
+            </div>
+          )}
         </section>
 
         <footer className="py-8 px-6 text-center border-t border-white/[0.04]">
