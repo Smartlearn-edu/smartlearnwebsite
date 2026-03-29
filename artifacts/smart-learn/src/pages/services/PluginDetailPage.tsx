@@ -10,6 +10,7 @@ import {
 import { Navbar } from "@/components/Navbar";
 import { plugins } from "@/data/plugins";
 import { useT } from "@/i18n";
+import { SocialLinks } from "@/components/SocialLinks";
 import { Link } from "wouter";
 
 const font: React.CSSProperties = { fontFamily: "var(--site-font)" };
@@ -410,12 +411,15 @@ export function PluginDetailPage() {
           )}
         </section>
 
-        <footer className="py-8 px-6 text-center border-t border-white/[0.04]">
-          <p className="text-sm text-slate-600" style={font}>
-            {lang === "ar"
-              ? `© ${new Date().getFullYear()} سمارت ليرن · محمد نبيل · مصر`
-              : `© ${new Date().getFullYear()} Smart Learn · Mohammad Nabil · Egypt`}
-          </p>
+        <footer className="py-10 px-6 border-t border-white/[0.04]">
+          <div className="max-w-5xl mx-auto flex flex-col items-center gap-4">
+            <SocialLinks size="sm" />
+            <p className="text-sm text-slate-600" style={font}>
+              {lang === "ar"
+                ? `© ${new Date().getFullYear()} سمارت ليرن · محمد نبيل · مصر`
+                : `© ${new Date().getFullYear()} Smart Learn · Mohammad Nabil · Egypt`}
+            </p>
+          </div>
         </footer>
       </div>
     </>

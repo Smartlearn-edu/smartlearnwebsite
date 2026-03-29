@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Send, CheckCircle, Mail, MapPin } from "lucide-react";
 import { useT } from "@/i18n";
 import { DirectionalArrow } from "@/components/DirectionalArrow";
+import { SocialLinks } from "@/components/SocialLinks";
 
 export function ContactSection() {
   const { t } = useT();
@@ -163,6 +164,16 @@ export function ContactSection() {
               >
                 {t.contact.responseDays}
               </p>
+            </div>
+
+            <div
+              className="rounded-2xl p-5"
+              style={{
+                background: "rgba(255,255,255,0.03)",
+                border: "1px solid rgba(255,255,255,0.07)",
+              }}
+            >
+              <SocialLinks label size="md" />
             </div>
           </motion.div>
 

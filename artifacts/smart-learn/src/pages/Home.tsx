@@ -4,6 +4,7 @@ import { HeroSection } from "@/components/sections/HeroSection";
 import { ServicesSection } from "@/components/sections/ServicesSection";
 import { AboutSection } from "@/components/sections/AboutSection";
 import { ContactSection } from "@/components/sections/ContactSection";
+import { SocialLinks } from "@/components/SocialLinks";
 import { useT } from "@/i18n";
 
 export default function Home() {
@@ -69,10 +70,13 @@ export default function Home() {
 
         <ContactSection />
 
-        <footer className="py-8 px-6 text-center border-t border-white/[0.04]">
-          <p className="text-sm text-slate-600" style={{ fontFamily: "'Cairo', sans-serif" }}>
-            © {new Date().getFullYear()} {t.footer}
-          </p>
+        <footer className="py-10 px-6 border-t border-white/[0.04]">
+          <div className="max-w-6xl mx-auto flex flex-col items-center gap-4">
+            <SocialLinks size="sm" />
+            <p className="text-sm text-slate-600" style={{ fontFamily: "'Cairo', sans-serif" }}>
+              © {new Date().getFullYear()} {t.footer}
+            </p>
+          </div>
         </footer>
       </div>
     </>
