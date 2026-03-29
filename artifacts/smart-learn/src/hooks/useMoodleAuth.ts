@@ -30,12 +30,20 @@ export function useMoodleAuth(): MoodleAuthState {
 
     const check = async () => {
       try {
-        const res = await fetch(WHOAMI_URL, {
-          method: "GET",
-          credentials: "include",
-          headers: { Accept: "application/json" },
-          signal: AbortSignal.timeout(5000),
-        });
+        const controller = new AbortController();
+        const timer = setTimeout(() => controller.abort(), 5000);
+
+        let res: Response;
+        try {
+          res = await fetch(WHOAMI_URL, {
+            method: "GET",
+            credentials: "include",
+            headers: { Accept: "application/json" },
+            signal: controller.signal,
+          });
+        } finally {
+          clearTimeout(timer);
+        }
 
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
 

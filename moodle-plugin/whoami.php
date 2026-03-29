@@ -81,7 +81,6 @@ $pictureurl = $userpicture->get_url($PAGE)->out(false);
 
 echo json_encode([
     'loggedin'     => true,
-    'userid'       => (int) $USER->id,
     'name'         => fullname($USER),
     'firstname'    => $USER->firstname,
     'picture'      => $pictureurl,
