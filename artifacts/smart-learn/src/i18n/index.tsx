@@ -32,7 +32,7 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
     document.documentElement.lang = lang;
     document.documentElement.style.setProperty(
       "--site-font",
-      isRTL ? "'Tajawal', sans-serif" : "'Cairo', sans-serif"
+      isRTL ? "'Tajawal', sans-serif" : "'Righteous', sans-serif"
     );
     try {
       localStorage.setItem("sl-lang", lang);
