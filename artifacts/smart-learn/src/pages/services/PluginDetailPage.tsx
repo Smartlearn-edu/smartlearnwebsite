@@ -29,9 +29,14 @@ const ui = {
     images: "Screenshots",
     pricing: "Pricing",
     free: "Free & Open Source",
+    freeSupport: "Free + Paid Support",
+    freeSupportBadge: "Free + Support",
     freeDesc: "Download this plugin for free on Moodle.org",
     downloadBtn: "Download on Moodle.org",
     buyBtn: "Get This Plugin via WhatsApp",
+    paidSupportTitle: "Need Professional Setup?",
+    paidSupportDesc: "This plugin is free to download, but professional installation, configuration, and ongoing support is available. Contact me for a tailored setup.",
+    paidSupportBtn: "Contact Me for Support",
     setupTitle: "Need the n8n Workflow?",
     setupDesc: "This plugin requires an n8n workflow to handle AI grading. You can build it yourself — or hire me to set it up, configure the LLM connections, and test it on your Moodle instance.",
     setupPrice: "Setup starts at",
@@ -50,9 +55,14 @@ const ui = {
     images: "لقطات الشاشة",
     pricing: "التسعير",
     free: "مجاني ومفتوح المصدر",
+    freeSupport: "مجاني مع دعم مدفوع",
+    freeSupportBadge: "مجاني + دعم",
     freeDesc: "حمّل هذه الإضافة مجاناً من Moodle.org",
     downloadBtn: "تنزيل من Moodle.org",
     buyBtn: "احصل على الإضافة عبر واتساب",
+    paidSupportTitle: "هل تحتاج إعداداً احترافياً؟",
+    paidSupportDesc: "هذه الإضافة مجانية للتنزيل، لكن الإعداد الاحترافي والتهيئة والدعم المستمر متاح. تواصل معي للحصول على إعداد مخصص.",
+    paidSupportBtn: "تواصل للحصول على الدعم",
     setupTitle: "هل تحتاج سير عمل n8n؟",
     setupDesc: "تتطلب هذه الإضافة سير عمل n8n للتعامل مع التصحيح بالذكاء الاصطناعي. يمكنك بناؤه بنفسك — أو توظيفي لإعداده وتهيئة اتصالات LLM واختباره على Moodle الخاص بك.",
     setupPrice: "يبدأ الإعداد من",
@@ -227,13 +237,17 @@ export function PluginDetailPage() {
               <span className="px-3 py-1 rounded-full text-xs font-bold border border-slate-600/30 text-slate-400 bg-slate-900/40 flex items-center gap-1">
                 <Tag size={11} /> {plugin.type}
               </span>
-              {plugin.free ? (
-                <span className="px-3 py-1 rounded-full text-xs font-bold border border-emerald-500/40 text-emerald-300 bg-emerald-900/20">
-                  {t.free}
-                </span>
-              ) : (
+              {!plugin.free ? (
                 <span className="px-3 py-1 rounded-full text-xs font-bold border border-purple-500/40 text-purple-300 bg-purple-900/20">
                   ${plugin.price} {t.usd}
+                </span>
+              ) : plugin.paidSupport ? (
+                <span className="px-3 py-1 rounded-full text-xs font-bold" style={{ border: "1px solid rgba(245,158,11,0.4)", color: "#fbbf24", background: "rgba(245,158,11,0.1)" }}>
+                  {t.freeSupportBadge}
+                </span>
+              ) : (
+                <span className="px-3 py-1 rounded-full text-xs font-bold border border-emerald-500/40 text-emerald-300 bg-emerald-900/20">
+                  {t.free}
                 </span>
               )}
             </div>
@@ -285,22 +299,48 @@ export function PluginDetailPage() {
             )}
 
             {plugin.free && !isSetupPlugin && plugin.downloadUrl && (
-              <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4 }}
-                className="rounded-2xl border border-emerald-500/30 bg-gradient-to-br from-emerald-900/10 to-emerald-800/5 p-8">
-                <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
-                  <div>
-                    <div className="text-4xl font-black text-emerald-300 mb-2" style={font}>{t.free}</div>
-                    <p className="text-slate-400 text-sm">{t.freeDesc}</p>
+              <>
+                <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4 }}
+                  className="rounded-2xl p-8"
+                  style={{ border: "1px solid rgba(16,185,129,0.3)", background: "linear-gradient(135deg, rgba(6,95,70,0.1) 0%, rgba(16,185,129,0.05) 100%)" }}>
+                  <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+                    <div>
+                      <div className="text-4xl font-black text-emerald-300 mb-2" style={font}>{t.free}</div>
+                      <p className="text-slate-400 text-sm">{t.freeDesc}</p>
+                    </div>
+                    <a href={plugin.downloadUrl} target="_blank" rel="noopener noreferrer"
+                      className="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl font-black text-white text-sm transition-all hover:opacity-90 hover:scale-105"
+                      style={{ background: "linear-gradient(135deg, #065f46, #10b981)", boxShadow: "0 0 36px rgba(16,185,129,0.2)", ...font }}>
+                      <Download size={18} />
+                      {t.downloadBtn}
+                      <ExternalLink size={14} />
+                    </a>
                   </div>
-                  <a href={plugin.downloadUrl} target="_blank" rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl font-black text-white text-sm transition-all hover:opacity-90 hover:scale-105"
-                    style={{ background: "linear-gradient(135deg, #065f46, #10b981)", boxShadow: "0 0 36px rgba(16,185,129,0.2)", ...font }}>
-                    <Download size={18} />
-                    {t.downloadBtn}
-                    <ExternalLink size={14} />
-                  </a>
-                </div>
-              </motion.div>
+                </motion.div>
+
+                {plugin.paidSupport && (
+                  <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1, duration: 0.4 }}
+                    className="rounded-2xl p-8"
+                    style={{ border: "1px solid rgba(245,158,11,0.3)", background: "linear-gradient(135deg, rgba(120,53,15,0.12) 0%, rgba(245,158,11,0.06) 100%)" }}>
+                    <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-6">
+                      <div className="flex-1">
+                        <div className="flex items-center gap-2 mb-3">
+                          <span className="w-8 h-8 rounded-lg flex items-center justify-center text-base" style={{ background: "rgba(245,158,11,0.2)" }}>🛠️</span>
+                          <h3 className="text-xl font-black text-white" style={font}>{t.paidSupportTitle}</h3>
+                        </div>
+                        <p className="text-slate-400 text-sm leading-relaxed">{t.paidSupportDesc}</p>
+                      </div>
+                      <a href="https://wa.me/201005822858"
+                        target="_blank" rel="noopener noreferrer"
+                        className="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl font-black text-white text-sm transition-all hover:opacity-90 hover:scale-105 self-end md:self-center"
+                        style={{ background: "linear-gradient(135deg, #92400e, #f59e0b)", boxShadow: "0 0 36px rgba(245,158,11,0.25)", ...font }}>
+                        <MessageCircle size={18} />
+                        {t.paidSupportBtn}
+                      </a>
+                    </div>
+                  </motion.div>
+                )}
+              </>
             )}
 
             {isSetupPlugin && (

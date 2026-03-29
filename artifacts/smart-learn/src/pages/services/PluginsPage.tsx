@@ -25,7 +25,8 @@ const typeColors: Record<string, { bg: string; text: string }> = {
   enrol:        { bg: "rgba(168,85,247,0.12)",  text: "#c084fc" },
 };
 
-const freeCount = plugins.filter((p) => p.free).length;
+const purelyFreeCount = plugins.filter((p) => p.free && !p.paidSupport).length;
+const freeSupportCount = plugins.filter((p) => p.free && p.paidSupport).length;
 const premiumCount = plugins.filter((p) => !p.free).length;
 
 const heroData = {
@@ -34,13 +35,15 @@ const heroData = {
     title: "Moodle ",
     titleGradient: "Plugin Library",
     subtitle: `${plugins.length} plugins across AI, analytics, content tools, and platform management — built to production standards for Moodle 4.0+.`,
-    freePlugins: `${freeCount} Free Plugins`,
+    freePlugins: `${purelyFreeCount} Free Plugins`,
+    freeSupportPlugins: `${freeSupportCount} Free + Support`,
     premiumPlugins: `${premiumCount} Premium Plugins`,
     ctaTitle: "Interested in a plugin?",
     ctaDesc: "Get in touch and I'll provide pricing, installation details, and a demo for any plugin you need.",
     ctaBtn: "Get in Touch",
     comingSoon: "Full details coming soon — contact me to learn more.",
     freeBadge: "Free",
+    freeSupportBadge: "Free + Support",
     premiumBadge: "Premium",
     getPlugin: "Get Plugin",
     contactPricing: "Contact for Pricing",
@@ -51,13 +54,15 @@ const heroData = {
     title: "مكتبة إضافات ",
     titleGradient: "Moodle",
     subtitle: `${plugins.length} إضافة في مجالات الذكاء الاصطناعي والتحليلات وأدوات المحتوى وإدارة المنصة — مبنية بمعايير إنتاجية لـMoodle 4.0+.`,
-    freePlugins: `${freeCount} إضافة مجانية`,
+    freePlugins: `${purelyFreeCount} إضافة مجانية`,
+    freeSupportPlugins: `${freeSupportCount} مجاني مع دعم`,
     premiumPlugins: `${premiumCount} إضافة مميزة`,
     ctaTitle: "مهتم بإضافة معينة؟",
     ctaDesc: "تواصل معي وسأقدم لك التسعير وتفاصيل التثبيت وعرضاً توضيحياً لأي إضافة تحتاجها.",
     ctaBtn: "تواصل معي",
     comingSoon: "التفاصيل الكاملة قريباً — تواصل معي لمعرفة المزيد.",
     freeBadge: "مجاني",
+    freeSupportBadge: "مجاني + دعم",
     premiumBadge: "مميز",
     getPlugin: "احصل على الإضافة",
     contactPricing: "تواصل للتسعير",
@@ -72,6 +77,7 @@ export function PluginsPage() {
   const [activeEn, setActiveEn] = useState<Category>("All");
   const [activeAr, setActiveAr] = useState<CategoryAr>("الكل");
   const [showFree, setShowFree] = useState(true);
+  const [showFreeSupport, setShowFreeSupport] = useState(true);
   const [showPaid, setShowPaid] = useState(true);
 
   const byCat =
@@ -83,12 +89,14 @@ export function PluginsPage() {
       ? plugins
       : plugins.filter((p) => p.categoryAr === activeAr);
 
-  const filtered =
-    showFree && showPaid
-      ? byCat
-      : !showFree && !showPaid
-      ? byCat
-      : byCat.filter((p) => (p.free ? showFree : showPaid));
+  const allOff = !showFree && !showFreeSupport && !showPaid;
+  const filtered = allOff
+    ? byCat
+    : byCat.filter((p) => {
+        if (!p.free) return showPaid;
+        if (p.paidSupport) return showFreeSupport;
+        return showFree;
+      });
 
   const categories = lang === "en" ? CATEGORIES : CATEGORIES_AR;
 
@@ -162,6 +170,30 @@ export function PluginsPage() {
                   {showFree && <Check size={10} color="#000" strokeWidth={3} />}
                 </span>
                 {hero.freePlugins}
+              </button>
+
+              {/* Free + Support checkbox filter */}
+              <button
+                onClick={() => setShowFreeSupport((v) => !v)}
+                className="flex items-center gap-2.5 px-4 py-2 rounded-full text-sm font-bold transition-all duration-200 cursor-pointer"
+                style={{
+                  background: showFreeSupport ? "rgba(245,158,11,0.15)" : "rgba(245,158,11,0.04)",
+                  border: `1px solid ${showFreeSupport ? "rgba(245,158,11,0.5)" : "rgba(245,158,11,0.15)"}`,
+                  color: showFreeSupport ? "#fbbf24" : "#fbbf2466",
+                  opacity: showFreeSupport ? 1 : 0.6,
+                  ...font,
+                }}
+              >
+                <span
+                  className="w-4 h-4 rounded flex items-center justify-center flex-shrink-0 transition-all duration-200"
+                  style={{
+                    background: showFreeSupport ? "#f59e0b" : "transparent",
+                    border: `2px solid ${showFreeSupport ? "#f59e0b" : "rgba(245,158,11,0.4)"}`,
+                  }}
+                >
+                  {showFreeSupport && <Check size={10} color="#000" strokeWidth={3} />}
+                </span>
+                {hero.freeSupportPlugins}
               </button>
 
               {/* Premium checkbox filter */}
@@ -281,15 +313,20 @@ function PluginCard({ plugin, i, lang, hero }: { plugin: Plugin; i: number; lang
             </span>
           </div>
         </div>
-        {plugin.free ? (
-          <span className="flex-shrink-0 text-xs font-black px-2.5 py-1 rounded-full"
-            style={{ background: "rgba(34,197,94,0.12)", border: "1px solid rgba(34,197,94,0.3)", color: "#4ade80", ...font }}>
-            {hero.freeBadge}
-          </span>
-        ) : (
+        {!plugin.free ? (
           <span className="flex-shrink-0 text-xs font-black px-2.5 py-1 rounded-full"
             style={{ background: "rgba(105,0,163,0.2)", border: "1px solid rgba(168,85,247,0.4)", color: "#c084fc", ...font }}>
             {hero.premiumBadge}
+          </span>
+        ) : plugin.paidSupport ? (
+          <span className="flex-shrink-0 text-xs font-black px-2.5 py-1 rounded-full"
+            style={{ background: "rgba(245,158,11,0.12)", border: "1px solid rgba(245,158,11,0.35)", color: "#fbbf24", ...font }}>
+            {hero.freeSupportBadge}
+          </span>
+        ) : (
+          <span className="flex-shrink-0 text-xs font-black px-2.5 py-1 rounded-full"
+            style={{ background: "rgba(34,197,94,0.12)", border: "1px solid rgba(34,197,94,0.3)", color: "#4ade80", ...font }}>
+            {hero.freeBadge}
           </span>
         )}
       </div>
