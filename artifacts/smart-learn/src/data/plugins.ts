@@ -110,7 +110,16 @@ export const plugins: Plugin[] = [
     downloadUrl: "https://moodle.org/plugins/local_smartgradeai",
     requiresSetup: true,
     setupPrice: 100,
-    images: [],
+    images: [
+      "settings.png",
+      "grade-with-ai.png",
+      "student-view.png",
+      "grading-triggered.png",
+      "pending-reviews.png",
+      "ai-proposed-score.png",
+      "approved.png",
+      "n8n-workflow.png",
+    ],
     description: "A free, open-source AI grading plugin for Moodle that uses an n8n workflow as its AI backend. The plugin sends student submissions to your n8n workflow, which calls your chosen LLM (GPT-4, Claude, Gemini, DeepSeek) and returns rubric-level scores and written feedback.\n\nThe plugin is free to download on Moodle.org — but it requires an n8n workflow to function. You can build the workflow yourself, or hire me to set it up for you starting at $100.",
     descriptionAr: "إضافة تصحيح ذكاء اصطناعي مجانية ومفتوحة المصدر لـMoodle تستخدم سير عمل n8n كخلفية ذكاء اصطناعي لها. ترسل الإضافة تقديمات الطلاب إلى سير عمل n8n الخاص بك، الذي يستدعي نموذج اللغة الكبير الذي اخترته ويعيد درجات على مستوى الروبريك وتغذية راجعة مكتوبة.\n\nالإضافة مجانية على Moodle.org — لكنها تتطلب سير عمل n8n للعمل. يمكنك بناء سير العمل بنفسك، أو توظيفي لإعداده ابتداءً من 100 دولار.",
     features: [
