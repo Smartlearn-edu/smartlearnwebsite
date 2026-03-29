@@ -71,8 +71,10 @@ export function PluginsPage() {
 
   const [activeEn, setActiveEn] = useState<Category>("All");
   const [activeAr, setActiveAr] = useState<CategoryAr>("الكل");
+  const [showFree, setShowFree] = useState(true);
+  const [showPaid, setShowPaid] = useState(true);
 
-  const filtered =
+  const byCat =
     lang === "en"
       ? activeEn === "All"
         ? plugins
@@ -80,6 +82,13 @@ export function PluginsPage() {
       : activeAr === "الكل"
       ? plugins
       : plugins.filter((p) => p.categoryAr === activeAr);
+
+  const filtered =
+    showFree && showPaid
+      ? byCat
+      : !showFree && !showPaid
+      ? byCat
+      : byCat.filter((p) => (p.free ? showFree : showPaid));
 
   const categories = lang === "en" ? CATEGORIES : CATEGORIES_AR;
 
@@ -130,17 +139,54 @@ export function PluginsPage() {
             </motion.p>
 
             <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.3 }}
-              className="flex items-center justify-center gap-6 flex-wrap">
-              <div className="flex items-center gap-2 px-4 py-2 rounded-full text-sm font-bold"
-                style={{ background: "rgba(34,197,94,0.1)", border: "1px solid rgba(34,197,94,0.25)", color: "#4ade80", ...font }}>
-                <span className="w-2 h-2 rounded-full bg-green-400 inline-block" />
+              className="flex items-center justify-center gap-4 flex-wrap">
+              {/* Free checkbox filter */}
+              <button
+                onClick={() => setShowFree((v) => !v)}
+                className="flex items-center gap-2.5 px-4 py-2 rounded-full text-sm font-bold transition-all duration-200 cursor-pointer"
+                style={{
+                  background: showFree ? "rgba(34,197,94,0.15)" : "rgba(34,197,94,0.04)",
+                  border: `1px solid ${showFree ? "rgba(34,197,94,0.5)" : "rgba(34,197,94,0.15)"}`,
+                  color: showFree ? "#4ade80" : "#4ade8066",
+                  opacity: showFree ? 1 : 0.6,
+                  ...font,
+                }}
+              >
+                <span
+                  className="w-4 h-4 rounded flex items-center justify-center flex-shrink-0 transition-all duration-200"
+                  style={{
+                    background: showFree ? "#4ade80" : "transparent",
+                    border: `2px solid ${showFree ? "#4ade80" : "rgba(74,222,128,0.4)"}`,
+                  }}
+                >
+                  {showFree && <Check size={10} color="#000" strokeWidth={3} />}
+                </span>
                 {hero.freePlugins}
-              </div>
-              <div className="flex items-center gap-2 px-4 py-2 rounded-full text-sm font-bold"
-                style={{ background: "rgba(168,85,247,0.12)", border: "1px solid rgba(168,85,247,0.3)", color: "#c084fc", ...font }}>
-                <span className="w-2 h-2 rounded-full bg-purple-400 inline-block" />
+              </button>
+
+              {/* Premium checkbox filter */}
+              <button
+                onClick={() => setShowPaid((v) => !v)}
+                className="flex items-center gap-2.5 px-4 py-2 rounded-full text-sm font-bold transition-all duration-200 cursor-pointer"
+                style={{
+                  background: showPaid ? "rgba(168,85,247,0.15)" : "rgba(168,85,247,0.04)",
+                  border: `1px solid ${showPaid ? "rgba(168,85,247,0.5)" : "rgba(168,85,247,0.15)"}`,
+                  color: showPaid ? "#c084fc" : "#c084fc66",
+                  opacity: showPaid ? 1 : 0.6,
+                  ...font,
+                }}
+              >
+                <span
+                  className="w-4 h-4 rounded flex items-center justify-center flex-shrink-0 transition-all duration-200"
+                  style={{
+                    background: showPaid ? "#a855f7" : "transparent",
+                    border: `2px solid ${showPaid ? "#a855f7" : "rgba(168,85,247,0.4)"}`,
+                  }}
+                >
+                  {showPaid && <Check size={10} color="#fff" strokeWidth={3} />}
+                </span>
                 {hero.premiumPlugins}
-              </div>
+              </button>
             </motion.div>
           </div>
         </section>
