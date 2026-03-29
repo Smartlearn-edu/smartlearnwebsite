@@ -33,6 +33,9 @@ export default function Home() {
         <meta property="og:site_name" content="Smart Learn" />
         <meta property="og:locale" content="en_US" />
         <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://smartlearn.education/opengraph.jpg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
       </Helmet>
 
       <div className="min-h-screen bg-slate-950">
