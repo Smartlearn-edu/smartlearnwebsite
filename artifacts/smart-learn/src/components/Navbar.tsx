@@ -2,11 +2,73 @@ import { useState, useEffect } from "react";
 import { Menu, X, ArrowLeft, ArrowRight } from "lucide-react";
 import { useLocation, Link } from "wouter";
 import { useT } from "@/i18n";
+import { useMoodleAuth } from "@/hooks/useMoodleAuth";
+
+const MOODLE_URL =
+  (import.meta.env.VITE_MOODLE_URL as string | undefined) ||
+  "https://smartlearn.education";
 
 const LOGO_URL =
   "https://smartlearn.education/pluginfile.php/1/theme_moove/logo/1774651533/2024-10-31_01-57-removebg-preview.png";
 
 const font: React.CSSProperties = { fontFamily: "'Cairo', sans-serif" };
+
+function MoodleLoginButton({ label }: { label: string }) {
+  return (
+    <a
+      href={`${MOODLE_URL}/login/index.php`}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="text-sm px-4 py-2 rounded-lg font-semibold text-purple-300 transition-all duration-200 hover:text-white hover:bg-white/10"
+      style={{
+        border: "1px solid rgba(168,85,247,0.4)",
+        ...font,
+      }}
+    >
+      {label}
+    </a>
+  );
+}
+
+function MoodleUserAvatar({
+  firstname,
+  picture,
+  dashboardUrl,
+}: {
+  firstname: string;
+  picture: string;
+  dashboardUrl: string;
+}) {
+  const [imgError, setImgError] = useState(false);
+  return (
+    <a
+      href={dashboardUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="flex items-center gap-2 text-sm text-slate-300 hover:text-white transition-colors duration-200"
+      style={font}
+      title={firstname}
+    >
+      {!imgError ? (
+        <img
+          src={picture}
+          alt={firstname}
+          className="w-8 h-8 rounded-full object-cover"
+          style={{ border: "2px solid #a855f7" }}
+          onError={() => setImgError(true)}
+        />
+      ) : (
+        <div
+          className="w-8 h-8 rounded-full flex items-center justify-center text-white text-xs font-bold"
+          style={{ background: "linear-gradient(135deg, #6900A3, #a855f7)" }}
+        >
+          {firstname.charAt(0).toUpperCase()}
+        </div>
+      )}
+      <span className="hidden lg:block max-w-[80px] truncate">{firstname}</span>
+    </a>
+  );
+}
 
 export function Navbar() {
   const [open, setOpen] = useState(false);
@@ -14,6 +76,7 @@ export function Navbar() {
   const [logoError, setLogoError] = useState(false);
   const [location] = useLocation();
   const { t, lang, isRTL, toggle } = useT();
+  const auth = useMoodleAuth();
 
   const isServicePage = location.startsWith("/services/");
 
@@ -65,6 +128,24 @@ export function Navbar() {
   const langLabel = lang === "en" ? "🇸🇦 عربي" : "🇬🇧 EN";
   const langLabelShort = lang === "en" ? "عربي" : "EN";
 
+  const MoodleWidget = () => {
+    if (auth.loading) {
+      return (
+        <div className="w-20 h-8 rounded-lg animate-pulse" style={{ background: "rgba(255,255,255,0.06)" }} />
+      );
+    }
+    if (auth.loggedin) {
+      return (
+        <MoodleUserAvatar
+          firstname={auth.firstname}
+          picture={auth.picture}
+          dashboardUrl={auth.dashboardUrl}
+        />
+      );
+    }
+    return <MoodleLoginButton label={t.nav.studentLogin} />;
+  };
+
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -103,6 +184,7 @@ export function Navbar() {
               {l.label}
             </a>
           ))}
+          <MoodleWidget />
           <a
             href={isServicePage ? "/#contact" : "#contact"}
             className="text-sm px-4 py-2 rounded-lg font-semibold text-white transition-all duration-200 hover:opacity-90"
@@ -163,6 +245,37 @@ export function Navbar() {
               {l.label}
             </a>
           ))}
+          {/* Moodle widget in mobile menu */}
+          <div onClick={() => setOpen(false)}>
+            {!auth.loading && !auth.loggedin && (
+              <a
+                href={`${MOODLE_URL}/login/index.php`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex text-sm px-4 py-2 rounded-lg font-semibold text-purple-300"
+                style={{ border: "1px solid rgba(168,85,247,0.4)", ...font }}
+              >
+                {t.nav.studentLogin}
+              </a>
+            )}
+            {auth.loggedin && (
+              <a
+                href={auth.dashboardUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 text-sm text-slate-300"
+                style={font}
+              >
+                <img
+                  src={auth.picture}
+                  alt={auth.firstname}
+                  className="w-7 h-7 rounded-full object-cover"
+                  style={{ border: "2px solid #a855f7" }}
+                />
+                {auth.firstname}
+              </a>
+            )}
+          </div>
           <button
             onClick={() => { toggle(); setOpen(false); }}
             className="flex items-center gap-2 text-sm px-3 py-2 rounded-lg font-bold transition-all duration-200 self-start"

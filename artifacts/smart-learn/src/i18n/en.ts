@@ -6,6 +6,8 @@ export const en = {
     about: "About",
     contact: "Contact",
     hireMe: "Hire Me",
+    studentLogin: "Student Login",
+    myMoodle: "My Moodle",
   },
   hero: {
     badge: "Available for Projects · Egypt 🇪🇬",
