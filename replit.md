@@ -101,12 +101,23 @@ Smart Learn portfolio site for Mohammad Nabil — Moodle expert & AI automation 
 - Styling: Tailwind CSS v4 (via `@tailwindcss/vite`)
 - Animations: Framer Motion (staggered entrance + hover glow)
 - Icons: Lucide React
-- Fonts: Space Grotesk (headings), DM Sans (body) via Google Fonts
-- SEO: react-helmet-async with full title, description, keywords, OG tags
-- Layout: Full vertical scroll, section-based (Hero → Services → About → Contact)
-- Sections: HeroSection (full-screen, stats row, animated CTAs), ServicesSection (2x2 card grid, main focus), AboutSection (bio + credentials), ContactSection (form + info panel)
-- Contact form: native `<form>` with useState validation, success state, required/email checks
+- Fonts: Righteous (EN headings), Tajawal (AR) via Google Fonts
+- Brand: `#6900A3` purple, always-dark (#07070f background)
+- Routing: wouter with base `/`
+- i18n: Custom `LanguageProvider`; `useT()` returns `{ lang, t, isRTL, toggle }`
+- Data fetching: TanStack Query v5 (`@tanstack/react-query`) with static fallback
+- Plugins: 18 total — 3 Free | 2 Free+Support (amber) | 13 Premium
+- Admin panel: `/admin` route — password login (ADMIN_PASSWORD), CRUD table, modal forms
+- Vite proxy: `/api` → `http://localhost:8080` for dev
+- SEO: react-helmet-async
 - Dev: `pnpm --filter @workspace/smart-learn run dev`
+
+#### Key files
+- `src/data/plugins.ts` — static plugin data (used as TanStack Query `initialData`)
+- `src/hooks/usePlugins.ts` — TanStack Query hooks for plugins API
+- `src/pages/AdminPage.tsx` — admin dashboard (login + CRUD)
+- `src/pages/services/PluginsPage.tsx` — public plugins listing
+- `src/pages/services/PluginDetailPage.tsx` — individual plugin detail
 
 ### `scripts` (`@workspace/scripts`)
 

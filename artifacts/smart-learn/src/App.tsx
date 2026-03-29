@@ -4,6 +4,7 @@ import { LanguageProvider } from "@/i18n";
 import Home from "@/pages/Home";
 import { ServiceRouter } from "@/pages/services/ServiceRouter";
 import { PluginDetailPage } from "@/pages/services/PluginDetailPage";
+import { AdminPage } from "@/pages/AdminPage";
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 
@@ -13,6 +14,7 @@ function App() {
       <LanguageProvider>
         <Router base={base}>
           <Switch>
+            <Route path="/admin" component={AdminPage} />
             <Route path="/services/plugins/:pluginSlug" component={PluginDetailPage} />
             <Route path="/services/:slug" component={ServiceRouter} />
             <Route path="/" component={Home} />
