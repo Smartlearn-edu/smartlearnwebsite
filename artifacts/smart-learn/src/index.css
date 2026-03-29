@@ -27,14 +27,16 @@
 }
 
 @layer utilities {
-  [dir="rtl"], [dir="rtl"] * {
-    font-family: 'Tajawal', sans-serif !important;
-  }
-
   .gradient-text {
     background: linear-gradient(135deg, #a855f7 0%, #c084fc 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
+}
+
+/* Force Tajawal for all elements in Arabic/RTL mode — overrides inline styles */
+[dir="rtl"],
+[dir="rtl"] * {
+  font-family: 'Tajawal', sans-serif !important;
 }
