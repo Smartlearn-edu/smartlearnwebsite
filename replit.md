@@ -21,7 +21,8 @@ pnpm workspace monorepo using TypeScript. Each package manages its own dependenc
 ```text
 artifacts-monorepo/
 ├── artifacts/              # Deployable applications
-│   └── api-server/         # Express API server
+│   ├── api-server/         # Express API server
+│   └── smart-learn/        # Smart Learn portfolio site (React + Vite)
 ├── lib/                    # Shared libraries
 │   ├── api-spec/           # OpenAPI spec + Orval codegen config
 │   ├── api-client-react/   # Generated React Query hooks
@@ -90,6 +91,22 @@ Generated Zod schemas from the OpenAPI spec (e.g. `HealthCheckResponse`). Used b
 ### `lib/api-client-react` (`@workspace/api-client-react`)
 
 Generated React Query hooks and fetch client from the OpenAPI spec (e.g. `useHealthCheck`, `healthCheck`).
+
+### `artifacts/smart-learn` (`@workspace/smart-learn`)
+
+Smart Learn portfolio site for Mohammad Nabil — Moodle expert & AI automation specialist.
+
+- Preview path: `/` (served at root)
+- Framework: React + Vite + TypeScript (strict mode)
+- Styling: Tailwind CSS v4 (via `@tailwindcss/vite`)
+- Animations: Framer Motion (staggered entrance + hover glow)
+- Icons: Lucide React
+- Fonts: Space Grotesk (headings), DM Sans (body) via Google Fonts
+- SEO: react-helmet-async with full title, description, keywords, OG tags
+- Layout: 9-tile bento grid (CSS Grid, 4 cols at md breakpoint)
+- Tiles: HeroTile, AuthorityTile, ScaleTile, ServiceAITile, ServiceN8nTile, ServiceMoodleTile, FounderTile, ServiceTrainingTile, ContactTile
+- Contact form: UI-only (div-based, no form tag), validation + success state
+- Dev: `pnpm --filter @workspace/smart-learn run dev`
 
 ### `scripts` (`@workspace/scripts`)
 
