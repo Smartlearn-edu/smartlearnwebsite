@@ -44,7 +44,7 @@ require_once(__DIR__ . '/../../config.php');
 // Production origin. The dev origin below is for testing only — remove it
 // (or comment it out) once services.smartlearn.education is live.
 $allowed_origins = [
-    'https://services.smartlearn.education',
+    'https://,
     // DEV TESTING ONLY — Replit preview domain. Remove before going live.
     'https://2fdff9a8-b609-4b46-b6f1-a4bc141a1de0-00-1on7eow5h1x5p.worf.replit.dev',
 ];
