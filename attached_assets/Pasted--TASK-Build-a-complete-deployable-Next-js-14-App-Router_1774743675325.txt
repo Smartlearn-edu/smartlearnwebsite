@@ -1,0 +1,230 @@
+# TASK
+Build a complete, deployable Next.js 14 (App Router) portfolio site for "Smart Learn"
+at smartlearn.education. This is a professional portfolio for Mohammad Nabil, a Moodle
+expert and AI integration specialist based in Egypt.
+
+Do NOT use placeholder content. Use the exact copy provided below.
+Do NOT skip any section. Build every tile described.
+
+---
+
+## TECH STACK (non-negotiable)
+
+- Framework: Next.js 14 with App Router (`/app` directory)
+- Language: TypeScript (strict mode)
+- Styling: Tailwind CSS v3 — dark mode enabled via `class` strategy in tailwind.config
+- Animations: Framer Motion (`framer-motion` package)
+- Icons: Lucide React
+- Fonts (Google Fonts via next/font):
+  - Display: "Space Grotesk" (headings)
+  - Body: "DM Sans" (body text)
+- No UI component libraries (no shadcn, no MUI). Hand-craft all components.
+
+---
+
+## PROJECT STRUCTURE
+
+/app
+  layout.tsx        ← root layout, metadata, fonts, dark mode class on <html>
+  page.tsx          ← main page, imports and assembles all sections
+/components
+  Navbar.tsx
+  BentoGrid.tsx     ← grid wrapper
+  tiles/
+    HeroTile.tsx
+    AuthorityTile.tsx
+    ScaleTile.tsx
+    ServiceAITile.tsx
+    ServiceN8nTile.tsx
+    ServiceMoodleTile.tsx
+    ServiceTrainingTile.tsx
+    FounderTile.tsx
+    ContactTile.tsx
+/lib
+  metadata.ts       ← site-wide SEO metadata object
+
+---
+
+## GLOBAL DESIGN SYSTEM
+
+Background: `bg-slate-950` (the page root)
+Card base class (apply to every tile):
+  `bg-slate-900/60 border border-white/10 backdrop-blur-md rounded-2xl`
+  `shadow-[0_0_0_1px_rgba(255,255,255,0.05)]`
+
+Accent color: cyan — `#22d3ee` (Tailwind: `cyan-400`)
+Secondary accent: violet — `#a78bfa` (Tailwind: `violet-400`)
+
+Typography:
+  h1: text-4xl md:text-5xl font-bold tracking-tight text-white
+  h2: text-2xl font-semibold text-white
+  h3: text-lg font-medium text-white
+  body: text-sm text-slate-400
+  stat: text-3xl md:text-4xl font-bold text-cyan-400
+
+Hover effect (apply to ALL tiles using Framer Motion):
+  whileHover={{ scale: 1.015, boxShadow: "0 0 30px rgba(34,211,238,0.12)" }}
+  transition={{ type: "spring", stiffness: 300, damping: 20 }}
+
+Card entrance animation (staggered, use motion.div):
+  initial={{ opacity: 0, y: 24 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ delay: index * 0.08, duration: 0.5, ease: "easeOut" }}
+
+---
+
+## NAVBAR (Navbar.tsx)
+
+- Position: fixed top, full width, z-50
+- Style: `bg-slate-950/80 backdrop-blur-xl border-b border-white/5`
+- Layout: logo left ("Smart Learn" in cyan), nav links right
+- Links: Home | Services | Portfolio | About
+- On mobile: collapse nav links into a hamburger menu (use useState)
+- No external nav library
+
+---
+
+## BENTO GRID LAYOUT (BentoGrid.tsx)
+
+Use CSS Grid:
+  `grid grid-cols-1 md:grid-cols-4 gap-4 p-4 md:p-8 pt-24`
+
+Tile spans (md breakpoint):
+  HeroTile:         col-span-2 row-span-2
+  AuthorityTile:    col-span-1 row-span-1
+  ScaleTile:        col-span-1 row-span-1
+  ServiceAITile:    col-span-2 row-span-1
+  ServiceN8nTile:   col-span-1 row-span-1
+  ServiceMoodleTile:col-span-1 row-span-1
+  FounderTile:      col-span-1 row-span-2
+  ServiceTrainingTile: col-span-1 row-span-1
+  ContactTile:      col-span-2 row-span-1
+
+On col-span-1 (mobile), all tiles are full width.
+
+---
+
+## TILE CONTENT — USE EXACT COPY
+
+### HeroTile (col-span-2, row-span-2)
+- Badge above headline: small pill — "Available for Projects · Egypt 🇪🇬"
+  Style: `bg-cyan-400/10 text-cyan-400 border border-cyan-400/20 text-xs px-3 py-1 rounded-full`
+- h1: "Expert Moodle Engineering & AI Automation"
+- Subhead (p): "Smart Learn: Scaling education since 2020 with high-performance LMS
+  infrastructure and AI-RAG logic."
+- Two CTA buttons (bottom):
+  Primary: "Start a Project" — bg-cyan-400, text-slate-950, font-semibold, rounded-xl
+  Secondary: "View Portfolio" — border border-white/20, text-white, rounded-xl
+- Background: add a subtle radial gradient mesh in cyan/violet behind content
+
+### AuthorityTile (col-span-1, row-span-1)
+- Icon: award/badge icon (Lucide: `Award`) in cyan-400, size 32
+- h2: "Moodle Community Expert"
+- Body: "Recipient of the Particularly Helpful Moodle Badge every year from 2020–2025.
+  Awarded by the Moodle.org community for sustained, high-quality technical contributions
+  to the official Moodle forums."
+- Small link at bottom: "View on Moodle.org →" (color: cyan-400)
+
+### ScaleTile (col-span-1, row-span-1)
+- Display three stats vertically or in a 3-row layout:
+  "100,000+"  → label: "Users Managed"
+  "70+"       → label: "Successful Projects"
+  "5+"        → label: "Years Experience"
+- Stat numbers: text-3xl font-bold text-cyan-400
+- Labels: text-xs text-slate-400 uppercase tracking-widest
+
+### ServiceAITile (col-span-2, row-span-1)
+- Icon: `Bot` (Lucide) in violet-400
+- h2: "AI Chatbots & RAG Systems"
+- Body: "I build dedicated AI Chatbots for every Moodle course using Retrieval-Augmented
+  Generation (RAG). Includes custom plugins for Video-to-Text pipelines — allowing students
+  to chat directly with course video content and get instant, source-cited answers."
+- Tag chips: ["RAG", "LLM Integration", "Custom Plugins", "Vector Search"]
+  Style: small rounded pills, bg-violet-400/10 text-violet-300 border border-violet-400/20
+
+### ServiceN8nTile (col-span-1, row-span-1)
+- Icon: `Workflow` (Lucide) in cyan-400
+- h2: "n8n Workflow Automation"
+- Body: "Automated grading of assignments and complex workflow engineering to eliminate
+  administrative bottlenecks. Built on n8n with Moodle webhooks and API integration."
+- Tag chips: ["n8n", "Auto-Grading", "Moodle API"]
+
+### ServiceMoodleTile (col-span-1, row-span-1)
+- Icon: `Code2` (Lucide) in cyan-400
+- h2: "Moodle Development & Plugins"
+- Body: "Full-stack LMS development: 4 free plugins published on Moodle.org and 10+
+  premium paid plugins. Expert in version migrations, upgrades, and long-term maintenance."
+- Tag chips: ["Moodle 4.x / 5.x", "PHP", "Plugin Dev", "Migration"]
+
+### FounderTile (col-span-1, row-span-2)
+- Avatar: show initials "MN" in a circle (bg-gradient-to-br from-cyan-400 to-violet-400),
+  size 64px — do NOT use an img tag (no image file exists yet)
+- h2: "Mohammad Nabil"
+- Small label above name: "Founder, Smart Learn" — text-slate-500 text-xs
+- Bio: "A top-rated freelancer and LMS architect bridging the gap between traditional
+  Moodle installations and modern AI-driven educational ecosystems."
+- Two buttons stacked vertically:
+  "Mostaql Profile" — border border-white/20, full width, rounded-xl, icon: ExternalLink
+  "Khamsat Profile"  — border border-white/20, full width, rounded-xl, icon: ExternalLink
+  Links: href="https://mostaql.com" and href="https://khamsat.com" (open in new tab)
+- Subtle vertical gradient on card background (slate-900 top → slate-800 bottom)
+
+### ServiceTrainingTile (col-span-1, row-span-1)
+- Icon: `GraduationCap` (Lucide) in cyan-400
+- h2: "Training & Technical Support"
+- Body: "Structured training programs for Moodle admins and teachers at online academies
+  and schools. Includes ongoing technical support, documentation, and remote troubleshooting."
+
+### ContactTile (col-span-2, row-span-1)
+- h2: "Start a Project"
+- A form with these fields (styled with dark inputs: bg-slate-800 border border-white/10):
+  - Text input: placeholder "Your Name"
+  - Email input: placeholder "your@email.com"
+  - Select dropdown labeled "Project Type":
+    Options: "— Select Type —", "AI / RAG System", "n8n Automation", "Moodle Core / Plugin", "Training & Support"
+  - Textarea: placeholder "Briefly describe your project..." (3 rows)
+  - Submit button: full width, bg-cyan-400, text-slate-950, font-semibold
+    Label: "Send Message →"
+- Form is UI-only (no backend). On submit: show a success message
+  "✓ Message received! I'll be in touch within 24 hours." and reset form.
+- Do NOT use <form> HTML element — use div + onClick handlers with useState
+
+---
+
+## SEO (lib/metadata.ts + app/layout.tsx)
+
+Export a `metadata` object from layout.tsx:
+  title: "Mohammad Nabil | Moodle Expert & AI Automation — Smart Learn"
+  description: "Expert Moodle engineering, AI-RAG systems, n8n automation, and LMS
+    plugin development. Serving education institutions worldwide from Egypt."
+  keywords: [
+    "Moodle RAG System",
+    "Automated Moodle Grading",
+    "n8n Moodle Expert Egypt",
+    "Mohammad Nabil Moodle",
+    "Moodle AI chatbot",
+    "LMS automation Egypt",
+    "Moodle plugin developer"
+  ]
+  openGraph:
+    url: "https://smartlearn.education"
+    siteName: "Smart Learn"
+    locale: "en_US"
+    type: "website"
+
+Ensure semantic HTML: only ONE h1 on the page (HeroTile). All other tile headings use h2.
+
+---
+
+## DELIVERABLES CHECKLIST (agent must verify before finishing)
+
+[ ] All 9 tiles rendered with correct grid spans
+[ ] Navbar fixed, responsive, hamburger on mobile
+[ ] Framer Motion: staggered entrance + hover glow/scale on every tile
+[ ] Dark mode enabled globally
+[ ] Contact form: validation, success state, no <form> tag
+[ ] SEO metadata exported from layout.tsx
+[ ] TypeScript: no `any` types, no type errors
+[ ] No placeholder text ("Lorem ipsum", "Coming soon", etc.)
+[ ] All external links open in new tab with rel="noopener noreferrer"
+[ ] `npm run build` completes with zero errors
