@@ -135,11 +135,23 @@ export function ServicePage({
                         {sec.title}
                       </h3>
                       <p
-                        className="text-sm text-slate-400 leading-relaxed"
+                        className="text-sm text-slate-400 leading-relaxed italic mb-4"
                         style={font}
                       >
                         {sec.placeholder}
                       </p>
+                      <div
+                        className="inline-flex items-center gap-1.5 text-xs font-bold px-3 py-1.5 rounded-full"
+                        style={{
+                          background: "rgba(105,0,163,0.12)",
+                          border: "1px solid rgba(168,85,247,0.2)",
+                          color: "#a855f7",
+                          ...font,
+                        }}
+                      >
+                        <span className="w-1.5 h-1.5 rounded-full bg-purple-400 animate-pulse inline-block" />
+                        Content coming soon
+                      </div>
                     </div>
                   </div>
                 </motion.div>

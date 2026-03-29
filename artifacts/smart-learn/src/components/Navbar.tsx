@@ -77,7 +77,7 @@ export function Navbar() {
               style={font}
             >
               <ArrowLeft size={15} />
-              Back
+              Back to Home
             </Link>
           )}
           <Link href={isServicePage ? "/" : "/#home"} className="flex items-center gap-2.5">
