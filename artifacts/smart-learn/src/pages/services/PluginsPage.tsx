@@ -4,7 +4,8 @@ import { Puzzle, Check } from "lucide-react";
 import { Helmet } from "react-helmet-async";
 import { Link } from "wouter";
 import { Navbar } from "@/components/Navbar";
-import { plugins, CATEGORIES, CATEGORIES_AR, type Category, type CategoryAr, type Plugin } from "@/data/plugins";
+import { CATEGORIES, CATEGORIES_AR, type Category, type CategoryAr, type Plugin } from "@/data/plugins";
+import { usePlugins } from "@/hooks/usePlugins";
 import { useT } from "@/i18n";
 import { DirectionalArrow } from "@/components/DirectionalArrow";
 
@@ -25,53 +26,55 @@ const typeColors: Record<string, { bg: string; text: string }> = {
   enrol:        { bg: "rgba(168,85,247,0.12)",  text: "#c084fc" },
 };
 
-const purelyFreeCount = plugins.filter((p) => p.free && !p.paidSupport).length;
-const freeSupportCount = plugins.filter((p) => p.free && p.paidSupport).length;
-const premiumCount = plugins.filter((p) => !p.free).length;
-
-const heroData = {
-  en: {
-    badge: "Smart Learn · Plugins",
-    title: "Moodle ",
-    titleGradient: "Plugin Library",
-    subtitle: `${plugins.length} plugins across AI, analytics, content tools, and platform management — built to production standards for Moodle 4.0+.`,
-    freePlugins: `${purelyFreeCount} Free Plugins`,
-    freeSupportPlugins: `${freeSupportCount} Free + Support`,
-    premiumPlugins: `${premiumCount} Premium Plugins`,
-    ctaTitle: "Interested in a plugin?",
-    ctaDesc: "Get in touch and I'll provide pricing, installation details, and a demo for any plugin you need.",
-    ctaBtn: "Get in Touch",
-    comingSoon: "Full details coming soon — contact me to learn more.",
-    freeBadge: "Free",
-    freeSupportBadge: "Free + Support",
-    premiumBadge: "Premium",
-    getPlugin: "Get Plugin",
-    contactPricing: "Contact for Pricing",
-    learnMore: "Learn More",
-  },
-  ar: {
-    badge: "Smart Learn · الإضافات",
-    title: "مكتبة إضافات ",
-    titleGradient: "Moodle",
-    subtitle: `${plugins.length} إضافة في مجالات الذكاء الاصطناعي والتحليلات وأدوات المحتوى وإدارة المنصة — مبنية بمعايير إنتاجية لـMoodle 4.0+.`,
-    freePlugins: `${purelyFreeCount} إضافة مجانية`,
-    freeSupportPlugins: `${freeSupportCount} مجاني مع دعم`,
-    premiumPlugins: `${premiumCount} إضافة مميزة`,
-    ctaTitle: "مهتم بإضافة معينة؟",
-    ctaDesc: "تواصل معي وسأقدم لك التسعير وتفاصيل التثبيت وعرضاً توضيحياً لأي إضافة تحتاجها.",
-    ctaBtn: "تواصل معي",
-    comingSoon: "التفاصيل الكاملة قريباً — تواصل معي لمعرفة المزيد.",
-    freeBadge: "مجاني",
-    freeSupportBadge: "مجاني + دعم",
-    premiumBadge: "مميز",
-    getPlugin: "احصل على الإضافة",
-    contactPricing: "تواصل للتسعير",
-    learnMore: "اعرف المزيد",
-  },
-};
-
 export function PluginsPage() {
   const { lang, t } = useT();
+  const { data: plugins = [] } = usePlugins();
+
+  const purelyFreeCount = plugins.filter((p) => p.free && !p.paidSupport).length;
+  const freeSupportCount = plugins.filter((p) => p.free && p.paidSupport).length;
+  const premiumCount = plugins.filter((p) => !p.free).length;
+
+  const heroData = {
+    en: {
+      badge: "Smart Learn · Plugins",
+      title: "Moodle ",
+      titleGradient: "Plugin Library",
+      subtitle: `${plugins.length} plugins across AI, analytics, content tools, and platform management — built to production standards for Moodle 4.0+.`,
+      freePlugins: `${purelyFreeCount} Free Plugins`,
+      freeSupportPlugins: `${freeSupportCount} Free + Support`,
+      premiumPlugins: `${premiumCount} Premium Plugins`,
+      ctaTitle: "Interested in a plugin?",
+      ctaDesc: "Get in touch and I'll provide pricing, installation details, and a demo for any plugin you need.",
+      ctaBtn: "Get in Touch",
+      comingSoon: "Full details coming soon — contact me to learn more.",
+      freeBadge: "Free",
+      freeSupportBadge: "Free + Support",
+      premiumBadge: "Premium",
+      getPlugin: "Get Plugin",
+      contactPricing: "Contact for Pricing",
+      learnMore: "Learn More",
+    },
+    ar: {
+      badge: "Smart Learn · الإضافات",
+      title: "مكتبة إضافات ",
+      titleGradient: "Moodle",
+      subtitle: `${plugins.length} إضافة في مجالات الذكاء الاصطناعي والتحليلات وأدوات المحتوى وإدارة المنصة — مبنية بمعايير إنتاجية لـMoodle 4.0+.`,
+      freePlugins: `${purelyFreeCount} إضافة مجانية`,
+      freeSupportPlugins: `${freeSupportCount} مجاني مع دعم`,
+      premiumPlugins: `${premiumCount} إضافة مميزة`,
+      ctaTitle: "مهتم بإضافة معينة؟",
+      ctaDesc: "تواصل معي وسأقدم لك التسعير وتفاصيل التثبيت وعرضاً توضيحياً لأي إضافة تحتاجها.",
+      ctaBtn: "تواصل معي",
+      comingSoon: "التفاصيل الكاملة قريباً — تواصل معي لمعرفة المزيد.",
+      freeBadge: "مجاني",
+      freeSupportBadge: "مجاني + دعم",
+      premiumBadge: "مميز",
+      getPlugin: "احصل على الإضافة",
+      contactPricing: "تواصل للتسعير",
+      learnMore: "اعرف المزيد",
+    },
+  };
+
   const hero = heroData[lang];
 
   const [activeEn, setActiveEn] = useState<Category>("All");
@@ -288,7 +291,12 @@ export function PluginsPage() {
   );
 }
 
-function PluginCard({ plugin, i, lang, hero }: { plugin: Plugin; i: number; lang: "en" | "ar"; hero: typeof heroData["en"] }) {
+type HeroStrings = {
+  comingSoon: string; freeBadge: string; freeSupportBadge: string; premiumBadge: string;
+  getPlugin: string; contactPricing: string; learnMore: string;
+};
+
+function PluginCard({ plugin, i, lang, hero }: { plugin: Plugin; i: number; lang: "en" | "ar"; hero: HeroStrings }) {
   const typeStyle = typeColors[plugin.type] ?? { bg: "rgba(168,85,247,0.1)", text: "#c084fc" };
   const name = lang === "en" ? plugin.name : plugin.nameAr;
   const features = lang === "en" ? plugin.features : plugin.featuresAr;

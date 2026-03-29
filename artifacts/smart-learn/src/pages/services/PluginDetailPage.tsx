@@ -8,7 +8,7 @@ import {
   ChevronLeft, ChevronRight,
 } from "lucide-react";
 import { Navbar } from "@/components/Navbar";
-import { plugins } from "@/data/plugins";
+import { usePlugins } from "@/hooks/usePlugins";
 import { useT } from "@/i18n";
 import { SocialLinks } from "@/components/SocialLinks";
 import { Link } from "wouter";
@@ -177,6 +177,7 @@ export function PluginDetailPage() {
   const { pluginSlug } = useParams<{ pluginSlug: string }>();
   const { lang, isRTL } = useT();
   const t = ui[lang];
+  const { data: plugins = [] } = usePlugins();
   const plugin = plugins.find((p) => p.slug === pluginSlug);
 
   if (!plugin) {

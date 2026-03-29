@@ -47,7 +47,7 @@ export function usePlugins() {
     queryKey: ["plugins"],
     queryFn: fetchPlugins,
     initialData: staticPlugins,
-    staleTime: 30_000,
+    staleTime: 0,
   });
 }
 
