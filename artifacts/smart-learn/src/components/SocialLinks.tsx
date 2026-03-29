@@ -53,7 +53,7 @@ const socials = [
   },
   {
     name: "YouTube",
-    url: "https://www.youtube.com/channel/UCbZdfKHNjPT3wOfGnvBlXUg",
+    url: "https://www.youtube.com/@smartlearn.education-lms",
     color: "#FF0000",
     icon: (
       <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
