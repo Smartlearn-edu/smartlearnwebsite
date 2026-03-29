@@ -4,14 +4,6 @@ import { Award, ExternalLink } from "lucide-react";
 export function AboutSection() {
   return (
     <section id="about" className="py-24 px-6">
-      <div
-        className="absolute left-0 right-0 h-px"
-        style={{
-          background:
-            "linear-gradient(90deg, transparent, rgba(255,255,255,0.06), transparent)",
-        }}
-      />
-
       <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -21,18 +13,19 @@ export function AboutSection() {
           className="text-center mb-16"
         >
           <div
-            className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-semibold uppercase tracking-widest mb-6"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-bold uppercase tracking-widest mb-6"
             style={{
-              background: "rgba(34,211,238,0.08)",
-              border: "1px solid rgba(34,211,238,0.18)",
-              color: "#22d3ee",
+              background: "rgba(105,0,163,0.15)",
+              border: "1px solid rgba(168,85,247,0.3)",
+              color: "#c084fc",
+              fontFamily: "'Cairo', sans-serif",
             }}
           >
-            👤 About Me
+            👤 About
           </div>
           <h2
-            className="text-4xl md:text-5xl font-bold text-white mb-4"
-            style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+            className="text-4xl md:text-5xl font-black text-white mb-4"
+            style={{ fontFamily: "'Cairo', sans-serif" }}
           >
             Who Is Behind <span className="gradient-text">Smart Learn</span>
           </h2>
@@ -52,26 +45,35 @@ export function AboutSection() {
           >
             <div className="flex items-center gap-4 mb-6">
               <div
-                className="w-16 h-16 rounded-2xl flex items-center justify-center text-xl font-bold text-white flex-shrink-0"
-                style={{ background: "linear-gradient(135deg, #22d3ee, #a78bfa)" }}
+                className="w-16 h-16 rounded-2xl flex items-center justify-center text-xl font-black text-white flex-shrink-0"
+                style={{ background: "linear-gradient(135deg, #6900A3, #c084fc)" }}
               >
                 MN
               </div>
               <div>
                 <h3
-                  className="text-xl font-bold text-white"
-                  style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+                  className="text-xl font-black text-white"
+                  style={{ fontFamily: "'Cairo', sans-serif" }}
                 >
                   Mohammad Nabil
                 </h3>
-                <p className="text-sm text-slate-500">Founder, Smart Learn · Egypt 🇪🇬</p>
+                <p
+                  className="text-sm text-slate-500"
+                  style={{ fontFamily: "'Cairo', sans-serif" }}
+                >
+                  Founder, Smart Learn · Egypt 🇪🇬
+                </p>
               </div>
             </div>
 
-            <p className="text-slate-400 leading-relaxed mb-6">
+            <p
+              className="text-slate-400 leading-relaxed mb-6"
+              style={{ fontFamily: "'Cairo', sans-serif" }}
+            >
               A top-rated freelancer and LMS architect bridging the gap between online academies
               and cutting-edge AI technology. Since 2020, I've been building and scaling Moodle
-              platforms for institutions worldwide — from plugin development to full AI integration.
+              platforms for institutions worldwide — from plugin development and migrations to full
+              AI integration and n8n automation.
             </p>
 
             <div className="flex flex-wrap gap-3">
@@ -79,11 +81,12 @@ export function AboutSection() {
                 href="https://mostaql.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 text-sm font-medium px-3.5 py-2 rounded-lg transition-all duration-200"
+                className="inline-flex items-center gap-1.5 text-sm font-bold px-3.5 py-2 rounded-lg transition-all duration-200 hover:opacity-80"
                 style={{
-                  background: "rgba(34,211,238,0.08)",
-                  color: "#22d3ee",
-                  border: "1px solid rgba(34,211,238,0.15)",
+                  background: "rgba(105,0,163,0.15)",
+                  color: "#c084fc",
+                  border: "1px solid rgba(168,85,247,0.25)",
+                  fontFamily: "'Cairo', sans-serif",
                 }}
               >
                 Mostaql Profile
@@ -93,11 +96,12 @@ export function AboutSection() {
                 href="https://khamsat.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 text-sm font-medium px-3.5 py-2 rounded-lg transition-all duration-200"
+                className="inline-flex items-center gap-1.5 text-sm font-bold px-3.5 py-2 rounded-lg transition-all duration-200 hover:opacity-80"
                 style={{
-                  background: "rgba(34,211,238,0.08)",
-                  color: "#22d3ee",
-                  border: "1px solid rgba(34,211,238,0.15)",
+                  background: "rgba(105,0,163,0.15)",
+                  color: "#c084fc",
+                  border: "1px solid rgba(168,85,247,0.25)",
+                  fontFamily: "'Cairo', sans-serif",
                 }}
               >
                 Khamsat Profile
@@ -117,35 +121,41 @@ export function AboutSection() {
               className="rounded-2xl p-6"
               style={{
                 background:
-                  "linear-gradient(135deg, rgba(34,211,238,0.07) 0%, rgba(167,139,250,0.05) 100%)",
-                border: "1px solid rgba(34,211,238,0.18)",
+                  "linear-gradient(135deg, rgba(105,0,163,0.12) 0%, rgba(168,85,247,0.06) 100%)",
+                border: "1px solid rgba(168,85,247,0.25)",
               }}
             >
               <div className="flex items-start gap-4">
                 <div
                   className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 mt-0.5"
-                  style={{ background: "rgba(34,211,238,0.12)" }}
+                  style={{ background: "rgba(168,85,247,0.15)" }}
                 >
-                  <Award size={18} style={{ color: "#22d3ee" }} />
+                  <Award size={18} style={{ color: "#c084fc" }} />
                 </div>
                 <div>
                   <h4
-                    className="font-bold text-white mb-1"
-                    style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+                    className="font-black text-white mb-1"
+                    style={{ fontFamily: "'Cairo', sans-serif" }}
                   >
                     Moodle Community Expert
                   </h4>
-                  <p className="text-sm text-slate-400 leading-relaxed">
-                    Recipient of the <span className="text-cyan-400 font-medium">Particularly Helpful Moodle Badge</span> every
-                    year from 2020–2025, awarded by the Moodle.org community for sustained,
+                  <p
+                    className="text-sm text-slate-400 leading-relaxed"
+                    style={{ fontFamily: "'Cairo', sans-serif" }}
+                  >
+                    Recipient of the{" "}
+                    <span style={{ color: "#c084fc", fontWeight: 700 }}>
+                      Particularly Helpful Moodle Badge
+                    </span>{" "}
+                    every year from 2020–2025, awarded by the Moodle.org community for sustained,
                     high-quality technical contributions.
                   </p>
                   <a
                     href="https://moodle.org"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1 text-sm mt-3 font-medium"
-                    style={{ color: "#22d3ee" }}
+                    className="inline-flex items-center gap-1 text-sm mt-3 font-bold"
+                    style={{ color: "#a855f7", fontFamily: "'Cairo', sans-serif" }}
                   >
                     View on Moodle.org →
                   </a>
@@ -167,12 +177,15 @@ export function AboutSection() {
               ].map((stat) => (
                 <div key={stat.label} className="text-center">
                   <div
-                    className="text-2xl font-bold gradient-text mb-0.5"
-                    style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+                    className="text-2xl font-black gradient-text mb-0.5"
+                    style={{ fontFamily: "'Cairo', sans-serif" }}
                   >
                     {stat.value}
                   </div>
-                  <div className="text-xs text-slate-500 uppercase tracking-wide">
+                  <div
+                    className="text-xs text-slate-500 uppercase tracking-wide"
+                    style={{ fontFamily: "'Cairo', sans-serif" }}
+                  >
                     {stat.label}
                   </div>
                 </div>

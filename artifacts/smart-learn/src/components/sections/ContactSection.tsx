@@ -33,6 +33,13 @@ export function ContactSection() {
     setFields({ name: "", email: "", service: "", message: "" });
   }
 
+  const inputStyle = (hasError: boolean) => ({
+    background: "rgba(255,255,255,0.04)",
+    border: hasError ? "1px solid rgba(239,68,68,0.5)" : "1px solid rgba(168,85,247,0.15)",
+    outline: "none",
+    fontFamily: "'Cairo', sans-serif",
+  });
+
   return (
     <section id="contact" className="py-24 px-6">
       <div className="max-w-6xl mx-auto">
@@ -44,24 +51,27 @@ export function ContactSection() {
           className="text-center mb-16"
         >
           <div
-            className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-semibold uppercase tracking-widest mb-6"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-bold uppercase tracking-widest mb-6"
             style={{
-              background: "rgba(167,139,250,0.08)",
-              border: "1px solid rgba(167,139,250,0.2)",
-              color: "#a78bfa",
+              background: "rgba(105,0,163,0.15)",
+              border: "1px solid rgba(168,85,247,0.3)",
+              color: "#c084fc",
+              fontFamily: "'Cairo', sans-serif",
             }}
           >
             📧 Contact
           </div>
           <h2
-            className="text-4xl md:text-5xl font-bold text-white mb-4"
-            style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+            className="text-4xl md:text-5xl font-black text-white mb-4"
+            style={{ fontFamily: "'Cairo', sans-serif" }}
           >
-            Let's Build{" "}
-            <span className="gradient-text">Something Great</span>
+            Let's Build <span className="gradient-text">Together</span>
           </h2>
-          <p className="text-slate-400 max-w-md mx-auto text-lg">
-            Have a project in mind? Describe what you need and I'll get back to you within 24 hours.
+          <p
+            className="text-slate-400 max-w-md mx-auto text-lg"
+            style={{ fontFamily: "'Cairo', sans-serif" }}
+          >
+            Have a project in mind? I'll reply within 24 hours.
           </p>
         </motion.div>
 
@@ -83,26 +93,51 @@ export function ContactSection() {
               <div className="flex items-start gap-4 mb-6">
                 <div
                   className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0"
-                  style={{ background: "rgba(34,211,238,0.1)" }}
+                  style={{ background: "rgba(168,85,247,0.12)" }}
                 >
-                  <Mail size={18} style={{ color: "#22d3ee" }} />
+                  <Mail size={18} style={{ color: "#a855f7" }} />
                 </div>
                 <div>
-                  <p className="text-xs text-slate-500 uppercase tracking-widest mb-1">Email</p>
-                  <p className="text-white font-medium text-sm">contact@smartlearn.education</p>
+                  <p
+                    className="text-xs text-slate-500 uppercase tracking-widest mb-1"
+                    style={{ fontFamily: "'Cairo', sans-serif" }}
+                  >
+                    Email
+                  </p>
+                  <p
+                    className="text-white font-semibold text-sm"
+                    style={{ fontFamily: "'Cairo', sans-serif" }}
+                  >
+                    contact@smartlearn.education
+                  </p>
                 </div>
               </div>
               <div className="flex items-start gap-4">
                 <div
                   className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0"
-                  style={{ background: "rgba(34,211,238,0.1)" }}
+                  style={{ background: "rgba(168,85,247,0.12)" }}
                 >
-                  <MapPin size={18} style={{ color: "#22d3ee" }} />
+                  <MapPin size={18} style={{ color: "#a855f7" }} />
                 </div>
                 <div>
-                  <p className="text-xs text-slate-500 uppercase tracking-widest mb-1">Location</p>
-                  <p className="text-white font-medium text-sm">Egypt</p>
-                  <p className="text-slate-500 text-xs mt-0.5">Available for remote work worldwide 🌍</p>
+                  <p
+                    className="text-xs text-slate-500 uppercase tracking-widest mb-1"
+                    style={{ fontFamily: "'Cairo', sans-serif" }}
+                  >
+                    Location
+                  </p>
+                  <p
+                    className="text-white font-semibold text-sm"
+                    style={{ fontFamily: "'Cairo', sans-serif" }}
+                  >
+                    Egypt 🇪🇬
+                  </p>
+                  <p
+                    className="text-slate-500 text-xs mt-0.5"
+                    style={{ fontFamily: "'Cairo', sans-serif" }}
+                  >
+                    Available for remote work worldwide 🌍
+                  </p>
                 </div>
               </div>
             </div>
@@ -111,15 +146,28 @@ export function ContactSection() {
               className="rounded-2xl p-5"
               style={{
                 background:
-                  "linear-gradient(135deg, rgba(34,211,238,0.07) 0%, rgba(167,139,250,0.05) 100%)",
-                border: "1px solid rgba(34,211,238,0.15)",
+                  "linear-gradient(135deg, rgba(105,0,163,0.15) 0%, rgba(168,85,247,0.08) 100%)",
+                border: "1px solid rgba(168,85,247,0.25)",
               }}
             >
-              <p className="text-sm text-slate-300 font-medium mb-2">Typical response time</p>
-              <p className="text-2xl font-bold gradient-text" style={{ fontFamily: "'Space Grotesk', sans-serif" }}>
+              <p
+                className="text-sm text-slate-300 font-semibold mb-2"
+                style={{ fontFamily: "'Cairo', sans-serif" }}
+              >
+                Typical response time
+              </p>
+              <p
+                className="text-2xl font-black gradient-text"
+                style={{ fontFamily: "'Cairo', sans-serif" }}
+              >
                 &lt; 24 hours
               </p>
-              <p className="text-xs text-slate-500 mt-1">Mon – Sat</p>
+              <p
+                className="text-xs text-slate-500 mt-1"
+                style={{ fontFamily: "'Cairo', sans-serif" }}
+              >
+                Mon – Sat
+              </p>
             </div>
           </motion.div>
 
@@ -136,19 +184,23 @@ export function ContactSection() {
           >
             {submitted ? (
               <div className="flex flex-col items-center justify-center py-12 text-center gap-4">
-                <CheckCircle size={48} style={{ color: "#22d3ee" }} />
+                <CheckCircle size={48} style={{ color: "#a855f7" }} />
                 <h3
-                  className="text-xl font-bold text-white"
-                  style={{ fontFamily: "'Space Grotesk', sans-serif" }}
+                  className="text-xl font-black text-white"
+                  style={{ fontFamily: "'Cairo', sans-serif" }}
                 >
                   Message Sent!
                 </h3>
-                <p className="text-slate-400 text-sm max-w-xs">
+                <p
+                  className="text-slate-400 text-sm max-w-xs"
+                  style={{ fontFamily: "'Cairo', sans-serif" }}
+                >
                   Thanks for reaching out. I'll reply within 24 hours.
                 </p>
                 <button
                   onClick={() => setSubmitted(false)}
-                  className="text-sm text-cyan-400 hover:text-cyan-300 transition-colors mt-2"
+                  className="text-sm font-semibold transition-colors mt-2"
+                  style={{ color: "#a855f7", fontFamily: "'Cairo', sans-serif" }}
                 >
                   Send another message
                 </button>
@@ -157,7 +209,10 @@ export function ContactSection() {
               <form onSubmit={handleSubmit} className="flex flex-col gap-5" noValidate>
                 <div className="grid sm:grid-cols-2 gap-5">
                   <div>
-                    <label className="text-xs text-slate-500 uppercase tracking-widest mb-2 block">
+                    <label
+                      className="text-xs text-slate-500 uppercase tracking-widest mb-2 block"
+                      style={{ fontFamily: "'Cairo', sans-serif" }}
+                    >
                       Your Name *
                     </label>
                     <input
@@ -165,20 +220,23 @@ export function ContactSection() {
                       value={fields.name}
                       onChange={(e) => setFields({ ...fields, name: e.target.value })}
                       placeholder="Mohammad Ali"
-                      className="w-full rounded-xl px-4 py-3 text-sm text-white placeholder-slate-600 outline-none transition-all duration-200"
-                      style={{
-                        background: "rgba(255,255,255,0.05)",
-                        border: errors.name
-                          ? "1px solid rgba(239,68,68,0.5)"
-                          : "1px solid rgba(255,255,255,0.08)",
-                      }}
+                      className="w-full rounded-xl px-4 py-3 text-sm text-white placeholder-slate-600 transition-all duration-200"
+                      style={inputStyle(!!errors.name)}
                     />
                     {errors.name && (
-                      <p className="text-xs text-red-400 mt-1.5">{errors.name}</p>
+                      <p
+                        className="text-xs text-red-400 mt-1.5"
+                        style={{ fontFamily: "'Cairo', sans-serif" }}
+                      >
+                        {errors.name}
+                      </p>
                     )}
                   </div>
                   <div>
-                    <label className="text-xs text-slate-500 uppercase tracking-widest mb-2 block">
+                    <label
+                      className="text-xs text-slate-500 uppercase tracking-widest mb-2 block"
+                      style={{ fontFamily: "'Cairo', sans-serif" }}
+                    >
                       Email Address *
                     </label>
                     <input
@@ -186,43 +244,51 @@ export function ContactSection() {
                       value={fields.email}
                       onChange={(e) => setFields({ ...fields, email: e.target.value })}
                       placeholder="you@example.com"
-                      className="w-full rounded-xl px-4 py-3 text-sm text-white placeholder-slate-600 outline-none transition-all duration-200"
-                      style={{
-                        background: "rgba(255,255,255,0.05)",
-                        border: errors.email
-                          ? "1px solid rgba(239,68,68,0.5)"
-                          : "1px solid rgba(255,255,255,0.08)",
-                      }}
+                      className="w-full rounded-xl px-4 py-3 text-sm text-white placeholder-slate-600 transition-all duration-200"
+                      style={inputStyle(!!errors.email)}
                     />
                     {errors.email && (
-                      <p className="text-xs text-red-400 mt-1.5">{errors.email}</p>
+                      <p
+                        className="text-xs text-red-400 mt-1.5"
+                        style={{ fontFamily: "'Cairo', sans-serif" }}
+                      >
+                        {errors.email}
+                      </p>
                     )}
                   </div>
                 </div>
 
                 <div>
-                  <label className="text-xs text-slate-500 uppercase tracking-widest mb-2 block">
+                  <label
+                    className="text-xs text-slate-500 uppercase tracking-widest mb-2 block"
+                    style={{ fontFamily: "'Cairo', sans-serif" }}
+                  >
                     Service Needed
                   </label>
                   <select
                     value={fields.service}
                     onChange={(e) => setFields({ ...fields, service: e.target.value })}
-                    className="w-full rounded-xl px-4 py-3 text-sm text-white outline-none transition-all duration-200"
+                    className="w-full rounded-xl px-4 py-3 text-sm text-white transition-all duration-200"
                     style={{
-                      background: "rgba(255,255,255,0.05)",
-                      border: "1px solid rgba(255,255,255,0.08)",
+                      background: "rgba(255,255,255,0.04)",
+                      border: "1px solid rgba(168,85,247,0.15)",
+                      fontFamily: "'Cairo', sans-serif",
                     }}
                   >
                     <option value="" style={{ background: "#0d0d1a" }}>Select a service…</option>
-                    <option value="ai" style={{ background: "#0d0d1a" }}>AI Chatbot / RAG System</option>
+                    <option value="moodle-core" style={{ background: "#0d0d1a" }}>Moodle Installation / Migration</option>
+                    <option value="plugins" style={{ background: "#0d0d1a" }}>Plugin Development</option>
+                    <option value="ai" style={{ background: "#0d0d1a" }}>AI Integration (Chatbot / RAG)</option>
                     <option value="n8n" style={{ background: "#0d0d1a" }}>n8n Automation</option>
-                    <option value="moodle" style={{ background: "#0d0d1a" }}>Moodle Core / Plugin</option>
                     <option value="training" style={{ background: "#0d0d1a" }}>Training & Support</option>
                   </select>
                 </div>
 
                 <div>
-                  <label className="text-xs text-slate-500 uppercase tracking-widest mb-2 block">
+                  <label
+                    className="text-xs text-slate-500 uppercase tracking-widest mb-2 block"
+                    style={{ fontFamily: "'Cairo', sans-serif" }}
+                  >
                     Project Description *
                   </label>
                   <textarea
@@ -230,25 +296,26 @@ export function ContactSection() {
                     onChange={(e) => setFields({ ...fields, message: e.target.value })}
                     placeholder="Tell me about your project, your platform size, and what you'd like to achieve…"
                     rows={4}
-                    className="w-full rounded-xl px-4 py-3 text-sm text-white placeholder-slate-600 outline-none resize-none transition-all duration-200"
-                    style={{
-                      background: "rgba(255,255,255,0.05)",
-                      border: errors.message
-                        ? "1px solid rgba(239,68,68,0.5)"
-                        : "1px solid rgba(255,255,255,0.08)",
-                    }}
+                    className="w-full rounded-xl px-4 py-3 text-sm text-white placeholder-slate-600 resize-none transition-all duration-200"
+                    style={inputStyle(!!errors.message)}
                   />
                   {errors.message && (
-                    <p className="text-xs text-red-400 mt-1.5">{errors.message}</p>
+                    <p
+                      className="text-xs text-red-400 mt-1.5"
+                      style={{ fontFamily: "'Cairo', sans-serif" }}
+                    >
+                      {errors.message}
+                    </p>
                   )}
                 </div>
 
                 <button
                   type="submit"
-                  className="inline-flex items-center justify-center gap-2 py-3.5 rounded-xl font-semibold text-sm text-white transition-all duration-200 hover:opacity-90 hover:scale-[1.01]"
+                  className="inline-flex items-center justify-center gap-2 py-3.5 rounded-xl font-black text-sm text-white transition-all duration-200 hover:opacity-90 hover:scale-[1.01]"
                   style={{
-                    background: "linear-gradient(135deg, #22d3ee, #0891b2)",
-                    boxShadow: "0 0 24px rgba(34,211,238,0.2)",
+                    background: "linear-gradient(135deg, #6900A3, #a855f7)",
+                    boxShadow: "0 0 30px rgba(105,0,163,0.35)",
+                    fontFamily: "'Cairo', sans-serif",
                   }}
                 >
                   <Send size={15} />

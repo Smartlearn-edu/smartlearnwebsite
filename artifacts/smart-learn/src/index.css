@@ -3,9 +3,9 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  --font-display: 'Space Grotesk', sans-serif;
-  --font-body: 'DM Sans', sans-serif;
-  --font-sans: 'DM Sans', sans-serif;
+  --font-display: 'Cairo', sans-serif;
+  --font-body: 'Cairo', sans-serif;
+  --font-sans: 'Cairo', sans-serif;
 }
 
 @layer base {
@@ -17,36 +17,19 @@
     background-color: #07070f;
     color: #b0b8cc;
     -webkit-font-smoothing: antialiased;
-    font-family: var(--font-body);
+    font-family: 'Cairo', sans-serif;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-display);
+    font-family: 'Cairo', sans-serif;
   }
 }
 
 @layer utilities {
   .gradient-text {
-    background: linear-gradient(135deg, #22d3ee 0%, #a78bfa 100%);
+    background: linear-gradient(135deg, #a855f7 0%, #c084fc 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-  }
-
-  .card-border {
-    position: relative;
-  }
-
-  .card-border::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border-radius: inherit;
-    padding: 1px;
-    background: linear-gradient(135deg, rgba(34,211,238,0.25) 0%, rgba(167,139,250,0.15) 100%);
-    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-    pointer-events: none;
   }
 }
