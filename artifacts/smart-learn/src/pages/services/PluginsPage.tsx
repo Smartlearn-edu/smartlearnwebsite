@@ -2,6 +2,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Puzzle, Check } from "lucide-react";
 import { Helmet } from "react-helmet-async";
+import { Link } from "wouter";
 import { Navbar } from "@/components/Navbar";
 import { plugins, CATEGORIES, CATEGORIES_AR, type Category, type CategoryAr, type Plugin } from "@/data/plugins";
 import { useT } from "@/i18n";
@@ -43,6 +44,7 @@ const heroData = {
     premiumBadge: "Premium",
     getPlugin: "Get Plugin",
     contactPricing: "Contact for Pricing",
+    learnMore: "Learn More",
   },
   ar: {
     badge: "Smart Learn · الإضافات",
@@ -59,6 +61,7 @@ const heroData = {
     premiumBadge: "مميز",
     getPlugin: "احصل على الإضافة",
     contactPricing: "تواصل للتسعير",
+    learnMore: "اعرف المزيد",
   },
 };
 
@@ -264,12 +267,12 @@ function PluginCard({ plugin, i, lang, hero }: { plugin: Plugin; i: number; lang
         )}
       </div>
 
-      <a href="/#contact"
+      <Link href={`/services/plugins/${plugin.slug}`}
         className="inline-flex items-center justify-center gap-1.5 w-full py-2.5 rounded-xl text-sm font-bold text-white transition-all duration-200 hover:opacity-90"
         style={{ background: "linear-gradient(135deg, #6900A3, #a855f7)", ...font }}>
-        {plugin.free ? hero.getPlugin : hero.contactPricing}
+        {hero.learnMore}
         <DirectionalArrow size={13} />
-      </a>
+      </Link>
     </motion.div>
   );
 }

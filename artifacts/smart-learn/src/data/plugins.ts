@@ -14,7 +14,17 @@ export interface Plugin {
   features: string[];
   featuresAr: string[];
   placeholder?: boolean;
+  price: number | null;
+  buyUrl?: string;
+  downloadUrl?: string;
+  requiresSetup?: boolean;
+  setupPrice?: number;
+  images: string[];
+  description: string;
+  descriptionAr: string;
 }
+
+const WA = "https://wa.me/201005822858";
 
 export const CATEGORIES: Category[] = [
   "All",
@@ -42,6 +52,11 @@ export const plugins: Plugin[] = [
     category: "AI-Powered",
     categoryAr: "مدعوم بالذكاء الاصطناعي",
     free: false,
+    price: 50,
+    buyUrl: `${WA}?text=Hi! I'm interested in the Quiz AI Chat plugin for Moodle.`,
+    images: [],
+    description: "An AI tutor embedded directly inside every Moodle quiz attempt. Students get question-level explanations and overall performance analysis through a conversational chat interface — without ever leaving the quiz page.\n\nThe plugin supports 5 configurable context levels, letting you balance answer quality against API cost. A token-saving mode sends context only on the first message, dramatically reducing LLM usage for large cohorts.",
+    descriptionAr: "مرشد ذكاء اصطناعي مدمج مباشرة داخل كل محاولة اختبار في Moodle. يحصل الطلاب على شروحات على مستوى السؤال وتحليل للأداء الكلي من خلال واجهة محادثة — دون مغادرة صفحة الاختبار.\n\nيدعم الإضافة 5 مستويات سياق قابلة للتهيئة، تتيح لك الموازنة بين جودة الإجابة وتكلفة API. يرسل وضع توفير التوكن السياق عند الرسالة الأولى فقط، مما يقلل بشكل كبير من استخدام LLM للمجموعات الكبيرة.",
     features: [
       "AI tutor embedded inside every quiz attempt",
       "Question-level explanations & overall performance chat",
@@ -64,6 +79,11 @@ export const plugins: Plugin[] = [
     category: "AI-Powered",
     categoryAr: "مدعوم بالذكاء الاصطناعي",
     free: false,
+    price: 50,
+    buyUrl: `${WA}?text=Hi! I'm interested in the Chat with Assignment plugin for Moodle.`,
+    images: [],
+    description: "Adds an AI-powered chat panel to every Moodle assignment submission page. Students can ask the AI about their feedback, rubric scores, and how to improve — grounded in the actual submission, grader comments, and rubric data.\n\nTeachers can write custom AI instructions per assignment to focus the assistant on specific learning goals. Fully GDPR-compliant with student data portability.",
+    descriptionAr: "يضيف لوحة محادثة مدعومة بالذكاء الاصطناعي لكل صفحة تقديم مهمة في Moodle. يمكن للطلاب سؤال الذكاء الاصطناعي عن تغذيتهم الراجعة ودرجات الروبريك وكيفية التحسين — بناءً على التقديم الفعلي وتعليقات المصحح وبيانات الروبريك.\n\nيمكن للمعلمين كتابة تعليمات ذكاء اصطناعي مخصصة لكل مهمة لتركيز المساعد على أهداف تعليمية محددة.",
     features: [
       "AI chat on assignment feedback & rubric scores",
       "5 context levels from grade-only to full submission",
@@ -85,7 +105,14 @@ export const plugins: Plugin[] = [
     moodle: "Moodle 4.0+",
     category: "AI-Powered",
     categoryAr: "مدعوم بالذكاء الاصطناعي",
-    free: false,
+    free: true,
+    price: null,
+    downloadUrl: "https://moodle.org/plugins/local_smartgradeai",
+    requiresSetup: true,
+    setupPrice: 100,
+    images: [],
+    description: "A free, open-source AI grading plugin for Moodle that uses an n8n workflow as its AI backend. The plugin sends student submissions to your n8n workflow, which calls your chosen LLM (GPT-4, Claude, Gemini, DeepSeek) and returns rubric-level scores and written feedback.\n\nThe plugin is free to download on Moodle.org — but it requires an n8n workflow to function. You can build the workflow yourself, or hire me to set it up for you starting at $100.",
+    descriptionAr: "إضافة تصحيح ذكاء اصطناعي مجانية ومفتوحة المصدر لـMoodle تستخدم سير عمل n8n كخلفية ذكاء اصطناعي لها. ترسل الإضافة تقديمات الطلاب إلى سير عمل n8n الخاص بك، الذي يستدعي نموذج اللغة الكبير الذي اخترته ويعيد درجات على مستوى الروبريك وتغذية راجعة مكتوبة.\n\nالإضافة مجانية على Moodle.org — لكنها تتطلب سير عمل n8n للعمل. يمكنك بناء سير العمل بنفسك، أو توظيفي لإعداده ابتداءً من 100 دولار.",
     features: [
       "Human-in-the-loop AI grading with teacher review",
       "Rubric-aware: selects levels & writes comments",
@@ -108,6 +135,11 @@ export const plugins: Plugin[] = [
     category: "AI-Powered",
     categoryAr: "مدعوم بالذكاء الاصطناعي",
     free: false,
+    price: 50,
+    buyUrl: `${WA}?text=Hi! I'm interested in the AI Rubric Generator plugin for Moodle.`,
+    images: [],
+    description: "Generates complete Moodle rubrics from an assignment description using AI. Teachers choose the tone, framework (Bloom's Taxonomy, SOLO, Academic), and number of criteria — the AI produces a ready-to-use rubric in seconds.\n\nBefore saving, you can test the rubric against sample student submissions to verify it grades as expected. The plugin also generates full assignment descriptions from your course section context.",
+    descriptionAr: "يُنشئ روبريك Moodle كاملة من وصف المهمة باستخدام الذكاء الاصطناعي. يختار المعلمون الأسلوب والإطار (تصنيف Bloom وSOLO والأكاديمي) وعدد المعايير — ينتج الذكاء الاصطناعي روبريك جاهزة للاستخدام في ثوانٍ.\n\nقبل الحفظ، يمكنك اختبار الروبريك على تقديمات طلاب نموذجية للتحقق من أنها تصحح كما هو متوقع.",
     features: [
       "Generate rubrics from assignment description with AI",
       "Tone & framework options (Bloom's, SOLO, Academic…)",
@@ -130,6 +162,11 @@ export const plugins: Plugin[] = [
     category: "AI-Powered",
     categoryAr: "مدعوم بالذكاء الاصطناعي",
     free: false,
+    price: 50,
+    buyUrl: `${WA}?text=Hi! I'm interested in the Adaptive Study Plan plugin for Moodle.`,
+    images: [],
+    description: "An AI-powered Moodle activity that creates a personalised, week-by-week study schedule for each student. During onboarding, students fill in their available study hours and prior knowledge level. The AI then maps every course activity into a dynamic checklist optimised for their schedule.\n\nStudents chat with an AI coach directly inside the activity to reschedule tasks, ask for study tips, or request deadline extensions — all within Moodle.",
+    descriptionAr: "نشاط Moodle مدعوم بالذكاء الاصطناعي يُنشئ جدولاً دراسياً أسبوعياً مخصصاً لكل طالب. خلال الإعداد الأولي، يملأ الطلاب ساعات الدراسة المتاحة لهم ومستوى معرفتهم السابقة. ثم يرسم الذكاء الاصطناعي كل نشاط في المقرر إلى قائمة مهام ديناميكية محسّنة لجدولهم.\n\nيتحدث الطلاب مع مدرب ذكاء اصطناعي مباشرة داخل النشاط لإعادة جدولة المهام أو طلب نصائح الدراسة أو تمديد المواعيد النهائية.",
     features: [
       "AI-generated personalised study schedules per student",
       "Onboarding questionnaire for hours & prior knowledge",
@@ -152,6 +189,11 @@ export const plugins: Plugin[] = [
     category: "Analytics & Reporting",
     categoryAr: "التحليلات والتقارير",
     free: false,
+    price: 50,
+    buyUrl: `${WA}?text=Hi! I'm interested in the Smart Dashboard plugin for Moodle.`,
+    images: [],
+    description: "An all-in-one analytics dashboard for Moodle administrators. Surfaces student progress, grading status, payment transactions, and course completion data in a single, beautiful dark-themed UI with sidebar navigation.\n\nDrill down to any individual student across all their enrolled courses. Export any data section as CSV. Revenue analytics display category breakdown charts for institutions monetising their Moodle platform.",
+    descriptionAr: "لوحة تحليلات شاملة لمسؤولي Moodle. تعرض تقدم الطلاب وحالة التصحيح وعمليات الدفع وبيانات إكمال المقررات في واجهة مستخدم داكنة جميلة مع تنقل بشريط جانبي.\n\nتعمق في أي طالب فردي عبر جميع مقرراته المسجل بها. صدّر أي قسم بيانات كـCSV. تعرض تحليلات الإيرادات مخططات تفصيل الفئات للمؤسسات التي تحقق دخلاً من منصة Moodle.",
     features: [
       "All-in-one analytics: student progress, grading, payments",
       "Cross-course completion tracking with per-student drill-down",
@@ -174,6 +216,11 @@ export const plugins: Plugin[] = [
     category: "Analytics & Reporting",
     categoryAr: "التحليلات والتقارير",
     free: true,
+    price: null,
+    downloadUrl: "https://moodle.org/plugins/report_studentgrades",
+    images: [],
+    description: "A free Moodle report plugin that lets students (and authorised admins) view all their enrolled course grades in one place. Displays a hierarchical grade structure with categories, grade items, and totals — spanning every course on the platform.\n\nFully open-source and available on Moodle.org. Includes 18+ colour settings, full RTL support, and Word-compatible output.",
+    descriptionAr: "إضافة تقارير Moodle مجانية تتيح للطلاب (والمسؤولين المخوّلين) عرض جميع درجاتهم في المقررات المسجل بها في مكان واحد. تعرض هيكل درجات هرمي مع الفئات وعناصر الدرجات والمجاميع — عبر كل مقرر في المنصة.\n\nمفتوحة المصدر بالكامل ومتاحة على Moodle.org. تتضمن أكثر من 18 إعداد ألوان ودعم كامل لـRTL وإخراج متوافق مع Word.",
     features: [
       "Export all enrolled course grades as one HTML file",
       "Hierarchical grade structure with categories & totals",
@@ -196,6 +243,11 @@ export const plugins: Plugin[] = [
     category: "Analytics & Reporting",
     categoryAr: "التحليلات والتقارير",
     free: true,
+    price: null,
+    downloadUrl: "https://moodle.org/plugins/gradereport_htmlexport",
+    images: [],
+    description: "A free Moodle grade report plugin that exports any course's gradebook as a beautifully styled, standalone HTML file. Teachers can download grade reports for individual students or bulk-export all students as a ZIP archive in one click.\n\nOpen-source and published on Moodle.org. Supports 18+ colour themes, site logo integration, print-ready CSS, and full RTL and accessibility compliance.",
+    descriptionAr: "إضافة تقرير درجات Moodle مجانية تصدّر دفتر الدرجات لأي مقرر كملف HTML منسق بجمال ومستقل. يمكن للمعلمين تنزيل تقارير الدرجات لطلاب فرديين أو تصدير جميع الطلاب جماعياً كأرشيف ZIP بنقرة واحدة.\n\nمفتوحة المصدر ومنشورة على Moodle.org. تدعم أكثر من 18 ثيم ألوان وتكامل شعار الموقع وCSS جاهز للطباعة وامتثال كامل لـRTL وإمكانية الوصول.",
     features: [
       "Per-course grade export as beautifully styled HTML",
       "Bulk ZIP download for all students at once",
@@ -218,6 +270,11 @@ export const plugins: Plugin[] = [
     category: "Course Tools",
     categoryAr: "أدوات المقرر",
     free: true,
+    price: null,
+    downloadUrl: "https://moodle.org/plugins/mod_gapclose",
+    images: [],
+    description: "A free Moodle activity that automatically identifies a student's knowledge gaps by scanning all incorrect quiz answers across the course, then builds a focused remediation session using those exact questions.\n\nPowered by the native Moodle Question Engine with live feedback. Sessions are resumable — students can restart at any time to scan for newly added gaps.",
+    descriptionAr: "نشاط Moodle مجاني يحدد تلقائياً فجوات معرفة الطالب عن طريق فحص جميع الإجابات الخاطئة في اختبارات المقرر، ثم يبني جلسة علاجية مركّزة باستخدام تلك الأسئلة بالضبط.\n\nمدعوم بمحرك أسئلة Moodle الأصلي مع تغذية راجعة فورية. الجلسات قابلة للاستئناف — يمكن للطلاب إعادة التشغيل في أي وقت للبحث عن فجوات مضافة حديثاً.",
     features: [
       "Auto-detects incorrect answers across all course quizzes",
       "Builds a focused review session from the student's gaps",
@@ -240,6 +297,11 @@ export const plugins: Plugin[] = [
     category: "Course Tools",
     categoryAr: "أدوات المقرر",
     free: true,
+    price: null,
+    downloadUrl: "https://moodle.org/plugins/mod_protectedpdf",
+    images: [],
+    description: "A free Moodle activity that watermarks every PDF download with the student's name and email address. Uses FPDI to overlay a personalised watermark on every page of the original PDF file before serving it.\n\nAccess is restricted to enrolled, authenticated users only. Supports Moodle completion tracking, backup, and restore.",
+    descriptionAr: "نشاط Moodle مجاني يضع علامة مائية على كل تنزيل PDF باسم الطالب وعنوان بريده الإلكتروني. يستخدم FPDI لتراكب علامة مائية مخصصة على كل صفحة من ملف PDF الأصلي قبل تقديمه.\n\nالوصول مقيد للمستخدمين المسجلين والمصادق عليهم فقط. يدعم تتبع إكمال Moodle والنسخ الاحتياطي والاستعادة.",
     features: [
       "Watermarks every PDF download with student name & email",
       "FPDI-powered per-page overlay on the original file",
@@ -262,7 +324,12 @@ export const plugins: Plugin[] = [
     category: "Course Tools",
     categoryAr: "أدوات المقرر",
     free: true,
+    price: null,
+    downloadUrl: "https://moodle.org/plugins/mod_privateyoutube",
     placeholder: true,
+    images: [],
+    description: "Embed unlisted or private YouTube videos in your Moodle courses without exposing the video URL to students. Full Moodle activity integration with completion tracking.",
+    descriptionAr: "ضمّن مقاطع YouTube غير المدرجة أو الخاصة في مقررات Moodle دون الكشف عن رابط الفيديو للطلاب. تكامل كامل مع نشاط Moodle وتتبع الإكمال.",
     features: [],
     featuresAr: [],
   },
@@ -275,7 +342,12 @@ export const plugins: Plugin[] = [
     category: "Course Tools",
     categoryAr: "أدوات المقرر",
     free: false,
+    price: 50,
+    buyUrl: `${WA}?text=Hi! I'm interested in the Smart Catalog plugin for Moodle.`,
     placeholder: true,
+    images: [],
+    description: "A beautiful, filterable course catalog for your Moodle platform. Replaces the default course listing with a modern card-based UI, category filters, search, and enrolment calls-to-action.",
+    descriptionAr: "كتالوج مقررات جميل وقابل للتصفية لمنصة Moodle الخاصة بك. يحل محل قائمة المقررات الافتراضية بواجهة مستخدم حديثة قائمة على البطاقات مع فلاتر الفئات والبحث وعبارات حث التسجيل.",
     features: [],
     featuresAr: [],
   },
@@ -288,6 +360,11 @@ export const plugins: Plugin[] = [
     category: "Course Tools",
     categoryAr: "أدوات المقرر",
     free: true,
+    price: null,
+    downloadUrl: "https://moodle.org/plugins/enrol_credit",
+    images: [],
+    description: "A free Moodle enrolment plugin that lets students spend a credit balance to enrol in courses. Admins configure the credit cost per course, and the balance is automatically deducted when the student enrols.\n\nSupports enrolment keys, enrolment periods, and maximum user limits. The student's current balance is shown throughout the enrolment flow.",
+    descriptionAr: "إضافة تسجيل Moodle مجانية تتيح للطلاب إنفاق رصيد ائتماني للتسجيل في المقررات. يُهيئ المسؤولون تكلفة الرصيد لكل مقرر، ويُخصم الرصيد تلقائياً عند تسجيل الطالب.\n\nيدعم مفاتيح التسجيل وفترات التسجيل وحدود المستخدمين القصوى. يظهر رصيد الطالب الحالي طوال عملية التسجيل.",
     features: [
       "Students spend a credit balance to enrol in courses",
       "Per-course credit cost configured by admins",
@@ -310,6 +387,11 @@ export const plugins: Plugin[] = [
     category: "Platform & Admin",
     categoryAr: "المنصة والإدارة",
     free: true,
+    price: null,
+    downloadUrl: "https://moodle.org/plugins/local_customhome",
+    images: [],
+    description: "A free Moodle plugin that replaces the Moodle front page with any custom URL — typically an external marketing site or landing page. Site administrators are never locked out via a built-in bypass, and there is an emergency bypass via the `?noredirect=1` query parameter.\n\nBonuses: an AI Prompt Generator that builds a landing page from live Moodle data.",
+    descriptionAr: "إضافة Moodle مجانية تستبدل الصفحة الأمامية لـMoodle بأي URL مخصص — عادةً موقع تسويقي خارجي أو صفحة هبوط. لا يُقفَل مسؤولو الموقع أبداً من خلال تجاوز مدمج، وهناك تجاوز طارئ عبر معامل الاستعلام `?noredirect=1`.\n\nإضافة: مولّد برومبت ذكي يبني صفحة هبوط من بيانات Moodle الحية.",
     features: [
       "Replace Moodle front page with any custom URL",
       "Admin bypass — site admins are never locked out",
@@ -332,6 +414,11 @@ export const plugins: Plugin[] = [
     category: "Platform & Admin",
     categoryAr: "المنصة والإدارة",
     free: true,
+    price: null,
+    downloadUrl: "https://moodle.org/plugins/local_parentassign",
+    images: [],
+    description: "A free Moodle plugin that automatically creates parent/guardian accounts from student profile custom fields. It generates secure temporary passwords and sends welcome emails to each parent with first-login instructions.\n\nParents are forced to reset their password on first login. A scheduled task sweeps newly uploaded student users so no manual action is needed after bulk imports.",
+    descriptionAr: "إضافة Moodle مجانية تُنشئ تلقائياً حسابات الوالدين/الأوصياء من حقول ملف الطالب المخصصة. تُنشئ كلمات مرور مؤقتة آمنة وترسل رسائل ترحيب لكل والد مع تعليمات أول تسجيل دخول.\n\nيُجبر الآباء على إعادة تعيين كلمة مرورهم عند أول تسجيل دخول. تمسح مهمة مجدولة مستخدمي الطلاب المحمَّلين حديثاً بحيث لا يلزم أي إجراء يدوي بعد الاستيراد الجماعي.",
     features: [
       "Auto-creates parent accounts from student profile fields",
       "Generates secure passwords and sends welcome emails",
@@ -354,7 +441,12 @@ export const plugins: Plugin[] = [
     category: "Platform & Admin",
     categoryAr: "المنصة والإدارة",
     free: true,
+    price: null,
+    downloadUrl: "https://moodle.org/plugins/local_qlogin",
     placeholder: true,
+    images: [],
+    description: "A free Moodle plugin for administrators to quickly log in as any user without needing their password. Useful for support and troubleshooting.",
+    descriptionAr: "إضافة Moodle مجانية للمسؤولين لتسجيل الدخول بسرعة كأي مستخدم دون الحاجة إلى كلمة مروره. مفيدة للدعم الفني واستكشاف الأخطاء.",
     features: [],
     featuresAr: [],
   },
@@ -367,7 +459,12 @@ export const plugins: Plugin[] = [
     category: "Platform & Admin",
     categoryAr: "المنصة والإدارة",
     free: false,
+    price: 50,
+    buyUrl: `${WA}?text=Hi! I'm interested in the Balance Updater plugin for Moodle.`,
     placeholder: true,
+    images: [],
+    description: "Manage student credit balances in Moodle. Add, subtract, or set balances in bulk via CSV upload or individually through the admin interface.",
+    descriptionAr: "إدارة أرصدة رصيد الطلاب في Moodle. أضف أو اطرح أو اضبط الأرصدة جماعياً عبر رفع CSV أو بشكل فردي من خلال واجهة الإدارة.",
     features: [],
     featuresAr: [],
   },
@@ -380,6 +477,11 @@ export const plugins: Plugin[] = [
     category: "Platform & Admin",
     categoryAr: "المنصة والإدارة",
     free: false,
+    price: 50,
+    buyUrl: `${WA}?text=Hi! I'm interested in the Kashier Payment Gateway plugin for Moodle.`,
+    images: [],
+    description: "A native Moodle payment gateway plugin for Kashier — the leading Egyptian payment processor. Integrates with Moodle's Payment API so any payable service (course enrolment, certificates, etc.) can accept Kashier payments out of the box.\n\nAll payment events are verified server-to-server via secure HMAC webhooks. Supports EGP, USD, EUR, and GBP. Includes a sandbox mode for safe integration testing before going live.",
+    descriptionAr: "إضافة بوابة دفع Moodle الأصلية لـKashier — معالج الدفع المصري الرائد. تتكامل مع Payment API الخاص بـMoodle بحيث يمكن لأي خدمة مدفوعة (تسجيل المقررات والشهادات وما إلى ذلك) قبول مدفوعات Kashier مباشرةً.\n\nيتم التحقق من جميع أحداث الدفع بين الخوادم عبر Webhook HMAC آمن. يدعم EGP وUSD وEUR وGBP. يتضمن وضع بيئة اختبار للاختبار الآمن قبل الإطلاق.",
     features: [
       "Native Moodle payment gateway for Kashier (Egypt)",
       "Secure server-to-server webhook with HMAC verification",
