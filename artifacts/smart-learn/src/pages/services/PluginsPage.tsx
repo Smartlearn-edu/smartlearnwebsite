@@ -3,283 +3,9 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Puzzle, ArrowRight, Check } from "lucide-react";
 import { Helmet } from "react-helmet-async";
 import { Navbar } from "@/components/Navbar";
+import { plugins, CATEGORIES, type Category, type Plugin } from "@/data/plugins";
 
 const font: React.CSSProperties = { fontFamily: "'Cairo', sans-serif" };
-
-type Category = "All" | "AI-Powered" | "Analytics & Reporting" | "Course Tools" | "Platform & Admin";
-
-interface Plugin {
-  name: string;
-  slug: string;
-  type: string;
-  moodle: string;
-  category: Category;
-  free: boolean;
-  features: string[];
-}
-
-const plugins: Plugin[] = [
-  {
-    name: "Quiz AI Chat",
-    slug: "local_qai",
-    type: "local",
-    moodle: "Moodle 4.0+",
-    category: "AI-Powered",
-    free: false,
-    features: [
-      "AI tutor embedded inside every quiz attempt",
-      "Question-level explanations & overall performance chat",
-      "5 context levels to balance detail vs. API cost",
-      "Token-saving mode: sends context only on first message",
-    ],
-  },
-  {
-    name: "Chat with Assignment",
-    slug: "local_chatwithassignment",
-    type: "local",
-    moodle: "Moodle 4.0+",
-    category: "AI-Powered",
-    free: false,
-    features: [
-      "AI chat on assignment feedback & rubric scores",
-      "5 context levels from grade-only to full submission",
-      "Custom teacher instructions per assignment",
-      "GDPR-compliant with student data portability",
-    ],
-  },
-  {
-    name: "Smart Grade AI",
-    slug: "local_smartgradeai",
-    type: "local",
-    moodle: "Moodle 4.0+",
-    category: "AI-Powered",
-    free: false,
-    features: [
-      "Human-in-the-loop AI grading with teacher review",
-      "Rubric-aware: selects levels & writes comments",
-      "Multi-model: GPT-4, Claude, Gemini, DeepSeek",
-      "n8n integration for flexible grading workflows",
-    ],
-  },
-  {
-    name: "AI Rubric Generator",
-    slug: "local_airubricgenerator",
-    type: "local",
-    moodle: "Moodle 4.5+",
-    category: "AI-Powered",
-    free: false,
-    features: [
-      "Generate rubrics from assignment description",
-      "Tone & framework options (Bloom's, SOLO, etc.)",
-      "Test rubric on sample submissions before saving",
-      "Also generates full assignment descriptions",
-    ],
-  },
-  {
-    name: "Adaptive Study Plan",
-    slug: "mod_adaptiveplan",
-    type: "mod",
-    moodle: "Moodle 4.0+",
-    category: "AI-Powered",
-    free: false,
-    features: [
-      "AI-generated personalised study schedules per student",
-      "Onboarding questionnaire for hours & prior knowledge",
-      "Dynamic checklists from course activity metadata",
-      "AI chat coach to adjust deadlines on demand",
-    ],
-  },
-  {
-    name: "Smart Dashboard",
-    slug: "local_smartdashboard",
-    type: "local",
-    moodle: "Moodle 4.0+",
-    category: "Analytics & Reporting",
-    free: false,
-    features: [
-      "All-in-one analytics: progress, grading, payments",
-      "Cross-course student completion tracking",
-      "Revenue analytics with category breakdown charts",
-      "CSV export for all data, dark UI with sidebar nav",
-    ],
-  },
-  {
-    name: "Student Grades Report",
-    slug: "report_studentgrades",
-    type: "report",
-    moodle: "Moodle 4.0+",
-    category: "Analytics & Reporting",
-    free: true,
-    features: [
-      "Export all course grades as one HTML file",
-      "Hierarchical grade structure with categories",
-      "18+ colour settings, RTL support, Word-compatible",
-      "Students & admins can view cross-course records",
-    ],
-  },
-  {
-    name: "HTML Grade Export",
-    slug: "gradereport_htmlexport",
-    type: "gradereport",
-    moodle: "Moodle 4.0+",
-    category: "Analytics & Reporting",
-    free: true,
-    features: [
-      "Per-course grade export as styled HTML file",
-      "Bulk ZIP download for all students at once",
-      "18+ colour themes, site logo integration",
-      "GDPR-compliant, print-ready design",
-    ],
-  },
-  {
-    name: "Gap Close",
-    slug: "mod_gapclose",
-    type: "mod",
-    moodle: "Moodle 4.0+",
-    category: "Course Tools",
-    free: true,
-    features: [
-      "Auto-detects incorrect answers across all course quizzes",
-      "Builds a focused review session in one click",
-      "Uses Moodle's native Question Engine with live feedback",
-      "Resumable sessions; restart to scan fresh gaps",
-    ],
-  },
-  {
-    name: "Protected PDF",
-    slug: "mod_protectedpdf",
-    type: "mod",
-    moodle: "Moodle 3.10+",
-    category: "Course Tools",
-    free: true,
-    features: [
-      "Watermarks every PDF download with student name & email",
-      "FPDI-powered per-page overlay on the original file",
-      "Access-controlled to enrolled, authenticated users",
-      "Backup & restore and completion tracking support",
-    ],
-  },
-  {
-    name: "Private YouTube",
-    slug: "mod_privateyoutube",
-    type: "mod",
-    moodle: "Moodle 4.0+",
-    category: "Course Tools",
-    free: true,
-    features: [
-      "Embed private or unlisted YouTube videos in courses",
-      "Students view content without needing a YouTube link",
-      "Completion tracking & activity settings supported",
-      "Simple teacher setup with URL and display options",
-    ],
-  },
-  {
-    name: "Smart Catalog",
-    slug: "local_smartcatalog",
-    type: "local",
-    moodle: "Moodle 4.0+",
-    category: "Course Tools",
-    free: false,
-    features: [
-      "Enhanced course catalog with advanced filtering",
-      "Category browsing with custom display options",
-      "Search and sort courses by multiple criteria",
-      "Clean, responsive UI for prospective students",
-    ],
-  },
-  {
-    name: "Credit Enrollment",
-    slug: "enrol_credit",
-    type: "enrol",
-    moodle: "Moodle 4.0+",
-    category: "Course Tools",
-    free: true,
-    features: [
-      "Students spend credit balance to enrol in courses",
-      "Per-course credit cost set by admin",
-      "Auto-deduction on enrolment with balance display",
-      "Enrolment keys, periods & max users supported",
-    ],
-  },
-  {
-    name: "Custom Home Redirect",
-    slug: "local_customhome",
-    type: "local",
-    moodle: "Moodle 4.0+",
-    category: "Platform & Admin",
-    free: true,
-    features: [
-      "Replace Moodle front page with any custom URL",
-      "Admin bypass so site admins are never locked out",
-      "Emergency bypass via ?noredirect=1 parameter",
-      "AI Prompt Generator to scaffold landing pages from live data",
-    ],
-  },
-  {
-    name: "Parent Assign",
-    slug: "local_parentassign",
-    type: "local",
-    moodle: "Moodle 4.1+",
-    category: "Platform & Admin",
-    free: true,
-    features: [
-      "Auto-creates parent accounts from student profile fields",
-      "Generates secure passwords and sends welcome emails",
-      "Forced password reset on first parent login",
-      "Scheduled task sweeps for bulk-uploaded users",
-    ],
-  },
-  {
-    name: "Quick Login",
-    slug: "local_qlogin",
-    type: "local",
-    moodle: "Moodle 4.0+",
-    category: "Platform & Admin",
-    free: true,
-    features: [
-      "One-click login shortcuts for support staff",
-      "Configurable per-role access and visibility",
-      "Reduces time switching between user accounts",
-      "Lightweight with no database overhead",
-    ],
-  },
-  {
-    name: "Balance Updater",
-    slug: "local_balanceupdater",
-    type: "local",
-    moodle: "Moodle 4.0+",
-    category: "Platform & Admin",
-    free: false,
-    features: [
-      "Automated user credit & balance management",
-      "Triggered by scheduled tasks or external webhooks",
-      "Configurable rules per user group or cohort",
-      "Integrates with Credit Enrollment plugin",
-    ],
-  },
-  {
-    name: "Kashier Payment Gateway",
-    slug: "paygw_kashier",
-    type: "paygw",
-    moodle: "Moodle 4.0+",
-    category: "Platform & Admin",
-    free: false,
-    features: [
-      "Native Moodle payment gateway for Kashier (Egypt)",
-      "Secure webhook verification with HMAC signature",
-      "Supports EGP, USD, EUR, GBP currencies",
-      "Sandbox test mode for safe integration testing",
-    ],
-  },
-];
-
-const CATEGORIES: Category[] = [
-  "All",
-  "AI-Powered",
-  "Analytics & Reporting",
-  "Course Tools",
-  "Platform & Admin",
-];
 
 const typeColors: Record<string, { bg: string; text: string }> = {
   local:        { bg: "rgba(59,130,246,0.12)",  text: "#93c5fd" },
@@ -290,13 +16,14 @@ const typeColors: Record<string, { bg: string; text: string }> = {
   enrol:        { bg: "rgba(168,85,247,0.12)",  text: "#c084fc" },
 };
 
+const freeCount = plugins.filter((p) => p.free).length;
+const premiumCount = plugins.filter((p) => !p.free).length;
+
 export function PluginsPage() {
   const [active, setActive] = useState<Category>("All");
 
-  const filtered = active === "All" ? plugins : plugins.filter((p) => p.category === active);
-
-  const freeCount = plugins.filter((p) => p.free).length;
-  const premiumCount = plugins.filter((p) => !p.free).length;
+  const filtered =
+    active === "All" ? plugins : plugins.filter((p) => p.category === active);
 
   return (
     <>
@@ -326,7 +53,10 @@ export function PluginsPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, ease: "easeOut" }}
               className="inline-flex items-center justify-center w-16 h-16 rounded-2xl mb-6"
-              style={{ background: "rgba(168,85,247,0.15)", border: "1px solid rgba(168,85,247,0.25)" }}
+              style={{
+                background: "rgba(168,85,247,0.15)",
+                border: "1px solid rgba(168,85,247,0.25)",
+              }}
             >
               <Puzzle size={28} style={{ color: "#a855f7" }} />
             </motion.div>
@@ -373,7 +103,8 @@ export function PluginsPage() {
               className="text-lg md:text-xl text-slate-400 max-w-2xl mx-auto leading-relaxed mb-8"
               style={font}
             >
-              {plugins.length} plugins across AI, analytics, content tools, and platform management — built to production standards for Moodle 4.0+.
+              {plugins.length} plugins across AI, analytics, content tools, and platform
+              management — built to production standards for Moodle 4.0+.
             </motion.p>
 
             {/* Stats */}
@@ -412,12 +143,22 @@ export function PluginsPage() {
         </section>
 
         {/* Category Filter */}
-        <div className="sticky top-16 z-40 px-6 py-3" style={{ backgroundColor: "rgba(7,7,15,0.9)", backdropFilter: "blur(16px)", borderBottom: "1px solid rgba(255,255,255,0.05)" }}>
+        <div
+          className="sticky top-16 z-40 px-6 py-3"
+          style={{
+            backgroundColor: "rgba(7,7,15,0.9)",
+            backdropFilter: "blur(16px)",
+            borderBottom: "1px solid rgba(255,255,255,0.05)",
+          }}
+        >
           <div className="max-w-6xl mx-auto">
-            <div className="flex items-center gap-2 overflow-x-auto no-scrollbar pb-0.5">
+            <div className="flex items-center gap-2 overflow-x-auto pb-0.5">
               {CATEGORIES.map((cat) => {
                 const isActive = active === cat;
-                const count = cat === "All" ? plugins.length : plugins.filter((p) => p.category === cat).length;
+                const count =
+                  cat === "All"
+                    ? plugins.length
+                    : plugins.filter((p) => p.category === cat).length;
                 return (
                   <button
                     key={cat}
@@ -438,7 +179,9 @@ export function PluginsPage() {
                     <span
                       className="text-xs px-1.5 py-0.5 rounded-full"
                       style={{
-                        background: isActive ? "rgba(255,255,255,0.2)" : "rgba(255,255,255,0.07)",
+                        background: isActive
+                          ? "rgba(255,255,255,0.2)"
+                          : "rgba(255,255,255,0.07)",
                         color: isActive ? "#fff" : "#64748b",
                       }}
                     >
@@ -480,7 +223,8 @@ export function PluginsPage() {
             transition={{ duration: 0.5, ease: "easeOut" }}
             className="max-w-2xl mx-auto text-center rounded-2xl py-14 px-8"
             style={{
-              background: "linear-gradient(135deg, rgba(105,0,163,0.15) 0%, rgba(168,85,247,0.08) 100%)",
+              background:
+                "linear-gradient(135deg, rgba(105,0,163,0.15) 0%, rgba(168,85,247,0.08) 100%)",
               border: "1px solid rgba(168,85,247,0.25)",
             }}
           >
@@ -488,7 +232,8 @@ export function PluginsPage() {
               Interested in a plugin?
             </h2>
             <p className="text-slate-400 mb-8 leading-relaxed" style={font}>
-              Get in touch and I'll provide pricing, installation details, and a demo for any plugin you need.
+              Get in touch and I'll provide pricing, installation details, and a demo for any
+              plugin you need.
             </p>
             <a
               href="/#contact"
@@ -516,7 +261,10 @@ export function PluginsPage() {
 }
 
 function PluginCard({ plugin, i }: { plugin: Plugin; i: number }) {
-  const typeStyle = typeColors[plugin.type] ?? { bg: "rgba(168,85,247,0.1)", text: "#c084fc" };
+  const typeStyle = typeColors[plugin.type] ?? {
+    bg: "rgba(168,85,247,0.1)",
+    text: "#c084fc",
+  };
 
   return (
     <motion.div
@@ -529,35 +277,22 @@ function PluginCard({ plugin, i }: { plugin: Plugin; i: number }) {
         border: "1px solid rgba(255,255,255,0.07)",
       }}
     >
-      {/* Header row */}
+      {/* Header */}
       <div className="flex items-start justify-between gap-3 mb-4">
         <div className="flex-1 min-w-0">
-          <h3
-            className="text-base font-black text-white leading-snug mb-2"
-            style={font}
-          >
+          <h3 className="text-base font-black text-white leading-snug mb-2" style={font}>
             {plugin.name}
           </h3>
           <div className="flex flex-wrap items-center gap-1.5">
-            {/* Type badge */}
             <span
-              className="text-xs font-bold px-2 py-0.5 rounded-md font-mono"
-              style={{
-                background: typeStyle.bg,
-                color: typeStyle.text,
-                fontFamily: "monospace",
-              }}
+              className="text-xs font-bold px-2 py-0.5 rounded-md"
+              style={{ background: typeStyle.bg, color: typeStyle.text, fontFamily: "monospace" }}
             >
               {plugin.type}
             </span>
-            {/* Version badge */}
             <span
               className="text-xs font-semibold px-2 py-0.5 rounded-md"
-              style={{
-                background: "rgba(255,255,255,0.05)",
-                color: "#64748b",
-                ...font,
-              }}
+              style={{ background: "rgba(255,255,255,0.05)", color: "#64748b", ...font }}
             >
               {plugin.moodle}
             </span>
@@ -591,32 +326,41 @@ function PluginCard({ plugin, i }: { plugin: Plugin; i: number }) {
         )}
       </div>
 
-      {/* Features */}
-      <ul className="flex-1 space-y-2 mb-5">
-        {plugin.features.map((feat) => (
-          <li key={feat} className="flex items-start gap-2">
-            <Check
-              size={13}
-              className="flex-shrink-0 mt-0.5"
-              style={{ color: "#a855f7" }}
-            />
-            <span className="text-xs text-slate-400 leading-relaxed" style={font}>
-              {feat}
-            </span>
-          </li>
-        ))}
-      </ul>
+      {/* Body: features or placeholder */}
+      <div className="flex-1 mb-5">
+        {plugin.placeholder ? (
+          <div
+            className="flex items-center gap-2 px-3 py-2.5 rounded-xl text-xs"
+            style={{
+              background: "rgba(105,0,163,0.08)",
+              border: "1px solid rgba(168,85,247,0.15)",
+              color: "#7c3aed",
+              ...font,
+            }}
+          >
+            <span className="w-1.5 h-1.5 rounded-full bg-purple-500 animate-pulse inline-block flex-shrink-0" />
+            <span style={{ color: "#94a3b8" }}>Full details coming soon — contact me to learn more.</span>
+          </div>
+        ) : (
+          <ul className="space-y-2">
+            {plugin.features.map((feat) => (
+              <li key={feat} className="flex items-start gap-2">
+                <Check size={13} className="flex-shrink-0 mt-0.5" style={{ color: "#a855f7" }} />
+                <span className="text-xs text-slate-400 leading-relaxed" style={font}>
+                  {feat}
+                </span>
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
 
-      {/* CTA */}
+      {/* CTA — purple for both free and premium */}
       <a
         href="/#contact"
         className="inline-flex items-center justify-center gap-1.5 w-full py-2.5 rounded-xl text-sm font-bold text-white transition-all duration-200 hover:opacity-90"
         style={{
-          background: plugin.free
-            ? "rgba(34,197,94,0.15)"
-            : "linear-gradient(135deg, #6900A3, #a855f7)",
-          border: plugin.free ? "1px solid rgba(34,197,94,0.35)" : "none",
-          color: plugin.free ? "#4ade80" : "#fff",
+          background: "linear-gradient(135deg, #6900A3, #a855f7)",
           ...font,
         }}
       >
