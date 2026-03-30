@@ -1,0 +1,51 @@
+root@test:/www/wwwroot/home.smartlearn.education# git pull
+pnpm run build
+remote: Enumerating objects: 15, done.
+remote: Counting objects: 100% (15/15), done.
+remote: Compressing objects: 100% (3/3), done.
+remote: Total 8 (delta 5), reused 8 (delta 5), pack-reused 0 (from 0)
+Unpacking objects: 100% (8/8), 728 bytes | 145.00 KiB/s, done.
+From https://github.com/Smartlearn-edu/smartlearnwebsite
+   5d1ddad..6d5e2c6  main       -> origin/main
+Updating 5d1ddad..6d5e2c6
+Fast-forward
+ lib/db/src/index.ts        | 10 +++++++++-
+ lib/db/src/schema/index.ts | 10 +++++++++-
+ 2 files changed, 18 insertions(+), 2 deletions(-)
+
+> workspace@0.0.0 build /www/wwwroot/home.smartlearn.education
+> pnpm run typecheck && pnpm -r --if-present run build
+
+
+> workspace@0.0.0 typecheck /www/wwwroot/home.smartlearn.education
+> pnpm run typecheck:libs && pnpm -r --filter "./artifacts/**" --filter "./scripts" --if-present run typecheck
+
+
+> workspace@0.0.0 typecheck:libs /www/wwwroot/home.smartlearn.education
+> tsc --build
+
+lib/db/src/schema/plugins.ts:49:36 - error TS2344: Type 'ZodObject<{ name: ZodString; nameAr: ZodString; slug: ZodString; type: ZodString; moodle: ZodOptional<ZodString>; category: ZodString; ... 13 more ...; descriptionAr: ZodOptional<...>; }, { ...; }>' does not satisfy the constraint 'ZodType<any, any, any>'.
+  Type 'ZodObject<{ name: ZodString; nameAr: ZodString; slug: ZodString; type: ZodString; moodle: ZodOptional<ZodString>; category: ZodString; ... 13 more ...; descriptionAr: ZodOptional<...>; }, { ...; }>' is missing the following properties from type 'ZodType<any, any, any>': _type, _parse, _getType, _getOrReturnCtx, and 7 more.
+
+49 export type InsertPlugin = z.infer<typeof insertPluginSchema>;
+                                      ~~~~~~~~~~~~~~~~~~~~~~~~~
+
+lib/db/src/schema/plugins.ts:50:36 - error TS2344: Type 'ZodObject<{ name: ZodOptional<ZodString>; nameAr: ZodOptional<ZodString>; slug: ZodOptional<ZodString>; type: ZodOptional<...>; ... 15 more ...; descriptionAr: ZodOptional<...>; }, { ...; }>' does not satisfy the constraint 'ZodType<any, any, any>'.
+  Type 'ZodObject<{ name: ZodOptional<ZodString>; nameAr: ZodOptional<ZodString>; slug: ZodOptional<ZodString>; type: ZodOptional<...>; ... 15 more ...; descriptionAr: ZodOptional<...>; }, { ...; }>' is missing the following properties from type 'ZodType<any, any, any>': _type, _parse, _getType, _getOrReturnCtx, and 7 more.
+
+50 export type UpdatePlugin = z.infer<typeof updatePluginSchema>;
+                                      ~~~~~~~~~~~~~~~~~~~~~~~~~
+
+lib/db/src/schema/plugins.ts:51:32 - error TS2344: Type 'BuildSchema<"select", { id: PgColumn<{ name: "id"; tableName: "plugins"; dataType: "number"; columnType: "PgSerial"; data: number; driverParam: number; notNull: true; hasDefault: true; isPrimaryKey: true; isAutoincrement: false; ... 4 more ...; generated: undefined; }, {}, {}>; ... 21 more ...; updatedAt: PgColumn<....' does not satisfy the constraint 'ZodType<any, any, any>'.
+  Type 'ZodObject<{ id: ZodInt; name: ZodString; nameAr: ZodString; slug: ZodString; type: ZodString; moodle: ZodString; category: ZodString; ... 15 more ...; updatedAt: ZodDate; }, { ...; }>' is missing the following properties from type 'ZodType<any, any, any>': _type, _parse, _getType, _getOrReturnCtx, and 7 more.
+
+51 export type DbPlugin = z.infer<typeof selectPluginSchema>;
+                                  ~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Found 3 errors.
+
+ ELIFECYCLE  Command failed with exit code 1.
+ ELIFECYCLE  Command failed with exit code 1.
+ ELIFECYCLE  Command failed with exit code 1.
+root@test:/www/wwwroot/home.smartlearn.education# 
