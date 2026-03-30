@@ -49,13 +49,13 @@ export function WhatsAppButton() {
         onMouseLeave={() => setHovered(false)}
         className="relative flex items-center justify-center w-14 h-14 rounded-full text-white transition-transform duration-200 hover:scale-110 active:scale-95"
         style={{
-          background: "linear-gradient(135deg, #25D366, #128C7E)",
-          boxShadow: "0 4px 24px rgba(37,211,102,0.45)",
+          background: "linear-gradient(135deg, #6900A3, #a855f7)",
+          boxShadow: "0 4px 24px rgba(105,0,163,0.5)",
         }}
       >
         <span
-          className="absolute inset-0 rounded-full animate-ping opacity-30"
-          style={{ background: "#25D366" }}
+          className="absolute inset-0 rounded-full animate-ping opacity-25"
+          style={{ background: "#a855f7" }}
         />
         <WhatsAppIcon />
       </a>
