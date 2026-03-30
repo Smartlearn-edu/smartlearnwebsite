@@ -28,7 +28,7 @@ const typeColors: Record<string, { bg: string; text: string }> = {
 
 export function PluginsPage() {
   const { lang, t } = useT();
-  const { data: plugins = [], isLoading } = usePlugins();
+  const { data: plugins = [], isPlaceholderData: isLoading } = usePlugins();
   const [searchQuery, setSearchQuery] = useState("");
 
   const purelyFreeCount = plugins.filter((p) => p.free && !p.paidSupport).length;
