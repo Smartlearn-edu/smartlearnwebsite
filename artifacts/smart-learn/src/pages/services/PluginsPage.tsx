@@ -301,13 +301,38 @@ function PluginCard({ plugin, i, lang, hero }: { plugin: Plugin; i: number; lang
   const typeStyle = typeColors[plugin.type] ?? { bg: "rgba(168,85,247,0.1)", text: "#c084fc" };
   const name = lang === "en" ? plugin.name : plugin.nameAr;
   const features = lang === "en" ? plugin.features : plugin.featuresAr;
+  const thumbnail = plugin.images?.[0];
 
   return (
     <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.35, delay: Math.min(i * 0.05, 0.4) }}
-      className="rounded-2xl p-6 flex flex-col"
+      className="rounded-2xl flex flex-col overflow-hidden"
       style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.07)" }}>
 
+      {/* Thumbnail */}
+      <div className="w-full overflow-hidden flex-shrink-0"
+        style={{ height: 160, background: "rgba(105,0,163,0.08)" }}>
+        {thumbnail ? (
+          <img
+            src={`/plugins/${plugin.slug}/${thumbnail}`}
+            alt={name}
+            className="w-full h-full object-cover"
+            style={{ display: "block" }}
+            onError={(e) => {
+              (e.currentTarget as HTMLImageElement).style.display = "none";
+              (e.currentTarget.parentElement as HTMLElement).style.background =
+                "linear-gradient(135deg, rgba(105,0,163,0.15), rgba(168,85,247,0.08))";
+            }}
+          />
+        ) : (
+          <div className="w-full h-full flex items-center justify-center"
+            style={{ background: "linear-gradient(135deg, rgba(105,0,163,0.15), rgba(168,85,247,0.08))" }}>
+            <span className="text-3xl opacity-30">🔌</span>
+          </div>
+        )}
+      </div>
+
+      <div className="p-6 flex flex-col flex-1">
       <div className="flex items-start justify-between gap-3 mb-4">
         <div className="flex-1 min-w-0">
           <h3 className="text-base font-black text-white leading-snug mb-2" style={font}>{name}</h3>
@@ -365,6 +390,7 @@ function PluginCard({ plugin, i, lang, hero }: { plugin: Plugin; i: number; lang
         {hero.learnMore}
         <DirectionalArrow size={13} />
       </Link>
+      </div>
     </motion.div>
   );
 }
