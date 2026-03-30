@@ -5,6 +5,10 @@ dist
 tmp
 out-tsc
 *.tsbuildinfo
+
+# production archives
+*.tar.gz
+*.zip
 .expo
 .expo-shared
 
