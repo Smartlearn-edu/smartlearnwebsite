@@ -19,7 +19,10 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   const [lang, setLang] = useState<Lang>(() => {
     try {
       const saved = localStorage.getItem("sl-lang");
-      return saved === "ar" ? "ar" : "en";
+      if (saved === "ar" || saved === "en") return saved;
+      // No saved preference — detect from browser language
+      const langs = navigator.languages?.length ? navigator.languages : [navigator.language];
+      return langs.some((l) => l.toLowerCase().startsWith("ar")) ? "ar" : "en";
     } catch {
       return "en";
     }
