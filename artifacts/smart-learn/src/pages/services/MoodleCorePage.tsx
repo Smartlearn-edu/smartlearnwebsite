@@ -267,6 +267,7 @@ export function MoodleCorePage() {
           name="description"
           content="Professional Moodle installation, upgrading, migration, maintenance and troubleshooting by a certified Moodle Community Expert based in Egypt."
         />
+        <link rel="canonical" href="https://home.smartlearn.education/services/moodle-core" />
       </Helmet>
 
       <div className="min-h-screen" style={{ backgroundColor: "#07070f" }}>

@@ -118,6 +118,7 @@ export function PluginsPage() {
           name="description"
           content={`${plugins.length} Moodle plugins by Mohammad Nabil: AI-powered learning tools, analytics dashboards, grade reports, payment gateways and more.`}
         />
+        <link rel="canonical" href="https://home.smartlearn.education/services/plugins" />
       </Helmet>
 
       <div className="min-h-screen" style={{ backgroundColor: "#07070f" }}>

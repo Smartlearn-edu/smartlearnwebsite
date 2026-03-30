@@ -111,6 +111,7 @@ export function TrainingPage() {
       <Helmet>
         <title>Moodle Training — Smart Learn</title>
         <meta name="description" content="Live Moodle training for admins, teachers, and technical teams in Arabic and English. Practical, structured, and fully recorded." />
+        <link rel="canonical" href="https://home.smartlearn.education/services/training" />
       </Helmet>
 
       <div className="min-h-screen" style={{ backgroundColor: "#07070f" }}>

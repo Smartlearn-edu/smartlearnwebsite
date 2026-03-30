@@ -149,6 +149,7 @@ export function MobileAppPage() {
       <Helmet>
         <title>Branded Moodle Mobile App — Smart Learn</title>
         <meta name="description" content="A fully branded Android or iOS app for your Moodle platform — your logo, colors, and pre-configured login. Android from $100, Android + iOS from $300." />
+        <link rel="canonical" href="https://home.smartlearn.education/services/mobile-app" />
       </Helmet>
 
       <div className="min-h-screen" style={{ backgroundColor: "#07070f" }}>

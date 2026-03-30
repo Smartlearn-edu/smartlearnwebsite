@@ -113,6 +113,7 @@ export function N8nPage() {
       <Helmet>
         <title>n8n Automation for Moodle — Smart Learn</title>
         <meta name="description" content="Eliminate repetitive Moodle admin work with n8n automation workflows: grading, enrollment, notifications, webhooks, and AI pipelines." />
+        <link rel="canonical" href="https://home.smartlearn.education/services/n8n" />
       </Helmet>
 
       <div className="min-h-screen" style={{ backgroundColor: "#07070f" }}>
