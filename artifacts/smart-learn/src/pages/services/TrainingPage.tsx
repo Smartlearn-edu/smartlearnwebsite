@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { DirectionalArrow } from "@/components/DirectionalArrow";
-import { GraduationCap, Check, Globe, Users, Clock, BookOpen } from "lucide-react";
+import { GraduationCap, Check, Globe, Users, Clock, BookOpen, MessageCircle } from "lucide-react";
 import { Helmet } from "react-helmet-async";
 import { Navbar } from "@/components/Navbar";
 import { useT } from "@/i18n";
@@ -77,6 +77,8 @@ const heroData = {
     ctaTitle: "Ready to train your team?",
     ctaDesc: "Tell me about your team size, current Moodle experience, and what you want them to be able to do — I'll design a training plan and send you a quote.",
     ctaBtn: "Book Training",
+    ctaWhatsApp: "Book via WhatsApp",
+    ctaWaMsg: "Hi! I'd like to book a Moodle training session.",
   },
   ar: {
     badge: "Smart Learn · التدريب",
@@ -92,6 +94,8 @@ const heroData = {
     ctaTitle: "هل أنت مستعد لتدريب فريقك؟",
     ctaDesc: "أخبرني عن حجم الفريق وخبرتهم الحالية في Moodle وما تريدهم أن يكونوا قادرين على فعله — سأصمم خطة تدريب وأرسل لك عرض سعر.",
     ctaBtn: "احجز التدريب",
+    ctaWhatsApp: "احجز عبر واتساب",
+    ctaWaMsg: "مرحباً! أريد حجز جلسة تدريب Moodle.",
   },
 };
 
@@ -232,10 +236,17 @@ export function TrainingPage() {
             style={{ background: "linear-gradient(135deg, rgba(105,0,163,0.15) 0%, rgba(168,85,247,0.08) 100%)", border: "1px solid rgba(168,85,247,0.25)" }}>
             <h2 className="text-2xl md:text-3xl font-black text-white mb-3" style={font}>{hero.ctaTitle}</h2>
             <p className="text-slate-400 mb-8 leading-relaxed" style={font}>{hero.ctaDesc}</p>
-            <a href="/#contact" className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-black text-sm text-white transition-all duration-200 hover:opacity-90 hover:scale-105"
-              style={{ background: "linear-gradient(135deg, #6900A3, #a855f7)", boxShadow: "0 0 36px rgba(105,0,163,0.4)", ...font }}>
-              {hero.ctaBtn} <DirectionalArrow size={16} />
-            </a>
+            <div className="flex flex-wrap items-center justify-center gap-3">
+              <a href="/#contact" className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-black text-sm text-white transition-all duration-200 hover:opacity-90 hover:scale-105"
+                style={{ background: "linear-gradient(135deg, #6900A3, #a855f7)", boxShadow: "0 0 36px rgba(105,0,163,0.4)", ...font }}>
+                {hero.ctaBtn} <DirectionalArrow size={16} />
+              </a>
+              <a href={`https://wa.me/201005822858?text=${encodeURIComponent(hero.ctaWaMsg)}`} target="_blank" rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-black text-sm text-white transition-all duration-200 hover:opacity-90 hover:scale-105"
+                style={{ background: "linear-gradient(135deg, #16a34a, #22c55e)", boxShadow: "0 0 28px rgba(22,163,74,0.25)", ...font }}>
+                <MessageCircle size={16} /> {hero.ctaWhatsApp}
+              </a>
+            </div>
           </motion.div>
         </section>
 

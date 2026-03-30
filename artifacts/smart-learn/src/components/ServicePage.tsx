@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { LucideIcon } from "lucide-react";
+import { LucideIcon, MessageCircle } from "lucide-react";
 import { Helmet } from "react-helmet-async";
 import { Navbar } from "@/components/Navbar";
 import { DirectionalArrow } from "@/components/DirectionalArrow";
@@ -180,18 +180,33 @@ export function ServicePage({
             <p className="text-slate-400 mb-8 leading-relaxed" style={font}>
               Send me a message and I'll get back to you within 24 hours with a detailed proposal.
             </p>
-            <a
-              href="/#contact"
-              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-black text-sm text-white transition-all duration-200 hover:opacity-90 hover:scale-105"
-              style={{
-                background: "linear-gradient(135deg, #6900A3, #a855f7)",
-                boxShadow: "0 0 36px rgba(105,0,163,0.4)",
-                ...font,
-              }}
-            >
-              Get a Quote
-              <DirectionalArrow size={16} />
-            </a>
+            <div className="flex flex-wrap items-center justify-center gap-3">
+              <a
+                href="/#contact"
+                className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-black text-sm text-white transition-all duration-200 hover:opacity-90 hover:scale-105"
+                style={{
+                  background: "linear-gradient(135deg, #6900A3, #a855f7)",
+                  boxShadow: "0 0 36px rgba(105,0,163,0.4)",
+                  ...font,
+                }}
+              >
+                Get a Quote
+                <DirectionalArrow size={16} />
+              </a>
+              <a
+                href={`https://wa.me/201005822858?text=${encodeURIComponent("Hi! I'd like to ask about your Moodle services.")}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-black text-sm text-white transition-all duration-200 hover:opacity-90 hover:scale-105"
+                style={{
+                  background: "linear-gradient(135deg, #16a34a, #22c55e)",
+                  boxShadow: "0 0 28px rgba(22,163,74,0.25)",
+                  ...font,
+                }}
+              >
+                <MessageCircle size={16} /> Chat on WhatsApp
+              </a>
+            </div>
           </motion.div>
         </section>
 
