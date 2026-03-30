@@ -17,7 +17,7 @@ export function Navbar() {
   const [location] = useLocation();
   const { t, lang, isRTL, toggle } = useT();
 
-  const isServicePage = location.startsWith("/services/");
+  const isServicePage = location.startsWith("/services/") || location.startsWith("/success-stories");
 
   const homeLinks = [
     { label: t.nav.home, href: "#home" },

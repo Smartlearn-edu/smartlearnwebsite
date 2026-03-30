@@ -1,3 +1,4 @@
+import React from "react";
 import { motion } from "framer-motion";
 import { Quote, ArrowRight, ArrowLeft } from "lucide-react";
 import { useT } from "@/i18n";
@@ -32,17 +33,16 @@ function Avatar({ src, name }: { src: string; name: string }) {
     .join("")
     .toUpperCase();
 
-  if (src) {
+  const [imgFailed, setImgFailed] = React.useState(false);
+
+  if (src && !imgFailed) {
     return (
       <img
         src={src}
         alt={name}
         className="w-12 h-12 rounded-full object-cover"
         style={{ border: "2px solid rgba(168,85,247,0.4)" }}
-        onError={(e) => {
-          (e.currentTarget as HTMLImageElement).style.display = "none";
-          (e.currentTarget.nextElementSibling as HTMLElement | null)?.style.setProperty("display", "flex");
-        }}
+        onError={() => setImgFailed(true)}
       />
     );
   }
