@@ -50,8 +50,24 @@ echo ""
 
 # ─── 3b. Copy frontend files to Nginx directory ───────────────────────────────
 echo "▶ Copying frontend files to Nginx directory..."
+
+# Preserve user-uploaded plugin images before wiping
+PLUGIN_BACKUP="/tmp/sl_plugins_backup_$$"
+if [ -d "$NGINX_FRONTEND/plugins" ]; then
+  echo "  → Backing up plugin images..."
+  cp -r "$NGINX_FRONTEND/plugins" "$PLUGIN_BACKUP"
+fi
+
 rm -rf "$NGINX_FRONTEND"/*
 cp -r "$FRONTEND_BUILD_DIR/." "$NGINX_FRONTEND/"
+
+# Restore plugin images
+if [ -d "$PLUGIN_BACKUP" ]; then
+  echo "  → Restoring plugin images..."
+  cp -r "$PLUGIN_BACKUP" "$NGINX_FRONTEND/plugins"
+  rm -rf "$PLUGIN_BACKUP"
+fi
+
 echo "✓ Frontend files copied → $NGINX_FRONTEND"
 echo ""
 
