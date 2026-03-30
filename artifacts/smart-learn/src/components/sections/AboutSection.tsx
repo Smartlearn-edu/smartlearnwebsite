@@ -168,7 +168,6 @@ export function AboutSection() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
-            className="flex flex-col gap-5"
           >
             <div
               className="rounded-2xl overflow-hidden flex flex-col items-center justify-center"
@@ -195,38 +194,42 @@ export function AboutSection() {
                 {t.about.photoPlaceholder}
               </p>
             </div>
-
-            {/* Stats row */}
-            <div
-              className="grid grid-cols-3 gap-4 rounded-2xl p-6"
-              style={{
-                background: "rgba(255,255,255,0.03)",
-                border: "1px solid rgba(255,255,255,0.07)",
-              }}
-            >
-              {[
-                { value: "100,000+", label: t.about.stat1Label },
-                { value: "70+", label: t.about.stat2Label },
-                { value: "5+", label: t.about.stat3Label },
-              ].map((stat) => (
-                <div key={stat.label} className="text-center">
-                  <div
-                    className="text-2xl font-black gradient-text mb-0.5"
-                    style={{ fontFamily: "'Cairo', sans-serif" }}
-                  >
-                    {stat.value}
-                  </div>
-                  <div
-                    className="text-xs text-slate-500 uppercase tracking-wide"
-                    style={{ fontFamily: "'Cairo', sans-serif" }}
-                  >
-                    {stat.label}
-                  </div>
-                </div>
-              ))}
-            </div>
           </motion.div>
         </div>
+
+        {/* Full-width stats row below both columns */}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" }}
+          className="grid grid-cols-3 gap-4 rounded-2xl p-6 mt-8"
+          style={{
+            background: "rgba(255,255,255,0.03)",
+            border: "1px solid rgba(255,255,255,0.07)",
+          }}
+        >
+          {[
+            { value: "100,000+", label: t.about.stat1Label },
+            { value: "70+", label: t.about.stat2Label },
+            { value: "5+", label: t.about.stat3Label },
+          ].map((stat) => (
+            <div key={stat.label} className="text-center">
+              <div
+                className="text-2xl font-black gradient-text mb-0.5"
+                style={{ fontFamily: "'Cairo', sans-serif" }}
+              >
+                {stat.value}
+              </div>
+              <div
+                className="text-xs text-slate-500 uppercase tracking-wide"
+                style={{ fontFamily: "'Cairo', sans-serif" }}
+              >
+                {stat.label}
+              </div>
+            </div>
+          ))}
+        </motion.div>
       </div>
     </section>
   );
