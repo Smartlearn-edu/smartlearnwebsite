@@ -6,6 +6,7 @@ import { ServiceRouter } from "@/pages/services/ServiceRouter";
 import { PluginDetailPage } from "@/pages/services/PluginDetailPage";
 import { AdminPage } from "@/pages/AdminPage";
 import { SuccessStoriesPage } from "@/pages/SuccessStoriesPage";
+import { WhatsAppButton } from "@/components/WhatsAppButton";
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 
@@ -22,6 +23,7 @@ function App() {
             <Route path="/" component={Home} />
           </Switch>
         </Router>
+        <WhatsAppButton />
       </LanguageProvider>
     </HelmetProvider>
   );

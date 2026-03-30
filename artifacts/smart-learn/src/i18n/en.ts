@@ -139,6 +139,16 @@ export const en = {
     waMsgDefault: "Hi! I found your website and I'd like to discuss a project.",
     ctaWhatsApp: "Chat on WhatsApp",
   },
+  stats: {
+    badge: "📊 By the Numbers",
+    yearsExp: "Years Experience",
+    pluginsBuilt: "Plugins Built",
+    clients: "Clients Worldwide",
+    countries: "Countries Served",
+  },
+  whatsapp: {
+    tooltip: "Chat with us",
+  },
   footer: "Smart Learn · Mohammad Nabil · Egypt",
   whySL: "Why Smart Learn",
   howItWorks: "How it works",

@@ -138,6 +138,16 @@ export const ar = {
     waMsgDefault: "مرحباً! وجدت موقعك وأريد مناقشة مشروع.",
     ctaWhatsApp: "تحدث على واتساب",
   },
+  stats: {
+    badge: "📊 بالأرقام",
+    yearsExp: "سنوات خبرة",
+    pluginsBuilt: "إضافة مبنية",
+    clients: "عميل حول العالم",
+    countries: "دول",
+  },
+  whatsapp: {
+    tooltip: "تواصل معنا",
+  },
   footer: "Smart Learn · محمد نبيل · مصر",
   whySL: "لماذا Smart Learn",
   howItWorks: "كيف يعمل",
