@@ -593,28 +593,36 @@ function TestimonialRow({ testimonial, onEdit, onDelete }: {
   onEdit: (t: Testimonial) => void;
   onDelete: (t: Testimonial) => void;
 }) {
+  const badge = (color: string, bg: string, border: string, text: string) => (
+    <span style={{
+      fontSize: 10, fontWeight: 700, padding: "2px 7px", borderRadius: 20,
+      background: bg, border: `1px solid ${border}`, color, marginRight: 4,
+    }}>{text}</span>
+  );
+
   return (
-    <tr style={{ borderBottom: "1px solid rgba(255,255,255,0.04)" }}>
+    <tr style={{
+      borderBottom: "1px solid rgba(255,255,255,0.04)",
+      opacity: testimonial.active ? 1 : 0.55,
+    }}>
       <td style={{ padding: "12px 16px", fontSize: 13, color: "#e2e8f0" }}>
         <div style={{ fontWeight: 600 }}>{testimonial.name}</div>
-        <div style={{ fontSize: 11, color: "#64748b", marginTop: 2, direction: "rtl", textAlign: "left" }}>{testimonial.nameAr}</div>
+        <div style={{ fontSize: 11, color: "#64748b", marginTop: 2 }}>{testimonial.nameAr}</div>
       </td>
       <td style={{ padding: "12px 16px", fontSize: 12, color: "#94a3b8" }}>
         <div>{testimonial.role}</div>
         <div style={{ fontSize: 11, color: "#64748b" }}>{testimonial.company}</div>
       </td>
       <td style={{ padding: "12px 16px" }}>
-        <span style={{
-          fontSize: 10, fontWeight: 700, padding: "2px 8px", borderRadius: 20,
-          background: testimonial.featured ? "rgba(168,85,247,0.1)" : "rgba(100,116,139,0.15)",
-          border: `1px solid ${testimonial.featured ? "rgba(168,85,247,0.3)" : "rgba(100,116,139,0.3)"}`,
-          color: testimonial.featured ? "#c084fc" : "#64748b",
-        }}>
-          {testimonial.featured ? "Featured" : "Hidden"}
-        </span>
+        {testimonial.active
+          ? badge("#4ade80", "rgba(74,222,128,0.1)", "rgba(74,222,128,0.3)", "Active")
+          : badge("#f87171", "rgba(248,113,113,0.1)", "rgba(248,113,113,0.3)", "Inactive")}
+        {testimonial.featured
+          ? badge("#c084fc", "rgba(168,85,247,0.1)", "rgba(168,85,247,0.3)", "Featured")
+          : badge("#64748b", "rgba(100,116,139,0.1)", "rgba(100,116,139,0.3)", "Not Featured")}
       </td>
       <td style={{ padding: "12px 16px", fontSize: 12, color: "#64748b" }}>
-        #{testimonial.displayOrder} {testimonial.serviceSlug ? `· ${testimonial.serviceSlug}` : ""}
+        #{testimonial.displayOrder}{testimonial.serviceSlug ? ` · ${testimonial.serviceSlug}` : ""}
       </td>
       <td style={{ padding: "12px 16px" }}>
         <div style={{ display: "flex", gap: 6, alignItems: "center" }}>
@@ -670,7 +678,9 @@ function Dashboard({ token, onLogout }: { token: string; onLogout: () => void })
   const { data: testimonials = [], isLoading: tLoading, error: tError } = useQuery<Testimonial[]>({
     queryKey: ["admin-testimonials"],
     queryFn: async () => {
-      const res = await fetch(`${BASE}/testimonials`);
+      const res = await fetch(`${BASE}/testimonials/all`, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
       if (!res.ok) throw new Error("Failed");
       return res.json();
     },

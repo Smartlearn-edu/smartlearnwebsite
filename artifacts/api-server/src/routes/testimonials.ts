@@ -19,6 +19,18 @@ router.get("/testimonials", async (_req, res) => {
   }
 });
 
+router.get("/testimonials/all", requireAdmin, async (_req, res) => {
+  try {
+    const rows = await db
+      .select()
+      .from(testimonialsTable)
+      .orderBy(asc(testimonialsTable.displayOrder));
+    res.json(rows);
+  } catch {
+    res.status(500).json({ error: "Failed to fetch testimonials" });
+  }
+});
+
 router.get("/testimonials/:id", async (req, res) => {
   try {
     const id = Number(req.params.id);
