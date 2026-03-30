@@ -5,6 +5,7 @@ export const en = {
     services: "Services",
     about: "About",
     stories: "Success Stories",
+    pricing: "Pricing",
     contact: "Contact",
     hireMe: "Hire Me",
     dashboard: "Dashboard",

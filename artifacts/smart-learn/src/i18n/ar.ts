@@ -5,6 +5,7 @@ export const ar = {
     services: "الخدمات",
     about: "عن النظام",
     stories: "قصص النجاح",
+    pricing: "الأسعار",
     contact: "تواصل معنا",
     hireMe: "وظّفني",
     dashboard: "لوحتي",
