@@ -57,14 +57,8 @@ export function ServicesSection() {
         </motion.div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {services.slice(0, 3).map((svc, i) => (
+          {services.map((svc, i) => (
             <ServiceCard key={svc.slug} svc={svc} i={i} learnMore={t.services.learnMore} featured={t.services.featured} />
-          ))}
-        </div>
-
-        <div className="grid md:grid-cols-2 gap-6 mt-6 max-w-4xl mx-auto">
-          {services.slice(3).map((svc, i) => (
-            <ServiceCard key={svc.slug} svc={svc} i={i + 3} learnMore={t.services.learnMore} featured={t.services.featured} />
           ))}
         </div>
       </div>
