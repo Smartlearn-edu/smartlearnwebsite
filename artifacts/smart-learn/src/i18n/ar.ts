@@ -4,6 +4,7 @@ export const ar = {
     home: "الرئيسية",
     services: "الخدمات",
     about: "عن النظام",
+    stories: "قصص النجاح",
     contact: "تواصل معنا",
     hireMe: "وظّفني",
     dashboard: "لوحتي",

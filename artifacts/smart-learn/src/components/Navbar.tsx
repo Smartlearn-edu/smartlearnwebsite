@@ -23,12 +23,14 @@ export function Navbar() {
     { label: t.nav.home, href: "#home" },
     { label: t.nav.services, href: "#services" },
     { label: t.nav.about, href: "#about" },
+    { label: t.nav.stories, href: "/success-stories", isRoute: true },
     { label: t.nav.contact, href: "#contact" },
   ];
 
   const serviceLinks = [
     { label: t.nav.services, href: "/#services" },
     { label: t.nav.about, href: "/#about" },
+    { label: t.nav.stories, href: "/success-stories", isRoute: true },
     { label: t.nav.contact, href: "/#contact" },
   ];
 
@@ -94,16 +96,27 @@ export function Navbar() {
         </div>
 
         <nav className="hidden md:flex items-center gap-6">
-          {navLinks.map((l) => (
-            <a
-              key={l.label}
-              href={l.href}
-              className="text-sm text-slate-400 hover:text-white transition-colors duration-200 font-medium"
-              style={font}
-            >
-              {l.label}
-            </a>
-          ))}
+          {navLinks.map((l) =>
+            l.isRoute ? (
+              <Link
+                key={l.label}
+                href={l.href}
+                className="text-sm text-slate-400 hover:text-white transition-colors duration-200 font-medium"
+                style={font}
+              >
+                {l.label}
+              </Link>
+            ) : (
+              <a
+                key={l.label}
+                href={l.href}
+                className="text-sm text-slate-400 hover:text-white transition-colors duration-200 font-medium"
+                style={font}
+              >
+                {l.label}
+              </a>
+            )
+          )}
           <a
             href={DASHBOARD_URL}
             target="_blank"
@@ -162,17 +175,29 @@ export function Navbar() {
               {t.nav.backToHome}
             </Link>
           )}
-          {navLinks.map((l) => (
-            <a
-              key={l.label}
-              href={l.href}
-              onClick={() => setOpen(false)}
-              className="text-sm text-slate-300 hover:text-white transition-colors py-1"
-              style={font}
-            >
-              {l.label}
-            </a>
-          ))}
+          {navLinks.map((l) =>
+            l.isRoute ? (
+              <Link
+                key={l.label}
+                href={l.href}
+                onClick={() => setOpen(false)}
+                className="text-sm text-slate-300 hover:text-white transition-colors py-1"
+                style={font}
+              >
+                {l.label}
+              </Link>
+            ) : (
+              <a
+                key={l.label}
+                href={l.href}
+                onClick={() => setOpen(false)}
+                className="text-sm text-slate-300 hover:text-white transition-colors py-1"
+                style={font}
+              >
+                {l.label}
+              </a>
+            )
+          )}
           <a
             href={DASHBOARD_URL}
             target="_blank"
