@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { DirectionalArrow } from "@/components/DirectionalArrow";
-import { Smartphone, Check, Palette, LogIn, Bell, Upload, Globe } from "lucide-react";
+import { Smartphone, Check, Palette, LogIn, Bell, Upload, Paintbrush } from "lucide-react";
 import { Helmet } from "react-helmet-async";
 import { Navbar } from "@/components/Navbar";
 import { useT } from "@/i18n";
@@ -20,6 +20,7 @@ const heroData = {
     titleGradient: "Mobile App",
     tagline: "Your Moodle platform in your students' pockets — a fully branded Android or iOS app with your logo, colors, and pre-configured login.",
     desc: "Built on the official Moodle Mobile source. Learners download your app and sign in directly to your LMS — no URL entry, no confusion, just your brand.",
+    tags: ["Android", "iOS", "White Label", "Push Notifications", "Store Submission"],
     ctaPrimary: "Get Your App",
     includedHeading: "What's",
     includedGradient: "Included",
@@ -39,6 +40,7 @@ const heroData = {
     titleGradient: "بهويتك",
     tagline: "منصة Moodle في جيب طلابك — تطبيق Android أو iOS بشعارك وألوانك وتسجيل دخول مباشر لمنصتك.",
     desc: "مبني على المصدر الرسمي لتطبيق Moodle Mobile. يُحمّل الطلاب تطبيقك ويسجلون دخولهم مباشرةً إلى نظامك — لا إدخال للرابط، لا تشويش، فقط علامتك.",
+    tags: ["Android", "iOS", "علامة بيضاء", "إشعارات فورية", "نشر على المتاجر"],
     ctaPrimary: "احصل على تطبيقك",
     includedHeading: "ما",
     includedGradient: "يشمله",
@@ -58,14 +60,16 @@ const includedData = {
   en: [
     { Icon: Palette, title: "Custom App Name & Icon", desc: "Your app appears in the store and on-device with your chosen name and icon — not Moodle's." },
     { Icon: LogIn, title: "Branded Splash & Login Screens", desc: "Your logo is displayed on the splash screen and login page every time a learner opens the app." },
-    { Icon: Globe, title: "Brand Colors Applied", desc: "The full interface is styled with your primary brand colors for a consistent visual identity." },
+    { Icon: Paintbrush, title: "Brand Colors Applied", desc: "The full interface is styled with your primary brand colors for a consistent visual identity." },
     { Icon: Smartphone, title: "Pre-Configured Moodle URL", desc: "Learners open the app and log straight in to your site — no URL entry, no wrong-site risk." },
+    { Icon: Bell, title: "Push Notifications & Store Submission", desc: "Keep learners engaged with push notifications, and let me handle Google Play / App Store submission on your behalf." },
   ],
   ar: [
     { Icon: Palette, title: "اسم التطبيق والأيقونة المخصصة", desc: "يظهر تطبيقك في المتجر وعلى الجهاز باسمك وأيقونتك المختارة — وليس Moodle." },
     { Icon: LogIn, title: "شاشتا السبلاش وتسجيل الدخول بهويتك", desc: "يُعرض شعارك على شاشة السبلاش وصفحة تسجيل الدخول في كل مرة يفتح فيها المتعلم التطبيق." },
-    { Icon: Globe, title: "ألوان العلامة التجارية مطبّقة", desc: "تُصمَّم الواجهة الكاملة بألوان علامتك التجارية الأساسية لهوية بصرية متسقة." },
+    { Icon: Paintbrush, title: "ألوان العلامة التجارية مطبّقة", desc: "تُصمَّم الواجهة الكاملة بألوان علامتك التجارية الأساسية لهوية بصرية متسقة." },
     { Icon: Smartphone, title: "رابط Moodle مُعدّ مسبقاً", desc: "يفتح الطلاب التطبيق ويسجلون دخولهم مباشرةً في موقعك — لا إدخال للرابط، لا خطر الدخول إلى موقع خاطئ." },
+    { Icon: Bell, title: "إشعارات فورية ونشر على المتاجر", desc: "أبقِ المتعلمين منخرطين بالإشعارات الفورية، ودعني أتولى نشر التطبيق على Google Play / App Store نيابةً عنك." },
   ],
 };
 
@@ -172,11 +176,20 @@ export function MobileAppPage() {
               className="text-base text-slate-500 max-w-xl mx-auto leading-relaxed mb-10" style={font}>
               {hero.desc}
             </motion.p>
-            <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.32 }}>
+            <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.32 }}
+              className="flex flex-col items-center gap-4">
               <a href="/#contact" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-black text-sm text-white transition-all duration-200 hover:opacity-90 hover:scale-105"
                 style={{ background: "linear-gradient(135deg, #6900A3, #a855f7)", boxShadow: "0 0 28px rgba(105,0,163,0.4)", ...font }}>
                 {hero.ctaPrimary} <DirectionalArrow size={15} />
               </a>
+              <div className="flex flex-wrap items-center justify-center gap-2">
+                {hero.tags.map((tag) => (
+                  <span key={tag} className="text-xs px-3 py-1 rounded-full font-semibold"
+                    style={{ background: "rgba(168,85,247,0.1)", color: "#c084fc", border: "1px solid rgba(168,85,247,0.25)", ...font }}>
+                    {tag}
+                  </span>
+                ))}
+              </div>
             </motion.div>
           </div>
         </section>
@@ -190,7 +203,7 @@ export function MobileAppPage() {
               </h2>
               <p className="text-slate-500 text-base max-w-lg mx-auto" style={font}>{hero.includedSub}</p>
             </motion.div>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5">
               {included.map(({ Icon, title, desc }, i) => (
                 <motion.div key={title} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.45, delay: i * 0.08 }}
                   className="rounded-2xl p-5 text-center" style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(168,85,247,0.1)" }}>
