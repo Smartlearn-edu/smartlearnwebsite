@@ -23,24 +23,29 @@ export function ParticleCanvas({ count = 60, className, style }: ParticleCanvasP
     const canvas = canvasRef.current;
     if (!canvas) return;
 
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
-    let animId: number;
+    let animId: number | null = null;
     let particles: Particle[] = [];
+    const reducedMotionMql = window.matchMedia("(prefers-reduced-motion: reduce)");
 
     const resize = () => {
-      canvas.width = canvas.offsetWidth;
-      canvas.height = canvas.offsetHeight;
+      const dpr = window.devicePixelRatio || 1;
+      const w = canvas.offsetWidth;
+      const h = canvas.offsetHeight;
+      canvas.width = w * dpr;
+      canvas.height = h * dpr;
+      ctx.scale(dpr, dpr);
     };
 
     const init = () => {
       resize();
+      const w = canvas.offsetWidth;
+      const h = canvas.offsetHeight;
       particles = Array.from({ length: count }, () => ({
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
+        x: Math.random() * w,
+        y: Math.random() * h,
         radius: Math.random() * 1.2 + 0.4,
         vx: (Math.random() - 0.5) * 0.25,
         vy: (Math.random() - 0.5) * 0.25,
@@ -50,7 +55,9 @@ export function ParticleCanvas({ count = 60, className, style }: ParticleCanvasP
     };
 
     const draw = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      const w = canvas.offsetWidth;
+      const h = canvas.offsetHeight;
+      ctx.clearRect(0, 0, w, h);
 
       const now = performance.now() * 0.001;
 
@@ -58,10 +65,10 @@ export function ParticleCanvas({ count = 60, className, style }: ParticleCanvasP
         p.x += p.vx;
         p.y += p.vy;
 
-        if (p.x < -16) p.x = canvas.width + 16;
-        if (p.x > canvas.width + 16) p.x = -16;
-        if (p.y < -16) p.y = canvas.height + 16;
-        if (p.y > canvas.height + 16) p.y = -16;
+        if (p.x < -16) p.x = w + 16;
+        if (p.x > w + 16) p.x = -16;
+        if (p.y < -16) p.y = h + 16;
+        if (p.y > h + 16) p.y = -16;
 
         const pulse = 0.35 + 0.3 * Math.sin(now * p.pulseSpeed + p.phase);
         const glowR = p.radius * 7;
@@ -80,15 +87,44 @@ export function ParticleCanvas({ count = 60, className, style }: ParticleCanvasP
       animId = requestAnimationFrame(draw);
     };
 
-    init();
-    animId = requestAnimationFrame(draw);
+    const start = () => {
+      if (animId !== null) return;
+      animId = requestAnimationFrame(draw);
+    };
 
-    const ro = new ResizeObserver(() => resize());
+    const stop = () => {
+      if (animId !== null) {
+        cancelAnimationFrame(animId);
+        animId = null;
+        ctx.clearRect(0, 0, canvas.offsetWidth, canvas.offsetHeight);
+      }
+    };
+
+    const onReducedMotionChange = (e: MediaQueryListEvent) => {
+      if (e.matches) {
+        stop();
+      } else {
+        start();
+      }
+    };
+
+    init();
+
+    if (!reducedMotionMql.matches) {
+      start();
+    }
+
+    reducedMotionMql.addEventListener("change", onReducedMotionChange);
+
+    const ro = new ResizeObserver(() => {
+      resize();
+    });
     ro.observe(canvas);
 
     return () => {
-      cancelAnimationFrame(animId);
+      stop();
       ro.disconnect();
+      reducedMotionMql.removeEventListener("change", onReducedMotionChange);
     };
   }, [count]);
 
