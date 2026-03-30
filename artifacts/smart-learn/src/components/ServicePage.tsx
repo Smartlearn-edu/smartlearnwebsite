@@ -3,6 +3,7 @@ import { LucideIcon, MessageCircle } from "lucide-react";
 import { Helmet } from "react-helmet-async";
 import { Navbar } from "@/components/Navbar";
 import { DirectionalArrow } from "@/components/DirectionalArrow";
+import { useT } from "@/i18n";
 
 export interface SubSection {
   title: string;
@@ -29,6 +30,11 @@ export function ServicePage({
   iconColor = "#a855f7",
   sections,
 }: ServicePageProps) {
+  const { lang } = useT();
+  const waLabel = lang === "ar" ? "تحدث على واتساب" : "Chat on WhatsApp";
+  const waMsg = lang === "ar"
+    ? "مرحباً! أريد الاستفسار عن خدمات Moodle لديكم."
+    : "Hi! I'd like to ask about your Moodle services.";
   return (
     <>
       <Helmet>
@@ -194,7 +200,7 @@ export function ServicePage({
                 <DirectionalArrow size={16} />
               </a>
               <a
-                href={`https://wa.me/201005822858?text=${encodeURIComponent("Hi! I'd like to ask about your Moodle services.")}`}
+                href={`https://wa.me/201005822858?text=${encodeURIComponent(waMsg)}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-black text-sm text-white transition-all duration-200 hover:opacity-90 hover:scale-105"
@@ -204,7 +210,7 @@ export function ServicePage({
                   ...font,
                 }}
               >
-                <MessageCircle size={16} /> Chat on WhatsApp
+                <MessageCircle size={16} /> {waLabel}
               </a>
             </div>
           </motion.div>
