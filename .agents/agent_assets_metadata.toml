@@ -1,5 +1,16 @@
 uploads = []
-generated = []
+
+[[generated]]
+id = "Y_gA3GI3UOyivJrYgYRJf"
+uri = "file://artifacts/smart-learn/public/img/mobile-android.png"
+type = "image"
+title = "android mobile app mockup"
+
+[[generated]]
+id = "C8mFV2w9Ldw9LtBfdTi72"
+uri = "file://artifacts/smart-learn/public/img/mobile-ios.png"
+type = "image"
+title = "android ios mobile app mockup"
 
 [[outputs]]
 id = "F-TRQqPjjMpRBG9UnLcJQ"

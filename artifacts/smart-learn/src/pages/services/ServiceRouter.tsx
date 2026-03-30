@@ -4,6 +4,7 @@ import { PluginsPage } from "./PluginsPage";
 import { AiPage } from "./AiPage";
 import { N8nPage } from "./N8nPage";
 import { TrainingPage } from "./TrainingPage";
+import { MobileAppPage } from "./MobileAppPage";
 import { Navbar } from "@/components/Navbar";
 import { Link } from "wouter";
 import { useT } from "@/i18n";
@@ -15,6 +16,7 @@ const pageMap: Record<string, React.ComponentType> = {
   ai: AiPage,
   n8n: N8nPage,
   training: TrainingPage,
+  "mobile-app": MobileAppPage,
 };
 
 const notFound = {

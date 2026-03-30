@@ -30,7 +30,7 @@ export const en = {
     heading: "What I",
     headingGradient: "Deliver",
     subtitle:
-      "Five focused service areas to cover every aspect of building, improving, and scaling your Moodle-powered education platform.",
+      "Six focused service areas to cover every aspect of building, improving, and scaling your Moodle-powered education platform.",
     featured: "Featured",
     learnMore: "Learn More",
     items: [
@@ -63,6 +63,12 @@ export const en = {
         description:
           "Practical training programs for Moodle administrators and teachers at online academies, schools, and course platforms. Ongoing technical support, documentation, troubleshooting, and remote assistance.",
         tags: ["Admin Training", "Teacher Training", "Remote Support", "Docs"],
+      },
+      {
+        title: "Branded Moodle Mobile App",
+        description:
+          "Your Moodle platform in your students' pockets — a fully branded Android or iOS app with your logo, colors, and pre-configured login. Learners download your app and sign in directly to your LMS.",
+        tags: ["Android", "iOS", "White Label", "Push Notifications", "Store Submission"],
       },
     ],
   },
