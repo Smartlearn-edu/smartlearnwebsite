@@ -198,7 +198,6 @@ const PAGE_TEXT = {
     ctaMail: "Send an Email",
     pluginsNote: "Looking for individual plugin prices?",
     pluginsLink: "Browse the Plugins catalogue →",
-    footerText: "Smart Learn · Mohammad Nabil · Egypt",
   },
   ar: {
     badge: "💰 الأسعار",
@@ -215,7 +214,6 @@ const PAGE_TEXT = {
     ctaMail: "راسلني بالبريد",
     pluginsNote: "تبحث عن أسعار الإضافات الفردية؟",
     pluginsLink: "← تصفّح كتالوج الإضافات",
-    footerText: "Smart Learn · محمد نبيل · مصر",
   },
 };
 
