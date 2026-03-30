@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Puzzle, Check } from "lucide-react";
+import { Puzzle, Check, Search, X } from "lucide-react";
 import { Helmet } from "react-helmet-async";
 import { Link } from "wouter";
 import { Navbar } from "@/components/Navbar";
@@ -28,7 +28,8 @@ const typeColors: Record<string, { bg: string; text: string }> = {
 
 export function PluginsPage() {
   const { lang, t } = useT();
-  const { data: plugins = [] } = usePlugins();
+  const { data: plugins = [], isLoading } = usePlugins();
+  const [searchQuery, setSearchQuery] = useState("");
 
   const purelyFreeCount = plugins.filter((p) => p.free && !p.paidSupport).length;
   const freeSupportCount = plugins.filter((p) => p.free && p.paidSupport).length;
@@ -93,13 +94,20 @@ export function PluginsPage() {
       : plugins.filter((p) => p.categoryAr === activeAr);
 
   const allOff = !showFree && !showFreeSupport && !showPaid;
-  const filtered = allOff
+  const byType = allOff
     ? byCat
     : byCat.filter((p) => {
         if (!p.free) return showPaid;
         if (p.paidSupport) return showFreeSupport;
         return showFree;
       });
+
+  const q = searchQuery.trim().toLowerCase();
+  const filtered = q
+    ? byType.filter((p) =>
+        (lang === "en" ? p.name : p.nameAr).toLowerCase().includes(q)
+      )
+    : byType;
 
   const categories = lang === "en" ? CATEGORIES : CATEGORIES_AR;
 
@@ -227,6 +235,52 @@ export function PluginsPage() {
           </div>
         </section>
 
+        {/* Search input */}
+        <div className="px-6 pb-4 -mt-4">
+          <div className="max-w-6xl mx-auto">
+            <div className="relative max-w-md">
+              <Search
+                size={16}
+                className="absolute top-1/2 -translate-y-1/2 pointer-events-none"
+                style={{ color: "#64748b", [lang === "ar" ? "right" : "left"]: "1rem" }}
+              />
+              <input
+                type="text"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                placeholder={lang === "ar" ? "ابحث عن إضافة..." : "Search plugins..."}
+                className="w-full py-2.5 rounded-xl text-sm text-white outline-none transition-all duration-200"
+                style={{
+                  background: "rgba(255,255,255,0.05)",
+                  border: "1px solid rgba(255,255,255,0.09)",
+                  fontFamily: "'Cairo', sans-serif",
+                  paddingLeft: lang === "ar" ? "1rem" : "2.75rem",
+                  paddingRight: lang === "ar" ? "2.75rem" : "1rem",
+                  direction: lang === "ar" ? "rtl" : "ltr",
+                }}
+                onFocus={(e) => {
+                  e.currentTarget.style.borderColor = "rgba(168,85,247,0.5)";
+                  e.currentTarget.style.background = "rgba(255,255,255,0.07)";
+                }}
+                onBlur={(e) => {
+                  e.currentTarget.style.borderColor = "rgba(255,255,255,0.09)";
+                  e.currentTarget.style.background = "rgba(255,255,255,0.05)";
+                }}
+              />
+              {searchQuery && (
+                <button
+                  onClick={() => setSearchQuery("")}
+                  className="absolute top-1/2 -translate-y-1/2 transition-opacity hover:opacity-80"
+                  style={{ [lang === "ar" ? "left" : "right"]: "0.75rem" }}
+                  aria-label="Clear search"
+                >
+                  <X size={15} style={{ color: "#64748b" }} />
+                </button>
+              )}
+            </div>
+          </div>
+        </div>
+
         <div className="sticky top-16 z-40 px-6 py-3"
           style={{ backgroundColor: "rgba(7,7,15,0.9)", backdropFilter: "blur(16px)", borderBottom: "1px solid rgba(255,255,255,0.05)" }}>
           <div className="max-w-6xl mx-auto">
@@ -260,14 +314,35 @@ export function PluginsPage() {
 
         <section className="py-12 px-6">
           <div className="max-w-6xl mx-auto">
-            <AnimatePresence mode="wait">
-              <motion.div key={activeValue + lang} initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }}
-                transition={{ duration: 0.25 }} className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-                {filtered.map((plugin, i) => (
-                  <PluginCard key={plugin.slug} plugin={plugin} i={i} lang={lang} hero={hero} />
+            {isLoading ? (
+              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+                {Array.from({ length: 6 }).map((_, i) => (
+                  <PluginCardSkeleton key={i} />
                 ))}
-              </motion.div>
-            </AnimatePresence>
+              </div>
+            ) : filtered.length === 0 ? (
+              <div className="text-center py-24">
+                <p className="text-slate-500 text-lg" style={font}>
+                  {lang === "ar" ? "لا توجد إضافات تطابق بحثك." : "No plugins match your search."}
+                </p>
+                <button
+                  onClick={() => setSearchQuery("")}
+                  className="mt-4 text-sm font-semibold"
+                  style={{ color: "#a855f7", fontFamily: "'Cairo', sans-serif" }}
+                >
+                  {lang === "ar" ? "مسح البحث" : "Clear search"}
+                </button>
+              </div>
+            ) : (
+              <AnimatePresence mode="wait">
+                <motion.div key={activeValue + lang + q} initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }}
+                  transition={{ duration: 0.25 }} className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+                  {filtered.map((plugin, i) => (
+                    <PluginCard key={plugin.slug} plugin={plugin} i={i} lang={lang} hero={hero} />
+                  ))}
+                </motion.div>
+              </AnimatePresence>
+            )}
           </div>
         </section>
 
@@ -289,6 +364,48 @@ export function PluginsPage() {
         </footer>
       </div>
     </>
+  );
+}
+
+function PluginCardSkeleton() {
+  return (
+    <div
+      className="rounded-2xl flex flex-col overflow-hidden animate-pulse"
+      style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.07)" }}
+    >
+      {/* Thumbnail */}
+      <div
+        className="w-full flex-shrink-0"
+        style={{ height: 160, background: "rgba(255,255,255,0.06)" }}
+      />
+
+      <div className="p-6 flex flex-col flex-1 gap-4">
+        {/* Title + badges row */}
+        <div className="flex items-start justify-between gap-3">
+          <div className="flex-1 space-y-2">
+            <div className="h-4 rounded-lg" style={{ background: "rgba(255,255,255,0.08)", width: "75%" }} />
+            <div className="flex gap-2">
+              <div className="h-3 w-14 rounded-md" style={{ background: "rgba(255,255,255,0.06)" }} />
+              <div className="h-3 w-20 rounded-md" style={{ background: "rgba(255,255,255,0.06)" }} />
+            </div>
+          </div>
+          <div className="h-6 w-16 rounded-full flex-shrink-0" style={{ background: "rgba(255,255,255,0.07)" }} />
+        </div>
+
+        {/* Feature list */}
+        <div className="flex-1 space-y-2.5">
+          {[80, 65, 72, 55].map((w, i) => (
+            <div key={i} className="flex items-center gap-2">
+              <div className="h-3 w-3 rounded-full flex-shrink-0" style={{ background: "rgba(255,255,255,0.07)" }} />
+              <div className="h-3 rounded-lg" style={{ background: "rgba(255,255,255,0.06)", width: `${w}%` }} />
+            </div>
+          ))}
+        </div>
+
+        {/* Button */}
+        <div className="h-10 rounded-xl mt-1" style={{ background: "rgba(168,85,247,0.12)" }} />
+      </div>
+    </div>
   );
 }
 
