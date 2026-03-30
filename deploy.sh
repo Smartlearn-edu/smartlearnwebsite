@@ -63,15 +63,10 @@ echo ""
 
 # ─── 5. Restart API via PM2 ──────────────────────────────────────────────────
 echo "▶ Restarting API server..."
-if pm2 describe "$PM2_APP_NAME" > /dev/null 2>&1; then
-  pm2 restart "$PM2_APP_NAME" --update-env
-  echo "✓ PM2 process '$PM2_APP_NAME' restarted with updated env"
-else
-  echo "  PM2 process '$PM2_APP_NAME' not found — starting it now..."
-  pm2 start ecosystem.config.cjs
-  pm2 save
-  echo "✓ PM2 process '$PM2_APP_NAME' started and saved"
-fi
+pm2 delete "$PM2_APP_NAME" 2>/dev/null || true
+pm2 start ecosystem.config.cjs
+pm2 save
+echo "✓ PM2 process '$PM2_APP_NAME' started with fresh env"
 echo ""
 
 echo "========================================"

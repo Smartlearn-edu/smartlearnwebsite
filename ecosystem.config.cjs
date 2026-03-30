@@ -1,6 +1,9 @@
-// PM2 process config — run from the repo root on your VPS
+// PM2 process config — run from the repo root on your VPS.
 // Usage: pm2 start ecosystem.config.cjs
 //        pm2 save && pm2 startup   (to auto-start on reboot)
+//
+// Reads DATABASE_URL, ADMIN_PASSWORD, PORT from the shell environment.
+// Always start via deploy.sh which sources .env first.
 
 module.exports = {
   apps: [
@@ -12,7 +15,9 @@ module.exports = {
       watch: false,
       env: {
         NODE_ENV: "production",
-        PORT: 8080,
+        PORT: process.env.PORT || 8080,
+        DATABASE_URL: process.env.DATABASE_URL,
+        ADMIN_PASSWORD: process.env.ADMIN_PASSWORD,
       },
     },
   ],
