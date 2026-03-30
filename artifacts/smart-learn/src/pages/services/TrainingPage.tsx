@@ -77,7 +77,7 @@ const heroData = {
     ctaTitle: "Ready to train your team?",
     ctaDesc: "Tell me about your team size, current Moodle experience, and what you want them to be able to do — I'll design a training plan and send you a quote.",
     ctaBtn: "Book Training",
-    ctaWhatsApp: "Book via WhatsApp",
+    ctaWhatsApp: "Chat on WhatsApp",
     ctaWaMsg: "Hi! I'd like to book a Moodle training session.",
   },
   ar: {
@@ -94,7 +94,7 @@ const heroData = {
     ctaTitle: "هل أنت مستعد لتدريب فريقك؟",
     ctaDesc: "أخبرني عن حجم الفريق وخبرتهم الحالية في Moodle وما تريدهم أن يكونوا قادرين على فعله — سأصمم خطة تدريب وأرسل لك عرض سعر.",
     ctaBtn: "احجز التدريب",
-    ctaWhatsApp: "احجز عبر واتساب",
+    ctaWhatsApp: "تحدث على واتساب",
     ctaWaMsg: "مرحباً! أريد حجز جلسة تدريب Moodle.",
   },
 };
