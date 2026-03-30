@@ -42,6 +42,12 @@ pnpm install --frozen-lockfile
 echo "✓ Dependencies ready"
 echo ""
 
+# ─── 3. Push DB schema (create/migrate tables) ───────────────────────────────
+echo "▶ Pushing DB schema..."
+pnpm --filter @workspace/db run push
+echo "✓ DB schema up to date"
+echo ""
+
 # ─── 3. Build frontend ────────────────────────────────────────────────────────
 echo "▶ Building frontend..."
 cd "$DEPLOY_DIR/artifacts/smart-learn" && PORT=8080 BASE_PATH=/ pnpm run build && cd "$DEPLOY_DIR"
