@@ -272,7 +272,7 @@ export function PluginsPage() {
                   onClick={() => setSearchQuery("")}
                   className="absolute top-1/2 -translate-y-1/2 transition-opacity hover:opacity-80"
                   style={{ [lang === "ar" ? "left" : "right"]: "0.75rem" }}
-                  aria-label="Clear search"
+                  aria-label={lang === "ar" ? "مسح البحث" : "Clear search"}
                 >
                   <X size={15} style={{ color: "#64748b" }} />
                 </button>
