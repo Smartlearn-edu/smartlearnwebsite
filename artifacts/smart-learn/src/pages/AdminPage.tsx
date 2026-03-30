@@ -178,6 +178,7 @@ function PluginForm({
   const [form, setForm] = useState<Partial<DbPlugin>>(initial);
   const [featStr, setFeatStr] = useState((initial.features ?? []).join("\n"));
   const [featArStr, setFeatArStr] = useState((initial.featuresAr ?? []).join("\n"));
+  const [imgStr, setImgStr] = useState((initial.images ?? []).join("\n"));
 
   const set = (k: keyof DbPlugin, v: unknown) => setForm((f) => ({ ...f, [k]: v }));
 
@@ -190,6 +191,7 @@ function PluginForm({
       ...form,
       features: featStr.split("\n").filter(Boolean),
       featuresAr: featArStr.split("\n").filter(Boolean),
+      images: imgStr.split("\n").map((s) => s.trim()).filter(Boolean),
     };
     onSave(data);
   };
@@ -289,6 +291,20 @@ function PluginForm({
             <label style={s.label}>Features AR (one per line)</label>
             <textarea value={featArStr} onChange={(e) => setFeatArStr(e.target.value)}
               rows={5} style={{ ...s.input, resize: "vertical", direction: "rtl" }} />
+          </div>
+        </div>
+
+        <div style={{ marginBottom: 20 }}>
+          <label style={s.label}>Images (one filename per line)</label>
+          <textarea
+            value={imgStr}
+            onChange={(e) => setImgStr(e.target.value)}
+            rows={3}
+            placeholder={"screenshot1.png\nscreenshot2.jpg"}
+            style={{ ...s.input, resize: "vertical" }}
+          />
+          <div style={{ fontSize: 11, color: "#475569", marginTop: 4 }}>
+            Files must be uploaded to <code style={{ color: "#a855f7" }}>/plugins/{"{slug}"}/</code> on the server. Enter filenames only, e.g. <code style={{ color: "#a855f7" }}>screenshot1.png</code>
           </div>
         </div>
 
