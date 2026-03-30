@@ -13,10 +13,13 @@ API_PORT="${PORT:-8080}"
 FRONTEND_BUILD_DIR="$DEPLOY_DIR/artifacts/smart-learn/dist/public"
 API_BUILD_DIR="$DEPLOY_DIR/artifacts/api-server/dist"
 PM2_APP_NAME="smartlearn-api"
+NGINX_FRONTEND="/www/wwwroot/home.smartlearn.education/frontend"
 
 # Load .env if present so DATABASE_URL etc. are available
 if [ -f "$DEPLOY_DIR/.env" ]; then
-  export $(grep -v '^#' "$DEPLOY_DIR/.env" | xargs)
+  set -a
+  source "$DEPLOY_DIR/.env"
+  set +a
 fi
 
 echo ""
@@ -41,13 +44,20 @@ echo ""
 
 # ─── 3. Build frontend ────────────────────────────────────────────────────────
 echo "▶ Building frontend..."
-BASE_PATH=/ PORT="$API_PORT" pnpm --filter @workspace/smart-learn run build
+cd "$DEPLOY_DIR/artifacts/smart-learn" && PORT=8080 BASE_PATH=/ pnpm run build && cd "$DEPLOY_DIR"
 echo "✓ Frontend built → $FRONTEND_BUILD_DIR"
+echo ""
+
+# ─── 3b. Copy frontend files to Nginx directory ───────────────────────────────
+echo "▶ Copying frontend files to Nginx directory..."
+rm -rf "$NGINX_FRONTEND"/*
+cp -r "$FRONTEND_BUILD_DIR/." "$NGINX_FRONTEND/"
+echo "✓ Frontend files copied → $NGINX_FRONTEND"
 echo ""
 
 # ─── 4. Build API server ──────────────────────────────────────────────────────
 echo "▶ Building API server..."
-pnpm --filter @workspace/api-server run build
+cd "$DEPLOY_DIR/artifacts/api-server" && pnpm run build && cd "$DEPLOY_DIR"
 echo "✓ API server built → $API_BUILD_DIR"
 echo ""
 
@@ -68,7 +78,7 @@ echo ""
 
 echo "========================================"
 echo "  ✅ Deploy complete!"
-echo "  Frontend: $FRONTEND_BUILD_DIR"
+echo "  Frontend: $NGINX_FRONTEND"
 echo "  API:      running via PM2 on port $API_PORT"
 echo "========================================"
 echo ""
