@@ -1,9 +1,10 @@
+import React from "react";
 import { motion } from "framer-motion";
 import { useT } from "@/i18n";
 
 const font: React.CSSProperties = { fontFamily: "'Cairo', sans-serif" };
 
-const LOGOS = [
+const LOGOS: { initials: string; name: string; color: string; src?: string }[] = [
   { initials: "AOU", name: "Arab Open University", color: "#6900A3" },
   { initials: "EKB", name: "Egyptian Knowledge Bank", color: "#7c3aed" },
   { initials: "GA", name: "Gulf Academy", color: "#0369a1" },
@@ -27,6 +28,31 @@ const SECTION_TEXT = {
   },
 };
 
+function LogoBadge({ logo }: { logo: (typeof LOGOS)[number] }) {
+  const [imgFailed, setImgFailed] = React.useState(false);
+
+  if (logo.src && !imgFailed) {
+    return (
+      <img
+        src={logo.src}
+        alt={logo.name}
+        className="w-9 h-9 rounded-xl object-contain flex-shrink-0"
+        style={{ background: "rgba(255,255,255,0.06)" }}
+        onError={() => setImgFailed(true)}
+      />
+    );
+  }
+
+  return (
+    <div
+      className="w-9 h-9 rounded-xl flex items-center justify-center text-xs font-black text-white flex-shrink-0"
+      style={{ background: logo.color, opacity: 0.9 }}
+    >
+      {logo.initials}
+    </div>
+  );
+}
+
 function LogoItem({ logo }: { logo: (typeof LOGOS)[number] }) {
   return (
     <div
@@ -37,12 +63,7 @@ function LogoItem({ logo }: { logo: (typeof LOGOS)[number] }) {
         minWidth: 180,
       }}
     >
-      <div
-        className="w-9 h-9 rounded-xl flex items-center justify-center text-xs font-black text-white flex-shrink-0"
-        style={{ background: logo.color, opacity: 0.9 }}
-      >
-        {logo.initials}
-      </div>
+      <LogoBadge logo={logo} />
       <span className="text-sm font-semibold text-slate-400 leading-tight" style={font}>
         {logo.name}
       </span>
