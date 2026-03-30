@@ -1,3 +1,4 @@
+
 #!/usr/bin/env bash
 # Smart Learn — VPS deploy script
 # Place this file at the root of your cloned repo on your VPS.
