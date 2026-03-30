@@ -83,7 +83,7 @@ export const en = {
     stat1Label: "Users Managed",
     stat2Label: "Projects",
     stat3Label: "Years",
-    photoPlaceholder: "Photo coming soon",
+    photoPlaceholder: "Photo Coming Soon",
   },
   contact: {
     badge: "📧 Contact",
