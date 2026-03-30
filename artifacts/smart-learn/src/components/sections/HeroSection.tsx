@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Layers } from "lucide-react";
 import { useT } from "@/i18n";
 import { DirectionalArrow } from "@/components/DirectionalArrow";
+import { ParticleCanvas } from "@/components/ParticleCanvas";
 
 export function HeroSection() {
   const { t } = useT();
@@ -18,14 +19,7 @@ export function HeroSection() {
             "radial-gradient(ellipse 80% 60% at 50% -10%, rgba(105,0,163,0.18) 0%, transparent 70%), radial-gradient(ellipse 50% 40% at 80% 60%, rgba(168,85,247,0.1) 0%, transparent 70%)",
         }}
       />
-      <div
-        className="absolute top-0 left-0 right-0 bottom-0 pointer-events-none opacity-30"
-        style={{
-          backgroundImage:
-            "radial-gradient(circle, rgba(168,85,247,0.12) 1px, transparent 1px)",
-          backgroundSize: "48px 48px",
-        }}
-      />
+      <ParticleCanvas count={55} style={{ zIndex: 0, opacity: 0.85 }} />
 
       <div className="relative z-10 max-w-4xl mx-auto text-center">
         <motion.div
