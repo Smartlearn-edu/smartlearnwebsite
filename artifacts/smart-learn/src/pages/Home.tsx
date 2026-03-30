@@ -13,7 +13,7 @@ export default function Home() {
   return (
     <>
       <Helmet>
-        <title>Mohammad Nabil | Moodle Expert &amp; AI Automation — Smart Learn</title>
+        <title>Smart Learn</title>
         <meta
           name="description"
           content="Expert Moodle engineering, AI-RAG systems, n8n automation, and LMS plugin development. Serving education institutions worldwide from Egypt."
@@ -22,7 +22,7 @@ export default function Home() {
           name="keywords"
           content="Moodle RAG System, Automated Moodle Grading, n8n Moodle Expert Egypt, Mohammad Nabil Moodle, Moodle AI chatbot, LMS automation Egypt, Moodle plugin developer"
         />
-        <meta property="og:title" content="Mohammad Nabil | Moodle Expert & AI Automation — Smart Learn" />
+        <meta property="og:title" content="Smart Learn" />
         <meta
           property="og:description"
           content="Expert Moodle engineering, AI-RAG systems, n8n automation, and LMS plugin development. Serving education institutions worldwide from Egypt."

@@ -14,7 +14,7 @@ export const en = {
     titleGradient: "AI Automation",
     title2: "for Education",
     subtitle:
-      "I help educational institutions scale smarter — with high-performance LMS infrastructure, AI-powered chatbots, and workflow automation that actually saves time.",
+      "Empowering teachers to teach, admins to manage, and students to learn — with expert Moodle setup, AI-powered tools, and smart automation built for real classrooms.",
     ctaPrimary: "Start a Project",
     ctaSecondary: "See My Services",
     stat1Value: "100,000+",
@@ -83,6 +83,7 @@ export const en = {
     stat1Label: "Users Managed",
     stat2Label: "Projects",
     stat3Label: "Years",
+    photoPlaceholder: "Photo coming soon",
   },
   contact: {
     badge: "📧 Contact",
