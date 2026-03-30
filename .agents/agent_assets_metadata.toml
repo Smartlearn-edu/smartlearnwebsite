@@ -1,0 +1,8 @@
+uploads = []
+generated = []
+
+[[outputs]]
+id = "F-TRQqPjjMpRBG9UnLcJQ"
+uri = "file://smartlearn-production.tar.gz"
+type = "unspecified"
+title = "smartlearn-production.tar.gz (6.5 MB)"
