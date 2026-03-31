@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Puzzle, Check, Search, X } from "lucide-react";
+import { Puzzle, Check, Search, X, BarChart2 } from "lucide-react";
 import { Helmet } from "react-helmet-async";
 import { Link } from "wouter";
 import { Navbar } from "@/components/Navbar";
@@ -8,6 +8,7 @@ import { CATEGORIES, CATEGORIES_AR, type Category, type CategoryAr, type Plugin 
 import { usePlugins } from "@/hooks/usePlugins";
 import { useT } from "@/i18n";
 import { DirectionalArrow } from "@/components/DirectionalArrow";
+import { ComparisonBar, ComparisonModal } from "@/components/PluginCompare";
 
 const font: React.CSSProperties = { fontFamily: "'Cairo', sans-serif" };
 const gradientText: React.CSSProperties = {
@@ -83,6 +84,21 @@ export function PluginsPage() {
   const [showFree, setShowFree] = useState(true);
   const [showFreeSupport, setShowFreeSupport] = useState(true);
   const [showPaid, setShowPaid] = useState(true);
+
+  const [compareIds, setCompareIds] = useState<string[]>([]);
+  const [showCompareModal, setShowCompareModal] = useState(false);
+
+  const toggleCompare = (slug: string) => {
+    setCompareIds((prev) => {
+      if (prev.includes(slug)) return prev.filter((id) => id !== slug);
+      if (prev.length >= 3) return [...prev.slice(1), slug];
+      return [...prev, slug];
+    });
+  };
+
+  const selectedPlugins = compareIds
+    .map((id) => plugins.find((p) => p.slug === id))
+    .filter(Boolean) as Plugin[];
 
   const byCat =
     lang === "en"
@@ -338,7 +354,15 @@ export function PluginsPage() {
                 <motion.div key={activeValue + lang + q} initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }}
                   transition={{ duration: 0.25 }} className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
                   {filtered.map((plugin, i) => (
-                    <PluginCard key={plugin.slug} plugin={plugin} i={i} lang={lang} hero={hero} />
+                    <PluginCard
+                      key={plugin.slug}
+                      plugin={plugin}
+                      i={i}
+                      lang={lang}
+                      hero={hero}
+                      isCompared={compareIds.includes(plugin.slug)}
+                      onToggleCompare={toggleCompare}
+                    />
                   ))}
                 </motion.div>
               </AnimatePresence>
@@ -362,7 +386,24 @@ export function PluginsPage() {
         <footer className="py-8 px-6 text-center border-t border-white/[0.04]">
           <p className="text-sm text-slate-600" style={font}>© {new Date().getFullYear()} {t.footer}</p>
         </footer>
+
+        <ComparisonBar
+          selected={selectedPlugins}
+          onClear={() => setCompareIds([])}
+          onRemove={(slug) => setCompareIds((prev) => prev.filter((id) => id !== slug))}
+          onCompare={() => setShowCompareModal(true)}
+        />
       </div>
+
+      <AnimatePresence>
+        {showCompareModal && (
+          <ComparisonModal
+            selected={selectedPlugins}
+            onClose={() => setShowCompareModal(false)}
+            onClear={() => { setCompareIds([]); setShowCompareModal(false); }}
+          />
+        )}
+      </AnimatePresence>
     </>
   );
 }
@@ -414,20 +455,34 @@ type HeroStrings = {
   getPlugin: string; contactPricing: string; learnMore: string;
 };
 
-function PluginCard({ plugin, i, lang, hero }: { plugin: Plugin; i: number; lang: "en" | "ar"; hero: HeroStrings }) {
+function PluginCard({
+  plugin, i, lang, hero, isCompared, onToggleCompare,
+}: {
+  plugin: Plugin;
+  i: number;
+  lang: "en" | "ar";
+  hero: HeroStrings;
+  isCompared: boolean;
+  onToggleCompare: (slug: string) => void;
+}) {
   const typeStyle = typeColors[plugin.type] ?? { bg: "rgba(168,85,247,0.1)", text: "#c084fc" };
   const name = lang === "en" ? plugin.name : plugin.nameAr;
   const features = lang === "en" ? plugin.features : plugin.featuresAr;
   const thumbnail = plugin.images?.[0];
+  const compareLabel = lang === "ar" ? "قارن" : "Compare";
 
   return (
     <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.35, delay: Math.min(i * 0.05, 0.4) }}
       className="rounded-2xl flex flex-col overflow-hidden"
-      style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.07)" }}>
+      style={{
+        background: "rgba(255,255,255,0.03)",
+        border: isCompared ? "1px solid rgba(168,85,247,0.5)" : "1px solid rgba(255,255,255,0.07)",
+        transition: "border-color 0.2s ease",
+      }}>
 
       {/* Thumbnail */}
-      <div className="w-full overflow-hidden flex-shrink-0"
+      <div className="relative w-full overflow-hidden flex-shrink-0"
         style={{ height: 160, background: "rgba(105,0,163,0.08)" }}>
         {thumbnail ? (
           <img
@@ -447,6 +502,24 @@ function PluginCard({ plugin, i, lang, hero }: { plugin: Plugin; i: number; lang
             <span className="text-3xl opacity-30">🔌</span>
           </div>
         )}
+
+        {/* Compare toggle button */}
+        <button
+          onClick={(e) => { e.preventDefault(); onToggleCompare(plugin.slug); }}
+          className="absolute top-2 start-2 flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-xs font-bold transition-all duration-200 hover:scale-105"
+          style={{
+            background: isCompared ? "rgba(168,85,247,0.9)" : "rgba(13,13,26,0.75)",
+            border: isCompared ? "1px solid rgba(168,85,247,0.8)" : "1px solid rgba(255,255,255,0.15)",
+            color: isCompared ? "#fff" : "#94a3b8",
+            backdropFilter: "blur(8px)",
+            ...font,
+          }}
+          aria-label={`${compareLabel} ${name}`}
+          aria-pressed={isCompared}
+        >
+          <BarChart2 size={11} />
+          {compareLabel}
+        </button>
       </div>
 
       <div className="p-6 flex flex-col flex-1">
