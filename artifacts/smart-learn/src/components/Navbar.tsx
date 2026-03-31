@@ -17,13 +17,17 @@ export function Navbar() {
   const [location] = useLocation();
   const { t, lang, isRTL, toggle } = useT();
 
-  const isServicePage = location.startsWith("/services/") || location.startsWith("/success-stories");
+  const isServicePage =
+    location.startsWith("/services/") ||
+    location.startsWith("/success-stories") ||
+    location.startsWith("/pricing");
 
   const homeLinks = [
     { label: t.nav.home, href: "#home" },
     { label: t.nav.services, href: "#services" },
     { label: t.nav.about, href: "#about" },
     { label: t.nav.stories, href: "/success-stories", isRoute: true },
+    { label: t.nav.pricing, href: "/pricing", isRoute: true },
     { label: t.nav.contact, href: "#contact" },
   ];
 
@@ -31,6 +35,7 @@ export function Navbar() {
     { label: t.nav.services, href: "/#services" },
     { label: t.nav.about, href: "/#about" },
     { label: t.nav.stories, href: "/success-stories", isRoute: true },
+    { label: t.nav.pricing, href: "/pricing", isRoute: true },
     { label: t.nav.contact, href: "/#contact" },
   ];
 

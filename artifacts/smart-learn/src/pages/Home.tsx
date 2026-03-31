@@ -1,9 +1,12 @@
 import { Helmet } from "react-helmet-async";
 import { Navbar } from "@/components/Navbar";
 import { HeroSection } from "@/components/sections/HeroSection";
+import { StatsSection } from "@/components/sections/StatsSection";
 import { ServicesSection } from "@/components/sections/ServicesSection";
 import { AboutSection } from "@/components/sections/AboutSection";
+import { LogoStripSection } from "@/components/sections/LogoStripSection";
 import { TestimonialsSection } from "@/components/sections/TestimonialsSection";
+import { FAQSection } from "@/components/sections/FAQSection";
 import { ContactSection } from "@/components/sections/ContactSection";
 import { SocialLinks } from "@/components/SocialLinks";
 import { useT } from "@/i18n";
@@ -54,6 +57,16 @@ export default function Home() {
           }}
         />
 
+        <StatsSection />
+
+        <div
+          className="max-w-6xl mx-auto"
+          style={{
+            height: "1px",
+            background: "linear-gradient(90deg, transparent, rgba(255,255,255,0.06), transparent)",
+          }}
+        />
+
         <ServicesSection />
 
         <div
@@ -74,7 +87,27 @@ export default function Home() {
           }}
         />
 
+        <LogoStripSection />
+
+        <div
+          className="max-w-6xl mx-auto"
+          style={{
+            height: "1px",
+            background: "linear-gradient(90deg, transparent, rgba(255,255,255,0.06), transparent)",
+          }}
+        />
+
         <TestimonialsSection />
+
+        <div
+          className="max-w-6xl mx-auto"
+          style={{
+            height: "1px",
+            background: "linear-gradient(90deg, transparent, rgba(255,255,255,0.06), transparent)",
+          }}
+        />
+
+        <FAQSection />
 
         <div
           className="max-w-6xl mx-auto"

@@ -46,8 +46,8 @@ export function usePlugins() {
   return useQuery<Plugin[], Error>({
     queryKey: ["plugins"],
     queryFn: fetchPlugins,
-    initialData: staticPlugins,
-    staleTime: 0,
+    placeholderData: staticPlugins,
+    staleTime: 60_000,
   });
 }
 
