@@ -1,0 +1,24 @@
+1. Start the Backend API (Terminal 1)
+Open a terminal and literally just paste this whole block in at once:
+
+bash
+-----------------------------------------------------
+cd ~/Dev/Websites/smartlearnwebsite
+source ~/.bashrc
+set -a; source .env; set +a
+cd artifacts/api-server
+pnpm run dev
+-----------------------------------------------------
+
+2. Start the Frontend Website (Terminal 2)
+Open a second terminal window and paste this whole block in at once:
+
+bash
+-----------------------------------------------------
+cd ~/Dev/Websites/smartlearnwebsite
+source ~/.bashrc
+cd artifacts/smart-learn
+export PORT=5173
+export BASE_PATH=/
+pnpm run dev 
+-----------------------------------------------------
