@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useParams } from "wouter";
 import { Helmet } from "react-helmet-async";
 import {
-  Check, ArrowLeft, ArrowRight, Download, MessageCircle,
+  Check, ArrowLeft, ArrowRight, Download, MessageCircle,ShoppingCart,
   Tag, Cpu, Wrench, ExternalLink, ImageIcon,
   ChevronLeft, ChevronRight,
 } from "lucide-react";
@@ -299,7 +299,7 @@ export function PluginDetailPage() {
                   <a href={plugin.buyUrl} target="_blank" rel="noopener noreferrer"
                     className="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl font-black text-white text-sm transition-all hover:opacity-90 hover:scale-105"
                     style={{ background: "linear-gradient(135deg, #6900A3, #a855f7)", boxShadow: "0 0 36px rgba(105,0,163,0.4)", ...font }}>
-                    <MessageCircle size={18} />
+                    <ShoppingCart size={18} />
                     {t.buyBtn}
                   </a>
                 </div>
