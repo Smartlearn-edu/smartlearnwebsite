@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
-import emailjs from "@emailjs/browser";
 import { Send, CheckCircle, Mail, MapPin, MessageCircle, Loader2, AlertCircle } from "lucide-react";
 import { useT } from "@/i18n";
 import { SocialLinks } from "@/components/SocialLinks";
@@ -61,35 +60,24 @@ export function ContactSection() {
     setSendError("");
     setSending(true);
 
-    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
-    const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
-    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
-
-    if (serviceId && templateId && publicKey) {
-      try {
-        await emailjs.send(
-          serviceId,
-          templateId,
-          {
-            from_name: fields.name,
-            from_email: fields.email,
-            service: fields.service || "Not specified",
-            message: fields.message,
-          },
-          publicKey,
-        );
-        setSubmitted(true);
-        setFields({ name: "", email: "", service: "", message: "" });
-      } catch {
-        setSendError(t.contact.sendError);
-      } finally {
-        setSending(false);
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(fields),
+      });
+      
+      if (!res.ok) {
+        throw new Error("Failed to send email");
       }
-    } else {
-      console.warn("[ContactSection] EmailJS env vars not configured — skipping send.");
-      setSending(false);
+      
       setSubmitted(true);
       setFields({ name: "", email: "", service: "", message: "" });
+    } catch (err) {
+      console.error("[ContactSection] Error sending email:", err);
+      setSendError(t.contact.sendError);
+    } finally {
+      setSending(false);
     }
   }
 
