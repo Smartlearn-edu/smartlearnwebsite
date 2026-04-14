@@ -35,6 +35,9 @@ contactRouter.post("/contact", async (req: Request, res: Response): Promise<void
         user,
         pass,
       },
+      tls: {
+        rejectUnauthorized: false // Ignore expired or self-signed certificates
+      }
     });
 
     // Formatting a nice HTML email
