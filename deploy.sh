@@ -61,7 +61,8 @@ echo "▶ Copying frontend files to Nginx directory..."
 PLUGIN_BACKUP="/tmp/sl_plugins_backup_$$"
 if [ -d "$NGINX_FRONTEND/plugins" ]; then
   echo "  → Backing up plugin images..."
-  cp -r "$NGINX_FRONTEND/plugins" "$PLUGIN_BACKUP"
+  mkdir -p "$PLUGIN_BACKUP"
+  cp -r "$NGINX_FRONTEND/plugins/." "$PLUGIN_BACKUP/"
 fi
 
 rm -rf "$NGINX_FRONTEND"/*
@@ -70,7 +71,8 @@ cp -r "$FRONTEND_BUILD_DIR/." "$NGINX_FRONTEND/"
 # Restore plugin images
 if [ -d "$PLUGIN_BACKUP" ]; then
   echo "  → Restoring plugin images..."
-  cp -r "$PLUGIN_BACKUP" "$NGINX_FRONTEND/plugins"
+  mkdir -p "$NGINX_FRONTEND/plugins"
+  cp -r "$PLUGIN_BACKUP/." "$NGINX_FRONTEND/plugins/"
   rm -rf "$PLUGIN_BACKUP"
 fi
 
