@@ -149,7 +149,7 @@ function ServiceCard({
           {svc.title}
         </h3>
         <p
-          className="text-slate-200 leading-relaxed text-sm mb-4 flex-1"
+          className="text-slate-200 leading-relaxed text-base mb-4 flex-1"
           style={{ fontFamily: "'Cairo', sans-serif" }}
         >
           {svc.description}
