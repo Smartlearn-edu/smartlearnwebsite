@@ -49,7 +49,7 @@ export function ServicesSection() {
             {t.services.heading} <span className="gradient-text">{t.services.headingGradient}</span>
           </h2>
           <p
-            className="text-slate-400 max-w-xl mx-auto text-lg leading-relaxed"
+            className="text-slate-200 max-w-xl mx-auto text-lg leading-relaxed"
             style={{ fontFamily: "'Cairo', sans-serif" }}
           >
             {t.services.subtitle}
@@ -149,7 +149,7 @@ function ServiceCard({
           {svc.title}
         </h3>
         <p
-          className="text-slate-400 leading-relaxed text-sm mb-4 flex-1"
+          className="text-slate-200 leading-relaxed text-sm mb-4 flex-1"
           style={{ fontFamily: "'Cairo', sans-serif" }}
         >
           {svc.description}
