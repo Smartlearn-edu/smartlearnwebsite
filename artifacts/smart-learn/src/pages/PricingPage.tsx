@@ -299,7 +299,7 @@ function PricingCard({
                 className="flex-shrink-0 mt-0.5"
                 style={{ color: "#a855f7" }}
               />
-              <span className="text-sm text-slate-400 leading-snug" style={font}>
+              <span className="text-base text-slate-200 leading-snug" style={font}>
                 {item}
               </span>
             </li>
@@ -376,7 +376,7 @@ export function PricingPage() {
                 {txt.heading}{" "}
                 <span style={gradientText}>{txt.headingGradient}</span>
               </h1>
-              <p className="text-slate-400 max-w-2xl mx-auto leading-relaxed" style={font}>
+              <p className="text-slate-200 max-w-2xl mx-auto leading-relaxed" style={font}>
                 {txt.subtitle}
               </p>
 
@@ -427,7 +427,7 @@ export function PricingPage() {
                 {txt.ctaHeading}{" "}
                 <span style={gradientText}>{txt.ctaHeadingGradient}</span>
               </h2>
-              <p className="text-slate-400 max-w-xl mx-auto mb-8 leading-relaxed" style={font}>
+              <p className="text-slate-200 max-w-xl mx-auto mb-8 leading-relaxed" style={font}>
                 {txt.ctaDesc}
               </p>
 

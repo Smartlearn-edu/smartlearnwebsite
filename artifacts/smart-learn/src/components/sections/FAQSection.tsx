@@ -160,7 +160,7 @@ export function FAQSection() {
                       style={{ overflow: "hidden" }}
                     >
                       <p
-                        className="px-6 pb-5 text-sm text-slate-400 leading-relaxed"
+                        className="px-6 pb-5 text-base text-slate-200 leading-relaxed"
                         style={font}
                       >
                         {item.a[lang]}

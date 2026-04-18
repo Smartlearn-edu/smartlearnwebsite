@@ -106,7 +106,7 @@ function StoryCard({ item, lang, txt }: { item: Testimonial; lang: "en" | "ar"; 
           <Avatar src={item.image} name={name} />
           <div className="flex-1">
             <h3 className="text-white font-black text-lg" style={font}>{name}</h3>
-            <p className="text-slate-400 text-sm" style={font}>
+            <p className="text-slate-200 text-base" style={font}>
               {role}{role && company ? " · " : ""}{company}
             </p>
             {svcLabel && (
@@ -133,7 +133,7 @@ function StoryCard({ item, lang, txt }: { item: Testimonial; lang: "en" | "ar"; 
         </div>
 
         {story && (
-          <p className="text-slate-400 text-sm leading-relaxed mb-6" style={font}>
+          <p className="text-slate-200 text-base leading-relaxed mb-6" style={font}>
             {story}
           </p>
         )}
@@ -202,7 +202,7 @@ export function SuccessStoriesPage() {
               {txt.heading}{" "}
               <span style={gradientText}>{txt.headingGradient}</span>
             </h1>
-            <p className="text-slate-400 text-lg leading-relaxed" style={font}>{txt.sub}</p>
+            <p className="text-slate-200 text-lg leading-relaxed" style={font}>{txt.sub}</p>
           </motion.div>
         </section>
 

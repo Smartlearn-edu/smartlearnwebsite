@@ -247,7 +247,7 @@ export function MobileAppPage() {
                   </div>
                   <div className="p-6 flex flex-col flex-1">
                     <h3 className="text-xl font-black text-white mb-1" style={font}>{plan.title}</h3>
-                    <p className="text-sm text-slate-400 mb-4" style={font}>{plan.desc}</p>
+                    <p className="text-base text-slate-200 mb-4" style={font}>{plan.desc}</p>
                     <ul className="space-y-2 flex-1 mb-5">
                       {plan.bullets.map((b) => (
                         <li key={b} className="flex items-start gap-2">
@@ -283,7 +283,7 @@ export function MobileAppPage() {
                     style={{ background: "linear-gradient(135deg, #6900A3, #a855f7)", color: "#fff", ...font }}>{step.num}</div>
                   <div>
                     <h4 className="text-sm font-black text-white mb-1" style={font}>{step.title}</h4>
-                    <p className="text-sm text-slate-400 leading-relaxed" style={font}>{step.desc}</p>
+                    <p className="text-base text-slate-200 leading-relaxed" style={font}>{step.desc}</p>
                   </div>
                 </motion.div>
               ))}
@@ -297,7 +297,7 @@ export function MobileAppPage() {
             className="max-w-2xl mx-auto text-center rounded-2xl py-14 px-8"
             style={{ background: "linear-gradient(135deg, rgba(105,0,163,0.15) 0%, rgba(168,85,247,0.08) 100%)", border: "1px solid rgba(168,85,247,0.25)" }}>
             <h2 className="text-2xl md:text-3xl font-black text-white mb-3" style={font}>{hero.ctaTitle}</h2>
-            <p className="text-slate-400 mb-8 leading-relaxed" style={font}>{hero.ctaDesc}</p>
+            <p className="text-slate-200 mb-8 leading-relaxed" style={font}>{hero.ctaDesc}</p>
             <div className="flex flex-wrap items-center justify-center gap-3">
               <a href="/#contact" className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-black text-sm text-white transition-all duration-200 hover:opacity-90 hover:scale-105"
                 style={{ background: "linear-gradient(135deg, #6900A3, #a855f7)", boxShadow: "0 0 36px rgba(105,0,163,0.4)", ...font }}>

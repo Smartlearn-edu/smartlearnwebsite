@@ -134,7 +134,7 @@ export function TestimonialsSection() {
             {txt.heading}{" "}
             <span style={gradientText}>{txt.headingGradient}</span>
           </h2>
-          <p className="text-slate-400 max-w-xl mx-auto" style={font}>{txt.sub}</p>
+          <p className="text-slate-200 max-w-xl mx-auto" style={font}>{txt.sub}</p>
         </motion.div>
 
         {isLoading ? (

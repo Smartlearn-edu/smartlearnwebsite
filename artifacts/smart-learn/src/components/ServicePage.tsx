@@ -96,7 +96,7 @@ export function ServicePage({
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
-              className="text-lg md:text-xl text-slate-400 max-w-2xl mx-auto leading-relaxed mb-4"
+              className="text-lg md:text-xl text-slate-200 max-w-2xl mx-auto leading-relaxed mb-4"
               style={font}
             >
               {tagline}
@@ -142,7 +142,7 @@ export function ServicePage({
                         {sec.title}
                       </h3>
                       <p
-                        className="text-sm text-slate-400 leading-relaxed italic mb-4"
+                        className="text-base text-slate-200 leading-relaxed italic mb-4"
                         style={font}
                       >
                         {sec.placeholder}
@@ -183,7 +183,7 @@ export function ServicePage({
             <h2 className="text-2xl md:text-3xl font-black text-white mb-3" style={font}>
               Interested in this service?
             </h2>
-            <p className="text-slate-400 mb-8 leading-relaxed" style={font}>
+            <p className="text-slate-200 mb-8 leading-relaxed" style={font}>
               Send me a message and I'll get back to you within 24 hours with a detailed proposal.
             </p>
             <div className="flex flex-wrap items-center justify-center gap-3">

@@ -170,7 +170,7 @@ export function PluginsPage() {
             </motion.h1>
 
             <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-lg md:text-xl text-slate-400 max-w-2xl mx-auto leading-relaxed mb-8" style={font}>
+              className="text-lg md:text-xl text-slate-200 max-w-2xl mx-auto leading-relaxed mb-8" style={font}>
               {hero.subtitle}
             </motion.p>
 
@@ -375,7 +375,7 @@ export function PluginsPage() {
             className="max-w-2xl mx-auto text-center rounded-2xl py-14 px-8"
             style={{ background: "linear-gradient(135deg, rgba(105,0,163,0.15) 0%, rgba(168,85,247,0.08) 100%)", border: "1px solid rgba(168,85,247,0.25)" }}>
             <h2 className="text-2xl md:text-3xl font-black text-white mb-3" style={font}>{hero.ctaTitle}</h2>
-            <p className="text-slate-400 mb-8 leading-relaxed" style={font}>{hero.ctaDesc}</p>
+            <p className="text-slate-200 mb-8 leading-relaxed" style={font}>{hero.ctaDesc}</p>
             <a href="/#contact" className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-black text-sm text-white transition-all duration-200 hover:opacity-90 hover:scale-105"
               style={{ background: "linear-gradient(135deg, #6900A3, #a855f7)", boxShadow: "0 0 36px rgba(105,0,163,0.4)", ...font }}>
               {hero.ctaBtn} <DirectionalArrow size={16} />
@@ -567,7 +567,7 @@ function PluginCard({
             {features.map((feat) => (
               <li key={feat} className="flex items-start gap-2">
                 <Check size={13} className="flex-shrink-0 mt-0.5" style={{ color: "#a855f7" }} />
-                <span className="text-xs text-slate-400 leading-relaxed" style={font}>{feat}</span>
+                <span className="text-sm text-slate-200 leading-relaxed" style={font}>{feat}</span>
               </li>
             ))}
           </ul>

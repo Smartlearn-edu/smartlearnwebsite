@@ -64,7 +64,7 @@ function LogoItem({ logo }: { logo: (typeof LOGOS)[number] }) {
       }}
     >
       <LogoBadge logo={logo} />
-      <span className="text-sm font-semibold text-slate-400 leading-tight" style={font}>
+      <span className="text-base font-semibold text-slate-200 leading-tight" style={font}>
         {logo.name}
       </span>
     </div>

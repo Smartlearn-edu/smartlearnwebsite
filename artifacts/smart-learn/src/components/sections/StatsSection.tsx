@@ -129,7 +129,7 @@ export function StatsSection() {
               </div>
 
               <div
-                className="text-sm text-slate-400 font-medium leading-snug"
+                className="text-base text-slate-200 font-medium leading-snug"
                 style={{ fontFamily: "'Cairo', sans-serif" }}
               >
                 {t.stats[stat.labelKey]}

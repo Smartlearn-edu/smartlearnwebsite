@@ -170,12 +170,12 @@ export function TrainingPage() {
                   className="rounded-2xl p-6 flex flex-col" style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(168,85,247,0.12)" }}>
                   <div className="text-2xl mb-3">{svc.icon}</div>
                   <h3 className="text-base font-black text-white mb-2" style={font}>{svc.title}</h3>
-                  <p className="text-sm text-slate-400 leading-relaxed mb-4" style={font}>{svc.description}</p>
+                  <p className="text-base text-slate-200 leading-relaxed mb-4" style={font}>{svc.description}</p>
                   <ul className="space-y-1.5 flex-1 mb-4">
                     {svc.bullets.map((b) => (
                       <li key={b} className="flex items-start gap-2">
                         <Check size={13} className="flex-shrink-0 mt-0.5" style={{ color: "#a855f7" }} />
-                        <span className="text-xs text-slate-400 leading-relaxed" style={font}>{b}</span>
+                        <span className="text-sm text-slate-200 leading-relaxed" style={font}>{b}</span>
                       </li>
                     ))}
                   </ul>
@@ -201,7 +201,7 @@ export function TrainingPage() {
                     style={{ background: "linear-gradient(135deg, #6900A3, #a855f7)", color: "#fff", ...font }}>{step.num}</div>
                   <div>
                     <h4 className="text-sm font-black text-white mb-1" style={font}>{step.title}</h4>
-                    <p className="text-sm text-slate-400 leading-relaxed" style={font}>{step.desc}</p>
+                    <p className="text-base text-slate-200 leading-relaxed" style={font}>{step.desc}</p>
                   </div>
                 </motion.div>
               ))}
@@ -236,7 +236,7 @@ export function TrainingPage() {
             className="max-w-2xl mx-auto text-center rounded-2xl py-14 px-8"
             style={{ background: "linear-gradient(135deg, rgba(105,0,163,0.15) 0%, rgba(168,85,247,0.08) 100%)", border: "1px solid rgba(168,85,247,0.25)" }}>
             <h2 className="text-2xl md:text-3xl font-black text-white mb-3" style={font}>{hero.ctaTitle}</h2>
-            <p className="text-slate-400 mb-8 leading-relaxed" style={font}>{hero.ctaDesc}</p>
+            <p className="text-slate-200 mb-8 leading-relaxed" style={font}>{hero.ctaDesc}</p>
             <div className="flex flex-wrap items-center justify-center gap-3">
               <a href="/#contact" className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-black text-sm text-white transition-all duration-200 hover:opacity-90 hover:scale-105"
                 style={{ background: "linear-gradient(135deg, #6900A3, #a855f7)", boxShadow: "0 0 36px rgba(105,0,163,0.4)", ...font }}>

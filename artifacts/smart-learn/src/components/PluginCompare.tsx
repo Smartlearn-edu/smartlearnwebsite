@@ -363,7 +363,7 @@ export function ComparisonModal({
                                 {features.map((feat, fi) => (
                                   <li key={fi} className="flex items-start gap-2">
                                     <Check size={12} className="flex-shrink-0 mt-0.5" style={{ color: "#a855f7" }} />
-                                    <span className="text-xs text-slate-400 leading-relaxed" style={font}>{feat}</span>
+                                    <span className="text-sm text-slate-200 leading-relaxed" style={font}>{feat}</span>
                                   </li>
                                 ))}
                               </ul>

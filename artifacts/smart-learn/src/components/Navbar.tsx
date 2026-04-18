@@ -88,7 +88,7 @@ export function Navbar() {
           {isServicePage && (
             <Link
               href="/"
-              className="flex items-center gap-1.5 text-sm text-slate-400 hover:text-white transition-colors"
+              className="flex items-center gap-1.5 text-base text-slate-200 hover:text-white transition-colors"
               style={font}
             >
               <BackIcon size={15} />
@@ -106,7 +106,7 @@ export function Navbar() {
               <Link
                 key={l.label}
                 href={l.href}
-                className="text-sm text-slate-400 hover:text-white transition-colors duration-200 font-medium"
+                className="text-base text-slate-200 hover:text-white transition-colors duration-200 font-medium"
                 style={font}
               >
                 {l.label}
@@ -115,7 +115,7 @@ export function Navbar() {
               <a
                 key={l.label}
                 href={l.href}
-                className="text-sm text-slate-400 hover:text-white transition-colors duration-200 font-medium"
+                className="text-base text-slate-200 hover:text-white transition-colors duration-200 font-medium"
                 style={font}
               >
                 {l.label}
@@ -155,7 +155,7 @@ export function Navbar() {
 
         <div className="flex items-center gap-2 md:hidden">
           <button
-            className="text-slate-400 hover:text-white p-1"
+            className="text-slate-200 hover:text-white p-1"
             onClick={() => setOpen(!open)}
             aria-label="Toggle menu"
           >

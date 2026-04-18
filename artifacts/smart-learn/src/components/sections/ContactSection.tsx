@@ -127,7 +127,7 @@ export function ContactSection() {
           >
             {t.contact.heading} <span className="gradient-text">{t.contact.headingGradient}</span>
           </h2>
-          <p className="text-slate-400 max-w-md mx-auto text-lg" style={font}>
+          <p className="text-slate-200 max-w-md mx-auto text-lg" style={font}>
             {t.contact.subtitle}
           </p>
         </motion.div>
@@ -199,7 +199,7 @@ export function ContactSection() {
               <div className="flex flex-col items-center justify-center py-12 text-center gap-4">
                 <CheckCircle size={48} style={{ color: "#a855f7" }} />
                 <h3 className="text-xl font-black text-white" style={font}>{t.contact.successTitle}</h3>
-                <p className="text-slate-400 text-sm max-w-xs" style={font}>{t.contact.successDesc}</p>
+                <p className="text-slate-200 text-base max-w-xs" style={font}>{t.contact.successDesc}</p>
                 <button
                   onClick={() => setSubmitted(false)}
                   className="text-sm font-semibold transition-colors mt-2"
@@ -370,7 +370,7 @@ export function ContactSection() {
                       </p>
                     </div>
 
-                    <p className="text-sm text-slate-400 leading-relaxed" style={font}>{t.contact.waDesc}</p>
+                    <p className="text-base text-slate-200 leading-relaxed" style={font}>{t.contact.waDesc}</p>
 
                     <a
                       href={getWaUrl()}

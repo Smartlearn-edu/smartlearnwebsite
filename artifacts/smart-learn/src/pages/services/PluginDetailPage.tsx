@@ -225,7 +225,7 @@ export function PluginDetailPage() {
         {/* Back link */}
         <div className="max-w-5xl mx-auto px-6 pt-28 pb-4">
           <Link href="/services/plugins"
-            className="inline-flex items-center gap-2 text-sm text-slate-400 hover:text-purple-400 transition-colors">
+            className="inline-flex items-center gap-2 text-base text-slate-200 hover:text-purple-400 transition-colors">
             {isRTL ? <ArrowRight size={15} /> : <ArrowLeft size={15} />}
             {t.back}
           </Link>
@@ -239,10 +239,10 @@ export function PluginDetailPage() {
               <span className="px-3 py-1 rounded-full text-xs font-bold border border-purple-500/30 text-purple-300 bg-purple-900/20">
                 {categoryLabel}
               </span>
-              <span className="px-3 py-1 rounded-full text-xs font-bold border border-slate-600/30 text-slate-400 bg-slate-900/40 flex items-center gap-1">
+              <span className="px-3 py-1 rounded-full text-sm font-bold border border-slate-600/30 text-slate-200 bg-slate-900/40 flex items-center gap-1">
                 <Cpu size={11} /> {t.moodle}: {plugin.moodle}
               </span>
-              <span className="px-3 py-1 rounded-full text-xs font-bold border border-slate-600/30 text-slate-400 bg-slate-900/40 flex items-center gap-1">
+              <span className="px-3 py-1 rounded-full text-sm font-bold border border-slate-600/30 text-slate-200 bg-slate-900/40 flex items-center gap-1">
                 <Tag size={11} /> {plugin.type}
               </span>
               {!plugin.free ? (
@@ -292,9 +292,9 @@ export function PluginDetailPage() {
                 <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
                   <div>
                     <div className="text-5xl font-black text-white mb-2" style={font}>
-                      ${plugin.price} <span className="text-2xl text-slate-400">{t.usd}</span>
+                      ${plugin.price} <span className="text-2xl text-slate-200">{t.usd}</span>
                     </div>
-                    <p className="text-slate-400 text-sm">{t.oneTime}</p>
+                    <p className="text-slate-200 text-base">{t.oneTime}</p>
                   </div>
                   <a href={plugin.buyUrl} target="_blank" rel="noopener noreferrer"
                     className="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl font-black text-white text-sm transition-all hover:opacity-90 hover:scale-105"
@@ -314,7 +314,7 @@ export function PluginDetailPage() {
                   <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
                     <div>
                       <div className="text-4xl font-black text-emerald-300 mb-2" style={font}>{t.free}</div>
-                      <p className="text-slate-400 text-sm">{t.freeDesc}</p>
+                      <p className="text-slate-200 text-base">{t.freeDesc}</p>
                     </div>
                     <a href={plugin.downloadUrl} target="_blank" rel="noopener noreferrer"
                       className="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl font-black text-white text-sm transition-all hover:opacity-90 hover:scale-105"
@@ -336,7 +336,7 @@ export function PluginDetailPage() {
                           <span className="w-8 h-8 rounded-lg flex items-center justify-center text-base" style={{ background: "rgba(245,158,11,0.2)" }}>🛠️</span>
                           <h3 className="text-xl font-black text-white" style={font}>{t.paidSupportTitle}</h3>
                         </div>
-                        <p className="text-slate-400 text-sm leading-relaxed">{t.paidSupportDesc}</p>
+                        <p className="text-slate-200 text-base leading-relaxed">{t.paidSupportDesc}</p>
                       </div>
                       <a href="https://wa.me/201005822858"
                         target="_blank" rel="noopener noreferrer"
@@ -359,7 +359,7 @@ export function PluginDetailPage() {
                     <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
                       <div>
                         <div className="text-4xl font-black text-emerald-300 mb-2" style={font}>{t.free}</div>
-                        <p className="text-slate-400 text-sm">{t.freeDesc}</p>
+                        <p className="text-slate-200 text-base">{t.freeDesc}</p>
                       </div>
                       <a href={plugin.downloadUrl} target="_blank" rel="noopener noreferrer"
                         className="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl font-black text-white text-sm transition-all hover:opacity-90 hover:scale-105"
@@ -380,7 +380,7 @@ export function PluginDetailPage() {
                         <span className="w-8 h-8 rounded-lg bg-purple-600/30 flex items-center justify-center text-base">⚙️</span>
                         <h3 className="text-xl font-black text-white" style={font}>{t.setupTitle}</h3>
                       </div>
-                      <p className="text-slate-400 text-sm leading-relaxed mb-4">{t.setupDesc}</p>
+                      <p className="text-slate-200 text-base leading-relaxed mb-4">{t.setupDesc}</p>
                       <div className="text-3xl font-black text-white" style={font}>
                         {t.setupPrice} <span className="text-purple-300">${plugin.setupPrice} {t.usd}</span>
                       </div>

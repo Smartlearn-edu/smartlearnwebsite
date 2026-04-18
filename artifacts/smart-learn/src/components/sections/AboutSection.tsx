@@ -75,7 +75,7 @@ export function AboutSection() {
               </div>
 
               <p
-                className="text-slate-400 leading-relaxed mb-6"
+                className="text-slate-200 leading-relaxed mb-6"
                 style={{ fontFamily: "'Cairo', sans-serif" }}
               >
                 {t.about.bio}
@@ -139,7 +139,7 @@ export function AboutSection() {
                     {t.about.communityExpert}
                   </h4>
                   <p
-                    className="text-sm text-slate-400 leading-relaxed"
+                    className="text-base text-slate-200 leading-relaxed"
                     style={{ fontFamily: "'Cairo', sans-serif" }}
                   >
                     {t.about.badgeDesc.split(t.about.badgeHighlight)[0]}
