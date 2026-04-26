@@ -1,0 +1,1909 @@
+<!DOCTYPE html>
+<html lang="en" data-theme-pref="system" data-lt-installed="true"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Scan your website to see if it's ready for AI agents. Check for llms.txt, MCP, agent skills, and other agent-friendly standards."><meta name="robots" content="index, follow"><meta name="theme-color" content="#ff4801"><script>
+      // Apply saved theme before first paint to prevent flash
+      (function() {
+        try {
+          var theme = localStorage.getItem('theme');
+          if (theme === 'dark' || theme === 'light') {
+            document.documentElement.setAttribute('data-theme', theme);
+            document.documentElement.setAttribute('data-theme-pref', theme);
+          } else {
+            // 'system' or no preference — no data-theme attr, let OS preference apply via CSS
+            document.documentElement.setAttribute('data-theme-pref', 'system');
+          }
+        } catch (_) { /* localStorage unavailable (private browsing, sandboxed iframe, etc.) */ }
+      })();
+    </script><link rel="icon" type="image/svg+xml" href="https://isitagentready.com/favicon.svg"><link rel="icon" type="image/x-icon" href="https://isitagentready.com/favicon.ico"><link rel="canonical" href="https://isitagentready.com/"><title>Is Your Site Agent-Ready?</title><!-- Open Graph --><meta property="og:title" content="Is Your Site Agent-Ready?"><meta property="og:description" content="Scan your website to see if it's ready for AI agents. Check for llms.txt, MCP, agent skills, and other agent-friendly standards."><meta property="og:type" content="website"><meta property="og:url" content="https://isitagentready.com"><meta property="og:site_name" content="Is Your Site Agent-Ready?"><meta property="og:image" content="https://isitagentready.com/og-image.png"><meta property="og:image:type" content="image/png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="Anthropomorphic AI agents looking at an optimized version of a website"><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Is Your Site Agent-Ready?"><meta name="twitter:description" content="Scan your website to see if it's ready for AI agents. Check for llms.txt, MCP, agent skills, and other agent-friendly standards."><meta name="twitter:image" content="https://isitagentready.com/og-image.png"><meta name="twitter:image:alt" content="Anthropomorphic AI agents looking at an optimized version of a website"><link rel="stylesheet" href="Is%20Your%20Site%20Agent-Ready__files/index.AgIVbe5I.css"></head> <body style="">  <header class="site-header" data-astro-cid-j7pv25f6=""> <a href="https://isitagentready.com/" class="logo-link" data-astro-cid-j7pv25f6=""> <img src="Is%20Your%20Site%20Agent-Ready__files/logo.svg" alt="Cloudflare" class="logo" width="60" height="28" data-astro-cid-j7pv25f6=""> <span class="header-title is-visible" aria-hidden="true" data-astro-cid-j7pv25f6="">Is Your Site Agent-Ready?</span> </a> <div class="header-actions" data-astro-cid-j7pv25f6=""> <a href="https://agents.cloudflare.com/" target="_blank" rel="noopener noreferrer" class="learn-more-btn" data-astro-cid-j7pv25f6=""> <span class="learn-more-label" data-astro-cid-j7pv25f6="">Learn more about Agents</span> <svg viewBox="0 0 256 256" fill="currentColor" width="14" height="14" aria-hidden="true" data-astro-cid-j7pv25f6=""><path d="M224,104a8,8,0,0,1-16,0V59.32l-66.33,66.34a8,8,0,0,1-11.32-11.32L196.68,48H152a8,8,0,0,1,0-16h64a8,8,0,0,1,8,8Zm-40,24a8,8,0,0,0-8,8v72H48V80h72a8,8,0,0,0,0-16H48A16,16,0,0,0,32,80V208a16,16,0,0,0,16,16H176a16,16,0,0,0,16-16V136A8,8,0,0,0,184,128Z" data-astro-cid-j7pv25f6=""></path></svg> </a> <button type="button" class="theme-toggle" id="theme-toggle" aria-label="System mode — click for light" title="System mode — click for light" data-astro-cid-j7pv25f6=""> <svg class="theme-icon theme-icon-sun" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 256 256" fill="currentColor" data-astro-cid-j7pv25f6=""> <path d="M120,40V16a8,8,0,0,1,16,0V40a8,8,0,0,1-16,0Zm8,24a64,64,0,1,0,64,64A64.07,64.07,0,0,0,128,64ZM58.34,69.66A8,8,0,0,0,69.66,58.34l-16-16A8,8,0,0,0,42.34,53.66Zm0,116.68-16,16a8,8,0,0,0,11.32,11.32l16-16a8,8,0,0,0-11.32-11.32ZM192,72a8,8,0,0,0,5.66-2.34l16-16a8,8,0,0,0-11.32-11.32l-16,16A8,8,0,0,0,192,72Zm5.66,114.34a8,8,0,0,0-11.32,11.32l16,16a8,8,0,0,0,11.32-11.32ZM48,128a8,8,0,0,0-8-8H16a8,8,0,0,0,0,16H40A8,8,0,0,0,48,128Zm80,80a8,8,0,0,0-8,8v24a8,8,0,0,0,16,0V216A8,8,0,0,0,128,208Zm112-88H216a8,8,0,0,0,0,16h24a8,8,0,0,0,0-16Z" data-astro-cid-j7pv25f6=""></path> </svg> <svg class="theme-icon theme-icon-moon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 256 256" fill="currentColor" data-astro-cid-j7pv25f6=""> <path d="M235.54,150.21a104.84,104.84,0,0,1-37,52.91A104,104,0,0,1,32,120,103.09,103.09,0,0,1,52.88,57.48a104.84,104.84,0,0,1,52.91-37,8,8,0,0,1,10,10,88.08,88.08,0,0,0,109.8,109.8,8,8,0,0,1,10,10Z" data-astro-cid-j7pv25f6=""></path> </svg> <svg class="theme-icon theme-icon-system" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 256 256" fill="currentColor" data-astro-cid-j7pv25f6=""> <path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24ZM40,128a88.1,88.1,0,0,1,88-88V216A88.1,88.1,0,0,1,40,128Z" data-astro-cid-j7pv25f6=""></path> </svg> </button> </div> </header> <main class="main" data-astro-cid-j7pv25f6=""> <section class="hero" data-astro-cid-j7pv25f6=""> <h1 class="hero-title" data-astro-cid-j7pv25f6="">Is Your Site Agent-Ready?</h1> <p class="hero-subtitle" data-astro-cid-j7pv25f6="">
+Scan your website to see how ready it is for AI agents.
+        We check multiple emerging standards — from robots.txt and <a href="https://developers.cloudflare.com/fundamentals/reference/markdown-for-agents/" target="_blank" rel="noopener noreferrer" data-astro-cid-j7pv25f6="">Markdown negotiation</a>
+to <a href="https://modelcontextprotocol.io/" target="_blank" rel="noopener noreferrer" data-astro-cid-j7pv25f6="">MCP</a>,
+        OAuth, <a href="https://agentskills.io/home" target="_blank" rel="noopener noreferrer" data-astro-cid-j7pv25f6="">Agent Skills</a> and agentic commerce.
+</p> </section> <section class="scanner-section" data-astro-cid-j7pv25f6=""> <form id="scan-form" class="scan-form" novalidate="" data-astro-cid-h7ywcjql=""> <div class="input-group" data-astro-cid-h7ywcjql=""> <label for="url-input" class="sr-only" data-astro-cid-h7ywcjql="">Website URL</label> <input type="url" id="url-input" name="url" placeholder="https://example.com" autocomplete="url" autocapitalize="none" autocorrect="off" spellcheck="false" required="" autofocus="" data-astro-cid-h7ywcjql="" value="https://home.smartlearn.education"> <button type="submit" id="scan-button" data-astro-cid-h7ywcjql=""> <span class="button-text" data-astro-cid-h7ywcjql="">Scan</span> <span class="button-loading" data-astro-cid-h7ywcjql="" hidden=""> <svg class="spinner" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" data-astro-cid-h7ywcjql=""> <circle cx="12" cy="12" r="10" opacity="0.25" data-astro-cid-h7ywcjql=""></circle> <path d="M12 2a10 10 0 0 1 10 10" stroke-linecap="round" data-astro-cid-h7ywcjql=""></path> </svg> </span> </button> </div> <button type="button" id="customize-toggle" class="customize-toggle" aria-expanded="false" aria-controls="customize-panel" data-astro-cid-h7ywcjql=""> <svg class="customize-icon" viewBox="0 0 256 256" fill="currentColor" width="16" height="16" aria-hidden="true" data-astro-cid-h7ywcjql=""> <path d="M128,80a48,48,0,1,0,48,48A48.05,48.05,0,0,0,128,80Zm0,80a32,32,0,1,1,32-32A32,32,0,0,1,128,160Zm109.94-52.79a8,8,0,0,0-3.89-5.4l-29.83-17-.12-33.62a8,8,0,0,0-2.83-6.08,111.91,111.91,0,0,0-36.72-20.67,8,8,0,0,0-6.46.59L128,41.85,97.88,25a8,8,0,0,0-6.47-.6A112.1,112.1,0,0,0,54.73,45.15a8,8,0,0,0-2.83,6.07l-.15,33.65-29.83,17a8,8,0,0,0-3.89,5.4,106.47,106.47,0,0,0,0,41.56,8,8,0,0,0,3.89,5.4l29.83,17,.12,33.62a8,8,0,0,0,2.83,6.08,111.91,111.91,0,0,0,36.72,20.67,8,8,0,0,0,6.46-.59L128,214.15,158.12,231a7.91,7.91,0,0,0,3.9,1,8.09,8.09,0,0,0,2.57-.42,112.1,112.1,0,0,0,36.68-20.73,8,8,0,0,0,2.83-6.07l.15-33.65,29.83-17a8,8,0,0,0,3.89-5.4A106.47,106.47,0,0,0,237.94,107.21Zm-15,34.91-28.57,16.25a8,8,0,0,0-3,3c-.58,1-1.19,2.06-1.81,3.06a7.94,7.94,0,0,0-1.22,4.21l-.15,32.25a95.89,95.89,0,0,1-25.37,14.3L134,199.13a8,8,0,0,0-3.91-1h-.19c-1.21,0-2.43,0-3.64,0a8.08,8.08,0,0,0-4.1,1l-28.84,16.1A96,96,0,0,1,67.88,201l-.11-32.2a8,8,0,0,0-1.22-4.22c-.62-1-1.23-2-1.8-3.06a8.09,8.09,0,0,0-3-3.06l-28.6-16.29a90.49,90.49,0,0,1,0-28.26L61.67,97.63a8,8,0,0,0,3-3c.58-1,1.19-2.06,1.81-3.06a7.94,7.94,0,0,0,1.22-4.21l.15-32.25a95.89,95.89,0,0,1,25.37-14.3L122,56.87a8,8,0,0,0,4.1,1c1.21,0,2.43,0,3.64,0a8.08,8.08,0,0,0,4.1-1l28.84-16.1A96,96,0,0,1,188.12,55l.11,32.2a8,8,0,0,0,1.22,4.22c.62,1,1.23,2,1.8,3.06a8.09,8.09,0,0,0,3,3.06l28.6,16.29A90.49,90.49,0,0,1,222.9,142.12Z" data-astro-cid-h7ywcjql=""></path> </svg> <span class="customize-label" data-astro-cid-h7ywcjql="">Customize scan</span> <svg class="customize-chevron" viewBox="0 0 256 256" fill="currentColor" width="14" height="14" aria-hidden="true" data-astro-cid-h7ywcjql=""> <path d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z" data-astro-cid-h7ywcjql=""></path> </svg> </button> <div id="customize-panel" class="customize-panel" data-astro-cid-h7ywcjql="" hidden=""> <div class="profile-selector" data-astro-cid-h7ywcjql=""> <label for="profile-select" class="profile-label" data-astro-cid-h7ywcjql="">Site type</label> <div class="profile-pills" id="profile-pills" role="radiogroup" aria-label="Site type" data-astro-cid-h7ywcjql=""> <button type="button" class="profile-pill profile-pill--active" data-profile="all" role="radio" aria-checked="true" data-astro-cid-h7ywcjql="">All Checks</button> <button type="button" class="profile-pill" data-profile="content" role="radio" aria-checked="false" data-astro-cid-h7ywcjql="">Content Site</button> <button type="button" class="profile-pill" data-profile="apiApp" role="radio" aria-checked="false" data-astro-cid-h7ywcjql="">API / Application</button> </div> <p class="profile-description" id="profile-description" data-astro-cid-h7ywcjql="">Customize which checks to run</p> </div> <div class="checks-grid" id="checks-grid" data-astro-cid-h7ywcjql=""> <fieldset class="checks-category" data-astro-cid-h7ywcjql=""> <legend data-astro-cid-h7ywcjql="">Discoverability</legend> <label class="check-toggle" data-astro-cid-h7ywcjql=""><input type="checkbox" name="check" value="robotsTxt" checked="checked" data-astro-cid-h7ywcjql=""><span data-astro-cid-h7ywcjql="">robots.txt</span></label> <label class="check-toggle" data-astro-cid-h7ywcjql=""><input type="checkbox" name="check" value="sitemap" checked="checked" data-astro-cid-h7ywcjql=""><span data-astro-cid-h7ywcjql="">Sitemap</span></label> <label class="check-toggle" data-astro-cid-h7ywcjql=""><input type="checkbox" name="check" value="linkHeaders" checked="checked" data-astro-cid-h7ywcjql=""><span data-astro-cid-h7ywcjql="">Link headers</span></label> </fieldset> <fieldset class="checks-category" data-astro-cid-h7ywcjql=""> <legend data-astro-cid-h7ywcjql="">Content Accessibility</legend> <label class="check-toggle" data-astro-cid-h7ywcjql=""><input type="checkbox" name="check" value="markdownNegotiation" checked="checked" data-astro-cid-h7ywcjql=""><span data-astro-cid-h7ywcjql="">Markdown negotiation</span></label> </fieldset> <fieldset class="checks-category" data-astro-cid-h7ywcjql=""> <legend data-astro-cid-h7ywcjql="">Bot Access Control</legend> <label class="check-toggle" data-astro-cid-h7ywcjql=""><input type="checkbox" name="check" value="robotsTxtAiRules" checked="checked" data-astro-cid-h7ywcjql=""><span data-astro-cid-h7ywcjql="">AI bot rules</span></label> <label class="check-toggle" data-astro-cid-h7ywcjql=""><input type="checkbox" name="check" value="contentSignals" checked="checked" data-astro-cid-h7ywcjql=""><span data-astro-cid-h7ywcjql="">Content Signals</span></label> <label class="check-toggle" data-astro-cid-h7ywcjql=""><input type="checkbox" name="check" value="webBotAuth" checked="checked" data-astro-cid-h7ywcjql=""><span data-astro-cid-h7ywcjql="">Web Bot Auth</span></label> </fieldset> <fieldset class="checks-category" data-astro-cid-h7ywcjql=""> <legend data-astro-cid-h7ywcjql="">API / Auth / MCP</legend> <label class="check-toggle" data-astro-cid-h7ywcjql=""><input type="checkbox" name="check" value="apiCatalog" checked="checked" data-astro-cid-h7ywcjql=""><span data-astro-cid-h7ywcjql="">API Catalog</span></label> <label class="check-toggle" data-astro-cid-h7ywcjql=""><input type="checkbox" name="check" value="oauthDiscovery" checked="checked" data-astro-cid-h7ywcjql=""><span data-astro-cid-h7ywcjql="">OAuth discovery</span></label> <label class="check-toggle" data-astro-cid-h7ywcjql=""><input type="checkbox" name="check" value="oauthProtectedResource" checked="checked" data-astro-cid-h7ywcjql=""><span data-astro-cid-h7ywcjql="">OAuth Protected Resource</span></label> <label class="check-toggle" data-astro-cid-h7ywcjql=""><input type="checkbox" name="check" value="mcpServerCard" checked="checked" data-astro-cid-h7ywcjql=""><span data-astro-cid-h7ywcjql="">MCP Server Card</span></label> <label class="check-toggle" data-astro-cid-h7ywcjql=""><input type="checkbox" name="check" value="a2aAgentCard" data-astro-cid-h7ywcjql=""><span data-astro-cid-h7ywcjql="">A2A Agent Card</span></label> <label class="check-toggle" data-astro-cid-h7ywcjql=""><input type="checkbox" name="check" value="agentSkills" checked="checked" data-astro-cid-h7ywcjql=""><span data-astro-cid-h7ywcjql="">Agent Skills</span></label> <label class="check-toggle" data-astro-cid-h7ywcjql=""><input type="checkbox" name="check" value="webMcp" checked="checked" data-astro-cid-h7ywcjql=""><span data-astro-cid-h7ywcjql="">WebMCP</span></label> </fieldset> <fieldset class="checks-category" data-astro-cid-h7ywcjql=""> <legend data-astro-cid-h7ywcjql="">Commerce</legend> <label class="check-toggle" data-astro-cid-h7ywcjql=""><input type="checkbox" name="check" value="x402" checked="checked" data-astro-cid-h7ywcjql=""><span data-astro-cid-h7ywcjql="">x402</span></label> <label class="check-toggle" data-astro-cid-h7ywcjql=""><input type="checkbox" name="check" value="mpp" checked="checked" data-astro-cid-h7ywcjql=""><span data-astro-cid-h7ywcjql="">MPP</span></label> <label class="check-toggle" data-astro-cid-h7ywcjql=""><input type="checkbox" name="check" value="ucp" checked="checked" data-astro-cid-h7ywcjql=""><span data-astro-cid-h7ywcjql="">UCP</span></label> <label class="check-toggle" data-astro-cid-h7ywcjql=""><input type="checkbox" name="check" value="acp" checked="checked" data-astro-cid-h7ywcjql=""><span data-astro-cid-h7ywcjql="">ACP</span></label> </fieldset> </div> </div> <p id="form-error" class="error-message" hidden="" data-astro-cid-h7ywcjql=""></p> <p id="results-timestamp" class="scan-timestamp" data-astro-cid-h7ywcjql="">Last scanned 4/25/2026 at 8:21:37 PM</p> </form>  </section> <section class="info-cards" id="info-cards" data-astro-cid-j7pv25f6="" hidden=""> <div class="faq-item" data-astro-cid-j7pv25f6=""> <button class="faq-header" aria-expanded="false" aria-controls="faq-panel-0" data-astro-cid-j7pv25f6=""> <span class="faq-title" data-astro-cid-j7pv25f6="">What do we check?</span> <span class="faq-icon" data-astro-cid-j7pv25f6=""> <svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" data-astro-cid-j7pv25f6=""> <path d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z" data-astro-cid-j7pv25f6=""></path> </svg> </span> </button> <div class="faq-content" id="faq-panel-0" role="region" aria-labelledby="faq-title-0" data-astro-cid-j7pv25f6="" style="height: 0px;"> <div class="faq-content-inner" data-astro-cid-j7pv25f6=""> <p data-astro-cid-j7pv25f6="">Multiple checks across 5 categories:</p> <ul class="faq-checks-list" data-astro-cid-j7pv25f6=""> <li data-astro-cid-j7pv25f6=""><strong data-astro-cid-j7pv25f6="">Discoverability</strong> — robots.txt, Sitemap, Link response headers</li> <li data-astro-cid-j7pv25f6=""><strong data-astro-cid-j7pv25f6="">Content Accessibility</strong> — <a href="https://developers.cloudflare.com/fundamentals/reference/markdown-for-agents/" target="_blank" rel="noopener noreferrer" data-astro-cid-j7pv25f6="">Markdown content negotiation</a></li> <li data-astro-cid-j7pv25f6=""><strong data-astro-cid-j7pv25f6="">Bot Access Control</strong> — AI bot rules in robots.txt, <a href="https://blog.cloudflare.com/content-signals/" target="_blank" rel="noopener noreferrer" data-astro-cid-j7pv25f6="">Content Signals</a>, <a href="https://blog.cloudflare.com/web-bot-auth/" target="_blank" rel="noopener noreferrer" data-astro-cid-j7pv25f6="">Web Bot Auth</a></li> <li data-astro-cid-j7pv25f6=""><strong data-astro-cid-j7pv25f6="">Protocol Discovery</strong> — <a href="https://modelcontextprotocol.io/" target="_blank" rel="noopener noreferrer" data-astro-cid-j7pv25f6="">MCP</a> Server Card, Agent Skills, <a href="https://webmcp.org/" target="_blank" rel="noopener noreferrer" data-astro-cid-j7pv25f6="">WebMCP</a>, API Catalog, OAuth discovery, <a href="https://datatracker.ietf.org/doc/html/rfc9728" target="_blank" rel="noopener noreferrer" data-astro-cid-j7pv25f6="">OAuth Protected Resource</a></li> <li data-astro-cid-j7pv25f6=""><strong data-astro-cid-j7pv25f6="">Commerce</strong> — <a href="https://www.x402.org/" target="_blank" rel="noopener noreferrer" data-astro-cid-j7pv25f6="">x402</a>, <a href="https://mpp.dev/" target="_blank" rel="noopener noreferrer" data-astro-cid-j7pv25f6="">MPP</a>, <a href="https://ucp.dev/" target="_blank" rel="noopener noreferrer" data-astro-cid-j7pv25f6="">UCP</a>, <a href="https://agenticcommerce.dev/" target="_blank" rel="noopener noreferrer" data-astro-cid-j7pv25f6="">ACP</a></li> </ul> </div> </div> </div> <div class="faq-item" data-astro-cid-j7pv25f6=""> <button class="faq-header" aria-expanded="false" aria-controls="faq-panel-1" data-astro-cid-j7pv25f6=""> <span class="faq-title" data-astro-cid-j7pv25f6="">What's the easiest way to improve my score?</span> <span class="faq-icon" data-astro-cid-j7pv25f6=""> <svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" data-astro-cid-j7pv25f6=""> <path d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z" data-astro-cid-j7pv25f6=""></path> </svg> </span> </button> <div class="faq-content" id="faq-panel-1" role="region" aria-labelledby="faq-title-1" data-astro-cid-j7pv25f6="" style="height: 0px;"> <div class="faq-content-inner" data-astro-cid-j7pv25f6=""> <p data-astro-cid-j7pv25f6="">Start with the easy wins: publish a valid <code data-astro-cid-j7pv25f6="">robots.txt</code> with AI bot rules and sitemap directives, and make sure your homepage exposes useful discovery headers or metadata.</p> </div> </div> </div> <div class="faq-item" data-astro-cid-j7pv25f6=""> <button class="faq-header" aria-expanded="false" aria-controls="faq-panel-2" data-astro-cid-j7pv25f6=""> <span class="faq-title" data-astro-cid-j7pv25f6="">Where can I learn more?</span> <span class="faq-icon" data-astro-cid-j7pv25f6=""> <svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" data-astro-cid-j7pv25f6=""> <path d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z" data-astro-cid-j7pv25f6=""></path> </svg> </span> </button> <div class="faq-content" id="faq-panel-2" role="region" aria-labelledby="faq-title-2" data-astro-cid-j7pv25f6="" style="height: 0px;"> <div class="faq-content-inner" data-astro-cid-j7pv25f6=""> <p data-astro-cid-j7pv25f6="">Check out the <a href="https://developers.cloudflare.com/agents/" target="_blank" rel="noopener noreferrer" data-astro-cid-j7pv25f6="">Cloudflare Agents documentation</a> to learn how to build and deploy AI agents that can browse, interact, and transact on the web.</p> </div> </div> </div> </section> <section class="results-section" data-astro-cid-j7pv25f6=""> <div id="results" class="results" data-astro-cid-pvyyuo2j=""> <div id="score-card-container" data-astro-cid-pvyyuo2j="">
+      <div class="score-card">
+        <button class="share-card-btn" type="button" aria-label="Share score card" data-url="https://home.smartlearn.education" data-level="1" data-level-name="Basic Web Presence">
+          <svg class="share-card-icon" viewBox="0 0 256 256" fill="currentColor" width="16" height="16" aria-hidden="true">
+            <path d="M176,160a39.89,39.89,0,0,0-28.62,12.09l-46.1-29.63a39.8,39.8,0,0,0,0-28.92l46.1-29.63a40,40,0,1,0-8.66-13.45l-46.1,29.63a40,40,0,1,0,0,55.82l46.1,29.63A40,40,0,1,0,176,160Zm0-128a24,24,0,1,1-24,24A24,24,0,0,1,176,32ZM64,152a24,24,0,1,1,24-24A24,24,0,0,1,64,152Zm112,72a24,24,0,1,1,24-24A24,24,0,0,1,176,224Z"></path>
+          </svg>
+          <svg class="share-card-spinner" viewBox="0 0 256 256" fill="currentColor" width="16" height="16" aria-hidden="true" style="display:none;">
+            <path d="M236,128a108,108,0,0,1-216,0c0-42.52,24.73-81.34,63-98.9A12,12,0,1,1,93,50.91C63.24,64.57,44,94.83,44,128a84,84,0,0,0,168,0c0-33.17-19.24-63.43-49-77.09A12,12,0,1,1,173,29.1C211.27,46.66,236,85.48,236,128Z"></path>
+          </svg>
+          <span class="share-card-label">Share</span>
+        </button>
+        <div class="score-header">
+          <div class="url-display">
+            <span class="url-label">Results for</span>
+            <span class="url-value">https://home.smartlearn.education</span>
+            
+          </div>
+        </div>
+        
+        <div class="score-main">
+          <div class="overall-score">
+            
+      <div class="segmented-gauge" data-highlight="">
+        <svg width="240" height="140" viewBox="0 0 240 140" class="gauge-svg" role="img" aria-label="Overall score: 25 out of 100">
+          
+      <g class="gauge-combined">
+        <path class="combined-bg" d="M 25.00 125.00 A 95 95 0 0 1 215.00 125.00" fill="none" stroke="var(--color-gauge-bg)" stroke-width="16" stroke-linecap="round"></path>
+        
+        <path class="combined-fill" d="M 25.00 125.00 A 95 95 0 0 1 52.82 57.82" fill="none" stroke="var(--color-score-poor)" stroke-width="16" stroke-linecap="round"></path>
+        
+      </g>
+    
+          <g class="gauge-segmented">
+          <g class="segment-group" data-index="0">
+            <path class="segment-bg" d="M 25.00 125.00 A 95 95 0 0 1 40.54 72.94" fill="none" stroke="var(--color-gauge-bg)" stroke-width="16" stroke-linecap="round"></path>
+            
+            <path class="segment-fill" data-category="discoverability" data-score="67" d="M 25.00 125.00 A 95 95 0 0 1 32.08 89.01" fill="none" stroke="var(--color-score-average)" stroke-width="16" stroke-linecap="round"></path>
+            
+          </g>
+        
+          <g class="segment-group" data-index="1">
+            <path class="segment-bg" d="M 53.10 57.55 A 95 95 0 0 1 67.30 45.96" fill="none" stroke="var(--color-gauge-bg)" stroke-width="16" stroke-linecap="round"></path>
+            
+          </g>
+        
+          <g class="segment-group" data-index="2">
+            <path class="segment-bg" d="M 84.89 36.73 A 95 95 0 0 1 139.00 31.92" fill="none" stroke="var(--color-gauge-bg)" stroke-width="16" stroke-linecap="round"></path>
+            
+            <path class="segment-fill" data-category="botAccessControl" data-score="50" d="M 84.89 36.73 A 95 95 0 0 1 111.59 30.37" fill="none" stroke="var(--color-score-average)" stroke-width="16" stroke-linecap="round"></path>
+            
+          </g>
+        
+          <g class="segment-group" data-index="3">
+            <path class="segment-bg" d="M 157.94 37.90 A 95 95 0 0 1 215.00 125.00" fill="none" stroke="var(--color-gauge-bg)" stroke-width="16" stroke-linecap="round"></path>
+            
+          </g>
+        </g>
+        </svg>
+        <div class="gauge-score-container">
+          <span class="gauge-score" style="color: var(--color-score-poor);">25</span>
+          <div class="gauge-category-labels"><span class="gauge-category-label" data-index="0">Discoverability</span><span class="gauge-category-label" data-index="1">Content</span><span class="gauge-category-label" data-index="2">Bot Access Control</span><span class="gauge-category-label" data-index="3">API, Auth, MCP &amp; Skill Discovery</span></div>
+        </div>
+      </div>
+    
+          </div>
+          
+          <div class="level-info">
+            <div class="level-badge" style="background-color: var(--color-level-1);">
+              Level 1
+            </div>
+            <span class="level-name">Basic Web Presence</span>
+          </div>
+        </div>
+        
+        
+        
+        <div class="category-gauges-row">
+          
+        <button class="category-gauge-btn" data-index="0" type="button" aria-label="Discoverability: 2/3">
+          
+      <div class="circle-gauge-item">
+        <div class="circle-gauge" style="width: 72px; height: 72px;">
+          <svg width="72" height="72" viewBox="0 0 72 72" class="circle-gauge-svg" aria-hidden="true">
+            <circle class="circle-gauge-track" cx="36" cy="36" r="33" fill="none" stroke="var(--color-gauge-bg)" stroke-width="6"></circle>
+            <circle class="circle-gauge-fill" cx="36" cy="36" r="33" fill="none" stroke="var(--color-score-average)" stroke-width="6" stroke-linecap="round" stroke-dasharray="207.35" stroke-dashoffset="68.42" style="--gauge-circumference: 207.35; --gauge-dash-offset: 68.42;"></circle>
+            <text class="circle-gauge-score" x="36" y="36" text-anchor="middle" dominant-baseline="central" fill="var(--color-score-average)" font-size="1.25rem" font-weight="700" font-family="var(--font-sans)">67</text>
+          </svg>
+        </div>
+        <span class="circle-gauge-label">Discoverability</span>
+        <span class="circle-gauge-sublabel">2/3</span>
+      </div>
+    
+        </button>
+      
+        <button class="category-gauge-btn" data-index="1" type="button" aria-label="Content: 0/1">
+          
+      <div class="circle-gauge-item">
+        <div class="circle-gauge" style="width: 72px; height: 72px;">
+          <svg width="72" height="72" viewBox="0 0 72 72" class="circle-gauge-svg" aria-hidden="true">
+            <circle class="circle-gauge-track" cx="36" cy="36" r="33" fill="none" stroke="var(--color-gauge-bg)" stroke-width="6"></circle>
+            <circle class="circle-gauge-fill" cx="36" cy="36" r="33" fill="none" stroke="var(--color-score-poor)" stroke-width="6" stroke-linecap="round" stroke-dasharray="207.35" stroke-dashoffset="207.35" style="--gauge-circumference: 207.35; --gauge-dash-offset: 207.35;"></circle>
+            <text class="circle-gauge-score" x="36" y="36" text-anchor="middle" dominant-baseline="central" fill="var(--color-score-poor)" font-size="1.25rem" font-weight="700" font-family="var(--font-sans)">0</text>
+          </svg>
+        </div>
+        <span class="circle-gauge-label">Content</span>
+        <span class="circle-gauge-sublabel">0/1</span>
+      </div>
+    
+        </button>
+      
+        <button class="category-gauge-btn" data-index="2" type="button" aria-label="Bot Access Control: 1/2">
+          
+      <div class="circle-gauge-item">
+        <div class="circle-gauge" style="width: 72px; height: 72px;">
+          <svg width="72" height="72" viewBox="0 0 72 72" class="circle-gauge-svg" aria-hidden="true">
+            <circle class="circle-gauge-track" cx="36" cy="36" r="33" fill="none" stroke="var(--color-gauge-bg)" stroke-width="6"></circle>
+            <circle class="circle-gauge-fill" cx="36" cy="36" r="33" fill="none" stroke="var(--color-score-average)" stroke-width="6" stroke-linecap="round" stroke-dasharray="207.35" stroke-dashoffset="103.67" style="--gauge-circumference: 207.35; --gauge-dash-offset: 103.67;"></circle>
+            <text class="circle-gauge-score" x="36" y="36" text-anchor="middle" dominant-baseline="central" fill="var(--color-score-average)" font-size="1.25rem" font-weight="700" font-family="var(--font-sans)">50</text>
+          </svg>
+        </div>
+        <span class="circle-gauge-label">Bot Access Control</span>
+        <span class="circle-gauge-sublabel">1/2</span>
+      </div>
+    
+        </button>
+      
+        <button class="category-gauge-btn" data-index="3" type="button" aria-label="API, Auth, MCP &amp; Skill Discovery: 0/6">
+          
+      <div class="circle-gauge-item">
+        <div class="circle-gauge" style="width: 72px; height: 72px;">
+          <svg width="72" height="72" viewBox="0 0 72 72" class="circle-gauge-svg" aria-hidden="true">
+            <circle class="circle-gauge-track" cx="36" cy="36" r="33" fill="none" stroke="var(--color-gauge-bg)" stroke-width="6"></circle>
+            <circle class="circle-gauge-fill" cx="36" cy="36" r="33" fill="none" stroke="var(--color-score-poor)" stroke-width="6" stroke-linecap="round" stroke-dasharray="207.35" stroke-dashoffset="207.35" style="--gauge-circumference: 207.35; --gauge-dash-offset: 207.35;"></circle>
+            <text class="circle-gauge-score" x="36" y="36" text-anchor="middle" dominant-baseline="central" fill="var(--color-score-poor)" font-size="1.25rem" font-weight="700" font-family="var(--font-sans)">0</text>
+          </svg>
+        </div>
+        <span class="circle-gauge-label">API, Auth, MCP &amp; Skill Discovery</span>
+        <span class="circle-gauge-sublabel">0/6</span>
+      </div>
+    
+        </button>
+      
+          
+      <button class="category-gauge-btn category-gauge-btn--skipped" data-index="4" type="button" aria-label="Commerce: Not checked">
+        
+      <div class="circle-gauge-item">
+        <div class="circle-gauge" style="width: 72px; height: 72px;">
+          <svg width="72" height="72" viewBox="0 0 72 72" class="circle-gauge-svg" aria-hidden="true">
+            <circle class="circle-gauge-track" cx="36" cy="36" r="33" fill="none" stroke="var(--color-gauge-bg)" stroke-width="6" stroke-dasharray="4 4"></circle>
+            <text class="circle-gauge-score" x="36" y="36" text-anchor="middle" dominant-baseline="central" fill="var(--color-neutral)" font-size="1.25rem" font-weight="700" font-family="var(--font-sans)">—</text>
+          </svg>
+        </div>
+        <span class="circle-gauge-label">Commerce</span>
+        <span class="circle-gauge-sublabel">Not checked</span>
+      </div>
+    
+      </button>
+    
+        </div>
+      </div>
+    </div> <button id="copy-all-fab" class="copy-all-fab" type="button" data-astro-cid-pvyyuo2j=""> <svg viewBox="0 0 256 256" fill="currentColor" width="20" height="20" aria-hidden="true" data-astro-cid-pvyyuo2j=""> <path d="M229.66,114.34l-96-96a8,8,0,0,0-11.32,0l-96,96A8,8,0,0,0,32,128H72v24a8,8,0,0,0,8,8h96a8,8,0,0,0,8-8V128h40a8,8,0,0,0,5.66-13.66ZM176,112a8,8,0,0,0-8,8v24H88V120a8,8,0,0,0-8-8H51.31L128,35.31,204.69,112Zm8,104a8,8,0,0,1-8,8H80a8,8,0,0,1,0-16h96A8,8,0,0,1,184,216Zm0-32a8,8,0,0,1-8,8H80a8,8,0,0,1,0-16h96A8,8,0,0,1,184,184Z" data-astro-cid-pvyyuo2j=""></path> </svg> <span class="copy-all-fab-text" data-astro-cid-pvyyuo2j="">Improve the score</span> <span class="copy-all-fab-count" id="fab-count" data-astro-cid-pvyyuo2j="">9</span> </button> <div id="check-categories" class="checks-section" aria-live="polite" data-astro-cid-pvyyuo2j="">
+      <section class="category-section" id="category-0" data-category="discoverability">
+        <div class="category-header">
+          <div class="category-title-row">
+            <h2 class="category-title">Discoverability</h2>
+          </div>
+          <span class="category-score" style="color: var(--color-score-average);">2/3</span>
+        </div>
+        
+        <div class="checks-list">
+          
+      <div class="check-card-container" data-check-container="">
+        <div class="check-card-inner">
+          <div class="check-card-front">
+            <div class="check-item check-item--pass check-item--expandable" data-check-item="" data-key="discoverability.robotsTxt" data-status="pass" data-expandable="">
+              <div class="check-item-header" role="button" tabindex="0">
+                <div class="check-item-info">
+                  <span class="check-icon" style="background-color: var(--color-pass);" role="img" aria-label="Pass">
+                    <svg viewBox="0 0 256 256" fill="#fff" aria-hidden="true"><path d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z"></path></svg>
+                  </span>
+                  <span class="check-name">robots.txt</span>
+                </div>
+                
+                <span class="check-expand-icon"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z"></path></svg></span>
+              </div>
+              
+        <div class="check-details">
+          
+          <dl class="check-detail-list"><div class="check-detail-row"><dt class="check-detail-label">Goal</dt><dd class="check-detail-value">Publish /robots.txt with clear crawl rules</dd></div><div class="check-detail-row"><dt class="check-detail-label">Result</dt><dd class="check-detail-value check-detail-value--pass">robots.txt exists with valid format</dd></div></dl>
+          
+          <div class="check-links-section"><span class="check-detail-label">Resources</span><div class="check-links"><a class="check-link" href="https://www.rfc-editor.org/rfc/rfc9309" target="_blank" rel="noopener noreferrer">RFC 9309 <svg viewBox="0 0 256 256" fill="currentColor" width="12" height="12" aria-hidden="true"><path d="M224,104a8,8,0,0,1-16,0V59.31l-66.34,66.35a8,8,0,0,1-11.32-11.32L196.69,48H152a8,8,0,0,1,0-16h64a8,8,0,0,1,8,8Zm-40,24a8,8,0,0,0-8,8v72H48V80h72a8,8,0,0,0,0-16H48A16,16,0,0,0,32,80V208a16,16,0,0,0,16,16H176a16,16,0,0,0,16-16V136A8,8,0,0,0,184,128Z"></path></svg></a><a class="check-link" href="https://isitagentready.com/.well-known/agent-skills/robots-txt/SKILL.md" target="_blank" rel="noopener noreferrer">Skill <svg viewBox="0 0 256 256" fill="currentColor" width="12" height="12" aria-hidden="true"><path d="M224,104a8,8,0,0,1-16,0V59.31l-66.34,66.35a8,8,0,0,1-11.32-11.32L196.69,48H152a8,8,0,0,1,0-16h64a8,8,0,0,1,8,8Zm-40,24a8,8,0,0,0-8,8v72H48V80h72a8,8,0,0,0,0-16H48A16,16,0,0,0,32,80V208a16,16,0,0,0,16,16H176a16,16,0,0,0,16-16V136A8,8,0,0,0,184,128Z"></path></svg></a></div></div>
+          <div class="check-details-footer"><button class="evidence-trigger" type="button" aria-label="View audit details">Audit details <svg viewBox="0 0 256 256" fill="currentColor" width="14" height="14"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path></svg></button></div>
+        </div>
+      
+            </div>
+          </div>
+          
+        <div class="check-card-back">
+          <div class="check-card-back-header">
+            <div class="check-item-info">
+              <span class="check-icon" style="background-color: var(--color-pass);"><svg viewBox="0 0 256 256" fill="#fff" aria-hidden="true"><path d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z"></path></svg></span>
+              <span class="check-name">robots.txt</span>
+            </div>
+          </div>
+          <div class="check-card-back-body">
+            <div class="evidence-timeline">
+      <div class="evidence-step evidence-step--fetch">
+        <div class="evidence-step-header">
+          <span class="evidence-step-icon"><svg viewBox="0 0 256 256" fill="currentColor" width="14" height="14"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"></path></svg></span>
+          <span class="evidence-step-label">GET /robots.txt</span>
+          <span class="evidence-status-badge evidence-status--2xx">200</span>
+        </div>
+        
+        <table class="evidence-headers"><tbody><tr><td class="evidence-header-key">content-type</td><td class="evidence-header-val">text/plain</td></tr><tr><td class="evidence-header-key">content-length</td><td class="evidence-header-val">79</td></tr></tbody></table>
+        <pre class="evidence-body-preview">User-agent: *
+Allow: /
+
+Sitemap: https://home.smartlearn.education/sitemap.xml
+</pre>
+        <div class="evidence-finding"><span class="evidence-dot evidence-dot--positive"></span><span class="evidence-finding-text">Received valid robots.txt (200, text/plain)</span></div>
+      </div>
+    
+      <div class="evidence-step evidence-step--parse">
+        <div class="evidence-step-header">
+          <span class="evidence-step-icon"><svg viewBox="0 0 256 256" fill="currentColor" width="14" height="14"><path d="M69.12,94.15,28.5,128l40.62,33.85a8,8,0,1,1-10.24,12.29l-48-40a8,8,0,0,1,0-12.29l48-40a8,8,0,0,1,10.24,12.3Zm176,27.7-48-40a8,8,0,1,0-10.24,12.3L227.5,128l-40.62,33.85a8,8,0,1,0,10.24,12.29l48-40a8,8,0,0,0,0-12.29ZM162.73,32.48a8,8,0,0,0-10.25,4.79l-64,176a8,8,0,0,0,4.79,10.26A8.14,8.14,0,0,0,96,224a8,8,0,0,0,7.52-5.27l64-176A8,8,0,0,0,162.73,32.48Z"></path></svg></span>
+          <span class="evidence-step-label">Validate robots.txt structure</span>
+          
+        </div>
+        
+        
+        
+        <div class="evidence-finding"><span class="evidence-dot evidence-dot--positive"></span><span class="evidence-finding-text">Contains valid User-agent directive(s)</span></div>
+      </div>
+    
+      <div class="evidence-step evidence-step--conclude">
+        <div class="evidence-step-header">
+          <span class="evidence-step-icon"><svg viewBox="0 0 256 256" fill="currentColor" width="14" height="14"><path d="M208,144a15.78,15.78,0,0,1-10.42,14.94L146,178l-19,51.62a15.92,15.92,0,0,1-29.88,0L78,178l-51.62-19a15.92,15.92,0,0,1,0-29.88L78,110l19-51.62a15.92,15.92,0,0,1,29.88,0L146,110l51.62,19A15.78,15.78,0,0,1,208,144ZM152,48h16V64a8,8,0,0,0,16,0V48h16a8,8,0,0,0,0-16H184V16a8,8,0,0,0-16,0V32H152a8,8,0,0,0,0,16Zm88,32h-8V72a8,8,0,0,0-16,0v8h-8a8,8,0,0,0,0,16h8v8a8,8,0,0,0,16,0V96h8a8,8,0,0,0,0-16Z"></path></svg></span>
+          <span class="evidence-step-label">Conclusion</span>
+          
+        </div>
+        
+        
+        
+        <div class="evidence-finding"><span class="evidence-dot evidence-dot--positive"></span><span class="evidence-finding-text">robots.txt exists with valid format</span></div>
+      </div>
+    </div><div class="evidence-timing">Completed in 0ms</div>
+          </div>
+          <button class="evidence-back-trigger" type="button" aria-label="Back to results"><svg viewBox="0 0 256 256" fill="currentColor" width="14" height="14"><path d="M165.66,202.34a8,8,0,0,1-11.32,11.32l-80-80a8,8,0,0,1,0-11.32l80-80a8,8,0,0,1,11.32,11.32L91.31,128Z"></path></svg> Back</button>
+        </div>
+      
+        </div>
+      </div>
+    
+      <div class="check-card-container" data-check-container="">
+        <div class="check-card-inner">
+          <div class="check-card-front">
+            <div class="check-item check-item--pass check-item--expandable" data-check-item="" data-key="discoverability.sitemap" data-status="pass" data-expandable="">
+              <div class="check-item-header" role="button" tabindex="0">
+                <div class="check-item-info">
+                  <span class="check-icon" style="background-color: var(--color-pass);" role="img" aria-label="Pass">
+                    <svg viewBox="0 0 256 256" fill="#fff" aria-hidden="true"><path d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z"></path></svg>
+                  </span>
+                  <span class="check-name">Sitemap</span>
+                </div>
+                
+                <span class="check-expand-icon"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z"></path></svg></span>
+              </div>
+              
+        <div class="check-details">
+          
+          <dl class="check-detail-list"><div class="check-detail-row"><dt class="check-detail-label">Goal</dt><dd class="check-detail-value">Publish a sitemap and reference it from robots.txt</dd></div><div class="check-detail-row"><dt class="check-detail-label">Result</dt><dd class="check-detail-value check-detail-value--pass">sitemap.xml exists with valid structure</dd></div></dl>
+          
+          <div class="check-links-section"><span class="check-detail-label">Resources</span><div class="check-links"><a class="check-link" href="https://www.sitemaps.org/protocol.html" target="_blank" rel="noopener noreferrer">sitemaps.org <svg viewBox="0 0 256 256" fill="currentColor" width="12" height="12" aria-hidden="true"><path d="M224,104a8,8,0,0,1-16,0V59.31l-66.34,66.35a8,8,0,0,1-11.32-11.32L196.69,48H152a8,8,0,0,1,0-16h64a8,8,0,0,1,8,8Zm-40,24a8,8,0,0,0-8,8v72H48V80h72a8,8,0,0,0,0-16H48A16,16,0,0,0,32,80V208a16,16,0,0,0,16,16H176a16,16,0,0,0,16-16V136A8,8,0,0,0,184,128Z"></path></svg></a><a class="check-link" href="https://isitagentready.com/.well-known/agent-skills/sitemap/SKILL.md" target="_blank" rel="noopener noreferrer">Skill <svg viewBox="0 0 256 256" fill="currentColor" width="12" height="12" aria-hidden="true"><path d="M224,104a8,8,0,0,1-16,0V59.31l-66.34,66.35a8,8,0,0,1-11.32-11.32L196.69,48H152a8,8,0,0,1,0-16h64a8,8,0,0,1,8,8Zm-40,24a8,8,0,0,0-8,8v72H48V80h72a8,8,0,0,0,0-16H48A16,16,0,0,0,32,80V208a16,16,0,0,0,16,16H176a16,16,0,0,0,16-16V136A8,8,0,0,0,184,128Z"></path></svg></a></div></div>
+          <div class="check-details-footer"><button class="evidence-trigger" type="button" aria-label="View audit details">Audit details <svg viewBox="0 0 256 256" fill="currentColor" width="14" height="14"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path></svg></button></div>
+        </div>
+      
+            </div>
+          </div>
+          
+        <div class="check-card-back">
+          <div class="check-card-back-header">
+            <div class="check-item-info">
+              <span class="check-icon" style="background-color: var(--color-pass);"><svg viewBox="0 0 256 256" fill="#fff" aria-hidden="true"><path d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z"></path></svg></span>
+              <span class="check-name">Sitemap</span>
+            </div>
+          </div>
+          <div class="check-card-back-body">
+            <div class="evidence-timeline">
+      <div class="evidence-step evidence-step--parse">
+        <div class="evidence-step-header">
+          <span class="evidence-step-icon"><svg viewBox="0 0 256 256" fill="currentColor" width="14" height="14"><path d="M69.12,94.15,28.5,128l40.62,33.85a8,8,0,1,1-10.24,12.29l-48-40a8,8,0,0,1,0-12.29l48-40a8,8,0,0,1,10.24,12.3Zm176,27.7-48-40a8,8,0,1,0-10.24,12.3L227.5,128l-40.62,33.85a8,8,0,1,0,10.24,12.29l48-40a8,8,0,0,0,0-12.29ZM162.73,32.48a8,8,0,0,0-10.25,4.79l-64,176a8,8,0,0,0,4.79,10.26A8.14,8.14,0,0,0,96,224a8,8,0,0,0,7.52-5.27l64-176A8,8,0,0,0,162.73,32.48Z"></path></svg></span>
+          <span class="evidence-step-label">Extract Sitemap directives from robots.txt</span>
+          
+        </div>
+        
+        
+        
+        <div class="evidence-finding"><span class="evidence-dot evidence-dot--positive"></span><span class="evidence-finding-text">Found 1 Sitemap directive(s) in robots.txt</span></div>
+      </div>
+    
+      <div class="evidence-step evidence-step--fetch">
+        <div class="evidence-step-header">
+          <span class="evidence-step-icon"><svg viewBox="0 0 256 256" fill="currentColor" width="14" height="14"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"></path></svg></span>
+          <span class="evidence-step-label">GET /sitemap.xml</span>
+          <span class="evidence-status-badge evidence-status--2xx">200</span>
+        </div>
+        
+        <table class="evidence-headers"><tbody><tr><td class="evidence-header-key">content-type</td><td class="evidence-header-val">text/xml</td></tr><tr><td class="evidence-header-key">content-length</td><td class="evidence-header-val">1135</td></tr></tbody></table>
+        
+        <div class="evidence-finding"><span class="evidence-dot evidence-dot--positive"></span><span class="evidence-finding-text">Found valid xml sitemap at https://home.smartlearn.education/sitemap.xml</span></div>
+      </div>
+    
+      <div class="evidence-step evidence-step--conclude">
+        <div class="evidence-step-header">
+          <span class="evidence-step-icon"><svg viewBox="0 0 256 256" fill="currentColor" width="14" height="14"><path d="M208,144a15.78,15.78,0,0,1-10.42,14.94L146,178l-19,51.62a15.92,15.92,0,0,1-29.88,0L78,178l-51.62-19a15.92,15.92,0,0,1,0-29.88L78,110l19-51.62a15.92,15.92,0,0,1,29.88,0L146,110l51.62,19A15.78,15.78,0,0,1,208,144ZM152,48h16V64a8,8,0,0,0,16,0V48h16a8,8,0,0,0,0-16H184V16a8,8,0,0,0-16,0V32H152a8,8,0,0,0,0,16Zm88,32h-8V72a8,8,0,0,0-16,0v8h-8a8,8,0,0,0,0,16h8v8a8,8,0,0,0,16,0V96h8a8,8,0,0,0,0-16Z"></path></svg></span>
+          <span class="evidence-step-label">Conclusion</span>
+          
+        </div>
+        
+        
+        
+        <div class="evidence-finding"><span class="evidence-dot evidence-dot--positive"></span><span class="evidence-finding-text">sitemap.xml exists with valid structure</span></div>
+      </div>
+    </div><div class="evidence-timing">Completed in 62ms</div>
+          </div>
+          <button class="evidence-back-trigger" type="button" aria-label="Back to results"><svg viewBox="0 0 256 256" fill="currentColor" width="14" height="14"><path d="M165.66,202.34a8,8,0,0,1-11.32,11.32l-80-80a8,8,0,0,1,0-11.32l80-80a8,8,0,0,1,11.32,11.32L91.31,128Z"></path></svg> Back</button>
+        </div>
+      
+        </div>
+      </div>
+    
+      <div class="check-card-container" data-check-container="">
+        <div class="check-card-inner">
+          <div class="check-card-front">
+            <div class="check-item check-item--fail check-item--expandable check-item--expanded" data-check-item="" data-key="discoverability.linkHeaders" data-status="fail" data-expandable="">
+              <div class="check-item-header" role="button" tabindex="0">
+                <div class="check-item-info">
+                  <span class="check-icon" style="background-color: var(--color-fail);" role="img" aria-label="Fail">
+                    <svg viewBox="0 0 256 256" fill="#fff" aria-hidden="true"><path d="M208.49,191.51a12,12,0,0,1-17,17L128,145,64.49,208.49a12,12,0,0,1-17-17L111,128,47.51,64.49a12,12,0,0,1,17-17L128,111l63.51-63.52a12,12,0,0,1,17,17L145,128Z"></path></svg>
+                  </span>
+                  <span class="check-name">Link headers</span>
+                </div>
+                
+                <span class="check-expand-icon"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z"></path></svg></span>
+              </div>
+              
+        <div class="check-details" data-prompt="">
+          <pre class="check-prompt-text" hidden="">Goal: Include Link response headers for agent discovery (RFC 8288)
+
+Issue: No Link headers found on homepage
+
+Fix: Add Link response headers to your homepage that point agents to useful resources. For example: Link: &lt;/.well-known/api-catalog&gt;; rel="api-catalog" to advertise your API catalog, or Link: &lt;/docs/api&gt;; rel="service-doc" for API documentation. See RFC 8288 for the Link header format and IANA Link Relations for registered relation types.
+
+Skill: https://isitagentready.com/.well-known/agent-skills/link-headers/SKILL.md
+
+Docs: https://www.rfc-editor.org/rfc/rfc8288, https://www.rfc-editor.org/rfc/rfc9727#section-3</pre>
+          <dl class="check-detail-list"><div class="check-detail-row"><dt class="check-detail-label">Goal</dt><dd class="check-detail-value">Include Link response headers for agent discovery (RFC 8288)</dd></div><div class="check-detail-row"><dt class="check-detail-label">Issue</dt><dd class="check-detail-value check-detail-value--fail">No Link headers found on homepage</dd></div></dl>
+          
+          <div class="check-fix-section">
+            <span class="check-detail-label">How to implement</span>
+            <div class="check-fix-code">Add Link response headers to 
+your homepage that point agents to useful resources. For example: Link: 
+&lt;/.well-known/api-catalog&gt;; rel="api-catalog" to advertise your 
+API catalog, or Link: &lt;/docs/api&gt;; rel="service-doc" for API 
+documentation. See RFC 8288 for the Link header format and IANA Link 
+Relations for registered relation types.</div>
+          </div>
+        
+          <div class="check-links-section"><span class="check-detail-label">Resources</span><div class="check-links"><a class="check-link" href="https://www.rfc-editor.org/rfc/rfc8288" target="_blank" rel="noopener noreferrer">RFC 8288 <svg viewBox="0 0 256 256" fill="currentColor" width="12" height="12" aria-hidden="true"><path d="M224,104a8,8,0,0,1-16,0V59.31l-66.34,66.35a8,8,0,0,1-11.32-11.32L196.69,48H152a8,8,0,0,1,0-16h64a8,8,0,0,1,8,8Zm-40,24a8,8,0,0,0-8,8v72H48V80h72a8,8,0,0,0,0-16H48A16,16,0,0,0,32,80V208a16,16,0,0,0,16,16H176a16,16,0,0,0,16-16V136A8,8,0,0,0,184,128Z"></path></svg></a><a class="check-link" href="https://www.rfc-editor.org/rfc/rfc9727#section-3" target="_blank" rel="noopener noreferrer">RFC 9727 <svg viewBox="0 0 256 256" fill="currentColor" width="12" height="12" aria-hidden="true"><path d="M224,104a8,8,0,0,1-16,0V59.31l-66.34,66.35a8,8,0,0,1-11.32-11.32L196.69,48H152a8,8,0,0,1,0-16h64a8,8,0,0,1,8,8Zm-40,24a8,8,0,0,0-8,8v72H48V80h72a8,8,0,0,0,0-16H48A16,16,0,0,0,32,80V208a16,16,0,0,0,16,16H176a16,16,0,0,0,16-16V136A8,8,0,0,0,184,128Z"></path></svg></a><a class="check-link" href="https://isitagentready.com/.well-known/agent-skills/link-headers/SKILL.md" target="_blank" rel="noopener noreferrer">Skill <svg viewBox="0 0 256 256" fill="currentColor" width="12" height="12" aria-hidden="true"><path d="M224,104a8,8,0,0,1-16,0V59.31l-66.34,66.35a8,8,0,0,1-11.32-11.32L196.69,48H152a8,8,0,0,1,0-16h64a8,8,0,0,1,8,8Zm-40,24a8,8,0,0,0-8,8v72H48V80h72a8,8,0,0,0,0-16H48A16,16,0,0,0,32,80V208a16,16,0,0,0,16,16H176a16,16,0,0,0,16-16V136A8,8,0,0,0,184,128Z"></path></svg></a></div></div>
+          <div class="check-details-footer"><button class="copy-button" type="button" data-tooltip="Paste into your coding agent to fix this check"><svg class="copy-button-icon" viewBox="0 0 256 256" fill="currentColor" width="14" height="14" aria-hidden="true"><path d="M216,32H88a8,8,0,0,0-8,8V80H40a8,8,0,0,0-8,8V216a8,8,0,0,0,8,8H168a8,8,0,0,0,8-8V176h40a8,8,0,0,0,8-8V40A8,8,0,0,0,216,32ZM160,208H48V96H160Zm48-48H176V88a8,8,0,0,0-8-8H96V48H208Z"></path></svg><span class="copy-button-label" aria-live="polite">Copy prompt</span></button><button class="evidence-trigger" type="button" aria-label="View audit details">Audit details <svg viewBox="0 0 256 256" fill="currentColor" width="14" height="14"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path></svg></button></div>
+        </div>
+      
+            </div>
+          </div>
+          
+        <div class="check-card-back">
+          <div class="check-card-back-header">
+            <div class="check-item-info">
+              <span class="check-icon" style="background-color: var(--color-fail);"><svg viewBox="0 0 256 256" fill="#fff" aria-hidden="true"><path d="M208.49,191.51a12,12,0,0,1-17,17L128,145,64.49,208.49a12,12,0,0,1-17-17L111,128,47.51,64.49a12,12,0,0,1,17-17L128,111l63.51-63.52a12,12,0,0,1,17,17L145,128Z"></path></svg></span>
+              <span class="check-name">Link headers</span>
+            </div>
+          </div>
+          <div class="check-card-back-body">
+            <div class="evidence-timeline">
+      <div class="evidence-step evidence-step--fetch">
+        <div class="evidence-step-header">
+          <span class="evidence-step-icon"><svg viewBox="0 0 256 256" fill="currentColor" width="14" height="14"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"></path></svg></span>
+          <span class="evidence-step-label">GET /</span>
+          <span class="evidence-status-badge evidence-status--2xx">200</span>
+        </div>
+        
+        <table class="evidence-headers"><tbody><tr><td class="evidence-header-key">content-type</td><td class="evidence-header-val">text/html</td></tr><tr><td class="evidence-header-key">content-length</td><td class="evidence-header-val">556</td></tr></tbody></table>
+        
+        <div class="evidence-finding"><span class="evidence-dot evidence-dot--negative"></span><span class="evidence-finding-text">No Link header present in response</span></div>
+      </div>
+    
+      <div class="evidence-step evidence-step--conclude">
+        <div class="evidence-step-header">
+          <span class="evidence-step-icon"><svg viewBox="0 0 256 256" fill="currentColor" width="14" height="14"><path d="M208,144a15.78,15.78,0,0,1-10.42,14.94L146,178l-19,51.62a15.92,15.92,0,0,1-29.88,0L78,178l-51.62-19a15.92,15.92,0,0,1,0-29.88L78,110l19-51.62a15.92,15.92,0,0,1,29.88,0L146,110l51.62,19A15.78,15.78,0,0,1,208,144ZM152,48h16V64a8,8,0,0,0,16,0V48h16a8,8,0,0,0,0-16H184V16a8,8,0,0,0-16,0V32H152a8,8,0,0,0,0,16Zm88,32h-8V72a8,8,0,0,0-16,0v8h-8a8,8,0,0,0,0,16h8v8a8,8,0,0,0,16,0V96h8a8,8,0,0,0,0-16Z"></path></svg></span>
+          <span class="evidence-step-label">Conclusion</span>
+          
+        </div>
+        
+        
+        
+        <div class="evidence-finding"><span class="evidence-dot evidence-dot--negative"></span><span class="evidence-finding-text">No Link headers found on homepage</span></div>
+      </div>
+    </div><div class="evidence-timing">Completed in 149ms</div>
+          </div>
+          <button class="evidence-back-trigger" type="button" aria-label="Back to results"><svg viewBox="0 0 256 256" fill="currentColor" width="14" height="14"><path d="M165.66,202.34a8,8,0,0,1-11.32,11.32l-80-80a8,8,0,0,1,0-11.32l80-80a8,8,0,0,1,11.32,11.32L91.31,128Z"></path></svg> Back</button>
+        </div>
+      
+        </div>
+      </div>
+    
+        </div>
+      </section>
+    
+      <section class="category-section" id="category-1" data-category="contentAccessibility">
+        <div class="category-header">
+          <div class="category-title-row">
+            <h2 class="category-title">Content</h2>
+          </div>
+          <span class="category-score" style="color: var(--color-score-poor);">0/1</span>
+        </div>
+        
+        <div class="checks-list">
+          
+      <div class="check-card-container" data-check-container="">
+        <div class="check-card-inner">
+          <div class="check-card-front">
+            <div class="check-item check-item--fail check-item--expandable" data-check-item="" data-key="contentAccessibility.markdownNegotiation" data-status="fail" data-expandable="">
+              <div class="check-item-header" role="button" tabindex="0">
+                <div class="check-item-info">
+                  <span class="check-icon" style="background-color: var(--color-fail);" role="img" aria-label="Fail">
+                    <svg viewBox="0 0 256 256" fill="#fff" aria-hidden="true"><path d="M208.49,191.51a12,12,0,0,1-17,17L128,145,64.49,208.49a12,12,0,0,1-17-17L111,128,47.51,64.49a12,12,0,0,1,17-17L128,111l63.51-63.52a12,12,0,0,1,17,17L145,128Z"></path></svg>
+                  </span>
+                  <span class="check-name">Markdown Negotiation</span>
+                </div>
+                
+                <span class="check-expand-icon"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z"></path></svg></span>
+              </div>
+              
+        <div class="check-details" data-prompt="">
+          <pre class="check-prompt-text" hidden="">Goal: Return HTML responses as markdown when agents request it
+
+Issue: Site does not support Markdown for Agents
+
+Fix: Enable Markdown for Agents so requests with Accept: text/markdown return a markdown version of your HTML response while HTML stays the default for browsers. Confirm the response uses Content-Type: text/markdown (and x-markdown-tokens if available).
+
+Skill: https://isitagentready.com/.well-known/agent-skills/markdown-negotiation/SKILL.md
+
+Docs: https://developers.cloudflare.com/fundamentals/reference/markdown-for-agents/</pre>
+          <dl class="check-detail-list"><div class="check-detail-row"><dt class="check-detail-label">Goal</dt><dd class="check-detail-value">Return HTML responses as markdown when agents request it</dd></div><div class="check-detail-row"><dt class="check-detail-label">Issue</dt><dd class="check-detail-value check-detail-value--fail">Site does not support Markdown for Agents</dd></div></dl>
+          
+          <div class="check-fix-section">
+            <span class="check-detail-label">How to implement</span>
+            <div class="check-fix-code">Enable Markdown for Agents so 
+requests with Accept: text/markdown return a markdown version of your 
+HTML response while HTML stays the default for browsers. Confirm the 
+response uses Content-Type: text/markdown (and x-markdown-tokens if 
+available).</div>
+          </div>
+        
+          <div class="check-links-section"><span class="check-detail-label">Resources</span><div class="check-links"><a class="check-link" href="https://developers.cloudflare.com/fundamentals/reference/markdown-for-agents/" target="_blank" rel="noopener noreferrer">Cloudflare Docs <svg viewBox="0 0 256 256" fill="currentColor" width="12" height="12" aria-hidden="true"><path d="M224,104a8,8,0,0,1-16,0V59.31l-66.34,66.35a8,8,0,0,1-11.32-11.32L196.69,48H152a8,8,0,0,1,0-16h64a8,8,0,0,1,8,8Zm-40,24a8,8,0,0,0-8,8v72H48V80h72a8,8,0,0,0,0-16H48A16,16,0,0,0,32,80V208a16,16,0,0,0,16,16H176a16,16,0,0,0,16-16V136A8,8,0,0,0,184,128Z"></path></svg></a><a class="check-link" href="https://isitagentready.com/.well-known/agent-skills/markdown-negotiation/SKILL.md" target="_blank" rel="noopener noreferrer">Skill <svg viewBox="0 0 256 256" fill="currentColor" width="12" height="12" aria-hidden="true"><path d="M224,104a8,8,0,0,1-16,0V59.31l-66.34,66.35a8,8,0,0,1-11.32-11.32L196.69,48H152a8,8,0,0,1,0-16h64a8,8,0,0,1,8,8Zm-40,24a8,8,0,0,0-8,8v72H48V80h72a8,8,0,0,0,0-16H48A16,16,0,0,0,32,80V208a16,16,0,0,0,16,16H176a16,16,0,0,0,16-16V136A8,8,0,0,0,184,128Z"></path></svg></a></div></div>
+          <div class="check-details-footer"><button class="copy-button" type="button" data-tooltip="Paste into your coding agent to fix this check"><svg class="copy-button-icon" viewBox="0 0 256 256" fill="currentColor" width="14" height="14" aria-hidden="true"><path d="M216,32H88a8,8,0,0,0-8,8V80H40a8,8,0,0,0-8,8V216a8,8,0,0,0,8,8H168a8,8,0,0,0,8-8V176h40a8,8,0,0,0,8-8V40A8,8,0,0,0,216,32ZM160,208H48V96H160Zm48-48H176V88a8,8,0,0,0-8-8H96V48H208Z"></path></svg><span class="copy-button-label" aria-live="polite">Copy prompt</span></button><button class="evidence-trigger" type="button" aria-label="View audit details">Audit details <svg viewBox="0 0 256 256" fill="currentColor" width="14" height="14"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path></svg></button></div>
+        </div>
+      
+            </div>
+          </div>
+          
+        <div class="check-card-back">
+          <div class="check-card-back-header">
+            <div class="check-item-info">
+              <span class="check-icon" style="background-color: var(--color-fail);"><svg viewBox="0 0 256 256" fill="#fff" aria-hidden="true"><path d="M208.49,191.51a12,12,0,0,1-17,17L128,145,64.49,208.49a12,12,0,0,1-17-17L111,128,47.51,64.49a12,12,0,0,1,17-17L128,111l63.51-63.52a12,12,0,0,1,17,17L145,128Z"></path></svg></span>
+              <span class="check-name">Markdown Negotiation</span>
+            </div>
+          </div>
+          <div class="check-card-back-body">
+            <div class="evidence-timeline">
+      <div class="evidence-step evidence-step--fetch">
+        <div class="evidence-step-header">
+          <span class="evidence-step-icon"><svg viewBox="0 0 256 256" fill="currentColor" width="14" height="14"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"></path></svg></span>
+          <span class="evidence-step-label">GET homepage (Accept: text/markdown)</span>
+          <span class="evidence-status-badge evidence-status--2xx">200</span>
+        </div>
+        <div class="evidence-section-label">Request</div><table class="evidence-headers"><tbody><tr><td class="evidence-header-key">accept</td><td class="evidence-header-val">text/markdown</td></tr></tbody></table>
+        <div class="evidence-section-label">Response</div><table class="evidence-headers"><tbody><tr><td class="evidence-header-key">content-type</td><td class="evidence-header-val">text/html</td></tr></tbody></table>
+        
+        <div class="evidence-finding"><span class="evidence-dot evidence-dot--negative"></span><span class="evidence-finding-text">Response content-type is text/html, not text/markdown -- site does not support markdown content negotiation</span></div>
+      </div>
+    
+      <div class="evidence-step evidence-step--conclude">
+        <div class="evidence-step-header">
+          <span class="evidence-step-icon"><svg viewBox="0 0 256 256" fill="currentColor" width="14" height="14"><path d="M208,144a15.78,15.78,0,0,1-10.42,14.94L146,178l-19,51.62a15.92,15.92,0,0,1-29.88,0L78,178l-51.62-19a15.92,15.92,0,0,1,0-29.88L78,110l19-51.62a15.92,15.92,0,0,1,29.88,0L146,110l51.62,19A15.78,15.78,0,0,1,208,144ZM152,48h16V64a8,8,0,0,0,16,0V48h16a8,8,0,0,0,0-16H184V16a8,8,0,0,0-16,0V32H152a8,8,0,0,0,0,16Zm88,32h-8V72a8,8,0,0,0-16,0v8h-8a8,8,0,0,0,0,16h8v8a8,8,0,0,0,16,0V96h8a8,8,0,0,0,0-16Z"></path></svg></span>
+          <span class="evidence-step-label">Conclusion</span>
+          
+        </div>
+        
+        
+        
+        <div class="evidence-finding"><span class="evidence-dot evidence-dot--negative"></span><span class="evidence-finding-text">Site does not support Markdown for Agents</span></div>
+      </div>
+    </div><div class="evidence-timing">Completed in 567ms</div>
+          </div>
+          <button class="evidence-back-trigger" type="button" aria-label="Back to results"><svg viewBox="0 0 256 256" fill="currentColor" width="14" height="14"><path d="M165.66,202.34a8,8,0,0,1-11.32,11.32l-80-80a8,8,0,0,1,0-11.32l80-80a8,8,0,0,1,11.32,11.32L91.31,128Z"></path></svg> Back</button>
+        </div>
+      
+        </div>
+      </div>
+    
+        </div>
+      </section>
+    
+      <section class="category-section" id="category-2" data-category="botAccessControl">
+        <div class="category-header">
+          <div class="category-title-row">
+            <h2 class="category-title">Bot Access Control</h2>
+          </div>
+          <span class="category-score" style="color: var(--color-score-average);">1/2</span>
+        </div>
+        
+        <div class="checks-list">
+          
+      <div class="check-card-container" data-check-container="">
+        <div class="check-card-inner">
+          <div class="check-card-front">
+            <div class="check-item check-item--pass check-item--expandable " data-check-item="" data-key="botAccessControl.robotsTxtAiRules" data-status="pass" data-expandable="">
+              <div class="check-item-header" role="button" tabindex="0">
+                <div class="check-item-info">
+                  <span class="check-icon" style="background-color: var(--color-pass);" role="img" aria-label="Pass">
+                    <svg viewBox="0 0 256 256" fill="#fff" aria-hidden="true"><path d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z"></path></svg>
+                  </span>
+                  <span class="check-name">AI bot rules in robots.txt</span>
+                </div>
+                
+                <span class="check-expand-icon"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z"></path></svg></span>
+              </div>
+              
+        <div class="check-details">
+          
+          <dl class="check-detail-list"><div class="check-detail-row"><dt class="check-detail-label">Goal</dt><dd class="check-detail-value">Add User-agent rules for AI crawlers like GPTBot, Claude-Web, and others</dd></div><div class="check-detail-row"><dt class="check-detail-label">Result</dt><dd class="check-detail-value check-detail-value--pass">No AI-specific bot rules; wildcard rules apply to all crawlers including AI bots</dd></div></dl>
+          
+          <div class="check-links-section"><span class="check-detail-label">Resources</span><div class="check-links"><a class="check-link" href="https://www.rfc-editor.org/rfc/rfc9309" target="_blank" rel="noopener noreferrer">RFC 9309 <svg viewBox="0 0 256 256" fill="currentColor" width="12" height="12" aria-hidden="true"><path d="M224,104a8,8,0,0,1-16,0V59.31l-66.34,66.35a8,8,0,0,1-11.32-11.32L196.69,48H152a8,8,0,0,1,0-16h64a8,8,0,0,1,8,8Zm-40,24a8,8,0,0,0-8,8v72H48V80h72a8,8,0,0,0,0-16H48A16,16,0,0,0,32,80V208a16,16,0,0,0,16,16H176a16,16,0,0,0,16-16V136A8,8,0,0,0,184,128Z"></path></svg></a><a class="check-link" href="https://developers.cloudflare.com/ai-crawl-control/" target="_blank" rel="noopener noreferrer">Cloudflare Docs <svg viewBox="0 0 256 256" fill="currentColor" width="12" height="12" aria-hidden="true"><path d="M224,104a8,8,0,0,1-16,0V59.31l-66.34,66.35a8,8,0,0,1-11.32-11.32L196.69,48H152a8,8,0,0,1,0-16h64a8,8,0,0,1,8,8Zm-40,24a8,8,0,0,0-8,8v72H48V80h72a8,8,0,0,0,0-16H48A16,16,0,0,0,32,80V208a16,16,0,0,0,16,16H176a16,16,0,0,0,16-16V136A8,8,0,0,0,184,128Z"></path></svg></a><a class="check-link" href="https://isitagentready.com/.well-known/agent-skills/ai-rules/SKILL.md" target="_blank" rel="noopener noreferrer">Skill <svg viewBox="0 0 256 256" fill="currentColor" width="12" height="12" aria-hidden="true"><path d="M224,104a8,8,0,0,1-16,0V59.31l-66.34,66.35a8,8,0,0,1-11.32-11.32L196.69,48H152a8,8,0,0,1,0-16h64a8,8,0,0,1,8,8Zm-40,24a8,8,0,0,0-8,8v72H48V80h72a8,8,0,0,0,0-16H48A16,16,0,0,0,32,80V208a16,16,0,0,0,16,16H176a16,16,0,0,0,16-16V136A8,8,0,0,0,184,128Z"></path></svg></a></div></div>
+          <div class="check-details-footer"><button class="evidence-trigger" type="button" aria-label="View audit details">Audit details <svg viewBox="0 0 256 256" fill="currentColor" width="14" height="14"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path></svg></button></div>
+        </div>
+      
+            </div>
+          </div>
+          
+        <div class="check-card-back">
+          <div class="check-card-back-header">
+            <div class="check-item-info">
+              <span class="check-icon" style="background-color: var(--color-pass);"><svg viewBox="0 0 256 256" fill="#fff" aria-hidden="true"><path d="M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z"></path></svg></span>
+              <span class="check-name">AI bot rules in robots.txt</span>
+            </div>
+          </div>
+          <div class="check-card-back-body">
+            <div class="evidence-timeline">
+      <div class="evidence-step evidence-step--fetch">
+        <div class="evidence-step-header">
+          <span class="evidence-step-icon"><svg viewBox="0 0 256 256" fill="currentColor" width="14" height="14"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"></path></svg></span>
+          <span class="evidence-step-label">GET /robots.txt</span>
+          <span class="evidence-status-badge evidence-status--2xx">200</span>
+        </div>
+        
+        <table class="evidence-headers"><tbody><tr><td class="evidence-header-key">content-type</td><td class="evidence-header-val">text/plain</td></tr><tr><td class="evidence-header-key">content-length</td><td class="evidence-header-val">79</td></tr></tbody></table>
+        <pre class="evidence-body-preview">User-agent: *
+Allow: /
+
+Sitemap: https://home.smartlearn.education/sitemap.xml
+</pre>
+        <div class="evidence-finding"><span class="evidence-dot evidence-dot--positive"></span><span class="evidence-finding-text">Received valid robots.txt (200, text/plain)</span></div>
+      </div>
+    
+      <div class="evidence-step evidence-step--parse">
+        <div class="evidence-step-header">
+          <span class="evidence-step-icon"><svg viewBox="0 0 256 256" fill="currentColor" width="14" height="14"><path d="M69.12,94.15,28.5,128l40.62,33.85a8,8,0,1,1-10.24,12.29l-48-40a8,8,0,0,1,0-12.29l48-40a8,8,0,0,1,10.24,12.3Zm176,27.7-48-40a8,8,0,1,0-10.24,12.3L227.5,128l-40.62,33.85a8,8,0,1,0,10.24,12.29l48-40a8,8,0,0,0,0-12.29ZM162.73,32.48a8,8,0,0,0-10.25,4.79l-64,176a8,8,0,0,0,4.79,10.26A8.14,8.14,0,0,0,96,224a8,8,0,0,0,7.52-5.27l64-176A8,8,0,0,0,162.73,32.48Z"></path></svg></span>
+          <span class="evidence-step-label">Scan for AI bot User-agent directives</span>
+          
+        </div>
+        
+        
+        
+        <div class="evidence-finding"><span class="evidence-dot evidence-dot--positive"></span><span class="evidence-finding-text">Checked 15 AI bot user agents -- none found, but wildcard rules apply</span></div>
+      </div>
+    
+      <div class="evidence-step evidence-step--conclude">
+        <div class="evidence-step-header">
+          <span class="evidence-step-icon"><svg viewBox="0 0 256 256" fill="currentColor" width="14" height="14"><path d="M208,144a15.78,15.78,0,0,1-10.42,14.94L146,178l-19,51.62a15.92,15.92,0,0,1-29.88,0L78,178l-51.62-19a15.92,15.92,0,0,1,0-29.88L78,110l19-51.62a15.92,15.92,0,0,1,29.88,0L146,110l51.62,19A15.78,15.78,0,0,1,208,144ZM152,48h16V64a8,8,0,0,0,16,0V48h16a8,8,0,0,0,0-16H184V16a8,8,0,0,0-16,0V32H152a8,8,0,0,0,0,16Zm88,32h-8V72a8,8,0,0,0-16,0v8h-8a8,8,0,0,0,0,16h8v8a8,8,0,0,0,16,0V96h8a8,8,0,0,0,0-16Z"></path></svg></span>
+          <span class="evidence-step-label">Conclusion</span>
+          
+        </div>
+        
+        
+        
+        <div class="evidence-finding"><span class="evidence-dot evidence-dot--positive"></span><span class="evidence-finding-text">No AI-specific bot rules; wildcard rules apply to all crawlers including AI bots</span></div>
+      </div>
+    </div><div class="evidence-timing">Completed in 0ms</div>
+          </div>
+          <button class="evidence-back-trigger" type="button" aria-label="Back to results"><svg viewBox="0 0 256 256" fill="currentColor" width="14" height="14"><path d="M165.66,202.34a8,8,0,0,1-11.32,11.32l-80-80a8,8,0,0,1,0-11.32l80-80a8,8,0,0,1,11.32,11.32L91.31,128Z"></path></svg> Back</button>
+        </div>
+      
+        </div>
+      </div>
+    
+      <div class="check-card-container" data-check-container="">
+        <div class="check-card-inner">
+          <div class="check-card-front">
+            <div class="check-item check-item--neutral check-item--expandable" data-check-item="" data-key="botAccessControl.webBotAuth" data-status="neutral" data-expandable="">
+              <div class="check-item-header" role="button" tabindex="0">
+                <div class="check-item-info">
+                  <span class="check-icon" style="background-color: var(--color-neutral);" role="img" aria-label="Not applicable">
+                    <svg viewBox="0 0 256 256" fill="#fff" aria-hidden="true"><path d="M228,128a12,12,0,0,1-12,12H40a12,12,0,0,1,0-24H216A12,12,0,0,1,228,128Z"></path></svg>
+                  </span>
+                  <span class="check-name">Web Bot Auth request signing</span>
+                </div>
+                
+                <span class="check-expand-icon"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z"></path></svg></span>
+              </div>
+              
+        <div class="check-details" data-prompt="">
+          <pre class="check-prompt-text" hidden="">Goal: Let your site identify itself as a bot with Web Bot Auth
+
+Note: Web Bot Auth directory not found (informational only)
+
+Fix: Publish a JWKS at /.well-known/http-message-signatures-directory so your site can identify itself when it sends bot or agent requests. Receiving sites can use it to verify those signed requests.
+
+Skill: https://isitagentready.com/.well-known/agent-skills/web-bot-auth/SKILL.md
+
+Docs: https://datatracker.ietf.org/wg/webbotauth/about/, https://developers.cloudflare.com/bots/reference/bot-verification/web-bot-auth/</pre>
+          <dl class="check-detail-list"><div class="check-detail-row"><dt class="check-detail-label">Goal</dt><dd class="check-detail-value">Let your site identify itself as a bot with Web Bot Auth</dd></div><div class="check-detail-row"><dt class="check-detail-label">Note</dt><dd class="check-detail-value check-detail-value--neutral">Web Bot Auth directory not found (informational only)</dd></div></dl>
+          
+          <div class="check-fix-section">
+            <span class="check-detail-label">How to implement</span>
+            <div class="check-fix-code">Publish a JWKS at 
+/.well-known/http-message-signatures-directory so your site can identify
+ itself when it sends bot or agent requests. Receiving sites can use it 
+to verify those signed requests.</div>
+          </div>
+        
+          <div class="check-links-section"><span class="check-detail-label">Resources</span><div class="check-links"><a class="check-link" href="https://datatracker.ietf.org/wg/webbotauth/about/" target="_blank" rel="noopener noreferrer">IETF Working Group <svg viewBox="0 0 256 256" fill="currentColor" width="12" height="12" aria-hidden="true"><path d="M224,104a8,8,0,0,1-16,0V59.31l-66.34,66.35a8,8,0,0,1-11.32-11.32L196.69,48H152a8,8,0,0,1,0-16h64a8,8,0,0,1,8,8Zm-40,24a8,8,0,0,0-8,8v72H48V80h72a8,8,0,0,0,0-16H48A16,16,0,0,0,32,80V208a16,16,0,0,0,16,16H176a16,16,0,0,0,16-16V136A8,8,0,0,0,184,128Z"></path></svg></a><a class="check-link" href="https://developers.cloudflare.com/bots/reference/bot-verification/web-bot-auth/" target="_blank" rel="noopener noreferrer">Cloudflare Docs <svg viewBox="0 0 256 256" fill="currentColor" width="12" height="12" aria-hidden="true"><path d="M224,104a8,8,0,0,1-16,0V59.31l-66.34,66.35a8,8,0,0,1-11.32-11.32L196.69,48H152a8,8,0,0,1,0-16h64a8,8,0,0,1,8,8Zm-40,24a8,8,0,0,0-8,8v72H48V80h72a8,8,0,0,0,0-16H48A16,16,0,0,0,32,80V208a16,16,0,0,0,16,16H176a16,16,0,0,0,16-16V136A8,8,0,0,0,184,128Z"></path></svg></a><a class="check-link" href="https://isitagentready.com/.well-known/agent-skills/web-bot-auth/SKILL.md" target="_blank" rel="noopener noreferrer">Skill <svg viewBox="0 0 256 256" fill="currentColor" width="12" height="12" aria-hidden="true"><path d="M224,104a8,8,0,0,1-16,0V59.31l-66.34,66.35a8,8,0,0,1-11.32-11.32L196.69,48H152a8,8,0,0,1,0-16h64a8,8,0,0,1,8,8Zm-40,24a8,8,0,0,0-8,8v72H48V80h72a8,8,0,0,0,0-16H48A16,16,0,0,0,32,80V208a16,16,0,0,0,16,16H176a16,16,0,0,0,16-16V136A8,8,0,0,0,184,128Z"></path></svg></a></div></div>
+          <div class="check-details-footer"><button class="copy-button" type="button" data-tooltip="Paste into your coding agent to fix this check"><svg class="copy-button-icon" viewBox="0 0 256 256" fill="currentColor" width="14" height="14" aria-hidden="true"><path d="M216,32H88a8,8,0,0,0-8,8V80H40a8,8,0,0,0-8,8V216a8,8,0,0,0,8,8H168a8,8,0,0,0,8-8V176h40a8,8,0,0,0,8-8V40A8,8,0,0,0,216,32ZM160,208H48V96H160Zm48-48H176V88a8,8,0,0,0-8-8H96V48H208Z"></path></svg><span class="copy-button-label" aria-live="polite">Copy prompt</span></button><button class="evidence-trigger" type="button" aria-label="View audit details">Audit details <svg viewBox="0 0 256 256" fill="currentColor" width="14" height="14"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path></svg></button></div>
+        </div>
+      
+            </div>
+          </div>
+          
+        <div class="check-card-back">
+          <div class="check-card-back-header">
+            <div class="check-item-info">
+              <span class="check-icon" style="background-color: var(--color-neutral);"><svg viewBox="0 0 256 256" fill="#fff" aria-hidden="true"><path d="M228,128a12,12,0,0,1-12,12H40a12,12,0,0,1,0-24H216A12,12,0,0,1,228,128Z"></path></svg></span>
+              <span class="check-name">Web Bot Auth request signing</span>
+            </div>
+          </div>
+          <div class="check-card-back-body">
+            <div class="evidence-timeline">
+      <div class="evidence-step evidence-step--fetch">
+        <div class="evidence-step-header">
+          <span class="evidence-step-icon"><svg viewBox="0 0 256 256" fill="currentColor" width="14" height="14"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"></path></svg></span>
+          <span class="evidence-step-label">GET /.well-known/http-message-signatures-directory</span>
+          <span class="evidence-status-badge evidence-status--4xx">404</span>
+        </div>
+        
+        <table class="evidence-headers"><tbody><tr><td class="evidence-header-key">content-type</td><td class="evidence-header-val">text/html</td></tr><tr><td class="evidence-header-key">content-length</td><td class="evidence-header-val">556</td></tr></tbody></table>
+        
+        <div class="evidence-finding"><span class="evidence-dot evidence-dot--negative"></span><span class="evidence-finding-text">Server returned 404 -- Web Bot Auth directory not found</span></div>
+      </div>
+    
+      <div class="evidence-step evidence-step--conclude">
+        <div class="evidence-step-header">
+          <span class="evidence-step-icon"><svg viewBox="0 0 256 256" fill="currentColor" width="14" height="14"><path d="M208,144a15.78,15.78,0,0,1-10.42,14.94L146,178l-19,51.62a15.92,15.92,0,0,1-29.88,0L78,178l-51.62-19a15.92,15.92,0,0,1,0-29.88L78,110l19-51.62a15.92,15.92,0,0,1,29.88,0L146,110l51.62,19A15.78,15.78,0,0,1,208,144ZM152,48h16V64a8,8,0,0,0,16,0V48h16a8,8,0,0,0,0-16H184V16a8,8,0,0,0-16,0V32H152a8,8,0,0,0,0,16Zm88,32h-8V72a8,8,0,0,0-16,0v8h-8a8,8,0,0,0,0,16h8v8a8,8,0,0,0,16,0V96h8a8,8,0,0,0,0-16Z"></path></svg></span>
+          <span class="evidence-step-label">Conclusion</span>
+          
+        </div>
+        
+        
+        
+        <div class="evidence-finding"><span class="evidence-dot evidence-dot--negative"></span><span class="evidence-finding-text">Web Bot Auth directory not found</span></div>
+      </div>
+    </div><div class="evidence-timing">Completed in 65ms</div>
+          </div>
+          <button class="evidence-back-trigger" type="button" aria-label="Back to results"><svg viewBox="0 0 256 256" fill="currentColor" width="14" height="14"><path d="M165.66,202.34a8,8,0,0,1-11.32,11.32l-80-80a8,8,0,0,1,0-11.32l80-80a8,8,0,0,1,11.32,11.32L91.31,128Z"></path></svg> Back</button>
+        </div>
+      
+        </div>
+      </div>
+    
+      <div class="check-card-container" data-check-container="">
+        <div class="check-card-inner">
+          <div class="check-card-front">
+            <div class="check-item check-item--fail check-item--expandable" data-check-item="" data-key="botAccessControl.contentSignals" data-status="fail" data-expandable="">
+              <div class="check-item-header" role="button" tabindex="0">
+                <div class="check-item-info">
+                  <span class="check-icon" style="background-color: var(--color-fail);" role="img" aria-label="Fail">
+                    <svg viewBox="0 0 256 256" fill="#fff" aria-hidden="true"><path d="M208.49,191.51a12,12,0,0,1-17,17L128,145,64.49,208.49a12,12,0,0,1-17-17L111,128,47.51,64.49a12,12,0,0,1,17-17L128,111l63.51-63.52a12,12,0,0,1,17,17L145,128Z"></path></svg>
+                  </span>
+                  <span class="check-name">Content Signals in robots.txt</span>
+                </div>
+                
+                <span class="check-expand-icon"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z"></path></svg></span>
+              </div>
+              
+        <div class="check-details" data-prompt="">
+          <pre class="check-prompt-text" hidden="">Goal: Declare AI content usage preferences with Content Signals in robots.txt
+
+Issue: No Content Signals found in robots.txt
+
+Fix: Add Content-Signal directives to your robots.txt declaring preferences for ai-train, search, and ai-input. For example:
+Content-Signal: ai-train=no, search=yes, ai-input=no
+
+Skill: https://isitagentready.com/.well-known/agent-skills/content-signals/SKILL.md
+
+Docs: https://contentsignals.org/, https://datatracker.ietf.org/doc/draft-romm-aipref-contentsignals/</pre>
+          <dl class="check-detail-list"><div class="check-detail-row"><dt class="check-detail-label">Goal</dt><dd class="check-detail-value">Declare AI content usage preferences with Content Signals in robots.txt</dd></div><div class="check-detail-row"><dt class="check-detail-label">Issue</dt><dd class="check-detail-value check-detail-value--fail">No Content Signals found in robots.txt</dd></div></dl>
+          
+          <div class="check-fix-section">
+            <span class="check-detail-label">How to implement</span>
+            <div class="check-fix-code">Add Content-Signal directives to your robots.txt declaring preferences for ai-train, search, and ai-input. For example:
+Content-Signal: ai-train=no, search=yes, ai-input=no</div>
+          </div>
+        
+          <div class="check-links-section"><span class="check-detail-label">Resources</span><div class="check-links"><a class="check-link" href="https://contentsignals.org/" target="_blank" rel="noopener noreferrer">contentsignals.org <svg viewBox="0 0 256 256" fill="currentColor" width="12" height="12" aria-hidden="true"><path d="M224,104a8,8,0,0,1-16,0V59.31l-66.34,66.35a8,8,0,0,1-11.32-11.32L196.69,48H152a8,8,0,0,1,0-16h64a8,8,0,0,1,8,8Zm-40,24a8,8,0,0,0-8,8v72H48V80h72a8,8,0,0,0,0-16H48A16,16,0,0,0,32,80V208a16,16,0,0,0,16,16H176a16,16,0,0,0,16-16V136A8,8,0,0,0,184,128Z"></path></svg></a><a class="check-link" href="https://datatracker.ietf.org/doc/draft-romm-aipref-contentsignals/" target="_blank" rel="noopener noreferrer">IETF Draft <svg viewBox="0 0 256 256" fill="currentColor" width="12" height="12" aria-hidden="true"><path d="M224,104a8,8,0,0,1-16,0V59.31l-66.34,66.35a8,8,0,0,1-11.32-11.32L196.69,48H152a8,8,0,0,1,0-16h64a8,8,0,0,1,8,8Zm-40,24a8,8,0,0,0-8,8v72H48V80h72a8,8,0,0,0,0-16H48A16,16,0,0,0,32,80V208a16,16,0,0,0,16,16H176a16,16,0,0,0,16-16V136A8,8,0,0,0,184,128Z"></path></svg></a><a class="check-link" href="https://isitagentready.com/.well-known/agent-skills/content-signals/SKILL.md" target="_blank" rel="noopener noreferrer">Skill <svg viewBox="0 0 256 256" fill="currentColor" width="12" height="12" aria-hidden="true"><path d="M224,104a8,8,0,0,1-16,0V59.31l-66.34,66.35a8,8,0,0,1-11.32-11.32L196.69,48H152a8,8,0,0,1,0-16h64a8,8,0,0,1,8,8Zm-40,24a8,8,0,0,0-8,8v72H48V80h72a8,8,0,0,0,0-16H48A16,16,0,0,0,32,80V208a16,16,0,0,0,16,16H176a16,16,0,0,0,16-16V136A8,8,0,0,0,184,128Z"></path></svg></a></div></div>
+          <div class="check-details-footer"><button class="copy-button" type="button" data-tooltip="Paste into your coding agent to fix this check"><svg class="copy-button-icon" viewBox="0 0 256 256" fill="currentColor" width="14" height="14" aria-hidden="true"><path d="M216,32H88a8,8,0,0,0-8,8V80H40a8,8,0,0,0-8,8V216a8,8,0,0,0,8,8H168a8,8,0,0,0,8-8V176h40a8,8,0,0,0,8-8V40A8,8,0,0,0,216,32ZM160,208H48V96H160Zm48-48H176V88a8,8,0,0,0-8-8H96V48H208Z"></path></svg><span class="copy-button-label" aria-live="polite">Copy prompt</span></button><button class="evidence-trigger" type="button" aria-label="View audit details">Audit details <svg viewBox="0 0 256 256" fill="currentColor" width="14" height="14"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path></svg></button></div>
+        </div>
+      
+            </div>
+          </div>
+          
+        <div class="check-card-back">
+          <div class="check-card-back-header">
+            <div class="check-item-info">
+              <span class="check-icon" style="background-color: var(--color-fail);"><svg viewBox="0 0 256 256" fill="#fff" aria-hidden="true"><path d="M208.49,191.51a12,12,0,0,1-17,17L128,145,64.49,208.49a12,12,0,0,1-17-17L111,128,47.51,64.49a12,12,0,0,1,17-17L128,111l63.51-63.52a12,12,0,0,1,17,17L145,128Z"></path></svg></span>
+              <span class="check-name">Content Signals in robots.txt</span>
+            </div>
+          </div>
+          <div class="check-card-back-body">
+            <div class="evidence-timeline">
+      <div class="evidence-step evidence-step--fetch">
+        <div class="evidence-step-header">
+          <span class="evidence-step-icon"><svg viewBox="0 0 256 256" fill="currentColor" width="14" height="14"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"></path></svg></span>
+          <span class="evidence-step-label">GET /robots.txt</span>
+          <span class="evidence-status-badge evidence-status--2xx">200</span>
+        </div>
+        
+        <table class="evidence-headers"><tbody><tr><td class="evidence-header-key">content-type</td><td class="evidence-header-val">text/plain</td></tr><tr><td class="evidence-header-key">content-length</td><td class="evidence-header-val">79</td></tr></tbody></table>
+        <pre class="evidence-body-preview">User-agent: *
+Allow: /
+
+Sitemap: https://home.smartlearn.education/sitemap.xml
+</pre>
+        <div class="evidence-finding"><span class="evidence-dot evidence-dot--positive"></span><span class="evidence-finding-text">Received valid robots.txt (200, text/plain)</span></div>
+      </div>
+    
+      <div class="evidence-step evidence-step--parse">
+        <div class="evidence-step-header">
+          <span class="evidence-step-icon"><svg viewBox="0 0 256 256" fill="currentColor" width="14" height="14"><path d="M69.12,94.15,28.5,128l40.62,33.85a8,8,0,1,1-10.24,12.29l-48-40a8,8,0,0,1,0-12.29l48-40a8,8,0,0,1,10.24,12.3Zm176,27.7-48-40a8,8,0,1,0-10.24,12.3L227.5,128l-40.62,33.85a8,8,0,1,0,10.24,12.29l48-40a8,8,0,0,0,0-12.29ZM162.73,32.48a8,8,0,0,0-10.25,4.79l-64,176a8,8,0,0,0,4.79,10.26A8.14,8.14,0,0,0,96,224a8,8,0,0,0,7.52-5.27l64-176A8,8,0,0,0,162.73,32.48Z"></path></svg></span>
+          <span class="evidence-step-label">Parse Content-Signal directives</span>
+          
+        </div>
+        
+        
+        
+        <div class="evidence-finding"><span class="evidence-dot evidence-dot--negative"></span><span class="evidence-finding-text">No Content-Signal directives found in robots.txt</span></div>
+      </div>
+    
+      <div class="evidence-step evidence-step--conclude">
+        <div class="evidence-step-header">
+          <span class="evidence-step-icon"><svg viewBox="0 0 256 256" fill="currentColor" width="14" height="14"><path d="M208,144a15.78,15.78,0,0,1-10.42,14.94L146,178l-19,51.62a15.92,15.92,0,0,1-29.88,0L78,178l-51.62-19a15.92,15.92,0,0,1,0-29.88L78,110l19-51.62a15.92,15.92,0,0,1,29.88,0L146,110l51.62,19A15.78,15.78,0,0,1,208,144ZM152,48h16V64a8,8,0,0,0,16,0V48h16a8,8,0,0,0,0-16H184V16a8,8,0,0,0-16,0V32H152a8,8,0,0,0,0,16Zm88,32h-8V72a8,8,0,0,0-16,0v8h-8a8,8,0,0,0,0,16h8v8a8,8,0,0,0,16,0V96h8a8,8,0,0,0,0-16Z"></path></svg></span>
+          <span class="evidence-step-label">Conclusion</span>
+          
+        </div>
+        
+        
+        
+        <div class="evidence-finding"><span class="evidence-dot evidence-dot--negative"></span><span class="evidence-finding-text">No Content Signals found in robots.txt</span></div>
+      </div>
+    </div><div class="evidence-timing">Completed in 0ms</div>
+          </div>
+          <button class="evidence-back-trigger" type="button" aria-label="Back to results"><svg viewBox="0 0 256 256" fill="currentColor" width="14" height="14"><path d="M165.66,202.34a8,8,0,0,1-11.32,11.32l-80-80a8,8,0,0,1,0-11.32l80-80a8,8,0,0,1,11.32,11.32L91.31,128Z"></path></svg> Back</button>
+        </div>
+      
+        </div>
+      </div>
+    
+        </div>
+      </section>
+    
+      <section class="category-section" id="category-3" data-category="discovery">
+        <div class="category-header">
+          <div class="category-title-row">
+            <h2 class="category-title">API, Auth, MCP &amp; Skill Discovery</h2>
+          </div>
+          <span class="category-score" style="color: var(--color-score-poor);">0/6</span>
+        </div>
+        
+        <div class="checks-list">
+          
+      <div class="check-card-container" data-check-container="">
+        <div class="check-card-inner">
+          <div class="check-card-front">
+            <div class="check-item check-item--fail check-item--expandable" data-check-item="" data-key="discovery.apiCatalog" data-status="fail" data-expandable="">
+              <div class="check-item-header" role="button" tabindex="0">
+                <div class="check-item-info">
+                  <span class="check-icon" style="background-color: var(--color-fail);" role="img" aria-label="Fail">
+                    <svg viewBox="0 0 256 256" fill="#fff" aria-hidden="true"><path d="M208.49,191.51a12,12,0,0,1-17,17L128,145,64.49,208.49a12,12,0,0,1-17-17L111,128,47.51,64.49a12,12,0,0,1,17-17L128,111l63.51-63.52a12,12,0,0,1,17,17L145,128Z"></path></svg>
+                  </span>
+                  <span class="check-name">API Catalog</span>
+                </div>
+                
+                <span class="check-expand-icon"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z"></path></svg></span>
+              </div>
+              
+        <div class="check-details" data-prompt="">
+          <pre class="check-prompt-text" hidden="">Goal: Publish an API catalog for automated API discovery (RFC 9727)
+
+Issue: API Catalog not found
+
+Fix: Create /.well-known/api-catalog returning application/linkset+json with a "linkset" array. Each entry should include an "anchor" URL for the API and link relations for service-desc (OpenAPI spec), service-doc (documentation), and status (health endpoint). See RFC 9727 Appendix A for examples.
+
+Skill: https://isitagentready.com/.well-known/agent-skills/api-catalog/SKILL.md
+
+Docs: https://www.rfc-editor.org/rfc/rfc9727, https://www.rfc-editor.org/rfc/rfc9264</pre>
+          <dl class="check-detail-list"><div class="check-detail-row"><dt class="check-detail-label">Goal</dt><dd class="check-detail-value">Publish an API catalog for automated API discovery (RFC 9727)</dd></div><div class="check-detail-row"><dt class="check-detail-label">Issue</dt><dd class="check-detail-value check-detail-value--fail">API Catalog not found</dd></div></dl>
+          
+          <div class="check-fix-section">
+            <span class="check-detail-label">How to implement</span>
+            <div class="check-fix-code">Create /.well-known/api-catalog 
+returning application/linkset+json with a "linkset" array. Each entry 
+should include an "anchor" URL for the API and link relations for 
+service-desc (OpenAPI spec), service-doc (documentation), and status 
+(health endpoint). See RFC 9727 Appendix A for examples.</div>
+          </div>
+        
+          <div class="check-links-section"><span class="check-detail-label">Resources</span><div class="check-links"><a class="check-link" href="https://www.rfc-editor.org/rfc/rfc9727" target="_blank" rel="noopener noreferrer">RFC 9727 <svg viewBox="0 0 256 256" fill="currentColor" width="12" height="12" aria-hidden="true"><path d="M224,104a8,8,0,0,1-16,0V59.31l-66.34,66.35a8,8,0,0,1-11.32-11.32L196.69,48H152a8,8,0,0,1,0-16h64a8,8,0,0,1,8,8Zm-40,24a8,8,0,0,0-8,8v72H48V80h72a8,8,0,0,0,0-16H48A16,16,0,0,0,32,80V208a16,16,0,0,0,16,16H176a16,16,0,0,0,16-16V136A8,8,0,0,0,184,128Z"></path></svg></a><a class="check-link" href="https://www.rfc-editor.org/rfc/rfc9264" target="_blank" rel="noopener noreferrer">RFC 9264 <svg viewBox="0 0 256 256" fill="currentColor" width="12" height="12" aria-hidden="true"><path d="M224,104a8,8,0,0,1-16,0V59.31l-66.34,66.35a8,8,0,0,1-11.32-11.32L196.69,48H152a8,8,0,0,1,0-16h64a8,8,0,0,1,8,8Zm-40,24a8,8,0,0,0-8,8v72H48V80h72a8,8,0,0,0,0-16H48A16,16,0,0,0,32,80V208a16,16,0,0,0,16,16H176a16,16,0,0,0,16-16V136A8,8,0,0,0,184,128Z"></path></svg></a><a class="check-link" href="https://isitagentready.com/.well-known/agent-skills/api-catalog/SKILL.md" target="_blank" rel="noopener noreferrer">Skill <svg viewBox="0 0 256 256" fill="currentColor" width="12" height="12" aria-hidden="true"><path d="M224,104a8,8,0,0,1-16,0V59.31l-66.34,66.35a8,8,0,0,1-11.32-11.32L196.69,48H152a8,8,0,0,1,0-16h64a8,8,0,0,1,8,8Zm-40,24a8,8,0,0,0-8,8v72H48V80h72a8,8,0,0,0,0-16H48A16,16,0,0,0,32,80V208a16,16,0,0,0,16,16H176a16,16,0,0,0,16-16V136A8,8,0,0,0,184,128Z"></path></svg></a></div></div>
+          <div class="check-details-footer"><button class="copy-button" type="button" data-tooltip="Paste into your coding agent to fix this check"><svg class="copy-button-icon" viewBox="0 0 256 256" fill="currentColor" width="14" height="14" aria-hidden="true"><path d="M216,32H88a8,8,0,0,0-8,8V80H40a8,8,0,0,0-8,8V216a8,8,0,0,0,8,8H168a8,8,0,0,0,8-8V176h40a8,8,0,0,0,8-8V40A8,8,0,0,0,216,32ZM160,208H48V96H160Zm48-48H176V88a8,8,0,0,0-8-8H96V48H208Z"></path></svg><span class="copy-button-label" aria-live="polite">Copy prompt</span></button><button class="evidence-trigger" type="button" aria-label="View audit details">Audit details <svg viewBox="0 0 256 256" fill="currentColor" width="14" height="14"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path></svg></button></div>
+        </div>
+      
+            </div>
+          </div>
+          
+        <div class="check-card-back">
+          <div class="check-card-back-header">
+            <div class="check-item-info">
+              <span class="check-icon" style="background-color: var(--color-fail);"><svg viewBox="0 0 256 256" fill="#fff" aria-hidden="true"><path d="M208.49,191.51a12,12,0,0,1-17,17L128,145,64.49,208.49a12,12,0,0,1-17-17L111,128,47.51,64.49a12,12,0,0,1,17-17L128,111l63.51-63.52a12,12,0,0,1,17,17L145,128Z"></path></svg></span>
+              <span class="check-name">API Catalog</span>
+            </div>
+          </div>
+          <div class="check-card-back-body">
+            <div class="evidence-timeline">
+      <div class="evidence-step evidence-step--fetch">
+        <div class="evidence-step-header">
+          <span class="evidence-step-icon"><svg viewBox="0 0 256 256" fill="currentColor" width="14" height="14"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"></path></svg></span>
+          <span class="evidence-step-label">GET /.well-known/api-catalog</span>
+          <span class="evidence-status-badge evidence-status--4xx">404</span>
+        </div>
+        <div class="evidence-section-label">Request</div><table class="evidence-headers"><tbody><tr><td class="evidence-header-key">accept</td><td class="evidence-header-val">application/linkset+json, application/json</td></tr></tbody></table>
+        <div class="evidence-section-label">Response</div><table class="evidence-headers"><tbody><tr><td class="evidence-header-key">content-type</td><td class="evidence-header-val">text/html</td></tr><tr><td class="evidence-header-key">content-length</td><td class="evidence-header-val">556</td></tr></tbody></table>
+        
+        <div class="evidence-finding"><span class="evidence-dot evidence-dot--negative"></span><span class="evidence-finding-text">Server returned 404 -- API Catalog not found</span></div>
+      </div>
+    
+      <div class="evidence-step evidence-step--conclude">
+        <div class="evidence-step-header">
+          <span class="evidence-step-icon"><svg viewBox="0 0 256 256" fill="currentColor" width="14" height="14"><path d="M208,144a15.78,15.78,0,0,1-10.42,14.94L146,178l-19,51.62a15.92,15.92,0,0,1-29.88,0L78,178l-51.62-19a15.92,15.92,0,0,1,0-29.88L78,110l19-51.62a15.92,15.92,0,0,1,29.88,0L146,110l51.62,19A15.78,15.78,0,0,1,208,144ZM152,48h16V64a8,8,0,0,0,16,0V48h16a8,8,0,0,0,0-16H184V16a8,8,0,0,0-16,0V32H152a8,8,0,0,0,0,16Zm88,32h-8V72a8,8,0,0,0-16,0v8h-8a8,8,0,0,0,0,16h8v8a8,8,0,0,0,16,0V96h8a8,8,0,0,0,0-16Z"></path></svg></span>
+          <span class="evidence-step-label">Conclusion</span>
+          
+        </div>
+        
+        
+        
+        <div class="evidence-finding"><span class="evidence-dot evidence-dot--negative"></span><span class="evidence-finding-text">API Catalog not found</span></div>
+      </div>
+    </div><div class="evidence-timing">Completed in 91ms</div>
+          </div>
+          <button class="evidence-back-trigger" type="button" aria-label="Back to results"><svg viewBox="0 0 256 256" fill="currentColor" width="14" height="14"><path d="M165.66,202.34a8,8,0,0,1-11.32,11.32l-80-80a8,8,0,0,1,0-11.32l80-80a8,8,0,0,1,11.32,11.32L91.31,128Z"></path></svg> Back</button>
+        </div>
+      
+        </div>
+      </div>
+    
+      <div class="check-card-container" data-check-container="">
+        <div class="check-card-inner">
+          <div class="check-card-front">
+            <div class="check-item check-item--fail check-item--expandable" data-check-item="" data-key="discovery.oauthDiscovery" data-status="fail" data-expandable="">
+              <div class="check-item-header" role="button" tabindex="0">
+                <div class="check-item-info">
+                  <span class="check-icon" style="background-color: var(--color-fail);" role="img" aria-label="Fail">
+                    <svg viewBox="0 0 256 256" fill="#fff" aria-hidden="true"><path d="M208.49,191.51a12,12,0,0,1-17,17L128,145,64.49,208.49a12,12,0,0,1-17-17L111,128,47.51,64.49a12,12,0,0,1,17-17L128,111l63.51-63.52a12,12,0,0,1,17,17L145,128Z"></path></svg>
+                  </span>
+                  <span class="check-name">OAuth / OIDC discovery</span>
+                </div>
+                
+                <span class="check-expand-icon"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z"></path></svg></span>
+              </div>
+              
+        <div class="check-details" data-prompt="">
+          <pre class="check-prompt-text" hidden="">Goal: Publish OAuth/OIDC discovery metadata so agents can authenticate with your APIs
+
+Issue: No OAuth/OIDC discovery metadata found
+
+Fix: If your site has protected APIs, publish /.well-known/openid-configuration (for OpenID Connect) or /.well-known/oauth-authorization-server (for pure OAuth 2.0) with your issuer, authorization_endpoint, token_endpoint, jwks_uri, and grant_types_supported. This allows AI agents to programmatically discover how to authenticate.
+
+Skill: https://isitagentready.com/.well-known/agent-skills/oauth-discovery/SKILL.md
+
+Docs: http://openid.net/specs/openid-connect-discovery-1_0.html, https://www.rfc-editor.org/rfc/rfc8414</pre>
+          <dl class="check-detail-list"><div class="check-detail-row"><dt class="check-detail-label">Goal</dt><dd class="check-detail-value">Publish OAuth/OIDC discovery metadata so agents can authenticate with your APIs</dd></div><div class="check-detail-row"><dt class="check-detail-label">Issue</dt><dd class="check-detail-value check-detail-value--fail">No OAuth/OIDC discovery metadata found</dd></div></dl>
+          
+          <div class="check-fix-section">
+            <span class="check-detail-label">How to implement</span>
+            <div class="check-fix-code">If your site has protected APIs,
+ publish /.well-known/openid-configuration (for OpenID Connect) or 
+/.well-known/oauth-authorization-server (for pure OAuth 2.0) with your 
+issuer, authorization_endpoint, token_endpoint, jwks_uri, and 
+grant_types_supported. This allows AI agents to programmatically 
+discover how to authenticate.</div>
+          </div>
+        
+          <div class="check-links-section"><span class="check-detail-label">Resources</span><div class="check-links"><a class="check-link" href="http://openid.net/specs/openid-connect-discovery-1_0.html" target="_blank" rel="noopener noreferrer">OpenID Spec <svg viewBox="0 0 256 256" fill="currentColor" width="12" height="12" aria-hidden="true"><path d="M224,104a8,8,0,0,1-16,0V59.31l-66.34,66.35a8,8,0,0,1-11.32-11.32L196.69,48H152a8,8,0,0,1,0-16h64a8,8,0,0,1,8,8Zm-40,24a8,8,0,0,0-8,8v72H48V80h72a8,8,0,0,0,0-16H48A16,16,0,0,0,32,80V208a16,16,0,0,0,16,16H176a16,16,0,0,0,16-16V136A8,8,0,0,0,184,128Z"></path></svg></a><a class="check-link" href="https://www.rfc-editor.org/rfc/rfc8414" target="_blank" rel="noopener noreferrer">RFC 8414 <svg viewBox="0 0 256 256" fill="currentColor" width="12" height="12" aria-hidden="true"><path d="M224,104a8,8,0,0,1-16,0V59.31l-66.34,66.35a8,8,0,0,1-11.32-11.32L196.69,48H152a8,8,0,0,1,0-16h64a8,8,0,0,1,8,8Zm-40,24a8,8,0,0,0-8,8v72H48V80h72a8,8,0,0,0,0-16H48A16,16,0,0,0,32,80V208a16,16,0,0,0,16,16H176a16,16,0,0,0,16-16V136A8,8,0,0,0,184,128Z"></path></svg></a><a class="check-link" href="https://isitagentready.com/.well-known/agent-skills/oauth-discovery/SKILL.md" target="_blank" rel="noopener noreferrer">Skill <svg viewBox="0 0 256 256" fill="currentColor" width="12" height="12" aria-hidden="true"><path d="M224,104a8,8,0,0,1-16,0V59.31l-66.34,66.35a8,8,0,0,1-11.32-11.32L196.69,48H152a8,8,0,0,1,0-16h64a8,8,0,0,1,8,8Zm-40,24a8,8,0,0,0-8,8v72H48V80h72a8,8,0,0,0,0-16H48A16,16,0,0,0,32,80V208a16,16,0,0,0,16,16H176a16,16,0,0,0,16-16V136A8,8,0,0,0,184,128Z"></path></svg></a></div></div>
+          <div class="check-details-footer"><button class="copy-button" type="button" data-tooltip="Paste into your coding agent to fix this check"><svg class="copy-button-icon" viewBox="0 0 256 256" fill="currentColor" width="14" height="14" aria-hidden="true"><path d="M216,32H88a8,8,0,0,0-8,8V80H40a8,8,0,0,0-8,8V216a8,8,0,0,0,8,8H168a8,8,0,0,0,8-8V176h40a8,8,0,0,0,8-8V40A8,8,0,0,0,216,32ZM160,208H48V96H160Zm48-48H176V88a8,8,0,0,0-8-8H96V48H208Z"></path></svg><span class="copy-button-label" aria-live="polite">Copy prompt</span></button><button class="evidence-trigger" type="button" aria-label="View audit details">Audit details <svg viewBox="0 0 256 256" fill="currentColor" width="14" height="14"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path></svg></button></div>
+        </div>
+      
+            </div>
+          </div>
+          
+        <div class="check-card-back">
+          <div class="check-card-back-header">
+            <div class="check-item-info">
+              <span class="check-icon" style="background-color: var(--color-fail);"><svg viewBox="0 0 256 256" fill="#fff" aria-hidden="true"><path d="M208.49,191.51a12,12,0,0,1-17,17L128,145,64.49,208.49a12,12,0,0,1-17-17L111,128,47.51,64.49a12,12,0,0,1,17-17L128,111l63.51-63.52a12,12,0,0,1,17,17L145,128Z"></path></svg></span>
+              <span class="check-name">OAuth / OIDC discovery</span>
+            </div>
+          </div>
+          <div class="check-card-back-body">
+            <div class="evidence-timeline">
+      <div class="evidence-step evidence-step--fetch">
+        <div class="evidence-step-header">
+          <span class="evidence-step-icon"><svg viewBox="0 0 256 256" fill="currentColor" width="14" height="14"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"></path></svg></span>
+          <span class="evidence-step-label">GET /.well-known/oauth-authorization-server</span>
+          <span class="evidence-status-badge evidence-status--4xx">404</span>
+        </div>
+        
+        <table class="evidence-headers"><tbody><tr><td class="evidence-header-key">content-type</td><td class="evidence-header-val">text/html</td></tr><tr><td class="evidence-header-key">content-length</td><td class="evidence-header-val">556</td></tr></tbody></table>
+        
+        <div class="evidence-finding"><span class="evidence-dot evidence-dot--negative"></span><span class="evidence-finding-text">oauth-authorization-server returned 404</span></div>
+      </div>
+    
+      <div class="evidence-step evidence-step--fetch">
+        <div class="evidence-step-header">
+          <span class="evidence-step-icon"><svg viewBox="0 0 256 256" fill="currentColor" width="14" height="14"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"></path></svg></span>
+          <span class="evidence-step-label">GET /.well-known/openid-configuration</span>
+          <span class="evidence-status-badge evidence-status--4xx">404</span>
+        </div>
+        
+        <table class="evidence-headers"><tbody><tr><td class="evidence-header-key">content-type</td><td class="evidence-header-val">text/html</td></tr><tr><td class="evidence-header-key">content-length</td><td class="evidence-header-val">556</td></tr></tbody></table>
+        
+        <div class="evidence-finding"><span class="evidence-dot evidence-dot--negative"></span><span class="evidence-finding-text">openid-configuration returned 404</span></div>
+      </div>
+    
+      <div class="evidence-step evidence-step--conclude">
+        <div class="evidence-step-header">
+          <span class="evidence-step-icon"><svg viewBox="0 0 256 256" fill="currentColor" width="14" height="14"><path d="M208,144a15.78,15.78,0,0,1-10.42,14.94L146,178l-19,51.62a15.92,15.92,0,0,1-29.88,0L78,178l-51.62-19a15.92,15.92,0,0,1,0-29.88L78,110l19-51.62a15.92,15.92,0,0,1,29.88,0L146,110l51.62,19A15.78,15.78,0,0,1,208,144ZM152,48h16V64a8,8,0,0,0,16,0V48h16a8,8,0,0,0,0-16H184V16a8,8,0,0,0-16,0V32H152a8,8,0,0,0,0,16Zm88,32h-8V72a8,8,0,0,0-16,0v8h-8a8,8,0,0,0,0,16h8v8a8,8,0,0,0,16,0V96h8a8,8,0,0,0,0-16Z"></path></svg></span>
+          <span class="evidence-step-label">Conclusion</span>
+          
+        </div>
+        
+        
+        
+        <div class="evidence-finding"><span class="evidence-dot evidence-dot--negative"></span><span class="evidence-finding-text">No OAuth/OIDC discovery metadata found at either well-known path</span></div>
+      </div>
+    </div><div class="evidence-timing">Completed in 135ms</div>
+          </div>
+          <button class="evidence-back-trigger" type="button" aria-label="Back to results"><svg viewBox="0 0 256 256" fill="currentColor" width="14" height="14"><path d="M165.66,202.34a8,8,0,0,1-11.32,11.32l-80-80a8,8,0,0,1,0-11.32l80-80a8,8,0,0,1,11.32,11.32L91.31,128Z"></path></svg> Back</button>
+        </div>
+      
+        </div>
+      </div>
+    
+      <div class="check-card-container" data-check-container="">
+        <div class="check-card-inner">
+          <div class="check-card-front">
+            <div class="check-item check-item--fail check-item--expandable check-item--expanded" data-check-item="" data-key="discovery.oauthProtectedResource" data-status="fail" data-expandable="">
+              <div class="check-item-header" role="button" tabindex="0">
+                <div class="check-item-info">
+                  <span class="check-icon" style="background-color: var(--color-fail);" role="img" aria-label="Fail">
+                    <svg viewBox="0 0 256 256" fill="#fff" aria-hidden="true"><path d="M208.49,191.51a12,12,0,0,1-17,17L128,145,64.49,208.49a12,12,0,0,1-17-17L111,128,47.51,64.49a12,12,0,0,1,17-17L128,111l63.51-63.52a12,12,0,0,1,17,17L145,128Z"></path></svg>
+                  </span>
+                  <span class="check-name">OAuth Protected Resource</span>
+                </div>
+                
+                <span class="check-expand-icon"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z"></path></svg></span>
+              </div>
+              
+        <div class="check-details" data-prompt="">
+          <pre class="check-prompt-text" hidden="">Goal: Publish OAuth Protected Resource Metadata so agents can discover how to authenticate
+
+Issue: No OAuth Protected Resource Metadata found
+
+Fix: Publish /.well-known/oauth-protected-resource with your resource identifier, authorization_servers (list of OAuth/OIDC issuer URLs that can issue tokens for this resource), and scopes_supported. This tells agents how to obtain access tokens for your protected APIs.
+
+Skill: https://isitagentready.com/.well-known/agent-skills/oauth-protected-resource/SKILL.md
+
+Docs: https://www.rfc-editor.org/rfc/rfc9728</pre>
+          <dl class="check-detail-list"><div class="check-detail-row"><dt class="check-detail-label">Goal</dt><dd class="check-detail-value">Publish OAuth Protected Resource Metadata so agents can discover how to authenticate</dd></div><div class="check-detail-row"><dt class="check-detail-label">Issue</dt><dd class="check-detail-value check-detail-value--fail">No OAuth Protected Resource Metadata found</dd></div></dl>
+          
+          <div class="check-fix-section">
+            <span class="check-detail-label">How to implement</span>
+            <div class="check-fix-code">Publish 
+/.well-known/oauth-protected-resource with your resource identifier, 
+authorization_servers (list of OAuth/OIDC issuer URLs that can issue 
+tokens for this resource), and scopes_supported. This tells agents how 
+to obtain access tokens for your protected APIs.</div>
+          </div>
+        
+          <div class="check-links-section"><span class="check-detail-label">Resources</span><div class="check-links"><a class="check-link" href="https://www.rfc-editor.org/rfc/rfc9728" target="_blank" rel="noopener noreferrer">RFC 9728 <svg viewBox="0 0 256 256" fill="currentColor" width="12" height="12" aria-hidden="true"><path d="M224,104a8,8,0,0,1-16,0V59.31l-66.34,66.35a8,8,0,0,1-11.32-11.32L196.69,48H152a8,8,0,0,1,0-16h64a8,8,0,0,1,8,8Zm-40,24a8,8,0,0,0-8,8v72H48V80h72a8,8,0,0,0,0-16H48A16,16,0,0,0,32,80V208a16,16,0,0,0,16,16H176a16,16,0,0,0,16-16V136A8,8,0,0,0,184,128Z"></path></svg></a><a class="check-link" href="https://isitagentready.com/.well-known/agent-skills/oauth-protected-resource/SKILL.md" target="_blank" rel="noopener noreferrer">Skill <svg viewBox="0 0 256 256" fill="currentColor" width="12" height="12" aria-hidden="true"><path d="M224,104a8,8,0,0,1-16,0V59.31l-66.34,66.35a8,8,0,0,1-11.32-11.32L196.69,48H152a8,8,0,0,1,0-16h64a8,8,0,0,1,8,8Zm-40,24a8,8,0,0,0-8,8v72H48V80h72a8,8,0,0,0,0-16H48A16,16,0,0,0,32,80V208a16,16,0,0,0,16,16H176a16,16,0,0,0,16-16V136A8,8,0,0,0,184,128Z"></path></svg></a></div></div>
+          <div class="check-details-footer"><button class="copy-button" type="button" data-tooltip="Paste into your coding agent to fix this check"><svg class="copy-button-icon" viewBox="0 0 256 256" fill="currentColor" width="14" height="14" aria-hidden="true"><path d="M216,32H88a8,8,0,0,0-8,8V80H40a8,8,0,0,0-8,8V216a8,8,0,0,0,8,8H168a8,8,0,0,0,8-8V176h40a8,8,0,0,0,8-8V40A8,8,0,0,0,216,32ZM160,208H48V96H160Zm48-48H176V88a8,8,0,0,0-8-8H96V48H208Z"></path></svg><span class="copy-button-label" aria-live="polite">Copy prompt</span></button><button class="evidence-trigger" type="button" aria-label="View audit details">Audit details <svg viewBox="0 0 256 256" fill="currentColor" width="14" height="14"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path></svg></button></div>
+        </div>
+      
+            </div>
+          </div>
+          
+        <div class="check-card-back">
+          <div class="check-card-back-header">
+            <div class="check-item-info">
+              <span class="check-icon" style="background-color: var(--color-fail);"><svg viewBox="0 0 256 256" fill="#fff" aria-hidden="true"><path d="M208.49,191.51a12,12,0,0,1-17,17L128,145,64.49,208.49a12,12,0,0,1-17-17L111,128,47.51,64.49a12,12,0,0,1,17-17L128,111l63.51-63.52a12,12,0,0,1,17,17L145,128Z"></path></svg></span>
+              <span class="check-name">OAuth Protected Resource</span>
+            </div>
+          </div>
+          <div class="check-card-back-body">
+            <div class="evidence-timeline">
+      <div class="evidence-step evidence-step--fetch">
+        <div class="evidence-step-header">
+          <span class="evidence-step-icon"><svg viewBox="0 0 256 256" fill="currentColor" width="14" height="14"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"></path></svg></span>
+          <span class="evidence-step-label">GET /.well-known/oauth-protected-resource</span>
+          <span class="evidence-status-badge evidence-status--4xx">404</span>
+        </div>
+        
+        <table class="evidence-headers"><tbody><tr><td class="evidence-header-key">content-type</td><td class="evidence-header-val">text/html</td></tr><tr><td class="evidence-header-key">content-length</td><td class="evidence-header-val">556</td></tr></tbody></table>
+        
+        <div class="evidence-finding"><span class="evidence-dot evidence-dot--negative"></span><span class="evidence-finding-text">Returned 404</span></div>
+      </div>
+    
+      <div class="evidence-step evidence-step--fetch">
+        <div class="evidence-step-header">
+          <span class="evidence-step-icon"><svg viewBox="0 0 256 256" fill="currentColor" width="14" height="14"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"></path></svg></span>
+          <span class="evidence-step-label">GET /</span>
+          <span class="evidence-status-badge evidence-status--2xx">200</span>
+        </div>
+        
+        <table class="evidence-headers"><tbody><tr><td class="evidence-header-key">content-type</td><td class="evidence-header-val">text/html</td></tr><tr><td class="evidence-header-key">content-length</td><td class="evidence-header-val">556</td></tr></tbody></table>
+        
+        <div class="evidence-finding"><span class="evidence-dot evidence-dot--neutral"></span><span class="evidence-finding-text">Homepage returned 200 (no WWW-Authenticate header)</span></div>
+      </div>
+    
+      <div class="evidence-step evidence-step--conclude">
+        <div class="evidence-step-header">
+          <span class="evidence-step-icon"><svg viewBox="0 0 256 256" fill="currentColor" width="14" height="14"><path d="M208,144a15.78,15.78,0,0,1-10.42,14.94L146,178l-19,51.62a15.92,15.92,0,0,1-29.88,0L78,178l-51.62-19a15.92,15.92,0,0,1,0-29.88L78,110l19-51.62a15.92,15.92,0,0,1,29.88,0L146,110l51.62,19A15.78,15.78,0,0,1,208,144ZM152,48h16V64a8,8,0,0,0,16,0V48h16a8,8,0,0,0,0-16H184V16a8,8,0,0,0-16,0V32H152a8,8,0,0,0,0,16Zm88,32h-8V72a8,8,0,0,0-16,0v8h-8a8,8,0,0,0,0,16h8v8a8,8,0,0,0,16,0V96h8a8,8,0,0,0,0-16Z"></path></svg></span>
+          <span class="evidence-step-label">Conclusion</span>
+          
+        </div>
+        
+        
+        
+        <div class="evidence-finding"><span class="evidence-dot evidence-dot--negative"></span><span class="evidence-finding-text">No OAuth Protected Resource Metadata found</span></div>
+      </div>
+    </div><div class="evidence-timing">Completed in 66ms</div>
+          </div>
+          <button class="evidence-back-trigger" type="button" aria-label="Back to results"><svg viewBox="0 0 256 256" fill="currentColor" width="14" height="14"><path d="M165.66,202.34a8,8,0,0,1-11.32,11.32l-80-80a8,8,0,0,1,0-11.32l80-80a8,8,0,0,1,11.32,11.32L91.31,128Z"></path></svg> Back</button>
+        </div>
+      
+        </div>
+      </div>
+    
+      <div class="check-card-container" data-check-container="">
+        <div class="check-card-inner">
+          <div class="check-card-front">
+            <div class="check-item check-item--fail check-item--expandable check-item--expanded" data-check-item="" data-key="discovery.mcpServerCard" data-status="fail" data-expandable="">
+              <div class="check-item-header" role="button" tabindex="0">
+                <div class="check-item-info">
+                  <span class="check-icon" style="background-color: var(--color-fail);" role="img" aria-label="Fail">
+                    <svg viewBox="0 0 256 256" fill="#fff" aria-hidden="true"><path d="M208.49,191.51a12,12,0,0,1-17,17L128,145,64.49,208.49a12,12,0,0,1-17-17L111,128,47.51,64.49a12,12,0,0,1,17-17L128,111l63.51-63.52a12,12,0,0,1,17,17L145,128Z"></path></svg>
+                  </span>
+                  <span class="check-name">MCP Server Card</span>
+                </div>
+                
+                <span class="check-expand-icon"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z"></path></svg></span>
+              </div>
+              
+        <div class="check-details" data-prompt="">
+          <pre class="check-prompt-text" hidden="">Goal: Publish an MCP Server Card for agent discovery
+
+Issue: MCP Server Card not found
+
+Fix: Serve an MCP Server Card (SEP-1649) at /.well-known/mcp/server-card.json with serverInfo (name, version), transport endpoint, and capabilities. The schema is being standardized at https://github.com/modelcontextprotocol/modelcontextprotocol/pull/2127
+
+Skill: https://isitagentready.com/.well-known/agent-skills/mcp-server-card/SKILL.md
+
+Docs: https://github.com/modelcontextprotocol/modelcontextprotocol/pull/2127</pre>
+          <dl class="check-detail-list"><div class="check-detail-row"><dt class="check-detail-label">Goal</dt><dd class="check-detail-value">Publish an MCP Server Card for agent discovery</dd></div><div class="check-detail-row"><dt class="check-detail-label">Issue</dt><dd class="check-detail-value check-detail-value--fail">MCP Server Card not found</dd></div></dl>
+          
+          <div class="check-fix-section">
+            <span class="check-detail-label">How to implement</span>
+            <div class="check-fix-code">Serve an MCP Server Card 
+(SEP-1649) at /.well-known/mcp/server-card.json with serverInfo (name, 
+version), transport endpoint, and capabilities. The schema is being 
+standardized at 
+https://github.com/modelcontextprotocol/modelcontextprotocol/pull/2127</div>
+          </div>
+        
+          <div class="check-links-section"><span class="check-detail-label">Resources</span><div class="check-links"><a class="check-link" href="https://github.com/modelcontextprotocol/modelcontextprotocol/pull/2127" target="_blank" rel="noopener noreferrer">SEP-2127 <svg viewBox="0 0 256 256" fill="currentColor" width="12" height="12" aria-hidden="true"><path d="M224,104a8,8,0,0,1-16,0V59.31l-66.34,66.35a8,8,0,0,1-11.32-11.32L196.69,48H152a8,8,0,0,1,0-16h64a8,8,0,0,1,8,8Zm-40,24a8,8,0,0,0-8,8v72H48V80h72a8,8,0,0,0,0-16H48A16,16,0,0,0,32,80V208a16,16,0,0,0,16,16H176a16,16,0,0,0,16-16V136A8,8,0,0,0,184,128Z"></path></svg></a><a class="check-link" href="https://isitagentready.com/.well-known/agent-skills/mcp-server-card/SKILL.md" target="_blank" rel="noopener noreferrer">Skill <svg viewBox="0 0 256 256" fill="currentColor" width="12" height="12" aria-hidden="true"><path d="M224,104a8,8,0,0,1-16,0V59.31l-66.34,66.35a8,8,0,0,1-11.32-11.32L196.69,48H152a8,8,0,0,1,0-16h64a8,8,0,0,1,8,8Zm-40,24a8,8,0,0,0-8,8v72H48V80h72a8,8,0,0,0,0-16H48A16,16,0,0,0,32,80V208a16,16,0,0,0,16,16H176a16,16,0,0,0,16-16V136A8,8,0,0,0,184,128Z"></path></svg></a></div></div>
+          <div class="check-details-footer"><button class="copy-button" type="button" data-tooltip="Paste into your coding agent to fix this check"><svg class="copy-button-icon" viewBox="0 0 256 256" fill="currentColor" width="14" height="14" aria-hidden="true"><path d="M216,32H88a8,8,0,0,0-8,8V80H40a8,8,0,0,0-8,8V216a8,8,0,0,0,8,8H168a8,8,0,0,0,8-8V176h40a8,8,0,0,0,8-8V40A8,8,0,0,0,216,32ZM160,208H48V96H160Zm48-48H176V88a8,8,0,0,0-8-8H96V48H208Z"></path></svg><span class="copy-button-label" aria-live="polite">Copy prompt</span></button><button class="evidence-trigger" type="button" aria-label="View audit details">Audit details <svg viewBox="0 0 256 256" fill="currentColor" width="14" height="14"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path></svg></button></div>
+        </div>
+      
+            </div>
+          </div>
+          
+        <div class="check-card-back">
+          <div class="check-card-back-header">
+            <div class="check-item-info">
+              <span class="check-icon" style="background-color: var(--color-fail);"><svg viewBox="0 0 256 256" fill="#fff" aria-hidden="true"><path d="M208.49,191.51a12,12,0,0,1-17,17L128,145,64.49,208.49a12,12,0,0,1-17-17L111,128,47.51,64.49a12,12,0,0,1,17-17L128,111l63.51-63.52a12,12,0,0,1,17,17L145,128Z"></path></svg></span>
+              <span class="check-name">MCP Server Card</span>
+            </div>
+          </div>
+          <div class="check-card-back-body">
+            <div class="evidence-timeline">
+      <div class="evidence-step evidence-step--fetch">
+        <div class="evidence-step-header">
+          <span class="evidence-step-icon"><svg viewBox="0 0 256 256" fill="currentColor" width="14" height="14"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"></path></svg></span>
+          <span class="evidence-step-label">GET /.well-known/mcp/server-card.json</span>
+          <span class="evidence-status-badge evidence-status--4xx">404</span>
+        </div>
+        
+        <table class="evidence-headers"><tbody><tr><td class="evidence-header-key">content-type</td><td class="evidence-header-val">text/html</td></tr><tr><td class="evidence-header-key">content-length</td><td class="evidence-header-val">556</td></tr></tbody></table>
+        
+        <div class="evidence-finding"><span class="evidence-dot evidence-dot--negative"></span><span class="evidence-finding-text">/.well-known/mcp/server-card.json returned 404</span></div>
+      </div>
+    
+      <div class="evidence-step evidence-step--fetch">
+        <div class="evidence-step-header">
+          <span class="evidence-step-icon"><svg viewBox="0 0 256 256" fill="currentColor" width="14" height="14"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"></path></svg></span>
+          <span class="evidence-step-label">GET /.well-known/mcp/server-cards.json</span>
+          <span class="evidence-status-badge evidence-status--4xx">404</span>
+        </div>
+        
+        <table class="evidence-headers"><tbody><tr><td class="evidence-header-key">content-type</td><td class="evidence-header-val">text/html</td></tr><tr><td class="evidence-header-key">content-length</td><td class="evidence-header-val">556</td></tr></tbody></table>
+        
+        <div class="evidence-finding"><span class="evidence-dot evidence-dot--negative"></span><span class="evidence-finding-text">/.well-known/mcp/server-cards.json returned 404</span></div>
+      </div>
+    
+      <div class="evidence-step evidence-step--fetch">
+        <div class="evidence-step-header">
+          <span class="evidence-step-icon"><svg viewBox="0 0 256 256" fill="currentColor" width="14" height="14"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"></path></svg></span>
+          <span class="evidence-step-label">GET /.well-known/mcp.json</span>
+          <span class="evidence-status-badge evidence-status--4xx">404</span>
+        </div>
+        
+        <table class="evidence-headers"><tbody><tr><td class="evidence-header-key">content-type</td><td class="evidence-header-val">text/html</td></tr><tr><td class="evidence-header-key">content-length</td><td class="evidence-header-val">556</td></tr></tbody></table>
+        
+        <div class="evidence-finding"><span class="evidence-dot evidence-dot--negative"></span><span class="evidence-finding-text">/.well-known/mcp.json returned 404</span></div>
+      </div>
+    
+      <div class="evidence-step evidence-step--conclude">
+        <div class="evidence-step-header">
+          <span class="evidence-step-icon"><svg viewBox="0 0 256 256" fill="currentColor" width="14" height="14"><path d="M208,144a15.78,15.78,0,0,1-10.42,14.94L146,178l-19,51.62a15.92,15.92,0,0,1-29.88,0L78,178l-51.62-19a15.92,15.92,0,0,1,0-29.88L78,110l19-51.62a15.92,15.92,0,0,1,29.88,0L146,110l51.62,19A15.78,15.78,0,0,1,208,144ZM152,48h16V64a8,8,0,0,0,16,0V48h16a8,8,0,0,0,0-16H184V16a8,8,0,0,0-16,0V32H152a8,8,0,0,0,0,16Zm88,32h-8V72a8,8,0,0,0-16,0v8h-8a8,8,0,0,0,0,16h8v8a8,8,0,0,0,16,0V96h8a8,8,0,0,0,0-16Z"></path></svg></span>
+          <span class="evidence-step-label">Conclusion</span>
+          
+        </div>
+        
+        
+        
+        <div class="evidence-finding"><span class="evidence-dot evidence-dot--negative"></span><span class="evidence-finding-text">MCP Server Card not found at any candidate path</span></div>
+      </div>
+    </div><div class="evidence-timing">Completed in 81ms</div>
+          </div>
+          <button class="evidence-back-trigger" type="button" aria-label="Back to results"><svg viewBox="0 0 256 256" fill="currentColor" width="14" height="14"><path d="M165.66,202.34a8,8,0,0,1-11.32,11.32l-80-80a8,8,0,0,1,0-11.32l80-80a8,8,0,0,1,11.32,11.32L91.31,128Z"></path></svg> Back</button>
+        </div>
+      
+        </div>
+      </div>
+    
+      <div class="check-card-container" data-check-container="">
+        <div class="check-card-inner">
+          <div class="check-card-front">
+            <div class="check-item check-item--fail check-item--expandable check-item--expanded" data-check-item="" data-key="discovery.agentSkills" data-status="fail" data-expandable="">
+              <div class="check-item-header" role="button" tabindex="0">
+                <div class="check-item-info">
+                  <span class="check-icon" style="background-color: var(--color-fail);" role="img" aria-label="Fail">
+                    <svg viewBox="0 0 256 256" fill="#fff" aria-hidden="true"><path d="M208.49,191.51a12,12,0,0,1-17,17L128,145,64.49,208.49a12,12,0,0,1-17-17L111,128,47.51,64.49a12,12,0,0,1,17-17L128,111l63.51-63.52a12,12,0,0,1,17,17L145,128Z"></path></svg>
+                  </span>
+                  <span class="check-name">Agent Skills index</span>
+                </div>
+                
+                <span class="check-expand-icon"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z"></path></svg></span>
+              </div>
+              
+        <div class="check-details" data-prompt="">
+          <pre class="check-prompt-text" hidden="">Goal: Publish an agent skills discovery index
+
+Issue: Agent Skills index not found
+
+Fix: Publish a skills discovery index at /.well-known/agent-skills/index.json (per the Agent Skills Discovery RFC v0.2.0). Include a $schema field, and a skills array where each entry has name, type, description, url, and a sha256 digest.
+
+Skill: https://isitagentready.com/.well-known/agent-skills/agent-skills/SKILL.md
+
+Docs: https://github.com/cloudflare/agent-skills-discovery-rfc, https://agentskills.io/</pre>
+          <dl class="check-detail-list"><div class="check-detail-row"><dt class="check-detail-label">Goal</dt><dd class="check-detail-value">Publish an agent skills discovery index</dd></div><div class="check-detail-row"><dt class="check-detail-label">Issue</dt><dd class="check-detail-value check-detail-value--fail">Agent Skills index not found</dd></div></dl>
+          
+          <div class="check-fix-section">
+            <span class="check-detail-label">How to implement</span>
+            <div class="check-fix-code">Publish a skills discovery index
+ at /.well-known/agent-skills/index.json (per the Agent Skills Discovery
+ RFC v0.2.0). Include a $schema field, and a skills array where each 
+entry has name, type, description, url, and a sha256 digest.</div>
+          </div>
+        
+          <div class="check-links-section"><span class="check-detail-label">Resources</span><div class="check-links"><a class="check-link" href="https://github.com/cloudflare/agent-skills-discovery-rfc" target="_blank" rel="noopener noreferrer">cloudflare/agent-skills-discovery-rfc <svg viewBox="0 0 256 256" fill="currentColor" width="12" height="12" aria-hidden="true"><path d="M224,104a8,8,0,0,1-16,0V59.31l-66.34,66.35a8,8,0,0,1-11.32-11.32L196.69,48H152a8,8,0,0,1,0-16h64a8,8,0,0,1,8,8Zm-40,24a8,8,0,0,0-8,8v72H48V80h72a8,8,0,0,0,0-16H48A16,16,0,0,0,32,80V208a16,16,0,0,0,16,16H176a16,16,0,0,0,16-16V136A8,8,0,0,0,184,128Z"></path></svg></a><a class="check-link" href="https://agentskills.io/" target="_blank" rel="noopener noreferrer">agentskills.io <svg viewBox="0 0 256 256" fill="currentColor" width="12" height="12" aria-hidden="true"><path d="M224,104a8,8,0,0,1-16,0V59.31l-66.34,66.35a8,8,0,0,1-11.32-11.32L196.69,48H152a8,8,0,0,1,0-16h64a8,8,0,0,1,8,8Zm-40,24a8,8,0,0,0-8,8v72H48V80h72a8,8,0,0,0,0-16H48A16,16,0,0,0,32,80V208a16,16,0,0,0,16,16H176a16,16,0,0,0,16-16V136A8,8,0,0,0,184,128Z"></path></svg></a><a class="check-link" href="https://isitagentready.com/.well-known/agent-skills/agent-skills/SKILL.md" target="_blank" rel="noopener noreferrer">Skill <svg viewBox="0 0 256 256" fill="currentColor" width="12" height="12" aria-hidden="true"><path d="M224,104a8,8,0,0,1-16,0V59.31l-66.34,66.35a8,8,0,0,1-11.32-11.32L196.69,48H152a8,8,0,0,1,0-16h64a8,8,0,0,1,8,8Zm-40,24a8,8,0,0,0-8,8v72H48V80h72a8,8,0,0,0,0-16H48A16,16,0,0,0,32,80V208a16,16,0,0,0,16,16H176a16,16,0,0,0,16-16V136A8,8,0,0,0,184,128Z"></path></svg></a></div></div>
+          <div class="check-details-footer"><button class="copy-button" type="button" data-tooltip="Paste into your coding agent to fix this check"><svg class="copy-button-icon" viewBox="0 0 256 256" fill="currentColor" width="14" height="14" aria-hidden="true"><path d="M216,32H88a8,8,0,0,0-8,8V80H40a8,8,0,0,0-8,8V216a8,8,0,0,0,8,8H168a8,8,0,0,0,8-8V176h40a8,8,0,0,0,8-8V40A8,8,0,0,0,216,32ZM160,208H48V96H160Zm48-48H176V88a8,8,0,0,0-8-8H96V48H208Z"></path></svg><span class="copy-button-label" aria-live="polite">Copy prompt</span></button><button class="evidence-trigger" type="button" aria-label="View audit details">Audit details <svg viewBox="0 0 256 256" fill="currentColor" width="14" height="14"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path></svg></button></div>
+        </div>
+      
+            </div>
+          </div>
+          
+        <div class="check-card-back">
+          <div class="check-card-back-header">
+            <div class="check-item-info">
+              <span class="check-icon" style="background-color: var(--color-fail);"><svg viewBox="0 0 256 256" fill="#fff" aria-hidden="true"><path d="M208.49,191.51a12,12,0,0,1-17,17L128,145,64.49,208.49a12,12,0,0,1-17-17L111,128,47.51,64.49a12,12,0,0,1,17-17L128,111l63.51-63.52a12,12,0,0,1,17,17L145,128Z"></path></svg></span>
+              <span class="check-name">Agent Skills index</span>
+            </div>
+          </div>
+          <div class="check-card-back-body">
+            <div class="evidence-timeline">
+      <div class="evidence-step evidence-step--fetch">
+        <div class="evidence-step-header">
+          <span class="evidence-step-icon"><svg viewBox="0 0 256 256" fill="currentColor" width="14" height="14"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"></path></svg></span>
+          <span class="evidence-step-label">GET /.well-known/agent-skills/index.json</span>
+          <span class="evidence-status-badge evidence-status--4xx">404</span>
+        </div>
+        
+        <table class="evidence-headers"><tbody><tr><td class="evidence-header-key">content-type</td><td class="evidence-header-val">text/html</td></tr><tr><td class="evidence-header-key">content-length</td><td class="evidence-header-val">556</td></tr></tbody></table>
+        
+        <div class="evidence-finding"><span class="evidence-dot evidence-dot--neutral"></span><span class="evidence-finding-text">v0.2.0 path returned 404 — trying legacy path</span></div>
+      </div>
+    
+      <div class="evidence-step evidence-step--fetch">
+        <div class="evidence-step-header">
+          <span class="evidence-step-icon"><svg viewBox="0 0 256 256" fill="currentColor" width="14" height="14"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"></path></svg></span>
+          <span class="evidence-step-label">GET /.well-known/skills/index.json</span>
+          <span class="evidence-status-badge evidence-status--4xx">404</span>
+        </div>
+        
+        <table class="evidence-headers"><tbody><tr><td class="evidence-header-key">content-type</td><td class="evidence-header-val">text/html</td></tr><tr><td class="evidence-header-key">content-length</td><td class="evidence-header-val">556</td></tr></tbody></table>
+        
+        <div class="evidence-finding"><span class="evidence-dot evidence-dot--negative"></span><span class="evidence-finding-text">Server returned 404 — Agent Skills index not found</span></div>
+      </div>
+    
+      <div class="evidence-step evidence-step--conclude">
+        <div class="evidence-step-header">
+          <span class="evidence-step-icon"><svg viewBox="0 0 256 256" fill="currentColor" width="14" height="14"><path d="M208,144a15.78,15.78,0,0,1-10.42,14.94L146,178l-19,51.62a15.92,15.92,0,0,1-29.88,0L78,178l-51.62-19a15.92,15.92,0,0,1,0-29.88L78,110l19-51.62a15.92,15.92,0,0,1,29.88,0L146,110l51.62,19A15.78,15.78,0,0,1,208,144ZM152,48h16V64a8,8,0,0,0,16,0V48h16a8,8,0,0,0,0-16H184V16a8,8,0,0,0-16,0V32H152a8,8,0,0,0,0,16Zm88,32h-8V72a8,8,0,0,0-16,0v8h-8a8,8,0,0,0,0,16h8v8a8,8,0,0,0,16,0V96h8a8,8,0,0,0,0-16Z"></path></svg></span>
+          <span class="evidence-step-label">Conclusion</span>
+          
+        </div>
+        
+        
+        
+        <div class="evidence-finding"><span class="evidence-dot evidence-dot--negative"></span><span class="evidence-finding-text">Agent Skills index not found</span></div>
+      </div>
+    </div><div class="evidence-timing">Completed in 154ms</div>
+          </div>
+          <button class="evidence-back-trigger" type="button" aria-label="Back to results"><svg viewBox="0 0 256 256" fill="currentColor" width="14" height="14"><path d="M165.66,202.34a8,8,0,0,1-11.32,11.32l-80-80a8,8,0,0,1,0-11.32l80-80a8,8,0,0,1,11.32,11.32L91.31,128Z"></path></svg> Back</button>
+        </div>
+      
+        </div>
+      </div>
+    
+      <div class="check-card-container" data-check-container="">
+        <div class="check-card-inner">
+          <div class="check-card-front">
+            <div class="check-item check-item--fail check-item--expandable check-item--expanded" data-check-item="" data-key="discovery.webMcp" data-status="fail" data-expandable="">
+              <div class="check-item-header" role="button" tabindex="0">
+                <div class="check-item-info">
+                  <span class="check-icon" style="background-color: var(--color-fail);" role="img" aria-label="Fail">
+                    <svg viewBox="0 0 256 256" fill="#fff" aria-hidden="true"><path d="M208.49,191.51a12,12,0,0,1-17,17L128,145,64.49,208.49a12,12,0,0,1-17-17L111,128,47.51,64.49a12,12,0,0,1,17-17L128,111l63.51-63.52a12,12,0,0,1,17,17L145,128Z"></path></svg>
+                  </span>
+                  <span class="check-name">WebMCP</span>
+                </div>
+                
+                <span class="check-expand-icon"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z"></path></svg></span>
+              </div>
+              
+        <div class="check-details" data-prompt="">
+          <pre class="check-prompt-text" hidden="">Goal: Support WebMCP to expose site tools to AI agents via the browser
+
+Issue: No WebMCP tools detected on page load
+
+Fix: Implement the WebMCP API by calling navigator.modelContext.provideContext() with tool definitions that expose your site's key actions to AI agents. Each tool needs a name, description, inputSchema (JSON Schema), and an execute callback function.
+
+Skill: https://isitagentready.com/.well-known/agent-skills/webmcp/SKILL.md
+
+Docs: https://webmachinelearning.github.io/webmcp/, https://developer.chrome.com/blog/webmcp-epp</pre>
+          <dl class="check-detail-list"><div class="check-detail-row"><dt class="check-detail-label">Goal</dt><dd class="check-detail-value">Support WebMCP to expose site tools to AI agents via the browser</dd></div><div class="check-detail-row"><dt class="check-detail-label">Issue</dt><dd class="check-detail-value check-detail-value--fail">No WebMCP tools detected on page load</dd></div></dl>
+          
+          <div class="check-fix-section">
+            <span class="check-detail-label">How to implement</span>
+            <div class="check-fix-code">Implement the WebMCP API by 
+calling navigator.modelContext.provideContext() with tool definitions 
+that expose your site's key actions to AI agents. Each tool needs a 
+name, description, inputSchema (JSON Schema), and an execute callback 
+function.</div>
+          </div>
+        
+          <div class="check-links-section"><span class="check-detail-label">Resources</span><div class="check-links"><a class="check-link" href="https://webmachinelearning.github.io/webmcp/" target="_blank" rel="noopener noreferrer">webmachinelearning.github.io <svg viewBox="0 0 256 256" fill="currentColor" width="12" height="12" aria-hidden="true"><path d="M224,104a8,8,0,0,1-16,0V59.31l-66.34,66.35a8,8,0,0,1-11.32-11.32L196.69,48H152a8,8,0,0,1,0-16h64a8,8,0,0,1,8,8Zm-40,24a8,8,0,0,0-8,8v72H48V80h72a8,8,0,0,0,0-16H48A16,16,0,0,0,32,80V208a16,16,0,0,0,16,16H176a16,16,0,0,0,16-16V136A8,8,0,0,0,184,128Z"></path></svg></a><a class="check-link" href="https://developer.chrome.com/blog/webmcp-epp" target="_blank" rel="noopener noreferrer">developer.chrome.com <svg viewBox="0 0 256 256" fill="currentColor" width="12" height="12" aria-hidden="true"><path d="M224,104a8,8,0,0,1-16,0V59.31l-66.34,66.35a8,8,0,0,1-11.32-11.32L196.69,48H152a8,8,0,0,1,0-16h64a8,8,0,0,1,8,8Zm-40,24a8,8,0,0,0-8,8v72H48V80h72a8,8,0,0,0,0-16H48A16,16,0,0,0,32,80V208a16,16,0,0,0,16,16H176a16,16,0,0,0,16-16V136A8,8,0,0,0,184,128Z"></path></svg></a><a class="check-link" href="https://isitagentready.com/.well-known/agent-skills/webmcp/SKILL.md" target="_blank" rel="noopener noreferrer">Skill <svg viewBox="0 0 256 256" fill="currentColor" width="12" height="12" aria-hidden="true"><path d="M224,104a8,8,0,0,1-16,0V59.31l-66.34,66.35a8,8,0,0,1-11.32-11.32L196.69,48H152a8,8,0,0,1,0-16h64a8,8,0,0,1,8,8Zm-40,24a8,8,0,0,0-8,8v72H48V80h72a8,8,0,0,0,0-16H48A16,16,0,0,0,32,80V208a16,16,0,0,0,16,16H176a16,16,0,0,0,16-16V136A8,8,0,0,0,184,128Z"></path></svg></a></div></div>
+          <div class="check-details-footer"><button class="copy-button" type="button" data-tooltip="Paste into your coding agent to fix this check"><svg class="copy-button-icon" viewBox="0 0 256 256" fill="currentColor" width="14" height="14" aria-hidden="true"><path d="M216,32H88a8,8,0,0,0-8,8V80H40a8,8,0,0,0-8,8V216a8,8,0,0,0,8,8H168a8,8,0,0,0,8-8V176h40a8,8,0,0,0,8-8V40A8,8,0,0,0,216,32ZM160,208H48V96H160Zm48-48H176V88a8,8,0,0,0-8-8H96V48H208Z"></path></svg><span class="copy-button-label" aria-live="polite">Copy prompt</span></button><button class="evidence-trigger" type="button" aria-label="View audit details">Audit details <svg viewBox="0 0 256 256" fill="currentColor" width="14" height="14"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path></svg></button></div>
+        </div>
+      
+            </div>
+          </div>
+          
+        <div class="check-card-back">
+          <div class="check-card-back-header">
+            <div class="check-item-info">
+              <span class="check-icon" style="background-color: var(--color-fail);"><svg viewBox="0 0 256 256" fill="#fff" aria-hidden="true"><path d="M208.49,191.51a12,12,0,0,1-17,17L128,145,64.49,208.49a12,12,0,0,1-17-17L111,128,47.51,64.49a12,12,0,0,1,17-17L128,111l63.51-63.52a12,12,0,0,1,17,17L145,128Z"></path></svg></span>
+              <span class="check-name">WebMCP</span>
+            </div>
+          </div>
+          <div class="check-card-back-body">
+            <div class="evidence-timeline">
+      <div class="evidence-step evidence-step--parse">
+        <div class="evidence-step-header">
+          <span class="evidence-step-icon"><svg viewBox="0 0 256 256" fill="currentColor" width="14" height="14"><path d="M69.12,94.15,28.5,128l40.62,33.85a8,8,0,1,1-10.24,12.29l-48-40a8,8,0,0,1,0-12.29l48-40a8,8,0,0,1,10.24,12.3Zm176,27.7-48-40a8,8,0,1,0-10.24,12.3L227.5,128l-40.62,33.85a8,8,0,1,0,10.24,12.29l48-40a8,8,0,0,0,0-12.29ZM162.73,32.48a8,8,0,0,0-10.25,4.79l-64,176a8,8,0,0,0,4.79,10.26A8.14,8.14,0,0,0,96,224a8,8,0,0,0,7.52-5.27l64-176A8,8,0,0,0,162.73,32.48Z"></path></svg></span>
+          <span class="evidence-step-label">WebMCP detection</span>
+          
+        </div>
+        
+        
+        
+        <div class="evidence-finding"><span class="evidence-dot evidence-dot--neutral"></span><span class="evidence-finding-text">Checking page for WebMCP tool registrations</span></div>
+      </div>
+    
+      <div class="evidence-step evidence-step--fetch">
+        <div class="evidence-step-header">
+          <span class="evidence-step-icon"><svg viewBox="0 0 256 256" fill="currentColor" width="14" height="14"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"></path></svg></span>
+          <span class="evidence-step-label">Navigate to https://home.smartlearn.education</span>
+          
+        </div>
+        
+        
+        
+        <div class="evidence-finding"><span class="evidence-dot evidence-dot--neutral"></span><span class="evidence-finding-text">Loading page to detect WebMCP tool registrations</span></div>
+      </div>
+    
+      <div class="evidence-step evidence-step--parse">
+        <div class="evidence-step-header">
+          <span class="evidence-step-icon"><svg viewBox="0 0 256 256" fill="currentColor" width="14" height="14"><path d="M69.12,94.15,28.5,128l40.62,33.85a8,8,0,1,1-10.24,12.29l-48-40a8,8,0,0,1,0-12.29l48-40a8,8,0,0,1,10.24,12.3Zm176,27.7-48-40a8,8,0,1,0-10.24,12.3L227.5,128l-40.62,33.85a8,8,0,1,0,10.24,12.29l48-40a8,8,0,0,0,0-12.29ZM162.73,32.48a8,8,0,0,0-10.25,4.79l-64,176a8,8,0,0,0,4.79,10.26A8.14,8.14,0,0,0,96,224a8,8,0,0,0,7.52-5.27l64-176A8,8,0,0,0,162.73,32.48Z"></path></svg></span>
+          <span class="evidence-step-label">Check imperative WebMCP API</span>
+          
+        </div>
+        
+        
+        
+        <div class="evidence-finding"><span class="evidence-dot evidence-dot--neutral"></span><span class="evidence-finding-text">No tools registered via navigator.modelContext</span></div>
+      </div>
+    
+      <div class="evidence-step evidence-step--conclude">
+        <div class="evidence-step-header">
+          <span class="evidence-step-icon"><svg viewBox="0 0 256 256" fill="currentColor" width="14" height="14"><path d="M208,144a15.78,15.78,0,0,1-10.42,14.94L146,178l-19,51.62a15.92,15.92,0,0,1-29.88,0L78,178l-51.62-19a15.92,15.92,0,0,1,0-29.88L78,110l19-51.62a15.92,15.92,0,0,1,29.88,0L146,110l51.62,19A15.78,15.78,0,0,1,208,144ZM152,48h16V64a8,8,0,0,0,16,0V48h16a8,8,0,0,0,0-16H184V16a8,8,0,0,0-16,0V32H152a8,8,0,0,0,0,16Zm88,32h-8V72a8,8,0,0,0-16,0v8h-8a8,8,0,0,0,0,16h8v8a8,8,0,0,0,16,0V96h8a8,8,0,0,0,0-16Z"></path></svg></span>
+          <span class="evidence-step-label">Conclusion</span>
+          
+        </div>
+        
+        
+        
+        <div class="evidence-finding"><span class="evidence-dot evidence-dot--negative"></span><span class="evidence-finding-text">No WebMCP tools detected on page load</span></div>
+      </div>
+    </div><div class="evidence-timing">Completed in 4646ms</div>
+          </div>
+          <button class="evidence-back-trigger" type="button" aria-label="Back to results"><svg viewBox="0 0 256 256" fill="currentColor" width="14" height="14"><path d="M165.66,202.34a8,8,0,0,1-11.32,11.32l-80-80a8,8,0,0,1,0-11.32l80-80a8,8,0,0,1,11.32,11.32L91.31,128Z"></path></svg> Back</button>
+        </div>
+      
+        </div>
+      </div>
+    
+        </div>
+      </section>
+    
+      <section class="category-section" id="category-4" data-category="commerce">
+        <div class="category-header">
+          <div class="category-title-row">
+            <h2 class="category-title">Commerce <span class="category-optional">Optional</span></h2>
+          </div>
+          <span class="category-score" style="color: var(--color-score-poor);">0/0</span>
+        </div>
+        <p class="commerce-note">No e-commerce signals were detected on this site. These checks are shown for informational purposes and do not affect the score.</p>
+        <div class="checks-list">
+          
+      <div class="check-card-container" data-check-container="">
+        <div class="check-card-inner">
+          <div class="check-card-front">
+            <div class="check-item check-item--neutral check-item--expandable " data-check-item="" data-key="commerce.x402" data-status="neutral" data-expandable="">
+              <div class="check-item-header" role="button" tabindex="0">
+                <div class="check-item-info">
+                  <span class="check-icon" style="background-color: var(--color-neutral);" role="img" aria-label="Not applicable">
+                    <svg viewBox="0 0 256 256" fill="#fff" aria-hidden="true"><path d="M228,128a12,12,0,0,1-12,12H40a12,12,0,0,1,0-24H216A12,12,0,0,1,228,128Z"></path></svg>
+                  </span>
+                  <span class="check-name">x402 Protocol</span>
+                </div>
+                
+                <span class="check-expand-icon"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z"></path></svg></span>
+              </div>
+              
+        <div class="check-details" data-prompt="">
+          <pre class="check-prompt-text" hidden="">Goal: Support x402 protocol for agent-native HTTP payments
+
+Note: x402 payment protocol not detected (not a commerce site)
+
+Fix: Add x402 payment middleware to your API routes to enable AI agents to pay for access via HTTP. Use @x402/express, @x402/hono, or @x402/next middleware with a facilitator URL and wallet address. Protected routes will return HTTP 402 with payment requirements that agents can fulfill automatically.
+
+Skill: https://isitagentready.com/.well-known/agent-skills/x402/SKILL.md
+
+Docs: https://x402.org, https://github.com/coinbase/x402, https://docs.x402.org</pre>
+          <dl class="check-detail-list"><div class="check-detail-row"><dt class="check-detail-label">Goal</dt><dd class="check-detail-value">Support x402 protocol for agent-native HTTP payments</dd></div><div class="check-detail-row"><dt class="check-detail-label">Note</dt><dd class="check-detail-value check-detail-value--neutral">x402 payment protocol not detected (not a commerce site)</dd></div></dl>
+          
+          <div class="check-fix-section">
+            <span class="check-detail-label">How to implement</span>
+            <div class="check-fix-code">Add x402 payment middleware to 
+your API routes to enable AI agents to pay for access via HTTP. Use 
+@x402/express, @x402/hono, or @x402/next middleware with a facilitator 
+URL and wallet address. Protected routes will return HTTP 402 with 
+payment requirements that agents can fulfill automatically.</div>
+          </div>
+        
+          <div class="check-links-section"><span class="check-detail-label">Resources</span><div class="check-links"><a class="check-link" href="https://x402.org/" target="_blank" rel="noopener noreferrer">x402.org <svg viewBox="0 0 256 256" fill="currentColor" width="12" height="12" aria-hidden="true"><path d="M224,104a8,8,0,0,1-16,0V59.31l-66.34,66.35a8,8,0,0,1-11.32-11.32L196.69,48H152a8,8,0,0,1,0-16h64a8,8,0,0,1,8,8Zm-40,24a8,8,0,0,0-8,8v72H48V80h72a8,8,0,0,0,0-16H48A16,16,0,0,0,32,80V208a16,16,0,0,0,16,16H176a16,16,0,0,0,16-16V136A8,8,0,0,0,184,128Z"></path></svg></a><a class="check-link" href="https://github.com/coinbase/x402" target="_blank" rel="noopener noreferrer">coinbase/x402 <svg viewBox="0 0 256 256" fill="currentColor" width="12" height="12" aria-hidden="true"><path d="M224,104a8,8,0,0,1-16,0V59.31l-66.34,66.35a8,8,0,0,1-11.32-11.32L196.69,48H152a8,8,0,0,1,0-16h64a8,8,0,0,1,8,8Zm-40,24a8,8,0,0,0-8,8v72H48V80h72a8,8,0,0,0,0-16H48A16,16,0,0,0,32,80V208a16,16,0,0,0,16,16H176a16,16,0,0,0,16-16V136A8,8,0,0,0,184,128Z"></path></svg></a><a class="check-link" href="https://docs.x402.org/" target="_blank" rel="noopener noreferrer">docs.x402.org <svg viewBox="0 0 256 256" fill="currentColor" width="12" height="12" aria-hidden="true"><path d="M224,104a8,8,0,0,1-16,0V59.31l-66.34,66.35a8,8,0,0,1-11.32-11.32L196.69,48H152a8,8,0,0,1,0-16h64a8,8,0,0,1,8,8Zm-40,24a8,8,0,0,0-8,8v72H48V80h72a8,8,0,0,0,0-16H48A16,16,0,0,0,32,80V208a16,16,0,0,0,16,16H176a16,16,0,0,0,16-16V136A8,8,0,0,0,184,128Z"></path></svg></a><a class="check-link" href="https://isitagentready.com/.well-known/agent-skills/x402/SKILL.md" target="_blank" rel="noopener noreferrer">Skill <svg viewBox="0 0 256 256" fill="currentColor" width="12" height="12" aria-hidden="true"><path d="M224,104a8,8,0,0,1-16,0V59.31l-66.34,66.35a8,8,0,0,1-11.32-11.32L196.69,48H152a8,8,0,0,1,0-16h64a8,8,0,0,1,8,8Zm-40,24a8,8,0,0,0-8,8v72H48V80h72a8,8,0,0,0,0-16H48A16,16,0,0,0,32,80V208a16,16,0,0,0,16,16H176a16,16,0,0,0,16-16V136A8,8,0,0,0,184,128Z"></path></svg></a></div></div>
+          <div class="check-details-footer"><button class="copy-button" type="button" data-tooltip="Paste into your coding agent to fix this check"><svg class="copy-button-icon" viewBox="0 0 256 256" fill="currentColor" width="14" height="14" aria-hidden="true"><path d="M216,32H88a8,8,0,0,0-8,8V80H40a8,8,0,0,0-8,8V216a8,8,0,0,0,8,8H168a8,8,0,0,0,8-8V176h40a8,8,0,0,0,8-8V40A8,8,0,0,0,216,32ZM160,208H48V96H160Zm48-48H176V88a8,8,0,0,0-8-8H96V48H208Z"></path></svg><span class="copy-button-label" aria-live="polite">Copy prompt</span></button><button class="evidence-trigger" type="button" aria-label="View audit details">Audit details <svg viewBox="0 0 256 256" fill="currentColor" width="14" height="14"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path></svg></button></div>
+        </div>
+      
+            </div>
+          </div>
+          
+        <div class="check-card-back">
+          <div class="check-card-back-header">
+            <div class="check-item-info">
+              <span class="check-icon" style="background-color: var(--color-neutral);"><svg viewBox="0 0 256 256" fill="#fff" aria-hidden="true"><path d="M228,128a12,12,0,0,1-12,12H40a12,12,0,0,1,0-24H216A12,12,0,0,1,228,128Z"></path></svg></span>
+              <span class="check-name">x402 Protocol</span>
+            </div>
+          </div>
+          <div class="check-card-back-body">
+            <div class="evidence-timeline">
+      <div class="evidence-step evidence-step--fetch">
+        <div class="evidence-step-header">
+          <span class="evidence-step-icon"><svg viewBox="0 0 256 256" fill="currentColor" width="14" height="14"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"></path></svg></span>
+          <span class="evidence-step-label">GET /</span>
+          <span class="evidence-status-badge evidence-status--2xx">200</span>
+        </div>
+        
+        <table class="evidence-headers"><tbody><tr><td class="evidence-header-key">content-type</td><td class="evidence-header-val">text/html</td></tr><tr><td class="evidence-header-key">content-length</td><td class="evidence-header-val">556</td></tr></tbody></table>
+        
+        <div class="evidence-finding"><span class="evidence-dot evidence-dot--neutral"></span><span class="evidence-finding-text">/ returned 200 (not 402)</span></div>
+      </div>
+    
+      <div class="evidence-step evidence-step--fetch">
+        <div class="evidence-step-header">
+          <span class="evidence-step-icon"><svg viewBox="0 0 256 256" fill="currentColor" width="14" height="14"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"></path></svg></span>
+          <span class="evidence-step-label">GET /api/v1</span>
+          <span class="evidence-status-badge evidence-status--4xx">404</span>
+        </div>
+        
+        <table class="evidence-headers"><tbody><tr><td class="evidence-header-key">content-type</td><td class="evidence-header-val">text/html; charset=utf-8</td></tr><tr><td class="evidence-header-key">content-length</td><td class="evidence-header-val">145</td></tr></tbody></table>
+        
+        <div class="evidence-finding"><span class="evidence-dot evidence-dot--neutral"></span><span class="evidence-finding-text">/api/v1 returned 404 (not 402)</span></div>
+      </div>
+    
+      <div class="evidence-step evidence-step--fetch">
+        <div class="evidence-step-header">
+          <span class="evidence-step-icon"><svg viewBox="0 0 256 256" fill="currentColor" width="14" height="14"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"></path></svg></span>
+          <span class="evidence-step-label">GET /api</span>
+          <span class="evidence-status-badge evidence-status--4xx">404</span>
+        </div>
+        
+        <table class="evidence-headers"><tbody><tr><td class="evidence-header-key">content-type</td><td class="evidence-header-val">text/html; charset=utf-8</td></tr><tr><td class="evidence-header-key">content-length</td><td class="evidence-header-val">143</td></tr></tbody></table>
+        
+        <div class="evidence-finding"><span class="evidence-dot evidence-dot--neutral"></span><span class="evidence-finding-text">/api returned 404 (not 402)</span></div>
+      </div>
+    
+      <div class="evidence-step evidence-step--fetch">
+        <div class="evidence-step-header">
+          <span class="evidence-step-icon"><svg viewBox="0 0 256 256" fill="currentColor" width="14" height="14"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"></path></svg></span>
+          <span class="evidence-step-label">GET /platform/v2/x402/discovery/resources</span>
+          <span class="evidence-status-badge evidence-status--2xx">200</span>
+        </div>
+        
+        <table class="evidence-headers"><tbody><tr><td class="evidence-header-key">content-type</td><td class="evidence-header-val">application/json</td></tr></tbody></table>
+        
+        
+      </div>
+    
+      <div class="evidence-step evidence-step--fetch">
+        <div class="evidence-step-header">
+          <span class="evidence-step-icon"><svg viewBox="0 0 256 256" fill="currentColor" width="14" height="14"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"></path></svg></span>
+          <span class="evidence-step-label">GET Bazaar discovery API</span>
+          
+        </div>
+        
+        
+        
+        <div class="evidence-finding"><span class="evidence-dot evidence-dot--negative"></span><span class="evidence-finding-text">Network error querying Bazaar API</span></div>
+      </div>
+    
+      <div class="evidence-step evidence-step--conclude">
+        <div class="evidence-step-header">
+          <span class="evidence-step-icon"><svg viewBox="0 0 256 256" fill="currentColor" width="14" height="14"><path d="M208,144a15.78,15.78,0,0,1-10.42,14.94L146,178l-19,51.62a15.92,15.92,0,0,1-29.88,0L78,178l-51.62-19a15.92,15.92,0,0,1,0-29.88L78,110l19-51.62a15.92,15.92,0,0,1,29.88,0L146,110l51.62,19A15.78,15.78,0,0,1,208,144ZM152,48h16V64a8,8,0,0,0,16,0V48h16a8,8,0,0,0,0-16H184V16a8,8,0,0,0-16,0V32H152a8,8,0,0,0,0,16Zm88,32h-8V72a8,8,0,0,0-16,0v8h-8a8,8,0,0,0,0,16h8v8a8,8,0,0,0,16,0V96h8a8,8,0,0,0,0-16Z"></path></svg></span>
+          <span class="evidence-step-label">Conclusion</span>
+          
+        </div>
+        
+        
+        
+        <div class="evidence-finding"><span class="evidence-dot evidence-dot--negative"></span><span class="evidence-finding-text">x402 payment protocol not detected</span></div>
+      </div>
+    </div><div class="evidence-timing">Completed in 976ms</div>
+          </div>
+          <button class="evidence-back-trigger" type="button" aria-label="Back to results"><svg viewBox="0 0 256 256" fill="currentColor" width="14" height="14"><path d="M165.66,202.34a8,8,0,0,1-11.32,11.32l-80-80a8,8,0,0,1,0-11.32l80-80a8,8,0,0,1,11.32,11.32L91.31,128Z"></path></svg> Back</button>
+        </div>
+      
+        </div>
+      </div>
+    
+      <div class="check-card-container" data-check-container="">
+        <div class="check-card-inner">
+          <div class="check-card-front">
+            <div class="check-item check-item--neutral check-item--expandable " data-check-item="" data-key="commerce.mpp" data-status="neutral" data-expandable="">
+              <div class="check-item-header" role="button" tabindex="0">
+                <div class="check-item-info">
+                  <span class="check-icon" style="background-color: var(--color-neutral);" role="img" aria-label="Not applicable">
+                    <svg viewBox="0 0 256 256" fill="#fff" aria-hidden="true"><path d="M228,128a12,12,0,0,1-12,12H40a12,12,0,0,1,0-24H216A12,12,0,0,1,228,128Z"></path></svg>
+                  </span>
+                  <span class="check-name">MPP (Machine Payment Protocol)</span>
+                </div>
+                
+                <span class="check-expand-icon"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z"></path></svg></span>
+              </div>
+              
+        <div class="check-details" data-prompt="">
+          <pre class="check-prompt-text" hidden="">Goal: Support MPP (Machine Payment Protocol) for agent-native HTTP payments
+
+Note: MPP payment discovery not detected (not a commerce site)
+
+Fix: Publish an OpenAPI document at /openapi.json with x-payment-info extensions on payable operations. Each operation should declare intent (charge or session), method (tempo, stripe, lightning, card), amount, and currency. Use the MPP SDK (mppx for TypeScript, pympp for Python) with framework middleware for Hono, Express, Next.js, or Elysia to add MPP payment handling.
+
+Skill: https://isitagentready.com/.well-known/agent-skills/mpp/SKILL.md
+
+Docs: https://mpp.dev, https://paymentauth.org/draft-payment-discovery-00.txt</pre>
+          <dl class="check-detail-list"><div class="check-detail-row"><dt class="check-detail-label">Goal</dt><dd class="check-detail-value">Support MPP (Machine Payment Protocol) for agent-native HTTP payments</dd></div><div class="check-detail-row"><dt class="check-detail-label">Note</dt><dd class="check-detail-value check-detail-value--neutral">MPP payment discovery not detected (not a commerce site)</dd></div></dl>
+          
+          <div class="check-fix-section">
+            <span class="check-detail-label">How to implement</span>
+            <div class="check-fix-code">Publish an OpenAPI document at 
+/openapi.json with x-payment-info extensions on payable operations. Each
+ operation should declare intent (charge or session), method (tempo, 
+stripe, lightning, card), amount, and currency. Use the MPP SDK (mppx 
+for TypeScript, pympp for Python) with framework middleware for Hono, 
+Express, Next.js, or Elysia to add MPP payment handling.</div>
+          </div>
+        
+          <div class="check-links-section"><span class="check-detail-label">Resources</span><div class="check-links"><a class="check-link" href="https://mpp.dev/" target="_blank" rel="noopener noreferrer">mpp.dev <svg viewBox="0 0 256 256" fill="currentColor" width="12" height="12" aria-hidden="true"><path d="M224,104a8,8,0,0,1-16,0V59.31l-66.34,66.35a8,8,0,0,1-11.32-11.32L196.69,48H152a8,8,0,0,1,0-16h64a8,8,0,0,1,8,8Zm-40,24a8,8,0,0,0-8,8v72H48V80h72a8,8,0,0,0,0-16H48A16,16,0,0,0,32,80V208a16,16,0,0,0,16,16H176a16,16,0,0,0,16-16V136A8,8,0,0,0,184,128Z"></path></svg></a><a class="check-link" href="https://paymentauth.org/draft-payment-discovery-00.txt" target="_blank" rel="noopener noreferrer">paymentauth.org <svg viewBox="0 0 256 256" fill="currentColor" width="12" height="12" aria-hidden="true"><path d="M224,104a8,8,0,0,1-16,0V59.31l-66.34,66.35a8,8,0,0,1-11.32-11.32L196.69,48H152a8,8,0,0,1,0-16h64a8,8,0,0,1,8,8Zm-40,24a8,8,0,0,0-8,8v72H48V80h72a8,8,0,0,0,0-16H48A16,16,0,0,0,32,80V208a16,16,0,0,0,16,16H176a16,16,0,0,0,16-16V136A8,8,0,0,0,184,128Z"></path></svg></a><a class="check-link" href="https://isitagentready.com/.well-known/agent-skills/mpp/SKILL.md" target="_blank" rel="noopener noreferrer">Skill <svg viewBox="0 0 256 256" fill="currentColor" width="12" height="12" aria-hidden="true"><path d="M224,104a8,8,0,0,1-16,0V59.31l-66.34,66.35a8,8,0,0,1-11.32-11.32L196.69,48H152a8,8,0,0,1,0-16h64a8,8,0,0,1,8,8Zm-40,24a8,8,0,0,0-8,8v72H48V80h72a8,8,0,0,0,0-16H48A16,16,0,0,0,32,80V208a16,16,0,0,0,16,16H176a16,16,0,0,0,16-16V136A8,8,0,0,0,184,128Z"></path></svg></a></div></div>
+          <div class="check-details-footer"><button class="copy-button" type="button" data-tooltip="Paste into your coding agent to fix this check"><svg class="copy-button-icon" viewBox="0 0 256 256" fill="currentColor" width="14" height="14" aria-hidden="true"><path d="M216,32H88a8,8,0,0,0-8,8V80H40a8,8,0,0,0-8,8V216a8,8,0,0,0,8,8H168a8,8,0,0,0,8-8V176h40a8,8,0,0,0,8-8V40A8,8,0,0,0,216,32ZM160,208H48V96H160Zm48-48H176V88a8,8,0,0,0-8-8H96V48H208Z"></path></svg><span class="copy-button-label" aria-live="polite">Copy prompt</span></button><button class="evidence-trigger" type="button" aria-label="View audit details">Audit details <svg viewBox="0 0 256 256" fill="currentColor" width="14" height="14"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path></svg></button></div>
+        </div>
+      
+            </div>
+          </div>
+          
+        <div class="check-card-back">
+          <div class="check-card-back-header">
+            <div class="check-item-info">
+              <span class="check-icon" style="background-color: var(--color-neutral);"><svg viewBox="0 0 256 256" fill="#fff" aria-hidden="true"><path d="M228,128a12,12,0,0,1-12,12H40a12,12,0,0,1,0-24H216A12,12,0,0,1,228,128Z"></path></svg></span>
+              <span class="check-name">MPP (Machine Payment Protocol)</span>
+            </div>
+          </div>
+          <div class="check-card-back-body">
+            <div class="evidence-timeline">
+      <div class="evidence-step evidence-step--fetch">
+        <div class="evidence-step-header">
+          <span class="evidence-step-icon"><svg viewBox="0 0 256 256" fill="currentColor" width="14" height="14"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"></path></svg></span>
+          <span class="evidence-step-label">GET /openapi.json</span>
+          <span class="evidence-status-badge evidence-status--2xx">200</span>
+        </div>
+        
+        <table class="evidence-headers"><tbody><tr><td class="evidence-header-key">content-type</td><td class="evidence-header-val">text/html</td></tr><tr><td class="evidence-header-key">content-length</td><td class="evidence-header-val">556</td></tr></tbody></table>
+        
+        <div class="evidence-finding"><span class="evidence-dot evidence-dot--neutral"></span><span class="evidence-finding-text">/openapi.json returned HTML (likely soft-404)</span></div>
+      </div>
+    
+      <div class="evidence-step evidence-step--conclude">
+        <div class="evidence-step-header">
+          <span class="evidence-step-icon"><svg viewBox="0 0 256 256" fill="currentColor" width="14" height="14"><path d="M208,144a15.78,15.78,0,0,1-10.42,14.94L146,178l-19,51.62a15.92,15.92,0,0,1-29.88,0L78,178l-51.62-19a15.92,15.92,0,0,1,0-29.88L78,110l19-51.62a15.92,15.92,0,0,1,29.88,0L146,110l51.62,19A15.78,15.78,0,0,1,208,144ZM152,48h16V64a8,8,0,0,0,16,0V48h16a8,8,0,0,0,0-16H184V16a8,8,0,0,0-16,0V32H152a8,8,0,0,0,0,16Zm88,32h-8V72a8,8,0,0,0-16,0v8h-8a8,8,0,0,0,0,16h8v8a8,8,0,0,0,16,0V96h8a8,8,0,0,0,0-16Z"></path></svg></span>
+          <span class="evidence-step-label">Conclusion</span>
+          
+        </div>
+        
+        
+        
+        <div class="evidence-finding"><span class="evidence-dot evidence-dot--negative"></span><span class="evidence-finding-text">MPP payment discovery not detected</span></div>
+      </div>
+    </div><div class="evidence-timing">Completed in 128ms</div>
+          </div>
+          <button class="evidence-back-trigger" type="button" aria-label="Back to results"><svg viewBox="0 0 256 256" fill="currentColor" width="14" height="14"><path d="M165.66,202.34a8,8,0,0,1-11.32,11.32l-80-80a8,8,0,0,1,0-11.32l80-80a8,8,0,0,1,11.32,11.32L91.31,128Z"></path></svg> Back</button>
+        </div>
+      
+        </div>
+      </div>
+    
+      <div class="check-card-container" data-check-container="">
+        <div class="check-card-inner">
+          <div class="check-card-front">
+            <div class="check-item check-item--neutral check-item--expandable " data-check-item="" data-key="commerce.ucp" data-status="neutral" data-expandable="">
+              <div class="check-item-header" role="button" tabindex="0">
+                <div class="check-item-info">
+                  <span class="check-icon" style="background-color: var(--color-neutral);" role="img" aria-label="Not applicable">
+                    <svg viewBox="0 0 256 256" fill="#fff" aria-hidden="true"><path d="M228,128a12,12,0,0,1-12,12H40a12,12,0,0,1,0-24H216A12,12,0,0,1,228,128Z"></path></svg>
+                  </span>
+                  <span class="check-name">Universal Commerce Protocol</span>
+                </div>
+                
+                <span class="check-expand-icon"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z"></path></svg></span>
+              </div>
+              
+        <div class="check-details" data-prompt="">
+          <pre class="check-prompt-text" hidden="">Goal: Enable content payments via Universal Commerce Protocol
+
+Note: UCP profile not found (not a commerce site)
+
+Fix: Serve /.well-known/ucp with protocol version, services, capabilities, and endpoints, and ensure spec URLs and schemas are reachable.
+
+Skill: https://isitagentready.com/.well-known/agent-skills/ucp/SKILL.md
+
+Docs: https://ucp.dev/specification/overview/</pre>
+          <dl class="check-detail-list"><div class="check-detail-row"><dt class="check-detail-label">Goal</dt><dd class="check-detail-value">Enable content payments via Universal Commerce Protocol</dd></div><div class="check-detail-row"><dt class="check-detail-label">Note</dt><dd class="check-detail-value check-detail-value--neutral">UCP profile not found (not a commerce site)</dd></div></dl>
+          
+          <div class="check-fix-section">
+            <span class="check-detail-label">How to implement</span>
+            <div class="check-fix-code">Serve /.well-known/ucp with 
+protocol version, services, capabilities, and endpoints, and ensure spec
+ URLs and schemas are reachable.</div>
+          </div>
+        
+          <div class="check-links-section"><span class="check-detail-label">Resources</span><div class="check-links"><a class="check-link" href="https://ucp.dev/specification/overview/" target="_blank" rel="noopener noreferrer">ucp.dev <svg viewBox="0 0 256 256" fill="currentColor" width="12" height="12" aria-hidden="true"><path d="M224,104a8,8,0,0,1-16,0V59.31l-66.34,66.35a8,8,0,0,1-11.32-11.32L196.69,48H152a8,8,0,0,1,0-16h64a8,8,0,0,1,8,8Zm-40,24a8,8,0,0,0-8,8v72H48V80h72a8,8,0,0,0,0-16H48A16,16,0,0,0,32,80V208a16,16,0,0,0,16,16H176a16,16,0,0,0,16-16V136A8,8,0,0,0,184,128Z"></path></svg></a><a class="check-link" href="https://isitagentready.com/.well-known/agent-skills/ucp/SKILL.md" target="_blank" rel="noopener noreferrer">Skill <svg viewBox="0 0 256 256" fill="currentColor" width="12" height="12" aria-hidden="true"><path d="M224,104a8,8,0,0,1-16,0V59.31l-66.34,66.35a8,8,0,0,1-11.32-11.32L196.69,48H152a8,8,0,0,1,0-16h64a8,8,0,0,1,8,8Zm-40,24a8,8,0,0,0-8,8v72H48V80h72a8,8,0,0,0,0-16H48A16,16,0,0,0,32,80V208a16,16,0,0,0,16,16H176a16,16,0,0,0,16-16V136A8,8,0,0,0,184,128Z"></path></svg></a></div></div>
+          <div class="check-details-footer"><button class="copy-button" type="button" data-tooltip="Paste into your coding agent to fix this check"><svg class="copy-button-icon" viewBox="0 0 256 256" fill="currentColor" width="14" height="14" aria-hidden="true"><path d="M216,32H88a8,8,0,0,0-8,8V80H40a8,8,0,0,0-8,8V216a8,8,0,0,0,8,8H168a8,8,0,0,0,8-8V176h40a8,8,0,0,0,8-8V40A8,8,0,0,0,216,32ZM160,208H48V96H160Zm48-48H176V88a8,8,0,0,0-8-8H96V48H208Z"></path></svg><span class="copy-button-label" aria-live="polite">Copy prompt</span></button><button class="evidence-trigger" type="button" aria-label="View audit details">Audit details <svg viewBox="0 0 256 256" fill="currentColor" width="14" height="14"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path></svg></button></div>
+        </div>
+      
+            </div>
+          </div>
+          
+        <div class="check-card-back">
+          <div class="check-card-back-header">
+            <div class="check-item-info">
+              <span class="check-icon" style="background-color: var(--color-neutral);"><svg viewBox="0 0 256 256" fill="#fff" aria-hidden="true"><path d="M228,128a12,12,0,0,1-12,12H40a12,12,0,0,1,0-24H216A12,12,0,0,1,228,128Z"></path></svg></span>
+              <span class="check-name">Universal Commerce Protocol</span>
+            </div>
+          </div>
+          <div class="check-card-back-body">
+            <div class="evidence-timeline">
+      <div class="evidence-step evidence-step--fetch">
+        <div class="evidence-step-header">
+          <span class="evidence-step-icon"><svg viewBox="0 0 256 256" fill="currentColor" width="14" height="14"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"></path></svg></span>
+          <span class="evidence-step-label">GET /.well-known/ucp</span>
+          <span class="evidence-status-badge evidence-status--4xx">404</span>
+        </div>
+        
+        <table class="evidence-headers"><tbody><tr><td class="evidence-header-key">content-type</td><td class="evidence-header-val">text/html</td></tr><tr><td class="evidence-header-key">content-length</td><td class="evidence-header-val">556</td></tr></tbody></table>
+        
+        <div class="evidence-finding"><span class="evidence-dot evidence-dot--negative"></span><span class="evidence-finding-text">Server returned 404 -- UCP profile not found</span></div>
+      </div>
+    
+      <div class="evidence-step evidence-step--conclude">
+        <div class="evidence-step-header">
+          <span class="evidence-step-icon"><svg viewBox="0 0 256 256" fill="currentColor" width="14" height="14"><path d="M208,144a15.78,15.78,0,0,1-10.42,14.94L146,178l-19,51.62a15.92,15.92,0,0,1-29.88,0L78,178l-51.62-19a15.92,15.92,0,0,1,0-29.88L78,110l19-51.62a15.92,15.92,0,0,1,29.88,0L146,110l51.62,19A15.78,15.78,0,0,1,208,144ZM152,48h16V64a8,8,0,0,0,16,0V48h16a8,8,0,0,0,0-16H184V16a8,8,0,0,0-16,0V32H152a8,8,0,0,0,0,16Zm88,32h-8V72a8,8,0,0,0-16,0v8h-8a8,8,0,0,0,0,16h8v8a8,8,0,0,0,16,0V96h8a8,8,0,0,0,0-16Z"></path></svg></span>
+          <span class="evidence-step-label">Conclusion</span>
+          
+        </div>
+        
+        
+        
+        <div class="evidence-finding"><span class="evidence-dot evidence-dot--negative"></span><span class="evidence-finding-text">UCP profile not found</span></div>
+      </div>
+    </div><div class="evidence-timing">Completed in 101ms</div>
+          </div>
+          <button class="evidence-back-trigger" type="button" aria-label="Back to results"><svg viewBox="0 0 256 256" fill="currentColor" width="14" height="14"><path d="M165.66,202.34a8,8,0,0,1-11.32,11.32l-80-80a8,8,0,0,1,0-11.32l80-80a8,8,0,0,1,11.32,11.32L91.31,128Z"></path></svg> Back</button>
+        </div>
+      
+        </div>
+      </div>
+    
+      <div class="check-card-container" data-check-container="">
+        <div class="check-card-inner">
+          <div class="check-card-front">
+            <div class="check-item check-item--neutral check-item--expandable " data-check-item="" data-key="commerce.acp" data-status="neutral" data-expandable="">
+              <div class="check-item-header" role="button" tabindex="0">
+                <div class="check-item-info">
+                  <span class="check-icon" style="background-color: var(--color-neutral);" role="img" aria-label="Not applicable">
+                    <svg viewBox="0 0 256 256" fill="#fff" aria-hidden="true"><path d="M228,128a12,12,0,0,1-12,12H40a12,12,0,0,1,0-24H216A12,12,0,0,1,228,128Z"></path></svg>
+                  </span>
+                  <span class="check-name">ACP (Agentic Commerce Protocol)</span>
+                </div>
+                
+                <span class="check-expand-icon"><svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z"></path></svg></span>
+              </div>
+              
+        <div class="check-details" data-prompt="">
+          <pre class="check-prompt-text" hidden="">Goal: Publish ACP discovery metadata so agents can discover your commerce API
+
+Note: ACP discovery document not found (not a commerce site)
+
+Fix: Serve /.well-known/acp.json at the origin root with protocol.name "acp", protocol.version, api_base_url, supported transports, and capabilities.services so agents can discover your ACP implementation without creating a checkout session first.
+
+Skill: https://isitagentready.com/.well-known/agent-skills/acp/SKILL.md
+
+Docs: https://agenticcommerce.dev, https://github.com/agentic-commerce-protocol/agentic-commerce-protocol/blob/main/rfcs/rfc.discovery.md</pre>
+          <dl class="check-detail-list"><div class="check-detail-row"><dt class="check-detail-label">Goal</dt><dd class="check-detail-value">Publish ACP discovery metadata so agents can discover your commerce API</dd></div><div class="check-detail-row"><dt class="check-detail-label">Note</dt><dd class="check-detail-value check-detail-value--neutral">ACP discovery document not found (not a commerce site)</dd></div></dl>
+          
+          <div class="check-fix-section">
+            <span class="check-detail-label">How to implement</span>
+            <div class="check-fix-code">Serve /.well-known/acp.json at 
+the origin root with protocol.name "acp", protocol.version, 
+api_base_url, supported transports, and capabilities.services so agents 
+can discover your ACP implementation without creating a checkout session
+ first.</div>
+          </div>
+        
+          <div class="check-links-section"><span class="check-detail-label">Resources</span><div class="check-links"><a class="check-link" href="https://agenticcommerce.dev/" target="_blank" rel="noopener noreferrer">agenticcommerce.dev <svg viewBox="0 0 256 256" fill="currentColor" width="12" height="12" aria-hidden="true"><path d="M224,104a8,8,0,0,1-16,0V59.31l-66.34,66.35a8,8,0,0,1-11.32-11.32L196.69,48H152a8,8,0,0,1,0-16h64a8,8,0,0,1,8,8Zm-40,24a8,8,0,0,0-8,8v72H48V80h72a8,8,0,0,0,0-16H48A16,16,0,0,0,32,80V208a16,16,0,0,0,16,16H176a16,16,0,0,0,16-16V136A8,8,0,0,0,184,128Z"></path></svg></a><a class="check-link" href="https://github.com/agentic-commerce-protocol/agentic-commerce-protocol/blob/main/rfcs/rfc.discovery.md" target="_blank" rel="noopener noreferrer">rfc.discovery <svg viewBox="0 0 256 256" fill="currentColor" width="12" height="12" aria-hidden="true"><path d="M224,104a8,8,0,0,1-16,0V59.31l-66.34,66.35a8,8,0,0,1-11.32-11.32L196.69,48H152a8,8,0,0,1,0-16h64a8,8,0,0,1,8,8Zm-40,24a8,8,0,0,0-8,8v72H48V80h72a8,8,0,0,0,0-16H48A16,16,0,0,0,32,80V208a16,16,0,0,0,16,16H176a16,16,0,0,0,16-16V136A8,8,0,0,0,184,128Z"></path></svg></a><a class="check-link" href="https://isitagentready.com/.well-known/agent-skills/acp/SKILL.md" target="_blank" rel="noopener noreferrer">Skill <svg viewBox="0 0 256 256" fill="currentColor" width="12" height="12" aria-hidden="true"><path d="M224,104a8,8,0,0,1-16,0V59.31l-66.34,66.35a8,8,0,0,1-11.32-11.32L196.69,48H152a8,8,0,0,1,0-16h64a8,8,0,0,1,8,8Zm-40,24a8,8,0,0,0-8,8v72H48V80h72a8,8,0,0,0,0-16H48A16,16,0,0,0,32,80V208a16,16,0,0,0,16,16H176a16,16,0,0,0,16-16V136A8,8,0,0,0,184,128Z"></path></svg></a></div></div>
+          <div class="check-details-footer"><button class="copy-button" type="button" data-tooltip="Paste into your coding agent to fix this check"><svg class="copy-button-icon" viewBox="0 0 256 256" fill="currentColor" width="14" height="14" aria-hidden="true"><path d="M216,32H88a8,8,0,0,0-8,8V80H40a8,8,0,0,0-8,8V216a8,8,0,0,0,8,8H168a8,8,0,0,0,8-8V176h40a8,8,0,0,0,8-8V40A8,8,0,0,0,216,32ZM160,208H48V96H160Zm48-48H176V88a8,8,0,0,0-8-8H96V48H208Z"></path></svg><span class="copy-button-label" aria-live="polite">Copy prompt</span></button><button class="evidence-trigger" type="button" aria-label="View audit details">Audit details <svg viewBox="0 0 256 256" fill="currentColor" width="14" height="14"><path d="M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z"></path></svg></button></div>
+        </div>
+      
+            </div>
+          </div>
+          
+        <div class="check-card-back">
+          <div class="check-card-back-header">
+            <div class="check-item-info">
+              <span class="check-icon" style="background-color: var(--color-neutral);"><svg viewBox="0 0 256 256" fill="#fff" aria-hidden="true"><path d="M228,128a12,12,0,0,1-12,12H40a12,12,0,0,1,0-24H216A12,12,0,0,1,228,128Z"></path></svg></span>
+              <span class="check-name">ACP (Agentic Commerce Protocol)</span>
+            </div>
+          </div>
+          <div class="check-card-back-body">
+            <div class="evidence-timeline">
+      <div class="evidence-step evidence-step--fetch">
+        <div class="evidence-step-header">
+          <span class="evidence-step-icon"><svg viewBox="0 0 256 256" fill="currentColor" width="14" height="14"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"></path></svg></span>
+          <span class="evidence-step-label">GET /.well-known/acp.json</span>
+          <span class="evidence-status-badge evidence-status--4xx">404</span>
+        </div>
+        
+        <table class="evidence-headers"><tbody><tr><td class="evidence-header-key">content-type</td><td class="evidence-header-val">text/html</td></tr><tr><td class="evidence-header-key">content-length</td><td class="evidence-header-val">556</td></tr></tbody></table>
+        
+        <div class="evidence-finding"><span class="evidence-dot evidence-dot--negative"></span><span class="evidence-finding-text">Server returned 404 -- ACP discovery document not found</span></div>
+      </div>
+    
+      <div class="evidence-step evidence-step--conclude">
+        <div class="evidence-step-header">
+          <span class="evidence-step-icon"><svg viewBox="0 0 256 256" fill="currentColor" width="14" height="14"><path d="M208,144a15.78,15.78,0,0,1-10.42,14.94L146,178l-19,51.62a15.92,15.92,0,0,1-29.88,0L78,178l-51.62-19a15.92,15.92,0,0,1,0-29.88L78,110l19-51.62a15.92,15.92,0,0,1,29.88,0L146,110l51.62,19A15.78,15.78,0,0,1,208,144ZM152,48h16V64a8,8,0,0,0,16,0V48h16a8,8,0,0,0,0-16H184V16a8,8,0,0,0-16,0V32H152a8,8,0,0,0,0,16Zm88,32h-8V72a8,8,0,0,0-16,0v8h-8a8,8,0,0,0,0,16h8v8a8,8,0,0,0,16,0V96h8a8,8,0,0,0,0-16Z"></path></svg></span>
+          <span class="evidence-step-label">Conclusion</span>
+          
+        </div>
+        
+        
+        
+        <div class="evidence-finding"><span class="evidence-dot evidence-dot--negative"></span><span class="evidence-finding-text">ACP discovery document not found</span></div>
+      </div>
+    </div><div class="evidence-timing">Completed in 143ms</div>
+          </div>
+          <button class="evidence-back-trigger" type="button" aria-label="Back to results"><svg viewBox="0 0 256 256" fill="currentColor" width="14" height="14"><path d="M165.66,202.34a8,8,0,0,1-11.32,11.32l-80-80a8,8,0,0,1,0-11.32l80-80a8,8,0,0,1,11.32,11.32L91.31,128Z"></path></svg> Back</button>
+        </div>
+      
+        </div>
+      </div>
+    
+        </div>
+      </section>
+    </div> <div class="results-actions" data-astro-cid-pvyyuo2j=""> <button id="scan-another" class="action-button" data-astro-cid-pvyyuo2j=""><svg viewBox="0 0 256 256" fill="currentColor" width="14" height="14" aria-hidden="true" data-astro-cid-pvyyuo2j=""><path d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z" data-astro-cid-pvyyuo2j=""></path></svg> Scan another site</button> </div> <div id="fix-sheet-backdrop" class="fix-sheet-backdrop" data-astro-cid-pvyyuo2j="" hidden=""></div> <div id="fix-sheet" class="fix-sheet" role="dialog" aria-modal="true" aria-labelledby="fix-sheet-title" data-astro-cid-pvyyuo2j="" hidden=""> <div class="fix-sheet-header" data-astro-cid-pvyyuo2j=""> <div class="fix-sheet-title-row" data-astro-cid-pvyyuo2j=""> <h2 class="fix-sheet-title" id="fix-sheet-title" data-astro-cid-pvyyuo2j="">How to improve your score</h2> <button id="fix-sheet-close" class="fix-sheet-close" type="button" aria-label="Close" data-astro-cid-pvyyuo2j=""> <svg viewBox="0 0 256 256" fill="currentColor" width="20" height="20" aria-hidden="true" data-astro-cid-pvyyuo2j=""> <path d="M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z" data-astro-cid-pvyyuo2j=""></path> </svg> </button> </div> <p class="fix-sheet-description" data-astro-cid-pvyyuo2j="">Copy
+ the instructions below and paste them into your coding agent (Cursor, 
+Claude Code, Windsurf, Copilot, etc.) to improve your site's agent 
+readiness.</p> </div> <div class="fix-sheet-content" id="fix-sheet-content" data-astro-cid-pvyyuo2j=""> <pre class="fix-sheet-prompt" id="fix-sheet-prompt" data-astro-cid-pvyyuo2j="">Goal: Include Link response headers for agent discovery (RFC 8288)
+
+Issue: No Link headers found on homepage
+
+Fix: Add Link response headers to your homepage that point agents to useful resources. For example: Link: &lt;/.well-known/api-catalog&gt;; rel="api-catalog" to advertise your API catalog, or Link: &lt;/docs/api&gt;; rel="service-doc" for API documentation. See RFC 8288 for the Link header format and IANA Link Relations for registered relation types.
+
+Skill: https://isitagentready.com/.well-known/agent-skills/link-headers/SKILL.md
+
+Docs: https://www.rfc-editor.org/rfc/rfc8288, https://www.rfc-editor.org/rfc/rfc9727#section-3
+
+---
+
+Goal: Return HTML responses as markdown when agents request it
+
+Issue: Site does not support Markdown for Agents
+
+Fix: Enable Markdown for Agents so requests with Accept: text/markdown return a markdown version of your HTML response while HTML stays the default for browsers. Confirm the response uses Content-Type: text/markdown (and x-markdown-tokens if available).
+
+Skill: https://isitagentready.com/.well-known/agent-skills/markdown-negotiation/SKILL.md
+
+Docs: https://developers.cloudflare.com/fundamentals/reference/markdown-for-agents/
+
+---
+
+Goal: Declare AI content usage preferences with Content Signals in robots.txt
+
+Issue: No Content Signals found in robots.txt
+
+Fix: Add Content-Signal directives to your robots.txt declaring preferences for ai-train, search, and ai-input. For example:
+Content-Signal: ai-train=no, search=yes, ai-input=no
+
+Skill: https://isitagentready.com/.well-known/agent-skills/content-signals/SKILL.md
+
+Docs: https://contentsignals.org/, https://datatracker.ietf.org/doc/draft-romm-aipref-contentsignals/
+
+---
+
+Goal: Publish an API catalog for automated API discovery (RFC 9727)
+
+Issue: API Catalog not found
+
+Fix: Create /.well-known/api-catalog returning application/linkset+json with a "linkset" array. Each entry should include an "anchor" URL for the API and link relations for service-desc (OpenAPI spec), service-doc (documentation), and status (health endpoint). See RFC 9727 Appendix A for examples.
+
+Skill: https://isitagentready.com/.well-known/agent-skills/api-catalog/SKILL.md
+
+Docs: https://www.rfc-editor.org/rfc/rfc9727, https://www.rfc-editor.org/rfc/rfc9264
+
+---
+
+Goal: Publish OAuth/OIDC discovery metadata so agents can authenticate with your APIs
+
+Issue: No OAuth/OIDC discovery metadata found
+
+Fix: If your site has protected APIs, publish /.well-known/openid-configuration (for OpenID Connect) or /.well-known/oauth-authorization-server (for pure OAuth 2.0) with your issuer, authorization_endpoint, token_endpoint, jwks_uri, and grant_types_supported. This allows AI agents to programmatically discover how to authenticate.
+
+Skill: https://isitagentready.com/.well-known/agent-skills/oauth-discovery/SKILL.md
+
+Docs: http://openid.net/specs/openid-connect-discovery-1_0.html, https://www.rfc-editor.org/rfc/rfc8414
+
+---
+
+Goal: Publish OAuth Protected Resource Metadata so agents can discover how to authenticate
+
+Issue: No OAuth Protected Resource Metadata found
+
+Fix: Publish /.well-known/oauth-protected-resource with your resource identifier, authorization_servers (list of OAuth/OIDC issuer URLs that can issue tokens for this resource), and scopes_supported. This tells agents how to obtain access tokens for your protected APIs.
+
+Skill: https://isitagentready.com/.well-known/agent-skills/oauth-protected-resource/SKILL.md
+
+Docs: https://www.rfc-editor.org/rfc/rfc9728
+
+---
+
+Goal: Publish an MCP Server Card for agent discovery
+
+Issue: MCP Server Card not found
+
+Fix: Serve an MCP Server Card (SEP-1649) at /.well-known/mcp/server-card.json with serverInfo (name, version), transport endpoint, and capabilities. The schema is being standardized at https://github.com/modelcontextprotocol/modelcontextprotocol/pull/2127
+
+Skill: https://isitagentready.com/.well-known/agent-skills/mcp-server-card/SKILL.md
+
+Docs: https://github.com/modelcontextprotocol/modelcontextprotocol/pull/2127
+
+---
+
+Goal: Publish an agent skills discovery index
+
+Issue: Agent Skills index not found
+
+Fix: Publish a skills discovery index at /.well-known/agent-skills/index.json (per the Agent Skills Discovery RFC v0.2.0). Include a $schema field, and a skills array where each entry has name, type, description, url, and a sha256 digest.
+
+Skill: https://isitagentready.com/.well-known/agent-skills/agent-skills/SKILL.md
+
+Docs: https://github.com/cloudflare/agent-skills-discovery-rfc, https://agentskills.io/
+
+---
+
+Goal: Support WebMCP to expose site tools to AI agents via the browser
+
+Issue: No WebMCP tools detected on page load
+
+Fix: Implement the WebMCP API by calling navigator.modelContext.provideContext() with tool definitions that expose your site's key actions to AI agents. Each tool needs a name, description, inputSchema (JSON Schema), and an execute callback function.
+
+Skill: https://isitagentready.com/.well-known/agent-skills/webmcp/SKILL.md
+
+Docs: https://webmachinelearning.github.io/webmcp/, https://developer.chrome.com/blog/webmcp-epp</pre> </div> <div class="fix-sheet-footer" data-astro-cid-pvyyuo2j=""> <button id="fix-sheet-copy" class="fix-sheet-copy-btn" type="button" data-astro-cid-pvyyuo2j=""> <svg class="fix-sheet-copy-icon" viewBox="0 0 256 256" fill="currentColor" width="16" height="16" aria-hidden="true" data-astro-cid-pvyyuo2j="" style=""> <path d="M216,32H88a8,8,0,0,0-8,8V80H40a8,8,0,0,0-8,8V216a8,8,0,0,0,8,8H168a8,8,0,0,0,8-8V176h40a8,8,0,0,0,8-8V40A8,8,0,0,0,216,32ZM160,208H48V96H160Zm48-48H176V88a8,8,0,0,0-8-8H96V48H208Z" data-astro-cid-pvyyuo2j=""></path> </svg> <svg class="fix-sheet-check-icon" viewBox="0 0 256 256" fill="currentColor" width="16" height="16" style="display: none;" aria-hidden="true" data-astro-cid-pvyyuo2j=""> <path d="M229.66,77.66l-128,128a8,8,0,0,1-11.32,0l-56-56a8,8,0,0,1,11.32-11.32L96,188.69,218.34,66.34a8,8,0,0,1,11.32,11.32Z" data-astro-cid-pvyyuo2j=""></path> </svg> <span class="fix-sheet-copy-label" data-astro-cid-pvyyuo2j="">Copy all instructions</span> </button> <span class="fix-sheet-count" id="fix-sheet-count" data-astro-cid-pvyyuo2j="">9 issues found</span> </div> </div> </div>  </section> </main> <p class="disclaimer" data-astro-cid-sz7xmlte="">
+These are AI-generated recommendations. AI can make mistakes. Please use your professional
+  judgment when implementing these tips, as they are provided "as-is" and Cloudflare assumes
+  no liability for any actions taken or outcomes based on this automated content.
+</p> <footer class="footer" data-astro-cid-sz7xmlte=""> <div class="footer-content" data-astro-cid-sz7xmlte=""> <p class="powered-by" data-astro-cid-sz7xmlte="">
+© 2026 <a href="https://cloudflare.com/" target="_blank" rel="noopener noreferrer" data-astro-cid-sz7xmlte="">Cloudflare, Inc.</a> </p> <nav class="footer-links" data-astro-cid-sz7xmlte=""> <a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener noreferrer" data-astro-cid-sz7xmlte="">Privacy Policy</a> <span class="separator" aria-hidden="true" data-astro-cid-sz7xmlte="">|</span> <a href="https://www.cloudflare.com/website-terms/" target="_blank" rel="noopener noreferrer" data-astro-cid-sz7xmlte="">Terms of Use</a> <span class="separator" aria-hidden="true" data-astro-cid-sz7xmlte="">|</span> <a href="https://developers.cloudflare.com/" target="_blank" rel="noopener noreferrer" data-astro-cid-sz7xmlte="">Docs</a> </nav> </div> </footer>   <script type="module">async function o(n){const r=n.url;if(typeof r!="string"||!r)return{error:"Missing required parameter: url"};try{const e=await fetch("/api/scan",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({url:r})}),t=await e.json();return e.ok?t:{error:t.error||"Scan failed",status:e.status}}catch(e){return{error:e instanceof Error?e.message:"Scan request failed"}}}const s={name:"scan_site",description:"Scan a website for AI agent readiness. Returns a readiness level (0-5), results for all checks across 5 categories (discoverability, content, bot access control, discovery, commerce), and fix instructions for failing checks.",inputSchema:{type:"object",properties:{url:{type:"string",format:"uri",description:"The URL of the website to scan for agent readiness"}},required:["url"]},execute:o,annotations:{readOnlyHint:!0}};function a(){"modelContext"in navigator&&navigator.modelContext&&navigator.modelContext.registerTool(s)}a();</script>    <script type="module" src="Is%20Your%20Site%20Agent-Ready__files/index.astro_astro_type_script_index_0_lang.BI151QFJ.js"></script> </body></html>
