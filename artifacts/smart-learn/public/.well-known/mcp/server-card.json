@@ -1,0 +1,17 @@
+{
+  "serverInfo": {
+    "name": "SmartLearn-API",
+    "version": "1.0.0"
+  },
+  "endpoints": [
+    {
+      "type": "sse",
+      "url": "https://home.smartlearn.education/api/mcp"
+    }
+  ],
+  "capabilities": {
+    "tools": false,
+    "resources": true,
+    "prompts": false
+  }
+}
