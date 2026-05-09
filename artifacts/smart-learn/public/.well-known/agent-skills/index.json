@@ -1,0 +1,12 @@
+{
+  "$schema": "https://schemas.agentskills.io/discovery/0.2.0/schema.json",
+  "skills": [
+    {
+      "name": "send-contact-message",
+      "type": "skill-md",
+      "description": "Allows an AI agent to programmatically submit a contact inquiry to the website owner.",
+      "url": "https://home.smartlearn.education/.well-known/agent-skills/contact-skill/SKILL.md",
+      "digest": "sha256:a282284e7c4c98d3d25610d46ffeab51d749514dd0ea6e9f0c1a093d3fb0fdc9"
+    }
+  ]
+}
