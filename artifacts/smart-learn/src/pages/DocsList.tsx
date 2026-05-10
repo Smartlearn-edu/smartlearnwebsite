@@ -3,11 +3,14 @@ import { Navbar } from "@/components/Navbar";
 import { SocialLinks } from "@/components/SocialLinks";
 import { useT } from "@/i18n";
 
-const modules = import.meta.glob('../content/docs/*.mdx', { eager: true }) as Record<string, any>;
+const modules = import.meta.glob('../content/docs/**/*.mdx', { eager: true }) as Record<string, any>;
 
-const docs = Object.entries(modules).map(([path, module]) => {
-  const slug = path.replace('../content/docs/', '').replace('.mdx', '');
+const allDocs = Object.entries(modules).map(([path, module]) => {
+  const parts = path.split('/');
+  const lang = parts[parts.length - 2];
+  const slug = parts[parts.length - 1].replace('.mdx', '');
   return {
+    lang,
     slug,
     title: module.frontmatter?.title || slug,
     description: module.frontmatter?.description || '',
@@ -15,8 +18,9 @@ const docs = Object.entries(modules).map(([path, module]) => {
 });
 
 export default function DocsList() {
-  const { t } = useT();
+  const { t, lang: currentLang } = useT();
   const font: React.CSSProperties = { fontFamily: "'Cairo', sans-serif" };
+  const docs = allDocs.filter(d => d.lang === currentLang);
 
   return (
     <div className="min-h-screen" style={{ backgroundColor: "#07070f" }}>

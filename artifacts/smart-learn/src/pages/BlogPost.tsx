@@ -3,11 +3,14 @@ import { Navbar } from "@/components/Navbar";
 import { SocialLinks } from "@/components/SocialLinks";
 import { useT } from "@/i18n";
 
-const modules = import.meta.glob('../content/blog/*.mdx', { eager: true }) as Record<string, any>;
+const modules = import.meta.glob('../content/blog/**/*.mdx', { eager: true }) as Record<string, any>;
 
-const posts = Object.entries(modules).map(([path, module]) => {
-  const slug = path.replace('../content/blog/', '').replace('.mdx', '');
+const allPosts = Object.entries(modules).map(([path, module]) => {
+  const parts = path.split('/');
+  const lang = parts[parts.length - 2];
+  const slug = parts[parts.length - 1].replace('.mdx', '');
   return {
+    lang,
     slug,
     title: module.frontmatter?.title || slug,
     date: module.frontmatter?.date || '',
@@ -16,13 +19,14 @@ const posts = Object.entries(modules).map(([path, module]) => {
 
 export default function BlogPost() {
   const [match, params] = useRoute("/blog/:slug");
-  const { t } = useT();
+  const { t, lang: currentLang } = useT();
   const font: React.CSSProperties = { fontFamily: "'Cairo', sans-serif" };
   
   if (!match || !params?.slug) return null;
 
-  const modulePath = `../content/blog/${params.slug}.mdx`;
+  const modulePath = `../content/blog/${currentLang}/${params.slug}.mdx`;
   const postModule = modules[modulePath];
+  const posts = allPosts.filter(p => p.lang === currentLang);
 
   if (!postModule) {
     return (

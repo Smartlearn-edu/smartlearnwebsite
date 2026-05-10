@@ -3,11 +3,14 @@ import { Navbar } from "@/components/Navbar";
 import { SocialLinks } from "@/components/SocialLinks";
 import { useT } from "@/i18n";
 
-const modules = import.meta.glob('../content/blog/*.mdx', { eager: true }) as Record<string, any>;
+const modules = import.meta.glob('../content/blog/**/*.mdx', { eager: true }) as Record<string, any>;
 
-const posts = Object.entries(modules).map(([path, module]) => {
-  const slug = path.replace('../content/blog/', '').replace('.mdx', '');
+const allPosts = Object.entries(modules).map(([path, module]) => {
+  const parts = path.split('/');
+  const lang = parts[parts.length - 2];
+  const slug = parts[parts.length - 1].replace('.mdx', '');
   return {
+    lang,
     slug,
     title: module.frontmatter?.title || slug,
     date: module.frontmatter?.date || '',
@@ -16,8 +19,9 @@ const posts = Object.entries(modules).map(([path, module]) => {
 }).sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 
 export default function BlogList() {
-  const { t } = useT();
+  const { t, lang: currentLang } = useT();
   const font: React.CSSProperties = { fontFamily: "'Cairo', sans-serif" };
+  const posts = allPosts.filter(p => p.lang === currentLang);
 
   return (
     <div className="min-h-screen" style={{ backgroundColor: "#07070f" }}>
