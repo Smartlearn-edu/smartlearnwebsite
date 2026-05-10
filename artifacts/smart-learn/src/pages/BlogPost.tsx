@@ -24,9 +24,24 @@ export default function BlogPost() {
   
   if (!match || !params?.slug) return null;
 
-  const modulePath = `../content/blog/${currentLang}/${params.slug}.mdx`;
-  const postModule = modules[modulePath];
-  const posts = allPosts.filter(p => p.lang === currentLang);
+  let modulePath = `../content/blog/${currentLang}/${params.slug}.mdx`;
+  let postModule = modules[modulePath];
+  
+  if (!postModule && currentLang !== 'en') {
+    // Fallback to English if translation is missing
+    modulePath = `../content/blog/en/${params.slug}.mdx`;
+    postModule = modules[modulePath];
+  }
+
+  // Filter posts for sidebar (current language, or English fallback)
+  const posts = allPosts.filter(p => {
+    if (p.lang === currentLang) return true;
+    if (p.lang === 'en') {
+      const hasTranslation = allPosts.some(other => other.slug === p.slug && other.lang === currentLang);
+      return !hasTranslation;
+    }
+    return false;
+  });
 
   if (!postModule) {
     return (
