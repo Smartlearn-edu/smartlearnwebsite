@@ -20,7 +20,16 @@ const allDocs = Object.entries(modules).map(([path, module]) => {
 export default function DocsList() {
   const { t, lang: currentLang } = useT();
   const font: React.CSSProperties = { fontFamily: "'Cairo', sans-serif" };
-  const docs = allDocs.filter(d => d.lang === currentLang);
+  
+  // Filter docs to show current language, fallback to English if translation is missing
+  const docs = allDocs.filter(d => {
+    if (d.lang === currentLang) return true;
+    if (d.lang === 'en') {
+      const hasTranslation = allDocs.some(other => other.slug === d.slug && other.lang === currentLang);
+      return !hasTranslation;
+    }
+    return false;
+  });
 
   return (
     <div className="min-h-screen" style={{ backgroundColor: "#07070f" }}>
