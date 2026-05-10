@@ -25,6 +25,8 @@ export function Navbar() {
     { label: t.nav.about, href: "#about" },
     { label: t.nav.stories, href: "/success-stories", isRoute: true },
     { label: t.nav.pricing, href: "/pricing", isRoute: true },
+    { label: t.nav.blog, href: "/blog", isRoute: true },
+    { label: t.nav.docs, href: "/docs", isRoute: true },
     { label: t.nav.contact, href: "#contact" },
   ];
 
@@ -33,6 +35,8 @@ export function Navbar() {
     { label: t.nav.about, href: "/#about" },
     { label: t.nav.stories, href: "/success-stories", isRoute: true },
     { label: t.nav.pricing, href: "/pricing", isRoute: true },
+    { label: t.nav.blog, href: "/blog", isRoute: true },
+    { label: t.nav.docs, href: "/docs", isRoute: true },
     { label: t.nav.contact, href: "/#contact" },
   ];
 
