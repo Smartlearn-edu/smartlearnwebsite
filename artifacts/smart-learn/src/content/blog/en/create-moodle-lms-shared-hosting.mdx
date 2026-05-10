@@ -1,0 +1,187 @@
+---
+title: "How to Create an LMS in 10 Minutes Using Moodle on Shared Hosting"
+date: "2026-05-10"
+description: "Learn how to install Moodle LMS on shared hosting in minutes using Git and Composer — a step-by-step guide for educators and course creators."
+---
+
+# How to Create an LMS in 10 Minutes Using Moodle on Shared Hosting
+
+You've been paying $99 a month for a course platform that takes a 10% cut of every sale. Or maybe you're stuck on a platform that doesn't let you brand your own school, own your student data, or customize a single thing. Sound familiar?
+
+Most educators and small business owners don't realize there's a better way. You can run a full-featured learning management system — quizzes, certificates, student tracking, video lessons, the works — on hosting that costs less than a cup of coffee per month. No middlemen. No revenue cuts. No one else owns your school.
+
+That solution is **Moodle**: the world's most popular open-source LMS, trusted by universities, corporations, and solo educators in over 240 countries. The catch? Most tutorials make the installation look terrifying. It doesn't have to be.
+
+This guide walks you through setting up Moodle on shared hosting in about 10 minutes using Git and Composer — two tools your host already has installed. Even if those words are unfamiliar, we'll explain every step as we go.
+
+---
+
+## Shared Hosting vs. Other Options — What Makes Sense for You?
+
+Before touching a single command, pick the right foundation. Here's how the most popular hosting options stack up for running Moodle:
+
+| Hosting Provider | SSH Access | Starting Price/mo | Moodle-Friendly | Free SSL | Best For |
+|---|---|---|---|---|---|
+| **Hostinger** | ✅ Yes | ~$2.99 | ✅ Excellent | ✅ Yes | Beginners on a budget |
+| **SiteGround** | ✅ Yes | ~$3.99 | ✅ Excellent | ✅ Yes | Speed + support focus |
+| **Namecheap** | ✅ Yes | ~$1.98 | ✅ Good | ✅ Yes | Lowest entry cost |
+| **Cloudways** | ✅ Yes | ~$14.00 | ✅ Excellent | ✅ Yes | Scaling & performance |
+| **A2 Hosting** | ✅ Yes | ~$2.99 | ✅ Good | ✅ Yes | Developer-friendly |
+| **Bluehost** | ⚠️ Limited | ~$2.95 | ⚠️ Possible | ✅ Yes | WordPress users |
+| **Platform-as-a-Service (e.g. Teachable)** | ❌ No | ~$39.00 | ❌ N/A | ✅ Yes | Hands-off creators |
+
+> **Recommendation:** If you're starting fresh, **Hostinger** or **SiteGround** give you the best balance of price, SSH access, and one-click PHP configuration — all of which Moodle needs.
+
+---
+
+## What You'll Need Before You Start
+
+Think of this as your mise en place — everything prepped before the cooking begins:
+
+- A shared hosting account with **SSH access enabled** (check your hosting dashboard — it's usually a toggle)
+- A **domain name** pointed to your host
+- **PHP 8.1 or higher** enabled (set this in your hosting control panel under PHP settings)
+- A **MySQL database** created (most hosts let you do this in cPanel or hPanel in 2 clicks)
+- Your database name, username, and password noted down
+
+That's it. No server administration degree required.
+
+---
+
+## Step 1 — Download Moodle Using Git
+
+SSH into your server. Your hosting provider will give you the exact command — it looks something like `ssh username@yourdomain.com`. Once you're in, you'll see a command prompt. This is where the magic happens.
+
+Run this to download the latest stable version of Moodle:
+
+```bash
+git clone https://github.com/moodle/moodle.git
+cd moodle
+git checkout MOODLE_501_STABLE
+```
+
+**What's happening here?** `git clone` downloads the full Moodle source code from GitHub — the same code used by MIT and thousands of other institutions. `git checkout MOODLE_501_STABLE` pins you to version 5.0.1, the current stable release. You're not getting experimental code; you're getting the same version schools pay developers thousands to install.
+
+The download takes about 60–90 seconds depending on your server's connection speed.
+
+---
+
+## Step 2 — Point Your Domain to Moodle
+
+By default, your host serves files from a folder called `public_html` (or sometimes `www` or `wwwroot`). You need to tell it to serve Moodle instead.
+
+**Option A — Standard cPanel / hPanel hosts (Hostinger, SiteGround, Namecheap):**
+
+```bash
+cd ..
+mv public_html public_html_old && ln -s moodle/public public_html
+```
+
+This renames your old `public_html` folder (keeping it as a backup) and creates a symbolic link — think of it like a shortcut — pointing to Moodle's public folder. Your domain now serves Moodle.
+
+**Option B — Hosts using a `wwwroot` structure (Cloudways, A2 Hosting, some VPS setups):**
+
+```bash
+ln -s moodle/public /www/wwwroot/example.com
+```
+
+Replace `example.com` with your actual domain. Same concept — the shortcut just points to a different location.
+
+Not sure which one applies to you? Check your host's documentation or ask their support chat. Most respond within minutes.
+
+---
+
+## Step 3 — Install Moodle's Dependencies with Composer
+
+Moodle relies on a collection of code libraries to function — things that handle PDF generation, video embedding, and security. **Composer** is the tool that fetches and organizes all of them automatically.
+
+```bash
+cd /www/wwwroot/example.com/moodle
+composer install --no-dev --classmap-authoritative
+```
+
+**Plain English:** This tells Composer to install everything Moodle needs to run in production (the `--no-dev` flag skips tools only developers need, keeping things lean). The `--classmap-authoritative` flag speeds up Moodle by pre-building a map of all its files — important for performance on shared hosting.
+
+This step takes 1–3 minutes. You'll see a scrolling list of packages being downloaded. That's normal. Let it finish.
+
+---
+
+## Step 4 — Configure Your `.htaccess` File
+
+One more file to set up. Your `.htaccess` file tells the web server how to handle page requests — specifically, how to route visitors through Moodle's pages correctly.
+
+Create or open the `.htaccess` file in your Moodle public folder and add this:
+
+```apache
+# FallbackResource /r.php
+
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ r.php?path=$1 [L]
+```
+
+**What this does:** The `RewriteEngine On` line activates URL routing. The two `RewriteCond` lines say "only rewrite URLs that aren't pointing to a real file or folder." The `RewriteRule` then sends everything else through Moodle's router (`r.php`), which handles the rest. Without this, your course pages would return 404 errors.
+
+Most shared hosts (especially Apache-based ones like Hostinger and SiteGround) support `.htaccess` out of the box. If you're on Nginx, your host will have an equivalent configuration option.
+
+---
+
+## Step 5 — Run the Moodle Web Installer
+
+Open your browser and visit your domain. You'll see the **Moodle Installation Wizard** — a clean, step-by-step form that handles the rest:
+
+1. **Confirm paths** — Moodle will detect your installation directory automatically
+2. **Choose your database** — select MySQL and enter the credentials you noted earlier
+3. **Set your admin account** — pick a strong password; this is your school's master key
+4. **Name your site** — this is the name students will see on every page
+5. **Click Install** — Moodle runs its database setup, which takes about 60 seconds
+
+When it's done, you'll land on your Moodle dashboard. Your LMS is live.
+
+---
+
+## Step 6 — Create Your First Course
+
+From your admin dashboard, click **"Add a new course"** in the Site Administration panel. You'll set a course name, a short name (used in URLs), and an enrollment key if you want to password-protect it.
+
+From there, you can add video lessons, quizzes, assignments, discussion forums, and completion certificates — all from a drag-and-drop interface. No code needed from this point forward.
+
+**Pro tip:** Install the **Boost** or **Moove** theme from the Moodle plugin directory to give your school a modern, professional look in minutes. Both are free.
+
+---
+
+## Why Moodle Beats Paid Platforms for Most Educators
+
+The obvious win is cost — hosted Moodle on a $3/month plan versus $39–$299/month on Teachable or Thinkific. But the deeper win is **ownership**.
+
+With a SaaS platform, the company can change its pricing, shut down, or remove features any time. Your student data lives on their servers. Your courses are locked into their format. With Moodle on your own hosting, you own everything: the database, the files, the brand. If you ever want to move hosts, you take your whole school with you.
+
+Moodle also scales. It powers the LMS for Harvard, Microsoft, and Shell Oil — so your 200-student online cooking course isn't going to break it.
+
+---
+
+## FAQ
+
+**Is Moodle really free to use on shared hosting?**
+Yes, completely. Moodle's software is open-source and free forever. You only pay for hosting, which starts at under $3/month on providers like Hostinger or Namecheap. There are no per-student fees, no transaction cuts, and no premium tier required for core features.
+
+**Can shared hosting actually handle Moodle without crashing?**
+For most small-to-medium schools (under 500 concurrent users), shared hosting works well — especially with caching enabled. If you're running a large organization with thousands of active students at once, Cloudways or a managed VPS will serve you better.
+
+**What if I'm not technical enough to use SSH?**
+SSH sounds intimidating but it's just a text-based way to talk to your server — like texting your hosting account. Most hosts (Hostinger especially) have excellent beginner documentation and live chat support. The commands in this guide are copy-paste ready. If something breaks, their support teams can help in real time.
+
+**Is Moodle mobile-friendly for students?**
+Yes. Moodle's default themes are fully responsive, and there's a dedicated **Moodle Mobile app** for iOS and Android that students can use to access courses, submit assignments, and receive notifications — all without a browser.
+
+**Can I sell courses and take payments through Moodle?**
+Yes. Moodle has a built-in enrollment fee system, and plugins like **Moodle Commerce** or integrations with WooCommerce let you accept payments and manage subscriptions. You keep 100% of the revenue — no platform cut.
+
+---
+
+## Ready to Get Started?
+
+Moodle gives educators and business owners something rare: a professional-grade LMS that you fully own, at a price that doesn't punish you for growing. Ten minutes of setup today means you stop paying platform fees forever.
+
+Pick a host — **Hostinger** is the easiest starting point for beginners — create your database, run the four commands above, and your school is live before your next coffee gets cold. [Explore Moodle's plugin directory](https://moodle.org/plugins) to customize your school once you're up and running.
