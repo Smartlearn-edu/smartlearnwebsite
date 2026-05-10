@@ -1,4 +1,7 @@
 import { useRoute, Link } from "wouter";
+import { Navbar } from "@/components/Navbar";
+import { SocialLinks } from "@/components/SocialLinks";
+import { useT } from "@/i18n";
 
 const modules = import.meta.glob('../content/docs/*.mdx', { eager: true }) as Record<string, any>;
 
@@ -13,6 +16,8 @@ const sidebarLinks = Object.entries(modules).map(([path, module]) => {
 
 export default function DocsPost() {
   const [match, params] = useRoute("/docs/:slug");
+  const { t } = useT();
+  const font: React.CSSProperties = { fontFamily: "'Cairo', sans-serif" };
   
   if (!match || !params?.slug) return null;
 
@@ -21,9 +26,12 @@ export default function DocsPost() {
 
   if (!postModule) {
     return (
-      <div className="container mx-auto px-4 py-32 text-center">
-        <h1 className="text-3xl font-bold text-white mb-4">404 - Document Not Found</h1>
-        <p className="text-gray-400">The documentation you are looking for does not exist.</p>
+      <div className="min-h-screen flex flex-col" style={{ backgroundColor: "#07070f" }}>
+        <Navbar />
+        <div className="container mx-auto px-4 pt-48 pb-32 text-center flex-1">
+          <h1 className="text-3xl font-bold text-white mb-4">404 - Document Not Found</h1>
+          <p className="text-gray-400">The documentation you are looking for does not exist.</p>
+        </div>
       </div>
     );
   }
@@ -32,37 +40,50 @@ export default function DocsPost() {
   const frontmatter = postModule.frontmatter;
 
   return (
-    <div className="container mx-auto px-4 py-12 max-w-7xl flex flex-col md:flex-row gap-8">
-      {/* Sidebar */}
-      <aside className="md:w-64 shrink-0">
-        <div className="sticky top-24">
-          <h3 className="text-lg font-bold text-white mb-4 border-b border-white/10 pb-2">All Documentation</h3>
-          <ul className="space-y-2">
-            {sidebarLinks.map(link => (
-              <li key={link.slug}>
-                <Link href={`/docs/${link.slug}`}>
-                  <span className={`block cursor-pointer text-sm hover:text-primary transition-colors ${params.slug === link.slug ? 'text-primary font-bold' : 'text-gray-400'}`}>
-                    {link.title}
-                  </span>
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </aside>
+    <div className="min-h-screen" style={{ backgroundColor: "#07070f" }}>
+      <Navbar />
+      <div className="pt-28 pb-20 px-6">
+        <div className="container mx-auto max-w-7xl flex flex-col md:flex-row gap-8">
+          {/* Sidebar */}
+          <aside className="md:w-64 shrink-0">
+            <div className="sticky top-28">
+              <h3 className="text-lg font-bold text-white mb-4 border-b border-white/10 pb-2">All Documentation</h3>
+              <ul className="space-y-2">
+                {sidebarLinks.map(link => (
+                  <li key={link.slug}>
+                    <Link href={`/docs/${link.slug}`}>
+                      <span className={`block cursor-pointer text-sm hover:text-primary transition-colors ${params.slug === link.slug ? 'text-primary font-bold' : 'text-gray-400'}`}>
+                        {link.title}
+                      </span>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </aside>
 
-      {/* Main Content */}
-      <main className="flex-1 min-w-0">
-        {frontmatter && (
-          <div className="mb-10 pb-6 border-b border-white/10">
-            <h1 className="text-4xl font-bold mb-3 text-white">{frontmatter.title}</h1>
-            {frontmatter.description && <p className="text-lg text-gray-400">{frontmatter.description}</p>}
-          </div>
-        )}
-        <article className="prose prose-invert prose-lg max-w-none prose-headings:text-white prose-a:text-primary hover:prose-a:text-primary/80 prose-pre:bg-[#0d0d17] prose-pre:border prose-pre:border-white/10">
-          <PostComponent />
-        </article>
-      </main>
+          {/* Main Content */}
+          <main className="flex-1 min-w-0">
+            {frontmatter && (
+              <div className="mb-10 pb-6 border-b border-white/10">
+                <h1 className="text-4xl font-bold mb-3 text-white">{frontmatter.title}</h1>
+                {frontmatter.description && <p className="text-lg text-gray-400">{frontmatter.description}</p>}
+              </div>
+            )}
+            <article className="prose prose-invert prose-lg max-w-none prose-headings:text-white prose-a:text-primary hover:prose-a:text-primary/80 prose-pre:bg-[#0d0d17] prose-pre:border prose-pre:border-white/10">
+              <PostComponent />
+            </article>
+          </main>
+        </div>
+      </div>
+      <footer className="py-10 px-6 border-t border-white/[0.04]">
+        <div className="max-w-6xl mx-auto flex flex-col items-center gap-4">
+          <SocialLinks size="sm" />
+          <p className="text-sm text-slate-600" style={font}>
+            © {new Date().getFullYear()} {t.footer}
+          </p>
+        </div>
+      </footer>
     </div>
   );
 }
