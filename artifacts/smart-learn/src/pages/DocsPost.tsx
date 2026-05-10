@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { useRoute, Link } from "wouter";
 import { Navbar } from "@/components/Navbar";
 import { SocialLinks } from "@/components/SocialLinks";
@@ -18,6 +19,31 @@ export default function DocsPost() {
   const [match, params] = useRoute("/docs/:slug");
   const { t } = useT();
   const font: React.CSSProperties = { fontFamily: "'Cairo', sans-serif" };
+  const [headings, setHeadings] = useState<{id: string, text: string, level: number}[]>([]);
+  
+  useEffect(() => {
+    const article = document.querySelector('article');
+    if (!article) return;
+    
+    // Slight delay to ensure MDX has rendered
+    setTimeout(() => {
+      const headingElements = article.querySelectorAll('h2, h3');
+      const extractedHeadings: {id: string, text: string, level: number}[] = [];
+      
+      headingElements.forEach((el, index) => {
+        if (!el.id) {
+          el.id = (el.textContent || '').toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, '') || `heading-${index}`;
+        }
+        extractedHeadings.push({
+          id: el.id,
+          text: el.textContent || '',
+          level: el.tagName === 'H2' ? 2 : 3
+        });
+      });
+      
+      setHeadings(extractedHeadings);
+    }, 100);
+  }, [params?.slug]);
   
   if (!match || !params?.slug) return null;
 
@@ -43,9 +69,10 @@ export default function DocsPost() {
     <div className="min-h-screen" style={{ backgroundColor: "#07070f" }}>
       <Navbar />
       <div className="pt-28 pb-20 px-6">
-        <div className="container mx-auto max-w-7xl flex flex-col md:flex-row gap-8">
-          {/* Sidebar */}
-          <aside className="md:w-64 shrink-0">
+        <div className="container mx-auto max-w-7xl flex flex-col md:flex-row gap-8 lg:gap-12">
+          
+          {/* Left Sidebar (Navigation) */}
+          <aside className="md:w-60 lg:w-64 shrink-0 border-b md:border-b-0 border-white/10 pb-6 md:pb-0">
             <div className="sticky top-28">
               <h3 className="text-lg font-bold text-white mb-4 border-b border-white/10 pb-2">All Documentation</h3>
               <ul className="space-y-2">
@@ -74,6 +101,25 @@ export default function DocsPost() {
               <PostComponent />
             </article>
           </main>
+
+          {/* Right Sidebar (Table of Contents) */}
+          {headings.length > 0 && (
+            <aside className="hidden lg:block w-56 shrink-0">
+              <div className="sticky top-28">
+                <h3 className="text-sm font-bold text-white mb-4 uppercase tracking-wider">On this page</h3>
+                <ul className="space-y-3 border-l border-white/10 pl-4">
+                  {headings.map(h => (
+                    <li key={h.id} className={h.level === 3 ? "pl-4" : ""}>
+                      <a href={`#${h.id}`} className="text-sm text-gray-400 hover:text-primary transition-colors block leading-tight">
+                        {h.text}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </aside>
+          )}
+
         </div>
       </div>
       <footer className="py-10 px-6 border-t border-white/[0.04]">
