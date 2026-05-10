@@ -17,10 +17,7 @@ export function Navbar() {
   const [location] = useLocation();
   const { t, lang, isRTL, toggle } = useT();
 
-  const isServicePage =
-    location.startsWith("/services/") ||
-    location.startsWith("/success-stories") ||
-    location.startsWith("/pricing");
+  const isSubPage = location !== "/";
 
   const homeLinks = [
     { label: t.nav.home, href: "#home" },
@@ -39,7 +36,7 @@ export function Navbar() {
     { label: t.nav.contact, href: "/#contact" },
   ];
 
-  const navLinks = isServicePage ? serviceLinks : homeLinks;
+  const navLinks = isSubPage ? serviceLinks : homeLinks;
 
   useEffect(() => {
     const handler = () => setScrolled(window.scrollY > 20);
@@ -85,7 +82,7 @@ export function Navbar() {
     >
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
         <div className="flex items-center gap-4">
-          {isServicePage && (
+          {isSubPage && (
             <Link
               href="/"
               className="flex items-center gap-1.5 text-base text-slate-200 hover:text-white transition-colors"
@@ -95,7 +92,7 @@ export function Navbar() {
               {t.nav.backToHome}
             </Link>
           )}
-          <Link href={isServicePage ? "/" : "/#home"} className="flex items-center gap-2.5">
+          <Link href={isSubPage ? "/" : "/#home"} className="flex items-center gap-2.5">
             <LogoContent />
           </Link>
         </div>
@@ -132,7 +129,7 @@ export function Navbar() {
             {t.nav.dashboard}
           </a>
           <a
-            href={isServicePage ? "/#contact" : "#contact"}
+            href={isSubPage ? "/#contact" : "#contact"}
             className="text-sm px-4 py-2 rounded-lg font-semibold text-white transition-all duration-200 hover:opacity-90"
             style={{ background: "linear-gradient(135deg, #6900A3, #a855f7)", ...font }}
           >
@@ -169,7 +166,7 @@ export function Navbar() {
           className="md:hidden border-b border-white/[0.06] px-6 py-4 flex flex-col gap-4"
           style={{ backgroundColor: "rgba(13,13,26,0.97)", backdropFilter: "blur(20px)" }}
         >
-          {isServicePage && (
+          {isSubPage && (
             <Link
               href="/"
               className="text-sm text-purple-400 font-semibold flex items-center gap-1.5 py-1"
