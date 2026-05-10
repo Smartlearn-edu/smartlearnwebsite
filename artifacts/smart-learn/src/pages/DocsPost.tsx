@@ -49,9 +49,24 @@ export default function DocsPost() {
   
   if (!match || !params?.slug) return null;
 
-  const modulePath = `../content/docs/${currentLang}/${params.slug}.mdx`;
-  const postModule = modules[modulePath];
-  const sidebarLinks = allDocs.filter(d => d.lang === currentLang);
+  let modulePath = `../content/docs/${currentLang}/${params.slug}.mdx`;
+  let postModule = modules[modulePath];
+  
+  if (!postModule && currentLang !== 'en') {
+    // Fallback to English if translation is missing
+    modulePath = `../content/docs/en/${params.slug}.mdx`;
+    postModule = modules[modulePath];
+  }
+
+  // Filter docs for sidebar (current language, or English fallback)
+  const sidebarLinks = allDocs.filter(d => {
+    if (d.lang === currentLang) return true;
+    if (d.lang === 'en') {
+      const hasTranslation = allDocs.some(other => other.slug === d.slug && other.lang === currentLang);
+      return !hasTranslation;
+    }
+    return false;
+  });
 
   if (!postModule) {
     return (
