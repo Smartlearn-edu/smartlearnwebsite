@@ -19,7 +19,7 @@ const allDocs = Object.entries(modules).map(([path, module]) => {
 
 export default function DocsPost() {
   const [match, params] = useRoute("/docs/:slug");
-  const { t, lang: currentLang } = useT();
+  const { t, lang: currentLang, lok } = useT();
   const font: React.CSSProperties = { fontFamily: "'Cairo', sans-serif" };
   const [headings, setHeadings] = useState<{id: string, text: string, level: number}[]>([]);
   
@@ -45,7 +45,7 @@ export default function DocsPost() {
       
       setHeadings(extractedHeadings);
     }, 100);
-  }, [params?.slug]);
+  }, [params?.slug, currentLang, postModule]);
   
   if (!match || !params?.slug) return null;
 
@@ -89,23 +89,25 @@ export default function DocsPost() {
       <div className="pt-28 pb-20 px-6">
         <div className="container mx-auto max-w-7xl flex flex-col md:flex-row gap-8 lg:gap-12">
           
-          {/* Left Sidebar (Navigation) */}
-          <aside className="md:w-60 lg:w-64 shrink-0 border-b md:border-b-0 border-white/10 pb-6 md:pb-0">
-            <div className="sticky top-28">
-              <h3 className="text-lg font-bold text-white mb-4 border-b border-white/10 pb-2">All Documentation</h3>
-              <ul className="space-y-2">
-                {sidebarLinks.map(link => (
-                  <li key={link.slug}>
-                    <Link href={`/docs/${link.slug}`}>
-                      <span className={`block cursor-pointer text-sm hover:text-primary transition-colors ${params.slug === link.slug ? 'text-primary font-bold' : 'text-gray-400'}`}>
-                        {link.title}
-                      </span>
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </aside>
+          {/* Right Sidebar (Table of Contents) -> Renders on Left in English, Right in Arabic */}
+          {headings.length > 0 && (
+            <aside className="hidden lg:block w-56 shrink-0 border-b md:border-b-0 border-white/10 pb-6 md:pb-0">
+              <div className="sticky top-28">
+                <h3 className="text-sm font-bold text-white mb-4 uppercase tracking-wider">
+                  {lok({ en: "ON THIS PAGE", ar: "في هذه الصفحة" })}
+                </h3>
+                <ul className="space-y-3 border-l border-white/10 pl-4">
+                  {headings.map(h => (
+                    <li key={h.id} className={h.level === 3 ? "pl-4" : ""}>
+                      <a href={`#${h.id}`} className="text-sm text-gray-400 hover:text-primary transition-colors block leading-tight">
+                        {h.text}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </aside>
+          )}
 
           {/* Main Content */}
           <main className="flex-1 min-w-0">
@@ -120,23 +122,25 @@ export default function DocsPost() {
             </article>
           </main>
 
-          {/* Right Sidebar (Table of Contents) */}
-          {headings.length > 0 && (
-            <aside className="hidden lg:block w-56 shrink-0">
-              <div className="sticky top-28">
-                <h3 className="text-sm font-bold text-white mb-4 uppercase tracking-wider">On this page</h3>
-                <ul className="space-y-3 border-l border-white/10 pl-4">
-                  {headings.map(h => (
-                    <li key={h.id} className={h.level === 3 ? "pl-4" : ""}>
-                      <a href={`#${h.id}`} className="text-sm text-gray-400 hover:text-primary transition-colors block leading-tight">
-                        {h.text}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </aside>
-          )}
+          {/* Left Sidebar (Navigation) -> Renders on Right in English, Left in Arabic */}
+          <aside className="md:w-60 lg:w-64 shrink-0">
+            <div className="sticky top-28">
+              <h3 className="text-lg font-bold text-white mb-4 border-b border-white/10 pb-2">
+                {lok({ en: "All Documentation", ar: "جميع الوثائق" })}
+              </h3>
+              <ul className="space-y-2">
+                {sidebarLinks.map(link => (
+                  <li key={link.slug}>
+                    <Link href={`/docs/${link.slug}`}>
+                      <span className={`block cursor-pointer text-sm hover:text-primary transition-colors ${params.slug === link.slug ? 'text-primary font-bold' : 'text-gray-400'}`}>
+                        {link.title}
+                      </span>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </aside>
 
         </div>
       </div>
