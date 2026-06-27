@@ -21,6 +21,17 @@ export default function DocsPost() {
   const [match, params] = useRoute("/docs/:slug");
   const { t, lang: currentLang, lok } = useT();
   const font: React.CSSProperties = { fontFamily: "'Cairo', sans-serif" };
+  if (!match || !params?.slug) return null;
+
+  let modulePath = `../content/docs/${currentLang}/${params.slug}.mdx`;
+  let postModule = modules[modulePath];
+  
+  if (!postModule && currentLang !== 'en') {
+    // Fallback to English if translation is missing
+    modulePath = `../content/docs/en/${params.slug}.mdx`;
+    postModule = modules[modulePath];
+  }
+
   const [headings, setHeadings] = useState<{id: string, text: string, level: number}[]>([]);
   
   useEffect(() => {
@@ -46,17 +57,6 @@ export default function DocsPost() {
       setHeadings(extractedHeadings);
     }, 100);
   }, [params?.slug, currentLang, postModule]);
-  
-  if (!match || !params?.slug) return null;
-
-  let modulePath = `../content/docs/${currentLang}/${params.slug}.mdx`;
-  let postModule = modules[modulePath];
-  
-  if (!postModule && currentLang !== 'en') {
-    // Fallback to English if translation is missing
-    modulePath = `../content/docs/en/${params.slug}.mdx`;
-    postModule = modules[modulePath];
-  }
 
   // Filter docs for sidebar (current language, or English fallback)
   const sidebarLinks = allDocs.filter(d => {
