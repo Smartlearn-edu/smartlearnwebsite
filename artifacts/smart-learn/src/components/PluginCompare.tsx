@@ -356,7 +356,7 @@ export function ComparisonModal({
                           {ri === 3 && <PricingBadge plugin={p} txt={txt} />}
 
                           {ri === 4 && (
-                            p.placeholder ? (
+                            p.placeholder && (!features || features.length === 0) ? (
                               <span className="text-xs text-slate-600 italic" style={font}>{txt.placeholder}</span>
                             ) : (
                               <ul className="space-y-1.5">

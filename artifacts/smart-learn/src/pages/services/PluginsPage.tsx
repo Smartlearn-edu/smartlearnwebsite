@@ -556,7 +556,7 @@ function PluginCard({
       </div>
 
       <div className="flex-1 mb-5">
-        {plugin.placeholder ? (
+        {plugin.placeholder && (!features || features.length === 0) ? (
           <div className="flex items-center gap-2 px-3 py-2.5 rounded-xl text-xs"
             style={{ background: "rgba(105,0,163,0.08)", border: "1px solid rgba(168,85,247,0.15)", color: "#7c3aed", ...font }}>
             <span className="w-1.5 h-1.5 rounded-full bg-purple-500 animate-pulse inline-block flex-shrink-0" />
