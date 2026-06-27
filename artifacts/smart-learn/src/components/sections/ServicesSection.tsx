@@ -174,6 +174,7 @@ function ServiceCard({
 
         <Link
           href={`/services/${svc.slug}`}
+          aria-label={`${learnMore} about ${svc.title}`}
           className="inline-flex items-center justify-center gap-2 w-full py-2.5 rounded-xl font-bold text-sm text-white transition-all duration-200 hover:opacity-90"
           style={{
             background: "linear-gradient(135deg, #6900A3, #a855f7)",

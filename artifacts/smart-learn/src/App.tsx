@@ -20,18 +20,20 @@ function App({ ssrPath }: { ssrPath?: string }) {
     <HelmetProvider>
       <LanguageProvider>
         <Router base={base} ssrPath={ssrPath}>
-          <Switch>
-            <Route path="/admin" component={AdminPage} />
-            <Route path="/pricing" component={PricingPage} />
-            <Route path="/success-stories" component={SuccessStoriesPage} />
-            <Route path="/services/plugins/:pluginSlug" component={PluginDetailPage} />
-            <Route path="/services/:slug" component={ServiceRouter} />
-            <Route path="/blog" component={BlogList} />
-            <Route path="/blog/:slug" component={BlogPost} />
-            <Route path="/docs" component={DocsList} />
-            <Route path="/docs/:slug" component={DocsPost} />
-            <Route path="/" component={Home} />
-          </Switch>
+          <main>
+            <Switch>
+              <Route path="/admin" component={AdminPage} />
+              <Route path="/pricing" component={PricingPage} />
+              <Route path="/success-stories" component={SuccessStoriesPage} />
+              <Route path="/services/plugins/:pluginSlug" component={PluginDetailPage} />
+              <Route path="/services/:slug" component={ServiceRouter} />
+              <Route path="/blog" component={BlogList} />
+              <Route path="/blog/:slug" component={BlogPost} />
+              <Route path="/docs" component={DocsList} />
+              <Route path="/docs/:slug" component={DocsPost} />
+              <Route path="/" component={Home} />
+            </Switch>
+          </main>
         </Router>
         <WhatsAppButton />
       </LanguageProvider>

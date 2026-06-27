@@ -3,26 +3,33 @@
 > Expert Moodle & AI Automation for Education
 
 Smart Learn is founded by Mohammad Nabil, a top-rated freelancer and LMS architect bridging the gap between online academies and cutting-edge AI technology. Since 2020, Mohammad has been building and scaling Moodle platforms for institutions worldwide — from plugin development and migrations to full AI integration and n8n automation.
+[Visit our Home Page](https://home.smartlearn.education/)
 
 ## Core Services
 
 ### 1. Moodle Installation, Migration & Maintenance
 Full lifecycle Moodle management: fresh installations, version upgrades, server migrations, performance tuning, and ongoing maintenance. Everything from initial setup to disaster recovery so platforms stay online and fast.
+[Learn more about Moodle Services](https://home.smartlearn.education/services/moodle-core)
 
 ### 2. Plugin Development
 Custom Moodle plugin development tailored to exact requirements. With 4 free plugins published on Moodle.org and 10+ premium plugins, building activity modules, blocks, local plugins, themes, and custom integrations.
+[Learn more about Plugin Development](https://home.smartlearn.education/services/plugins)
 
 ### 3. AI Integration for Moodle
 Embed AI directly into the Moodle platform: RAG-powered chatbots for every course, Video-to-Text pipelines so students can query lecture content, AI-assisted grading, and LLM-based admin tools that make teaching smarter.
+[Learn more about AI Integration](https://home.smartlearn.education/services/ai)
 
 ### 4. n8n Automation for Moodle
 End-to-end automation using n8n and the Moodle REST API: automated grading workflows, enrollment triggers, notification pipelines, and full RAG system builds. Eliminate repetitive admin work for good.
+[Learn more about n8n Automation](https://home.smartlearn.education/services/n8n)
 
 ### 5. Training & Technical Support
 Practical training programs for Moodle administrators and teachers at online academies, schools, and course platforms. Ongoing technical support, documentation, troubleshooting, and remote assistance.
+[Learn more about Training](https://home.smartlearn.education/services/training)
 
 ### 6. Branded Moodle Mobile App
 Your Moodle platform in your students' pockets — a fully branded Android or iOS app with your logo, colors, and pre-configured login. Learners download your app and sign in directly to your LMS.
+[Learn more about Mobile App](https://home.smartlearn.education/services/mobile-app)
 
 ## Fast Facts
 *   **Experience:** 5+ Years

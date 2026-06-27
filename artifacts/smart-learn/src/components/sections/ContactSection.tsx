@@ -281,6 +281,7 @@ export function ContactSection() {
                         {t.contact.serviceLabel}
                       </label>
                       <select
+                        aria-label={t.contact.serviceLabel}
                         value={fields.service}
                         onChange={(e) => setFields({ ...fields, service: e.target.value })}
                         className="w-full rounded-xl px-4 py-3 text-sm text-white transition-all duration-200"
@@ -340,6 +341,7 @@ export function ContactSection() {
                         {t.contact.serviceLabel}
                       </label>
                       <select
+                        aria-label={t.contact.serviceLabel}
                         value={fields.service}
                         onChange={(e) => setFields({ ...fields, service: e.target.value })}
                         className="w-full rounded-xl px-4 py-3 text-sm text-white transition-all duration-200"
