@@ -1,0 +1,65 @@
+---
+title: "Gap Close Documentation"
+description: "A smart remedial quiz activity for Moodle that helps students identify and close knowledge gaps."
+---
+
+**Gap Close** (`mod_gapclose`) is a Moodle activity plugin designed to help students identify and close knowledge gaps. Instead of manually hunting through past quiz results, this plugin automatically scans all quizzes in the course, finds every question the student got wrong in their latest attempt, and assembles them into one targeted review session — powered by Moodle's native Question Engine.
+
+## Features
+
+- **Automatic Gap Detection**: Scans all visible quizzes and finds incorrectly answered questions from the student's latest finished attempt.
+- **Seamless Question Engine Integration**: Uses `question_engine` with `interactive` behaviour for immediate feedback.
+- **Resumable Sessions**: Attempts are saved and can be resumed; students can also restart to re-scan for new gaps.
+- **Smart Filtering**: Skips hidden quizzes, quizzes with no finished attempts, and questions that were removed from a quiz after the attempt.
+- **No Gradebook Overhead**: Purely a learning tool with no grade impact.
+- **Role-Aware**: Teachers/managers add the activity; students interact with it.
+
+## Database Tables
+
+- **`mdl_gapclose`**: Stores each activity instance (name, intro, timestamps).
+- **`mdl_gapclose_attempts`**: Tracks student sessions; links to `question_usages` via `uniqueid`.
+
+## Installation
+
+1. Download or clone the repository into your Moodle `mod/` directory:
+   ```bash
+   git clone https://github.com/Smartlearn-edu/moodle_mod_gapcloser.git /path/to/moodle/mod/gapclose
+   ```
+   > **Note:** The folder **must** be named `gapclose` (not `mod_gapclose`).
+
+2. Log in to your Moodle site as an administrator.
+3. Navigate to **Site Administration → Notifications** and complete the plugin installation.
+4. The plugin is now available as an activity in any course.
+
+## Usage
+
+### For Teachers / Admins
+
+1. Go to any course and turn on **Edit mode**.
+2. Click **Add an activity or resource** and select **Gap Close**.
+3. Give the activity a name and optional description, then save.
+
+### For Students
+
+1. Open the **Gap Close** activity in a course.
+2. Click **Start Review Session** — the plugin will automatically gather all questions you answered incorrectly in the course's quizzes.
+3. If you have no incorrect answers, you'll see "Great job! No incorrect answers to review."
+4. Answer the questions with live feedback.
+5. Click **Restart** at any time to re-scan for fresh gaps (e.g., after taking new quizzes).
+
+## Question Selection Logic
+
+The plugin applies the following rules when building a review session:
+
+- **Visible quizzes only**: Hidden quizzes are excluded.
+- **Latest finished attempt**: Only the most recent completed attempt per quiz is considered.
+- **Score threshold**: Questions where the fraction is less than 0.9999 (effectively &lt; 100%) are included.
+- **NULL handling**: NULL fractions are treated as 0 (wrong).
+- **Current quiz structure**: Questions removed from the quiz after the attempt are excluded.
+- **Hidden question bank items**: Excluded.
+
+## Requirements
+
+- **Moodle**: 4.0 or later (uses `question_references` & `question_versions` tables).
+- **PHP**: 7.4 or higher.
+- **Plugin Type**: Activity module (`mod`).
