@@ -1,0 +1,42 @@
+---
+title: "HTML Export Grade Report"
+description: "Export Moodle student grades as beautifully styled, Word-compatible HTML files instantly."
+---
+
+The **HTML Export Grade Report** plugin (`gradereport_htmlexport`) empowers teachers to effortlessly export student grades as Word-compatible HTML files. By retaining the hierarchical grade display—grouped by categories, items, and users—the exported reports mirror the built-in Moodle gradebook structure. The plugin intelligently respects grade visibility, hidden items, and custom grade display settings.
+
+## Key Features
+
+- **Individual Export**: Generate detailed, standalone HTML grade reports for individual students.
+- **Bulk Export**: Download all students' grades simultaneously in a convenient ZIP archive.
+- **Hierarchical Structure**: Accurately reflects grade groupings, categories, and totals.
+- **Visual Customization**: Offers an extensive admin settings page with **18+ custom color options** and themes (including modern purple gradient styling).
+- **Site Branding**: Automatically integrates your Moodle site's logo directly into the reports.
+- **Accessibility & RTL**: Full RTL (Right-to-Left) language support and cross-browser compatibility.
+- **Print-Ready Design**: Features specially tailored CSS for clean printing and Word compatibility.
+- **Privacy Focused**: Seamlessly integrated Privacy API (GDPR compliance) ensuring secure data handling.
+
+## Installation
+
+### Standard Installation
+
+1. **Download** the plugin ZIP file.
+2. **Extract** the contents into the following path within your Moodle installation:
+   ```
+   /path/to/moodle/grade/report/htmlexport/
+   ```
+3. **Upgrade**: Visit **Site Administration > Notifications** in your Moodle site to complete the installation and populate the database tables.
+4. **Configure**: Navigate to **Site Administration > Plugins > Grade Reports > HTML Export** to customize your color themes, logo integration, and other settings.
+
+## Permissions & Capabilities
+
+The following capabilities are provided by this plugin to govern access and visibility:
+
+- `gradereport/htmlexport:view`
+  - **Description**: View and use the HTML export functionality.
+  - **Default Roles**: Teachers, Editing Teachers, Managers, Students.
+
+## Privacy
+
+**This plugin does not store any personal data.** 
+It strictly provides an export interface for grade data already managed by Moodle's core systems. Exported HTML files are generated on-the-fly and are never persistently stored on the server.
