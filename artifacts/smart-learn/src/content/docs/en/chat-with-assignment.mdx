@@ -1,0 +1,49 @@
+---
+title: "Chat with Assignment AI"
+description: "Integrates an intelligent, personalized AI tutor directly into the assignment grading interface."
+---
+
+**Chat with Assignment AI** (`local_chatwithassignment`) is an innovative Moodle local plugin that dramatically transforms how students engage with assignment feedback. By leveraging the **Moodle Core AI Subsystem**, it integrates an intelligent, personalized AI tutor directly into the assignment grading interface.
+
+Instead of passively reading feedback (or ignoring it completely), students can have a dynamic conversation about their grade, rubric scores, and teacher comments in real-time.
+
+## Key Features
+
+- **Interactive Grade Discussions:** Students can ask specific questions about their submission, feedback, or rubric criteria via a modern chat interface.
+- **Intelligent Context Engine:** Sends precise grading data to the AI (Assignment details, Student grade, Rubric criteria, Teacher responses, and Submission content).
+- **Adjustable Context Levels:** Teachers or admins can control exactly what data is shared with the AI (Levels 1 to 5), balancing detail with token/API cost.
+- **Cost-Saving Settings:** Option to send assignment context only on the **first message**, significantly reducing AI API costs for follow-up questions.
+- **Custom Prompt Instructions:** Teachers can guide the AI's persona (e.g., "Act as a constructive tutor" or "Encourage reflection").
+- **Privacy & GDPR Compliant:** Fully implements Moodle's privacy API. Students can clearly see and clear their chat history anytime.
+
+## How It Works (The 5 Context Levels)
+
+Administrators and teachers can choose from 5 levels of context sharing to determine how much information the AI accesses:
+
+| Level | Name | What the AI Analyzes | Cost Impact |
+|:---:|:---|:---|:---|
+| **1** | **None** | Only the student's question | Very Low |
+| **2** | **Minimal** | Final assignment grade | Low |
+| **3** | **Summary** | Grade + Rubric criterion scores | Medium |
+| **4** | **Standard** | Full rubric details + Teacher feedback & comments | High |
+| **5** | **Full** | Everything above **+** Student's Online Text submission | Highest |
+
+## Usage Options
+
+### For Teachers
+On any Moodle assignment, access the **AI Chat Settings** area to:
+- Enable/Disable the AI Chat for that specific assignment.
+- Select the Context Level to share.
+- Specify custom AI Instructions (e.g., *"Focus on helping the student improve their grammar without giving them the direct answer."*).
+
+### For Students
+Once enabled and after the assignment is graded, a new **"Ask AI About My Grade"** button appears. Clicking it opens a beautiful, modern chat pane where they can immediately ask:
+- *"Why did I lose points on the grammar section?"*
+- *"Can you explain the teacher's comment about 'weak conclusion'?"*
+- *"How can I improve this for the next assignment?"*
+
+## Privacy & Data
+This plugin adheres to the Moodle GDPR framework. 
+Student conversation histories are securely stored with options for:
+- One-click clear chat history by the student.
+- Full portability and deletion under Moodle Privacy data requests.
