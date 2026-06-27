@@ -1,0 +1,155 @@
+---
+title: "Smart Dashboard Documentation"
+description: "A powerful, all-in-one analytics dashboard for Moodle."
+---
+
+A powerful, all-in-one analytics dashboard for Moodle.
+Built for **teachers**, **managers**, and **admins** — with a beautiful dark-mode interface.
+
+## Features at a Glance
+
+### Course Overview & Banner
+- Course cards with student counts & custom images
+- Admin category browser with enrollment statistics
+- Personalized student welcome banner with shortcut icons grid (up to 10 customizable links)
+
+### Student Progress & Grades
+- Cross-course progress and completion tracking
+- Detailed per-student activity completion drill-down
+- Filterable student gradebooks list
+- Exportable CSV datasets
+
+### Grading & Agenda
+- Pending grading queues across all teaching courses
+- Homework/assignments breakdown with due dates
+- **Today's Agenda (Daily Plan)**: Syncs student task schedule dynamically (integrates with adaptive study plans)
+
+### System Analytics
+- System-wide enrollment statistics
+- Category-level breakdown graphs
+- Student-to-teacher ratio visualizations
+- Exportable CSV records
+
+### At-Risk Student Alert (Risk Tracking)
+- Modular risk assessment via `smartdashboardrule` subplugins
+- Track student engagement metrics (login recency, completion, grades, overdue status, adaptive plans)
+- Integrates with n8n webhooks for instant external alerts
+
+### Magic Reports
+- Custom reporting wizard for admins
+- Generate advanced SQL-based reports and query visualizers
+- Save, load, and delete custom insights
+
+### Payment Analytics
+- Actual vs. estimated revenue tracking
+- Per-category revenue charts
+- Time-range filters & currency toggles
+- Exportable CSV records
+
+### Settings & Configuration
+- Custom shortcut icons configuration (name, class, URL)
+- Payment calculation mode settings
+- n8n webhook settings (URL & token) for risk notifications
+
+### Security & Privacy
+- Fully compliant with Moodle's **External Services API**
+- Implements Moodle **Privacy API** core standards
+- Secure parameter validation and strict capability checks
+
+### Internationalization
+- Available out-of-the-box in **English**, **Spanish**, and **Arabic**
+- Full `get_string()` integration for easy localization
+- RTL (Right-to-Left) language layout support
+
+---
+
+## Installation
+
+### Option 1 — Download ZIP
+1. Download the latest release ZIP from the releases page.
+2. In Moodle, go to **Site Administration → Plugins → Install plugins**
+3. Upload the ZIP file and follow the prompts.
+
+### Option 2 — Git Clone
+If you have access to the server terminal, navigate to your Moodle installation:
+
+```bash
+cd /path/to/moodle/local
+git clone https://github.com/Smartlearn-edu/moodle_local_smartdashboard.git smartdashboard
+```
+Then visit **Site Administration → Notifications** to complete the install.
+
+> **Important:** The folder inside `/local/` must be named **`smartdashboard`**.
+
+---
+
+## Usage
+
+After installation, you can navigate to the Smart Dashboard via:
+
+```
+https://your-site.com/local/smartdashboard/
+```
+
+### Role Access Breakdown
+
+| Role | What you see |
+|---|---|
+| **Student** | Welcome banner, customizable shortcuts grid, and daily plan/agenda |
+| **Teacher** | Course overview, student progress & grades, grading queue, risk analysis, and daily plan |
+| **Manager** | All of the above + category analytics, system stats |
+| **Admin** | Full access including payment analytics, settings config, and Magic Reports |
+
+### Adding Moodle Blocks to the Dashboard
+
+By default, some Moodle blocks restrict themselves only to course pages or the standard Moodle dashboard. To make a block available to be added to the Smart Dashboard, you need to add the dashboard's specific page type (`local-smartdashboard-*`) to the block's allowed formats.
+
+**Example: Modifying a block's code**
+1. Open the block's main PHP file: `blocks/<blockname>/block_<blockname>.php`
+2. Locate the `applicable_formats()` function.
+3. Add `'local-smartdashboard-*' => true,` to the returned array.
+
+```php
+public function applicable_formats() {
+    return [
+        'course-view'            => true,
+        'site'                   => true,
+        'my'                     => true,
+        'local-smartdashboard-*' => true, // <-- Add this line
+    ];
+}
+```
+> **Note:** Make sure to **Purge all caches** (*Site administration → Development → Purge caches*) after saving the file to see the block in the "Add a block" menu!
+
+---
+
+## Requirements
+
+| Requirement | Version |
+|---|---|
+| Moodle | 4.0 or later |
+| PHP | 7.4 or later |
+| Dependencies | None |
+
+---
+
+## API Reference
+
+All functions are securely exposed via Moodle's **External Services API** (`local_smartdashboard_webservice`):
+
+- `local_smartdashboard_get_cross_course_progress` - Student progress data across courses
+- `local_smartdashboard_get_student_detailed_progress` - Detailed activity completion for one student
+- `local_smartdashboard_get_grading_overview` - Assignments needing grading
+- `local_smartdashboard_get_system_analytics` - System-wide enrollment analytics for admin/managers
+- `local_smartdashboard_get_payment_analytics` - Revenue and payment analytics
+- `local_smartdashboard_save_dashboard_settings` - Save dashboard setting preferences
+- `local_smartdashboard_get_dashboard_settings` - Retrieve current dashboard configurations
+- `local_smartdashboard_get_cross_course_grades` - Student grades data across courses
+- `local_smartdashboard_get_magic_insight` - Get AI-generated custom reports insight and SQL query
+- `local_smartdashboard_save_magic_report` - Save a custom magic report configuration
+- `local_smartdashboard_get_saved_reports` - List saved magic reports
+- `local_smartdashboard_delete_magic_report` - Delete a saved magic report configuration
+- `local_smartdashboard_get_programs` - Get list of programs and associated course IDs
+- `local_smartdashboard_dismiss_announcement` - Dismiss a dashboard news announcement
+- `local_smartdashboard_get_daily_plan` - Get the student's daily study plan (adaptive plan integration)
+- `local_smartdashboard_get_risk_data` - Get at-risk student engagement tracking data
