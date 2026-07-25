@@ -422,6 +422,14 @@ export function PluginDetailPage() {
                     </p>
                   );
                 }
+                const imgMatch = block.match(/^!\[(.*?)\]\((.*?)\)$/);
+                if (imgMatch) {
+                  return (
+                    <div key={i} className="my-6">
+                      <img src={imgMatch[2]} alt={imgMatch[1]} className="w-full h-auto rounded-2xl border border-white/[0.08] shadow-xl shadow-black/40" />
+                    </div>
+                  );
+                }
                 if (block.startsWith("> ")) {
                   return (
                     <div key={i} className="p-5 my-2 rounded-2xl border border-purple-500/30 bg-gradient-to-br from-purple-900/20 to-purple-800/5 text-slate-200 text-sm md:text-base leading-relaxed flex items-start gap-4 shadow-lg shadow-purple-900/10">
