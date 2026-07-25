@@ -1,0 +1,13 @@
+cd /www/wwwroot/home.smartlearn.education
+git pull origin main
+chmod +x deploy.sh
+./deploy.sh
+
+
+cd /www/wwwroot/home.smartlearn.education
+clear
+git stash
+git pull
+chmod +x deploy.sh
+./deploy.sh
+git stash pop
