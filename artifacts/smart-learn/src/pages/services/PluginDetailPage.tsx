@@ -5,7 +5,7 @@ import { Helmet } from "react-helmet-async";
 import {
   Check, ArrowLeft, ArrowRight, Download, MessageCircle,ShoppingCart,
   Tag, Cpu, Wrench, ExternalLink, ImageIcon,
-  ChevronLeft, ChevronRight,
+  ChevronLeft, ChevronRight, Sparkles
 } from "lucide-react";
 import { Navbar } from "@/components/Navbar";
 import { usePlugins } from "@/hooks/usePlugins";
@@ -420,6 +420,16 @@ export function PluginDetailPage() {
                     <p key={i} className="text-white font-bold text-sm" style={font}>
                       {block.replace(/\*\*/g, "")}
                     </p>
+                  );
+                }
+                if (block.startsWith("> ")) {
+                  return (
+                    <div key={i} className="p-5 my-2 rounded-2xl border border-purple-500/30 bg-gradient-to-br from-purple-900/20 to-purple-800/5 text-slate-200 text-sm md:text-base leading-relaxed flex items-start gap-4 shadow-lg shadow-purple-900/10">
+                      <div className="mt-0.5 flex-shrink-0 w-8 h-8 rounded-full bg-purple-600/30 flex items-center justify-center">
+                        <Sparkles size={14} className="text-purple-300" />
+                      </div>
+                      <div dangerouslySetInnerHTML={{ __html: block.replace(/^>\s*/, "").replace(/\n>\s*/g, "<br/>").replace(/\*\*(.+?)\*\*/g, "<strong class='text-white font-bold'>$1</strong>") }} />
+                    </div>
                   );
                 }
                 if (block.startsWith("- ") || block.includes("\n- ")) {
