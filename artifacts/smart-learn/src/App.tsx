@@ -1,4 +1,5 @@
-import { Router, Route, Switch } from "wouter";
+import { useEffect } from "react";
+import { Router, Route, Switch, useLocation } from "wouter";
 import { HelmetProvider } from "react-helmet-async";
 import { LanguageProvider } from "@/i18n";
 import Home from "@/pages/Home";
@@ -15,11 +16,20 @@ import DocsPost from "@/pages/DocsPost";
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 
+function ScrollToTop() {
+  const [pathname] = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+  return null;
+}
+
 function App({ ssrPath }: { ssrPath?: string }) {
   return (
     <HelmetProvider>
       <LanguageProvider>
         <Router base={base} ssrPath={ssrPath}>
+          <ScrollToTop />
           <main>
             <Switch>
               <Route path="/admin" component={AdminPage} />
