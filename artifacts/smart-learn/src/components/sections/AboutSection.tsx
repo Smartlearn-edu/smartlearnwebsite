@@ -1,9 +1,12 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { Award, ExternalLink } from "lucide-react";
 import { useT } from "@/i18n";
 
 export function AboutSection() {
   const { t } = useT();
+  const [photoError, setPhotoError] = useState(false);
+  const photoUrl = "/img/mohammad-nabil.jpg";
 
   return (
     <section id="about" className="py-24 px-6">
@@ -53,10 +56,19 @@ export function AboutSection() {
             >
               <div className="flex items-center gap-4 mb-6">
                 <div
-                  className="w-16 h-16 rounded-2xl flex items-center justify-center text-xl font-black text-white flex-shrink-0"
+                  className="w-16 h-16 rounded-2xl flex items-center justify-center text-xl font-black text-white flex-shrink-0 overflow-hidden relative"
                   style={{ background: "linear-gradient(135deg, #6900A3, #c084fc)" }}
                 >
-                  MN
+                  {!photoError ? (
+                    <img
+                      src={photoUrl}
+                      alt={t.about.name}
+                      className="w-full h-full object-cover"
+                      onError={() => setPhotoError(true)}
+                    />
+                  ) : (
+                    "MN"
+                  )}
                 </div>
                 <div>
                   <h3
@@ -179,20 +191,46 @@ export function AboutSection() {
               }}
             >
               <div
-                className="w-32 h-32 rounded-full flex items-center justify-center text-4xl font-black text-white mb-5 shadow-lg"
+                className="w-36 h-36 rounded-full flex items-center justify-center text-4xl font-black text-white mb-5 shadow-lg overflow-hidden border-2 border-purple-400/30"
                 style={{
                   background: "linear-gradient(135deg, #6900A3 0%, #a855f7 60%, #c084fc 100%)",
                   boxShadow: "0 0 40px rgba(168,85,247,0.35)",
                 }}
               >
-                MN
+                {!photoError ? (
+                  <img
+                    src={photoUrl}
+                    alt={t.about.name}
+                    className="w-full h-full object-cover"
+                    onError={() => setPhotoError(true)}
+                  />
+                ) : (
+                  "MN"
+                )}
               </div>
-              <p
-                className="text-slate-500 text-sm"
-                style={{ fontFamily: "'Cairo', sans-serif" }}
-              >
-                {t.about.photoPlaceholder}
-              </p>
+              {photoError ? (
+                <p
+                  className="text-slate-500 text-sm"
+                  style={{ fontFamily: "'Cairo', sans-serif" }}
+                >
+                  {t.about.photoPlaceholder}
+                </p>
+              ) : (
+                <div className="text-center">
+                  <h4
+                    className="text-lg font-bold text-white mb-1"
+                    style={{ fontFamily: "'Cairo', sans-serif" }}
+                  >
+                    {t.about.name}
+                  </h4>
+                  <p
+                    className="text-xs text-purple-300"
+                    style={{ fontFamily: "'Cairo', sans-serif" }}
+                  >
+                    {t.about.role}
+                  </p>
+                </div>
+              )}
             </div>
           </motion.div>
         </div>
