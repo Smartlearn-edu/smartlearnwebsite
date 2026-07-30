@@ -1,18 +1,15 @@
-import { useState } from "react";
 import { motion } from "framer-motion";
-import { Server, Puzzle, Bot, Workflow, GraduationCap, Smartphone, Play } from "lucide-react";
+import { Server, Puzzle, Bot, Workflow, GraduationCap, Smartphone } from "lucide-react";
 import { Link } from "wouter";
 import { useT } from "@/i18n";
 import { DirectionalArrow } from "@/components/DirectionalArrow";
-import { VideoDemoModal } from "@/components/VideoDemoModal";
 
 const slugs = ["moodle-core", "plugins", "ai", "n8n", "training", "mobile-app"] as const;
 const icons = [Server, Puzzle, Bot, Workflow, GraduationCap, Smartphone];
 const highlights = [false, true, false, false, false, false];
 
 export function ServicesSection() {
-  const { lang, t } = useT();
-  const [isVideoDemoOpen, setIsVideoDemoOpen] = useState(false);
+  const { t } = useT();
 
   const services = t.services.items.map((item, i) => ({
     ...item,
@@ -57,21 +54,6 @@ export function ServicesSection() {
           >
             {t.services.subtitle}
           </p>
-
-          <div className="flex justify-center">
-            <button
-              onClick={() => setIsVideoDemoOpen(true)}
-              className="inline-flex items-center gap-2.5 px-6 py-3 rounded-xl font-bold text-sm text-white transition-all duration-200 hover:scale-105"
-              style={{
-                background: "linear-gradient(135deg, #6900A3, #a855f7)",
-                boxShadow: "0 0 30px rgba(168,85,247,0.35)",
-                fontFamily: "'Cairo', sans-serif",
-              }}
-            >
-              <Play size={16} className="text-white fill-white animate-pulse" />
-              <span>{lang === "ar" ? "▶ شاهد فيديو 2 دقيقة عن خبراتي وإضافاتي" : "▶ Watch 2-Min Plugins & Experience Demo"}</span>
-            </button>
-          </div>
         </motion.div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -79,11 +61,6 @@ export function ServicesSection() {
             <ServiceCard key={svc.slug} svc={svc} i={i} learnMore={t.services.learnMore} featured={t.services.featured} />
           ))}
         </div>
-
-        <VideoDemoModal
-          isOpen={isVideoDemoOpen}
-          onClose={() => setIsVideoDemoOpen(false)}
-        />
       </div>
     </section>
   );
