@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Smart Learn — Plugins & Experience 1080p Video Demo</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Inter:wght@400;600;700;800;900&display=swap');
+    
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      width: 1920px;
+      height: 1080px;
+      background: #050508;
+      color: #ffffff;
+      font-family: 'Cairo', 'Inter', sans-serif;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* Ambient animated background glows */
+    .bg-glow-1 {
+      position: absolute;
+      width: 800px;
+      height: 800px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(168, 85, 247, 0.22) 0%, transparent 70%);
+      top: -200px;
+      left: -150px;
+      z-index: 0;
+    }
+    .bg-glow-2 {
+      position: absolute;
+      width: 900px;
+      height: 900px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(105, 0, 163, 0.28) 0%, transparent 70%);
+      bottom: -300px;
+      right: -200px;
+      z-index: 0;
+    }
+
+    /* Top Header Bar */
+    .header {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 1920px;
+      height: 100px;
+      padding: 0 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      background: rgba(255, 255, 255, 0.02);
+      backdrop-filter: blur(20px);
+      z-index: 20;
+    }
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .badge-mn-small {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, #6900A3, #a855f7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      font-size: 22px;
+      color: #fff;
+      box-shadow: 0 0 20px rgba(168, 85, 247, 0.5);
+    }
+    .brand-title {
+      font-size: 26px;
+      font-weight: 800;
+      color: #fff;
+      letter-spacing: 0.5px;
+    }
+    .brand-sub {
+      color: #a855f7;
+      font-weight: 700;
+    }
+    .time-badge {
+      padding: 10px 24px;
+      border-radius: 999px;
+      background: rgba(168, 85, 247, 0.15);
+      border: 1px solid rgba(168, 85, 247, 0.4);
+      color: #c084fc;
+      font-size: 20px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    /* Main Stage */
+    .stage {
+      position: absolute;
+      top: 100px;
+      left: 0;
+      width: 1920px;
+      height: 900px;
+      padding: 60px 100px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+    }
+
+    .scene {
+      position: absolute;
+      width: 1720px;
+      height: 780px;
+      display: none;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .scene.active {
+      display: flex;
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Typography & Helpers */
+    .tagline-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 20px;
+      border-radius: 999px;
+      background: rgba(168, 85, 247, 0.2);
+      border: 1px solid rgba(168, 85, 247, 0.45);
+      color: #d8b4fe;
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 24px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+    }
+    .h1 {
+      font-size: 64px;
+      font-weight: 900;
+      line-height: 1.15;
+      margin-bottom: 24px;
+    }
+    .gradient-text {
+      background: linear-gradient(135deg, #c084fc 0%, #a855f7 50%, #6900A3 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .gradient-emerald {
+      background: linear-gradient(135deg, #34d399 0%, #10b981 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .gradient-amber {
+      background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .desc {
+      font-size: 26px;
+      color: #cbd5e1;
+      line-height: 1.6;
+      max-width: 800px;
+      margin-bottom: 40px;
+    }
+
+    /* Scene 1: Who is MN */
+    .scene-1-container {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+    .badge-mn-large {
+      width: 150px;
+      height: 150px;
+      border-radius: 36px;
+      background: linear-gradient(135deg, #6900A3 0%, #a855f7 60%, #c084fc 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 72px;
+      font-weight: 900;
+      color: #fff;
+      box-shadow: 0 0 80px rgba(168, 85, 247, 0.6);
+      margin-bottom: 36px;
+      position: relative;
+    }
+    .badge-tag {
+      position: absolute;
+      bottom: -10px;
+      right: -10px;
+      background: #4f46e5;
+      color: #fff;
+      font-size: 16px;
+      font-weight: 800;
+      padding: 6px 16px;
+      border-radius: 999px;
+      border: 2px solid rgba(255,255,255,0.2);
+    }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      width: 100%;
+      max-width: 1100px;
+    }
+    .stat-card {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 28px;
+      padding: 36px 24px;
+      text-align: center;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    }
+    .stat-num {
+      font-size: 56px;
+      font-weight: 900;
+      margin-bottom: 8px;
+    }
+    .stat-label {
+      font-size: 20px;
+      color: #94a3b8;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* Two-column layout for Scenes 2, 3, 4, 5 */
+    .split-scene {
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .feature-list {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .feature-item {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      font-size: 22px;
+      color: #e2e8f0;
+      font-weight: 600;
+    }
+    .checkmark {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: rgba(168, 85, 247, 0.2);
+      border: 1px solid rgba(168, 85, 247, 0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #c084fc;
+      font-weight: 900;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+
+    /* Cards & UI Mockups */
+    .ui-card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(168, 85, 247, 0.4);
+      border-radius: 36px;
+      padding: 48px;
+      box-shadow: 0 30px 60px rgba(0,0,0,0.6);
+      position: relative;
+      overflow: hidden;
+    }
+    .ui-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      padding-bottom: 24px;
+      margin-bottom: 32px;
+      font-size: 20px;
+      color: #94a3b8;
+      font-weight: 600;
+    }
+    .ui-body-title {
+      font-size: 26px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 28px;
+      line-height: 1.4;
+    }
+    .ai-bubble {
+      background: rgba(168, 85, 247, 0.18);
+      border: 1px solid rgba(168, 85, 247, 0.5);
+      border-radius: 24px;
+      padding: 28px;
+      color: #e9d5ff;
+      font-size: 22px;
+      line-height: 1.6;
+    }
+    .ai-bubble-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      color: #fff;
+      font-size: 20px;
+      margin-bottom: 12px;
+    }
+
+    /* Rubric Card */
+    .rubric-item {
+      background: rgba(255, 255, 255, 0.06);
+      border-radius: 20px;
+      padding: 22px 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 22px;
+      margin-bottom: 16px;
+    }
+    .grade-badge {
+      background: rgba(16, 185, 129, 0.2);
+      border: 1px solid rgba(16, 185, 129, 0.5);
+      color: #34d399;
+      padding: 8px 24px;
+      border-radius: 999px;
+      font-weight: 800;
+      font-size: 22px;
+    }
+
+    /* Kashier Card */
+    .pay-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-bottom: 28px;
+    }
+    .pay-method {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 20px;
+      padding: 22px;
+      font-size: 22px;
+      font-weight: 700;
+      text-align: center;
+    }
+    .pay-method.active {
+      background: rgba(16, 185, 129, 0.18);
+      border-color: rgba(52, 211, 153, 0.6);
+      color: #34d399;
+    }
+
+    /* Workflow Card */
+    .workflow-step {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 22px;
+      padding: 24px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 18px;
+    }
+    .step-tag {
+      font-size: 18px;
+      padding: 6px 18px;
+      border-radius: 999px;
+      font-weight: 800;
+    }
+
+    /* Footer Scrubber */
+    .footer {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 1920px;
+      height: 80px;
+      background: rgba(0, 0, 0, 0.6);
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 60px;
+      z-index: 20;
+    }
+    .progress-bar-bg {
+      flex: 1;
+      height: 10px;
+      background: rgba(255, 255, 255, 0.12);
+      border-radius: 999px;
+      margin: 0 40px;
+      overflow: hidden;
+    }
+    .progress-bar-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, #6900A3, #a855f7, #c084fc);
+      border-radius: 999px;
+      transition: width 0.1s linear;
+    }
+    .chapter-title {
+      font-size: 22px;
+      font-weight: 800;
+      color: #c084fc;
+    }
+    .video-time {
+      font-family: monospace;
+      font-size: 22px;
+      font-weight: 700;
+      color: #cbd5e1;
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-glow-1"></div>
+  <div class="bg-glow-2"></div>
+
+  <!-- Header -->
+  <div class="header">
+    <div class="brand-logo">
+      <div class="badge-mn-small">MN</div>
+      <div class="brand-title">Smart Learn <span class="brand-sub">· Moodle & AI Architecture</span></div>
+    </div>
+    <div class="time-badge" id="scene-badge">
+      <span>⚡ 1080P PLUGINS & EXPERIENCE SHOWCASE</span>
+    </div>
+  </div>
+
+  <!-- Stage -->
+  <div class="stage">
+    <!-- Scene 1: Who is MN -->
+    <div class="scene active" id="scene-0">
+      <div class="scene-1-container">
+        <div class="badge-mn-large">
+          MN
+          <div class="badge-tag">5+ YEARS</div>
+        </div>
+        <h1 class="h1">Expert <span class="gradient-text">Moodle LMS</span> & AI Architect</h1>
+        <p class="desc" style="text-align: center;">
+          Architecting and scaling educational platforms worldwide. Custom Moodle plugin development, AI chatbot integration, and automated enterprise RAG pipelines.
+        </p>
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-num gradient-text">100,000+</div>
+            <div class="stat-label">Active Users Managed</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-num" style="color: #60a5fa;">70+</div>
+            <div class="stat-label">LMS Projects Done</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-num gradient-amber">2020–2025</div>
+            <div class="stat-label">Particularly Helpful Badge</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scene 2: Quiz AI Chat -->
+    <div class="scene" id="scene-1">
+      <div class="split-scene">
+        <div>
+          <div class="tagline-pill">✨ local_qai plugin</div>
+          <h1 class="h1">Quiz AI <span class="gradient-text">Chat Tutor</span></h1>
+          <p class="desc">
+            Embeds a context-aware AI tutor directly into Moodle quizzes. Students click "Ask AI to Explain" to resolve misunderstandings instantly without leaving the exam.
+          </p>
+          <div class="feature-list">
+            <div class="feature-item">
+              <div class="checkmark">✓</div>
+              <span>Question-level real-time explanations inside quizzes</span>
+            </div>
+            <div class="feature-item">
+              <div class="checkmark">✓</div>
+              <span>Token-saving mode cuts AI API costs by up to 70%</span>
+            </div>
+            <div class="feature-item">
+              <div class="checkmark">✓</div>
+              <span>Custom teacher behavior prompts per course & quiz</span>
+            </div>
+          </div>
+        </div>
+        <div class="ui-card">
+          <div class="ui-header">
+            <span>Question 4 · Organic Chemistry</span>
+            <span style="color: #c084fc; font-weight: 800;">1.00 / 1.00 pt</span>
+          </div>
+          <div class="ui-body-title">
+            Why do alcohols have higher boiling points than alkanes of similar molecular mass?
+          </div>
+          <div class="ai-bubble">
+            <div class="ai-bubble-header">
+              <span>⚡ AI Tutor Explanation</span>
+            </div>
+            <span id="ai-typing-text">Alcohols form strong intermolecular hydrogen bonds due to the polar -OH group, requiring significantly more thermal energy to vaporize...</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scene 3: AI Rubric Grader -->
+    <div class="scene" id="scene-2">
+      <div class="split-scene">
+        <div>
+          <div class="tagline-pill" style="background: rgba(16,185,129,0.15); border-color: rgba(16,185,129,0.4); color: #34d399;">🏆 local_airubricgenerator</div>
+          <h1 class="h1">AI Rubric <span class="gradient-emerald">Assignment Grader</span></h1>
+          <p class="desc">
+            Automatically grades Moodle essay submissions against structured rubrics in seconds, saving 80% of grading time while delivering criterion-by-criterion student feedback.
+          </p>
+          <div class="feature-list">
+            <div class="feature-item">
+              <div class="checkmark" style="color: #34d399; border-color: #34d399;">✓</div>
+              <span>Grades across structured rubric criteria automatically</span>
+            </div>
+            <div class="feature-item">
+              <div class="checkmark" style="color: #34d399; border-color: #34d399;">✓</div>
+              <span>Detailed criterion-level explanatory feedback</span>
+            </div>
+            <div class="feature-item">
+              <div class="checkmark" style="color: #34d399; border-color: #34d399;">✓</div>
+              <span>Supports OpenAI, Claude 3.5 & Gemini Pro AI models</span>
+            </div>
+          </div>
+        </div>
+        <div class="ui-card" style="border-color: rgba(16,185,129,0.4);">
+          <div class="ui-header">
+            <span>AI Rubric Evaluation Report</span>
+            <span class="grade-badge">92 / 100 · A+</span>
+          </div>
+          <div class="rubric-item">
+            <span>Thesis Clarity & Analytical Depth</span>
+            <span style="color: #34d399; font-weight: 800;">25 / 25</span>
+          </div>
+          <div class="rubric-item">
+            <span>Scientific Citations & Literature</span>
+            <span style="color: #34d399; font-weight: 800;">23 / 25</span>
+          </div>
+          <div class="rubric-item">
+            <span>Logical Progression & Structure</span>
+            <span style="color: #34d399; font-weight: 800;">24 / 25</span>
+          </div>
+          <div class="rubric-item">
+            <span>Academic Tone & Grammar</span>
+            <span style="color: #34d399; font-weight: 800;">20 / 20</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scene 4: Kashier Payments -->
+    <div class="scene" id="scene-3">
+      <div class="split-scene">
+        <div>
+          <div class="tagline-pill" style="background: rgba(59,130,246,0.15); border-color: rgba(59,130,246,0.4); color: #60a5fa;">💳 paygw_kashier plugin</div>
+          <h1 class="h1">Kashier <span style="color: #60a5fa;">Payment Gateway</span></h1>
+          <p class="desc">
+            The #1 payment gateway solution for Moodle academies in Egypt and MENA. Seamless checkout via Fawry, Meeza, Visa & Mastercard with instant webhook course enrollment.
+          </p>
+          <div class="feature-list">
+            <div class="feature-item">
+              <div class="checkmark" style="color: #60a5fa; border-color: #60a5fa;">✓</div>
+              <span>Native Fawry Pay & Meeza card integrations</span>
+            </div>
+            <div class="feature-item">
+              <div class="checkmark" style="color: #60a5fa; border-color: #60a5fa;">✓</div>
+              <span>Instant automatic course enrollment via webhooks</span>
+            </div>
+            <div class="feature-item">
+              <div class="checkmark" style="color: #60a5fa; border-color: #60a5fa;">✓</div>
+              <span>Supports EGP & USD multi-currency pricing</span>
+            </div>
+          </div>
+        </div>
+        <div class="ui-card" style="border-color: rgba(59,130,246,0.4);">
+          <div class="ui-header">
+            <span>Select Payment Method · Total: 1,450 EGP</span>
+            <span style="color: #60a5fa; font-weight: 700;">SECURE SSL</span>
+          </div>
+          <div class="pay-grid">
+            <div class="pay-method active">✓ Fawry Pay</div>
+            <div class="pay-method">Meeza Card</div>
+            <div class="pay-method">Visa / Mastercard</div>
+            <div class="pay-method">Apple Pay</div>
+          </div>
+          <div style="padding: 18px; border-radius: 20px; background: rgba(52,211,153,0.2); color: #34d399; text-align: center; font-weight: 800; font-size: 22px;">
+            ✓ Instant Course Enrollment Confirmed
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scene 5: Enterprise n8n & RAG Automation + CTA -->
+    <div class="scene" id="scene-4">
+      <div class="split-scene">
+        <div>
+          <div class="tagline-pill" style="background: rgba(245,158,11,0.15); border-color: rgba(245,158,11,0.4); color: #fbbf24;">⚡ Enterprise Automation</div>
+          <h1 class="h1">Modern UX & <span class="gradient-amber">n8n RAG AI</span></h1>
+          <p class="desc">
+            Sleek glassmorphic student dashboards and automated n8n workflows that connect WhatsApp notifications and Video-to-Text RAG pipelines.
+          </p>
+          <div class="feature-list">
+            <div class="feature-item">
+              <div class="checkmark" style="color: #fbbf24; border-color: #fbbf24;">✓</div>
+              <span>Ultra-fast glassmorphic Moodle course dashboards</span>
+            </div>
+            <div class="feature-item">
+              <div class="checkmark" style="color: #fbbf24; border-color: #fbbf24;">✓</div>
+              <span>Automated WhatsApp notifications via n8n</span>
+            </div>
+            <div class="feature-item">
+              <div class="checkmark" style="color: #fbbf24; border-color: #fbbf24;">✓</div>
+              <span>Video-to-Text RAG Search for lecture videos</span>
+            </div>
+          </div>
+        </div>
+        <div class="ui-card" style="border-color: rgba(245,158,11,0.4);">
+          <div class="ui-header">
+            <span>Live n8n Automation Workflow</span>
+            <span style="color: #fbbf24; font-weight: 800;">ACTIVE</span>
+          </div>
+          <div class="workflow-step">
+            <span>1. Student Enrolls in Course</span>
+            <span class="step-tag" style="background: rgba(168,85,247,0.2); color: #c084fc;">Moodle Webhook</span>
+          </div>
+          <div class="workflow-step">
+            <span>2. WhatsApp Welcome Sent</span>
+            <span class="step-tag" style="background: rgba(16,185,129,0.2); color: #34d399;">n8n API</span>
+          </div>
+          <div class="workflow-step">
+            <span>3. Lecture Audio Indexed</span>
+            <span class="step-tag" style="background: rgba(245,158,11,0.2); color: #fbbf24;">RAG Pipeline</span>
+          </div>
+          <div style="margin-top: 32px; text-align: center; font-size: 24px; font-weight: 800; color: #fff;">
+            Ready to scale your LMS? <span class="gradient-text">Let's build together.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer Scrubber -->
+  <div class="footer">
+    <div class="chapter-title" id="footer-chapter">1. WHO IS MN</div>
+    <div class="progress-bar-bg">
+      <div class="progress-bar-fill" id="progress-fill"></div>
+    </div>
+    <div class="video-time" id="time-display">00:00 / 01:15</div>
+  </div>
+
+  <script>
+    const CHAPTERS = [
+      "1. WHO IS MN · LMS & AI ARCHITECT",
+      "2. QUIZ AI CHAT TUTOR (local_qai)",
+      "3. AI RUBRIC ASSIGNMENT GRADER",
+      "4. KASHIER PAYMENT GATEWAY",
+      "5. ENTERPRISE N8N & RAG AUTOMATION"
+    ];
+
+    window.setVideoTime = function(seconds) {
+      const totalDuration = 75; // 1 min 15 seconds
+      const clamped = Math.max(0, Math.min(totalDuration, seconds));
+      
+      // Update scene (each scene is 15 seconds)
+      const sceneIndex = Math.min(Math.floor(clamped / 15), 4);
+      
+      document.querySelectorAll('.scene').forEach((el, idx) => {
+        if (idx === sceneIndex) {
+          el.classList.add('active');
+        } else {
+          el.classList.remove('active');
+        }
+      });
+
+      // Update chapter label
+      document.getElementById('footer-chapter').textContent = CHAPTERS[sceneIndex];
+
+      // Update progress bar
+      const pct = (clamped / totalDuration) * 100;
+      document.getElementById('progress-fill').style.width = pct + '%';
+
+      // Update time string
+      const m = Math.floor(clamped / 60).toString().padStart(2, '0');
+      const s = Math.floor(clamped % 60).toString().padStart(2, '0');
+      document.getElementById('time-display').textContent = `${m}:${s} / 01:15`;
+    };
+  </script>
+</body>
+</html>
