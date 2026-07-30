@@ -1,8 +1,132 @@
+import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
-import { Layers } from "lucide-react";
+import { Layers, Volume2, VolumeX, Play, Pause } from "lucide-react";
 import { useT } from "@/i18n";
 import { DirectionalArrow } from "@/components/DirectionalArrow";
 import { ParticleCanvas } from "@/components/ParticleCanvas";
+
+function AutoPlayVideo() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const { lang } = useT();
+  const [isPlaying, setIsPlaying] = useState(true);
+  const [isMuted, setIsMuted] = useState(true);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    video.defaultMuted = true;
+    video.muted = true;
+    video.playsInline = true;
+
+    const startPlaying = () => {
+      const p = video.play();
+      if (p !== undefined) {
+        p.then(() => {
+          setIsPlaying(true);
+        }).catch(() => {
+          setIsPlaying(false);
+          const unlock = () => {
+            video.play().then(() => setIsPlaying(true)).catch(() => {});
+            window.removeEventListener("click", unlock);
+            window.removeEventListener("scroll", unlock);
+            window.removeEventListener("mousemove", unlock);
+            window.removeEventListener("touchstart", unlock);
+          };
+          window.addEventListener("click", unlock, { once: true });
+          window.addEventListener("scroll", unlock, { once: true });
+          window.addEventListener("mousemove", unlock, { once: true });
+          window.addEventListener("touchstart", unlock, { once: true });
+        });
+      }
+    };
+
+    startPlaying();
+  }, []);
+
+  const toggleMute = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    const video = videoRef.current;
+    if (!video) return;
+    video.muted = !video.muted;
+    setIsMuted(video.muted);
+  };
+
+  const togglePlay = () => {
+    const video = videoRef.current;
+    if (!video) return;
+    if (video.paused) {
+      video.play().then(() => setIsPlaying(true)).catch(() => {});
+    } else {
+      video.pause();
+      setIsPlaying(false);
+    }
+  };
+
+  return (
+    <div
+      className="relative w-full max-w-lg lg:max-w-none rounded-2xl overflow-hidden shadow-2xl group border border-purple-500/30 bg-black/80"
+      style={{
+        boxShadow: "0 0 50px rgba(105, 0, 163, 0.35)",
+      }}
+    >
+      {/* Top Left Header Badge */}
+      <div className="absolute top-3 left-3 z-20 flex items-center gap-2 px-3 py-1 rounded-full bg-black/70 backdrop-blur-md border border-white/10 text-[11px] font-bold text-purple-300">
+        <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse" />
+        <span>{lang === "ar" ? "فيديو حي · خبراتي وإضافات Moodle" : "LIVE DEMO · PLUGINS & AI"}</span>
+      </div>
+
+      {/* Bottom Right Audio Toggle Button */}
+      <button
+        onClick={toggleMute}
+        className="absolute bottom-3 right-3 z-20 flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-black/80 hover:bg-purple-900/90 backdrop-blur-md border border-white/20 text-xs font-bold text-white transition-all shadow-lg"
+        title={isMuted ? "Click to Unmute" : "Click to Mute"}
+      >
+        {isMuted ? (
+          <>
+            <VolumeX size={14} className="text-red-400" />
+            <span>{lang === "ar" ? "تشغيل الصوت" : "Unmute"}</span>
+          </>
+        ) : (
+          <>
+            <Volume2 size={14} className="text-emerald-400" />
+            <span>{lang === "ar" ? "كتم الصوت" : "Mute"}</span>
+          </>
+        )}
+      </button>
+
+      {/* Bottom Left Play/Pause Indicator Button */}
+      <button
+        onClick={togglePlay}
+        className="absolute bottom-3 left-3 z-20 flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-black/80 hover:bg-white/10 backdrop-blur-md border border-white/20 text-xs font-bold text-slate-300 transition-all shadow-lg"
+      >
+        {isPlaying ? (
+          <>
+            <Pause size={13} className="text-purple-400" />
+            <span>{lang === "ar" ? "إيقاف مؤقت" : "Pause"}</span>
+          </>
+        ) : (
+          <>
+            <Play size={13} className="text-amber-400 fill-amber-400 animate-pulse" />
+            <span>{lang === "ar" ? "تشغيل" : "Play"}</span>
+          </>
+        )}
+      </button>
+
+      <video
+        ref={videoRef}
+        src="/video/smart-learn-plugins-demo.mp4"
+        autoPlay
+        loop
+        muted
+        playsInline
+        preload="auto"
+        onClick={togglePlay}
+        className="w-full h-auto aspect-video object-cover cursor-pointer"
+      />
+    </div>
+  );
+}
 
 export function HeroSection() {
   const { lang, t } = useT();
@@ -134,26 +258,7 @@ export function HeroSection() {
           transition={{ duration: 0.7, delay: 0.25, ease: "easeOut" }}
           className="lg:col-span-5 w-full flex justify-center"
         >
-          <div
-            className="relative w-full max-w-lg lg:max-w-none rounded-2xl overflow-hidden shadow-2xl group border border-purple-500/30 bg-black/60"
-            style={{
-              boxShadow: "0 0 50px rgba(105, 0, 163, 0.35)",
-            }}
-          >
-            <div className="absolute top-3 left-3 z-20 flex items-center gap-2 px-3 py-1 rounded-full bg-black/70 backdrop-blur-md border border-white/10 text-[11px] font-bold text-purple-300">
-              <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse" />
-              <span>{lang === "ar" ? "فيديو حي · خبراتي وإضافات Moodle" : "LIVE DEMO · PLUGINS & AI"}</span>
-            </div>
-
-            <video
-              src="/video/smart-learn-plugins-demo.mp4"
-              autoPlay
-              loop
-              muted
-              playsInline
-              className="w-full h-auto aspect-video object-cover"
-            />
-          </div>
+          <AutoPlayVideo />
         </motion.div>
       </div>
 
