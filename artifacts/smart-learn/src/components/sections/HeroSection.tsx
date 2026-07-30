@@ -1,11 +1,14 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
-import { Layers } from "lucide-react";
+import { Layers, Play } from "lucide-react";
 import { useT } from "@/i18n";
 import { DirectionalArrow } from "@/components/DirectionalArrow";
 import { ParticleCanvas } from "@/components/ParticleCanvas";
+import { VideoDemoModal } from "@/components/VideoDemoModal";
 
 export function HeroSection() {
-  const { t } = useT();
+  const { lang, t } = useT();
+  const [isVideoDemoOpen, setIsVideoDemoOpen] = useState(false);
 
   return (
     <section
@@ -82,6 +85,19 @@ export function HeroSection() {
             {t.hero.ctaPrimary}
             <DirectionalArrow size={16} />
           </a>
+          <button
+            onClick={() => setIsVideoDemoOpen(true)}
+            className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-bold text-sm text-white transition-all duration-200 hover:scale-105"
+            style={{
+              background: "linear-gradient(135deg, rgba(168,85,247,0.25), rgba(105,0,163,0.35))",
+              border: "1px solid rgba(168,85,247,0.5)",
+              boxShadow: "0 0 30px rgba(168,85,247,0.25)",
+              fontFamily: "'Cairo', sans-serif",
+            }}
+          >
+            <Play size={16} className="text-purple-300 fill-purple-300 animate-pulse" />
+            <span>{lang === "ar" ? "شاهد عرض فيديو 2 دقيقة" : "Watch 2-Min Video Demo"}</span>
+          </button>
           <a
             href="#services"
             className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-bold text-sm text-slate-300 hover:text-white transition-all duration-200"
@@ -136,6 +152,11 @@ export function HeroSection() {
         </span>
         <div className="w-px h-8 bg-gradient-to-b from-slate-700 to-transparent" />
       </motion.div>
+
+      <VideoDemoModal
+        isOpen={isVideoDemoOpen}
+        onClose={() => setIsVideoDemoOpen(false)}
+      />
     </section>
   );
 }

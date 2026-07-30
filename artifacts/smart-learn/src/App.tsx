@@ -13,6 +13,7 @@ import BlogList from "@/pages/BlogList";
 import BlogPost from "@/pages/BlogPost";
 import DocsList from "@/pages/DocsList";
 import DocsPost from "@/pages/DocsPost";
+import { DemoVideoPage } from "@/pages/DemoVideoPage";
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 
@@ -32,6 +33,7 @@ function App({ ssrPath }: { ssrPath?: string }) {
           <ScrollToTop />
           <main>
             <Switch>
+              <Route path="/demo-video" component={DemoVideoPage} />
               <Route path="/admin" component={AdminPage} />
               <Route path="/pricing" component={PricingPage} />
               <Route path="/success-stories" component={SuccessStoriesPage} />
