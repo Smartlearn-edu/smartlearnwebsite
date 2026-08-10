@@ -1,0 +1,20 @@
+{
+  "version": "1.0",
+  "updated": "2026-08-10",
+  "sections": [
+    {
+      "id": "hero-split-01",
+      "name": "Adaptive AI Hero",
+      "category": "Hero",
+      "variant": "Split with Interactive Chat",
+      "description": "A futuristic hero section with interactive chat demo and animated statistic counters.",
+      "tags": ["hero", "ai", "chat", "stats", "animated"],
+      "image_count": 1,
+      "preview_image": "",
+      "download_url": "/sections/hero-split-01.json",
+      "is_premium": false,
+      "is_new": true,
+      "popularity": 100
+    }
+  ]
+}

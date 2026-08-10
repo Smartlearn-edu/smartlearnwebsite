@@ -14,6 +14,7 @@ import BlogPost from "@/pages/BlogPost";
 import DocsList from "@/pages/DocsList";
 import DocsPost from "@/pages/DocsPost";
 import { DemoVideoPage } from "@/pages/DemoVideoPage";
+import GalleryPage from "@/pages/GalleryPage";
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 
@@ -43,6 +44,7 @@ function App({ ssrPath }: { ssrPath?: string }) {
               <Route path="/blog/:slug" component={BlogPost} />
               <Route path="/docs" component={DocsList} />
               <Route path="/docs/:slug" component={DocsPost} />
+              <Route path="/gallery" component={GalleryPage} />
               <Route path="/" component={Home} />
             </Switch>
           </main>
