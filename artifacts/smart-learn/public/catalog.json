@@ -8,13 +8,171 @@
       "category": "Hero",
       "variant": "Split with Interactive Chat",
       "description": "A futuristic hero section with interactive chat demo and animated statistic counters.",
-      "tags": ["hero", "ai", "chat", "stats", "animated"],
+      "tags": [
+        "hero",
+        "ai",
+        "chat",
+        "stats",
+        "animated"
+      ],
       "image_count": 1,
       "preview_image": "",
       "download_url": "/sections/hero-split-01.json",
       "is_premium": false,
       "is_new": true,
       "popularity": 100
+    },
+    {
+      "id": "faq-simple-list",
+      "name": "FAQ - Minimalist List",
+      "category": "FAQ",
+      "variant": "Simple List",
+      "description": "A clean, minimalist vertical list of frequently asked questions and answers without any hidden toggles.",
+      "tags": [
+        "faq",
+        "simple",
+        "list",
+        "minimal"
+      ],
+      "image_count": 0,
+      "preview_image": "",
+      "download_url": "/sections/faq-simple-list.json",
+      "is_premium": false,
+      "is_new": true,
+      "popularity": 62
+    },
+    {
+      "id": "faq-accordion",
+      "name": "FAQ - Interactive Accordion",
+      "category": "FAQ",
+      "variant": "Accordion",
+      "description": "A space-saving accordion layout where users click to reveal answers.",
+      "tags": [
+        "faq",
+        "accordion",
+        "interactive",
+        "collapsible"
+      ],
+      "image_count": 0,
+      "preview_image": "",
+      "download_url": "/sections/faq-accordion.json",
+      "is_premium": false,
+      "is_new": true,
+      "popularity": 91
+    },
+    {
+      "id": "faq-grid",
+      "name": "FAQ - Information Grid",
+      "category": "FAQ",
+      "variant": "Grid Cards",
+      "description": "A 2-column grid displaying questions as individual glassmorphism cards.",
+      "tags": [
+        "faq",
+        "grid",
+        "cards",
+        "glassmorphism"
+      ],
+      "image_count": 0,
+      "preview_image": "",
+      "download_url": "/sections/faq-grid.json",
+      "is_premium": false,
+      "is_new": true,
+      "popularity": 99
+    },
+    {
+      "id": "faq-split",
+      "name": "FAQ - Split Layout with CTA",
+      "category": "FAQ",
+      "variant": "Split Accordion",
+      "description": "Left side holds a large title and call-to-action, right side has the accordion questions.",
+      "tags": [
+        "faq",
+        "split",
+        "accordion",
+        "cta"
+      ],
+      "image_count": 0,
+      "preview_image": "",
+      "download_url": "/sections/faq-split.json",
+      "is_premium": false,
+      "is_new": true,
+      "popularity": 131
+    },
+    {
+      "id": "faq-tabbed",
+      "name": "FAQ - Categorized Tabs",
+      "category": "FAQ",
+      "variant": "Tabbed Categories",
+      "description": "Switch between different FAQ categories using a sleek tab interface.",
+      "tags": [
+        "faq",
+        "tabs",
+        "categories",
+        "interactive"
+      ],
+      "image_count": 0,
+      "preview_image": "",
+      "download_url": "/sections/faq-tabbed.json",
+      "is_premium": false,
+      "is_new": true,
+      "popularity": 95
+    },
+    {
+      "id": "testimonial-grid",
+      "name": "Testimonials - 3-Column Grid",
+      "category": "Testimonials",
+      "variant": "Cards Grid",
+      "description": "A neat 3-column grid showing user reviews, names, and avatars.",
+      "tags": [
+        "testimonials",
+        "grid",
+        "cards",
+        "reviews"
+      ],
+      "image_count": 3,
+      "preview_image": "",
+      "download_url": "/sections/testimonial-grid.json",
+      "is_premium": false,
+      "is_new": true,
+      "popularity": 63
+    },
+    {
+      "id": "testimonial-carousel",
+      "name": "Testimonials - Interactive Carousel",
+      "category": "Testimonials",
+      "variant": "Single Carousel",
+      "description": "A large featured testimonial with next/prev buttons to cycle through reviews.",
+      "tags": [
+        "testimonials",
+        "carousel",
+        "slider",
+        "interactive"
+      ],
+      "image_count": 3,
+      "preview_image": "",
+      "download_url": "/sections/testimonial-carousel.json",
+      "is_premium": false,
+      "is_new": true,
+      "popularity": 86
+    },
+    {
+      "id": "testimonial-split",
+      "name": "Testimonials - Split Highlight",
+      "category": "Testimonials",
+      "variant": "Split Story",
+      "description": "A striking split layout featuring a large image on one side and an impactful story/quote on the other.",
+      "tags": [
+        "testimonials",
+        "split",
+        "story",
+        "impact"
+      ],
+      "image_count": 1,
+      "preview_image": "",
+      "download_url": "/sections/testimonial-split.json",
+      "is_premium": false,
+      "is_new": true,
+      "popularity": 98
     }
   ]
 }

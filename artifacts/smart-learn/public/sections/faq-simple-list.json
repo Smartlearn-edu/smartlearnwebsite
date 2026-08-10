@@ -1,0 +1,20 @@
+{
+  "smartlearn_section": true,
+  "format_version": "1.0",
+  "meta": {
+    "name": "FAQ - Minimalist List",
+    "category": "FAQ",
+    "variant": "Simple List",
+    "description": "A clean, minimalist vertical list of frequently asked questions and answers without any hidden toggles.",
+    "tags": [
+      "faq",
+      "simple",
+      "list",
+      "minimal"
+    ],
+    "image_count": 0
+  },
+  "html": "<!-- sl-section: faq-simple-list | v1.0 -->\n<div class=\"sl-faq-simple-list\">\n  <div class=\"sl-container\">\n    <div class=\"sl-header\">\n      <h2 class=\"sl-title\" data-sl-edit=\"text\">Frequently Asked Questions</h2>\n      <p class=\"sl-subtitle\" data-sl-edit=\"text\">Everything you need to know about the product and billing.</p>\n    </div>\n    <div class=\"sl-list\">\n      <div class=\"sl-item\">\n        <h3 class=\"sl-q\" data-sl-edit=\"text\">Is there a free trial available?</h3>\n        <p class=\"sl-a\" data-sl-edit=\"text\">Yes, you can try us for free for 30 days. If you want, we'll provide you with a free, personalized 30-minute onboarding call to get you up and running as soon as possible.</p>\n      </div>\n      <div class=\"sl-item\">\n        <h3 class=\"sl-q\" data-sl-edit=\"text\">Can I change my plan later?</h3>\n        <p class=\"sl-a\" data-sl-edit=\"text\">Of course. Our pricing scales with your company. Chat to our friendly team to find a solution that works for you.</p>\n      </div>\n      <div class=\"sl-item\">\n        <h3 class=\"sl-q\" data-sl-edit=\"text\">What is your cancellation policy?</h3>\n        <p class=\"sl-a\" data-sl-edit=\"text\">We understand that things change. You can cancel your plan at any time and we'll refund you the difference already paid.</p>\n      </div>\n    </div>\n  </div>\n</div>",
+  "css": ".sl-faq-simple-list { padding: 5rem 2rem; width: 100%; font-family: var(--smartlearn-body-font, system-ui); background: transparent; }\n.sl-faq-simple-list .sl-container { max-width: 800px; margin: 0 auto; }\n.sl-faq-simple-list .sl-header { text-align: center; margin-bottom: 4rem; }\n.sl-faq-simple-list .sl-title { font-size: 2.5rem; font-weight: 800; color: var(--smartlearn-text); margin-bottom: 1rem; font-family: var(--smartlearn-heading-font, system-ui); }\n.sl-faq-simple-list .sl-subtitle { font-size: 1.125rem; color: var(--smartlearn-text-muted); line-height: 1.6; }\n.sl-faq-simple-list .sl-list { display: flex; flex-direction: column; gap: 2.5rem; }\n.sl-faq-simple-list .sl-item { border-bottom: 1px solid var(--smartlearn-card-border, rgba(255,255,255,0.1)); padding-bottom: 2.5rem; }\n.sl-faq-simple-list .sl-item:last-child { border-bottom: none; padding-bottom: 0; }\n.sl-faq-simple-list .sl-q { font-size: 1.25rem; font-weight: 600; color: var(--smartlearn-text); margin-bottom: 1rem; }\n.sl-faq-simple-list .sl-a { font-size: 1rem; color: var(--smartlearn-text-muted); line-height: 1.7; margin: 0; }",
+  "js": ""
+}
