@@ -305,7 +305,7 @@ const sections = [
             
             <!-- CTA Card (Top Right) -->
             <div class="col-lg-4">
-                <div class="sl-bento-card bg-dark text-white rounded-5 p-5 h-100 d-flex flex-column justify-content-between sl-stagger-2">
+                <div class="sl-bento-card bg-body-tertiary text-body-emphasis border border-secondary-subtle rounded-5 p-5 h-100 d-flex flex-column justify-content-between sl-stagger-2">
                     <div>
                         <h3 class="fw-bold mb-3" data-sl-edit="text">Start your free trial today.</h3>
                         <p class="opacity-75 mb-4" data-sl-edit="text">No credit card required. Cancel anytime.</p>

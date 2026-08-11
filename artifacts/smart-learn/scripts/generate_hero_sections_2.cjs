@@ -56,21 +56,21 @@ const sections = [
                 <!-- Floating 3D Cards -->
                 <div class="sl-float-card card-1 bg-body border border-secondary-subtle rounded-4 shadow p-3 position-absolute">
                     <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=300&q=80" alt="Course" class="rounded-3 mb-3 w-100 object-fit-cover" style="height: 120px;">
-                    <div class="badge bg-warning text-dark mb-2 rounded-pill"><i class="fa fa-star"></i> 4.8</div>
+                    <div class="badge bg-primary text-white mb-2 rounded-pill"><i class="fa fa-star"></i> 4.8</div>
                     <h6 class="fw-bold fs-6 mb-1 text-body-emphasis" data-sl-edit="text">Web Development Bootcamp</h6>
                     <small class="text-body-secondary d-block mb-2">Dr. Angela Yu</small>
                 </div>
                 
                 <div class="sl-float-card card-2 bg-body border border-secondary-subtle rounded-4 shadow-lg p-3 position-absolute">
                     <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=300&q=80" alt="Course" class="rounded-3 mb-3 w-100 object-fit-cover" style="height: 140px;">
-                    <div class="badge bg-warning text-dark mb-2 rounded-pill"><i class="fa fa-star"></i> 4.9</div>
+                    <div class="badge bg-primary text-white mb-2 rounded-pill"><i class="fa fa-star"></i> 4.9</div>
                     <h6 class="fw-bold fs-6 mb-1 text-body-emphasis" data-sl-edit="text">Data Science & Machine Learning</h6>
                     <small class="text-body-secondary d-block mb-2">Jose Portilla</small>
                 </div>
                 
                 <div class="sl-float-card card-3 bg-body border border-secondary-subtle rounded-4 shadow p-3 position-absolute">
                     <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&w=300&q=80" alt="Course" class="rounded-3 mb-3 w-100 object-fit-cover" style="height: 100px;">
-                    <div class="badge bg-warning text-dark mb-2 rounded-pill"><i class="fa fa-star"></i> 4.7</div>
+                    <div class="badge bg-primary text-white mb-2 rounded-pill"><i class="fa fa-star"></i> 4.7</div>
                     <h6 class="fw-bold fs-6 mb-1 text-body-emphasis" data-sl-edit="text">UI/UX Design Masterclass</h6>
                     <small class="text-body-secondary d-block mb-2">Gary Simon</small>
                 </div>
@@ -267,7 +267,7 @@ const sections = [
             image_count: 1
         },
         html: `<!-- sl-section: hero-dynamic-academy | v1.0 -->
-<div class="sl-hero-dynamic position-relative overflow-hidden bg-dark">
+<div class="sl-hero-dynamic position-relative overflow-hidden bg-body">
     <!-- Right Side Image with Diagonal Clip -->
     <div class="position-absolute top-0 end-0 h-100 sl-dynamic-image-wrapper">
         <div class="sl-dynamic-overlay position-absolute inset-0"></div>
@@ -276,7 +276,7 @@ const sections = [
     
     <div class="container position-relative z-2 h-100">
         <div class="row align-items-center h-100" style="min-height: 85vh;">
-            <div class="col-lg-6 sl-dynamic-content text-white py-6">
+            <div class="col-lg-6 sl-dynamic-content text-body-emphasis py-6">
                 
                 <div class="d-flex align-items-center mb-4 sl-slide-in-1">
                     <div class="bg-primary px-3 py-1 text-white fw-bold text-uppercase tracking-wide fs-6 me-3" style="transform: skewX(-15deg);" data-sl-edit="text">
@@ -284,7 +284,7 @@ const sections = [
                     </div>
                 </div>
                 
-                <h1 class="display-2 fw-black text-uppercase fst-italic lh-1 mb-4 text-white sl-slide-in-2" data-sl-edit="text">
+                <h1 class="display-2 fw-black text-uppercase fst-italic lh-1 mb-4 text-body-emphasis sl-slide-in-2" data-sl-edit="text">
                     Push your <br>
                     <span class="text-primary">Boundaries.</span>
                 </h1>

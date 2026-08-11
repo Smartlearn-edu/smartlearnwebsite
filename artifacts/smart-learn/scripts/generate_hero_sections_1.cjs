@@ -167,15 +167,16 @@ const sections = [
     <div class="container py-6 py-lg-8 position-relative z-2 h-100 d-flex flex-column justify-content-center align-items-center">
         <div class="terminal-badge mb-4 d-inline-flex align-items-center rounded-pill px-3 py-1 shadow-sm border border-light border-opacity-25" style="background: rgba(0,0,0,0.5); backdrop-filter: blur(10px);">
             <span class="pulse-dot me-2"></span>
-            <span class="text-white font-mono small tracking-wide" data-sl-edit="text">NEXT COHORT: SEPT 2026</span>
+            <span class="text-body-emphasis font-mono small tracking-wide" data-sl-edit="text">NEXT COHORT: SEPT 2026</span>
         </div>
         
-        <h1 class="display-2 fw-bolder text-white mb-4 sl-tech-title" data-sl-edit="text">
-            Code your future.<br>
-            <span class="text-transparent bg-clip-text gradient-text">Master the stack.</span>
+        <h1 class="display-2 fw-bolder text-body-emphasis mb-4 sl-tech-title" data-sl-edit="text">
+            Build the <br/>
+            <span class="position-relative d-inline-block">
+                <span class="position-relative z-1">Future.</span>
+            </span>
         </h1>
-        
-        <p class="lead text-light opacity-75 mb-5 mx-auto" style="max-width: 700px;" data-sl-edit="text">
+        <p class="lead text-body-secondary opacity-75 mb-5 mx-auto" style="max-width: 700px;" data-sl-edit="text">
             Intensive 12-week bootcamps in Full-Stack, AI, and Data Science. Learn from senior engineers and build a portfolio that gets you hired.
         </p>
         
@@ -188,11 +189,11 @@ const sections = [
             </a>
         </div>
         
-        <div class="mt-5 pt-4 d-flex gap-4 opacity-75 justify-content-center flex-wrap">
-            <div class="text-white small font-mono"><i class="fa fa-check text-primary me-2"></i>React</div>
-            <div class="text-white small font-mono"><i class="fa fa-check text-primary me-2"></i>Node.js</div>
-            <div class="text-white small font-mono"><i class="fa fa-check text-primary me-2"></i>Python</div>
-            <div class="text-white small font-mono"><i class="fa fa-check text-primary me-2"></i>AWS</div>
+        <div class="d-flex flex-wrap justify-content-center gap-4 mt-5 sl-fade-in-up" style="animation-delay: 0.4s;">
+            <div class="text-body-emphasis small font-mono"><i class="fa fa-check text-primary me-2"></i>React</div>
+            <div class="text-body-emphasis small font-mono"><i class="fa fa-check text-primary me-2"></i>Node.js</div>
+            <div class="text-body-emphasis small font-mono"><i class="fa fa-check text-primary me-2"></i>Python</div>
+            <div class="text-body-emphasis small font-mono"><i class="fa fa-check text-primary me-2"></i>AWS</div>
         </div>
     </div>
 </div>`,
@@ -427,7 +428,7 @@ const sections = [
     <div class="container position-relative z-2 py-6 py-lg-8">
         <div class="row align-items-center">
             <div class="col-lg-7 text-white pe-lg-5">
-                <span class="badge bg-white text-dark mb-4 px-3 py-2 rounded-pill fw-bold" data-sl-edit="text">FEATURED MASTERCLASS</span>
+                <span class="badge bg-primary text-white mb-4 px-3 py-2 rounded-pill fw-bold" data-sl-edit="text">FEATURED MASTERCLASS</span>
                 <h1 class="display-2 fw-bolder mb-4 text-shadow sl-cinematic-title" data-sl-edit="text">The Art of Storytelling in Film.</h1>
                 <p class="fs-4 opacity-75 mb-5 text-shadow font-light" data-sl-edit="text">Learn directing, screenwriting, and cinematic vision from Academy Award winners in this exclusive 4-week intensive.</p>
                 
