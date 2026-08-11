@@ -463,7 +463,7 @@ const sections = [
 <div class="sl-hero-video position-relative d-flex align-items-center overflow-hidden">
     <!-- Video Background (Fallback to image if video fails) -->
     <div class="video-container position-absolute top-0 start-0 w-100 h-100">
-        <div class="overlay position-absolute top-0 start-0 w-100 h-100 bg-dark opacity-50 z-1"></div>
+        <div class="overlay position-absolute top-0 start-0 w-100 h-100 z-1 sl-bg-main" style="opacity: 0.85;"></div>
         <video autoplay loop muted playsinline class="w-100 h-100 object-fit-cover position-absolute top-0 start-0" poster="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=1600&q=80">
             <!-- Example public domain or placeholder video -->
             <source src="https://assets.mixkit.co/videos/preview/mixkit-hands-of-a-person-working-on-a-laptop-42171-large.mp4" type="video/mp4">
@@ -472,39 +472,39 @@ const sections = [
     
     <div class="container position-relative z-2 py-6 py-lg-8">
         <div class="row align-items-center">
-            <div class="col-lg-7 text-white pe-lg-5">
-                <span class="badge sl-bg-primary text-white mb-4 px-3 py-2 rounded-pill fw-bold" data-sl-edit="text">FEATURED MASTERCLASS</span>
-                <h1 class="display-2 fw-bolder mb-4 text-shadow sl-cinematic-title" data-sl-edit="text">The Art of Storytelling in Film.</h1>
-                <p class="fs-4 opacity-75 mb-5 text-shadow font-light" data-sl-edit="text">Learn directing, screenwriting, and cinematic vision from Academy Award winners in this exclusive 4-week intensive.</p>
+            <div class="col-lg-7 pe-lg-5">
+                <span class="badge sl-bg-primary mb-4 px-3 py-2 rounded-pill fw-bold" style="color: #FFFFFF !important;" data-sl-edit="text">FEATURED MASTERCLASS</span>
+                <h1 class="display-2 fw-bolder mb-4 text-shadow sl-cinematic-title sl-text-emphasis" data-sl-edit="text">The Art of Storytelling in Film.</h1>
+                <p class="fs-4 mb-5 text-shadow font-light sl-text-muted" data-sl-edit="text">Learn directing, screenwriting, and cinematic vision from Academy Award winners in this exclusive 4-week intensive.</p>
                 
                 <div class="d-flex align-items-center gap-3">
-                    <a href="#" class="btn btn-light btn-lg rounded-pill px-5 py-3 fw-bold text-dark d-flex align-items-center shadow-lg" data-sl-edit="link">
+                    <a href="#" class="btn sl-btn-primary btn-lg rounded-pill px-5 py-3 fw-bold d-flex align-items-center shadow-lg" style="color: #FFFFFF !important;" data-sl-edit="link">
                         <i class="fa fa-play-circle fs-4 me-2"></i> Watch Trailer
                     </a>
-                    <a href="#" class="btn btn-outline-light btn-lg rounded-pill px-4 py-3 fw-bold shadow-lg text-white" style="border-width: 2px;" data-sl-edit="link">Enroll Now</a>
+                    <a href="#" class="btn sl-btn-outline-primary btn-lg rounded-pill px-4 py-3 fw-bold shadow-lg" style="border-width: 2px;" data-sl-edit="link">Enroll Now</a>
                 </div>
             </div>
             
             <div class="col-lg-5 mt-5 mt-lg-0 d-flex justify-content-center justify-content-lg-end">
                 <!-- Floating Glass Card -->
-                <div class="glass-rating-card p-4 rounded-4 text-white sl-float-anim">
+                <div class="glass-rating-card p-4 rounded-4 sl-float-anim sl-bg-card">
                     <div class="d-flex justify-content-between align-items-start mb-3">
                         <div>
                             <div class="text-warning mb-1">
                                 <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
                             </div>
-                            <span class="fw-bold fs-5">4.9 / 5.0</span>
+                            <span class="fw-bold fs-5 sl-text-emphasis">4.9 / 5.0</span>
                         </div>
-                        <span class="badge sl-bg-primary rounded-pill">Top Rated</span>
+                        <span class="badge sl-bg-primary rounded-pill" style="color: #FFFFFF !important;">Top Rated</span>
                     </div>
                     
-                    <p class="small opacity-75 fst-italic mb-3" data-sl-edit="text">"This course completely changed how I approach writing scripts. Absolute gold."</p>
+                    <p class="small fst-italic mb-3 sl-text-muted" data-sl-edit="text">"This course completely changed how I approach writing scripts. Absolute gold."</p>
                     
                     <div class="d-flex align-items-center">
-                        <img src="https://randomuser.me/api/portraits/women/44.jpg" class="rounded-circle me-3 border border-2 border-white" width="40" height="40" alt="Student">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" class="rounded-circle me-3 border border-2 border-secondary-subtle" width="40" height="40" alt="Student">
                         <div>
-                            <h6 class="mb-0 fw-bold fs-6">Sarah Jenkins</h6>
-                            <small class="opacity-50">Film Student</small>
+                            <h6 class="mb-0 fw-bold fs-6 sl-text-emphasis">Sarah Jenkins</h6>
+                            <small class="sl-text-muted opacity-75">Film Student</small>
                         </div>
                     </div>
                 </div>
@@ -544,16 +544,14 @@ const sections = [
     letter-spacing: -0.02em;
 }
 .sl-hero-video .glass-rating-card {
-    background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
     max-width: 320px;
-    transition: transform 0.3s ease, background 0.3s ease;
+    transition: transform 0.3s ease;
 }
 .sl-hero-video .glass-rating-card:hover {
-    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-5px);
 }
 .sl-hero-video .sl-float-anim {
     animation: slFloat 6s ease-in-out infinite;
