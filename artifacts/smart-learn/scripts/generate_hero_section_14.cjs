@@ -21,19 +21,19 @@ const sections = [
     <!-- Abstract Background Elements -->
     <div class="position-absolute top-0 start-0 w-100 h-100 pointer-events-none" style="z-index: 0; opacity: 0.4;">
         <svg class="position-absolute" style="top: -10%; left: -5%; width: 50%; height: 50%;" viewBox="0 0 100 100" preserveAspectRatio="none">
-            <path d="M0,50 Q25,30 50,50 T100,50" fill="none" stroke="#e0e7ff" stroke-width="0.5" />
-            <path d="M0,60 Q25,40 50,60 T100,60" fill="none" stroke="#e0e7ff" stroke-width="0.5" />
-            <path d="M0,70 Q25,50 50,70 T100,70" fill="none" stroke="#e0e7ff" stroke-width="0.5" />
+            <path d="M0,50 Q25,30 50,50 T100,50" fill="none" stroke="var(--bs-primary)" stroke-width="0.5" />
+            <path d="M0,60 Q25,40 50,60 T100,60" fill="none" stroke="var(--bs-primary)" stroke-width="0.5" />
+            <path d="M0,70 Q25,50 50,70 T100,70" fill="none" stroke="var(--bs-primary)" stroke-width="0.5" />
         </svg>
         <div class="position-absolute rounded-circle border border-primary opacity-10" style="width: 80px; height: 80px; top: 10%; right: 15%;"></div>
-        <div class="position-absolute rounded-circle bg-success opacity-10" style="width: 150px; height: 150px; bottom: 20%; left: -5%;"></div>
+        <div class="position-absolute rounded-circle bg-primary opacity-10" style="width: 150px; height: 150px; bottom: 20%; left: -5%;"></div>
     </div>
 
     <div class="container position-relative z-1">
         <div class="row gx-lg-5 align-items-center mb-5">
             <!-- Left Text Column -->
             <div class="col-lg-5 mb-5 mb-lg-0 sl-animate-fade-in-up" style="animation-delay: 0.1s;">
-                <div class="d-inline-flex align-items-center bg-success bg-opacity-10 text-success px-3 py-1 rounded-pill mb-4 fw-bold small">
+                <div class="d-inline-flex align-items-center bg-primary bg-opacity-10 text-primary px-3 py-1 rounded-pill mb-4 fw-bold small">
                     <i class="fa fa-graduation-cap me-2"></i> SmartLearn LMS
                 </div>
                 
@@ -47,7 +47,7 @@ const sections = [
                 </p>
                 
                 <div class="d-flex flex-wrap gap-3 mb-5">
-                    <a href="#" class="btn btn-success btn-lg rounded-3 px-4 py-3 fw-bold d-inline-flex align-items-center" data-sl-edit="link">
+                    <a href="#" class="btn btn-primary btn-lg rounded-3 px-4 py-3 fw-bold d-inline-flex align-items-center" data-sl-edit="link">
                         <i class="fa fa-book me-2"></i> Browse Courses
                     </a>
                     <a href="#" class="btn btn-outline-secondary bg-body btn-lg rounded-3 px-4 py-3 fw-bold text-body-emphasis border-2 d-inline-flex align-items-center" data-sl-edit="link">
@@ -63,7 +63,7 @@ const sections = [
                         <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=64&q=80" class="rounded-circle border border-2 border-white" style="width: 45px; height: 45px; object-fit: cover; margin-left: -15px;" alt="Avatar">
                     </div>
                     <div>
-                        <div class="fw-bold text-success fs-5 mb-0 lh-1" data-sl-edit="text">15,000+</div>
+                        <div class="fw-bold text-primary fs-5 mb-0 lh-1" data-sl-edit="text">15,000+</div>
                         <small class="text-body-secondary fw-medium" data-sl-edit="text">Active Learners</small>
                     </div>
                 </div>
@@ -97,7 +97,7 @@ const sections = [
                         <!-- Main Video Content -->
                         <div class="position-absolute top-0 start-0 w-100 h-100 p-4 d-flex flex-column justify-content-between pointer-events-none">
                             <div class="d-flex justify-content-between align-items-start">
-                                <span class="badge bg-success px-3 py-2 rounded-3 fw-medium">Featured</span>
+                                <span class="badge bg-primary px-3 py-2 rounded-3 fw-medium">Featured</span>
                             </div>
                             
                             <div class="col-md-8 col-10">
@@ -113,7 +113,7 @@ const sections = [
                     
                     <!-- Pagination Dots -->
                     <div class="d-flex justify-content-center gap-2 mb-4">
-                        <div class="rounded-pill bg-success" style="width: 25px; height: 8px;"></div>
+                        <div class="rounded-pill bg-primary" style="width: 25px; height: 8px;"></div>
                         <div class="rounded-circle bg-secondary bg-opacity-25" style="width: 8px; height: 8px;"></div>
                         <div class="rounded-circle bg-secondary bg-opacity-25" style="width: 8px; height: 8px;"></div>
                         <div class="rounded-circle bg-secondary bg-opacity-25" style="width: 8px; height: 8px;"></div>
@@ -180,7 +180,7 @@ const sections = [
                 
                 <!-- Feature 1 -->
                 <div class="col-md-6 col-xl-3 d-flex align-items-center gap-3 sl-feature-item">
-                    <div class="bg-success bg-opacity-10 text-success rounded-circle d-flex align-items-center justify-content-center flex-shrink-0" style="width: 60px; height: 60px;">
+                    <div class="bg-primary bg-opacity-10 text-primary rounded-circle d-flex align-items-center justify-content-center flex-shrink-0" style="width: 60px; height: 60px;">
                         <i class="fa fa-book fs-3"></i>
                     </div>
                     <div>
@@ -191,7 +191,7 @@ const sections = [
                 
                 <!-- Feature 2 -->
                 <div class="col-md-6 col-xl-3 d-flex align-items-center gap-3 sl-feature-item">
-                    <div class="bg-success bg-opacity-10 text-success rounded-circle d-flex align-items-center justify-content-center flex-shrink-0" style="width: 60px; height: 60px;">
+                    <div class="bg-primary bg-opacity-10 text-primary rounded-circle d-flex align-items-center justify-content-center flex-shrink-0" style="width: 60px; height: 60px;">
                         <i class="fa fa-line-chart fs-3"></i>
                     </div>
                     <div>
@@ -233,7 +233,7 @@ const sections = [
     letter-spacing: -0.04em;
 }
 .sl-hero-vid-gallery .sl-text-gradient {
-    background: linear-gradient(135deg, #20c997 0%, #6f42c1 100%);
+    background: linear-gradient(135deg, var(--bs-primary) 0%, var(--bs-secondary) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;

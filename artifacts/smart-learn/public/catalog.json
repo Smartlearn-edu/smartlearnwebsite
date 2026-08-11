@@ -285,7 +285,7 @@
       "download_url": "/sections/hero-modern-ivy.json",
       "is_premium": false,
       "is_new": true,
-      "popularity": 93
+      "popularity": 89
     },
     {
       "id": "hero-tech-bootcamp",
@@ -305,7 +305,7 @@
       "download_url": "/sections/hero-tech-bootcamp.json",
       "is_premium": false,
       "is_new": true,
-      "popularity": 52
+      "popularity": 56
     },
     {
       "id": "hero-corporate-search",
@@ -325,7 +325,7 @@
       "download_url": "/sections/hero-corporate-search.json",
       "is_premium": false,
       "is_new": true,
-      "popularity": 66
+      "popularity": 75
     },
     {
       "id": "hero-creator-masterclass",
@@ -345,7 +345,7 @@
       "download_url": "/sections/hero-creator-masterclass.json",
       "is_premium": false,
       "is_new": true,
-      "popularity": 78
+      "popularity": 96
     },
     {
       "id": "hero-floating-universe",
@@ -365,7 +365,7 @@
       "download_url": "/sections/hero-floating-universe.json",
       "is_premium": false,
       "is_new": true,
-      "popularity": 87
+      "popularity": 60
     },
     {
       "id": "hero-abstract-innovator",
@@ -385,7 +385,7 @@
       "download_url": "/sections/hero-abstract-innovator.json",
       "is_premium": false,
       "is_new": true,
-      "popularity": 53
+      "popularity": 74
     },
     {
       "id": "hero-dynamic-academy",
@@ -405,7 +405,7 @@
       "download_url": "/sections/hero-dynamic-academy.json",
       "is_premium": false,
       "is_new": true,
-      "popularity": 97
+      "popularity": 76
     },
     {
       "id": "hero-glass-box",
@@ -424,7 +424,7 @@
       "download_url": "/sections/hero-glass-box.json",
       "is_premium": false,
       "is_new": true,
-      "popularity": 83
+      "popularity": 53
     },
     {
       "id": "hero-instructor-spotlight",
@@ -443,7 +443,7 @@
       "download_url": "/sections/hero-instructor-spotlight.json",
       "is_premium": false,
       "is_new": true,
-      "popularity": 95
+      "popularity": 90
     },
     {
       "id": "hero-product-reveal",
@@ -463,7 +463,7 @@
       "download_url": "/sections/hero-product-reveal.json",
       "is_premium": false,
       "is_new": true,
-      "popularity": 53
+      "popularity": 85
     },
     {
       "id": "hero-bento-learning",
@@ -483,7 +483,7 @@
       "download_url": "/sections/hero-bento-learning.json",
       "is_premium": false,
       "is_new": true,
-      "popularity": 92
+      "popularity": 57
     },
     {
       "id": "hero-learning-path",
@@ -503,7 +503,7 @@
       "download_url": "/sections/hero-learning-path.json",
       "is_premium": false,
       "is_new": true,
-      "popularity": 59
+      "popularity": 88
     },
     {
       "id": "hero-student-journey",
@@ -523,7 +523,7 @@
       "download_url": "/sections/hero-student-journey.json",
       "is_premium": false,
       "is_new": true,
-      "popularity": 80
+      "popularity": 86
     },
     {
       "id": "hero-video-gallery",
@@ -543,7 +543,7 @@
       "download_url": "/sections/hero-video-gallery.json",
       "is_premium": false,
       "is_new": true,
-      "popularity": 83
+      "popularity": 51
     }
   ]
 }
