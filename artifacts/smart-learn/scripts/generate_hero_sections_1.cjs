@@ -175,12 +175,12 @@ const sections = [
             image_count: 0
         },
         html: `<!-- sl-section: hero-tech-bootcamp | v1.0 -->
-<div class="sl-hero-tech position-relative text-center overflow-hidden">
+<div class="sl-hero-tech position-relative text-center overflow-hidden sl-bg-main">
     <div class="mesh-bg"></div>
     <div class="noise-overlay"></div>
     
     <div class="container py-6 py-lg-8 position-relative z-2 h-100 d-flex flex-column justify-content-center align-items-center">
-        <div class="terminal-badge mb-4 d-inline-flex align-items-center rounded-pill px-3 py-1 shadow-sm border border-light border-opacity-25" style="background: rgba(0,0,0,0.5); backdrop-filter: blur(10px);">
+        <div class="terminal-badge mb-4 d-inline-flex align-items-center rounded-pill px-3 py-1 shadow-sm border sl-bg-card" style="backdrop-filter: blur(10px);">
             <span class="pulse-dot me-2"></span>
             <span class="sl-text-emphasis font-mono small tracking-wide" data-sl-edit="text">NEXT COHORT: SEPT 2026</span>
         </div>
@@ -191,15 +191,15 @@ const sections = [
                 <span class="position-relative z-1">Future.</span>
             </span>
         </h1>
-        <p class="lead sl-text-muted opacity-75 mb-5 mx-auto" style="max-width: 700px;" data-sl-edit="text">
+        <p class="lead sl-text-muted mb-5 mx-auto" style="max-width: 700px;" data-sl-edit="text">
             Intensive 12-week bootcamps in Full-Stack, AI, and Data Science. Learn from senior engineers and build a portfolio that gets you hired.
         </p>
         
         <div class="d-flex flex-column flex-sm-row gap-3 justify-content-center w-100" style="max-width: 450px;">
-            <a href="#" class="btn sl-btn-primary btn-lg rounded-pill fw-bold tech-btn primary-btn flex-grow-1" data-sl-edit="link">
+            <a href="#" class="btn sl-btn-primary btn-lg rounded-pill fw-bold tech-btn flex-grow-1" style="color: #FFFFFF !important;" data-sl-edit="link">
                 Apply Now <i class="fa fa-arrow-right ms-2"></i>
             </a>
-            <a href="#" class="btn btn-outline-light btn-lg rounded-pill fw-bold tech-btn flex-grow-1" data-sl-edit="link">
+            <a href="#" class="btn sl-btn-outline-primary btn-lg rounded-pill fw-bold tech-btn flex-grow-1" data-sl-edit="link">
                 View Curriculum
             </a>
         </div>
@@ -230,7 +230,7 @@ const sections = [
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@400;600;800&display=swap');
 
 .sl-hero-tech {
-    background-color: var(--bs-body-bg);
+    background-color: var(--smartlearn-bg);
     font-family: 'Inter', sans-serif;
     min-height: 90vh;
 }
@@ -238,17 +238,22 @@ const sections = [
     font-family: 'JetBrains Mono', monospace;
 }
 .sl-hero-tech .mesh-bg {
-    position: absolute;
-    top: -50%; left: -50%; right: -50%; bottom: -50%;
-    background: radial-gradient(circle at 50% 50%, rgba(99, 102, 241, 0.4) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(236, 72, 153, 0.4) 0%, transparent 40%),
-                radial-gradient(circle at 20% 80%, rgba(139, 92, 246, 0.4) 0%, transparent 50%);
-    z-index: 0;
-    animation: slTechRotate 20s ease-in-out infinite alternate;
+    position: absolute; inset: 0; overflow: hidden; z-index: 0;
+    background: radial-gradient(circle at 50% 50%, color-mix(in srgb, var(--smartlearn-primary) 10%, transparent) 0%, transparent 70%);
 }
-@keyframes slTechRotate {
-    0% { transform: scale(1) rotate(0deg); }
-    100% { transform: scale(1.1) rotate(15deg); }
+.sl-hero-tech .sl-particle {
+    position: absolute;
+    width: 4px; height: 4px;
+    background: var(--smartlearn-primary);
+    border-radius: 50%;
+    box-shadow: 0 0 10px var(--smartlearn-primary);
+    opacity: 0;
+    animation: slFloatParticle 4s infinite ease-in-out;
+}
+@keyframes slFloatParticle {
+    0% { transform: translateY(0) scale(0.5); opacity: 0; }
+    50% { opacity: 0.6; transform: translateY(-20px) scale(1.2); }
+    100% { transform: translateY(-40px) scale(0.5); opacity: 0; }
 }
 .sl-hero-tech .noise-overlay {
     position: absolute; inset: 0; z-index: 1; opacity: 0.05;
@@ -271,14 +276,6 @@ const sections = [
 .sl-hero-tech .text-transparent {
     color: transparent;
 }
-.sl-hero-tech .gradient-text {
-    background-image: linear-gradient(90deg, var(--smartlearn-primary), var(--bs-info), var(--bs-secondary));
-    background-size: 200% auto;
-    animation: slGradientFlow 5s linear infinite;
-}
-@keyframes slGradientFlow {
-    to { background-position: 200% center; }
-}
 .sl-hero-tech .sl-tech-title {
     letter-spacing: -0.03em;
 }
@@ -287,15 +284,22 @@ const sections = [
 }
 .sl-hero-tech .tech-btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 10px 25px -5px rgba(0,0,0,0.5);
-}
-.sl-hero-tech .primary-btn {
-    background: linear-gradient(135deg, var(--smartlearn-primary), var(--bs-secondary));
-    border: none;
+    box-shadow: 0 10px 25px -5px rgba(0,0,0,0.2);
 }`,
         js: `(function() {
     const root = document.querySelector('.sl-hero-tech');
     if (!root) return;
+    const bg = root.querySelector('.mesh-bg');
+    if (bg && !bg.querySelector('.sl-particle')) {
+        for (let i = 0; i < 40; i++) {
+            let p = document.createElement('div');
+            p.className = 'sl-particle';
+            p.style.left = Math.random() * 100 + '%';
+            p.style.top = Math.random() * 100 + '%';
+            p.style.animationDelay = (Math.random() * 5) + 's';
+            bg.appendChild(p);
+        }
+    }
 })();`
     },
 

@@ -285,7 +285,7 @@
       "download_url": "/sections/hero-modern-ivy.json",
       "is_premium": false,
       "is_new": true,
-      "popularity": 57
+      "popularity": 61
     },
     {
       "id": "hero-tech-bootcamp",
@@ -305,7 +305,7 @@
       "download_url": "/sections/hero-tech-bootcamp.json",
       "is_premium": false,
       "is_new": true,
-      "popularity": 61
+      "popularity": 96
     },
     {
       "id": "hero-corporate-search",
@@ -325,7 +325,7 @@
       "download_url": "/sections/hero-corporate-search.json",
       "is_premium": false,
       "is_new": true,
-      "popularity": 65
+      "popularity": 79
     },
     {
       "id": "hero-creator-masterclass",
@@ -345,7 +345,7 @@
       "download_url": "/sections/hero-creator-masterclass.json",
       "is_premium": false,
       "is_new": true,
-      "popularity": 64
+      "popularity": 67
     },
     {
       "id": "hero-floating-universe",
