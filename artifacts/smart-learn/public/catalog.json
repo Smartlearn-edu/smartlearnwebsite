@@ -266,6 +266,264 @@
       "is_premium": false,
       "is_new": true,
       "popularity": 96
+    },
+    {
+      "id": "hero-modern-ivy",
+      "name": "Modern Ivy Hero",
+      "category": "Hero",
+      "variant": "Ivy",
+      "description": "Premium editorial layout with serif typography and masonry image collage for executive education.",
+      "tags": [
+        "hero",
+        "ivy",
+        "editorial",
+        "premium",
+        "university"
+      ],
+      "image_count": 3,
+      "preview_image": "",
+      "download_url": "/sections/hero-modern-ivy.json",
+      "is_premium": false,
+      "is_new": true,
+      "popularity": 89
+    },
+    {
+      "id": "hero-tech-bootcamp",
+      "name": "Tech Bootcamp Hero",
+      "category": "Hero",
+      "variant": "Tech",
+      "description": "Dark mode hero with an animated mesh gradient background and terminal-like typography.",
+      "tags": [
+        "hero",
+        "tech",
+        "bootcamp",
+        "gradient",
+        "dark"
+      ],
+      "image_count": 0,
+      "preview_image": "",
+      "download_url": "/sections/hero-tech-bootcamp.json",
+      "is_premium": false,
+      "is_new": true,
+      "popularity": 79
+    },
+    {
+      "id": "hero-corporate-search",
+      "name": "Corporate Search Hub",
+      "category": "Hero",
+      "variant": "Search Hub",
+      "description": "Neumorphic soft UI focused on a prominent search bar for large course libraries.",
+      "tags": [
+        "hero",
+        "search",
+        "corporate",
+        "neumorphism",
+        "light"
+      ],
+      "image_count": 0,
+      "preview_image": "",
+      "download_url": "/sections/hero-corporate-search.json",
+      "is_premium": false,
+      "is_new": true,
+      "popularity": 95
+    },
+    {
+      "id": "hero-creator-masterclass",
+      "name": "Creator Masterclass Hero",
+      "category": "Hero",
+      "variant": "Video",
+      "description": "Cinematic full-screen video background with a floating glass course rating card.",
+      "tags": [
+        "hero",
+        "video",
+        "cinematic",
+        "masterclass",
+        "creator"
+      ],
+      "image_count": 2,
+      "preview_image": "",
+      "download_url": "/sections/hero-creator-masterclass.json",
+      "is_premium": false,
+      "is_new": true,
+      "popularity": 91
+    },
+    {
+      "id": "hero-floating-universe",
+      "name": "Floating Universe Hero",
+      "category": "Hero",
+      "variant": "Floating",
+      "description": "3D parallax environment with floating course cards on a clean light background.",
+      "tags": [
+        "hero",
+        "floating",
+        "3d",
+        "courses",
+        "light"
+      ],
+      "image_count": 3,
+      "preview_image": "",
+      "download_url": "/sections/hero-floating-universe.json",
+      "is_premium": false,
+      "is_new": true,
+      "popularity": 74
+    },
+    {
+      "id": "hero-abstract-innovator",
+      "name": "Abstract Innovator Hero",
+      "category": "Hero",
+      "variant": "Abstract",
+      "description": "Friendly, organic layout using morphing SVG blob shapes to mask images.",
+      "tags": [
+        "hero",
+        "abstract",
+        "svg",
+        "blob",
+        "friendly"
+      ],
+      "image_count": 1,
+      "preview_image": "",
+      "download_url": "/sections/hero-abstract-innovator.json",
+      "is_premium": false,
+      "is_new": true,
+      "popularity": 82
+    },
+    {
+      "id": "hero-dynamic-academy",
+      "name": "Dynamic Academy Hero",
+      "category": "Hero",
+      "variant": "Dynamic",
+      "description": "High-energy layout with a diagonal split and fast-paced animations.",
+      "tags": [
+        "hero",
+        "dynamic",
+        "academy",
+        "sports",
+        "diagonal"
+      ],
+      "image_count": 1,
+      "preview_image": "",
+      "download_url": "/sections/hero-dynamic-academy.json",
+      "is_premium": false,
+      "is_new": true,
+      "popularity": 84
+    },
+    {
+      "id": "hero-glass-box",
+      "name": "Glass Box Hero",
+      "category": "Hero",
+      "variant": "Premium Glass",
+      "description": "Center-aligned frosted glass panel over a blurred full-width background image.",
+      "tags": [
+        "hero",
+        "glassmorphism",
+        "premium",
+        "center"
+      ],
+      "image_count": 1,
+      "preview_image": "",
+      "download_url": "/sections/hero-glass-box.json",
+      "is_premium": false,
+      "is_new": true,
+      "popularity": 62
+    },
+    {
+      "id": "hero-instructor-spotlight",
+      "name": "Instructor Spotlight Hero",
+      "category": "Hero",
+      "variant": "Instructor",
+      "description": "Focuses on the instructor with a large cut-out portrait and orbiting UI badges.",
+      "tags": [
+        "hero",
+        "instructor",
+        "human",
+        "badges"
+      ],
+      "image_count": 1,
+      "preview_image": "",
+      "download_url": "/sections/hero-instructor-spotlight.json",
+      "is_premium": false,
+      "is_new": true,
+      "popularity": 61
+    },
+    {
+      "id": "hero-product-reveal",
+      "name": "Product Reveal Hero",
+      "category": "Hero",
+      "variant": "Dashboard Mockup",
+      "description": "Shows off the actual student dashboard UI with a stylized 3D CSS mockup.",
+      "tags": [
+        "hero",
+        "product",
+        "dashboard",
+        "mockup",
+        "ui"
+      ],
+      "image_count": 0,
+      "preview_image": "",
+      "download_url": "/sections/hero-product-reveal.json",
+      "is_premium": false,
+      "is_new": true,
+      "popularity": 81
+    },
+    {
+      "id": "hero-bento-learning",
+      "name": "Bento Learning Hero",
+      "category": "Hero",
+      "variant": "Bento Grid",
+      "description": "Trendy Apple-style bento grid layout organizing different hero elements into distinct cards.",
+      "tags": [
+        "hero",
+        "bento",
+        "grid",
+        "modern",
+        "ui"
+      ],
+      "image_count": 1,
+      "preview_image": "",
+      "download_url": "/sections/hero-bento-learning.json",
+      "is_premium": false,
+      "is_new": true,
+      "popularity": 73
+    },
+    {
+      "id": "hero-learning-path",
+      "name": "Learning Path Hero",
+      "category": "Hero",
+      "variant": "Curriculum",
+      "description": "Illustrates a journey with a connected visual timeline of courses.",
+      "tags": [
+        "hero",
+        "path",
+        "curriculum",
+        "timeline",
+        "journey"
+      ],
+      "image_count": 0,
+      "preview_image": "",
+      "download_url": "/sections/hero-learning-path.json",
+      "is_premium": false,
+      "is_new": true,
+      "popularity": 63
+    },
+    {
+      "id": "hero-student-journey",
+      "name": "Student Journey Hero",
+      "category": "Hero",
+      "variant": "Personalized",
+      "description": "Logged-in dashboard hero for returning students showing actual Moodle functionality and progress.",
+      "tags": [
+        "hero",
+        "student",
+        "dashboard",
+        "progress",
+        "personalized"
+      ],
+      "image_count": 0,
+      "preview_image": "",
+      "download_url": "/sections/hero-student-journey.json",
+      "is_premium": false,
+      "is_new": true,
+      "popularity": 83
     }
   ]
 }
