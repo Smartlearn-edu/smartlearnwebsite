@@ -285,7 +285,7 @@
       "download_url": "/sections/hero-modern-ivy.json",
       "is_premium": false,
       "is_new": true,
-      "popularity": 65
+      "popularity": 93
     },
     {
       "id": "hero-tech-bootcamp",
@@ -305,7 +305,7 @@
       "download_url": "/sections/hero-tech-bootcamp.json",
       "is_premium": false,
       "is_new": true,
-      "popularity": 83
+      "popularity": 52
     },
     {
       "id": "hero-corporate-search",
@@ -325,7 +325,7 @@
       "download_url": "/sections/hero-corporate-search.json",
       "is_premium": false,
       "is_new": true,
-      "popularity": 75
+      "popularity": 66
     },
     {
       "id": "hero-creator-masterclass",
@@ -345,7 +345,7 @@
       "download_url": "/sections/hero-creator-masterclass.json",
       "is_premium": false,
       "is_new": true,
-      "popularity": 93
+      "popularity": 78
     },
     {
       "id": "hero-floating-universe",
@@ -365,7 +365,7 @@
       "download_url": "/sections/hero-floating-universe.json",
       "is_premium": false,
       "is_new": true,
-      "popularity": 90
+      "popularity": 87
     },
     {
       "id": "hero-abstract-innovator",
@@ -405,7 +405,7 @@
       "download_url": "/sections/hero-dynamic-academy.json",
       "is_premium": false,
       "is_new": true,
-      "popularity": 57
+      "popularity": 97
     },
     {
       "id": "hero-glass-box",
@@ -424,7 +424,7 @@
       "download_url": "/sections/hero-glass-box.json",
       "is_premium": false,
       "is_new": true,
-      "popularity": 51
+      "popularity": 83
     },
     {
       "id": "hero-instructor-spotlight",
@@ -443,7 +443,7 @@
       "download_url": "/sections/hero-instructor-spotlight.json",
       "is_premium": false,
       "is_new": true,
-      "popularity": 64
+      "popularity": 95
     },
     {
       "id": "hero-product-reveal",
@@ -463,7 +463,7 @@
       "download_url": "/sections/hero-product-reveal.json",
       "is_premium": false,
       "is_new": true,
-      "popularity": 61
+      "popularity": 53
     },
     {
       "id": "hero-bento-learning",
@@ -483,7 +483,7 @@
       "download_url": "/sections/hero-bento-learning.json",
       "is_premium": false,
       "is_new": true,
-      "popularity": 63
+      "popularity": 92
     },
     {
       "id": "hero-learning-path",
@@ -503,7 +503,7 @@
       "download_url": "/sections/hero-learning-path.json",
       "is_premium": false,
       "is_new": true,
-      "popularity": 67
+      "popularity": 59
     },
     {
       "id": "hero-student-journey",
@@ -543,7 +543,7 @@
       "download_url": "/sections/hero-video-gallery.json",
       "is_premium": false,
       "is_new": true,
-      "popularity": 77
+      "popularity": 83
     }
   ]
 }

@@ -26,7 +26,7 @@ const sections = [
             <path d="M0,70 Q25,50 50,70 T100,70" fill="none" stroke="#e0e7ff" stroke-width="0.5" />
         </svg>
         <div class="position-absolute rounded-circle border border-primary opacity-10" style="width: 80px; height: 80px; top: 10%; right: 15%;"></div>
-        <div class="position-absolute rounded-circle bg-primary opacity-10" style="width: 150px; height: 150px; bottom: 20%; left: -5%;"></div>
+        <div class="position-absolute rounded-circle bg-success opacity-10" style="width: 150px; height: 150px; bottom: 20%; left: -5%;"></div>
     </div>
 
     <div class="container position-relative z-1">
@@ -97,7 +97,7 @@ const sections = [
                         <!-- Main Video Content -->
                         <div class="position-absolute top-0 start-0 w-100 h-100 p-4 d-flex flex-column justify-content-between pointer-events-none">
                             <div class="d-flex justify-content-between align-items-start">
-                                <span class="badge bg-primary px-3 py-2 rounded-3 fw-medium">Featured</span>
+                                <span class="badge bg-success px-3 py-2 rounded-3 fw-medium">Featured</span>
                             </div>
                             
                             <div class="col-md-8 col-10">
@@ -191,7 +191,7 @@ const sections = [
                 
                 <!-- Feature 2 -->
                 <div class="col-md-6 col-xl-3 d-flex align-items-center gap-3 sl-feature-item">
-                    <div class="bg-primary bg-opacity-10 text-primary rounded-circle d-flex align-items-center justify-content-center flex-shrink-0" style="width: 60px; height: 60px;">
+                    <div class="bg-success bg-opacity-10 text-success rounded-circle d-flex align-items-center justify-content-center flex-shrink-0" style="width: 60px; height: 60px;">
                         <i class="fa fa-line-chart fs-3"></i>
                     </div>
                     <div>
@@ -253,7 +253,7 @@ const sections = [
     transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
 }
 .sl-hero-vid-gallery .sl-nav-btn:hover {
-    background-color: #f8f9fa;
+    background-color: transparent;
     transform: translateX(-50%) scale(1.1);
 }
 .sl-hero-vid-gallery .sl-nav-btn.end-0:hover {

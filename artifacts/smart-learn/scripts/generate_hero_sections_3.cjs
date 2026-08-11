@@ -26,12 +26,12 @@ const sections = [
                     <span class="sl-pulsing-dot bg-danger rounded-circle me-2" style="width: 8px; height: 8px;"></span> Live Masterclass
                 </div>
                 
-                <h1 class="display-3 fw-bold mb-4 sl-title-tracking" data-sl-edit="text">Learn directly <br>from the <span class="text-primary position-relative">Masters.<svg class="position-absolute w-100 h-auto bottom-0 start-0 text-primary opacity-50" style="margin-bottom: -10px;" viewBox="0 0 200 20" xmlns="http://www.w3.org/2000/svg"><path d="M0 10 Q 50 20 100 10 T 200 10" stroke="currentColor" stroke-width="4" fill="none"/></svg></span></h1>
+                <h1 class="display-3 fw-bold mb-4 sl-title-tracking" data-sl-edit="text">Learn directly <br>from the <span class="text-success position-relative">Masters.<svg class="position-absolute w-100 h-auto bottom-0 start-0 text-success opacity-50" style="margin-bottom: -10px;" viewBox="0 0 200 20" xmlns="http://www.w3.org/2000/svg"><path d="M0 10 Q 50 20 100 10 T 200 10" stroke="currentColor" stroke-width="4" fill="none"/></svg></span></h1>
                 
                 <p class="fs-5 text-body-secondary mb-5 pe-lg-4" data-sl-edit="text">Stop learning from theorists. Start learning from practitioners who have actually built billion-dollar companies.</p>
                 
                 <div class="d-flex flex-wrap align-items-center gap-4 mb-5">
-                    <a href="#" class="btn btn-primary btn-lg rounded-pill px-5 py-3 fw-bold shadow-sm" data-sl-edit="text">Meet the Instructors</a>
+                    <a href="#" class="btn btn-success btn-lg rounded-pill px-5 py-3 fw-bold shadow-sm" data-sl-edit="text">Meet the Instructors</a>
                     
                     <div class="d-flex align-items-center">
                         <div class="me-2 text-warning fs-5">
@@ -45,7 +45,7 @@ const sections = [
             
             <div class="col-lg-6 position-relative sl-instructor-stage mt-5 mt-lg-0">
                 <!-- Decorative background blob -->
-                <div class="position-absolute bg-primary rounded-circle opacity-10 sl-blob-bg" style="width: 500px; height: 500px; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 0;"></div>
+                <div class="position-absolute bg-success rounded-circle opacity-10 sl-blob-bg" style="width: 500px; height: 500px; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 0;"></div>
                 
                 <!-- Main Instructor Cutout Image -->
                 <div class="position-relative z-1 text-center">
@@ -139,16 +139,16 @@ const sections = [
     <div class="container py-7 py-lg-8">
         <div class="row align-items-center">
             <div class="col-lg-5 position-relative z-2 mb-5 mb-lg-0">
-                <h1 class="display-4 fw-bolder mb-4 text-body-emphasis sl-reveal-title" data-sl-edit="text">An LMS people <br><span class="text-primary">actually love.</span></h1>
+                <h1 class="display-4 fw-bolder mb-4 text-body-emphasis sl-reveal-title" data-sl-edit="text">An LMS people <br><span class="text-success">actually love.</span></h1>
                 <p class="fs-5 text-body-secondary mb-5 pe-lg-4" data-sl-edit="text">Experience a learning environment that doesn't feel like a chore. Gamified progress, beautiful UI, and social learning built-in.</p>
                 
                 <ul class="list-unstyled mb-5">
-                    <li class="d-flex align-items-center mb-3"><i class="fa fa-check-circle text-primary fs-5 me-3"></i> <span class="fw-medium text-body-emphasis" data-sl-edit="text">Personalized learning paths</span></li>
-                    <li class="d-flex align-items-center mb-3"><i class="fa fa-check-circle text-primary fs-5 me-3"></i> <span class="fw-medium text-body-emphasis" data-sl-edit="text">Real-time progress tracking</span></li>
-                    <li class="d-flex align-items-center"><i class="fa fa-check-circle text-primary fs-5 me-3"></i> <span class="fw-medium text-body-emphasis" data-sl-edit="text">Social forums & study groups</span></li>
+                    <li class="d-flex align-items-center mb-3"><i class="fa fa-check-circle text-success fs-5 me-3"></i> <span class="fw-medium text-body-emphasis" data-sl-edit="text">Personalized learning paths</span></li>
+                    <li class="d-flex align-items-center mb-3"><i class="fa fa-check-circle text-success fs-5 me-3"></i> <span class="fw-medium text-body-emphasis" data-sl-edit="text">Real-time progress tracking</span></li>
+                    <li class="d-flex align-items-center"><i class="fa fa-check-circle text-success fs-5 me-3"></i> <span class="fw-medium text-body-emphasis" data-sl-edit="text">Social forums & study groups</span></li>
                 </ul>
                 
-                <a href="#" class="btn btn-primary btn-lg rounded-3 px-5 py-3 fw-bold shadow-lg sl-hover-lift" data-sl-edit="link">Take a Product Tour</a>
+                <a href="#" class="btn btn-success btn-lg rounded-3 px-5 py-3 fw-bold shadow-lg sl-hover-lift" data-sl-edit="link">Take a Product Tour</a>
             </div>
             
             <div class="col-lg-7">
@@ -176,11 +176,11 @@ const sections = [
                                 <div class="bg-body p-3 rounded-3 border border-secondary-subtle shadow-sm h-100 sl-mock-widget">
                                     <h6 class="fw-bold small text-body-secondary mb-3">CURRENT COURSE</h6>
                                     <div class="d-flex align-items-center gap-3">
-                                        <div class="bg-primary-subtle rounded-3" style="width: 60px; height: 60px;"></div>
+                                        <div class="bg-success-subtle rounded-3" style="width: 60px; height: 60px;"></div>
                                         <div class="flex-grow-1">
                                             <div class="fw-bold mb-1">Advanced React Patterns</div>
                                             <div class="progress" style="height: 8px;">
-                                                <div class="progress-bar bg-primary" style="width: 65%;"></div>
+                                                <div class="progress-bar bg-success" style="width: 65%;"></div>
                                             </div>
                                             <div class="small text-body-secondary mt-1">65% Completed</div>
                                         </div>
@@ -290,15 +290,15 @@ const sections = [
             
             <!-- Main Hero Card (Large, Top Left) -->
             <div class="col-lg-8">
-                <div class="sl-bento-card bg-primary-subtle rounded-5 p-5 h-100 d-flex flex-column justify-content-center position-relative overflow-hidden sl-stagger-1">
+                <div class="sl-bento-card bg-success-subtle rounded-5 p-5 h-100 d-flex flex-column justify-content-center position-relative overflow-hidden sl-stagger-1">
                     <div class="position-relative z-2 w-75">
-                        <span class="badge bg-body text-primary mb-3 px-3 py-2 rounded-pill fw-bold border border-secondary-subtle" data-sl-edit="text">SmartLearn v3.0</span>
-                        <h1 class="display-4 fw-bold text-body-emphasis mb-4 lh-sm sl-bento-title" data-sl-edit="text">Everything you need to <span class="text-primary">teach online.</span></h1>
+                        <span class="badge bg-body text-success mb-3 px-3 py-2 rounded-pill fw-bold border border-secondary-subtle" data-sl-edit="text">SmartLearn v3.0</span>
+                        <h1 class="display-4 fw-bold text-body-emphasis mb-4 lh-sm sl-bento-title" data-sl-edit="text">Everything you need to <span class="text-success">teach online.</span></h1>
                         <p class="fs-5 text-body-emphasis opacity-75 mb-0" data-sl-edit="text">The ultimate toolkit for educators, schools, and creators to build thriving online academies.</p>
                     </div>
                     <!-- Decorative shape -->
                     <div class="position-absolute end-0 bottom-0 opacity-25" style="transform: translate(20%, 20%); pointer-events: none;">
-                        <i class="fa fa-graduation-cap text-primary" style="font-size: 15rem;"></i>
+                        <i class="fa fa-graduation-cap text-success" style="font-size: 15rem;"></i>
                     </div>
                 </div>
             </div>
@@ -310,14 +310,14 @@ const sections = [
                         <h3 class="fw-bold mb-3" data-sl-edit="text">Start your free trial today.</h3>
                         <p class="opacity-75 mb-4" data-sl-edit="text">No credit card required. Cancel anytime.</p>
                     </div>
-                    <a href="#" class="btn btn-primary btn-lg rounded-pill w-100 fw-bold py-3 sl-bento-hover" data-sl-edit="link">Get Started <i class="fa fa-arrow-right ms-2"></i></a>
+                    <a href="#" class="btn btn-success btn-lg rounded-pill w-100 fw-bold py-3 sl-bento-hover" data-sl-edit="link">Get Started <i class="fa fa-arrow-right ms-2"></i></a>
                 </div>
             </div>
             
             <!-- Stat Card 1 (Bottom Left) -->
             <div class="col-md-4">
                 <div class="sl-bento-card border border-2 rounded-5 p-4 h-100 text-center d-flex flex-column justify-content-center sl-stagger-3">
-                    <h2 class="display-4 fw-black text-primary mb-1" data-sl-edit="text">99%</h2>
+                    <h2 class="display-4 fw-black text-success mb-1" data-sl-edit="text">99%</h2>
                     <span class="text-body-secondary fw-medium" data-sl-edit="text">Student Satisfaction</span>
                 </div>
             </div>
@@ -340,7 +340,7 @@ const sections = [
                     <h5 class="fw-bold text-body-emphasis mb-3" data-sl-edit="text">Find a Course</h5>
                     <div class="input-group mb-3">
                         <input type="text" class="form-control bg-body text-body-emphasis border-secondary-subtle rounded-start-pill py-3 px-4" placeholder="Search...">
-                        <button class="btn btn-light bg-body border-secondary-subtle border-start-0 rounded-end-pill px-4 text-primary"><i class="fa fa-search"></i></button>
+                        <button class="btn btn-light bg-body border-secondary-subtle border-start-0 rounded-end-pill px-4 text-success"><i class="fa fa-search"></i></button>
                     </div>
                     <div class="d-flex gap-2 flex-wrap">
                         <span class="badge bg-body text-body-emphasis rounded-pill px-2 py-1 border border-secondary-subtle">Design</span>
@@ -382,8 +382,8 @@ const sections = [
     transform: scale(1.1);
 }
 .sl-hero-bento .sl-bento-hover:hover {
-    background-color: #fff;
-    color: var(--bs-primary);
+    background-color: transparent;
+    color: var(--bs-success);
 }
 
 /* Staggered entrance animation */
@@ -547,7 +547,7 @@ const sections = [
             </div>
             <div class="mt-4 mt-md-0 d-flex gap-3">
                 <div class="text-center px-4 py-2 bg-body rounded-3 border border-secondary-subtle shadow-sm sl-stat-card">
-                    <h3 class="fw-bold text-primary mb-0" data-sl-edit="text">3</h3>
+                    <h3 class="fw-bold text-success mb-0" data-sl-edit="text">3</h3>
                     <small class="text-body-secondary fw-medium text-uppercase" style="font-size: 11px;" data-sl-edit="text">In Progress</small>
                 </div>
                 <div class="text-center px-4 py-2 bg-body rounded-3 border border-secondary-subtle shadow-sm sl-stat-card">
@@ -561,10 +561,10 @@ const sections = [
             <!-- Main Continue Learning Card -->
             <div class="col-lg-8">
                 <div class="card bg-body border border-secondary-subtle rounded-4 shadow-sm h-100 overflow-hidden sl-progress-card position-relative group">
-                    <div class="position-absolute top-0 start-0 w-100 h-100 bg-primary opacity-0 transition-opacity" style="z-index: 0; transition: opacity 0.3s ease;"></div>
+                    <div class="position-absolute top-0 start-0 w-100 h-100 bg-success opacity-0 transition-opacity" style="z-index: 0; transition: opacity 0.3s ease;"></div>
                     <div class="card-body p-4 p-md-5 position-relative z-1">
                         <div class="d-flex justify-content-between align-items-start mb-4">
-                            <span class="badge bg-primary-subtle text-primary fw-bold px-3 py-2 rounded-pill">CONTINUE LEARNING</span>
+                            <span class="badge bg-success-subtle text-success fw-bold px-3 py-2 rounded-pill">CONTINUE LEARNING</span>
                             <span class="text-body-secondary fw-medium"><i class="fa fa-clock-o me-1"></i> Last active 2h ago</span>
                         </div>
                         
@@ -577,11 +577,11 @@ const sections = [
                                 <span class="text-body-secondary small">18 of 25 lessons</span>
                             </div>
                             <div class="progress rounded-pill bg-body-secondary border border-secondary-subtle" style="height: 12px;">
-                                <div class="progress-bar bg-primary rounded-pill sl-progress-fill" style="width: 0%;" data-target="72%"></div>
+                                <div class="progress-bar bg-success rounded-pill sl-progress-fill" style="width: 0%;" data-target="72%"></div>
                             </div>
                         </div>
                         
-                        <a href="#" class="btn btn-primary btn-lg rounded-pill px-5 fw-bold shadow-sm" data-sl-edit="link">Resume Course <i class="fa fa-play ms-2"></i></a>
+                        <a href="#" class="btn btn-success btn-lg rounded-pill px-5 fw-bold shadow-sm" data-sl-edit="link">Resume Course <i class="fa fa-play ms-2"></i></a>
                     </div>
                 </div>
             </div>
@@ -594,7 +594,7 @@ const sections = [
                     <div class="d-flex flex-column gap-3">
                         <!-- Rec 1 -->
                         <a href="#" class="text-decoration-none sl-rec-item p-3 rounded-3 border border-secondary-subtle bg-body d-flex align-items-center">
-                            <div class="bg-primary-subtle text-primary rounded-3 d-flex align-items-center justify-content-center me-3" style="width: 48px; height: 48px;"><i class="fa fa-code"></i></div>
+                            <div class="bg-success-subtle text-success rounded-3 d-flex align-items-center justify-content-center me-3" style="width: 48px; height: 48px;"><i class="fa fa-code"></i></div>
                             <div>
                                 <h6 class="fw-bold text-body-emphasis mb-1" data-sl-edit="text">Advanced SQL</h6>
                                 <small class="text-body-secondary d-block" data-sl-edit="text">Recommended based on your activity</small>

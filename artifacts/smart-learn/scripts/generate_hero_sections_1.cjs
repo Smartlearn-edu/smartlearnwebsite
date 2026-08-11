@@ -26,12 +26,12 @@ const sections = [
     <div class="container py-5 py-lg-7 position-relative z-1">
         <div class="row align-items-center g-5">
             <div class="col-lg-7 pe-lg-5 sl-ivy-text">
-                <div class="badge rounded-pill bg-primary-subtle text-primary mb-4 fw-medium tracking-wide px-3 py-2 border">EXECUTIVE EDUCATION</div>
+                <div class="badge rounded-pill bg-success-subtle text-success mb-4 fw-medium tracking-wide px-3 py-2 border">EXECUTIVE EDUCATION</div>
                 <h1 class="display-3 fw-bold mb-4 font-serif text-body-emphasis" data-sl-edit="text">Elevate your <br>leadership potential.</h1>
                 <p class="lead mb-5 text-body-secondary pe-lg-4 fs-5" data-sl-edit="text">Join a global network of ambitious professionals. Discover premium courses designed by world-renowned experts to propel your career forward.</p>
                 
                 <div class="d-flex flex-wrap gap-3">
-                    <a href="#" class="btn btn-primary btn-lg rounded-0 px-4 py-3 fw-medium" data-sl-edit="link">Explore Programs</a>
+                    <a href="#" class="btn btn-success btn-lg rounded-0 px-4 py-3 fw-medium" data-sl-edit="link">Explore Programs</a>
                     <a href="#" class="btn btn-outline-primary btn-lg rounded-0 px-4 py-3 fw-medium" data-sl-edit="link">Speak to an Advisor</a>
                 </div>
                 
@@ -180,7 +180,7 @@ const sections = [
         </p>
         
         <div class="d-flex flex-column flex-sm-row gap-3 justify-content-center w-100" style="max-width: 450px;">
-            <a href="#" class="btn btn-primary btn-lg rounded-pill fw-bold tech-btn primary-btn flex-grow-1" data-sl-edit="link">
+            <a href="#" class="btn btn-success btn-lg rounded-pill fw-bold tech-btn primary-btn flex-grow-1" data-sl-edit="link">
                 Apply Now <i class="fa fa-arrow-right ms-2"></i>
             </a>
             <a href="#" class="btn btn-outline-light btn-lg rounded-pill fw-bold tech-btn flex-grow-1" data-sl-edit="link">
@@ -290,16 +290,16 @@ const sections = [
             <div class="search-box p-2 rounded-pill d-flex bg-body align-items-center">
                 <i class="fa fa-search ms-4 text-body-secondary fs-5"></i>
                 <input type="text" class="form-control border-0 bg-transparent fs-5 px-3 py-3 sl-search-input shadow-none text-body" placeholder="Search for courses, skills, or instructors...">
-                <button class="btn btn-primary rounded-pill px-5 py-3 fw-bold m-1" data-sl-edit="text">Find Courses</button>
+                <button class="btn btn-success rounded-pill px-5 py-3 fw-bold m-1" data-sl-edit="text">Find Courses</button>
             </div>
             
             <!-- Mock dropdown (initially hidden, can be wired to JS later) -->
             <div class="search-dropdown bg-body rounded-4 shadow-lg text-start p-3 position-absolute w-100 mt-2 d-none border border-secondary-subtle">
                 <div class="text-body-secondary small fw-bold px-3 mb-2">POPULAR SEARCHES</div>
                 <ul class="list-unstyled mb-0">
-                    <li><a href="#" class="dropdown-item py-2 px-3 rounded text-body"><i class="fa fa-line-chart me-2 text-primary"></i> Data Analysis with Python</a></li>
-                    <li><a href="#" class="dropdown-item py-2 px-3 rounded text-body"><i class="fa fa-bullhorn me-2 text-primary"></i> Digital Marketing Strategy</a></li>
-                    <li><a href="#" class="dropdown-item py-2 px-3 rounded text-body"><i class="fa fa-users me-2 text-primary"></i> Leadership & Management</a></li>
+                    <li><a href="#" class="dropdown-item py-2 px-3 rounded text-body"><i class="fa fa-line-chart me-2 text-success"></i> Data Analysis with Python</a></li>
+                    <li><a href="#" class="dropdown-item py-2 px-3 rounded text-body"><i class="fa fa-bullhorn me-2 text-success"></i> Digital Marketing Strategy</a></li>
+                    <li><a href="#" class="dropdown-item py-2 px-3 rounded text-body"><i class="fa fa-users me-2 text-success"></i> Leadership & Management</a></li>
                 </ul>
             </div>
         </div>
@@ -308,7 +308,7 @@ const sections = [
             <span class="text-body-secondary small fw-bold mb-3 tracking-wide" data-sl-edit="text">POPULAR TOPICS</span>
             <div class="d-flex flex-wrap justify-content-center gap-3">
                 <a href="#" class="sl-tag px-4 py-2 rounded-pill text-decoration-none text-body-emphasis bg-body fw-medium border border-secondary-subtle">
-                    <i class="fa fa-code text-primary me-2"></i> Web Development
+                    <i class="fa fa-code text-success me-2"></i> Web Development
                 </a>
                 <a href="#" class="sl-tag px-4 py-2 rounded-pill text-decoration-none text-body-emphasis bg-body fw-medium border border-secondary-subtle">
                     <i class="fa fa-pie-chart text-success me-2"></i> Business Analytics
@@ -449,7 +449,7 @@ const sections = [
                             </div>
                             <span class="fw-bold fs-5">4.9 / 5.0</span>
                         </div>
-                        <span class="badge bg-primary rounded-pill">Top Rated</span>
+                        <span class="badge bg-success rounded-pill">Top Rated</span>
                     </div>
                     
                     <p class="small opacity-75 fst-italic mb-3" data-sl-edit="text">"This course completely changed how I approach writing scripts. Absolute gold."</p>

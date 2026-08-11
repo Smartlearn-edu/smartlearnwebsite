@@ -32,13 +32,13 @@ const sections = [
     <div class="container py-6 py-lg-8 position-relative z-1">
         <div class="row align-items-center">
             <div class="col-lg-6 pe-lg-5 mb-5 mb-lg-0">
-                <div class="badge bg-primary-subtle text-primary mb-3 px-3 py-2 rounded-pill fw-bold" data-sl-edit="text">Over 10,000 Courses</div>
-                <h1 class="display-3 fw-bold mb-4 sl-universe-title text-body-emphasis" data-sl-edit="text">Learn without <br><span class="text-primary">limits.</span></h1>
+                <div class="badge bg-success-subtle text-success mb-3 px-3 py-2 rounded-pill fw-bold" data-sl-edit="text">Over 10,000 Courses</div>
+                <h1 class="display-3 fw-bold mb-4 sl-universe-title text-body-emphasis" data-sl-edit="text">Learn without <br><span class="text-success">limits.</span></h1>
                 <p class="fs-5 text-body-secondary mb-5" data-sl-edit="text">Build skills with courses, certificates, and degrees online from world-class universities and companies.</p>
                 
                 <form class="d-flex bg-body rounded-pill p-2 shadow-sm border border-secondary-subtle mb-4 sl-search-form">
                     <input type="text" class="form-control border-0 bg-transparent px-3 shadow-none text-body" placeholder="What do you want to learn?">
-                    <button class="btn btn-primary rounded-pill px-4 fw-bold" type="submit" data-sl-edit="text">Search</button>
+                    <button class="btn btn-success rounded-pill px-4 fw-bold" type="submit" data-sl-edit="text">Search</button>
                 </form>
                 
                 <div class="d-flex align-items-center gap-3">
@@ -79,7 +79,7 @@ const sections = [
     </div>
 </div>`,
         css: `.sl-hero-universe {
-    background: linear-gradient(180deg, #f8f9fa 0%, #ffffff 100%);
+    background: transparent;
     min-height: 80vh;
 }
 .sl-hero-universe .sl-universe-title {
@@ -170,8 +170,8 @@ const sections = [
                 <h1 class="display-3 fw-bold mb-4 sl-blob-title text-body-emphasis" data-sl-edit="text">Spark your <br>curiosity.</h1>
                 <p class="fs-5 text-body-secondary mb-5 pe-lg-5" data-sl-edit="text">Discover interactive classes in design, illustration, photography, and more. Taught by creative professionals.</p>
                 <div class="d-flex flex-wrap gap-3 mb-5">
-                    <a href="#" class="btn btn-primary btn-lg rounded-pill px-5 fw-bold shadow-sm" data-sl-edit="link">Start Learning</a>
-                    <a href="#" class="btn btn-outline-primary btn-lg rounded-pill px-4 fw-bold" data-sl-edit="link">Browse Catalog</a>
+                    <a href="#" class="btn btn-success btn-lg rounded-pill px-5 fw-bold shadow-sm" data-sl-edit="link">Start Learning</a>
+                    <a href="#" class="btn btn-outline-success btn-lg rounded-pill px-4 fw-bold" data-sl-edit="link">Browse Catalog</a>
                 </div>
                 
                 <!-- Trust indicators -->
@@ -186,7 +186,7 @@ const sections = [
             <div class="col-lg-6 position-relative">
                 <!-- Background decorative blobs -->
                 <div class="position-absolute sl-blob-bg bg-warning" style="top: -10%; right: 10%; width: 400px; height: 400px; z-index: 1;"></div>
-                <div class="position-absolute sl-blob-bg bg-primary opacity-25" style="bottom: -20%; left: 0%; width: 300px; height: 300px; z-index: 1;"></div>
+                <div class="position-absolute sl-blob-bg bg-success opacity-25" style="bottom: -20%; left: 0%; width: 300px; height: 300px; z-index: 1;"></div>
                 
                 <!-- Image masked by SVG Blob -->
                 <div class="sl-blob-mask-container mx-auto position-relative z-2">
@@ -279,14 +279,14 @@ const sections = [
             <div class="col-lg-6 sl-dynamic-content text-white py-6">
                 
                 <div class="d-flex align-items-center mb-4 sl-slide-in-1">
-                    <div class="bg-primary px-3 py-1 text-white fw-bold text-uppercase tracking-wide fs-6 me-3" style="transform: skewX(-15deg);" data-sl-edit="text">
+                    <div class="bg-success px-3 py-1 text-white fw-bold text-uppercase tracking-wide fs-6 me-3" style="transform: skewX(-15deg);" data-sl-edit="text">
                         <span class="d-inline-block" style="transform: skewX(15deg);">Pro Training</span>
                     </div>
                 </div>
                 
                 <h1 class="display-2 fw-black text-uppercase fst-italic lh-1 mb-4 text-white sl-slide-in-2" data-sl-edit="text">
                     Push your <br>
-                    <span class="text-primary">Boundaries.</span>
+                    <span class="text-success">Boundaries.</span>
                 </h1>
                 
                 <p class="fs-5 opacity-75 mb-5 pe-lg-5 sl-slide-in-3" data-sl-edit="text">
@@ -294,7 +294,7 @@ const sections = [
                 </p>
                 
                 <div class="d-flex flex-wrap gap-3 sl-slide-in-4">
-                    <a href="#" class="btn btn-primary btn-lg rounded-0 px-5 py-3 fw-bold text-uppercase fst-italic sl-btn-skew" data-sl-edit="link">
+                    <a href="#" class="btn btn-success btn-lg rounded-0 px-5 py-3 fw-bold text-uppercase fst-italic sl-btn-skew" data-sl-edit="link">
                         <span class="d-inline-block sl-unskew">Start Free Trial</span>
                     </a>
                 </div>
@@ -331,8 +331,8 @@ const sections = [
     transition: all 0.3s ease;
 }
 .sl-hero-dynamic .sl-btn-skew:hover {
-    background-color: #fff;
-    color: var(--bs-primary);
+    background-color: transparent;
+    color: var(--bs-success);
 }
 .sl-hero-dynamic .sl-btn-skew .sl-unskew {
     transform: skewX(15deg);
