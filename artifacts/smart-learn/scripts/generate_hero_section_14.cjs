@@ -17,7 +17,7 @@ const sections = [
             image_count: 5
         },
         html: `<!-- sl-section: hero-video-gallery | v1.0 -->
-<div class="sl-hero-vid-gallery position-relative bg-white overflow-hidden py-5 py-lg-6">
+<div class="sl-hero-vid-gallery position-relative bg-body overflow-hidden py-5 py-lg-6">
     <!-- Abstract Background Elements -->
     <div class="position-absolute top-0 start-0 w-100 h-100 pointer-events-none" style="z-index: 0; opacity: 0.4;">
         <svg class="position-absolute" style="top: -10%; left: -5%; width: 50%; height: 50%;" viewBox="0 0 100 100" preserveAspectRatio="none">
@@ -37,12 +37,12 @@ const sections = [
                     <i class="fa fa-graduation-cap me-2"></i> SmartLearn LMS
                 </div>
                 
-                <h1 class="display-4 fw-bolder mb-4 text-dark sl-tracking-tight" data-sl-edit="text" style="line-height: 1.1;">
+                <h1 class="display-4 fw-bolder mb-4 text-body-emphasis sl-tracking-tight" data-sl-edit="text" style="line-height: 1.1;">
                     Learn. Grow.<br>Succeed.<br>
                     <span class="sl-text-gradient">Together.</span>
                 </h1>
                 
-                <p class="fs-5 text-muted mb-5 pe-lg-3" data-sl-edit="text">
+                <p class="fs-5 text-body-secondary mb-5 pe-lg-3" data-sl-edit="text">
                     Discover engaging courses, expert instructors, and resources that help you achieve your goals.
                 </p>
                 
@@ -50,7 +50,7 @@ const sections = [
                     <a href="#" class="btn btn-success btn-lg rounded-3 px-4 py-3 fw-bold d-inline-flex align-items-center" data-sl-edit="link">
                         <i class="fa fa-book me-2"></i> Browse Courses
                     </a>
-                    <a href="#" class="btn btn-outline-secondary bg-white btn-lg rounded-3 px-4 py-3 fw-bold text-dark border-2 d-inline-flex align-items-center" data-sl-edit="link">
+                    <a href="#" class="btn btn-outline-secondary bg-body btn-lg rounded-3 px-4 py-3 fw-bold text-body-emphasis border-2 d-inline-flex align-items-center" data-sl-edit="link">
                         <i class="fa fa-play me-2"></i> How It Works
                     </a>
                 </div>
@@ -64,19 +64,19 @@ const sections = [
                     </div>
                     <div>
                         <div class="fw-bold text-success fs-5 mb-0 lh-1" data-sl-edit="text">15,000+</div>
-                        <small class="text-muted fw-medium" data-sl-edit="text">Active Learners</small>
+                        <small class="text-body-secondary fw-medium" data-sl-edit="text">Active Learners</small>
                     </div>
                 </div>
             </div>
             
             <!-- Right Media Column -->
             <div class="col-lg-7 sl-animate-fade-in-up" style="animation-delay: 0.3s;">
-                <div class="bg-white rounded-4 shadow-lg p-3 p-md-4 position-relative border">
+                <div class="bg-body rounded-4 shadow-lg p-3 p-md-4 position-relative border border-secondary-subtle">
                     <!-- Navigation Arrows (Absolute) -->
-                    <button class="btn btn-white text-dark rounded-circle shadow position-absolute sl-nav-btn start-0 translate-middle-y d-none d-md-flex align-items-center justify-content-center" style="top: 35%; width: 45px; height: 45px; z-index: 10; transform: translateX(-50%);">
+                    <button class="btn btn-light bg-body text-body-emphasis border border-secondary-subtle rounded-circle shadow position-absolute sl-nav-btn start-0 translate-middle-y d-none d-md-flex align-items-center justify-content-center" style="top: 35%; width: 45px; height: 45px; z-index: 10; transform: translateX(-50%);">
                         <i class="fa fa-chevron-left"></i>
                     </button>
-                    <button class="btn btn-white text-dark rounded-circle shadow position-absolute sl-nav-btn end-0 translate-middle-y d-none d-md-flex align-items-center justify-content-center" style="top: 35%; width: 45px; height: 45px; z-index: 10; transform: translateX(50%);">
+                    <button class="btn btn-light bg-body text-body-emphasis border border-secondary-subtle rounded-circle shadow position-absolute sl-nav-btn end-0 translate-middle-y d-none d-md-flex align-items-center justify-content-center" style="top: 35%; width: 45px; height: 45px; z-index: 10; transform: translateX(50%);">
                         <i class="fa fa-chevron-right"></i>
                     </button>
 
@@ -130,7 +130,7 @@ const sections = [
                                     </div>
                                     <span class="position-absolute bottom-0 end-0 m-1 bg-dark bg-opacity-75 text-white fw-medium rounded px-1" style="font-size: 10px;">03:18</span>
                                 </div>
-                                <h6 class="mb-0 fw-bold text-dark text-truncate" style="font-size: 11px;" data-sl-edit="text">Exploring Courses</h6>
+                                <h6 class="mb-0 fw-bold text-body-emphasis text-truncate" style="font-size: 11px;" data-sl-edit="text">Exploring Courses</h6>
                             </div>
                         </div>
                         <div class="col-3">
@@ -142,7 +142,7 @@ const sections = [
                                     </div>
                                     <span class="position-absolute bottom-0 end-0 m-1 bg-dark bg-opacity-75 text-white fw-medium rounded px-1" style="font-size: 10px;">02:12</span>
                                 </div>
-                                <h6 class="mb-0 fw-bold text-dark text-truncate" style="font-size: 11px;" data-sl-edit="text">Track Your Progress</h6>
+                                <h6 class="mb-0 fw-bold text-body-emphasis text-truncate" style="font-size: 11px;" data-sl-edit="text">Track Your Progress</h6>
                             </div>
                         </div>
                         <div class="col-3">
@@ -154,7 +154,7 @@ const sections = [
                                     </div>
                                     <span class="position-absolute bottom-0 end-0 m-1 bg-dark bg-opacity-75 text-white fw-medium rounded px-1" style="font-size: 10px;">01:56</span>
                                 </div>
-                                <h6 class="mb-0 fw-bold text-dark text-truncate" style="font-size: 11px;" data-sl-edit="text">Certificates & Badges</h6>
+                                <h6 class="mb-0 fw-bold text-body-emphasis text-truncate" style="font-size: 11px;" data-sl-edit="text">Certificates & Badges</h6>
                             </div>
                         </div>
                         <div class="col-3">
@@ -166,7 +166,7 @@ const sections = [
                                     </div>
                                     <span class="position-absolute bottom-0 end-0 m-1 bg-dark bg-opacity-75 text-white fw-medium rounded px-1" style="font-size: 10px;">02:33</span>
                                 </div>
-                                <h6 class="mb-0 fw-bold text-dark text-truncate" style="font-size: 11px;" data-sl-edit="text">Join Our Community</h6>
+                                <h6 class="mb-0 fw-bold text-body-emphasis text-truncate" style="font-size: 11px;" data-sl-edit="text">Join Our Community</h6>
                             </div>
                         </div>
                     </div>
@@ -175,7 +175,7 @@ const sections = [
         </div>
         
         <!-- Bottom Features Bar -->
-        <div class="bg-white rounded-4 shadow-sm border p-4 p-lg-5 sl-animate-fade-in-up" style="animation-delay: 0.5s;">
+        <div class="bg-body border border-secondary-subtle rounded-4 shadow-sm p-4 p-lg-5 sl-animate-fade-in-up" style="animation-delay: 0.5s;">
             <div class="row g-4 justify-content-between">
                 
                 <!-- Feature 1 -->
@@ -184,8 +184,8 @@ const sections = [
                         <i class="fa fa-book fs-3"></i>
                     </div>
                     <div>
-                        <h6 class="fw-bold mb-1 text-dark" data-sl-edit="text">Quality Content</h6>
-                        <p class="text-muted small mb-0 lh-sm" data-sl-edit="text">Access high-quality courses created by experts.</p>
+                        <h6 class="fw-bold mb-1 text-body-emphasis" data-sl-edit="text">Quality Content</h6>
+                        <p class="text-body-secondary small mb-0 lh-sm" data-sl-edit="text">Access high-quality courses created by experts.</p>
                     </div>
                 </div>
                 
@@ -195,8 +195,8 @@ const sections = [
                         <i class="fa fa-line-chart fs-3"></i>
                     </div>
                     <div>
-                        <h6 class="fw-bold mb-1 text-dark" data-sl-edit="text">Track Progress</h6>
-                        <p class="text-muted small mb-0 lh-sm" data-sl-edit="text">Monitor your learning and achieve your goals.</p>
+                        <h6 class="fw-bold mb-1 text-body-emphasis" data-sl-edit="text">Track Progress</h6>
+                        <p class="text-body-secondary small mb-0 lh-sm" data-sl-edit="text">Monitor your learning and achieve your goals.</p>
                     </div>
                 </div>
                 
@@ -206,8 +206,8 @@ const sections = [
                         <i class="fa fa-users fs-3"></i>
                     </div>
                     <div>
-                        <h6 class="fw-bold mb-1 text-dark" data-sl-edit="text">Learn Together</h6>
-                        <p class="text-muted small mb-0 lh-sm" data-sl-edit="text">Connect with learners and grow together.</p>
+                        <h6 class="fw-bold mb-1 text-body-emphasis" data-sl-edit="text">Learn Together</h6>
+                        <p class="text-body-secondary small mb-0 lh-sm" data-sl-edit="text">Connect with learners and grow together.</p>
                     </div>
                 </div>
                 
@@ -217,8 +217,8 @@ const sections = [
                         <i class="fa fa-certificate fs-3"></i>
                     </div>
                     <div>
-                        <h6 class="fw-bold mb-1 text-dark" data-sl-edit="text">Earn Certificates</h6>
-                        <p class="text-muted small mb-0 lh-sm" data-sl-edit="text">Get recognized and boost your career.</p>
+                        <h6 class="fw-bold mb-1 text-body-emphasis" data-sl-edit="text">Earn Certificates</h6>
+                        <p class="text-body-secondary small mb-0 lh-sm" data-sl-edit="text">Get recognized and boost your career.</p>
                     </div>
                 </div>
                 

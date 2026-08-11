@@ -22,40 +22,40 @@ const sections = [
             image_count: 3
         },
         html: `<!-- sl-section: hero-modern-ivy | v1.0 -->
-<div class="sl-hero-ivy">
+<div class="sl-hero-ivy bg-body">
     <div class="container py-5 py-lg-7 position-relative z-1">
         <div class="row align-items-center g-5">
             <div class="col-lg-7 pe-lg-5 sl-ivy-text">
-                <div class="badge rounded-pill bg-light text-navy mb-4 fw-medium tracking-wide px-3 py-2 border">EXECUTIVE EDUCATION</div>
-                <h1 class="display-3 fw-bold mb-4 font-serif text-navy" data-sl-edit="text">Elevate your <br>leadership potential.</h1>
-                <p class="lead mb-5 text-secondary pe-lg-4 fs-5" data-sl-edit="text">Join a global network of ambitious professionals. Discover premium courses designed by world-renowned experts to propel your career forward.</p>
+                <div class="badge rounded-pill bg-primary-subtle text-primary mb-4 fw-medium tracking-wide px-3 py-2 border">EXECUTIVE EDUCATION</div>
+                <h1 class="display-3 fw-bold mb-4 font-serif text-body-emphasis" data-sl-edit="text">Elevate your <br>leadership potential.</h1>
+                <p class="lead mb-5 text-body-secondary pe-lg-4 fs-5" data-sl-edit="text">Join a global network of ambitious professionals. Discover premium courses designed by world-renowned experts to propel your career forward.</p>
                 
                 <div class="d-flex flex-wrap gap-3">
-                    <a href="#" class="btn btn-navy btn-lg rounded-0 px-4 py-3 fw-medium" data-sl-edit="link">Explore Programs</a>
-                    <a href="#" class="btn btn-outline-navy btn-lg rounded-0 px-4 py-3 fw-medium" data-sl-edit="link">Speak to an Advisor</a>
+                    <a href="#" class="btn btn-primary btn-lg rounded-0 px-4 py-3 fw-medium" data-sl-edit="link">Explore Programs</a>
+                    <a href="#" class="btn btn-outline-primary btn-lg rounded-0 px-4 py-3 fw-medium" data-sl-edit="link">Speak to an Advisor</a>
                 </div>
                 
-                <div class="mt-5 pt-4 border-top border-dark-subtle d-flex align-items-center gap-4">
+                <div class="mt-5 pt-4 border-top border-secondary-subtle d-flex align-items-center gap-4">
                     <div class="d-flex flex-column">
-                        <span class="fs-2 fw-bold text-navy font-serif" data-sl-edit="text">45+</span>
-                        <span class="text-uppercase small tracking-wide text-secondary" data-sl-edit="text">Programs</span>
+                        <span class="fs-2 fw-bold text-body-emphasis font-serif" data-sl-edit="text">45+</span>
+                        <span class="text-uppercase small tracking-wide text-body-secondary" data-sl-edit="text">Programs</span>
                     </div>
-                    <div class="d-flex flex-column border-start ps-4">
-                        <span class="fs-2 fw-bold text-navy font-serif" data-sl-edit="text">12k</span>
-                        <span class="text-uppercase small tracking-wide text-secondary" data-sl-edit="text">Alumni</span>
+                    <div class="d-flex flex-column border-start ps-4 border-secondary-subtle">
+                        <span class="fs-2 fw-bold text-body-emphasis font-serif" data-sl-edit="text">12k</span>
+                        <span class="text-uppercase small tracking-wide text-body-secondary" data-sl-edit="text">Alumni</span>
                     </div>
                 </div>
             </div>
             
             <div class="col-lg-5 sl-ivy-collage">
                 <div class="position-relative h-100 w-100 collage-wrapper">
-                    <div class="img-box box-1 shadow-lg">
+                    <div class="img-box box-1 shadow-lg border-body">
                         <img src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=600&q=80" alt="Campus" class="w-100 h-100 object-fit-cover" data-sl-edit="image">
                     </div>
-                    <div class="img-box box-2 shadow-lg">
+                    <div class="img-box box-2 shadow-lg border-body">
                         <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=600&q=80" alt="Students" class="w-100 h-100 object-fit-cover" data-sl-edit="image">
                     </div>
-                    <div class="img-box box-3 shadow-lg">
+                    <div class="img-box box-3 shadow-lg border-body">
                         <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=600&q=80" alt="Meeting" class="w-100 h-100 object-fit-cover" data-sl-edit="image">
                     </div>
                 </div>
@@ -63,12 +63,12 @@ const sections = [
         </div>
     </div>
     <!-- Decorative background element -->
-    <div class="bg-shape-cream"></div>
+    <div class="bg-shape-cream bg-tertiary"></div>
 </div>`,
         css: `@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
 
 .sl-hero-ivy {
-    background-color: #fbfaf8; /* Cream base */
+    background-color: var(--bs-body-bg);
     position: relative;
     overflow: hidden;
     min-height: 85vh;
@@ -77,27 +77,6 @@ const sections = [
 }
 .sl-hero-ivy .font-serif {
     font-family: 'Playfair Display', serif;
-}
-.sl-hero-ivy .text-navy {
-    color: #0b1c3b !important;
-}
-.sl-hero-ivy .btn-navy {
-    background-color: #0b1c3b;
-    color: #fff;
-    border: 1px solid #0b1c3b;
-}
-.sl-hero-ivy .btn-navy:hover {
-    background-color: #173260;
-    color: #fff;
-}
-.sl-hero-ivy .btn-outline-navy {
-    color: #0b1c3b;
-    border: 1px solid #0b1c3b;
-    background: transparent;
-}
-.sl-hero-ivy .btn-outline-navy:hover {
-    background-color: rgba(11, 28, 59, 0.05);
-    color: #0b1c3b;
 }
 .sl-hero-ivy .tracking-wide {
     letter-spacing: 0.1em;
@@ -108,8 +87,11 @@ const sections = [
     right: 0;
     width: 45%;
     height: 100%;
-    background-color: #f2efe9;
+    background-color: var(--bs-tertiary-bg);
     z-index: 0;
+}
+.sl-hero-ivy .border-body {
+    border: 8px solid var(--bs-body-bg) !important;
 }
 .sl-hero-ivy .collage-wrapper {
     min-height: 500px;
@@ -117,7 +99,6 @@ const sections = [
 .sl-hero-ivy .img-box {
     position: absolute;
     overflow: hidden;
-    border: 8px solid #fff;
     opacity: 0;
     transform: translateY(30px);
     animation: ivyFadeIn 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
@@ -302,40 +283,40 @@ const sections = [
 <div class="sl-hero-search">
     <div class="container py-6 py-lg-8 text-center position-relative z-1">
         
-        <h1 class="display-4 fw-bold text-dark mb-3 sl-search-title" data-sl-edit="text">What do you want to learn today?</h1>
-        <p class="fs-5 text-muted mb-5 mx-auto" style="max-width: 600px;" data-sl-edit="text">Search through 5,000+ courses across business, technology, and design to advance your career.</p>
+        <h1 class="display-4 fw-bold text-body-emphasis mb-3 sl-search-title" data-sl-edit="text">What do you want to learn today?</h1>
+        <p class="fs-5 text-body-secondary mb-5 mx-auto" style="max-width: 600px;" data-sl-edit="text">Search through 5,000+ courses across business, technology, and design to advance your career.</p>
         
         <div class="search-container mx-auto position-relative mb-5" style="max-width: 800px;">
-            <div class="search-box p-2 rounded-pill d-flex bg-white align-items-center">
-                <i class="fa fa-search ms-4 text-muted fs-5"></i>
-                <input type="text" class="form-control border-0 bg-transparent fs-5 px-3 py-3 sl-search-input shadow-none" placeholder="Search for courses, skills, or instructors...">
+            <div class="search-box p-2 rounded-pill d-flex bg-body align-items-center">
+                <i class="fa fa-search ms-4 text-body-secondary fs-5"></i>
+                <input type="text" class="form-control border-0 bg-transparent fs-5 px-3 py-3 sl-search-input shadow-none text-body" placeholder="Search for courses, skills, or instructors...">
                 <button class="btn btn-primary rounded-pill px-5 py-3 fw-bold m-1" data-sl-edit="text">Find Courses</button>
             </div>
             
             <!-- Mock dropdown (initially hidden, can be wired to JS later) -->
-            <div class="search-dropdown bg-white rounded-4 shadow-lg text-start p-3 position-absolute w-100 mt-2 d-none">
-                <div class="text-muted small fw-bold px-3 mb-2">POPULAR SEARCHES</div>
+            <div class="search-dropdown bg-body rounded-4 shadow-lg text-start p-3 position-absolute w-100 mt-2 d-none border border-secondary-subtle">
+                <div class="text-body-secondary small fw-bold px-3 mb-2">POPULAR SEARCHES</div>
                 <ul class="list-unstyled mb-0">
-                    <li><a href="#" class="dropdown-item py-2 px-3 rounded"><i class="fa fa-line-chart me-2 text-primary"></i> Data Analysis with Python</a></li>
-                    <li><a href="#" class="dropdown-item py-2 px-3 rounded"><i class="fa fa-bullhorn me-2 text-primary"></i> Digital Marketing Strategy</a></li>
-                    <li><a href="#" class="dropdown-item py-2 px-3 rounded"><i class="fa fa-users me-2 text-primary"></i> Leadership & Management</a></li>
+                    <li><a href="#" class="dropdown-item py-2 px-3 rounded text-body"><i class="fa fa-line-chart me-2 text-primary"></i> Data Analysis with Python</a></li>
+                    <li><a href="#" class="dropdown-item py-2 px-3 rounded text-body"><i class="fa fa-bullhorn me-2 text-primary"></i> Digital Marketing Strategy</a></li>
+                    <li><a href="#" class="dropdown-item py-2 px-3 rounded text-body"><i class="fa fa-users me-2 text-primary"></i> Leadership & Management</a></li>
                 </ul>
             </div>
         </div>
         
         <div class="d-flex flex-column align-items-center">
-            <span class="text-muted small fw-bold mb-3 tracking-wide" data-sl-edit="text">POPULAR TOPICS</span>
+            <span class="text-body-secondary small fw-bold mb-3 tracking-wide" data-sl-edit="text">POPULAR TOPICS</span>
             <div class="d-flex flex-wrap justify-content-center gap-3">
-                <a href="#" class="sl-tag px-4 py-2 rounded-pill text-decoration-none text-dark bg-white fw-medium">
+                <a href="#" class="sl-tag px-4 py-2 rounded-pill text-decoration-none text-body-emphasis bg-body fw-medium border border-secondary-subtle">
                     <i class="fa fa-code text-primary me-2"></i> Web Development
                 </a>
-                <a href="#" class="sl-tag px-4 py-2 rounded-pill text-decoration-none text-dark bg-white fw-medium">
+                <a href="#" class="sl-tag px-4 py-2 rounded-pill text-decoration-none text-body-emphasis bg-body fw-medium border border-secondary-subtle">
                     <i class="fa fa-pie-chart text-success me-2"></i> Business Analytics
                 </a>
-                <a href="#" class="sl-tag px-4 py-2 rounded-pill text-decoration-none text-dark bg-white fw-medium">
+                <a href="#" class="sl-tag px-4 py-2 rounded-pill text-decoration-none text-body-emphasis bg-body fw-medium border border-secondary-subtle">
                     <i class="fa fa-paint-brush text-warning me-2"></i> UX/UI Design
                 </a>
-                <a href="#" class="sl-tag px-4 py-2 rounded-pill text-decoration-none text-dark bg-white fw-medium">
+                <a href="#" class="sl-tag px-4 py-2 rounded-pill text-decoration-none text-body-emphasis bg-body fw-medium border border-secondary-subtle">
                     <i class="fa fa-line-chart text-danger me-2"></i> Marketing
                 </a>
             </div>
@@ -344,7 +325,7 @@ const sections = [
     </div>
 </div>`,
         css: `.sl-hero-search {
-    background-color: #f0f2f5;
+    background-color: var(--bs-secondary-bg);
     min-height: 80vh;
     display: flex;
     align-items: center;
@@ -359,23 +340,23 @@ const sections = [
 }
 .sl-hero-search .search-box {
     box-shadow: 
-        inset 0 0 0 1px rgba(255, 255, 255, 0.4),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.1),
         8px 8px 16px rgba(0, 0, 0, 0.06),
-        -8px -8px 16px rgba(255, 255, 255, 0.8);
+        -8px -8px 16px rgba(255, 255, 255, 0.1);
     transition: all 0.3s ease;
 }
 .sl-hero-search .search-box:focus-within {
     box-shadow: 
         inset 0 0 0 2px var(--bs-primary),
         10px 10px 20px rgba(0, 0, 0, 0.1),
-        -10px -10px 20px rgba(255, 255, 255, 0.9);
+        -10px -10px 20px rgba(255, 255, 255, 0.1);
     transform: translateY(-2px);
 }
 .sl-hero-search .sl-search-input:focus {
     outline: none;
 }
 .sl-hero-search .sl-search-input::placeholder {
-    color: #adb5bd;
+    color: var(--bs-secondary-color);
 }
 .sl-hero-search .search-dropdown {
     z-index: 10;
@@ -389,9 +370,8 @@ const sections = [
     transform: translateY(0);
 }
 .sl-hero-search .sl-tag {
-    box-shadow: 4px 4px 10px rgba(0,0,0,0.03), -4px -4px 10px rgba(255,255,255,0.8);
+    box-shadow: 4px 4px 10px rgba(0,0,0,0.03), -4px -4px 10px rgba(255,255,255,0.1);
     transition: all 0.2s ease;
-    border: 1px solid transparent;
 }
 .sl-hero-search .sl-tag:hover {
     transform: translateY(-2px);

@@ -18,52 +18,61 @@ const sections = [
             image_count: 3
         },
         html: `<!-- sl-section: hero-floating-universe | v1.0 -->
-<div class="sl-hero-universe position-relative overflow-hidden">
-    <div class="container py-6 py-lg-8">
-        <div class="row align-items-center g-5">
-            <div class="col-lg-5 position-relative z-2">
+<div class="sl-hero-universe position-relative overflow-hidden bg-body">
+    <!-- SVG Background blobs (Animated via CSS) -->
+    <div class="position-absolute top-0 start-0 w-100 h-100 overflow-hidden z-0 pointer-events-none">
+        <svg class="sl-blob blob-1" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+            <path fill="var(--bs-primary-bg-subtle)" d="M45.7,-76.1C58.9,-69.3,68.9,-54.9,76.5,-40.1C84,-25.3,89.1,-10.1,88.4,5C87.8,20.1,81.4,35,72.4,47.8C63.4,60.6,51.8,71.2,38.1,77.9C24.4,84.7,8.5,87.6,-6.4,85.7C-21.3,83.8,-35.1,77.1,-48.6,69.5C-62.1,62,-75.2,53.5,-83.1,41.2C-91,28.9,-93.7,12.8,-92.3,-2.7C-90.9,-18.2,-85.4,-33.1,-75.9,-44.6C-66.4,-56.1,-53,-64.1,-39.6,-70.7C-26.2,-77.3,-13.1,-82.5,1.2,-84.3C15.5,-86.1,30.9,-84.4,45.7,-76.1Z" transform="translate(100 100) scale(1.1)" />
+        </svg>
+        <svg class="sl-blob blob-2" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+            <path fill="var(--bs-secondary-bg-subtle)" d="M39.9,-65.4C51.6,-57.4,60.9,-45.5,69.1,-32.4C77.4,-19.3,84.5,-5,83.5,8.8C82.4,22.6,73.1,35.9,62.3,47.2C51.5,58.5,39.1,67.8,25.4,72.9C11.6,78,-3.5,78.9,-18.1,75.3C-32.7,71.6,-46.8,63.4,-58,52.2C-69.2,41,-77.4,26.9,-81.4,11.5C-85.4,-3.9,-85.2,-20.6,-78.3,-34.5C-71.4,-48.5,-57.8,-59.7,-43.3,-66.9C-28.8,-74.1,-14.4,-77.4,0.7,-78.4C15.8,-79.4,31.6,-78,39.9,-65.4Z" transform="translate(100 100) scale(0.9)" />
+        </svg>
+    </div>
+
+    <div class="container py-6 py-lg-8 position-relative z-1">
+        <div class="row align-items-center">
+            <div class="col-lg-6 pe-lg-5 mb-5 mb-lg-0">
                 <div class="badge bg-primary-subtle text-primary mb-3 px-3 py-2 rounded-pill fw-bold" data-sl-edit="text">Over 10,000 Courses</div>
-                <h1 class="display-3 fw-bold mb-4 sl-universe-title" data-sl-edit="text">Learn without <br><span class="text-primary">limits.</span></h1>
-                <p class="fs-5 text-muted mb-5" data-sl-edit="text">Build skills with courses, certificates, and degrees online from world-class universities and companies.</p>
+                <h1 class="display-3 fw-bold mb-4 sl-universe-title text-body-emphasis" data-sl-edit="text">Learn without <br><span class="text-primary">limits.</span></h1>
+                <p class="fs-5 text-body-secondary mb-5" data-sl-edit="text">Build skills with courses, certificates, and degrees online from world-class universities and companies.</p>
                 
-                <form class="d-flex bg-white rounded-pill p-2 shadow-sm border mb-4 sl-search-form">
-                    <input type="text" class="form-control border-0 bg-transparent px-3 shadow-none" placeholder="What do you want to learn?">
-                    <button class="btn btn-primary rounded-pill px-4 fw-bold" data-sl-edit="text">Search</button>
+                <form class="d-flex bg-body rounded-pill p-2 shadow-sm border border-secondary-subtle mb-4 sl-search-form">
+                    <input type="text" class="form-control border-0 bg-transparent px-3 shadow-none text-body" placeholder="What do you want to learn?">
+                    <button class="btn btn-primary rounded-pill px-4 fw-bold" type="submit" data-sl-edit="text">Search</button>
                 </form>
                 
                 <div class="d-flex align-items-center gap-3">
-                    <div class="d-flex">
-                        <img src="https://randomuser.me/api/portraits/women/1.jpg" class="rounded-circle border border-2 border-white" width="35" height="35" style="margin-left: -10px; z-index: 3;" alt="User">
-                        <img src="https://randomuser.me/api/portraits/men/2.jpg" class="rounded-circle border border-2 border-white" width="35" height="35" style="margin-left: -10px; z-index: 2;" alt="User">
-                        <img src="https://randomuser.me/api/portraits/women/3.jpg" class="rounded-circle border border-2 border-white" width="35" height="35" style="margin-left: -10px; z-index: 1;" alt="User">
+                    <div class="d-flex sl-avatar-group">
+                        <img src="https://randomuser.me/api/portraits/women/11.jpg" alt="User" class="rounded-circle border border-2 border-body">
+                        <img src="https://randomuser.me/api/portraits/men/22.jpg" alt="User" class="rounded-circle border border-2 border-body">
+                        <img src="https://randomuser.me/api/portraits/women/33.jpg" alt="User" class="rounded-circle border border-2 border-body">
+                        <div class="rounded-circle border border-2 border-body bg-light d-flex align-items-center justify-content-center text-body-emphasis small fw-bold" style="width:40px; height:40px;">+5M</div>
                     </div>
-                    <span class="text-muted small fw-medium" data-sl-edit="text">Join 5M+ learners worldwide</span>
+                    <span class="text-body-secondary small fw-medium" data-sl-edit="text">Join 5M+ learners worldwide</span>
                 </div>
             </div>
             
-            <div class="col-lg-7 position-relative sl-universe-stage d-none d-lg-block" style="min-height: 600px;">
-                <!-- Floating Card 1 (Top Left) -->
-                <div class="sl-float-card card-1 bg-white rounded-4 shadow p-3 position-absolute">
-                    <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=300&q=80" class="rounded-3 mb-3 w-100 object-fit-cover" height="120" data-sl-edit="image">
+            <div class="col-lg-6 position-relative min-vh-50 d-none d-lg-block">
+                <!-- Floating 3D Cards -->
+                <div class="sl-float-card card-1 bg-body border border-secondary-subtle rounded-4 shadow p-3 position-absolute">
+                    <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=300&q=80" alt="Course" class="rounded-3 mb-3 w-100 object-fit-cover" style="height: 120px;">
                     <div class="badge bg-warning text-dark mb-2 rounded-pill"><i class="fa fa-star"></i> 4.8</div>
-                    <h6 class="fw-bold fs-6 mb-1 text-dark" data-sl-edit="text">Web Development Bootcamp</h6>
-                    <small class="text-muted d-block mb-2">Dr. Angela Yu</small>
+                    <h6 class="fw-bold fs-6 mb-1 text-body-emphasis" data-sl-edit="text">Web Development Bootcamp</h6>
+                    <small class="text-body-secondary d-block mb-2">Dr. Angela Yu</small>
                 </div>
                 
-                <!-- Floating Card 2 (Center Right) -->
-                <div class="sl-float-card card-2 bg-white rounded-4 shadow-lg p-3 position-absolute">
-                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=300&q=80" class="rounded-3 mb-3 w-100 object-fit-cover" height="150" data-sl-edit="image">
+                <div class="sl-float-card card-2 bg-body border border-secondary-subtle rounded-4 shadow-lg p-3 position-absolute">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=300&q=80" alt="Course" class="rounded-3 mb-3 w-100 object-fit-cover" style="height: 140px;">
                     <div class="badge bg-warning text-dark mb-2 rounded-pill"><i class="fa fa-star"></i> 4.9</div>
-                    <h6 class="fw-bold fs-6 mb-1 text-dark" data-sl-edit="text">Data Science & Machine Learning</h6>
-                    <small class="text-muted d-block mb-2">Jose Portilla</small>
+                    <h6 class="fw-bold fs-6 mb-1 text-body-emphasis" data-sl-edit="text">Data Science & Machine Learning</h6>
+                    <small class="text-body-secondary d-block mb-2">Jose Portilla</small>
                 </div>
                 
-                <!-- Floating Card 3 (Bottom Left) -->
-                <div class="sl-float-card card-3 bg-white rounded-4 shadow p-3 position-absolute">
-                    <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&w=300&q=80" class="rounded-3 mb-3 w-100 object-fit-cover" height="100" data-sl-edit="image">
+                <div class="sl-float-card card-3 bg-body border border-secondary-subtle rounded-4 shadow p-3 position-absolute">
+                    <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&w=300&q=80" alt="Course" class="rounded-3 mb-3 w-100 object-fit-cover" style="height: 100px;">
                     <div class="badge bg-warning text-dark mb-2 rounded-pill"><i class="fa fa-star"></i> 4.7</div>
-                    <h6 class="fw-bold fs-6 mb-1 text-dark" data-sl-edit="text">UI/UX Design Masterclass</h6>
-                    <small class="text-muted d-block mb-2">Gary Simon</small>
+                    <h6 class="fw-bold fs-6 mb-1 text-body-emphasis" data-sl-edit="text">UI/UX Design Masterclass</h6>
+                    <small class="text-body-secondary d-block mb-2">Gary Simon</small>
                 </div>
             </div>
         </div>
@@ -154,15 +163,15 @@ const sections = [
             image_count: 1
         },
         html: `<!-- sl-section: hero-abstract-innovator | v1.0 -->
-<div class="sl-hero-abstract position-relative overflow-hidden" style="background-color: #fff9f0;">
+<div class="sl-hero-abstract position-relative overflow-hidden bg-body">
     <div class="container py-6 py-lg-7">
         <div class="row align-items-center g-5">
             <div class="col-lg-6 position-relative z-2">
-                <h1 class="display-3 fw-bold mb-4 sl-blob-title text-dark" data-sl-edit="text">Spark your <br>curiosity.</h1>
-                <p class="fs-5 text-dark opacity-75 mb-5 pe-lg-5" data-sl-edit="text">Discover interactive classes in design, illustration, photography, and more. Taught by creative professionals.</p>
+                <h1 class="display-3 fw-bold mb-4 sl-blob-title text-body-emphasis" data-sl-edit="text">Spark your <br>curiosity.</h1>
+                <p class="fs-5 text-body-secondary mb-5 pe-lg-5" data-sl-edit="text">Discover interactive classes in design, illustration, photography, and more. Taught by creative professionals.</p>
                 <div class="d-flex flex-wrap gap-3 mb-5">
-                    <a href="#" class="btn btn-dark btn-lg rounded-pill px-5 fw-bold shadow-sm" data-sl-edit="link">Start Learning</a>
-                    <a href="#" class="btn btn-outline-dark btn-lg rounded-pill px-4 fw-bold" data-sl-edit="link">Browse Catalog</a>
+                    <a href="#" class="btn btn-primary btn-lg rounded-pill px-5 fw-bold shadow-sm" data-sl-edit="link">Start Learning</a>
+                    <a href="#" class="btn btn-outline-primary btn-lg rounded-pill px-4 fw-bold" data-sl-edit="link">Browse Catalog</a>
                 </div>
                 
                 <!-- Trust indicators -->
@@ -200,11 +209,11 @@ const sections = [
                     </svg>
                     
                     <!-- Floating playful badge -->
-                    <div class="position-absolute sl-wobbly-badge bg-white rounded-pill px-3 py-2 shadow-sm d-flex align-items-center" style="bottom: 15%; right: 5%; z-index: 3;">
+                    <div class="position-absolute sl-wobbly-badge bg-body border border-secondary-subtle rounded-pill px-3 py-2 shadow-sm d-flex align-items-center" style="bottom: 15%; right: 5%; z-index: 3;">
                         <span class="fs-3 me-2">🎨</span>
                         <div>
-                            <div class="fw-bold fs-6 lh-1 text-dark" data-sl-edit="text">Illustration</div>
-                            <small class="text-muted" data-sl-edit="text">New Classes</small>
+                            <div class="fw-bold fs-6 lh-1 text-body-emphasis" data-sl-edit="text">Illustration</div>
+                            <small class="text-body-secondary" data-sl-edit="text">New Classes</small>
                         </div>
                     </div>
                 </div>

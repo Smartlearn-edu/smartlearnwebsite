@@ -28,7 +28,7 @@ const sections = [
                 
                 <h1 class="display-3 fw-bold mb-4 sl-title-tracking" data-sl-edit="text">Learn directly <br>from the <span class="text-primary position-relative">Masters.<svg class="position-absolute w-100 h-auto bottom-0 start-0 text-primary opacity-50" style="margin-bottom: -10px;" viewBox="0 0 200 20" xmlns="http://www.w3.org/2000/svg"><path d="M0 10 Q 50 20 100 10 T 200 10" stroke="currentColor" stroke-width="4" fill="none"/></svg></span></h1>
                 
-                <p class="fs-5 text-muted mb-5 pe-lg-4" data-sl-edit="text">Stop learning from theorists. Start learning from practitioners who have actually built billion-dollar companies.</p>
+                <p class="fs-5 text-body-secondary mb-5 pe-lg-4" data-sl-edit="text">Stop learning from theorists. Start learning from practitioners who have actually built billion-dollar companies.</p>
                 
                 <div class="d-flex flex-wrap align-items-center gap-4 mb-5">
                     <a href="#" class="btn btn-primary btn-lg rounded-pill px-5 py-3 fw-bold shadow-sm" data-sl-edit="text">Meet the Instructors</a>
@@ -38,7 +38,7 @@ const sections = [
                             <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-half-o"></i>
                         </div>
                         <span class="fw-bold" data-sl-edit="text">4.9/5</span>
-                        <span class="text-muted ms-2" data-sl-edit="text">(12k+ Reviews)</span>
+                        <span class="text-body-secondary ms-2" data-sl-edit="text">(12k+ Reviews)</span>
                     </div>
                 </div>
             </div>
@@ -53,23 +53,23 @@ const sections = [
                 </div>
                 
                 <!-- Orbiting Badges -->
-                <div class="sl-orbit-badge sl-badge-1 bg-white p-2 rounded-4 shadow-lg position-absolute d-flex align-items-center gap-2" style="top: 15%; left: 0; z-index: 2;">
+                <div class="sl-orbit-badge sl-badge-1 bg-body border border-secondary-subtle p-2 rounded-4 shadow-lg position-absolute d-flex align-items-center gap-2" style="top: 15%; left: 0; z-index: 2;">
                     <div class="bg-success text-white rounded-3 d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;"><i class="fa fa-check"></i></div>
                     <div>
                         <div class="fw-bold lh-1 fs-6" data-sl-edit="text">15+ Years</div>
-                        <small class="text-muted" data-sl-edit="text">Experience</small>
+                        <small class="text-body-secondary" data-sl-edit="text">Experience</small>
                     </div>
                 </div>
                 
-                <div class="sl-orbit-badge sl-badge-2 bg-white p-2 rounded-4 shadow-lg position-absolute d-flex align-items-center gap-2" style="bottom: 25%; right: -5%; z-index: 2;">
+                <div class="sl-orbit-badge sl-badge-2 bg-body border border-secondary-subtle p-2 rounded-4 shadow-lg position-absolute d-flex align-items-center gap-2" style="bottom: 25%; right: -5%; z-index: 2;">
                     <div class="bg-info text-white rounded-3 d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;"><i class="fa fa-users"></i></div>
                     <div>
                         <div class="fw-bold lh-1 fs-6" data-sl-edit="text">50k+ Students</div>
-                        <small class="text-muted" data-sl-edit="text">Enrolled globally</small>
+                        <small class="text-body-secondary" data-sl-edit="text">Enrolled globally</small>
                     </div>
                 </div>
                 
-                <div class="sl-orbit-badge sl-badge-3 bg-white p-2 rounded-4 shadow position-absolute d-flex align-items-center gap-2" style="top: 40%; right: 10%; z-index: -1;">
+                <div class="sl-orbit-badge sl-badge-3 bg-body border border-secondary-subtle p-2 rounded-4 shadow position-absolute d-flex align-items-center gap-2" style="top: 40%; right: 10%; z-index: -1;">
                     <div class="bg-warning text-white rounded-circle d-flex align-items-center justify-content-center" style="width: 30px; height: 30px;"><i class="fa fa-certificate"></i></div>
                     <span class="fw-bold small pe-2" data-sl-edit="text">Certified</span>
                 </div>
@@ -135,17 +135,17 @@ const sections = [
             image_count: 0
         },
         html: `<!-- sl-section: hero-product-reveal | v1.0 -->
-<div class="sl-hero-reveal position-relative overflow-hidden" style="background-color: #f4f6f8;">
+<div class="sl-hero-reveal position-relative overflow-hidden bg-body">
     <div class="container py-7 py-lg-8">
         <div class="row align-items-center">
             <div class="col-lg-5 position-relative z-2 mb-5 mb-lg-0">
-                <h1 class="display-4 fw-bolder mb-4 text-dark sl-reveal-title" data-sl-edit="text">An LMS people <br><span class="text-primary">actually love.</span></h1>
-                <p class="fs-5 text-muted mb-5 pe-lg-4" data-sl-edit="text">Experience a learning environment that doesn't feel like a chore. Gamified progress, beautiful UI, and social learning built-in.</p>
+                <h1 class="display-4 fw-bolder mb-4 text-body-emphasis sl-reveal-title" data-sl-edit="text">An LMS people <br><span class="text-primary">actually love.</span></h1>
+                <p class="fs-5 text-body-secondary mb-5 pe-lg-4" data-sl-edit="text">Experience a learning environment that doesn't feel like a chore. Gamified progress, beautiful UI, and social learning built-in.</p>
                 
                 <ul class="list-unstyled mb-5">
-                    <li class="d-flex align-items-center mb-3"><i class="fa fa-check-circle text-primary fs-5 me-3"></i> <span class="fw-medium text-dark" data-sl-edit="text">Personalized learning paths</span></li>
-                    <li class="d-flex align-items-center mb-3"><i class="fa fa-check-circle text-primary fs-5 me-3"></i> <span class="fw-medium text-dark" data-sl-edit="text">Real-time progress tracking</span></li>
-                    <li class="d-flex align-items-center"><i class="fa fa-check-circle text-primary fs-5 me-3"></i> <span class="fw-medium text-dark" data-sl-edit="text">Social forums & study groups</span></li>
+                    <li class="d-flex align-items-center mb-3"><i class="fa fa-check-circle text-primary fs-5 me-3"></i> <span class="fw-medium text-body-emphasis" data-sl-edit="text">Personalized learning paths</span></li>
+                    <li class="d-flex align-items-center mb-3"><i class="fa fa-check-circle text-primary fs-5 me-3"></i> <span class="fw-medium text-body-emphasis" data-sl-edit="text">Real-time progress tracking</span></li>
+                    <li class="d-flex align-items-center"><i class="fa fa-check-circle text-primary fs-5 me-3"></i> <span class="fw-medium text-body-emphasis" data-sl-edit="text">Social forums & study groups</span></li>
                 </ul>
                 
                 <a href="#" class="btn btn-primary btn-lg rounded-3 px-5 py-3 fw-bold shadow-lg sl-hover-lift" data-sl-edit="link">Take a Product Tour</a>
@@ -153,15 +153,15 @@ const sections = [
             
             <div class="col-lg-7">
                 <!-- 3D CSS Mockup of Dashboard -->
-                <div class="sl-dashboard-mockup rounded-4 shadow-lg bg-white overflow-hidden border border-2 border-white">
+                <div class="sl-dashboard-mockup rounded-4 shadow-lg bg-body overflow-hidden border border-2 border-secondary-subtle">
                     <!-- Browser header -->
-                    <div class="bg-light p-3 d-flex align-items-center border-bottom">
+                    <div class="bg-body-secondary p-3 d-flex align-items-center border-bottom">
                         <div class="d-flex gap-2 me-4">
                             <div class="rounded-circle bg-danger" style="width: 12px; height: 12px;"></div>
                             <div class="rounded-circle bg-warning" style="width: 12px; height: 12px;"></div>
                             <div class="rounded-circle bg-success" style="width: 12px; height: 12px;"></div>
                         </div>
-                        <div class="bg-white rounded-pill px-3 py-1 text-muted small w-50 text-center mx-auto border" style="font-size: 10px;">smartlearn.edu/dashboard</div>
+                        <div class="bg-body rounded-pill px-3 py-1 text-body-secondary small w-50 text-center mx-auto border border-secondary-subtle" style="font-size: 10px;">smartlearn.edu/dashboard</div>
                     </div>
                     
                     <!-- Dashboard Body -->
@@ -173,8 +173,8 @@ const sections = [
                             
                             <!-- Progress Widget -->
                             <div class="col-md-8">
-                                <div class="bg-white p-3 rounded-3 border shadow-sm h-100 sl-mock-widget">
-                                    <h6 class="fw-bold small text-muted mb-3">CURRENT COURSE</h6>
+                                <div class="bg-body p-3 rounded-3 border border-secondary-subtle shadow-sm h-100 sl-mock-widget">
+                                    <h6 class="fw-bold small text-body-secondary mb-3">CURRENT COURSE</h6>
                                     <div class="d-flex align-items-center gap-3">
                                         <div class="bg-primary-subtle rounded-3" style="width: 60px; height: 60px;"></div>
                                         <div class="flex-grow-1">
@@ -182,7 +182,7 @@ const sections = [
                                             <div class="progress" style="height: 8px;">
                                                 <div class="progress-bar bg-primary" style="width: 65%;"></div>
                                             </div>
-                                            <div class="small text-muted mt-1">65% Completed</div>
+                                            <div class="small text-body-secondary mt-1">65% Completed</div>
                                         </div>
                                     </div>
                                 </div>
@@ -190,8 +190,8 @@ const sections = [
                             
                             <!-- Stats Widget -->
                             <div class="col-md-4">
-                                <div class="bg-white p-3 rounded-3 border shadow-sm h-100 sl-mock-widget" style="animation-delay: 0.2s;">
-                                    <h6 class="fw-bold small text-muted mb-3">WEEKLY GOAL</h6>
+                                <div class="bg-body p-3 rounded-3 border border-secondary-subtle shadow-sm h-100 sl-mock-widget" style="animation-delay: 0.2s;">
+                                    <h6 class="fw-bold small text-body-secondary mb-3">WEEKLY GOAL</h6>
                                     <div class="d-flex align-items-center gap-3">
                                         <div class="rounded-circle border border-3 border-success d-flex align-items-center justify-content-center text-success fw-bold" style="width: 50px; height: 50px;">3/5</div>
                                         <div class="small fw-medium">Hours<br>studied</div>
@@ -201,13 +201,13 @@ const sections = [
                             
                             <!-- Modules Grid -->
                             <div class="col-4">
-                                <div class="bg-white p-3 rounded-3 border shadow-sm sl-mock-widget" style="animation-delay: 0.3s; height: 80px;"></div>
+                                <div class="bg-body p-3 rounded-3 border border-secondary-subtle shadow-sm sl-mock-widget" style="animation-delay: 0.3s; height: 80px;"></div>
                             </div>
                             <div class="col-4">
-                                <div class="bg-white p-3 rounded-3 border shadow-sm sl-mock-widget" style="animation-delay: 0.4s; height: 80px;"></div>
+                                <div class="bg-body p-3 rounded-3 border border-secondary-subtle shadow-sm sl-mock-widget" style="animation-delay: 0.4s; height: 80px;"></div>
                             </div>
                             <div class="col-4">
-                                <div class="bg-white p-3 rounded-3 border shadow-sm sl-mock-widget" style="animation-delay: 0.5s; height: 80px;"></div>
+                                <div class="bg-body p-3 rounded-3 border border-secondary-subtle shadow-sm sl-mock-widget" style="animation-delay: 0.5s; height: 80px;"></div>
                             </div>
                         </div>
                     </div>
@@ -292,9 +292,9 @@ const sections = [
             <div class="col-lg-8">
                 <div class="sl-bento-card bg-primary-subtle rounded-5 p-5 h-100 d-flex flex-column justify-content-center position-relative overflow-hidden sl-stagger-1">
                     <div class="position-relative z-2 w-75">
-                        <span class="badge bg-white text-primary mb-3 px-3 py-2 rounded-pill fw-bold" data-sl-edit="text">SmartLearn v3.0</span>
-                        <h1 class="display-4 fw-bold text-dark mb-4 lh-sm sl-bento-title" data-sl-edit="text">Everything you need to <span class="text-primary">teach online.</span></h1>
-                        <p class="fs-5 text-dark opacity-75 mb-0" data-sl-edit="text">The ultimate toolkit for educators, schools, and creators to build thriving online academies.</p>
+                        <span class="badge bg-body text-primary mb-3 px-3 py-2 rounded-pill fw-bold border border-secondary-subtle" data-sl-edit="text">SmartLearn v3.0</span>
+                        <h1 class="display-4 fw-bold text-body-emphasis mb-4 lh-sm sl-bento-title" data-sl-edit="text">Everything you need to <span class="text-primary">teach online.</span></h1>
+                        <p class="fs-5 text-body-emphasis opacity-75 mb-0" data-sl-edit="text">The ultimate toolkit for educators, schools, and creators to build thriving online academies.</p>
                     </div>
                     <!-- Decorative shape -->
                     <div class="position-absolute end-0 bottom-0 opacity-25" style="transform: translate(20%, 20%); pointer-events: none;">
@@ -318,16 +318,16 @@ const sections = [
             <div class="col-md-4">
                 <div class="sl-bento-card border border-2 rounded-5 p-4 h-100 text-center d-flex flex-column justify-content-center sl-stagger-3">
                     <h2 class="display-4 fw-black text-primary mb-1" data-sl-edit="text">99%</h2>
-                    <span class="text-muted fw-medium" data-sl-edit="text">Student Satisfaction</span>
+                    <span class="text-body-secondary fw-medium" data-sl-edit="text">Student Satisfaction</span>
                 </div>
             </div>
             
             <!-- Mini Video/Image Card (Bottom Center) -->
             <div class="col-md-4">
-                <div class="sl-bento-card bg-light rounded-5 p-0 h-100 position-relative overflow-hidden sl-stagger-4 group-hover">
+                <div class="sl-bento-card bg-body-secondary rounded-5 p-0 h-100 position-relative overflow-hidden sl-stagger-4 group-hover">
                     <img src="https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&w=400&q=80" class="w-100 h-100 object-fit-cover transition-transform" data-sl-edit="image" alt="Workspace">
                     <div class="position-absolute inset-0 bg-dark bg-opacity-25 d-flex align-items-center justify-content-center">
-                        <div class="bg-white text-dark rounded-circle d-flex align-items-center justify-content-center shadow-lg sl-play-btn" style="width: 60px; height: 60px;">
+                        <div class="bg-body text-body-emphasis rounded-circle d-flex align-items-center justify-content-center shadow-lg sl-play-btn" style="width: 60px; height: 60px;">
                             <i class="fa fa-play fs-4 ms-1"></i>
                         </div>
                     </div>
@@ -337,15 +337,15 @@ const sections = [
             <!-- Quick Search Card (Bottom Right) -->
             <div class="col-md-4">
                 <div class="sl-bento-card bg-info-subtle rounded-5 p-4 h-100 d-flex flex-column justify-content-center sl-stagger-5">
-                    <h5 class="fw-bold text-dark mb-3" data-sl-edit="text">Find a Course</h5>
+                    <h5 class="fw-bold text-body-emphasis mb-3" data-sl-edit="text">Find a Course</h5>
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control rounded-start-pill py-3 border-0 px-4" placeholder="Search...">
-                        <button class="btn btn-white bg-white rounded-end-pill px-4 text-primary border-0"><i class="fa fa-search"></i></button>
+                        <input type="text" class="form-control bg-body text-body-emphasis border-secondary-subtle rounded-start-pill py-3 px-4" placeholder="Search...">
+                        <button class="btn btn-light bg-body border-secondary-subtle border-start-0 rounded-end-pill px-4 text-primary"><i class="fa fa-search"></i></button>
                     </div>
                     <div class="d-flex gap-2 flex-wrap">
-                        <span class="badge bg-white text-dark rounded-pill px-2 py-1 border">Design</span>
-                        <span class="badge bg-white text-dark rounded-pill px-2 py-1 border">Code</span>
-                        <span class="badge bg-white text-dark rounded-pill px-2 py-1 border">Business</span>
+                        <span class="badge bg-body text-body-emphasis rounded-pill px-2 py-1 border border-secondary-subtle">Design</span>
+                        <span class="badge bg-body text-body-emphasis rounded-pill px-2 py-1 border border-secondary-subtle">Code</span>
+                        <span class="badge bg-body text-body-emphasis rounded-pill px-2 py-1 border border-secondary-subtle">Business</span>
                     </div>
                 </div>
             </div>
@@ -427,13 +427,13 @@ const sections = [
             image_count: 0
         },
         html: `<!-- sl-section: hero-learning-path | v1.0 -->
-<div class="sl-hero-path position-relative overflow-hidden bg-white">
+<div class="sl-hero-path position-relative overflow-hidden bg-body">
     <div class="container py-7 py-lg-8">
         <div class="row align-items-center">
             
             <div class="col-lg-5 pe-lg-5 mb-5 mb-lg-0 z-2">
-                <h1 class="display-4 fw-bold text-dark mb-4 sl-path-title" data-sl-edit="text">Your journey to <br>becoming a <span class="text-success">Data Scientist.</span></h1>
-                <p class="fs-5 text-muted mb-5" data-sl-edit="text">Don't just take random courses. Follow our expertly crafted curriculum from absolute beginner to job-ready professional in 6 months.</p>
+                <h1 class="display-4 fw-bold text-body-emphasis mb-4 sl-path-title" data-sl-edit="text">Your journey to <br>becoming a <span class="text-success">Data Scientist.</span></h1>
+                <p class="fs-5 text-body-secondary mb-5" data-sl-edit="text">Don't just take random courses. Follow our expertly crafted curriculum from absolute beginner to job-ready professional in 6 months.</p>
                 <a href="#" class="btn btn-success btn-lg rounded-pill px-5 py-3 fw-bold shadow-sm" data-sl-edit="link">Start the Path</a>
             </div>
             
@@ -447,29 +447,29 @@ const sections = [
                 <div class="position-relative z-1 d-flex flex-column gap-4 sl-path-nodes">
                     
                     <!-- Node 1 -->
-                    <div class="d-flex align-items-center bg-white p-3 rounded-4 shadow-sm border sl-node sl-node-1" style="max-width: 400px; margin-left: 0;">
+                    <div class="d-flex align-items-center bg-body p-3 rounded-4 shadow-sm border border-secondary-subtle sl-node sl-node-1" style="max-width: 400px; margin-left: 0;">
                         <div class="bg-success text-white rounded-circle d-flex align-items-center justify-content-center fw-bold fs-5 me-3" style="width: 50px; height: 50px; flex-shrink: 0;">1</div>
                         <div>
-                            <h6 class="fw-bold mb-1 text-dark" data-sl-edit="text">Python Basics</h6>
-                            <small class="text-muted" data-sl-edit="text">Variables, loops, and functions.</small>
+                            <h6 class="fw-bold mb-1 text-body-emphasis" data-sl-edit="text">Python Basics</h6>
+                            <small class="text-body-secondary" data-sl-edit="text">Variables, loops, and functions.</small>
                         </div>
                     </div>
                     
                     <!-- Node 2 -->
-                    <div class="d-flex align-items-center bg-white p-3 rounded-4 shadow-sm border sl-node sl-node-2" style="max-width: 400px; margin-left: 20%;">
+                    <div class="d-flex align-items-center bg-body p-3 rounded-4 shadow-sm border border-secondary-subtle sl-node sl-node-2" style="max-width: 400px; margin-left: 20%;">
                         <div class="bg-success text-white rounded-circle d-flex align-items-center justify-content-center fw-bold fs-5 me-3" style="width: 50px; height: 50px; flex-shrink: 0;">2</div>
                         <div>
-                            <h6 class="fw-bold mb-1 text-dark" data-sl-edit="text">Data Analysis with Pandas</h6>
-                            <small class="text-muted" data-sl-edit="text">Cleaning and manipulating datasets.</small>
+                            <h6 class="fw-bold mb-1 text-body-emphasis" data-sl-edit="text">Data Analysis with Pandas</h6>
+                            <small class="text-body-secondary" data-sl-edit="text">Cleaning and manipulating datasets.</small>
                         </div>
                     </div>
                     
                     <!-- Node 3 -->
-                    <div class="d-flex align-items-center bg-white p-3 rounded-4 shadow-sm border sl-node sl-node-3" style="max-width: 400px; margin-left: 40%;">
+                    <div class="d-flex align-items-center bg-body p-3 rounded-4 shadow-sm border border-secondary-subtle sl-node sl-node-3" style="max-width: 400px; margin-left: 40%;">
                         <div class="bg-success text-white rounded-circle d-flex align-items-center justify-content-center fw-bold fs-5 me-3" style="width: 50px; height: 50px; flex-shrink: 0;">3</div>
                         <div>
-                            <h6 class="fw-bold mb-1 text-dark" data-sl-edit="text">Machine Learning</h6>
-                            <small class="text-muted" data-sl-edit="text">Predictive modeling with Scikit-Learn.</small>
+                            <h6 class="fw-bold mb-1 text-body-emphasis" data-sl-edit="text">Machine Learning</h6>
+                            <small class="text-body-secondary" data-sl-edit="text">Predictive modeling with Scikit-Learn.</small>
                         </div>
                     </div>
                     
@@ -542,17 +542,17 @@ const sections = [
         <!-- Welcome Header -->
         <div class="d-flex flex-column flex-md-row align-items-md-center justify-content-between mb-5">
             <div>
-                <h1 class="display-5 fw-bold text-dark mb-1 sl-journey-title" data-sl-edit="text">Good morning, Alex 👋</h1>
-                <p class="text-muted fs-5 mb-0" data-sl-edit="text">Ready to continue your learning journey?</p>
+                <h1 class="display-5 fw-bold text-body-emphasis mb-1 sl-journey-title" data-sl-edit="text">Good morning, Alex 👋</h1>
+                <p class="text-body-secondary fs-5 mb-0" data-sl-edit="text">Ready to continue your learning journey?</p>
             </div>
             <div class="mt-4 mt-md-0 d-flex gap-3">
-                <div class="text-center px-4 py-2 bg-white rounded-3 border shadow-sm sl-stat-card">
+                <div class="text-center px-4 py-2 bg-body rounded-3 border border-secondary-subtle shadow-sm sl-stat-card">
                     <h3 class="fw-bold text-primary mb-0" data-sl-edit="text">3</h3>
-                    <small class="text-muted fw-medium text-uppercase" style="font-size: 11px;" data-sl-edit="text">In Progress</small>
+                    <small class="text-body-secondary fw-medium text-uppercase" style="font-size: 11px;" data-sl-edit="text">In Progress</small>
                 </div>
-                <div class="text-center px-4 py-2 bg-white rounded-3 border shadow-sm sl-stat-card">
+                <div class="text-center px-4 py-2 bg-body rounded-3 border border-secondary-subtle shadow-sm sl-stat-card">
                     <h3 class="fw-bold text-success mb-0" data-sl-edit="text">2</h3>
-                    <small class="text-muted fw-medium text-uppercase" style="font-size: 11px;" data-sl-edit="text">Certificates</small>
+                    <small class="text-body-secondary fw-medium text-uppercase" style="font-size: 11px;" data-sl-edit="text">Certificates</small>
                 </div>
             </div>
         </div>
@@ -560,23 +560,23 @@ const sections = [
         <div class="row g-4">
             <!-- Main Continue Learning Card -->
             <div class="col-lg-8">
-                <div class="card border-0 rounded-4 shadow-sm h-100 overflow-hidden sl-progress-card position-relative group">
+                <div class="card bg-body border border-secondary-subtle rounded-4 shadow-sm h-100 overflow-hidden sl-progress-card position-relative group">
                     <div class="position-absolute top-0 start-0 w-100 h-100 bg-primary opacity-0 transition-opacity" style="z-index: 0; transition: opacity 0.3s ease;"></div>
                     <div class="card-body p-4 p-md-5 position-relative z-1">
                         <div class="d-flex justify-content-between align-items-start mb-4">
                             <span class="badge bg-primary-subtle text-primary fw-bold px-3 py-2 rounded-pill">CONTINUE LEARNING</span>
-                            <span class="text-muted fw-medium"><i class="fa fa-clock-o me-1"></i> Last active 2h ago</span>
+                            <span class="text-body-secondary fw-medium"><i class="fa fa-clock-o me-1"></i> Last active 2h ago</span>
                         </div>
                         
-                        <h2 class="fw-bold text-dark mb-2 sl-course-title" data-sl-edit="text">Python for Data Analysis</h2>
-                        <p class="text-muted mb-4" data-sl-edit="text">Module 4: Data Visualization with Matplotlib and Seaborn</p>
+                        <h2 class="fw-bold text-body-emphasis mb-2 sl-course-title" data-sl-edit="text">Python for Data Analysis</h2>
+                        <p class="text-body-secondary mb-4" data-sl-edit="text">Module 4: Data Visualization with Matplotlib and Seaborn</p>
                         
                         <div class="mb-4">
                             <div class="d-flex justify-content-between mb-2">
-                                <span class="fw-bold text-dark">72% Completed</span>
-                                <span class="text-muted small">18 of 25 lessons</span>
+                                <span class="fw-bold text-body-emphasis">72% Completed</span>
+                                <span class="text-body-secondary small">18 of 25 lessons</span>
                             </div>
-                            <div class="progress rounded-pill bg-light border" style="height: 12px;">
+                            <div class="progress rounded-pill bg-body-secondary border border-secondary-subtle" style="height: 12px;">
                                 <div class="progress-bar bg-primary rounded-pill sl-progress-fill" style="width: 0%;" data-target="72%"></div>
                             </div>
                         </div>
@@ -588,25 +588,25 @@ const sections = [
             
             <!-- Up Next / Recommendations -->
             <div class="col-lg-4">
-                <div class="card border-0 rounded-4 shadow-sm h-100 p-4">
-                    <h5 class="fw-bold text-dark mb-4" data-sl-edit="text">Up Next For You</h5>
+                <div class="card bg-body border border-secondary-subtle rounded-4 shadow-sm h-100 p-4">
+                    <h5 class="fw-bold text-body-emphasis mb-4" data-sl-edit="text">Up Next For You</h5>
                     
                     <div class="d-flex flex-column gap-3">
                         <!-- Rec 1 -->
-                        <a href="#" class="text-decoration-none sl-rec-item p-3 rounded-3 border bg-white d-flex align-items-center">
+                        <a href="#" class="text-decoration-none sl-rec-item p-3 rounded-3 border border-secondary-subtle bg-body d-flex align-items-center">
                             <div class="bg-primary-subtle text-primary rounded-3 d-flex align-items-center justify-content-center me-3" style="width: 48px; height: 48px;"><i class="fa fa-code"></i></div>
                             <div>
-                                <h6 class="fw-bold text-dark mb-1" data-sl-edit="text">Advanced SQL</h6>
-                                <small class="text-muted d-block" data-sl-edit="text">Recommended based on your activity</small>
+                                <h6 class="fw-bold text-body-emphasis mb-1" data-sl-edit="text">Advanced SQL</h6>
+                                <small class="text-body-secondary d-block" data-sl-edit="text">Recommended based on your activity</small>
                             </div>
                         </a>
                         
                         <!-- Rec 2 -->
-                        <a href="#" class="text-decoration-none sl-rec-item p-3 rounded-3 border bg-white d-flex align-items-center">
+                        <a href="#" class="text-decoration-none sl-rec-item p-3 rounded-3 border border-secondary-subtle bg-body d-flex align-items-center">
                             <div class="bg-success-subtle text-success rounded-3 d-flex align-items-center justify-content-center me-3" style="width: 48px; height: 48px;"><i class="fa fa-line-chart"></i></div>
                             <div>
-                                <h6 class="fw-bold text-dark mb-1" data-sl-edit="text">Tableau Mastery</h6>
-                                <small class="text-muted d-block" data-sl-edit="text">Matches your learning goals</small>
+                                <h6 class="fw-bold text-body-emphasis mb-1" data-sl-edit="text">Tableau Mastery</h6>
+                                <small class="text-body-secondary d-block" data-sl-edit="text">Matches your learning goals</small>
                             </div>
                         </a>
                     </div>
