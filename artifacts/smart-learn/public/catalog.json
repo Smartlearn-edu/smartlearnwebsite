@@ -719,6 +719,186 @@
       "is_premium": false,
       "is_new": true,
       "popularity": 76
+    },
+    {
+      "id": "feature-bento",
+      "name": "Asymmetrical Bento",
+      "category": "Features",
+      "variant": "Bento Grid",
+      "description": "A trendy bento grid using LMS UI fragments and media to showcase features like AI, Analytics, and Grading.",
+      "tags": [
+        "feature",
+        "bento",
+        "grid",
+        "modern",
+        "lms"
+      ],
+      "image_count": 3,
+      "preview_image": "",
+      "download_url": "/sections/feature-bento.json",
+      "is_premium": false,
+      "is_new": true,
+      "popularity": 81
+    },
+    {
+      "id": "feature-interactive-tabs",
+      "name": "Interactive Tab Reveal",
+      "category": "Features",
+      "variant": "Tabs",
+      "description": "SaaS-style vertical tabs that swap out a large media showcase when clicked or tapped.",
+      "tags": [
+        "feature",
+        "tabs",
+        "interactive",
+        "saas",
+        "media"
+      ],
+      "image_count": 3,
+      "preview_image": "",
+      "download_url": "/sections/feature-interactive-tabs.json",
+      "is_premium": false,
+      "is_new": true,
+      "popularity": 78
+    },
+    {
+      "id": "feature-interactive-panels",
+      "name": "Interactive Panels",
+      "category": "Features",
+      "variant": "Accordion",
+      "description": "Immersive vertical panels that expand fluidly to reveal media on click/tap/hover.",
+      "tags": [
+        "feature",
+        "panels",
+        "accordion",
+        "expand",
+        "immersive"
+      ],
+      "image_count": 4,
+      "preview_image": "",
+      "download_url": "/sections/feature-interactive-panels.json",
+      "is_premium": false,
+      "is_new": true,
+      "popularity": 59
+    },
+    {
+      "id": "feature-premium-grid",
+      "name": "Classic Premium Grid",
+      "category": "Features",
+      "variant": "Grid",
+      "description": "A polished 3x2 grid of elevated cards containing media and descriptions. Perfect for corporate/university sites.",
+      "tags": [
+        "feature",
+        "grid",
+        "classic",
+        "institutional",
+        "premium"
+      ],
+      "image_count": 6,
+      "preview_image": "",
+      "download_url": "/sections/feature-premium-grid.json",
+      "is_premium": false,
+      "is_new": true,
+      "popularity": 84
+    },
+    {
+      "id": "feature-sticky-split",
+      "name": "Sticky Split-Scroll",
+      "category": "Features",
+      "variant": "Split",
+      "description": "Storytelling layout. Sticky heading on the left, scrolling media feature cards on the right.",
+      "tags": [
+        "feature",
+        "split",
+        "sticky",
+        "scroll",
+        "marketing"
+      ],
+      "image_count": 3,
+      "preview_image": "",
+      "download_url": "/sections/feature-sticky-split.json",
+      "is_premium": false,
+      "is_new": true,
+      "popularity": 71
+    },
+    {
+      "id": "feature-central-hub",
+      "name": "3D Central Hub",
+      "category": "Features",
+      "variant": "Dynamic Orbit",
+      "description": "A highly visual section featuring orbiting nodes around a central LMS graphic.",
+      "tags": [
+        "feature",
+        "orbit",
+        "3d",
+        "dynamic",
+        "hub"
+      ],
+      "image_count": 5,
+      "preview_image": "",
+      "download_url": "/sections/feature-central-hub.json",
+      "is_premium": false,
+      "is_new": true,
+      "popularity": 63
+    },
+    {
+      "id": "feature-typography-media",
+      "name": "Minimalist Typography",
+      "category": "Features",
+      "variant": "Editorial",
+      "description": "Massive typography with hairline dividers. Hovering reveals contextual media.",
+      "tags": [
+        "feature",
+        "typography",
+        "minimalist",
+        "editorial",
+        "media"
+      ],
+      "image_count": 4,
+      "preview_image": "",
+      "download_url": "/sections/feature-typography-media.json",
+      "is_premium": false,
+      "is_new": true,
+      "popularity": 74
+    },
+    {
+      "id": "feature-learning-journey",
+      "name": "Learning Journey",
+      "category": "Features",
+      "variant": "Curriculum Timeline",
+      "description": "Features presented as a connected LMS journey from discovery to certification.",
+      "tags": [
+        "feature",
+        "timeline",
+        "journey",
+        "process",
+        "curriculum"
+      ],
+      "image_count": 4,
+      "preview_image": "",
+      "download_url": "/sections/feature-learning-journey.json",
+      "is_premium": false,
+      "is_new": true,
+      "popularity": 80
+    },
+    {
+      "id": "feature-dashboard-showcase",
+      "name": "Dashboard Showcase",
+      "category": "Features",
+      "variant": "Product Mockup",
+      "description": "A massive visual showcase of the actual student dashboard UI.",
+      "tags": [
+        "feature",
+        "dashboard",
+        "showcase",
+        "mockup",
+        "moodle"
+      ],
+      "image_count": 1,
+      "preview_image": "",
+      "download_url": "/sections/feature-dashboard-showcase.json",
+      "is_premium": false,
+      "is_new": true,
+      "popularity": 91
     }
   ]
 }
