@@ -899,6 +899,186 @@
       "is_premium": false,
       "is_new": true,
       "popularity": 91
+    },
+    {
+      "id": "article-immersive-reader",
+      "name": "Immersive Reader",
+      "category": "Article",
+      "variant": "Long-form",
+      "description": "A distraction-free, narrow column layout optimized for long-form reading with a reading progress bar.",
+      "tags": [
+        "article",
+        "reading",
+        "long-form",
+        "typography",
+        "clean"
+      ],
+      "image_count": 0,
+      "preview_image": "",
+      "download_url": "/sections/article-immersive-reader.json",
+      "is_premium": true,
+      "is_new": true,
+      "popularity": 74
+    },
+    {
+      "id": "article-editorial-split",
+      "name": "Editorial Split",
+      "category": "Article",
+      "variant": "Storytelling",
+      "description": "A 50/50 split screen on desktop. Sticky image on one side, scrolling text on the other. Gracefully handles missing images.",
+      "tags": [
+        "article",
+        "split",
+        "editorial",
+        "storytelling",
+        "sticky"
+      ],
+      "image_count": 1,
+      "preview_image": "",
+      "download_url": "/sections/article-editorial-split.json",
+      "is_premium": true,
+      "is_new": true,
+      "popularity": 72
+    },
+    {
+      "id": "article-chaptered-scroll",
+      "name": "Chaptered Scroll",
+      "category": "Article",
+      "variant": "Documentation",
+      "description": "Long-form layout featuring a sticky sidebar Table of Contents with scroll-spy functionality.",
+      "tags": [
+        "article",
+        "chapters",
+        "toc",
+        "documentation",
+        "policies"
+      ],
+      "image_count": 0,
+      "preview_image": "",
+      "download_url": "/sections/article-chaptered-scroll.json",
+      "is_premium": true,
+      "is_new": true,
+      "popularity": 62
+    },
+    {
+      "id": "article-media-intersect",
+      "name": "Media Intersect",
+      "category": "Article",
+      "variant": "Visual Editorial",
+      "description": "Stunning visual layout where text blocks overlay background images using a glassmorphism effect.",
+      "tags": [
+        "article",
+        "visual",
+        "media",
+        "glass",
+        "intersect"
+      ],
+      "image_count": 2,
+      "preview_image": "",
+      "download_url": "/sections/article-media-intersect.json",
+      "is_premium": true,
+      "is_new": true,
+      "popularity": 66
+    },
+    {
+      "id": "article-statement-block",
+      "name": "Statement Block",
+      "category": "Article",
+      "variant": "Impactful",
+      "description": "A minimalist section featuring massive typography for mission statements or key stats, supported by a subtle background.",
+      "tags": [
+        "article",
+        "statement",
+        "quote",
+        "typography",
+        "impact"
+      ],
+      "image_count": 0,
+      "preview_image": "",
+      "download_url": "/sections/article-statement-block.json",
+      "is_premium": true,
+      "is_new": true,
+      "popularity": 93
+    },
+    {
+      "id": "article-grid-story",
+      "name": "Grid Story",
+      "category": "Article",
+      "variant": "Magazine",
+      "description": "A dynamic masonry-style CSS grid layout for news, case studies, or multi-topic overviews.",
+      "tags": [
+        "article",
+        "grid",
+        "magazine",
+        "news",
+        "story"
+      ],
+      "image_count": 3,
+      "preview_image": "",
+      "download_url": "/sections/article-grid-story.json",
+      "is_premium": true,
+      "is_new": true,
+      "popularity": 51
+    },
+    {
+      "id": "article-dual-column",
+      "name": "Dual Column Academic",
+      "category": "Article",
+      "variant": "Academic",
+      "description": "A classic, authoritative two-column text layout designed for formal university updates or research papers.",
+      "tags": [
+        "article",
+        "academic",
+        "columns",
+        "research",
+        "formal"
+      ],
+      "image_count": 0,
+      "preview_image": "",
+      "download_url": "/sections/article-dual-column.json",
+      "is_premium": true,
+      "is_new": true,
+      "popularity": 92
+    },
+    {
+      "id": "article-step-by-step",
+      "name": "Visual Step-by-Step",
+      "category": "Article",
+      "variant": "Tutorial",
+      "description": "Interactive tutorial layout where clicking a step reveals related media. Ideal for processes and how-tos.",
+      "tags": [
+        "article",
+        "steps",
+        "tutorial",
+        "process",
+        "interactive"
+      ],
+      "image_count": 4,
+      "preview_image": "",
+      "download_url": "/sections/article-step-by-step.json",
+      "is_premium": true,
+      "is_new": true,
+      "popularity": 73
+    },
+    {
+      "id": "article-course-story",
+      "name": "Course Story / Case Study",
+      "category": "Article",
+      "variant": "Moodle Specific",
+      "description": "Educational storytelling layout featuring course metadata and a breakdown of outcomes alongside large course media.",
+      "tags": [
+        "article",
+        "course",
+        "case study",
+        "learning",
+        "moodle"
+      ],
+      "image_count": 1,
+      "preview_image": "",
+      "download_url": "/sections/article-course-story.json",
+      "is_premium": true,
+      "is_new": true,
+      "popularity": 52
     }
   ]
 }
