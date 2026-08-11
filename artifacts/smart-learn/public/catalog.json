@@ -173,6 +173,74 @@
       "is_premium": false,
       "is_new": true,
       "popularity": 98
+    },
+    {
+      "id": "contact-hub",
+      "name": "Contact Hub",
+      "category": "Contact",
+      "variant": "Hub",
+      "description": "A comprehensive contact section with multiple contact methods and a quick form.",
+      "tags": [
+        "contact",
+        "form",
+        "hub",
+        "support"
+      ],
+      "image_count": 0
+    },
+    {
+      "id": "contact-split",
+      "name": "Contact Split Screen",
+      "category": "Contact",
+      "variant": "Split",
+      "description": "A classic 50/50 split layout with contact info on the left and a form on the right.",
+      "tags": [
+        "contact",
+        "split",
+        "form"
+      ],
+      "image_count": 0
+    },
+    {
+      "id": "contact-minimal",
+      "name": "Contact Minimal Grid",
+      "category": "Contact",
+      "variant": "Minimal",
+      "description": "A clean, simple 3-column layout highlighting key contact methods without a form.",
+      "tags": [
+        "contact",
+        "minimal",
+        "grid"
+      ],
+      "image_count": 0
+    },
+    {
+      "id": "contact-map",
+      "name": "Contact Map Glass",
+      "category": "Contact",
+      "variant": "Map",
+      "description": "A premium layout featuring a full-width background map and a floating frosted glass contact card.",
+      "tags": [
+        "contact",
+        "map",
+        "glassmorphism",
+        "form"
+      ],
+      "image_count": 0
+    },
+    {
+      "id": "contact-image",
+      "name": "Contact Image Split",
+      "category": "Contact",
+      "variant": "Image Split",
+      "description": "A 50/50 layout with a beautiful full-height image on one side and a form on the other.",
+      "tags": [
+        "contact",
+        "image",
+        "split",
+        "form"
+      ],
+      "image_count": 1
     }
   ]
 }
