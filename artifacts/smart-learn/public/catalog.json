@@ -191,7 +191,7 @@
       "download_url": "/sections/contact-hub.json",
       "is_premium": false,
       "is_new": true,
-      "popularity": 79
+      "popularity": 71
     },
     {
       "id": "contact-split",
@@ -209,7 +209,7 @@
       "download_url": "/sections/contact-split.json",
       "is_premium": false,
       "is_new": true,
-      "popularity": 87
+      "popularity": 84
     },
     {
       "id": "contact-minimal",
@@ -227,7 +227,7 @@
       "download_url": "/sections/contact-minimal.json",
       "is_premium": false,
       "is_new": true,
-      "popularity": 88
+      "popularity": 58
     },
     {
       "id": "contact-map",
@@ -246,7 +246,7 @@
       "download_url": "/sections/contact-map.json",
       "is_premium": false,
       "is_new": true,
-      "popularity": 71
+      "popularity": 54
     },
     {
       "id": "contact-image",
@@ -265,7 +265,7 @@
       "download_url": "/sections/contact-image.json",
       "is_premium": false,
       "is_new": true,
-      "popularity": 67
+      "popularity": 96
     }
   ]
 }

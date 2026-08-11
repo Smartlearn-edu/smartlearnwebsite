@@ -102,13 +102,13 @@ const sections = [
     </div>
 </div>`,
         css: `.sl-contact-hub {
-    background-color: var(--sl-surface, #f8f9fa);
+    background-color: var(--bs-body-bg);
     padding-top: 2rem;
     padding-bottom: 2rem;
 }
 .sl-contact-hub .header-banner {
-    background: linear-gradient(135deg, rgba(230,230,250,1) 0%, rgba(240,248,255,1) 100%);
-    border: 1px solid rgba(255,255,255,0.5);
+    background-color: var(--bs-secondary-bg);
+    border: 1px solid var(--bs-border-color);
     box-shadow: 0 10px 30px rgba(0,0,0,0.02);
 }
 .sl-contact-hub .contact-card {
@@ -133,7 +133,8 @@ const sections = [
 .sl-contact-hub .help-card .icon-wrap { background-color: rgba(161, 66, 244, 0.1); color: #A142F4; }
 
 .sl-contact-hub .quick-form-card {
-    background: white;
+    background-color: var(--bs-secondary-bg);
+    border: 1px solid var(--bs-border-color);
     box-shadow: 0 10px 30px rgba(0,0,0,0.04);
 }
 .sl-contact-hub .form-icon {
@@ -142,8 +143,8 @@ const sections = [
     background-color: #7b61ff;
 }
 .sl-contact-hub .privacy-footer {
-    background-color: rgba(0,0,0,0.02);
-    border: 1px solid rgba(0,0,0,0.05);
+    background-color: var(--bs-tertiary-bg);
+    border: 1px solid var(--bs-border-color);
 }`,
         js: `(function() {
     const root = document.querySelector('.sl-contact-hub');
@@ -202,7 +203,7 @@ const sections = [
                 </div>
             </div>
             <div class="col-lg-7">
-                <div class="contact-form-wrapper p-4 p-md-5 rounded-4 bg-white shadow-lg">
+                <div class="contact-form-wrapper p-4 p-md-5 rounded-4 bg-body shadow-lg">
                     <h4 class="fw-bold mb-4" data-sl-edit="text">Send us a Message</h4>
                     <form>
                         <div class="row g-3">
@@ -237,7 +238,7 @@ const sections = [
     </div>
 </div>`,
         css: `.sl-contact-split {
-    background-color: var(--sl-surface, #ffffff);
+    background-color: var(--bs-body-bg);
     padding-top: 4rem;
     padding-bottom: 4rem;
 }
@@ -295,7 +296,7 @@ const sections = [
         </div>
         <div class="row g-4 justify-content-center text-center">
             <div class="col-md-4">
-                <div class="minimal-card p-4 rounded-4 bg-white h-100">
+                <div class="minimal-card p-4 rounded-4 bg-body h-100">
                     <div class="icon-circle mx-auto mb-4 bg-primary-subtle text-primary">
                         <i class="fa fa-envelope-o fa-2x"></i>
                     </div>
@@ -305,30 +306,30 @@ const sections = [
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="minimal-card p-4 rounded-4 bg-white h-100 shadow-sm border border-primary border-opacity-25">
+                <div class="minimal-card p-4 rounded-4 bg-body h-100 shadow-sm border border-primary border-opacity-25">
                     <div class="icon-circle mx-auto mb-4 bg-primary text-white shadow">
                         <i class="fa fa-phone fa-2x"></i>
                     </div>
                     <h5 class="fw-bold mb-3" data-sl-edit="text">Phone</h5>
                     <p class="text-muted mb-4" data-sl-edit="text">Need immediate assistance? Give us a call during business hours.</p>
-                    <a href="tel:+1234567890" class="text-decoration-none fw-bold fs-5 text-dark" data-sl-edit="link">+1 (800) 123-4567</a>
+                    <a href="tel:+1234567890" class="text-decoration-none fw-bold fs-5 text-body" data-sl-edit="link">+1 (800) 123-4567</a>
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="minimal-card p-4 rounded-4 bg-white h-100">
+                <div class="minimal-card p-4 rounded-4 bg-body h-100">
                     <div class="icon-circle mx-auto mb-4 bg-info-subtle text-info">
                         <i class="fa fa-map-o fa-2x"></i>
                     </div>
                     <h5 class="fw-bold mb-3" data-sl-edit="text">Office</h5>
                     <p class="text-muted mb-4" data-sl-edit="text">Come visit our headquarters. We'd love to show you around.</p>
-                    <p class="mb-0 fw-semibold text-dark" data-sl-edit="text">789 Skyline Blvd, Suite 100<br>San Francisco, CA 94107</p>
+                    <p class="mb-0 fw-semibold text-body" data-sl-edit="text">789 Skyline Blvd, Suite 100<br>San Francisco, CA 94107</p>
                 </div>
             </div>
         </div>
     </div>
 </div>`,
         css: `.sl-contact-minimal {
-    background-color: var(--sl-surface, #fbfbfb);
+    background-color: var(--bs-tertiary-bg);
     padding-top: 5rem;
     padding-bottom: 5rem;
 }
@@ -386,13 +387,13 @@ const sections = [
                         
                         <form>
                             <div class="mb-3">
-                                <input type="text" class="form-control bg-white bg-opacity-75 border-0" placeholder="Your Name">
+                                <input type="text" class="form-control bg-light text-dark bg-opacity-75 border-0" placeholder="Your Name">
                             </div>
                             <div class="mb-3">
-                                <input type="email" class="form-control bg-white bg-opacity-75 border-0" placeholder="Your Email">
+                                <input type="email" class="form-control bg-light text-dark bg-opacity-75 border-0" placeholder="Your Email">
                             </div>
                             <div class="mb-4">
-                                <textarea class="form-control bg-white bg-opacity-75 border-0" rows="3" placeholder="Message"></textarea>
+                                <textarea class="form-control bg-light text-dark bg-opacity-75 border-0" rows="3" placeholder="Message"></textarea>
                             </div>
                             <button type="button" class="btn btn-dark w-100 rounded-3 py-2 fw-bold" data-sl-edit="text">Submit Request</button>
                         </form>
@@ -447,7 +448,7 @@ const sections = [
                     <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Customer Support" class="w-100 h-100 object-fit-cover" data-sl-edit="image">
                 </div>
             </div>
-            <div class="col-lg-6 d-flex align-items-center bg-white">
+            <div class="col-lg-6 d-flex align-items-center bg-body">
                 <div class="form-wrapper w-100 p-5 px-xl-5 py-xl-5 m-xl-5">
                     <h2 class="fw-bold display-6 mb-3" data-sl-edit="text">Get in touch today.</h2>
                     <p class="text-muted fs-5 mb-5" data-sl-edit="text">Whether you have a question about features, pricing, or anything else, our team is ready to answer all your questions.</p>
@@ -485,7 +486,7 @@ const sections = [
     </div>
 </div>`,
         css: `.sl-contact-image {
-    background-color: #ffffff;
+    background-color: var(--bs-body-bg);
 }
 .sl-contact-image .object-fit-cover {
     object-fit: cover;
