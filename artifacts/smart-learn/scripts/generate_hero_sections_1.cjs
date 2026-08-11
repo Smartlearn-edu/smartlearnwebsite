@@ -65,7 +65,17 @@ const sections = [
     <!-- Decorative background element -->
     <div class="bg-shape-cream bg-tertiary"></div>
 </div>`,
-        css: `@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+        css: `
+/* Theme Primary Color Inheritance Fix */
+[class*="sl-hero-"] .text-primary { color: var(--smartlearn-primary) !important; }
+[class*="sl-hero-"] .bg-primary { background-color: var(--smartlearn-primary) !important; }
+[class*="sl-hero-"] .btn-primary { background-color: var(--smartlearn-primary) !important; border-color: var(--smartlearn-primary) !important; color: #fff !important; }
+[class*="sl-hero-"] .btn-primary:hover { filter: brightness(0.9); }
+[class*="sl-hero-"] .btn-outline-primary { border-color: var(--smartlearn-primary) !important; color: var(--smartlearn-primary) !important; }
+[class*="sl-hero-"] .btn-outline-primary:hover { background-color: var(--smartlearn-primary) !important; color: #fff !important; }
+[class*="sl-hero-"] .border-primary { border-color: var(--smartlearn-primary) !important; }
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
 
 .sl-hero-ivy {
     background-color: var(--bs-body-bg);
@@ -197,7 +207,17 @@ const sections = [
         </div>
     </div>
 </div>`,
-        css: `@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@400;600;800&display=swap');
+        css: `
+/* Theme Primary Color Inheritance Fix */
+[class*="sl-hero-"] .text-primary { color: var(--smartlearn-primary) !important; }
+[class*="sl-hero-"] .bg-primary { background-color: var(--smartlearn-primary) !important; }
+[class*="sl-hero-"] .btn-primary { background-color: var(--smartlearn-primary) !important; border-color: var(--smartlearn-primary) !important; color: #fff !important; }
+[class*="sl-hero-"] .btn-primary:hover { filter: brightness(0.9); }
+[class*="sl-hero-"] .btn-outline-primary { border-color: var(--smartlearn-primary) !important; color: var(--smartlearn-primary) !important; }
+[class*="sl-hero-"] .btn-outline-primary:hover { background-color: var(--smartlearn-primary) !important; color: #fff !important; }
+[class*="sl-hero-"] .border-primary { border-color: var(--smartlearn-primary) !important; }
+
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@400;600;800&display=swap');
 
 .sl-hero-tech {
     background-color: var(--bs-body-bg);
@@ -225,8 +245,8 @@ const sections = [
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
 }
 .sl-hero-tech .pulse-dot {
-    width: 8px; height: 8px; background: var(--bs-primary); border-radius: 50%;
-    box-shadow: 0 0 10px var(--bs-primary);
+    width: 8px; height: 8px; background: var(--smartlearn-primary); border-radius: 50%;
+    box-shadow: 0 0 10px var(--smartlearn-primary);
     animation: slPulse 1.5s infinite;
 }
 @keyframes slPulse {
@@ -242,7 +262,7 @@ const sections = [
     color: transparent;
 }
 .sl-hero-tech .gradient-text {
-    background-image: linear-gradient(90deg, var(--bs-primary), var(--bs-info), var(--bs-secondary));
+    background-image: linear-gradient(90deg, var(--smartlearn-primary), var(--bs-info), var(--bs-secondary));
     background-size: 200% auto;
     animation: slGradientFlow 5s linear infinite;
 }
@@ -260,7 +280,7 @@ const sections = [
     box-shadow: 0 10px 25px -5px rgba(0,0,0,0.5);
 }
 .sl-hero-tech .primary-btn {
-    background: linear-gradient(135deg, var(--bs-primary), var(--bs-secondary));
+    background: linear-gradient(135deg, var(--smartlearn-primary), var(--bs-secondary));
     border: none;
 }`,
         js: `(function() {
@@ -325,7 +345,17 @@ const sections = [
         
     </div>
 </div>`,
-        css: `.sl-hero-search {
+        css: `
+/* Theme Primary Color Inheritance Fix */
+[class*="sl-hero-"] .text-primary { color: var(--smartlearn-primary) !important; }
+[class*="sl-hero-"] .bg-primary { background-color: var(--smartlearn-primary) !important; }
+[class*="sl-hero-"] .btn-primary { background-color: var(--smartlearn-primary) !important; border-color: var(--smartlearn-primary) !important; color: #fff !important; }
+[class*="sl-hero-"] .btn-primary:hover { filter: brightness(0.9); }
+[class*="sl-hero-"] .btn-outline-primary { border-color: var(--smartlearn-primary) !important; color: var(--smartlearn-primary) !important; }
+[class*="sl-hero-"] .btn-outline-primary:hover { background-color: var(--smartlearn-primary) !important; color: #fff !important; }
+[class*="sl-hero-"] .border-primary { border-color: var(--smartlearn-primary) !important; }
+
+.sl-hero-search {
     background-color: var(--bs-secondary-bg);
     min-height: 80vh;
     display: flex;
@@ -348,7 +378,7 @@ const sections = [
 }
 .sl-hero-search .search-box:focus-within {
     box-shadow: 
-        inset 0 0 0 2px var(--bs-primary),
+        inset 0 0 0 2px var(--smartlearn-primary),
         10px 10px 20px rgba(0, 0, 0, 0.1),
         -10px -10px 20px rgba(255, 255, 255, 0.1);
     transform: translateY(-2px);
@@ -377,7 +407,7 @@ const sections = [
 .sl-hero-search .sl-tag:hover {
     transform: translateY(-2px);
     box-shadow: 6px 6px 12px rgba(0,0,0,0.05), -6px -6px 12px rgba(255,255,255,0.9);
-    color: var(--bs-primary) !important;
+    color: var(--smartlearn-primary) !important;
 }
 .sl-hero-search .tracking-wide {
     letter-spacing: 0.1em;
@@ -467,7 +497,17 @@ const sections = [
         </div>
     </div>
 </div>`,
-        css: `.sl-hero-video {
+        css: `
+/* Theme Primary Color Inheritance Fix */
+[class*="sl-hero-"] .text-primary { color: var(--smartlearn-primary) !important; }
+[class*="sl-hero-"] .bg-primary { background-color: var(--smartlearn-primary) !important; }
+[class*="sl-hero-"] .btn-primary { background-color: var(--smartlearn-primary) !important; border-color: var(--smartlearn-primary) !important; color: #fff !important; }
+[class*="sl-hero-"] .btn-primary:hover { filter: brightness(0.9); }
+[class*="sl-hero-"] .btn-outline-primary { border-color: var(--smartlearn-primary) !important; color: var(--smartlearn-primary) !important; }
+[class*="sl-hero-"] .btn-outline-primary:hover { background-color: var(--smartlearn-primary) !important; color: #fff !important; }
+[class*="sl-hero-"] .border-primary { border-color: var(--smartlearn-primary) !important; }
+
+.sl-hero-video {
     min-height: 85vh;
 }
 .sl-hero-video .object-fit-cover {

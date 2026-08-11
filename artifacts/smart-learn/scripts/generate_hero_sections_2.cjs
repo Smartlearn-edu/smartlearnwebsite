@@ -78,7 +78,17 @@ const sections = [
         </div>
     </div>
 </div>`,
-        css: `.sl-hero-universe {
+        css: `
+/* Theme Primary Color Inheritance Fix */
+[class*="sl-hero-"] .text-primary { color: var(--smartlearn-primary) !important; }
+[class*="sl-hero-"] .bg-primary { background-color: var(--smartlearn-primary) !important; }
+[class*="sl-hero-"] .btn-primary { background-color: var(--smartlearn-primary) !important; border-color: var(--smartlearn-primary) !important; color: #fff !important; }
+[class*="sl-hero-"] .btn-primary:hover { filter: brightness(0.9); }
+[class*="sl-hero-"] .btn-outline-primary { border-color: var(--smartlearn-primary) !important; color: var(--smartlearn-primary) !important; }
+[class*="sl-hero-"] .btn-outline-primary:hover { background-color: var(--smartlearn-primary) !important; color: #fff !important; }
+[class*="sl-hero-"] .border-primary { border-color: var(--smartlearn-primary) !important; }
+
+.sl-hero-universe {
     background: transparent;
     min-height: 80vh;
 }
@@ -221,7 +231,17 @@ const sections = [
         </div>
     </div>
 </div>`,
-        css: `.sl-hero-abstract {
+        css: `
+/* Theme Primary Color Inheritance Fix */
+[class*="sl-hero-"] .text-primary { color: var(--smartlearn-primary) !important; }
+[class*="sl-hero-"] .bg-primary { background-color: var(--smartlearn-primary) !important; }
+[class*="sl-hero-"] .btn-primary { background-color: var(--smartlearn-primary) !important; border-color: var(--smartlearn-primary) !important; color: #fff !important; }
+[class*="sl-hero-"] .btn-primary:hover { filter: brightness(0.9); }
+[class*="sl-hero-"] .btn-outline-primary { border-color: var(--smartlearn-primary) !important; color: var(--smartlearn-primary) !important; }
+[class*="sl-hero-"] .btn-outline-primary:hover { background-color: var(--smartlearn-primary) !important; color: #fff !important; }
+[class*="sl-hero-"] .border-primary { border-color: var(--smartlearn-primary) !important; }
+
+.sl-hero-abstract {
     min-height: 80vh;
 }
 .sl-hero-abstract .sl-blob-title {
@@ -303,7 +323,17 @@ const sections = [
         </div>
     </div>
 </div>`,
-        css: `@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;1,900&display=swap');
+        css: `
+/* Theme Primary Color Inheritance Fix */
+[class*="sl-hero-"] .text-primary { color: var(--smartlearn-primary) !important; }
+[class*="sl-hero-"] .bg-primary { background-color: var(--smartlearn-primary) !important; }
+[class*="sl-hero-"] .btn-primary { background-color: var(--smartlearn-primary) !important; border-color: var(--smartlearn-primary) !important; color: #fff !important; }
+[class*="sl-hero-"] .btn-primary:hover { filter: brightness(0.9); }
+[class*="sl-hero-"] .btn-outline-primary { border-color: var(--smartlearn-primary) !important; color: var(--smartlearn-primary) !important; }
+[class*="sl-hero-"] .btn-outline-primary:hover { background-color: var(--smartlearn-primary) !important; color: #fff !important; }
+[class*="sl-hero-"] .border-primary { border-color: var(--smartlearn-primary) !important; }
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;1,900&display=swap');
 
 .sl-hero-dynamic {
     font-family: 'Montserrat', sans-serif;
@@ -332,7 +362,7 @@ const sections = [
 }
 .sl-hero-dynamic .sl-btn-skew:hover {
     background-color: transparent;
-    color: var(--bs-primary);
+    color: var(--smartlearn-primary);
 }
 .sl-hero-dynamic .sl-btn-skew .sl-unskew {
     transform: skewX(15deg);
@@ -417,7 +447,17 @@ const sections = [
         </div>
     </div>
 </div>`,
-        css: `.sl-hero-glass {
+        css: `
+/* Theme Primary Color Inheritance Fix */
+[class*="sl-hero-"] .text-primary { color: var(--smartlearn-primary) !important; }
+[class*="sl-hero-"] .bg-primary { background-color: var(--smartlearn-primary) !important; }
+[class*="sl-hero-"] .btn-primary { background-color: var(--smartlearn-primary) !important; border-color: var(--smartlearn-primary) !important; color: #fff !important; }
+[class*="sl-hero-"] .btn-primary:hover { filter: brightness(0.9); }
+[class*="sl-hero-"] .btn-outline-primary { border-color: var(--smartlearn-primary) !important; color: var(--smartlearn-primary) !important; }
+[class*="sl-hero-"] .btn-outline-primary:hover { background-color: var(--smartlearn-primary) !important; color: #fff !important; }
+[class*="sl-hero-"] .border-primary { border-color: var(--smartlearn-primary) !important; }
+
+.sl-hero-glass {
     min-height: 90vh;
     overflow: hidden;
 }

@@ -77,7 +77,17 @@ const sections = [
         </div>
     </div>
 </div>`,
-        css: `.sl-hero-instructor {
+        css: `
+/* Theme Primary Color Inheritance Fix */
+[class*="sl-hero-"] .text-primary { color: var(--smartlearn-primary) !important; }
+[class*="sl-hero-"] .bg-primary { background-color: var(--smartlearn-primary) !important; }
+[class*="sl-hero-"] .btn-primary { background-color: var(--smartlearn-primary) !important; border-color: var(--smartlearn-primary) !important; color: #fff !important; }
+[class*="sl-hero-"] .btn-primary:hover { filter: brightness(0.9); }
+[class*="sl-hero-"] .btn-outline-primary { border-color: var(--smartlearn-primary) !important; color: var(--smartlearn-primary) !important; }
+[class*="sl-hero-"] .btn-outline-primary:hover { background-color: var(--smartlearn-primary) !important; color: #fff !important; }
+[class*="sl-hero-"] .border-primary { border-color: var(--smartlearn-primary) !important; }
+
+.sl-hero-instructor {
     min-height: 85vh;
 }
 .sl-hero-instructor .sl-title-tracking {
@@ -216,7 +226,17 @@ const sections = [
         </div>
     </div>
 </div>`,
-        css: `.sl-hero-reveal {
+        css: `
+/* Theme Primary Color Inheritance Fix */
+[class*="sl-hero-"] .text-primary { color: var(--smartlearn-primary) !important; }
+[class*="sl-hero-"] .bg-primary { background-color: var(--smartlearn-primary) !important; }
+[class*="sl-hero-"] .btn-primary { background-color: var(--smartlearn-primary) !important; border-color: var(--smartlearn-primary) !important; color: #fff !important; }
+[class*="sl-hero-"] .btn-primary:hover { filter: brightness(0.9); }
+[class*="sl-hero-"] .btn-outline-primary { border-color: var(--smartlearn-primary) !important; color: var(--smartlearn-primary) !important; }
+[class*="sl-hero-"] .btn-outline-primary:hover { background-color: var(--smartlearn-primary) !important; color: #fff !important; }
+[class*="sl-hero-"] .border-primary { border-color: var(--smartlearn-primary) !important; }
+
+.sl-hero-reveal {
     min-height: 85vh;
 }
 .sl-hero-reveal .sl-reveal-title {
@@ -353,7 +373,17 @@ const sections = [
         </div>
     </div>
 </div>`,
-        css: `.sl-hero-bento .sl-bento-title {
+        css: `
+/* Theme Primary Color Inheritance Fix */
+[class*="sl-hero-"] .text-primary { color: var(--smartlearn-primary) !important; }
+[class*="sl-hero-"] .bg-primary { background-color: var(--smartlearn-primary) !important; }
+[class*="sl-hero-"] .btn-primary { background-color: var(--smartlearn-primary) !important; border-color: var(--smartlearn-primary) !important; color: #fff !important; }
+[class*="sl-hero-"] .btn-primary:hover { filter: brightness(0.9); }
+[class*="sl-hero-"] .btn-outline-primary { border-color: var(--smartlearn-primary) !important; color: var(--smartlearn-primary) !important; }
+[class*="sl-hero-"] .btn-outline-primary:hover { background-color: var(--smartlearn-primary) !important; color: #fff !important; }
+[class*="sl-hero-"] .border-primary { border-color: var(--smartlearn-primary) !important; }
+
+.sl-hero-bento .sl-bento-title {
     letter-spacing: -0.03em;
 }
 .sl-hero-bento .fw-black {
@@ -383,7 +413,7 @@ const sections = [
 }
 .sl-hero-bento .sl-bento-hover:hover {
     background-color: transparent;
-    color: var(--bs-primary);
+    color: var(--smartlearn-primary);
 }
 
 /* Staggered entrance animation */
@@ -440,7 +470,7 @@ const sections = [
             <div class="col-lg-7 position-relative">
                 <!-- SVG Connecting Line -->
                 <svg class="position-absolute sl-path-line d-none d-lg-block" width="100%" height="100%" style="top: 0; left: 0; z-index: 0;" preserveAspectRatio="none">
-                    <path class="sl-line-draw" d="M50,80 C150,80 200,200 300,200 C400,200 450,80 550,80" fill="none" stroke="var(--bs-primary)" stroke-width="4" stroke-dasharray="10 10"/>
+                    <path class="sl-line-draw" d="M50,80 C150,80 200,200 300,200 C400,200 450,80 550,80" fill="none" stroke="var(--smartlearn-primary)" stroke-width="4" stroke-dasharray="10 10"/>
                 </svg>
                 
                 <!-- Pathway Nodes -->
@@ -479,7 +509,17 @@ const sections = [
         </div>
     </div>
 </div>`,
-        css: `.sl-hero-path {
+        css: `
+/* Theme Primary Color Inheritance Fix */
+[class*="sl-hero-"] .text-primary { color: var(--smartlearn-primary) !important; }
+[class*="sl-hero-"] .bg-primary { background-color: var(--smartlearn-primary) !important; }
+[class*="sl-hero-"] .btn-primary { background-color: var(--smartlearn-primary) !important; border-color: var(--smartlearn-primary) !important; color: #fff !important; }
+[class*="sl-hero-"] .btn-primary:hover { filter: brightness(0.9); }
+[class*="sl-hero-"] .btn-outline-primary { border-color: var(--smartlearn-primary) !important; color: var(--smartlearn-primary) !important; }
+[class*="sl-hero-"] .btn-outline-primary:hover { background-color: var(--smartlearn-primary) !important; color: #fff !important; }
+[class*="sl-hero-"] .border-primary { border-color: var(--smartlearn-primary) !important; }
+
+.sl-hero-path {
     min-height: 80vh;
 }
 .sl-hero-path .sl-path-title {
@@ -493,7 +533,7 @@ const sections = [
 .sl-hero-path .sl-node:hover {
     transform: translateY(-5px) scale(1.02) !important;
     box-shadow: 0 15px 30px rgba(25, 135, 84, 0.15) !important;
-    border-color: var(--bs-primary) !important;
+    border-color: var(--smartlearn-primary) !important;
 }
 
 /* Animations */
@@ -616,7 +656,17 @@ const sections = [
         
     </div>
 </div>`,
-        css: `.sl-hero-journey {
+        css: `
+/* Theme Primary Color Inheritance Fix */
+[class*="sl-hero-"] .text-primary { color: var(--smartlearn-primary) !important; }
+[class*="sl-hero-"] .bg-primary { background-color: var(--smartlearn-primary) !important; }
+[class*="sl-hero-"] .btn-primary { background-color: var(--smartlearn-primary) !important; border-color: var(--smartlearn-primary) !important; color: #fff !important; }
+[class*="sl-hero-"] .btn-primary:hover { filter: brightness(0.9); }
+[class*="sl-hero-"] .btn-outline-primary { border-color: var(--smartlearn-primary) !important; color: var(--smartlearn-primary) !important; }
+[class*="sl-hero-"] .btn-outline-primary:hover { background-color: var(--smartlearn-primary) !important; color: #fff !important; }
+[class*="sl-hero-"] .border-primary { border-color: var(--smartlearn-primary) !important; }
+
+.sl-hero-journey {
     /* Subtle background pattern */
     background-image: radial-gradient(var(--bs-border-color) 1px, transparent 1px);
     background-size: 20px 20px;
@@ -648,7 +698,7 @@ const sections = [
     transition: all 0.2s ease;
 }
 .sl-hero-journey .sl-rec-item:hover {
-    border-color: var(--bs-primary) !important;
+    border-color: var(--smartlearn-primary) !important;
     background-color: var(--bs-primary-bg-subtle) !important;
     transform: translateX(5px);
 }`,

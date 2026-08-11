@@ -21,9 +21,9 @@ const sections = [
     <!-- Abstract Background Elements -->
     <div class="position-absolute top-0 start-0 w-100 h-100 pointer-events-none" style="z-index: 0; opacity: 0.4;">
         <svg class="position-absolute" style="top: -10%; left: -5%; width: 50%; height: 50%;" viewBox="0 0 100 100" preserveAspectRatio="none">
-            <path d="M0,50 Q25,30 50,50 T100,50" fill="none" stroke="var(--bs-primary)" stroke-width="0.5" />
-            <path d="M0,60 Q25,40 50,60 T100,60" fill="none" stroke="var(--bs-primary)" stroke-width="0.5" />
-            <path d="M0,70 Q25,50 50,70 T100,70" fill="none" stroke="var(--bs-primary)" stroke-width="0.5" />
+            <path d="M0,50 Q25,30 50,50 T100,50" fill="none" stroke="var(--smartlearn-primary)" stroke-width="0.5" />
+            <path d="M0,60 Q25,40 50,60 T100,60" fill="none" stroke="var(--smartlearn-primary)" stroke-width="0.5" />
+            <path d="M0,70 Q25,50 50,70 T100,70" fill="none" stroke="var(--smartlearn-primary)" stroke-width="0.5" />
         </svg>
         <div class="position-absolute rounded-circle border border-primary opacity-10" style="width: 80px; height: 80px; top: 10%; right: 15%;"></div>
         <div class="position-absolute rounded-circle bg-primary opacity-10" style="width: 150px; height: 150px; bottom: 20%; left: -5%;"></div>
@@ -226,14 +226,24 @@ const sections = [
         </div>
     </div>
 </div>`,
-        css: `.sl-hero-vid-gallery {
+        css: `
+/* Theme Primary Color Inheritance Fix */
+[class*="sl-hero-"] .text-primary { color: var(--smartlearn-primary) !important; }
+[class*="sl-hero-"] .bg-primary { background-color: var(--smartlearn-primary) !important; }
+[class*="sl-hero-"] .btn-primary { background-color: var(--smartlearn-primary) !important; border-color: var(--smartlearn-primary) !important; color: #fff !important; }
+[class*="sl-hero-"] .btn-primary:hover { filter: brightness(0.9); }
+[class*="sl-hero-"] .btn-outline-primary { border-color: var(--smartlearn-primary) !important; color: var(--smartlearn-primary) !important; }
+[class*="sl-hero-"] .btn-outline-primary:hover { background-color: var(--smartlearn-primary) !important; color: #fff !important; }
+[class*="sl-hero-"] .border-primary { border-color: var(--smartlearn-primary) !important; }
+
+.sl-hero-vid-gallery {
     font-family: inherit;
 }
 .sl-hero-vid-gallery .sl-tracking-tight {
     letter-spacing: -0.04em;
 }
 .sl-hero-vid-gallery .sl-text-gradient {
-    background: linear-gradient(135deg, var(--bs-primary) 0%, var(--bs-secondary) 100%);
+    background: linear-gradient(135deg, var(--smartlearn-primary) 0%, var(--bs-secondary) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
