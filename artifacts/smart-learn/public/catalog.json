@@ -544,6 +544,181 @@
       "is_premium": false,
       "is_new": true,
       "popularity": 76
+    },
+    {
+      "id": "footer-academic",
+      "name": "Classic Academic",
+      "category": "Footer",
+      "variant": "Institutional",
+      "description": "A sophisticated multi-column footer with traditional navigation suitable for universities and schools.",
+      "tags": [
+        "footer",
+        "academic",
+        "institutional",
+        "columns"
+      ],
+      "image_count": 0,
+      "preview_image": "",
+      "download_url": "/sections/footer-academic.json",
+      "is_premium": false,
+      "is_new": true,
+      "popularity": 91
+    },
+    {
+      "id": "footer-minimal",
+      "name": "Minimal Footer",
+      "category": "Footer",
+      "variant": "Institutional",
+      "description": "Clean, distraction-free footer with massive whitespace and elegant typography.",
+      "tags": [
+        "footer",
+        "minimal",
+        "clean",
+        "centered"
+      ],
+      "image_count": 0,
+      "preview_image": "",
+      "download_url": "/sections/footer-minimal.json",
+      "is_premium": false,
+      "is_new": true,
+      "popularity": 70
+    },
+    {
+      "id": "footer-mega",
+      "name": "Mega Footer",
+      "category": "Footer",
+      "variant": "Institutional",
+      "description": "Massive footer acting as a secondary category navigation system for large Moodle sites.",
+      "tags": [
+        "footer",
+        "mega",
+        "corporate",
+        "large",
+        "categories"
+      ],
+      "image_count": 0,
+      "preview_image": "",
+      "download_url": "/sections/footer-mega.json",
+      "is_premium": false,
+      "is_new": true,
+      "popularity": 89
+    },
+    {
+      "id": "footer-modern-signature",
+      "name": "Modern Signature",
+      "category": "Footer",
+      "variant": "Marketing",
+      "description": "The flagship \"wow\" footer. Animated visual composition, sophisticated navigation, and premium interactions.",
+      "tags": [
+        "footer",
+        "modern",
+        "signature",
+        "premium",
+        "animated"
+      ],
+      "image_count": 0,
+      "preview_image": "",
+      "download_url": "/sections/footer-modern-signature.json",
+      "is_premium": false,
+      "is_new": true,
+      "popularity": 79
+    },
+    {
+      "id": "footer-cta",
+      "name": "CTA Footer",
+      "category": "Footer",
+      "variant": "Marketing",
+      "description": "Conversion footer. Deliberately simple standard navigation overshadowed by a massive CTA element.",
+      "tags": [
+        "footer",
+        "cta",
+        "conversion",
+        "marketing"
+      ],
+      "image_count": 0,
+      "preview_image": "",
+      "download_url": "/sections/footer-cta.json",
+      "is_premium": false,
+      "is_new": true,
+      "popularity": 78
+    },
+    {
+      "id": "footer-glass",
+      "name": "Glass Footer",
+      "category": "Footer",
+      "variant": "Modern",
+      "description": "Immersive floating glassmorphism container over a glowing background. Ideal for creative academies.",
+      "tags": [
+        "footer",
+        "glass",
+        "glassmorphism",
+        "floating"
+      ],
+      "image_count": 0,
+      "preview_image": "",
+      "download_url": "/sections/footer-glass.json",
+      "is_premium": false,
+      "is_new": true,
+      "popularity": 62
+    },
+    {
+      "id": "footer-bento",
+      "name": "Bento Footer",
+      "category": "Footer",
+      "variant": "Modern",
+      "description": "A spatial grid layout dividing footer content into distinct bento-style cards.",
+      "tags": [
+        "footer",
+        "bento",
+        "grid",
+        "modern"
+      ],
+      "image_count": 0,
+      "preview_image": "",
+      "download_url": "/sections/footer-bento.json",
+      "is_premium": false,
+      "is_new": true,
+      "popularity": 86
+    },
+    {
+      "id": "footer-support",
+      "name": "Contact & Support",
+      "category": "Footer",
+      "variant": "LMS",
+      "description": "Help-first navigation focusing on technical support, FAQ, and operating hours.",
+      "tags": [
+        "footer",
+        "support",
+        "help",
+        "contact",
+        "lms"
+      ],
+      "image_count": 0,
+      "preview_image": "",
+      "download_url": "/sections/footer-support.json",
+      "is_premium": false,
+      "is_new": true,
+      "popularity": 50
+    },
+    {
+      "id": "footer-student-app",
+      "name": "App & Student utility",
+      "category": "Footer",
+      "variant": "LMS",
+      "description": "Modular footer featuring App Store downloads, selectors, and quick-access student links.",
+      "tags": [
+        "footer",
+        "app",
+        "student",
+        "lms",
+        "utility"
+      ],
+      "image_count": 0,
+      "preview_image": "",
+      "download_url": "/sections/footer-student-app.json",
+      "is_premium": false,
+      "is_new": true,
+      "popularity": 76
     }
   ]
 }
