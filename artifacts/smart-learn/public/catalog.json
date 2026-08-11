@@ -1079,6 +1079,203 @@
       "is_premium": true,
       "is_new": true,
       "popularity": 52
+    },
+    {
+      "id": "course-classic-grid",
+      "name": "Classic Course Grid",
+      "category": "Courses & Categories",
+      "variant": "Grid",
+      "description": "A dependable 3 or 4-column grid of course cards elevated with subtle hover shadows, badge tags, and beautiful instructor avatars.",
+      "tags": [
+        "courses",
+        "grid",
+        "catalog",
+        "premium"
+      ],
+      "image_count": 3,
+      "preview_image": "",
+      "download_url": "/sections/course-classic-grid.json",
+      "is_premium": true,
+      "is_new": true,
+      "popularity": 67
+    },
+    {
+      "id": "course-cinematic-carousel",
+      "name": "Cinematic Carousel",
+      "category": "Courses & Categories",
+      "variant": "Slider",
+      "description": "A horizontal, swipeable slider of featured courses. Features large visuals and drag/swipe interactions.",
+      "tags": [
+        "courses",
+        "carousel",
+        "slider",
+        "featured",
+        "cinematic"
+      ],
+      "image_count": 4,
+      "preview_image": "",
+      "download_url": "/sections/course-cinematic-carousel.json",
+      "is_premium": true,
+      "is_new": true,
+      "popularity": 64
+    },
+    {
+      "id": "course-filterable-explorer",
+      "name": "Filterable Explorer",
+      "category": "Courses & Categories",
+      "variant": "Gallery",
+      "description": "A powerful grid with interactive category tabs, allowing users to filter large catalogs instantly.",
+      "tags": [
+        "courses",
+        "filter",
+        "tabs",
+        "catalog",
+        "gallery"
+      ],
+      "image_count": 4,
+      "preview_image": "",
+      "download_url": "/sections/course-filterable-explorer.json",
+      "is_premium": true,
+      "is_new": true,
+      "popularity": 81
+    },
+    {
+      "id": "course-bento-flagship",
+      "name": "Bento Flagship",
+      "category": "Courses & Categories",
+      "variant": "Bento Grid",
+      "description": "One massive \"Hero Course\" taking up the left side, surrounded by smaller trending courses on the right.",
+      "tags": [
+        "courses",
+        "bento",
+        "grid",
+        "featured",
+        "flagship"
+      ],
+      "image_count": 5,
+      "preview_image": "",
+      "download_url": "/sections/course-bento-flagship.json",
+      "is_premium": true,
+      "is_new": true,
+      "popularity": 91
+    },
+    {
+      "id": "course-professional-list",
+      "name": "Professional Catalog / List",
+      "category": "Courses & Categories",
+      "variant": "List",
+      "description": "A compact, directory-style list (rows instead of cards) for universities or corporate LMS installations with massive catalogs.",
+      "tags": [
+        "courses",
+        "list",
+        "catalog",
+        "directory",
+        "corporate"
+      ],
+      "image_count": 0,
+      "preview_image": "",
+      "download_url": "/sections/course-professional-list.json",
+      "is_premium": true,
+      "is_new": true,
+      "popularity": 67
+    },
+    {
+      "id": "course-continue-learning",
+      "name": "Continue Learning",
+      "category": "Courses & Categories",
+      "variant": "Dashboard",
+      "description": "A personalized dashboard-style section showing the student’s current progress and recently accessed materials.",
+      "tags": [
+        "courses",
+        "dashboard",
+        "progress",
+        "logged-in",
+        "continue"
+      ],
+      "image_count": 2,
+      "preview_image": "",
+      "download_url": "/sections/course-continue-learning.json",
+      "is_premium": true,
+      "is_new": true,
+      "popularity": 99
+    },
+    {
+      "id": "course-learning-paths",
+      "name": "Learning Paths / Programs",
+      "category": "Courses & Categories",
+      "variant": "Path",
+      "description": "Showcases multi-course structures displaying a connected journey rather than isolated courses.",
+      "tags": [
+        "courses",
+        "programs",
+        "learning path",
+        "journey",
+        "timeline"
+      ],
+      "image_count": 0,
+      "preview_image": "",
+      "download_url": "/sections/course-learning-paths.json",
+      "is_premium": true,
+      "is_new": true,
+      "popularity": 83
+    },
+    {
+      "id": "category-visual-explorer",
+      "name": "Visual Category Explorer",
+      "category": "Courses & Categories",
+      "variant": "Grid",
+      "description": "A sleek grid of rich category cards featuring subtle image backgrounds and glassmorphism.",
+      "tags": [
+        "categories",
+        "grid",
+        "visual",
+        "glassmorphism"
+      ],
+      "image_count": 4,
+      "preview_image": "",
+      "download_url": "/sections/category-visual-explorer.json",
+      "is_premium": true,
+      "is_new": true,
+      "popularity": 52
+    },
+    {
+      "id": "category-split-story",
+      "name": "Category Split-Story",
+      "category": "Courses & Categories",
+      "variant": "Split Interactive",
+      "description": "A large, sticky image on the left. On the right, a vertical list of categories. Hovering or clicking a category dynamically updates the image and details.",
+      "tags": [
+        "categories",
+        "interactive",
+        "split",
+        "story",
+        "hover"
+      ],
+      "image_count": 4,
+      "preview_image": "",
+      "download_url": "/sections/category-split-story.json",
+      "is_premium": true,
+      "is_new": true,
+      "popularity": 94
+    },
+    {
+      "id": "category-typography",
+      "name": "Typography Explorer",
+      "category": "Courses & Categories",
+      "variant": "Editorial",
+      "description": "A purely text-driven editorial layout featuring massive, bold numbered category names with hover reveals.",
+      "tags": [
+        "categories",
+        "typography",
+        "editorial",
+        "minimal"
+      ],
+      "image_count": 5,
+      "preview_image": "",
+      "download_url": "/sections/category-typography.json",
+      "is_premium": true,
+      "is_new": true,
+      "popularity": 88
     }
   ]
 }
