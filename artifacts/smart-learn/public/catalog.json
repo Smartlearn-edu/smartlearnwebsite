@@ -186,7 +186,12 @@
         "hub",
         "support"
       ],
-      "image_count": 0
+      "image_count": 0,
+      "preview_image": "",
+      "download_url": "/sections/contact-hub.json",
+      "is_premium": false,
+      "is_new": true,
+      "popularity": 79
     },
     {
       "id": "contact-split",
@@ -199,7 +204,12 @@
         "split",
         "form"
       ],
-      "image_count": 0
+      "image_count": 0,
+      "preview_image": "",
+      "download_url": "/sections/contact-split.json",
+      "is_premium": false,
+      "is_new": true,
+      "popularity": 87
     },
     {
       "id": "contact-minimal",
@@ -212,7 +222,12 @@
         "minimal",
         "grid"
       ],
-      "image_count": 0
+      "image_count": 0,
+      "preview_image": "",
+      "download_url": "/sections/contact-minimal.json",
+      "is_premium": false,
+      "is_new": true,
+      "popularity": 88
     },
     {
       "id": "contact-map",
@@ -226,7 +241,12 @@
         "glassmorphism",
         "form"
       ],
-      "image_count": 0
+      "image_count": 0,
+      "preview_image": "",
+      "download_url": "/sections/contact-map.json",
+      "is_premium": false,
+      "is_new": true,
+      "popularity": 71
     },
     {
       "id": "contact-image",
@@ -240,7 +260,12 @@
         "split",
         "form"
       ],
-      "image_count": 1
+      "image_count": 1,
+      "preview_image": "",
+      "download_url": "/sections/contact-image.json",
+      "is_premium": false,
+      "is_new": true,
+      "popularity": 67
     }
   ]
 }

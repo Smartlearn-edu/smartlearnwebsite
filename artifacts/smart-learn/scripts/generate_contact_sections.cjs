@@ -522,11 +522,21 @@ sections.forEach(sec => {
     fs.writeFileSync(filePath, JSON.stringify(sectionData, null, 2));
     
     // update catalog
+    const sectionMeta = {
+        id: sec.id,
+        ...sec.meta,
+        preview_image: "",
+        download_url: `/sections/${sec.id}.json`,
+        is_premium: false,
+        is_new: true,
+        popularity: Math.floor(Math.random() * 50) + 50
+    };
+    
     const existingIndex = catalog.sections.findIndex(c => c.id === sec.id);
     if (existingIndex >= 0) {
-        catalog.sections[existingIndex] = { id: sec.id, ...sec.meta };
+        catalog.sections[existingIndex] = sectionMeta;
     } else {
-        catalog.sections.push({ id: sec.id, ...sec.meta });
+        catalog.sections.push(sectionMeta);
     }
 });
 
