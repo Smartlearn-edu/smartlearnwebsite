@@ -17,7 +17,7 @@ const sections = [
             image_count: 5
         },
         html: `<!-- sl-section: hero-video-gallery | v1.0 -->
-<div class="sl-hero-vid-gallery position-relative bg-body overflow-hidden py-5 py-lg-6">
+<div class="sl-hero-vid-gallery position-relative sl-bg-main overflow-hidden py-5 py-lg-6">
     <!-- Abstract Background Elements -->
     <div class="position-absolute top-0 start-0 w-100 h-100 pointer-events-none" style="z-index: 0; opacity: 0.4;">
         <svg class="position-absolute" style="top: -10%; left: -5%; width: 50%; height: 50%;" viewBox="0 0 100 100" preserveAspectRatio="none">
@@ -25,32 +25,32 @@ const sections = [
             <path d="M0,60 Q25,40 50,60 T100,60" fill="none" stroke="var(--smartlearn-primary)" stroke-width="0.5" />
             <path d="M0,70 Q25,50 50,70 T100,70" fill="none" stroke="var(--smartlearn-primary)" stroke-width="0.5" />
         </svg>
-        <div class="position-absolute rounded-circle border border-primary opacity-10" style="width: 80px; height: 80px; top: 10%; right: 15%;"></div>
-        <div class="position-absolute rounded-circle bg-primary opacity-10" style="width: 150px; height: 150px; bottom: 20%; left: -5%;"></div>
+        <div class="position-absolute rounded-circle border sl-border-primary opacity-10" style="width: 80px; height: 80px; top: 10%; right: 15%;"></div>
+        <div class="position-absolute rounded-circle sl-bg-primary opacity-10" style="width: 150px; height: 150px; bottom: 20%; left: -5%;"></div>
     </div>
 
     <div class="container position-relative z-1">
         <div class="row gx-lg-5 align-items-center mb-5">
             <!-- Left Text Column -->
             <div class="col-lg-5 mb-5 mb-lg-0 sl-animate-fade-in-up" style="animation-delay: 0.1s;">
-                <div class="d-inline-flex align-items-center bg-primary bg-opacity-10 text-primary px-3 py-1 rounded-pill mb-4 fw-bold small">
+                <div class="d-inline-flex align-items-center sl-bg-primary bg-opacity-10 sl-text-primary px-3 py-1 rounded-pill mb-4 fw-bold small">
                     <i class="fa fa-graduation-cap me-2"></i> SmartLearn LMS
                 </div>
                 
-                <h1 class="display-4 fw-bolder mb-4 text-body-emphasis sl-tracking-tight" data-sl-edit="text" style="line-height: 1.1;">
+                <h1 class="display-4 fw-bolder mb-4 sl-text-emphasis sl-tracking-tight" data-sl-edit="text" style="line-height: 1.1;">
                     Learn. Grow.<br>Succeed.<br>
                     <span class="sl-text-gradient">Together.</span>
                 </h1>
                 
-                <p class="fs-5 text-body-secondary mb-5 pe-lg-3" data-sl-edit="text">
+                <p class="fs-5 sl-text-muted mb-5 pe-lg-3" data-sl-edit="text">
                     Discover engaging courses, expert instructors, and resources that help you achieve your goals.
                 </p>
                 
                 <div class="d-flex flex-wrap gap-3 mb-5">
-                    <a href="#" class="btn btn-primary btn-lg rounded-3 px-4 py-3 fw-bold d-inline-flex align-items-center" data-sl-edit="link">
+                    <a href="#" class="btn sl-btn-primary btn-lg rounded-3 px-4 py-3 fw-bold d-inline-flex align-items-center" data-sl-edit="link">
                         <i class="fa fa-book me-2"></i> Browse Courses
                     </a>
-                    <a href="#" class="btn btn-outline-secondary bg-body btn-lg rounded-3 px-4 py-3 fw-bold text-body-emphasis border-2 d-inline-flex align-items-center" data-sl-edit="link">
+                    <a href="#" class="btn btn-outline-secondary sl-bg-main btn-lg rounded-3 px-4 py-3 fw-bold sl-text-emphasis border-2 d-inline-flex align-items-center" data-sl-edit="link">
                         <i class="fa fa-play me-2"></i> How It Works
                     </a>
                 </div>
@@ -63,20 +63,20 @@ const sections = [
                         <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=64&q=80" class="rounded-circle border border-2 border-white" style="width: 45px; height: 45px; object-fit: cover; margin-left: -15px;" alt="Avatar">
                     </div>
                     <div>
-                        <div class="fw-bold text-primary fs-5 mb-0 lh-1" data-sl-edit="text">15,000+</div>
-                        <small class="text-body-secondary fw-medium" data-sl-edit="text">Active Learners</small>
+                        <div class="fw-bold sl-text-primary fs-5 mb-0 lh-1" data-sl-edit="text">15,000+</div>
+                        <small class="sl-text-muted fw-medium" data-sl-edit="text">Active Learners</small>
                     </div>
                 </div>
             </div>
             
             <!-- Right Media Column -->
             <div class="col-lg-7 sl-animate-fade-in-up" style="animation-delay: 0.3s;">
-                <div class="bg-body rounded-4 shadow-lg p-3 p-md-4 position-relative border border-secondary-subtle">
+                <div class="sl-bg-main rounded-4 shadow-lg p-3 p-md-4 position-relative border border-secondary-subtle">
                     <!-- Navigation Arrows (Absolute) -->
-                    <button class="btn btn-light bg-body text-body-emphasis border border-secondary-subtle rounded-circle shadow position-absolute sl-nav-btn start-0 translate-middle-y d-none d-md-flex align-items-center justify-content-center" style="top: 35%; width: 45px; height: 45px; z-index: 10; transform: translateX(-50%);">
+                    <button class="btn btn-light sl-bg-main sl-text-emphasis border border-secondary-subtle rounded-circle shadow position-absolute sl-nav-btn start-0 translate-middle-y d-none d-md-flex align-items-center justify-content-center" style="top: 35%; width: 45px; height: 45px; z-index: 10; transform: translateX(-50%);">
                         <i class="fa fa-chevron-left"></i>
                     </button>
-                    <button class="btn btn-light bg-body text-body-emphasis border border-secondary-subtle rounded-circle shadow position-absolute sl-nav-btn end-0 translate-middle-y d-none d-md-flex align-items-center justify-content-center" style="top: 35%; width: 45px; height: 45px; z-index: 10; transform: translateX(50%);">
+                    <button class="btn btn-light sl-bg-main sl-text-emphasis border border-secondary-subtle rounded-circle shadow position-absolute sl-nav-btn end-0 translate-middle-y d-none d-md-flex align-items-center justify-content-center" style="top: 35%; width: 45px; height: 45px; z-index: 10; transform: translateX(50%);">
                         <i class="fa fa-chevron-right"></i>
                     </button>
 
@@ -97,7 +97,7 @@ const sections = [
                         <!-- Main Video Content -->
                         <div class="position-absolute top-0 start-0 w-100 h-100 p-4 d-flex flex-column justify-content-between pointer-events-none">
                             <div class="d-flex justify-content-between align-items-start">
-                                <span class="badge bg-primary px-3 py-2 rounded-3 fw-medium">Featured</span>
+                                <span class="badge sl-bg-primary px-3 py-2 rounded-3 fw-medium">Featured</span>
                             </div>
                             
                             <div class="col-md-8 col-10">
@@ -113,7 +113,7 @@ const sections = [
                     
                     <!-- Pagination Dots -->
                     <div class="d-flex justify-content-center gap-2 mb-4">
-                        <div class="rounded-pill bg-primary" style="width: 25px; height: 8px;"></div>
+                        <div class="rounded-pill sl-bg-primary" style="width: 25px; height: 8px;"></div>
                         <div class="rounded-circle bg-secondary bg-opacity-25" style="width: 8px; height: 8px;"></div>
                         <div class="rounded-circle bg-secondary bg-opacity-25" style="width: 8px; height: 8px;"></div>
                         <div class="rounded-circle bg-secondary bg-opacity-25" style="width: 8px; height: 8px;"></div>
@@ -130,7 +130,7 @@ const sections = [
                                     </div>
                                     <span class="position-absolute bottom-0 end-0 m-1 bg-dark bg-opacity-75 text-white fw-medium rounded px-1" style="font-size: 10px;">03:18</span>
                                 </div>
-                                <h6 class="mb-0 fw-bold text-body-emphasis text-truncate" style="font-size: 11px;" data-sl-edit="text">Exploring Courses</h6>
+                                <h6 class="mb-0 fw-bold sl-text-emphasis text-truncate" style="font-size: 11px;" data-sl-edit="text">Exploring Courses</h6>
                             </div>
                         </div>
                         <div class="col-3">
@@ -142,7 +142,7 @@ const sections = [
                                     </div>
                                     <span class="position-absolute bottom-0 end-0 m-1 bg-dark bg-opacity-75 text-white fw-medium rounded px-1" style="font-size: 10px;">02:12</span>
                                 </div>
-                                <h6 class="mb-0 fw-bold text-body-emphasis text-truncate" style="font-size: 11px;" data-sl-edit="text">Track Your Progress</h6>
+                                <h6 class="mb-0 fw-bold sl-text-emphasis text-truncate" style="font-size: 11px;" data-sl-edit="text">Track Your Progress</h6>
                             </div>
                         </div>
                         <div class="col-3">
@@ -154,7 +154,7 @@ const sections = [
                                     </div>
                                     <span class="position-absolute bottom-0 end-0 m-1 bg-dark bg-opacity-75 text-white fw-medium rounded px-1" style="font-size: 10px;">01:56</span>
                                 </div>
-                                <h6 class="mb-0 fw-bold text-body-emphasis text-truncate" style="font-size: 11px;" data-sl-edit="text">Certificates & Badges</h6>
+                                <h6 class="mb-0 fw-bold sl-text-emphasis text-truncate" style="font-size: 11px;" data-sl-edit="text">Certificates & Badges</h6>
                             </div>
                         </div>
                         <div class="col-3">
@@ -166,7 +166,7 @@ const sections = [
                                     </div>
                                     <span class="position-absolute bottom-0 end-0 m-1 bg-dark bg-opacity-75 text-white fw-medium rounded px-1" style="font-size: 10px;">02:33</span>
                                 </div>
-                                <h6 class="mb-0 fw-bold text-body-emphasis text-truncate" style="font-size: 11px;" data-sl-edit="text">Join Our Community</h6>
+                                <h6 class="mb-0 fw-bold sl-text-emphasis text-truncate" style="font-size: 11px;" data-sl-edit="text">Join Our Community</h6>
                             </div>
                         </div>
                     </div>
@@ -175,28 +175,28 @@ const sections = [
         </div>
         
         <!-- Bottom Features Bar -->
-        <div class="bg-body border border-secondary-subtle rounded-4 shadow-sm p-4 p-lg-5 sl-animate-fade-in-up" style="animation-delay: 0.5s;">
+        <div class="sl-bg-main border border-secondary-subtle rounded-4 shadow-sm p-4 p-lg-5 sl-animate-fade-in-up" style="animation-delay: 0.5s;">
             <div class="row g-4 justify-content-between">
                 
                 <!-- Feature 1 -->
                 <div class="col-md-6 col-xl-3 d-flex align-items-center gap-3 sl-feature-item">
-                    <div class="bg-primary bg-opacity-10 text-primary rounded-circle d-flex align-items-center justify-content-center flex-shrink-0" style="width: 60px; height: 60px;">
+                    <div class="sl-bg-primary bg-opacity-10 sl-text-primary rounded-circle d-flex align-items-center justify-content-center flex-shrink-0" style="width: 60px; height: 60px;">
                         <i class="fa fa-book fs-3"></i>
                     </div>
                     <div>
-                        <h6 class="fw-bold mb-1 text-body-emphasis" data-sl-edit="text">Quality Content</h6>
-                        <p class="text-body-secondary small mb-0 lh-sm" data-sl-edit="text">Access high-quality courses created by experts.</p>
+                        <h6 class="fw-bold mb-1 sl-text-emphasis" data-sl-edit="text">Quality Content</h6>
+                        <p class="sl-text-muted small mb-0 lh-sm" data-sl-edit="text">Access high-quality courses created by experts.</p>
                     </div>
                 </div>
                 
                 <!-- Feature 2 -->
                 <div class="col-md-6 col-xl-3 d-flex align-items-center gap-3 sl-feature-item">
-                    <div class="bg-primary bg-opacity-10 text-primary rounded-circle d-flex align-items-center justify-content-center flex-shrink-0" style="width: 60px; height: 60px;">
+                    <div class="sl-bg-primary bg-opacity-10 sl-text-primary rounded-circle d-flex align-items-center justify-content-center flex-shrink-0" style="width: 60px; height: 60px;">
                         <i class="fa fa-line-chart fs-3"></i>
                     </div>
                     <div>
-                        <h6 class="fw-bold mb-1 text-body-emphasis" data-sl-edit="text">Track Progress</h6>
-                        <p class="text-body-secondary small mb-0 lh-sm" data-sl-edit="text">Monitor your learning and achieve your goals.</p>
+                        <h6 class="fw-bold mb-1 sl-text-emphasis" data-sl-edit="text">Track Progress</h6>
+                        <p class="sl-text-muted small mb-0 lh-sm" data-sl-edit="text">Monitor your learning and achieve your goals.</p>
                     </div>
                 </div>
                 
@@ -206,8 +206,8 @@ const sections = [
                         <i class="fa fa-users fs-3"></i>
                     </div>
                     <div>
-                        <h6 class="fw-bold mb-1 text-body-emphasis" data-sl-edit="text">Learn Together</h6>
-                        <p class="text-body-secondary small mb-0 lh-sm" data-sl-edit="text">Connect with learners and grow together.</p>
+                        <h6 class="fw-bold mb-1 sl-text-emphasis" data-sl-edit="text">Learn Together</h6>
+                        <p class="sl-text-muted small mb-0 lh-sm" data-sl-edit="text">Connect with learners and grow together.</p>
                     </div>
                 </div>
                 
@@ -217,8 +217,8 @@ const sections = [
                         <i class="fa fa-certificate fs-3"></i>
                     </div>
                     <div>
-                        <h6 class="fw-bold mb-1 text-body-emphasis" data-sl-edit="text">Earn Certificates</h6>
-                        <p class="text-body-secondary small mb-0 lh-sm" data-sl-edit="text">Get recognized and boost your career.</p>
+                        <h6 class="fw-bold mb-1 sl-text-emphasis" data-sl-edit="text">Earn Certificates</h6>
+                        <p class="sl-text-muted small mb-0 lh-sm" data-sl-edit="text">Get recognized and boost your career.</p>
                     </div>
                 </div>
                 
@@ -227,15 +227,20 @@ const sections = [
     </div>
 </div>`,
         css: `
-/* Theme Primary Color Inheritance Fix */
-[class*="sl-hero-"] .text-primary { color: var(--smartlearn-primary) !important; }
-[class*="sl-hero-"] .bg-primary { background-color: var(--smartlearn-primary) !important; }
-[class*="sl-hero-"] .btn-primary { background-color: var(--smartlearn-primary) !important; border-color: var(--smartlearn-primary) !important; color: #fff !important; }
-[class*="sl-hero-"] .btn-primary:hover { filter: brightness(0.9); }
-[class*="sl-hero-"] .btn-outline-primary { border-color: var(--smartlearn-primary) !important; color: var(--smartlearn-primary) !important; }
-[class*="sl-hero-"] .btn-outline-primary:hover { background-color: var(--smartlearn-primary) !important; color: #fff !important; }
-[class*="sl-hero-"] .border-primary { border-color: var(--smartlearn-primary) !important; }
 
+/* SmartLearn Native Color Classes */
+.sl-text-primary { color: var(--smartlearn-primary) !important; }
+.sl-text-emphasis { color: var(--smartlearn-text) !important; }
+.sl-text-muted { color: var(--smartlearn-text-muted) !important; }
+.sl-bg-main { background-color: var(--smartlearn-bg) !important; }
+.sl-bg-card { background-color: var(--smartlearn-card-bg) !important; border: 1px solid var(--smartlearn-card-border) !important; }
+.sl-bg-primary { background-color: var(--smartlearn-primary) !important; }
+.sl-bg-primary-subtle { background-color: color-mix(in srgb, var(--smartlearn-primary) 15%, transparent) !important; }
+.sl-btn-primary { background-color: var(--smartlearn-primary) !important; border-color: var(--smartlearn-primary) !important; color: #fff !important; }
+.sl-btn-primary:hover { background-color: var(--smartlearn-primary-hover, var(--smartlearn-primary)) !important; filter: brightness(0.9); }
+.sl-btn-outline-primary { border-color: var(--smartlearn-primary) !important; color: var(--smartlearn-primary) !important; }
+.sl-btn-outline-primary:hover { background-color: var(--smartlearn-primary) !important; color: #fff !important; }
+.sl-border-primary { border-color: var(--smartlearn-primary) !important; }
 .sl-hero-vid-gallery {
     font-family: inherit;
 }

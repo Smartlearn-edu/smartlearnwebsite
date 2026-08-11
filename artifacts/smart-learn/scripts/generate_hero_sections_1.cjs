@@ -22,27 +22,27 @@ const sections = [
             image_count: 3
         },
         html: `<!-- sl-section: hero-modern-ivy | v1.0 -->
-<div class="sl-hero-ivy bg-body">
+<div class="sl-hero-ivy sl-bg-main">
     <div class="container py-5 py-lg-7 position-relative z-1">
         <div class="row align-items-center g-5">
             <div class="col-lg-7 pe-lg-5 sl-ivy-text">
-                <div class="badge rounded-pill bg-primary-subtle text-primary mb-4 fw-medium tracking-wide px-3 py-2 border">EXECUTIVE EDUCATION</div>
-                <h1 class="display-3 fw-bold mb-4 font-serif text-body-emphasis" data-sl-edit="text">Elevate your <br>leadership potential.</h1>
-                <p class="lead mb-5 text-body-secondary pe-lg-4 fs-5" data-sl-edit="text">Join a global network of ambitious professionals. Discover premium courses designed by world-renowned experts to propel your career forward.</p>
+                <div class="badge rounded-pill sl-bg-primary-subtle sl-text-primary mb-4 fw-medium tracking-wide px-3 py-2 border">EXECUTIVE EDUCATION</div>
+                <h1 class="display-3 fw-bold mb-4 font-serif sl-text-emphasis" data-sl-edit="text">Elevate your <br>leadership potential.</h1>
+                <p class="lead mb-5 sl-text-muted pe-lg-4 fs-5" data-sl-edit="text">Join a global network of ambitious professionals. Discover premium courses designed by world-renowned experts to propel your career forward.</p>
                 
                 <div class="d-flex flex-wrap gap-3">
-                    <a href="#" class="btn btn-primary btn-lg rounded-0 px-4 py-3 fw-medium" data-sl-edit="link">Explore Programs</a>
-                    <a href="#" class="btn btn-outline-primary btn-lg rounded-0 px-4 py-3 fw-medium" data-sl-edit="link">Speak to an Advisor</a>
+                    <a href="#" class="btn sl-btn-primary btn-lg rounded-0 px-4 py-3 fw-medium" data-sl-edit="link">Explore Programs</a>
+                    <a href="#" class="btn sl-btn-outline-primary btn-lg rounded-0 px-4 py-3 fw-medium" data-sl-edit="link">Speak to an Advisor</a>
                 </div>
                 
                 <div class="mt-5 pt-4 border-top border-secondary-subtle d-flex align-items-center gap-4">
                     <div class="d-flex flex-column">
-                        <span class="fs-2 fw-bold text-body-emphasis font-serif" data-sl-edit="text">45+</span>
-                        <span class="text-uppercase small tracking-wide text-body-secondary" data-sl-edit="text">Programs</span>
+                        <span class="fs-2 fw-bold sl-text-emphasis font-serif" data-sl-edit="text">45+</span>
+                        <span class="text-uppercase small tracking-wide sl-text-muted" data-sl-edit="text">Programs</span>
                     </div>
                     <div class="d-flex flex-column border-start ps-4 border-secondary-subtle">
-                        <span class="fs-2 fw-bold text-body-emphasis font-serif" data-sl-edit="text">12k</span>
-                        <span class="text-uppercase small tracking-wide text-body-secondary" data-sl-edit="text">Alumni</span>
+                        <span class="fs-2 fw-bold sl-text-emphasis font-serif" data-sl-edit="text">12k</span>
+                        <span class="text-uppercase small tracking-wide sl-text-muted" data-sl-edit="text">Alumni</span>
                     </div>
                 </div>
             </div>
@@ -66,15 +66,20 @@ const sections = [
     <div class="bg-shape-cream bg-tertiary"></div>
 </div>`,
         css: `
-/* Theme Primary Color Inheritance Fix */
-[class*="sl-hero-"] .text-primary { color: var(--smartlearn-primary) !important; }
-[class*="sl-hero-"] .bg-primary { background-color: var(--smartlearn-primary) !important; }
-[class*="sl-hero-"] .btn-primary { background-color: var(--smartlearn-primary) !important; border-color: var(--smartlearn-primary) !important; color: #fff !important; }
-[class*="sl-hero-"] .btn-primary:hover { filter: brightness(0.9); }
-[class*="sl-hero-"] .btn-outline-primary { border-color: var(--smartlearn-primary) !important; color: var(--smartlearn-primary) !important; }
-[class*="sl-hero-"] .btn-outline-primary:hover { background-color: var(--smartlearn-primary) !important; color: #fff !important; }
-[class*="sl-hero-"] .border-primary { border-color: var(--smartlearn-primary) !important; }
 
+/* SmartLearn Native Color Classes */
+.sl-text-primary { color: var(--smartlearn-primary) !important; }
+.sl-text-emphasis { color: var(--smartlearn-text) !important; }
+.sl-text-muted { color: var(--smartlearn-text-muted) !important; }
+.sl-bg-main { background-color: var(--smartlearn-bg) !important; }
+.sl-bg-card { background-color: var(--smartlearn-card-bg) !important; border: 1px solid var(--smartlearn-card-border) !important; }
+.sl-bg-primary { background-color: var(--smartlearn-primary) !important; }
+.sl-bg-primary-subtle { background-color: color-mix(in srgb, var(--smartlearn-primary) 15%, transparent) !important; }
+.sl-btn-primary { background-color: var(--smartlearn-primary) !important; border-color: var(--smartlearn-primary) !important; color: #fff !important; }
+.sl-btn-primary:hover { background-color: var(--smartlearn-primary-hover, var(--smartlearn-primary)) !important; filter: brightness(0.9); }
+.sl-btn-outline-primary { border-color: var(--smartlearn-primary) !important; color: var(--smartlearn-primary) !important; }
+.sl-btn-outline-primary:hover { background-color: var(--smartlearn-primary) !important; color: #fff !important; }
+.sl-border-primary { border-color: var(--smartlearn-primary) !important; }
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
 
 .sl-hero-ivy {
@@ -177,21 +182,21 @@ const sections = [
     <div class="container py-6 py-lg-8 position-relative z-2 h-100 d-flex flex-column justify-content-center align-items-center">
         <div class="terminal-badge mb-4 d-inline-flex align-items-center rounded-pill px-3 py-1 shadow-sm border border-light border-opacity-25" style="background: rgba(0,0,0,0.5); backdrop-filter: blur(10px);">
             <span class="pulse-dot me-2"></span>
-            <span class="text-body-emphasis font-mono small tracking-wide" data-sl-edit="text">NEXT COHORT: SEPT 2026</span>
+            <span class="sl-text-emphasis font-mono small tracking-wide" data-sl-edit="text">NEXT COHORT: SEPT 2026</span>
         </div>
         
-        <h1 class="display-2 fw-bolder text-body-emphasis mb-4 sl-tech-title" data-sl-edit="text">
+        <h1 class="display-2 fw-bolder sl-text-emphasis mb-4 sl-tech-title" data-sl-edit="text">
             Build the <br/>
             <span class="position-relative d-inline-block">
                 <span class="position-relative z-1">Future.</span>
             </span>
         </h1>
-        <p class="lead text-body-secondary opacity-75 mb-5 mx-auto" style="max-width: 700px;" data-sl-edit="text">
+        <p class="lead sl-text-muted opacity-75 mb-5 mx-auto" style="max-width: 700px;" data-sl-edit="text">
             Intensive 12-week bootcamps in Full-Stack, AI, and Data Science. Learn from senior engineers and build a portfolio that gets you hired.
         </p>
         
         <div class="d-flex flex-column flex-sm-row gap-3 justify-content-center w-100" style="max-width: 450px;">
-            <a href="#" class="btn btn-primary btn-lg rounded-pill fw-bold tech-btn primary-btn flex-grow-1" data-sl-edit="link">
+            <a href="#" class="btn sl-btn-primary btn-lg rounded-pill fw-bold tech-btn primary-btn flex-grow-1" data-sl-edit="link">
                 Apply Now <i class="fa fa-arrow-right ms-2"></i>
             </a>
             <a href="#" class="btn btn-outline-light btn-lg rounded-pill fw-bold tech-btn flex-grow-1" data-sl-edit="link">
@@ -200,23 +205,28 @@ const sections = [
         </div>
         
         <div class="d-flex flex-wrap justify-content-center gap-4 mt-5 sl-fade-in-up" style="animation-delay: 0.4s;">
-            <div class="text-body-emphasis small font-mono"><i class="fa fa-check text-primary me-2"></i>React</div>
-            <div class="text-body-emphasis small font-mono"><i class="fa fa-check text-primary me-2"></i>Node.js</div>
-            <div class="text-body-emphasis small font-mono"><i class="fa fa-check text-primary me-2"></i>Python</div>
-            <div class="text-body-emphasis small font-mono"><i class="fa fa-check text-primary me-2"></i>AWS</div>
+            <div class="sl-text-emphasis small font-mono"><i class="fa fa-check sl-text-primary me-2"></i>React</div>
+            <div class="sl-text-emphasis small font-mono"><i class="fa fa-check sl-text-primary me-2"></i>Node.js</div>
+            <div class="sl-text-emphasis small font-mono"><i class="fa fa-check sl-text-primary me-2"></i>Python</div>
+            <div class="sl-text-emphasis small font-mono"><i class="fa fa-check sl-text-primary me-2"></i>AWS</div>
         </div>
     </div>
 </div>`,
         css: `
-/* Theme Primary Color Inheritance Fix */
-[class*="sl-hero-"] .text-primary { color: var(--smartlearn-primary) !important; }
-[class*="sl-hero-"] .bg-primary { background-color: var(--smartlearn-primary) !important; }
-[class*="sl-hero-"] .btn-primary { background-color: var(--smartlearn-primary) !important; border-color: var(--smartlearn-primary) !important; color: #fff !important; }
-[class*="sl-hero-"] .btn-primary:hover { filter: brightness(0.9); }
-[class*="sl-hero-"] .btn-outline-primary { border-color: var(--smartlearn-primary) !important; color: var(--smartlearn-primary) !important; }
-[class*="sl-hero-"] .btn-outline-primary:hover { background-color: var(--smartlearn-primary) !important; color: #fff !important; }
-[class*="sl-hero-"] .border-primary { border-color: var(--smartlearn-primary) !important; }
 
+/* SmartLearn Native Color Classes */
+.sl-text-primary { color: var(--smartlearn-primary) !important; }
+.sl-text-emphasis { color: var(--smartlearn-text) !important; }
+.sl-text-muted { color: var(--smartlearn-text-muted) !important; }
+.sl-bg-main { background-color: var(--smartlearn-bg) !important; }
+.sl-bg-card { background-color: var(--smartlearn-card-bg) !important; border: 1px solid var(--smartlearn-card-border) !important; }
+.sl-bg-primary { background-color: var(--smartlearn-primary) !important; }
+.sl-bg-primary-subtle { background-color: color-mix(in srgb, var(--smartlearn-primary) 15%, transparent) !important; }
+.sl-btn-primary { background-color: var(--smartlearn-primary) !important; border-color: var(--smartlearn-primary) !important; color: #fff !important; }
+.sl-btn-primary:hover { background-color: var(--smartlearn-primary-hover, var(--smartlearn-primary)) !important; filter: brightness(0.9); }
+.sl-btn-outline-primary { border-color: var(--smartlearn-primary) !important; color: var(--smartlearn-primary) !important; }
+.sl-btn-outline-primary:hover { background-color: var(--smartlearn-primary) !important; color: #fff !important; }
+.sl-border-primary { border-color: var(--smartlearn-primary) !important; }
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@400;600;800&display=swap');
 
 .sl-hero-tech {
@@ -304,40 +314,40 @@ const sections = [
 <div class="sl-hero-search">
     <div class="container py-6 py-lg-8 text-center position-relative z-1">
         
-        <h1 class="display-4 fw-bold text-body-emphasis mb-3 sl-search-title" data-sl-edit="text">What do you want to learn today?</h1>
-        <p class="fs-5 text-body-secondary mb-5 mx-auto" style="max-width: 600px;" data-sl-edit="text">Search through 5,000+ courses across business, technology, and design to advance your career.</p>
+        <h1 class="display-4 fw-bold sl-text-emphasis mb-3 sl-search-title" data-sl-edit="text">What do you want to learn today?</h1>
+        <p class="fs-5 sl-text-muted mb-5 mx-auto" style="max-width: 600px;" data-sl-edit="text">Search through 5,000+ courses across business, technology, and design to advance your career.</p>
         
         <div class="search-container mx-auto position-relative mb-5" style="max-width: 800px;">
-            <div class="search-box p-2 rounded-pill d-flex bg-body align-items-center">
-                <i class="fa fa-search ms-4 text-body-secondary fs-5"></i>
+            <div class="search-box p-2 rounded-pill d-flex sl-bg-main align-items-center">
+                <i class="fa fa-search ms-4 sl-text-muted fs-5"></i>
                 <input type="text" class="form-control border-0 bg-transparent fs-5 px-3 py-3 sl-search-input shadow-none text-body" placeholder="Search for courses, skills, or instructors...">
-                <button class="btn btn-primary rounded-pill px-5 py-3 fw-bold m-1" data-sl-edit="text">Find Courses</button>
+                <button class="btn sl-btn-primary rounded-pill px-5 py-3 fw-bold m-1" data-sl-edit="text">Find Courses</button>
             </div>
             
             <!-- Mock dropdown (initially hidden, can be wired to JS later) -->
-            <div class="search-dropdown bg-body rounded-4 shadow-lg text-start p-3 position-absolute w-100 mt-2 d-none border border-secondary-subtle">
-                <div class="text-body-secondary small fw-bold px-3 mb-2">POPULAR SEARCHES</div>
+            <div class="search-dropdown sl-bg-main rounded-4 shadow-lg text-start p-3 position-absolute w-100 mt-2 d-none border border-secondary-subtle">
+                <div class="sl-text-muted small fw-bold px-3 mb-2">POPULAR SEARCHES</div>
                 <ul class="list-unstyled mb-0">
-                    <li><a href="#" class="dropdown-item py-2 px-3 rounded text-body"><i class="fa fa-line-chart me-2 text-primary"></i> Data Analysis with Python</a></li>
-                    <li><a href="#" class="dropdown-item py-2 px-3 rounded text-body"><i class="fa fa-bullhorn me-2 text-primary"></i> Digital Marketing Strategy</a></li>
-                    <li><a href="#" class="dropdown-item py-2 px-3 rounded text-body"><i class="fa fa-users me-2 text-primary"></i> Leadership & Management</a></li>
+                    <li><a href="#" class="dropdown-item py-2 px-3 rounded text-body"><i class="fa fa-line-chart me-2 sl-text-primary"></i> Data Analysis with Python</a></li>
+                    <li><a href="#" class="dropdown-item py-2 px-3 rounded text-body"><i class="fa fa-bullhorn me-2 sl-text-primary"></i> Digital Marketing Strategy</a></li>
+                    <li><a href="#" class="dropdown-item py-2 px-3 rounded text-body"><i class="fa fa-users me-2 sl-text-primary"></i> Leadership & Management</a></li>
                 </ul>
             </div>
         </div>
         
         <div class="d-flex flex-column align-items-center">
-            <span class="text-body-secondary small fw-bold mb-3 tracking-wide" data-sl-edit="text">POPULAR TOPICS</span>
+            <span class="sl-text-muted small fw-bold mb-3 tracking-wide" data-sl-edit="text">POPULAR TOPICS</span>
             <div class="d-flex flex-wrap justify-content-center gap-3">
-                <a href="#" class="sl-tag px-4 py-2 rounded-pill text-decoration-none text-body-emphasis bg-body fw-medium border border-secondary-subtle">
-                    <i class="fa fa-code text-primary me-2"></i> Web Development
+                <a href="#" class="sl-tag px-4 py-2 rounded-pill text-decoration-none sl-text-emphasis sl-bg-main fw-medium border border-secondary-subtle">
+                    <i class="fa fa-code sl-text-primary me-2"></i> Web Development
                 </a>
-                <a href="#" class="sl-tag px-4 py-2 rounded-pill text-decoration-none text-body-emphasis bg-body fw-medium border border-secondary-subtle">
-                    <i class="fa fa-pie-chart text-primary me-2"></i> Business Analytics
+                <a href="#" class="sl-tag px-4 py-2 rounded-pill text-decoration-none sl-text-emphasis sl-bg-main fw-medium border border-secondary-subtle">
+                    <i class="fa fa-pie-chart sl-text-primary me-2"></i> Business Analytics
                 </a>
-                <a href="#" class="sl-tag px-4 py-2 rounded-pill text-decoration-none text-body-emphasis bg-body fw-medium border border-secondary-subtle">
+                <a href="#" class="sl-tag px-4 py-2 rounded-pill text-decoration-none sl-text-emphasis sl-bg-main fw-medium border border-secondary-subtle">
                     <i class="fa fa-paint-brush text-warning me-2"></i> UX/UI Design
                 </a>
-                <a href="#" class="sl-tag px-4 py-2 rounded-pill text-decoration-none text-body-emphasis bg-body fw-medium border border-secondary-subtle">
+                <a href="#" class="sl-tag px-4 py-2 rounded-pill text-decoration-none sl-text-emphasis sl-bg-main fw-medium border border-secondary-subtle">
                     <i class="fa fa-line-chart text-danger me-2"></i> Marketing
                 </a>
             </div>
@@ -346,15 +356,20 @@ const sections = [
     </div>
 </div>`,
         css: `
-/* Theme Primary Color Inheritance Fix */
-[class*="sl-hero-"] .text-primary { color: var(--smartlearn-primary) !important; }
-[class*="sl-hero-"] .bg-primary { background-color: var(--smartlearn-primary) !important; }
-[class*="sl-hero-"] .btn-primary { background-color: var(--smartlearn-primary) !important; border-color: var(--smartlearn-primary) !important; color: #fff !important; }
-[class*="sl-hero-"] .btn-primary:hover { filter: brightness(0.9); }
-[class*="sl-hero-"] .btn-outline-primary { border-color: var(--smartlearn-primary) !important; color: var(--smartlearn-primary) !important; }
-[class*="sl-hero-"] .btn-outline-primary:hover { background-color: var(--smartlearn-primary) !important; color: #fff !important; }
-[class*="sl-hero-"] .border-primary { border-color: var(--smartlearn-primary) !important; }
 
+/* SmartLearn Native Color Classes */
+.sl-text-primary { color: var(--smartlearn-primary) !important; }
+.sl-text-emphasis { color: var(--smartlearn-text) !important; }
+.sl-text-muted { color: var(--smartlearn-text-muted) !important; }
+.sl-bg-main { background-color: var(--smartlearn-bg) !important; }
+.sl-bg-card { background-color: var(--smartlearn-card-bg) !important; border: 1px solid var(--smartlearn-card-border) !important; }
+.sl-bg-primary { background-color: var(--smartlearn-primary) !important; }
+.sl-bg-primary-subtle { background-color: color-mix(in srgb, var(--smartlearn-primary) 15%, transparent) !important; }
+.sl-btn-primary { background-color: var(--smartlearn-primary) !important; border-color: var(--smartlearn-primary) !important; color: #fff !important; }
+.sl-btn-primary:hover { background-color: var(--smartlearn-primary-hover, var(--smartlearn-primary)) !important; filter: brightness(0.9); }
+.sl-btn-outline-primary { border-color: var(--smartlearn-primary) !important; color: var(--smartlearn-primary) !important; }
+.sl-btn-outline-primary:hover { background-color: var(--smartlearn-primary) !important; color: #fff !important; }
+.sl-border-primary { border-color: var(--smartlearn-primary) !important; }
 .sl-hero-search {
     background-color: var(--bs-secondary-bg);
     min-height: 80vh;
@@ -458,7 +473,7 @@ const sections = [
     <div class="container position-relative z-2 py-6 py-lg-8">
         <div class="row align-items-center">
             <div class="col-lg-7 text-white pe-lg-5">
-                <span class="badge bg-primary text-white mb-4 px-3 py-2 rounded-pill fw-bold" data-sl-edit="text">FEATURED MASTERCLASS</span>
+                <span class="badge sl-bg-primary text-white mb-4 px-3 py-2 rounded-pill fw-bold" data-sl-edit="text">FEATURED MASTERCLASS</span>
                 <h1 class="display-2 fw-bolder mb-4 text-shadow sl-cinematic-title" data-sl-edit="text">The Art of Storytelling in Film.</h1>
                 <p class="fs-4 opacity-75 mb-5 text-shadow font-light" data-sl-edit="text">Learn directing, screenwriting, and cinematic vision from Academy Award winners in this exclusive 4-week intensive.</p>
                 
@@ -480,7 +495,7 @@ const sections = [
                             </div>
                             <span class="fw-bold fs-5">4.9 / 5.0</span>
                         </div>
-                        <span class="badge bg-primary rounded-pill">Top Rated</span>
+                        <span class="badge sl-bg-primary rounded-pill">Top Rated</span>
                     </div>
                     
                     <p class="small opacity-75 fst-italic mb-3" data-sl-edit="text">"This course completely changed how I approach writing scripts. Absolute gold."</p>
@@ -498,15 +513,20 @@ const sections = [
     </div>
 </div>`,
         css: `
-/* Theme Primary Color Inheritance Fix */
-[class*="sl-hero-"] .text-primary { color: var(--smartlearn-primary) !important; }
-[class*="sl-hero-"] .bg-primary { background-color: var(--smartlearn-primary) !important; }
-[class*="sl-hero-"] .btn-primary { background-color: var(--smartlearn-primary) !important; border-color: var(--smartlearn-primary) !important; color: #fff !important; }
-[class*="sl-hero-"] .btn-primary:hover { filter: brightness(0.9); }
-[class*="sl-hero-"] .btn-outline-primary { border-color: var(--smartlearn-primary) !important; color: var(--smartlearn-primary) !important; }
-[class*="sl-hero-"] .btn-outline-primary:hover { background-color: var(--smartlearn-primary) !important; color: #fff !important; }
-[class*="sl-hero-"] .border-primary { border-color: var(--smartlearn-primary) !important; }
 
+/* SmartLearn Native Color Classes */
+.sl-text-primary { color: var(--smartlearn-primary) !important; }
+.sl-text-emphasis { color: var(--smartlearn-text) !important; }
+.sl-text-muted { color: var(--smartlearn-text-muted) !important; }
+.sl-bg-main { background-color: var(--smartlearn-bg) !important; }
+.sl-bg-card { background-color: var(--smartlearn-card-bg) !important; border: 1px solid var(--smartlearn-card-border) !important; }
+.sl-bg-primary { background-color: var(--smartlearn-primary) !important; }
+.sl-bg-primary-subtle { background-color: color-mix(in srgb, var(--smartlearn-primary) 15%, transparent) !important; }
+.sl-btn-primary { background-color: var(--smartlearn-primary) !important; border-color: var(--smartlearn-primary) !important; color: #fff !important; }
+.sl-btn-primary:hover { background-color: var(--smartlearn-primary-hover, var(--smartlearn-primary)) !important; filter: brightness(0.9); }
+.sl-btn-outline-primary { border-color: var(--smartlearn-primary) !important; color: var(--smartlearn-primary) !important; }
+.sl-btn-outline-primary:hover { background-color: var(--smartlearn-primary) !important; color: #fff !important; }
+.sl-border-primary { border-color: var(--smartlearn-primary) !important; }
 .sl-hero-video {
     min-height: 85vh;
 }

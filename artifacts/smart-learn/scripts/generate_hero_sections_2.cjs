@@ -18,7 +18,7 @@ const sections = [
             image_count: 3
         },
         html: `<!-- sl-section: hero-floating-universe | v1.0 -->
-<div class="sl-hero-universe position-relative overflow-hidden bg-body">
+<div class="sl-hero-universe position-relative overflow-hidden sl-bg-main">
     <!-- SVG Background blobs (Animated via CSS) -->
     <div class="position-absolute top-0 start-0 w-100 h-100 overflow-hidden z-0 pointer-events-none">
         <svg class="sl-blob blob-1" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
@@ -32,13 +32,13 @@ const sections = [
     <div class="container py-6 py-lg-8 position-relative z-1">
         <div class="row align-items-center">
             <div class="col-lg-6 pe-lg-5 mb-5 mb-lg-0">
-                <div class="badge bg-primary-subtle text-primary mb-3 px-3 py-2 rounded-pill fw-bold" data-sl-edit="text">Over 10,000 Courses</div>
-                <h1 class="display-3 fw-bold mb-4 sl-universe-title text-body-emphasis" data-sl-edit="text">Learn without <br><span class="text-primary">limits.</span></h1>
-                <p class="fs-5 text-body-secondary mb-5" data-sl-edit="text">Build skills with courses, certificates, and degrees online from world-class universities and companies.</p>
+                <div class="badge sl-bg-primary-subtle sl-text-primary mb-3 px-3 py-2 rounded-pill fw-bold" data-sl-edit="text">Over 10,000 Courses</div>
+                <h1 class="display-3 fw-bold mb-4 sl-universe-title sl-text-emphasis" data-sl-edit="text">Learn without <br><span class="sl-text-primary">limits.</span></h1>
+                <p class="fs-5 sl-text-muted mb-5" data-sl-edit="text">Build skills with courses, certificates, and degrees online from world-class universities and companies.</p>
                 
-                <form class="d-flex bg-body rounded-pill p-2 shadow-sm border border-secondary-subtle mb-4 sl-search-form">
+                <form class="d-flex sl-bg-main rounded-pill p-2 shadow-sm border border-secondary-subtle mb-4 sl-search-form">
                     <input type="text" class="form-control border-0 bg-transparent px-3 shadow-none text-body" placeholder="What do you want to learn?">
-                    <button class="btn btn-primary rounded-pill px-4 fw-bold" type="submit" data-sl-edit="text">Search</button>
+                    <button class="btn sl-btn-primary rounded-pill px-4 fw-bold" type="submit" data-sl-edit="text">Search</button>
                 </form>
                 
                 <div class="d-flex align-items-center gap-3">
@@ -46,48 +46,53 @@ const sections = [
                         <img src="https://randomuser.me/api/portraits/women/11.jpg" alt="User" class="rounded-circle border border-2 border-body">
                         <img src="https://randomuser.me/api/portraits/men/22.jpg" alt="User" class="rounded-circle border border-2 border-body">
                         <img src="https://randomuser.me/api/portraits/women/33.jpg" alt="User" class="rounded-circle border border-2 border-body">
-                        <div class="rounded-circle border border-2 border-body bg-light d-flex align-items-center justify-content-center text-body-emphasis small fw-bold" style="width:40px; height:40px;">+5M</div>
+                        <div class="rounded-circle border border-2 border-body bg-light d-flex align-items-center justify-content-center sl-text-emphasis small fw-bold" style="width:40px; height:40px;">+5M</div>
                     </div>
-                    <span class="text-body-secondary small fw-medium" data-sl-edit="text">Join 5M+ learners worldwide</span>
+                    <span class="sl-text-muted small fw-medium" data-sl-edit="text">Join 5M+ learners worldwide</span>
                 </div>
             </div>
             
             <div class="col-lg-6 position-relative min-vh-50 d-none d-lg-block">
                 <!-- Floating 3D Cards -->
-                <div class="sl-float-card card-1 bg-body border border-secondary-subtle rounded-4 shadow p-3 position-absolute">
+                <div class="sl-float-card card-1 sl-bg-main border border-secondary-subtle rounded-4 shadow p-3 position-absolute">
                     <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=300&q=80" alt="Course" class="rounded-3 mb-3 w-100 object-fit-cover" style="height: 120px;">
-                    <div class="badge bg-primary text-white mb-2 rounded-pill"><i class="fa fa-star"></i> 4.8</div>
-                    <h6 class="fw-bold fs-6 mb-1 text-body-emphasis" data-sl-edit="text">Web Development Bootcamp</h6>
-                    <small class="text-body-secondary d-block mb-2">Dr. Angela Yu</small>
+                    <div class="badge sl-bg-primary text-white mb-2 rounded-pill"><i class="fa fa-star"></i> 4.8</div>
+                    <h6 class="fw-bold fs-6 mb-1 sl-text-emphasis" data-sl-edit="text">Web Development Bootcamp</h6>
+                    <small class="sl-text-muted d-block mb-2">Dr. Angela Yu</small>
                 </div>
                 
-                <div class="sl-float-card card-2 bg-body border border-secondary-subtle rounded-4 shadow-lg p-3 position-absolute">
+                <div class="sl-float-card card-2 sl-bg-main border border-secondary-subtle rounded-4 shadow-lg p-3 position-absolute">
                     <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=300&q=80" alt="Course" class="rounded-3 mb-3 w-100 object-fit-cover" style="height: 140px;">
-                    <div class="badge bg-primary text-white mb-2 rounded-pill"><i class="fa fa-star"></i> 4.9</div>
-                    <h6 class="fw-bold fs-6 mb-1 text-body-emphasis" data-sl-edit="text">Data Science & Machine Learning</h6>
-                    <small class="text-body-secondary d-block mb-2">Jose Portilla</small>
+                    <div class="badge sl-bg-primary text-white mb-2 rounded-pill"><i class="fa fa-star"></i> 4.9</div>
+                    <h6 class="fw-bold fs-6 mb-1 sl-text-emphasis" data-sl-edit="text">Data Science & Machine Learning</h6>
+                    <small class="sl-text-muted d-block mb-2">Jose Portilla</small>
                 </div>
                 
-                <div class="sl-float-card card-3 bg-body border border-secondary-subtle rounded-4 shadow p-3 position-absolute">
+                <div class="sl-float-card card-3 sl-bg-main border border-secondary-subtle rounded-4 shadow p-3 position-absolute">
                     <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&w=300&q=80" alt="Course" class="rounded-3 mb-3 w-100 object-fit-cover" style="height: 100px;">
-                    <div class="badge bg-primary text-white mb-2 rounded-pill"><i class="fa fa-star"></i> 4.7</div>
-                    <h6 class="fw-bold fs-6 mb-1 text-body-emphasis" data-sl-edit="text">UI/UX Design Masterclass</h6>
-                    <small class="text-body-secondary d-block mb-2">Gary Simon</small>
+                    <div class="badge sl-bg-primary text-white mb-2 rounded-pill"><i class="fa fa-star"></i> 4.7</div>
+                    <h6 class="fw-bold fs-6 mb-1 sl-text-emphasis" data-sl-edit="text">UI/UX Design Masterclass</h6>
+                    <small class="sl-text-muted d-block mb-2">Gary Simon</small>
                 </div>
             </div>
         </div>
     </div>
 </div>`,
         css: `
-/* Theme Primary Color Inheritance Fix */
-[class*="sl-hero-"] .text-primary { color: var(--smartlearn-primary) !important; }
-[class*="sl-hero-"] .bg-primary { background-color: var(--smartlearn-primary) !important; }
-[class*="sl-hero-"] .btn-primary { background-color: var(--smartlearn-primary) !important; border-color: var(--smartlearn-primary) !important; color: #fff !important; }
-[class*="sl-hero-"] .btn-primary:hover { filter: brightness(0.9); }
-[class*="sl-hero-"] .btn-outline-primary { border-color: var(--smartlearn-primary) !important; color: var(--smartlearn-primary) !important; }
-[class*="sl-hero-"] .btn-outline-primary:hover { background-color: var(--smartlearn-primary) !important; color: #fff !important; }
-[class*="sl-hero-"] .border-primary { border-color: var(--smartlearn-primary) !important; }
 
+/* SmartLearn Native Color Classes */
+.sl-text-primary { color: var(--smartlearn-primary) !important; }
+.sl-text-emphasis { color: var(--smartlearn-text) !important; }
+.sl-text-muted { color: var(--smartlearn-text-muted) !important; }
+.sl-bg-main { background-color: var(--smartlearn-bg) !important; }
+.sl-bg-card { background-color: var(--smartlearn-card-bg) !important; border: 1px solid var(--smartlearn-card-border) !important; }
+.sl-bg-primary { background-color: var(--smartlearn-primary) !important; }
+.sl-bg-primary-subtle { background-color: color-mix(in srgb, var(--smartlearn-primary) 15%, transparent) !important; }
+.sl-btn-primary { background-color: var(--smartlearn-primary) !important; border-color: var(--smartlearn-primary) !important; color: #fff !important; }
+.sl-btn-primary:hover { background-color: var(--smartlearn-primary-hover, var(--smartlearn-primary)) !important; filter: brightness(0.9); }
+.sl-btn-outline-primary { border-color: var(--smartlearn-primary) !important; color: var(--smartlearn-primary) !important; }
+.sl-btn-outline-primary:hover { background-color: var(--smartlearn-primary) !important; color: #fff !important; }
+.sl-border-primary { border-color: var(--smartlearn-primary) !important; }
 .sl-hero-universe {
     background: transparent;
     min-height: 80vh;
@@ -173,15 +178,15 @@ const sections = [
             image_count: 1
         },
         html: `<!-- sl-section: hero-abstract-innovator | v1.0 -->
-<div class="sl-hero-abstract position-relative overflow-hidden bg-body">
+<div class="sl-hero-abstract position-relative overflow-hidden sl-bg-main">
     <div class="container py-6 py-lg-7">
         <div class="row align-items-center g-5">
             <div class="col-lg-6 position-relative z-2">
-                <h1 class="display-3 fw-bold mb-4 sl-blob-title text-body-emphasis" data-sl-edit="text">Spark your <br>curiosity.</h1>
-                <p class="fs-5 text-body-secondary mb-5 pe-lg-5" data-sl-edit="text">Discover interactive classes in design, illustration, photography, and more. Taught by creative professionals.</p>
+                <h1 class="display-3 fw-bold mb-4 sl-blob-title sl-text-emphasis" data-sl-edit="text">Spark your <br>curiosity.</h1>
+                <p class="fs-5 sl-text-muted mb-5 pe-lg-5" data-sl-edit="text">Discover interactive classes in design, illustration, photography, and more. Taught by creative professionals.</p>
                 <div class="d-flex flex-wrap gap-3 mb-5">
-                    <a href="#" class="btn btn-primary btn-lg rounded-pill px-5 fw-bold shadow-sm" data-sl-edit="link">Start Learning</a>
-                    <a href="#" class="btn btn-outline-primary btn-lg rounded-pill px-4 fw-bold" data-sl-edit="link">Browse Catalog</a>
+                    <a href="#" class="btn sl-btn-primary btn-lg rounded-pill px-5 fw-bold shadow-sm" data-sl-edit="link">Start Learning</a>
+                    <a href="#" class="btn sl-btn-outline-primary btn-lg rounded-pill px-4 fw-bold" data-sl-edit="link">Browse Catalog</a>
                 </div>
                 
                 <!-- Trust indicators -->
@@ -196,7 +201,7 @@ const sections = [
             <div class="col-lg-6 position-relative">
                 <!-- Background decorative blobs -->
                 <div class="position-absolute sl-blob-bg bg-warning" style="top: -10%; right: 10%; width: 400px; height: 400px; z-index: 1;"></div>
-                <div class="position-absolute sl-blob-bg bg-primary opacity-25" style="bottom: -20%; left: 0%; width: 300px; height: 300px; z-index: 1;"></div>
+                <div class="position-absolute sl-blob-bg sl-bg-primary opacity-25" style="bottom: -20%; left: 0%; width: 300px; height: 300px; z-index: 1;"></div>
                 
                 <!-- Image masked by SVG Blob -->
                 <div class="sl-blob-mask-container mx-auto position-relative z-2">
@@ -219,11 +224,11 @@ const sections = [
                     </svg>
                     
                     <!-- Floating playful badge -->
-                    <div class="position-absolute sl-wobbly-badge bg-body border border-secondary-subtle rounded-pill px-3 py-2 shadow-sm d-flex align-items-center" style="bottom: 15%; right: 5%; z-index: 3;">
+                    <div class="position-absolute sl-wobbly-badge sl-bg-main border border-secondary-subtle rounded-pill px-3 py-2 shadow-sm d-flex align-items-center" style="bottom: 15%; right: 5%; z-index: 3;">
                         <span class="fs-3 me-2">🎨</span>
                         <div>
-                            <div class="fw-bold fs-6 lh-1 text-body-emphasis" data-sl-edit="text">Illustration</div>
-                            <small class="text-body-secondary" data-sl-edit="text">New Classes</small>
+                            <div class="fw-bold fs-6 lh-1 sl-text-emphasis" data-sl-edit="text">Illustration</div>
+                            <small class="sl-text-muted" data-sl-edit="text">New Classes</small>
                         </div>
                     </div>
                 </div>
@@ -232,15 +237,20 @@ const sections = [
     </div>
 </div>`,
         css: `
-/* Theme Primary Color Inheritance Fix */
-[class*="sl-hero-"] .text-primary { color: var(--smartlearn-primary) !important; }
-[class*="sl-hero-"] .bg-primary { background-color: var(--smartlearn-primary) !important; }
-[class*="sl-hero-"] .btn-primary { background-color: var(--smartlearn-primary) !important; border-color: var(--smartlearn-primary) !important; color: #fff !important; }
-[class*="sl-hero-"] .btn-primary:hover { filter: brightness(0.9); }
-[class*="sl-hero-"] .btn-outline-primary { border-color: var(--smartlearn-primary) !important; color: var(--smartlearn-primary) !important; }
-[class*="sl-hero-"] .btn-outline-primary:hover { background-color: var(--smartlearn-primary) !important; color: #fff !important; }
-[class*="sl-hero-"] .border-primary { border-color: var(--smartlearn-primary) !important; }
 
+/* SmartLearn Native Color Classes */
+.sl-text-primary { color: var(--smartlearn-primary) !important; }
+.sl-text-emphasis { color: var(--smartlearn-text) !important; }
+.sl-text-muted { color: var(--smartlearn-text-muted) !important; }
+.sl-bg-main { background-color: var(--smartlearn-bg) !important; }
+.sl-bg-card { background-color: var(--smartlearn-card-bg) !important; border: 1px solid var(--smartlearn-card-border) !important; }
+.sl-bg-primary { background-color: var(--smartlearn-primary) !important; }
+.sl-bg-primary-subtle { background-color: color-mix(in srgb, var(--smartlearn-primary) 15%, transparent) !important; }
+.sl-btn-primary { background-color: var(--smartlearn-primary) !important; border-color: var(--smartlearn-primary) !important; color: #fff !important; }
+.sl-btn-primary:hover { background-color: var(--smartlearn-primary-hover, var(--smartlearn-primary)) !important; filter: brightness(0.9); }
+.sl-btn-outline-primary { border-color: var(--smartlearn-primary) !important; color: var(--smartlearn-primary) !important; }
+.sl-btn-outline-primary:hover { background-color: var(--smartlearn-primary) !important; color: #fff !important; }
+.sl-border-primary { border-color: var(--smartlearn-primary) !important; }
 .sl-hero-abstract {
     min-height: 80vh;
 }
@@ -287,7 +297,7 @@ const sections = [
             image_count: 1
         },
         html: `<!-- sl-section: hero-dynamic-academy | v1.0 -->
-<div class="sl-hero-dynamic position-relative overflow-hidden bg-body">
+<div class="sl-hero-dynamic position-relative overflow-hidden sl-bg-main">
     <!-- Right Side Image with Diagonal Clip -->
     <div class="position-absolute top-0 end-0 h-100 sl-dynamic-image-wrapper">
         <div class="sl-dynamic-overlay position-absolute inset-0"></div>
@@ -296,17 +306,17 @@ const sections = [
     
     <div class="container position-relative z-2 h-100">
         <div class="row align-items-center h-100" style="min-height: 85vh;">
-            <div class="col-lg-6 sl-dynamic-content text-body-emphasis py-6">
+            <div class="col-lg-6 sl-dynamic-content sl-text-emphasis py-6">
                 
                 <div class="d-flex align-items-center mb-4 sl-slide-in-1">
-                    <div class="bg-primary px-3 py-1 text-white fw-bold text-uppercase tracking-wide fs-6 me-3" style="transform: skewX(-15deg);" data-sl-edit="text">
+                    <div class="sl-bg-primary px-3 py-1 text-white fw-bold text-uppercase tracking-wide fs-6 me-3" style="transform: skewX(-15deg);" data-sl-edit="text">
                         <span class="d-inline-block" style="transform: skewX(15deg);">Pro Training</span>
                     </div>
                 </div>
                 
-                <h1 class="display-2 fw-black text-uppercase fst-italic lh-1 mb-4 text-body-emphasis sl-slide-in-2" data-sl-edit="text">
+                <h1 class="display-2 fw-black text-uppercase fst-italic lh-1 mb-4 sl-text-emphasis sl-slide-in-2" data-sl-edit="text">
                     Push your <br>
-                    <span class="text-primary">Boundaries.</span>
+                    <span class="sl-text-primary">Boundaries.</span>
                 </h1>
                 
                 <p class="fs-5 opacity-75 mb-5 pe-lg-5 sl-slide-in-3" data-sl-edit="text">
@@ -314,7 +324,7 @@ const sections = [
                 </p>
                 
                 <div class="d-flex flex-wrap gap-3 sl-slide-in-4">
-                    <a href="#" class="btn btn-primary btn-lg rounded-0 px-5 py-3 fw-bold text-uppercase fst-italic sl-btn-skew" data-sl-edit="link">
+                    <a href="#" class="btn sl-btn-primary btn-lg rounded-0 px-5 py-3 fw-bold text-uppercase fst-italic sl-btn-skew" data-sl-edit="link">
                         <span class="d-inline-block sl-unskew">Start Free Trial</span>
                     </a>
                 </div>
@@ -324,15 +334,20 @@ const sections = [
     </div>
 </div>`,
         css: `
-/* Theme Primary Color Inheritance Fix */
-[class*="sl-hero-"] .text-primary { color: var(--smartlearn-primary) !important; }
-[class*="sl-hero-"] .bg-primary { background-color: var(--smartlearn-primary) !important; }
-[class*="sl-hero-"] .btn-primary { background-color: var(--smartlearn-primary) !important; border-color: var(--smartlearn-primary) !important; color: #fff !important; }
-[class*="sl-hero-"] .btn-primary:hover { filter: brightness(0.9); }
-[class*="sl-hero-"] .btn-outline-primary { border-color: var(--smartlearn-primary) !important; color: var(--smartlearn-primary) !important; }
-[class*="sl-hero-"] .btn-outline-primary:hover { background-color: var(--smartlearn-primary) !important; color: #fff !important; }
-[class*="sl-hero-"] .border-primary { border-color: var(--smartlearn-primary) !important; }
 
+/* SmartLearn Native Color Classes */
+.sl-text-primary { color: var(--smartlearn-primary) !important; }
+.sl-text-emphasis { color: var(--smartlearn-text) !important; }
+.sl-text-muted { color: var(--smartlearn-text-muted) !important; }
+.sl-bg-main { background-color: var(--smartlearn-bg) !important; }
+.sl-bg-card { background-color: var(--smartlearn-card-bg) !important; border: 1px solid var(--smartlearn-card-border) !important; }
+.sl-bg-primary { background-color: var(--smartlearn-primary) !important; }
+.sl-bg-primary-subtle { background-color: color-mix(in srgb, var(--smartlearn-primary) 15%, transparent) !important; }
+.sl-btn-primary { background-color: var(--smartlearn-primary) !important; border-color: var(--smartlearn-primary) !important; color: #fff !important; }
+.sl-btn-primary:hover { background-color: var(--smartlearn-primary-hover, var(--smartlearn-primary)) !important; filter: brightness(0.9); }
+.sl-btn-outline-primary { border-color: var(--smartlearn-primary) !important; color: var(--smartlearn-primary) !important; }
+.sl-btn-outline-primary:hover { background-color: var(--smartlearn-primary) !important; color: #fff !important; }
+.sl-border-primary { border-color: var(--smartlearn-primary) !important; }
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;1,900&display=swap');
 
 .sl-hero-dynamic {
@@ -448,15 +463,20 @@ const sections = [
     </div>
 </div>`,
         css: `
-/* Theme Primary Color Inheritance Fix */
-[class*="sl-hero-"] .text-primary { color: var(--smartlearn-primary) !important; }
-[class*="sl-hero-"] .bg-primary { background-color: var(--smartlearn-primary) !important; }
-[class*="sl-hero-"] .btn-primary { background-color: var(--smartlearn-primary) !important; border-color: var(--smartlearn-primary) !important; color: #fff !important; }
-[class*="sl-hero-"] .btn-primary:hover { filter: brightness(0.9); }
-[class*="sl-hero-"] .btn-outline-primary { border-color: var(--smartlearn-primary) !important; color: var(--smartlearn-primary) !important; }
-[class*="sl-hero-"] .btn-outline-primary:hover { background-color: var(--smartlearn-primary) !important; color: #fff !important; }
-[class*="sl-hero-"] .border-primary { border-color: var(--smartlearn-primary) !important; }
 
+/* SmartLearn Native Color Classes */
+.sl-text-primary { color: var(--smartlearn-primary) !important; }
+.sl-text-emphasis { color: var(--smartlearn-text) !important; }
+.sl-text-muted { color: var(--smartlearn-text-muted) !important; }
+.sl-bg-main { background-color: var(--smartlearn-bg) !important; }
+.sl-bg-card { background-color: var(--smartlearn-card-bg) !important; border: 1px solid var(--smartlearn-card-border) !important; }
+.sl-bg-primary { background-color: var(--smartlearn-primary) !important; }
+.sl-bg-primary-subtle { background-color: color-mix(in srgb, var(--smartlearn-primary) 15%, transparent) !important; }
+.sl-btn-primary { background-color: var(--smartlearn-primary) !important; border-color: var(--smartlearn-primary) !important; color: #fff !important; }
+.sl-btn-primary:hover { background-color: var(--smartlearn-primary-hover, var(--smartlearn-primary)) !important; filter: brightness(0.9); }
+.sl-btn-outline-primary { border-color: var(--smartlearn-primary) !important; color: var(--smartlearn-primary) !important; }
+.sl-btn-outline-primary:hover { background-color: var(--smartlearn-primary) !important; color: #fff !important; }
+.sl-border-primary { border-color: var(--smartlearn-primary) !important; }
 .sl-hero-glass {
     min-height: 90vh;
     overflow: hidden;
