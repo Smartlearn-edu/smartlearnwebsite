@@ -524,6 +524,26 @@
       "is_premium": false,
       "is_new": true,
       "popularity": 83
+    },
+    {
+      "id": "hero-video-gallery",
+      "name": "Video Gallery Hero",
+      "category": "Hero",
+      "variant": "Video Platform",
+      "description": "A comprehensive hero section featuring a multi-video gallery player, text content, and feature highlights at the bottom.",
+      "tags": [
+        "hero",
+        "video",
+        "gallery",
+        "features",
+        "modern"
+      ],
+      "image_count": 5,
+      "preview_image": "",
+      "download_url": "/sections/hero-video-gallery.json",
+      "is_premium": false,
+      "is_new": true,
+      "popularity": 93
     }
   ]
 }
