@@ -90,49 +90,65 @@ const smartCatalogSection = {
     `.trim(),
     js: `
 (function() {
-    const wrapper = document.querySelector('.sl-dynamic-catalog-wrapper');
-    if (!wrapper || wrapper.dataset.loaded === 'true') return;
-    
-    // Prevent double execution in builder mode
-    wrapper.dataset.loaded = 'true';
-    
-    // We fetch the dynamic HTML from our custom endpoint
-    const url = M.cfg.wwwroot + '/theme/smartlearn/smartcatalog_ajax.php';
-    
-    fetch(url, {credentials: 'include'})
-        .then(res => res.json())
-        .then(data => {
-            if (data.success && data.html) {
-                const loader = wrapper.querySelector('.sl-catalog-loader');
-                if (loader) loader.style.display = 'none';
-                
-                const contentDiv = wrapper.querySelector('.sl-catalog-content');
-                if (contentDiv) {
-                    contentDiv.innerHTML = data.html;
+    const wrappers = document.querySelectorAll('.sl-dynamic-catalog-wrapper:not([data-loaded="true"])');
+    wrappers.forEach(wrapper => {
+        wrapper.dataset.loaded = 'true';
+        
+        const baseUrl = (typeof M !== 'undefined' && M.cfg && M.cfg.wwwroot) ? M.cfg.wwwroot : window.location.origin;
+        const url = baseUrl + '/theme/smartlearn/smartcatalog_ajax.php';
+        
+        fetch(url, {credentials: 'include'})
+            .then(res => res.json())
+            .then(data => {
+                if (data.success && data.html) {
+                    const loader = wrapper.querySelector('.sl-catalog-loader');
+                    if (loader) loader.style.display = 'none';
                     
-                    // The returned HTML includes the mustache template which requires local_smartcatalog/main.
-                    // We must initialize the AMD module manually since we injected via innerHTML.
-                    require(['local_smartcatalog/main'], function(App) {
-                        if (App && typeof App.init === 'function') {
-                            App.init();
+                    const contentDiv = wrapper.querySelector('.sl-catalog-content');
+                    if (contentDiv) {
+                        contentDiv.innerHTML = data.html;
+                        
+                        if (!window._slHistoryIntercepted) {
+                            window._slHistoryIntercepted = true;
+                            const originalReplaceState = window.history.replaceState;
+                            window.history.replaceState = function(state, title, url) {
+                                if (window.location.search.includes('redirect=0') && url) {
+                                    let urlStr = (url instanceof URL) ? url.toString() : url.toString();
+                                    if (!urlStr.includes('redirect=0')) {
+                                        if (urlStr.includes('?')) {
+                                            urlStr = urlStr.replace('?', '?redirect=0&');
+                                        } else {
+                                            urlStr = urlStr + '?redirect=0';
+                                        }
+                                        url = urlStr;
+                                    }
+                                }
+                                return originalReplaceState.apply(this, [state, title, url]);
+                            };
                         }
-                    });
+                        
+                        require(['local_smartcatalog/main'], function(App) {
+                            if (App && typeof App.init === 'function') {
+                                App.init();
+                            }
+                        });
+                    }
+                } else {
+                    console.error('Failed to load Smart Catalog HTML:', data.error);
+                    const loader = wrapper.querySelector('.sl-catalog-loader');
+                    if (loader) {
+                        loader.innerHTML = '<div class="alert alert-danger"><i class="fa fa-exclamation-triangle"></i> Failed to load catalog: ' + (data.error || 'Unknown error') + '</div>';
+                    }
                 }
-            } else {
-                console.error('Failed to load Smart Catalog HTML:', data.error);
+            })
+            .catch(err => {
+                console.error('Error fetching Smart Catalog HTML:', err);
                 const loader = wrapper.querySelector('.sl-catalog-loader');
                 if (loader) {
-                    loader.innerHTML = '<div class="alert alert-danger"><i class="fa fa-exclamation-triangle"></i> Failed to load catalog: ' + (data.error || 'Unknown error') + '</div>';
+                    loader.innerHTML = '<div class="alert alert-danger"><i class="fa fa-exclamation-triangle"></i> Error connecting to server.</div>';
                 }
-            }
-        })
-        .catch(err => {
-            console.error('Error fetching Smart Catalog HTML:', err);
-            const loader = wrapper.querySelector('.sl-catalog-loader');
-            if (loader) {
-                loader.innerHTML = '<div class="alert alert-danger"><i class="fa fa-exclamation-triangle"></i> Error connecting to server.</div>';
-            }
-        });
+            });
+    });
 })();
     `.trim()
 };
