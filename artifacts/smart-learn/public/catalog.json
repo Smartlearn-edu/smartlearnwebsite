@@ -1277,5 +1277,149 @@
       "is_new": true,
       "popularity": 88
     },
+    {
+      "id": "cta_immersive_hero",
+      "name": "Immersive Hero CTA",
+      "category": "Call to Action",
+      "variant": "High-Impact",
+      "description": "Full-bleed background with integrated cinematic CTA.",
+      "tags": [
+        "cta",
+        "call to action",
+        "marketing"
+      ],
+      "image_count": 1,
+      "preview_image": "",
+      "download_url": "/sections/cta_immersive_hero.json",
+      "is_premium": true,
+      "is_new": true,
+      "popularity": 90
+    },
+    {
+      "id": "cta_glass_banner",
+      "name": "Glassmorphism Banner",
+      "category": "Call to Action",
+      "variant": "Premium",
+      "description": "A compact floating glass card over a gradient background.",
+      "tags": [
+        "cta",
+        "call to action",
+        "marketing"
+      ],
+      "image_count": 1,
+      "preview_image": "",
+      "download_url": "/sections/cta_glass_banner.json",
+      "is_premium": true,
+      "is_new": true,
+      "popularity": 90
+    },
+    {
+      "id": "cta_minimalist",
+      "name": "Minimalist Statement",
+      "category": "Call to Action",
+      "variant": "Typography",
+      "description": "Pure, distraction-free typography with a single button.",
+      "tags": [
+        "cta",
+        "call to action",
+        "marketing"
+      ],
+      "image_count": 1,
+      "preview_image": "",
+      "download_url": "/sections/cta_minimalist.json",
+      "is_premium": true,
+      "is_new": true,
+      "popularity": 90
+    },
+    {
+      "id": "cta_split_action",
+      "name": "Split-Action",
+      "category": "Call to Action",
+      "variant": "Multi-Audience",
+      "description": "A 50/50 split layout designed for two distinct audiences or paths.",
+      "tags": [
+        "cta",
+        "call to action",
+        "marketing"
+      ],
+      "image_count": 1,
+      "preview_image": "",
+      "download_url": "/sections/cta_split_action.json",
+      "is_premium": true,
+      "is_new": true,
+      "popularity": 90
+    },
+    {
+      "id": "cta_bento_grid",
+      "name": "Bento Action Grid",
+      "category": "Call to Action",
+      "variant": "Multi-Action",
+      "description": "An asymmetrical grid highlighting a primary action and supporting secondary actions.",
+      "tags": [
+        "cta",
+        "call to action",
+        "marketing"
+      ],
+      "image_count": 1,
+      "preview_image": "",
+      "download_url": "/sections/cta_bento_grid.json",
+      "is_premium": true,
+      "is_new": true,
+      "popularity": 90
+    },
+    {
+      "id": "cta_app_download",
+      "name": "App Store Download",
+      "category": "Call to Action",
+      "variant": "Mobile Conversion",
+      "description": "A modular section designed to drive mobile app installs. Hides completely if no links are provided.",
+      "tags": [
+        "cta",
+        "call to action",
+        "marketing"
+      ],
+      "image_count": 1,
+      "preview_image": "",
+      "download_url": "/sections/cta_app_download.json",
+      "is_premium": true,
+      "is_new": true,
+      "popularity": 90
+    },
+    {
+      "id": "cta_course_enrollment",
+      "name": "Course Enrollment CTA",
+      "category": "Call to Action",
+      "variant": "LMS specific",
+      "description": "A highly detailed, Moodle-specific transactional CTA designed to drive enrollment for a single course.",
+      "tags": [
+        "cta",
+        "call to action",
+        "marketing"
+      ],
+      "image_count": 1,
+      "preview_image": "",
+      "download_url": "/sections/cta_course_enrollment.json",
+      "is_premium": true,
+      "is_new": true,
+      "popularity": 90
+    },
+    {
+      "id": "cta_dynamic_floating",
+      "name": "Dynamic Floating Elements",
+      "category": "Call to Action",
+      "variant": "Community",
+      "description": "Visually engaging community-focused layout with floating meaningful LMS elements.",
+      "tags": [
+        "cta",
+        "call to action",
+        "marketing"
+      ],
+      "image_count": 1,
+      "preview_image": "",
+      "download_url": "/sections/cta_dynamic_floating.json",
+      "is_premium": true,
+      "is_new": true,
+      "popularity": 90
+    }
   ]
 }

@@ -286,7 +286,15 @@ if (fs.existsSync(catalogPath)) {
             id: cta.id,
             name: cta.name,
             category: cta.category,
-            subcategory: cta.subcategory
+            variant: cta.subcategory,
+            description: cta.description,
+            tags: ["cta", "call to action", "marketing"],
+            image_count: 1,
+            preview_image: "",
+            download_url: `/sections/${cta.id}.json`,
+            is_premium: true,
+            is_new: true,
+            popularity: 90
         });
     }
 });
