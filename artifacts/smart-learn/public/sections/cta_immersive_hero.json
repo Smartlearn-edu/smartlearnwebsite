@@ -1,76 +1,19 @@
 {
-  "id": "cta_immersive_hero",
-  "name": "Immersive Hero CTA",
-  "category": "Call to Action",
-  "subcategory": "High-Impact",
-  "description": "Full-bleed background with integrated cinematic CTA.",
-  "schema": {
-    "settings": [
-      {
-        "id": "background_type",
-        "type": "select",
-        "label": "Background Type",
-        "options": [
-          "image",
-          "video"
-        ],
-        "default": "image"
-      },
-      {
-        "id": "background_image",
-        "type": "image",
-        "label": "Background Image/Poster"
-      },
-      {
-        "id": "background_video",
-        "type": "url",
-        "label": "Background Video URL (mp4)"
-      },
-      {
-        "id": "overlay_opacity",
-        "type": "range",
-        "label": "Overlay Opacity",
-        "min": 0,
-        "max": 100,
-        "default": 60
-      },
-      {
-        "id": "heading",
-        "type": "text",
-        "label": "Heading",
-        "default": "Transform Your Future"
-      },
-      {
-        "id": "subheading",
-        "type": "textarea",
-        "label": "Subheading",
-        "default": "Join our vibrant community of learners and achieve your goals."
-      },
-      {
-        "id": "primary_cta_text",
-        "type": "text",
-        "label": "Primary CTA Text",
-        "default": "Explore Courses"
-      },
-      {
-        "id": "primary_cta_url",
-        "type": "url",
-        "label": "Primary CTA Link",
-        "default": "#"
-      },
-      {
-        "id": "secondary_cta_text",
-        "type": "text",
-        "label": "Secondary CTA Text",
-        "default": "Learn More"
-      },
-      {
-        "id": "secondary_cta_url",
-        "type": "url",
-        "label": "Secondary CTA Link",
-        "default": "#"
-      }
-    ]
+  "smartlearn_section": true,
+  "format_version": "1.0",
+  "meta": {
+    "name": "Immersive Hero CTA",
+    "category": "Call to Action",
+    "variant": "High-Impact",
+    "description": "Full-bleed background with integrated cinematic CTA.",
+    "tags": [
+      "cta",
+      "marketing",
+      "call to action"
+    ],
+    "image_count": 1
   },
-  "template": "\n        <div class=\"sl-cta-immersive position-relative overflow-hidden sl-bg-primary\" style=\"min-height: 80vh; display: flex; align-items: center; justify-content: center;\">\n            {{#background_video}}\n            <video class=\"position-absolute top-0 start-0 w-100 h-100 object-fit-cover\" autoplay loop muted playsinline poster=\"{{background_image}}\">\n                <source src=\"{{background_video}}\" type=\"video/mp4\">\n            </video>\n            {{/background_video}}\n            {{^background_video}}\n            <div class=\"position-absolute top-0 start-0 w-100 h-100 bg-image\" style=\"background-image: url('{{background_image}}'); background-size: cover; background-position: center;\"></div>\n            {{/background_video}}\n            \n            <div class=\"position-absolute top-0 start-0 w-100 h-100 bg-dark\" style=\"opacity: calc({{overlay_opacity}} / 100);\"></div>\n            \n            <div class=\"container position-relative z-1 text-center py-5\">\n                <div class=\"row justify-content-center\">\n                    <div class=\"col-lg-8 col-xl-7\">\n                        <h2 class=\"display-3 fw-bold text-white mb-4\">{{heading}}</h2>\n                        {{#subheading}}<p class=\"lead text-white-50 mb-5 fs-4\">{{subheading}}</p>{{/subheading}}\n                        <div class=\"d-flex flex-column flex-sm-row justify-content-center gap-3\">\n                            <a href=\"{{primary_cta_url}}\" class=\"btn btn-primary btn-lg px-5 py-3 rounded-pill fw-bold text-uppercase tracking-wide shadow-lg sl-btn-primary\">{{primary_cta_text}}</a>\n                            {{#secondary_cta_text}}\n                            <a href=\"{{secondary_cta_url}}\" class=\"btn btn-outline-light btn-lg px-5 py-3 rounded-pill fw-bold text-uppercase tracking-wide\">{{secondary_cta_text}}</a>\n                            {{/secondary_cta_text}}\n                        </div>\n                    </div>\n                </div>\n            </div>\n            \n            <style>\n                @media (prefers-reduced-motion: reduce) {\n                    .sl-cta-immersive video { display: none; }\n                    .sl-cta-immersive .bg-image { background-color: var(--sl-bg-primary); background-image: none !important; }\n                }\n                .sl-btn-primary { background-color: var(--sl-color-primary); border-color: var(--sl-color-primary); color: var(--sl-text-on-primary); transition: transform 0.3s ease, box-shadow 0.3s ease; }\n                .sl-btn-primary:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.2) !important; background-color: var(--sl-color-primary-hover); }\n            </style>\n        </div>\n    "
+  "html": "<!-- sl-section: cta_immersive_hero | v1.0 -->\n<div class=\"sl-cta-immersive position-relative overflow-hidden sl-bg-primary\" style=\"min-height: 80vh; display: flex; align-items: center; justify-content: center;\">\n    <div class=\"position-absolute top-0 start-0 w-100 h-100 bg-image\" style=\"background-image: url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1920&q=80'); background-size: cover; background-position: center;\"></div>\n    <div class=\"position-absolute top-0 start-0 w-100 h-100 bg-dark\" style=\"opacity: 0.6;\"></div>\n    \n    <div class=\"container position-relative z-1 text-center py-5\">\n        <div class=\"row justify-content-center\">\n            <div class=\"col-lg-8 col-xl-7\">\n                <h2 class=\"display-3 fw-bold text-white mb-4\" data-sl-edit=\"text\">Transform Your Future</h2>\n                <p class=\"lead text-white-50 mb-5 fs-4\" data-sl-edit=\"text\">Join our vibrant community of learners and achieve your goals.</p>\n                <div class=\"d-flex flex-column flex-sm-row justify-content-center gap-3\">\n                    <a href=\"#\" class=\"btn btn-primary btn-lg px-5 py-3 rounded-pill fw-bold text-uppercase tracking-wide shadow-lg sl-btn-primary\" data-sl-edit=\"link\">Explore Courses</a>\n                    <a href=\"#\" class=\"btn btn-outline-light btn-lg px-5 py-3 rounded-pill fw-bold text-uppercase tracking-wide\" data-sl-edit=\"link\">Learn More</a>\n                </div>\n            </div>\n        </div>\n    </div>\n</div>",
+  "css": "\n/* SmartLearn Native Color Classes */\n.sl-text-primary { color: var(--smartlearn-primary) !important; }\n.sl-text-emphasis { color: var(--smartlearn-text) !important; }\n.sl-text-muted { color: var(--smartlearn-text-muted) !important; }\n.sl-bg-main { background-color: var(--smartlearn-bg) !important; }\n.sl-bg-card { background-color: var(--smartlearn-card-bg) !important; border: 1px solid var(--smartlearn-card-border) !important; }\n.sl-bg-primary { background-color: var(--smartlearn-primary) !important; }\n.sl-btn-primary { background-color: var(--smartlearn-primary) !important; border-color: var(--smartlearn-primary) !important; color: #fff !important; transition: transform 0.3s ease, box-shadow 0.3s ease; }\n.sl-btn-primary:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.2) !important; filter: brightness(0.9); }\n\n@media (prefers-reduced-motion: reduce) {\n    .sl-cta-immersive .bg-image { background-color: var(--smartlearn-primary); background-image: none !important; }\n}\n",
+  "js": "(function() {})();"
 }

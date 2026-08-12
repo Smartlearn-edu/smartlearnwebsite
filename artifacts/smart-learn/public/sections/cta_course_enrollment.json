@@ -1,65 +1,19 @@
 {
-  "id": "cta_course_enrollment",
-  "name": "Course Enrollment CTA",
-  "category": "Call to Action",
-  "subcategory": "LMS specific",
-  "description": "A highly detailed, Moodle-specific transactional CTA designed to drive enrollment for a single course.",
-  "schema": {
-    "settings": [
-      {
-        "id": "course_id",
-        "type": "text",
-        "label": "Moodle Course ID (Required for state tracking)",
-        "default": "1"
-      },
-      {
-        "id": "course_title",
-        "type": "text",
-        "label": "Course Title",
-        "default": "Python for Data Analysis"
-      },
-      {
-        "id": "course_thumb",
-        "type": "image",
-        "label": "Course Thumbnail (Optional)"
-      },
-      {
-        "id": "price",
-        "type": "text",
-        "label": "Price (e.g. '$129', 'Free') - Leave empty to hide",
-        "default": "$129"
-      },
-      {
-        "id": "rating",
-        "type": "text",
-        "label": "Rating (Optional)",
-        "default": "4.9"
-      },
-      {
-        "id": "enrollment_count",
-        "type": "text",
-        "label": "Learners Count (Optional)",
-        "default": "2,480"
-      },
-      {
-        "id": "level",
-        "type": "text",
-        "label": "Level (Optional)",
-        "default": "Intermediate"
-      },
-      {
-        "id": "duration",
-        "type": "text",
-        "label": "Duration (Optional)",
-        "default": "12 Weeks"
-      },
-      {
-        "id": "has_cert",
-        "type": "checkbox",
-        "label": "Includes Certificate?",
-        "default": true
-      }
-    ]
+  "smartlearn_section": true,
+  "format_version": "1.0",
+  "meta": {
+    "name": "Course Enrollment CTA",
+    "category": "Call to Action",
+    "variant": "LMS specific",
+    "description": "A highly detailed, Moodle-specific transactional CTA designed to drive enrollment for a single course.",
+    "tags": [
+      "cta",
+      "marketing",
+      "call to action"
+    ],
+    "image_count": 1
   },
-  "template": "\n        <!-- Note: Real Moodle implementations would use PHP to inject 'user_enrolled', 'is_guest', etc. -->\n        <div class=\"sl-cta-course py-5 py-md-7 border-top border-bottom\" style=\"background-color: var(--sl-bg-body);\">\n            <div class=\"container\">\n                <div class=\"row justify-content-center\">\n                    <div class=\"col-lg-10 col-xl-8\">\n                        <div class=\"sl-course-cta-card rounded-4 p-4 p-md-5 d-flex flex-column flex-md-row align-items-center gap-4 bg-white shadow-sm border\" style=\"border-color: var(--sl-border-color) !important;\">\n                            \n                            {{#course_thumb}}\n                            <div class=\"sl-course-thumb rounded-3 overflow-hidden flex-shrink-0 mb-3 mb-md-0 shadow-sm\" style=\"width: 120px; height: 120px;\">\n                                <img src=\"{{course_thumb}}\" alt=\"{{course_title}}\" class=\"w-100 h-100 object-fit-cover\">\n                            </div>\n                            {{/course_thumb}}\n                            \n                            <div class=\"sl-course-info flex-grow-1 text-center text-md-start\">\n                                <h3 class=\"fs-3 fw-bold mb-2 text-dark\">{{course_title}}</h3>\n                                \n                                <div class=\"d-flex flex-wrap justify-content-center justify-content-md-start gap-2 gap-md-3 mb-3 text-muted small fw-medium align-items-center\">\n                                    {{#rating}}<span class=\"sl-meta-item text-warning\"><i class=\"fa fa-star me-1\"></i>{{rating}}</span>{{/rating}}\n                                    {{#enrollment_count}}<span class=\"sl-meta-item\"><i class=\"fa fa-users me-1 opacity-75\"></i>{{enrollment_count}} learners</span>{{/enrollment_count}}\n                                    {{#level}}<span class=\"sl-meta-item\"><i class=\"fa fa-signal me-1 opacity-75\"></i>{{level}}</span>{{/level}}\n                                    {{#duration}}<span class=\"sl-meta-item\"><i class=\"fa fa-clock-o me-1 opacity-75\"></i>{{duration}}</span>{{/duration}}\n                                </div>\n                                \n                                {{#has_cert}}\n                                <div class=\"sl-cert-badge d-inline-flex align-items-center px-3 py-1 rounded-pill small fw-semibold\" style=\"background-color: rgba(var(--sl-color-success-rgb), 0.1); color: var(--sl-color-success);\">\n                                    <i class=\"fa fa-certificate me-2\"></i> Certificate included\n                                </div>\n                                {{/has_cert}}\n                            </div>\n                            \n                            <div class=\"sl-course-action border-start-md ps-md-4 text-center d-flex flex-column align-items-center justify-content-center mt-3 mt-md-0\" style=\"min-width: 180px;\">\n                                {{#price}}<div class=\"fs-2 fw-black text-dark mb-3 lh-1\">{{price}}</div>{{/price}}\n                                \n                                <!-- State: Guest / Not enrolled -->\n                                <a href=\"/course/view.php?id={{course_id}}\" class=\"btn btn-primary btn-lg w-100 rounded-pill fw-bold shadow-sm sl-btn-primary\">Enroll Now</a>\n                                \n                                <!-- State: Enrolled (Hidden in preview, would be toggled via PHP/JS) -->\n                                <!-- <a href=\"/course/view.php?id={{course_id}}\" class=\"btn btn-success btn-lg w-100 rounded-pill fw-bold shadow-sm\"><i class=\"fa fa-play-circle me-2\"></i>Continue Course</a> -->\n                            </div>\n                        </div>\n                    </div>\n                </div>\n            </div>\n            \n            <style>\n                [data-bs-theme=\"dark\"] .sl-course-cta-card { background-color: var(--sl-bg-card) !important; }\n                [data-bs-theme=\"dark\"] .sl-course-cta-card h3, [data-bs-theme=\"dark\"] .sl-course-action .fs-2 { color: var(--sl-text-primary) !important; }\n                .sl-meta-item { display: inline-flex; align-items: center; }\n                .sl-meta-item:not(:last-child)::after { content: \"•\"; margin-left: 0.75rem; opacity: 0.3; }\n                \n                .sl-btn-primary { background-color: var(--sl-color-primary); border-color: var(--sl-color-primary); color: var(--sl-text-on-primary); transition: background-color 0.2s, transform 0.2s; }\n                .sl-btn-primary:hover { background-color: var(--sl-color-primary-hover); transform: translateY(-2px); }\n                \n                @media (max-width: 767.98px) {\n                    .border-start-md { border-left: none !important; }\n                    .sl-course-action { width: 100%; border-top: 1px solid var(--sl-border-color); padding-top: 1.5rem; }\n                    .sl-meta-item:not(:last-child)::after { display: none; }\n                    .sl-meta-item { border: 1px solid var(--sl-border-color); padding: 2px 8px; border-radius: 4px; }\n                }\n                @media (prefers-reduced-motion: reduce) {\n                    .sl-btn-primary { transition: none; transform: none !important; }\n                }\n            </style>\n        </div>\n    "
+  "html": "<!-- sl-section: cta_course_enrollment | v1.0 -->\n<div class=\"sl-cta-course py-5 py-md-7 border-top border-bottom sl-border sl-bg-main\">\n    <div class=\"container\">\n        <div class=\"row justify-content-center\">\n            <div class=\"col-lg-10 col-xl-8\">\n                <div class=\"sl-course-cta-card rounded-4 p-4 p-md-5 d-flex flex-column flex-md-row align-items-center gap-4 sl-bg-card shadow-sm border sl-border\">\n                    <div class=\"sl-course-thumb rounded-3 overflow-hidden flex-shrink-0 mb-3 mb-md-0 shadow-sm\" style=\"width: 120px; height: 120px;\">\n                        <img src=\"https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=300&q=80\" alt=\"Course Thumbnail\" class=\"w-100 h-100 object-fit-cover\">\n                    </div>\n                    \n                    <div class=\"sl-course-info flex-grow-1 text-center text-md-start\">\n                        <h3 class=\"fs-3 fw-bold mb-2 sl-text-emphasis\" data-sl-edit=\"text\">Python for Data Analysis</h3>\n                        <div class=\"d-flex flex-wrap justify-content-center justify-content-md-start gap-2 gap-md-3 mb-3 sl-text-muted small fw-medium align-items-center\">\n                            <span class=\"sl-meta-item text-warning\"><i class=\"fa fa-star me-1\"></i>4.9</span>\n                            <span class=\"sl-meta-item\"><i class=\"fa fa-users me-1 opacity-75\"></i>2,480 learners</span>\n                            <span class=\"sl-meta-item\"><i class=\"fa fa-signal me-1 opacity-75\"></i>Intermediate</span>\n                            <span class=\"sl-meta-item\"><i class=\"fa fa-clock-o me-1 opacity-75\"></i>12 Weeks</span>\n                        </div>\n                        <div class=\"sl-cert-badge d-inline-flex align-items-center px-3 py-1 rounded-pill small fw-semibold\" style=\"background-color: rgba(var(--sl-color-success-rgb, 40, 167, 69), 0.1); color: #28a745;\">\n                            <i class=\"fa fa-certificate me-2\"></i> Certificate included\n                        </div>\n                    </div>\n                    \n                    <div class=\"sl-course-action border-start-md ps-md-4 text-center d-flex flex-column align-items-center justify-content-center mt-3 mt-md-0 sl-border\" style=\"min-width: 180px;\">\n                        <div class=\"fs-2 fw-black sl-text-emphasis mb-3 lh-1\" data-sl-edit=\"text\">$129</div>\n                        <a href=\"/course/view.php?id=1\" class=\"btn btn-primary btn-lg w-100 rounded-pill fw-bold shadow-sm sl-btn-primary\" data-sl-edit=\"link\">Enroll Now</a>\n                    </div>\n                </div>\n            </div>\n        </div>\n    </div>\n</div>",
+  "css": "\n/* SmartLearn Native Color Classes */\n.sl-text-primary { color: var(--smartlearn-primary) !important; }\n.sl-text-emphasis { color: var(--smartlearn-text) !important; }\n.sl-text-muted { color: var(--smartlearn-text-muted) !important; }\n.sl-bg-main { background-color: var(--smartlearn-bg) !important; }\n.sl-bg-card { background-color: var(--smartlearn-card-bg) !important; border: 1px solid var(--smartlearn-card-border) !important; }\n.sl-bg-primary { background-color: var(--smartlearn-primary) !important; }\n.sl-btn-primary { background-color: var(--smartlearn-primary) !important; border-color: var(--smartlearn-primary) !important; color: #fff !important; transition: transform 0.3s ease, box-shadow 0.3s ease; }\n.sl-btn-primary:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.2) !important; filter: brightness(0.9); }\n\n.sl-meta-item { display: inline-flex; align-items: center; }\n.sl-meta-item:not(:last-child)::after { content: \"•\"; margin-left: 0.75rem; opacity: 0.3; }\n@media (max-width: 767.98px) {\n    .border-start-md { border-left: none !important; }\n    .sl-course-action { width: 100%; border-top: 1px solid var(--smartlearn-card-border); padding-top: 1.5rem; }\n    .sl-meta-item:not(:last-child)::after { display: none; }\n    .sl-meta-item { border: 1px solid var(--smartlearn-card-border); padding: 2px 8px; border-radius: 4px; }\n}\n",
+  "js": "(function() {})();"
 }

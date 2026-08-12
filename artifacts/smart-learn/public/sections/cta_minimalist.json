@@ -1,30 +1,19 @@
 {
-  "id": "cta_minimalist",
-  "name": "Minimalist Statement",
-  "category": "Call to Action",
-  "subcategory": "Typography",
-  "description": "Pure, distraction-free typography with a single button.",
-  "schema": {
-    "settings": [
-      {
-        "id": "statement",
-        "type": "textarea",
-        "label": "Statement",
-        "default": "Your next chapter starts here."
-      },
-      {
-        "id": "primary_cta_text",
-        "type": "text",
-        "label": "Button Text",
-        "default": "Explore Courses →"
-      },
-      {
-        "id": "primary_cta_url",
-        "type": "url",
-        "label": "Button Link",
-        "default": "#"
-      }
-    ]
+  "smartlearn_section": true,
+  "format_version": "1.0",
+  "meta": {
+    "name": "Minimalist Statement",
+    "category": "Call to Action",
+    "variant": "Typography",
+    "description": "Pure, distraction-free typography with a single button.",
+    "tags": [
+      "cta",
+      "marketing",
+      "call to action"
+    ],
+    "image_count": 0
   },
-  "template": "\n        <div class=\"sl-cta-minimal py-7 py-md-9 text-center\" style=\"background-color: var(--sl-bg-card);\">\n            <div class=\"container\">\n                <div class=\"row justify-content-center\">\n                    <div class=\"col-lg-8\">\n                        <h2 class=\"display-4 fw-black mb-5\" style=\"color: var(--sl-text-primary); letter-spacing: -0.03em;\">{{statement}}</h2>\n                        <a href=\"{{primary_cta_url}}\" class=\"sl-btn-minimal d-inline-block fw-bold fs-5 text-decoration-none\">\n                            {{primary_cta_text}}\n                            <span class=\"sl-btn-minimal-underline\"></span>\n                        </a>\n                    </div>\n                </div>\n            </div>\n            \n            <style>\n                .fw-black { font-weight: 900; }\n                .sl-btn-minimal {\n                    color: var(--sl-color-primary);\n                    position: relative;\n                    padding-bottom: 5px;\n                    transition: color 0.3s ease;\n                }\n                .sl-btn-minimal-underline {\n                    position: absolute;\n                    bottom: 0;\n                    left: 0;\n                    width: 100%;\n                    height: 2px;\n                    background-color: var(--sl-color-primary);\n                    transform-origin: right;\n                    transform: scaleX(0);\n                    transition: transform 0.3s ease;\n                }\n                .sl-btn-minimal:hover .sl-btn-minimal-underline {\n                    transform-origin: left;\n                    transform: scaleX(1);\n                }\n                .sl-btn-minimal:hover {\n                    color: var(--sl-color-primary-hover);\n                }\n                @media (prefers-reduced-motion: reduce) {\n                    .sl-btn-minimal-underline { transition: none; display: none; }\n                    .sl-btn-minimal:hover { text-decoration: underline !important; }\n                }\n            </style>\n        </div>\n    "
+  "html": "<!-- sl-section: cta_minimalist | v1.0 -->\n<div class=\"sl-cta-minimal py-7 py-md-9 text-center sl-bg-card\">\n    <div class=\"container\">\n        <div class=\"row justify-content-center\">\n            <div class=\"col-lg-8\">\n                <h2 class=\"display-4 fw-black mb-5 sl-text-primary\" style=\"letter-spacing: -0.03em; font-weight: 900;\" data-sl-edit=\"text\">Your next chapter starts here.</h2>\n                <a href=\"#\" class=\"sl-btn-minimal d-inline-block fw-bold fs-5 text-decoration-none\" data-sl-edit=\"link\">\n                    Explore Courses &rarr;\n                    <span class=\"sl-btn-minimal-underline\"></span>\n                </a>\n            </div>\n        </div>\n    </div>\n</div>",
+  "css": "\n/* SmartLearn Native Color Classes */\n.sl-text-primary { color: var(--smartlearn-primary) !important; }\n.sl-text-emphasis { color: var(--smartlearn-text) !important; }\n.sl-text-muted { color: var(--smartlearn-text-muted) !important; }\n.sl-bg-main { background-color: var(--smartlearn-bg) !important; }\n.sl-bg-card { background-color: var(--smartlearn-card-bg) !important; border: 1px solid var(--smartlearn-card-border) !important; }\n.sl-bg-primary { background-color: var(--smartlearn-primary) !important; }\n.sl-btn-primary { background-color: var(--smartlearn-primary) !important; border-color: var(--smartlearn-primary) !important; color: #fff !important; transition: transform 0.3s ease, box-shadow 0.3s ease; }\n.sl-btn-primary:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.2) !important; filter: brightness(0.9); }\n\n.sl-btn-minimal {\n    color: var(--smartlearn-primary);\n    position: relative;\n    padding-bottom: 5px;\n    transition: color 0.3s ease;\n}\n.sl-btn-minimal-underline {\n    position: absolute;\n    bottom: 0;\n    left: 0;\n    width: 100%;\n    height: 2px;\n    background-color: var(--smartlearn-primary);\n    transform-origin: right;\n    transform: scaleX(0);\n    transition: transform 0.3s ease;\n}\n.sl-btn-minimal:hover .sl-btn-minimal-underline {\n    transform-origin: left;\n    transform: scaleX(1);\n}\n.sl-btn-minimal:hover {\n    color: var(--smartlearn-primary);\n    filter: brightness(0.9);\n}\n@media (prefers-reduced-motion: reduce) {\n    .sl-btn-minimal-underline { transition: none; display: none; }\n    .sl-btn-minimal:hover { text-decoration: underline !important; }\n}\n",
+  "js": "(function() {})();"
 }

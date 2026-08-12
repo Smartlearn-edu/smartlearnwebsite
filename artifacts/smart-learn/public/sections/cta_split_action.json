@@ -1,60 +1,19 @@
 {
-  "id": "cta_split_action",
-  "name": "Split-Action",
-  "category": "Call to Action",
-  "subcategory": "Multi-Audience",
-  "description": "A 50/50 split layout designed for two distinct audiences or paths.",
-  "schema": {
-    "settings": [
-      {
-        "id": "left_heading",
-        "type": "text",
-        "label": "Left Heading",
-        "default": "For Students"
-      },
-      {
-        "id": "left_desc",
-        "type": "textarea",
-        "label": "Left Description",
-        "default": "Access world-class education from anywhere."
-      },
-      {
-        "id": "left_cta_text",
-        "type": "text",
-        "label": "Left Button Text",
-        "default": "Browse Courses"
-      },
-      {
-        "id": "left_cta_url",
-        "type": "url",
-        "label": "Left Button Link",
-        "default": "#"
-      },
-      {
-        "id": "right_heading",
-        "type": "text",
-        "label": "Right Heading",
-        "default": "For Instructors"
-      },
-      {
-        "id": "right_desc",
-        "type": "textarea",
-        "label": "Right Description",
-        "default": "Share your knowledge and reach millions."
-      },
-      {
-        "id": "right_cta_text",
-        "type": "text",
-        "label": "Right Button Text",
-        "default": "Start Teaching"
-      },
-      {
-        "id": "right_cta_url",
-        "type": "url",
-        "label": "Right Button Link",
-        "default": "#"
-      }
-    ]
+  "smartlearn_section": true,
+  "format_version": "1.0",
+  "meta": {
+    "name": "Split-Action",
+    "category": "Call to Action",
+    "variant": "Multi-Audience",
+    "description": "A 50/50 split layout designed for two distinct audiences or paths.",
+    "tags": [
+      "cta",
+      "marketing",
+      "call to action"
+    ],
+    "image_count": 0
   },
-  "template": "\n        <div class=\"sl-cta-split container-fluid px-0\">\n            <div class=\"row g-0\">\n                <div class=\"col-md-6 sl-split-pane p-5 p-md-7 text-center text-md-end d-flex flex-column justify-content-center align-items-center align-items-md-end\" style=\"background-color: var(--sl-bg-card); border-right: 1px solid var(--sl-border-color);\">\n                    <div class=\"max-w-md w-100\">\n                        <h3 class=\"display-6 fw-bold mb-3\" style=\"color: var(--sl-text-primary);\">{{left_heading}}</h3>\n                        {{#left_desc}}<p class=\"lead mb-4\" style=\"color: var(--sl-text-secondary);\">{{left_desc}}</p>{{/left_desc}}\n                        <a href=\"{{left_cta_url}}\" class=\"btn btn-outline-primary btn-lg rounded-pill px-5 sl-btn-outline\">{{left_cta_text}}</a>\n                    </div>\n                </div>\n                <div class=\"col-md-6 sl-split-pane p-5 p-md-7 text-center text-md-start d-flex flex-column justify-content-center align-items-center align-items-md-start\" style=\"background-color: var(--sl-bg-primary);\">\n                    <div class=\"max-w-md w-100\">\n                        <h3 class=\"display-6 fw-bold mb-3\" style=\"color: var(--sl-text-on-primary);\">{{right_heading}}</h3>\n                        {{#right_desc}}<p class=\"lead mb-4 text-white-50\">{{right_desc}}</p>{{/right_desc}}\n                        <a href=\"{{right_cta_url}}\" class=\"btn btn-light btn-lg rounded-pill px-5 sl-btn-solid\">{{right_cta_text}}</a>\n                    </div>\n                </div>\n            </div>\n            \n            <style>\n                .sl-cta-split .max-w-md { max-width: 400px; }\n                .sl-btn-outline {\n                    color: var(--sl-color-primary);\n                    border-color: var(--sl-color-primary);\n                    transition: all 0.3s ease;\n                }\n                .sl-btn-outline:hover {\n                    background-color: var(--sl-color-primary);\n                    color: var(--sl-text-on-primary);\n                }\n                .sl-btn-solid {\n                    color: var(--sl-text-on-primary);\n                    background-color: transparent;\n                    border: 2px solid rgba(255,255,255,0.3);\n                    transition: all 0.3s ease;\n                }\n                .sl-btn-solid:hover {\n                    background-color: var(--sl-text-on-primary);\n                    color: var(--sl-color-primary);\n                    border-color: var(--sl-text-on-primary);\n                }\n                @media (max-width: 767.98px) {\n                    .sl-cta-split .sl-split-pane { border-right: none !important; border-bottom: 1px solid var(--sl-border-color); }\n                }\n            </style>\n        </div>\n    "
+  "html": "<!-- sl-section: cta_split_action | v1.0 -->\n<div class=\"sl-cta-split container-fluid px-0\">\n    <div class=\"row g-0\">\n        <div class=\"col-md-6 sl-split-pane p-5 p-md-7 text-center text-md-end d-flex flex-column justify-content-center align-items-center align-items-md-end sl-bg-card\" style=\"border-right: 1px solid var(--smartlearn-card-border);\">\n            <div class=\"w-100\" style=\"max-width: 400px;\">\n                <h3 class=\"display-6 fw-bold mb-3 sl-text-primary\" data-sl-edit=\"text\">For Students</h3>\n                <p class=\"lead mb-4 sl-text-muted\" data-sl-edit=\"text\">Access world-class education from anywhere.</p>\n                <a href=\"#\" class=\"btn btn-outline-primary btn-lg rounded-pill px-5 sl-btn-outline\" data-sl-edit=\"link\">Browse Courses</a>\n            </div>\n        </div>\n        <div class=\"col-md-6 sl-split-pane p-5 p-md-7 text-center text-md-start d-flex flex-column justify-content-center align-items-center align-items-md-start sl-bg-primary\">\n            <div class=\"w-100\" style=\"max-width: 400px;\">\n                <h3 class=\"display-6 fw-bold mb-3 text-white\" data-sl-edit=\"text\">For Instructors</h3>\n                <p class=\"lead mb-4 text-white-50\" data-sl-edit=\"text\">Share your knowledge and reach millions.</p>\n                <a href=\"#\" class=\"btn btn-light btn-lg rounded-pill px-5 sl-btn-solid text-primary\" data-sl-edit=\"link\">Start Teaching</a>\n            </div>\n        </div>\n    </div>\n</div>",
+  "css": "\n/* SmartLearn Native Color Classes */\n.sl-text-primary { color: var(--smartlearn-primary) !important; }\n.sl-text-emphasis { color: var(--smartlearn-text) !important; }\n.sl-text-muted { color: var(--smartlearn-text-muted) !important; }\n.sl-bg-main { background-color: var(--smartlearn-bg) !important; }\n.sl-bg-card { background-color: var(--smartlearn-card-bg) !important; border: 1px solid var(--smartlearn-card-border) !important; }\n.sl-bg-primary { background-color: var(--smartlearn-primary) !important; }\n.sl-btn-primary { background-color: var(--smartlearn-primary) !important; border-color: var(--smartlearn-primary) !important; color: #fff !important; transition: transform 0.3s ease, box-shadow 0.3s ease; }\n.sl-btn-primary:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.2) !important; filter: brightness(0.9); }\n\n.sl-btn-outline {\n    color: var(--smartlearn-primary);\n    border-color: var(--smartlearn-primary);\n    transition: all 0.3s ease;\n}\n.sl-btn-outline:hover {\n    background-color: var(--smartlearn-primary);\n    color: #fff;\n}\n.sl-btn-solid {\n    background-color: #fff;\n    border: 2px solid #fff;\n    transition: all 0.3s ease;\n}\n.sl-btn-solid:hover {\n    background-color: transparent;\n    color: #fff !important;\n}\n@media (max-width: 767.98px) {\n    .sl-cta-split .sl-split-pane { border-right: none !important; border-bottom: 1px solid var(--smartlearn-card-border); }\n}\n",
+  "js": "(function() {})();"
 }
