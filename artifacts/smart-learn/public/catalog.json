@@ -1,9 +1,1417 @@
-[
-  {
-    "id": "catalog_dynamic_integration",
-    "name": "Smart Catalog Dynamic",
-    "category": "Courses & Categories",
-    "image": "https://images.unsplash.com/photo-1516321497487-e288fb19713f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-    "smartlearn_section": true
-  }
-]
+{
+  "version": "1.0",
+  "updated": "2026-08-12",
+  "sections": [
+    {
+      "id": "article-immersive-reader",
+      "name": "Immersive Reader",
+      "category": "Article",
+      "variant": "Long-form",
+      "description": "A distraction-free, narrow column layout optimized for long-form reading with a reading progress bar.",
+      "tags": [
+        "article",
+        "reading",
+        "long-form",
+        "typography",
+        "clean"
+      ],
+      "image_count": 0,
+      "preview_image": "",
+      "download_url": "/sections/article-immersive-reader.json",
+      "is_premium": true,
+      "is_new": true,
+      "popularity": 76
+    },
+    {
+      "id": "article-editorial-split",
+      "name": "Editorial Split",
+      "category": "Article",
+      "variant": "Storytelling",
+      "description": "A 50/50 split screen on desktop. Sticky image on one side, scrolling text on the other. Gracefully handles missing images.",
+      "tags": [
+        "article",
+        "split",
+        "editorial",
+        "storytelling",
+        "sticky"
+      ],
+      "image_count": 1,
+      "preview_image": "",
+      "download_url": "/sections/article-editorial-split.json",
+      "is_premium": true,
+      "is_new": true,
+      "popularity": 87
+    },
+    {
+      "id": "article-chaptered-scroll",
+      "name": "Chaptered Scroll",
+      "category": "Article",
+      "variant": "Documentation",
+      "description": "Long-form layout featuring a sticky sidebar Table of Contents with scroll-spy functionality.",
+      "tags": [
+        "article",
+        "chapters",
+        "toc",
+        "documentation",
+        "policies"
+      ],
+      "image_count": 0,
+      "preview_image": "",
+      "download_url": "/sections/article-chaptered-scroll.json",
+      "is_premium": true,
+      "is_new": true,
+      "popularity": 95
+    },
+    {
+      "id": "article-media-intersect",
+      "name": "Media Intersect",
+      "category": "Article",
+      "variant": "Visual Editorial",
+      "description": "Stunning visual layout where text blocks overlay background images using a glassmorphism effect.",
+      "tags": [
+        "article",
+        "visual",
+        "media",
+        "glass",
+        "intersect"
+      ],
+      "image_count": 2,
+      "preview_image": "",
+      "download_url": "/sections/article-media-intersect.json",
+      "is_premium": true,
+      "is_new": true,
+      "popularity": 62
+    },
+    {
+      "id": "article-statement-block",
+      "name": "Statement Block",
+      "category": "Article",
+      "variant": "Impactful",
+      "description": "A minimalist section featuring massive typography for mission statements or key stats, supported by a subtle background.",
+      "tags": [
+        "article",
+        "statement",
+        "quote",
+        "typography",
+        "impact"
+      ],
+      "image_count": 0,
+      "preview_image": "",
+      "download_url": "/sections/article-statement-block.json",
+      "is_premium": true,
+      "is_new": true,
+      "popularity": 77
+    },
+    {
+      "id": "article-grid-story",
+      "name": "Grid Story",
+      "category": "Article",
+      "variant": "Magazine",
+      "description": "A dynamic masonry-style CSS grid layout for news, case studies, or multi-topic overviews.",
+      "tags": [
+        "article",
+        "grid",
+        "magazine",
+        "news",
+        "story"
+      ],
+      "image_count": 3,
+      "preview_image": "",
+      "download_url": "/sections/article-grid-story.json",
+      "is_premium": true,
+      "is_new": true,
+      "popularity": 98
+    },
+    {
+      "id": "article-dual-column",
+      "name": "Dual Column Academic",
+      "category": "Article",
+      "variant": "Academic",
+      "description": "A classic, authoritative two-column text layout designed for formal university updates or research papers.",
+      "tags": [
+        "article",
+        "academic",
+        "columns",
+        "research",
+        "formal"
+      ],
+      "image_count": 0,
+      "preview_image": "",
+      "download_url": "/sections/article-dual-column.json",
+      "is_premium": true,
+      "is_new": true,
+      "popularity": 59
+    },
+    {
+      "id": "article-step-by-step",
+      "name": "Visual Step-by-Step",
+      "category": "Article",
+      "variant": "Tutorial",
+      "description": "Interactive tutorial layout where clicking a step reveals related media. Ideal for processes and how-tos.",
+      "tags": [
+        "article",
+        "steps",
+        "tutorial",
+        "process",
+        "interactive"
+      ],
+      "image_count": 4,
+      "preview_image": "",
+      "download_url": "/sections/article-step-by-step.json",
+      "is_premium": true,
+      "is_new": true,
+      "popularity": 70
+    },
+    {
+      "id": "article-course-story",
+      "name": "Course Story / Case Study",
+      "category": "Article",
+      "variant": "Moodle Specific",
+      "description": "Educational storytelling layout featuring course metadata and a breakdown of outcomes alongside large course media.",
+      "tags": [
+        "article",
+        "course",
+        "case study",
+        "learning",
+        "moodle"
+      ],
+      "image_count": 1,
+      "preview_image": "",
+      "download_url": "/sections/article-course-story.json",
+      "is_premium": true,
+      "is_new": true,
+      "popularity": 65
+    },
+    {
+      "id": "contact-hub",
+      "name": "Contact Hub",
+      "category": "Contact",
+      "variant": "Hub",
+      "description": "A comprehensive contact section with multiple contact methods and a quick form.",
+      "tags": [
+        "contact",
+        "form",
+        "hub",
+        "support"
+      ],
+      "image_count": 0,
+      "preview_image": "",
+      "download_url": "/sections/contact-hub.json",
+      "is_premium": false,
+      "is_new": true,
+      "popularity": 75
+    },
+    {
+      "id": "contact-split",
+      "name": "Contact Split Screen",
+      "category": "Contact",
+      "variant": "Split",
+      "description": "A classic 50/50 split layout with contact info on the left and a form on the right.",
+      "tags": [
+        "contact",
+        "split",
+        "form"
+      ],
+      "image_count": 0,
+      "preview_image": "",
+      "download_url": "/sections/contact-split.json",
+      "is_premium": false,
+      "is_new": true,
+      "popularity": 78
+    },
+    {
+      "id": "contact-minimal",
+      "name": "Contact Minimal Grid",
+      "category": "Contact",
+      "variant": "Minimal",
+      "description": "A clean, simple 3-column layout highlighting key contact methods without a form.",
+      "tags": [
+        "contact",
+        "minimal",
+        "grid"
+      ],
+      "image_count": 0,
+      "preview_image": "",
+      "download_url": "/sections/contact-minimal.json",
+      "is_premium": false,
+      "is_new": true,
+      "popularity": 74
+    },
+    {
+      "id": "contact-map",
+      "name": "Contact Map Glass",
+      "category": "Contact",
+      "variant": "Map",
+      "description": "A premium layout featuring a full-width background map and a floating frosted glass contact card.",
+      "tags": [
+        "contact",
+        "map",
+        "glassmorphism",
+        "form"
+      ],
+      "image_count": 0,
+      "preview_image": "",
+      "download_url": "/sections/contact-map.json",
+      "is_premium": false,
+      "is_new": true,
+      "popularity": 91
+    },
+    {
+      "id": "contact-image",
+      "name": "Contact Image Split",
+      "category": "Contact",
+      "variant": "Image Split",
+      "description": "A 50/50 layout with a beautiful full-height image on one side and a form on the other.",
+      "tags": [
+        "contact",
+        "image",
+        "split",
+        "form"
+      ],
+      "image_count": 1,
+      "preview_image": "",
+      "download_url": "/sections/contact-image.json",
+      "is_premium": false,
+      "is_new": true,
+      "popularity": 92
+    },
+    {
+      "id": "course-classic-grid",
+      "name": "Classic Course Grid",
+      "category": "Courses & Categories",
+      "variant": "Grid",
+      "description": "A dependable 3 or 4-column grid of course cards elevated with subtle hover shadows, badge tags, and beautiful instructor avatars.",
+      "tags": [
+        "courses",
+        "grid",
+        "catalog",
+        "premium"
+      ],
+      "image_count": 3,
+      "preview_image": "",
+      "download_url": "/sections/course-classic-grid.json",
+      "is_premium": true,
+      "is_new": true,
+      "popularity": 72
+    },
+    {
+      "id": "course-cinematic-carousel",
+      "name": "Cinematic Carousel",
+      "category": "Courses & Categories",
+      "variant": "Slider",
+      "description": "A horizontal, swipeable slider of featured courses. Features large visuals and drag/swipe interactions.",
+      "tags": [
+        "courses",
+        "carousel",
+        "slider",
+        "featured",
+        "cinematic"
+      ],
+      "image_count": 4,
+      "preview_image": "",
+      "download_url": "/sections/course-cinematic-carousel.json",
+      "is_premium": true,
+      "is_new": true,
+      "popularity": 97
+    },
+    {
+      "id": "course-filterable-explorer",
+      "name": "Filterable Explorer",
+      "category": "Courses & Categories",
+      "variant": "Gallery",
+      "description": "A powerful grid with interactive category tabs, allowing users to filter large catalogs instantly.",
+      "tags": [
+        "courses",
+        "filter",
+        "tabs",
+        "catalog",
+        "gallery"
+      ],
+      "image_count": 4,
+      "preview_image": "",
+      "download_url": "/sections/course-filterable-explorer.json",
+      "is_premium": true,
+      "is_new": true,
+      "popularity": 84
+    },
+    {
+      "id": "course-bento-flagship",
+      "name": "Bento Flagship",
+      "category": "Courses & Categories",
+      "variant": "Bento Grid",
+      "description": "One massive \"Hero Course\" taking up the left side, surrounded by smaller trending courses on the right.",
+      "tags": [
+        "courses",
+        "bento",
+        "grid",
+        "featured",
+        "flagship"
+      ],
+      "image_count": 5,
+      "preview_image": "",
+      "download_url": "/sections/course-bento-flagship.json",
+      "is_premium": true,
+      "is_new": true,
+      "popularity": 74
+    },
+    {
+      "id": "course-professional-list",
+      "name": "Professional Catalog / List",
+      "category": "Courses & Categories",
+      "variant": "List",
+      "description": "A compact, directory-style list (rows instead of cards) for universities or corporate LMS installations with massive catalogs.",
+      "tags": [
+        "courses",
+        "list",
+        "catalog",
+        "directory",
+        "corporate"
+      ],
+      "image_count": 0,
+      "preview_image": "",
+      "download_url": "/sections/course-professional-list.json",
+      "is_premium": true,
+      "is_new": true,
+      "popularity": 78
+    },
+    {
+      "id": "course-continue-learning",
+      "name": "Continue Learning",
+      "category": "Courses & Categories",
+      "variant": "Dashboard",
+      "description": "A personalized dashboard-style section showing the student’s current progress and recently accessed materials.",
+      "tags": [
+        "courses",
+        "dashboard",
+        "progress",
+        "logged-in",
+        "continue"
+      ],
+      "image_count": 2,
+      "preview_image": "",
+      "download_url": "/sections/course-continue-learning.json",
+      "is_premium": true,
+      "is_new": true,
+      "popularity": 75
+    },
+    {
+      "id": "course-learning-paths",
+      "name": "Learning Paths / Programs",
+      "category": "Courses & Categories",
+      "variant": "Path",
+      "description": "Showcases multi-course structures displaying a connected journey rather than isolated courses.",
+      "tags": [
+        "courses",
+        "programs",
+        "learning path",
+        "journey",
+        "timeline"
+      ],
+      "image_count": 0,
+      "preview_image": "",
+      "download_url": "/sections/course-learning-paths.json",
+      "is_premium": true,
+      "is_new": true,
+      "popularity": 94
+    },
+    {
+      "id": "category-visual-explorer",
+      "name": "Visual Category Explorer",
+      "category": "Courses & Categories",
+      "variant": "Grid",
+      "description": "A sleek grid of rich category cards featuring subtle image backgrounds and glassmorphism.",
+      "tags": [
+        "categories",
+        "grid",
+        "visual",
+        "glassmorphism"
+      ],
+      "image_count": 4,
+      "preview_image": "",
+      "download_url": "/sections/category-visual-explorer.json",
+      "is_premium": true,
+      "is_new": true,
+      "popularity": 69
+    },
+    {
+      "id": "category-split-story",
+      "name": "Category Split-Story",
+      "category": "Courses & Categories",
+      "variant": "Split Interactive",
+      "description": "A large, sticky image on the left. On the right, a vertical list of categories. Hovering or clicking a category dynamically updates the image and details.",
+      "tags": [
+        "categories",
+        "interactive",
+        "split",
+        "story",
+        "hover"
+      ],
+      "image_count": 4,
+      "preview_image": "",
+      "download_url": "/sections/category-split-story.json",
+      "is_premium": true,
+      "is_new": true,
+      "popularity": 85
+    },
+    {
+      "id": "category-typography",
+      "name": "Typography Explorer",
+      "category": "Courses & Categories",
+      "variant": "Editorial",
+      "description": "A purely text-driven editorial layout featuring massive, bold numbered category names with hover reveals.",
+      "tags": [
+        "categories",
+        "typography",
+        "editorial",
+        "minimal"
+      ],
+      "image_count": 5,
+      "preview_image": "",
+      "download_url": "/sections/category-typography.json",
+      "is_premium": true,
+      "is_new": true,
+      "popularity": 91
+    },
+    {
+      "id": "cta_immersive_hero",
+      "name": "Immersive Hero CTA",
+      "category": "Call to Action",
+      "variant": "High-Impact",
+      "description": "Full-bleed background with integrated cinematic CTA.",
+      "tags": [
+        "cta",
+        "marketing",
+        "call to action"
+      ],
+      "image_count": 1,
+      "preview_image": "",
+      "download_url": "/sections/cta_immersive_hero.json",
+      "is_premium": true,
+      "is_new": true,
+      "popularity": 58
+    },
+    {
+      "id": "cta_glass_banner",
+      "name": "Glassmorphism Banner",
+      "category": "Call to Action",
+      "variant": "Premium",
+      "description": "A compact floating glass card over a gradient background.",
+      "tags": [
+        "cta",
+        "marketing",
+        "call to action"
+      ],
+      "image_count": 0,
+      "preview_image": "",
+      "download_url": "/sections/cta_glass_banner.json",
+      "is_premium": true,
+      "is_new": true,
+      "popularity": 58
+    },
+    {
+      "id": "cta_minimalist",
+      "name": "Minimalist Statement",
+      "category": "Call to Action",
+      "variant": "Typography",
+      "description": "Pure, distraction-free typography with a single button.",
+      "tags": [
+        "cta",
+        "marketing",
+        "call to action"
+      ],
+      "image_count": 0,
+      "preview_image": "",
+      "download_url": "/sections/cta_minimalist.json",
+      "is_premium": true,
+      "is_new": true,
+      "popularity": 67
+    },
+    {
+      "id": "cta_split_action",
+      "name": "Split-Action",
+      "category": "Call to Action",
+      "variant": "Multi-Audience",
+      "description": "A 50/50 split layout designed for two distinct audiences or paths.",
+      "tags": [
+        "cta",
+        "marketing",
+        "call to action"
+      ],
+      "image_count": 0,
+      "preview_image": "",
+      "download_url": "/sections/cta_split_action.json",
+      "is_premium": true,
+      "is_new": true,
+      "popularity": 60
+    },
+    {
+      "id": "cta_bento_grid",
+      "name": "Bento Action Grid",
+      "category": "Call to Action",
+      "variant": "Multi-Action",
+      "description": "An asymmetrical grid highlighting a primary action and supporting secondary actions.",
+      "tags": [
+        "cta",
+        "marketing",
+        "call to action"
+      ],
+      "image_count": 0,
+      "preview_image": "",
+      "download_url": "/sections/cta_bento_grid.json",
+      "is_premium": true,
+      "is_new": true,
+      "popularity": 82
+    },
+    {
+      "id": "cta_app_download",
+      "name": "App Store Download",
+      "category": "Call to Action",
+      "variant": "Mobile Conversion",
+      "description": "A modular section designed to drive mobile app installs.",
+      "tags": [
+        "cta",
+        "marketing",
+        "call to action"
+      ],
+      "image_count": 1,
+      "preview_image": "",
+      "download_url": "/sections/cta_app_download.json",
+      "is_premium": true,
+      "is_new": true,
+      "popularity": 86
+    },
+    {
+      "id": "cta_course_enrollment",
+      "name": "Course Enrollment CTA",
+      "category": "Call to Action",
+      "variant": "LMS specific",
+      "description": "A highly detailed, Moodle-specific transactional CTA designed to drive enrollment for a single course.",
+      "tags": [
+        "cta",
+        "marketing",
+        "call to action"
+      ],
+      "image_count": 1,
+      "preview_image": "",
+      "download_url": "/sections/cta_course_enrollment.json",
+      "is_premium": true,
+      "is_new": true,
+      "popularity": 58
+    },
+    {
+      "id": "cta_dynamic_floating",
+      "name": "Dynamic Floating Elements",
+      "category": "Call to Action",
+      "variant": "Community",
+      "description": "Visually engaging community-focused layout with floating meaningful LMS elements.",
+      "tags": [
+        "cta",
+        "marketing",
+        "call to action"
+      ],
+      "image_count": 3,
+      "preview_image": "",
+      "download_url": "/sections/cta_dynamic_floating.json",
+      "is_premium": true,
+      "is_new": true,
+      "popularity": 90
+    },
+    {
+      "id": "feature-bento",
+      "name": "Asymmetrical Bento",
+      "category": "Features",
+      "variant": "Bento Grid",
+      "description": "A trendy bento grid using LMS UI fragments and media to showcase features like AI, Analytics, and Grading.",
+      "tags": [
+        "feature",
+        "bento",
+        "grid",
+        "modern",
+        "lms"
+      ],
+      "image_count": 3,
+      "preview_image": "",
+      "download_url": "/sections/feature-bento.json",
+      "is_premium": false,
+      "is_new": true,
+      "popularity": 56
+    },
+    {
+      "id": "feature-interactive-tabs",
+      "name": "Interactive Tab Reveal",
+      "category": "Features",
+      "variant": "Tabs",
+      "description": "SaaS-style vertical tabs that swap out a large media showcase when clicked or tapped.",
+      "tags": [
+        "feature",
+        "tabs",
+        "interactive",
+        "saas",
+        "media"
+      ],
+      "image_count": 3,
+      "preview_image": "",
+      "download_url": "/sections/feature-interactive-tabs.json",
+      "is_premium": false,
+      "is_new": true,
+      "popularity": 80
+    },
+    {
+      "id": "feature-interactive-panels",
+      "name": "Interactive Panels",
+      "category": "Features",
+      "variant": "Accordion",
+      "description": "Immersive vertical panels that expand fluidly to reveal media on click/tap/hover.",
+      "tags": [
+        "feature",
+        "panels",
+        "accordion",
+        "expand",
+        "immersive"
+      ],
+      "image_count": 4,
+      "preview_image": "",
+      "download_url": "/sections/feature-interactive-panels.json",
+      "is_premium": false,
+      "is_new": true,
+      "popularity": 81
+    },
+    {
+      "id": "feature-premium-grid",
+      "name": "Classic Premium Grid",
+      "category": "Features",
+      "variant": "Grid",
+      "description": "A polished 3x2 grid of elevated cards containing media and descriptions. Perfect for corporate/university sites.",
+      "tags": [
+        "feature",
+        "grid",
+        "classic",
+        "institutional",
+        "premium"
+      ],
+      "image_count": 6,
+      "preview_image": "",
+      "download_url": "/sections/feature-premium-grid.json",
+      "is_premium": false,
+      "is_new": true,
+      "popularity": 53
+    },
+    {
+      "id": "feature-sticky-split",
+      "name": "Sticky Split-Scroll",
+      "category": "Features",
+      "variant": "Split",
+      "description": "Storytelling layout. Sticky heading on the left, scrolling media feature cards on the right.",
+      "tags": [
+        "feature",
+        "split",
+        "sticky",
+        "scroll",
+        "marketing"
+      ],
+      "image_count": 3,
+      "preview_image": "",
+      "download_url": "/sections/feature-sticky-split.json",
+      "is_premium": false,
+      "is_new": true,
+      "popularity": 79
+    },
+    {
+      "id": "feature-central-hub",
+      "name": "3D Central Hub",
+      "category": "Features",
+      "variant": "Dynamic Orbit",
+      "description": "A highly visual section featuring orbiting nodes around a central LMS graphic.",
+      "tags": [
+        "feature",
+        "orbit",
+        "3d",
+        "dynamic",
+        "hub"
+      ],
+      "image_count": 5,
+      "preview_image": "",
+      "download_url": "/sections/feature-central-hub.json",
+      "is_premium": false,
+      "is_new": true,
+      "popularity": 71
+    },
+    {
+      "id": "feature-typography-media",
+      "name": "Minimalist Typography",
+      "category": "Features",
+      "variant": "Editorial",
+      "description": "Massive typography with hairline dividers. Hovering reveals contextual media.",
+      "tags": [
+        "feature",
+        "typography",
+        "minimalist",
+        "editorial",
+        "media"
+      ],
+      "image_count": 4,
+      "preview_image": "",
+      "download_url": "/sections/feature-typography-media.json",
+      "is_premium": false,
+      "is_new": true,
+      "popularity": 92
+    },
+    {
+      "id": "feature-learning-journey",
+      "name": "Learning Journey",
+      "category": "Features",
+      "variant": "Curriculum Timeline",
+      "description": "Features presented as a connected LMS journey from discovery to certification.",
+      "tags": [
+        "feature",
+        "timeline",
+        "journey",
+        "process",
+        "curriculum"
+      ],
+      "image_count": 4,
+      "preview_image": "",
+      "download_url": "/sections/feature-learning-journey.json",
+      "is_premium": false,
+      "is_new": true,
+      "popularity": 67
+    },
+    {
+      "id": "feature-dashboard-showcase",
+      "name": "Dashboard Showcase",
+      "category": "Features",
+      "variant": "Product Mockup",
+      "description": "A massive visual showcase of the actual student dashboard UI.",
+      "tags": [
+        "feature",
+        "dashboard",
+        "showcase",
+        "mockup",
+        "moodle"
+      ],
+      "image_count": 1,
+      "preview_image": "",
+      "download_url": "/sections/feature-dashboard-showcase.json",
+      "is_premium": false,
+      "is_new": true,
+      "popularity": 74
+    },
+    {
+      "id": "footer-academic",
+      "name": "Classic Academic",
+      "category": "Footer",
+      "variant": "Institutional",
+      "description": "A sophisticated multi-column footer with traditional navigation suitable for universities and schools.",
+      "tags": [
+        "footer",
+        "academic",
+        "institutional",
+        "columns"
+      ],
+      "image_count": 0,
+      "preview_image": "",
+      "download_url": "/sections/footer-academic.json",
+      "is_premium": false,
+      "is_new": true,
+      "popularity": 97
+    },
+    {
+      "id": "footer-minimal",
+      "name": "Minimal Footer",
+      "category": "Footer",
+      "variant": "Institutional",
+      "description": "Clean, distraction-free footer with massive whitespace and elegant typography.",
+      "tags": [
+        "footer",
+        "minimal",
+        "clean",
+        "centered"
+      ],
+      "image_count": 0,
+      "preview_image": "",
+      "download_url": "/sections/footer-minimal.json",
+      "is_premium": false,
+      "is_new": true,
+      "popularity": 87
+    },
+    {
+      "id": "footer-mega",
+      "name": "Mega Footer",
+      "category": "Footer",
+      "variant": "Institutional",
+      "description": "Massive footer acting as a secondary category navigation system for large Moodle sites.",
+      "tags": [
+        "footer",
+        "mega",
+        "corporate",
+        "large",
+        "categories"
+      ],
+      "image_count": 0,
+      "preview_image": "",
+      "download_url": "/sections/footer-mega.json",
+      "is_premium": false,
+      "is_new": true,
+      "popularity": 92
+    },
+    {
+      "id": "footer-modern-signature",
+      "name": "Modern Signature",
+      "category": "Footer",
+      "variant": "Marketing",
+      "description": "The flagship \"wow\" footer. Animated visual composition, sophisticated navigation, and premium interactions.",
+      "tags": [
+        "footer",
+        "modern",
+        "signature",
+        "premium",
+        "animated"
+      ],
+      "image_count": 0,
+      "preview_image": "",
+      "download_url": "/sections/footer-modern-signature.json",
+      "is_premium": false,
+      "is_new": true,
+      "popularity": 63
+    },
+    {
+      "id": "footer-cta",
+      "name": "CTA Footer",
+      "category": "Footer",
+      "variant": "Marketing",
+      "description": "Conversion footer. Deliberately simple standard navigation overshadowed by a massive CTA element.",
+      "tags": [
+        "footer",
+        "cta",
+        "conversion",
+        "marketing"
+      ],
+      "image_count": 0,
+      "preview_image": "",
+      "download_url": "/sections/footer-cta.json",
+      "is_premium": false,
+      "is_new": true,
+      "popularity": 51
+    },
+    {
+      "id": "footer-glass",
+      "name": "Glass Footer",
+      "category": "Footer",
+      "variant": "Modern",
+      "description": "Immersive floating glassmorphism container over a glowing background. Ideal for creative academies.",
+      "tags": [
+        "footer",
+        "glass",
+        "glassmorphism",
+        "floating"
+      ],
+      "image_count": 0,
+      "preview_image": "",
+      "download_url": "/sections/footer-glass.json",
+      "is_premium": false,
+      "is_new": true,
+      "popularity": 54
+    },
+    {
+      "id": "footer-bento",
+      "name": "Bento Footer",
+      "category": "Footer",
+      "variant": "Modern",
+      "description": "A spatial grid layout dividing footer content into distinct bento-style cards.",
+      "tags": [
+        "footer",
+        "bento",
+        "grid",
+        "modern"
+      ],
+      "image_count": 0,
+      "preview_image": "",
+      "download_url": "/sections/footer-bento.json",
+      "is_premium": false,
+      "is_new": true,
+      "popularity": 66
+    },
+    {
+      "id": "footer-support",
+      "name": "Contact & Support",
+      "category": "Footer",
+      "variant": "LMS",
+      "description": "Help-first navigation focusing on technical support, FAQ, and operating hours.",
+      "tags": [
+        "footer",
+        "support",
+        "help",
+        "contact",
+        "lms"
+      ],
+      "image_count": 0,
+      "preview_image": "",
+      "download_url": "/sections/footer-support.json",
+      "is_premium": false,
+      "is_new": true,
+      "popularity": 75
+    },
+    {
+      "id": "footer-student-app",
+      "name": "App & Student utility",
+      "category": "Footer",
+      "variant": "LMS",
+      "description": "Modular footer featuring App Store downloads, selectors, and quick-access student links.",
+      "tags": [
+        "footer",
+        "app",
+        "student",
+        "lms",
+        "utility"
+      ],
+      "image_count": 0,
+      "preview_image": "",
+      "download_url": "/sections/footer-student-app.json",
+      "is_premium": false,
+      "is_new": true,
+      "popularity": 86
+    },
+    {
+      "id": "hero-video-gallery",
+      "name": "Video Gallery Hero",
+      "category": "Hero",
+      "variant": "Video Platform",
+      "description": "A comprehensive hero section featuring a multi-video gallery player, text content, and feature highlights at the bottom.",
+      "tags": [
+        "hero",
+        "video",
+        "gallery",
+        "features",
+        "modern"
+      ],
+      "image_count": 5,
+      "preview_image": "",
+      "download_url": "/sections/hero-video-gallery.json",
+      "is_premium": false,
+      "is_new": true,
+      "popularity": 53
+    },
+    {
+      "id": "hero-modern-ivy",
+      "name": "Modern Ivy Hero",
+      "category": "Hero",
+      "variant": "Ivy",
+      "description": "Premium editorial layout with serif typography and masonry image collage for executive education.",
+      "tags": [
+        "hero",
+        "ivy",
+        "editorial",
+        "premium",
+        "university"
+      ],
+      "image_count": 3,
+      "preview_image": "",
+      "download_url": "/sections/hero-modern-ivy.json",
+      "is_premium": false,
+      "is_new": true,
+      "popularity": 84
+    },
+    {
+      "id": "hero-tech-bootcamp",
+      "name": "Tech Bootcamp Hero",
+      "category": "Hero",
+      "variant": "Tech",
+      "description": "Dark mode hero with an animated mesh gradient background and terminal-like typography.",
+      "tags": [
+        "hero",
+        "tech",
+        "bootcamp",
+        "gradient",
+        "dark"
+      ],
+      "image_count": 0,
+      "preview_image": "",
+      "download_url": "/sections/hero-tech-bootcamp.json",
+      "is_premium": false,
+      "is_new": true,
+      "popularity": 60
+    },
+    {
+      "id": "hero-corporate-search",
+      "name": "Corporate Search Hub",
+      "category": "Hero",
+      "variant": "Search Hub",
+      "description": "Neumorphic soft UI focused on a prominent search bar for large course libraries.",
+      "tags": [
+        "hero",
+        "search",
+        "corporate",
+        "neumorphism",
+        "light"
+      ],
+      "image_count": 0,
+      "preview_image": "",
+      "download_url": "/sections/hero-corporate-search.json",
+      "is_premium": false,
+      "is_new": true,
+      "popularity": 91
+    },
+    {
+      "id": "hero-creator-masterclass",
+      "name": "Creator Masterclass Hero",
+      "category": "Hero",
+      "variant": "Video",
+      "description": "Cinematic full-screen video background with a floating glass course rating card.",
+      "tags": [
+        "hero",
+        "video",
+        "cinematic",
+        "masterclass",
+        "creator"
+      ],
+      "image_count": 2,
+      "preview_image": "",
+      "download_url": "/sections/hero-creator-masterclass.json",
+      "is_premium": false,
+      "is_new": true,
+      "popularity": 81
+    },
+    {
+      "id": "hero-floating-universe",
+      "name": "Floating Universe Hero",
+      "category": "Hero",
+      "variant": "Floating",
+      "description": "3D parallax environment with floating course cards on a clean light background.",
+      "tags": [
+        "hero",
+        "floating",
+        "3d",
+        "courses",
+        "light"
+      ],
+      "image_count": 3,
+      "preview_image": "",
+      "download_url": "/sections/hero-floating-universe.json",
+      "is_premium": false,
+      "is_new": true,
+      "popularity": 64
+    },
+    {
+      "id": "hero-abstract-innovator",
+      "name": "Abstract Innovator Hero",
+      "category": "Hero",
+      "variant": "Abstract",
+      "description": "Friendly, organic layout using morphing SVG blob shapes to mask images.",
+      "tags": [
+        "hero",
+        "abstract",
+        "svg",
+        "blob",
+        "friendly"
+      ],
+      "image_count": 1,
+      "preview_image": "",
+      "download_url": "/sections/hero-abstract-innovator.json",
+      "is_premium": false,
+      "is_new": true,
+      "popularity": 67
+    },
+    {
+      "id": "hero-dynamic-academy",
+      "name": "Dynamic Academy Hero",
+      "category": "Hero",
+      "variant": "Dynamic",
+      "description": "High-energy layout with a diagonal split and fast-paced animations.",
+      "tags": [
+        "hero",
+        "dynamic",
+        "academy",
+        "sports",
+        "diagonal"
+      ],
+      "image_count": 1,
+      "preview_image": "",
+      "download_url": "/sections/hero-dynamic-academy.json",
+      "is_premium": false,
+      "is_new": true,
+      "popularity": 58
+    },
+    {
+      "id": "hero-glass-box",
+      "name": "Glass Box Hero",
+      "category": "Hero",
+      "variant": "Premium Glass",
+      "description": "Center-aligned frosted glass panel over a blurred full-width background image.",
+      "tags": [
+        "hero",
+        "glassmorphism",
+        "premium",
+        "center"
+      ],
+      "image_count": 1,
+      "preview_image": "",
+      "download_url": "/sections/hero-glass-box.json",
+      "is_premium": false,
+      "is_new": true,
+      "popularity": 98
+    },
+    {
+      "id": "hero-instructor-spotlight",
+      "name": "Instructor Spotlight Hero",
+      "category": "Hero",
+      "variant": "Instructor",
+      "description": "Focuses on the instructor with a large cut-out portrait and orbiting UI badges.",
+      "tags": [
+        "hero",
+        "instructor",
+        "human",
+        "badges"
+      ],
+      "image_count": 1,
+      "preview_image": "",
+      "download_url": "/sections/hero-instructor-spotlight.json",
+      "is_premium": false,
+      "is_new": true,
+      "popularity": 68
+    },
+    {
+      "id": "hero-product-reveal",
+      "name": "Product Reveal Hero",
+      "category": "Hero",
+      "variant": "Dashboard Mockup",
+      "description": "Shows off the actual student dashboard UI with a stylized 3D CSS mockup.",
+      "tags": [
+        "hero",
+        "product",
+        "dashboard",
+        "mockup",
+        "ui"
+      ],
+      "image_count": 0,
+      "preview_image": "",
+      "download_url": "/sections/hero-product-reveal.json",
+      "is_premium": false,
+      "is_new": true,
+      "popularity": 80
+    },
+    {
+      "id": "hero-bento-learning",
+      "name": "Bento Learning Hero",
+      "category": "Hero",
+      "variant": "Bento Grid",
+      "description": "Trendy Apple-style bento grid layout organizing different hero elements into distinct cards.",
+      "tags": [
+        "hero",
+        "bento",
+        "grid",
+        "modern",
+        "ui"
+      ],
+      "image_count": 1,
+      "preview_image": "",
+      "download_url": "/sections/hero-bento-learning.json",
+      "is_premium": false,
+      "is_new": true,
+      "popularity": 99
+    },
+    {
+      "id": "hero-learning-path",
+      "name": "Learning Path Hero",
+      "category": "Hero",
+      "variant": "Curriculum",
+      "description": "Illustrates a journey with a connected visual timeline of courses.",
+      "tags": [
+        "hero",
+        "path",
+        "curriculum",
+        "timeline",
+        "journey"
+      ],
+      "image_count": 0,
+      "preview_image": "",
+      "download_url": "/sections/hero-learning-path.json",
+      "is_premium": false,
+      "is_new": true,
+      "popularity": 95
+    },
+    {
+      "id": "hero-student-journey",
+      "name": "Student Journey Hero",
+      "category": "Hero",
+      "variant": "Personalized",
+      "description": "Logged-in dashboard hero for returning students showing actual Moodle functionality and progress.",
+      "tags": [
+        "hero",
+        "student",
+        "dashboard",
+        "progress",
+        "personalized"
+      ],
+      "image_count": 0,
+      "preview_image": "",
+      "download_url": "/sections/hero-student-journey.json",
+      "is_premium": false,
+      "is_new": true,
+      "popularity": 72
+    },
+    {
+      "id": "faq-simple-list",
+      "name": "FAQ - Minimalist List",
+      "category": "FAQ",
+      "variant": "Simple List",
+      "description": "A clean, minimalist vertical list of frequently asked questions and answers without any hidden toggles.",
+      "tags": [
+        "faq",
+        "simple",
+        "list",
+        "minimal"
+      ],
+      "image_count": 0,
+      "preview_image": "",
+      "download_url": "/sections/faq-simple-list.json",
+      "is_premium": false,
+      "is_new": true,
+      "popularity": 110
+    },
+    {
+      "id": "faq-accordion",
+      "name": "FAQ - Interactive Accordion",
+      "category": "FAQ",
+      "variant": "Accordion",
+      "description": "A space-saving accordion layout where users click to reveal answers.",
+      "tags": [
+        "faq",
+        "accordion",
+        "interactive",
+        "collapsible"
+      ],
+      "image_count": 0,
+      "preview_image": "",
+      "download_url": "/sections/faq-accordion.json",
+      "is_premium": false,
+      "is_new": true,
+      "popularity": 53
+    },
+    {
+      "id": "faq-grid",
+      "name": "FAQ - Information Grid",
+      "category": "FAQ",
+      "variant": "Grid Cards",
+      "description": "A 2-column grid displaying questions as individual glassmorphism cards.",
+      "tags": [
+        "faq",
+        "grid",
+        "cards",
+        "glassmorphism"
+      ],
+      "image_count": 0,
+      "preview_image": "",
+      "download_url": "/sections/faq-grid.json",
+      "is_premium": false,
+      "is_new": true,
+      "popularity": 124
+    },
+    {
+      "id": "faq-split",
+      "name": "FAQ - Split Layout with CTA",
+      "category": "FAQ",
+      "variant": "Split Accordion",
+      "description": "Left side holds a large title and call-to-action, right side has the accordion questions.",
+      "tags": [
+        "faq",
+        "split",
+        "accordion",
+        "cta"
+      ],
+      "image_count": 0,
+      "preview_image": "",
+      "download_url": "/sections/faq-split.json",
+      "is_premium": false,
+      "is_new": true,
+      "popularity": 67
+    },
+    {
+      "id": "faq-tabbed",
+      "name": "FAQ - Categorized Tabs",
+      "category": "FAQ",
+      "variant": "Tabbed Categories",
+      "description": "Switch between different FAQ categories using a sleek tab interface.",
+      "tags": [
+        "faq",
+        "tabs",
+        "categories",
+        "interactive"
+      ],
+      "image_count": 0,
+      "preview_image": "",
+      "download_url": "/sections/faq-tabbed.json",
+      "is_premium": false,
+      "is_new": true,
+      "popularity": 139
+    },
+    {
+      "id": "testimonial-grid",
+      "name": "Testimonials - 3-Column Grid",
+      "category": "Testimonials",
+      "variant": "Cards Grid",
+      "description": "A neat 3-column grid showing user reviews, names, and avatars.",
+      "tags": [
+        "testimonials",
+        "grid",
+        "cards",
+        "reviews"
+      ],
+      "image_count": 3,
+      "preview_image": "",
+      "download_url": "/sections/testimonial-grid.json",
+      "is_premium": false,
+      "is_new": true,
+      "popularity": 109
+    },
+    {
+      "id": "testimonial-carousel",
+      "name": "Testimonials - Interactive Carousel",
+      "category": "Testimonials",
+      "variant": "Single Carousel",
+      "description": "A large featured testimonial with next/prev buttons to cycle through reviews.",
+      "tags": [
+        "testimonials",
+        "carousel",
+        "slider",
+        "interactive"
+      ],
+      "image_count": 3,
+      "preview_image": "",
+      "download_url": "/sections/testimonial-carousel.json",
+      "is_premium": false,
+      "is_new": true,
+      "popularity": 132
+    },
+    {
+      "id": "testimonial-split",
+      "name": "Testimonials - Split Highlight",
+      "category": "Testimonials",
+      "variant": "Split Story",
+      "description": "A striking split layout featuring a large image on one side and an impactful story/quote on the other.",
+      "tags": [
+        "testimonials",
+        "split",
+        "story",
+        "impact"
+      ],
+      "image_count": 1,
+      "preview_image": "",
+      "download_url": "/sections/testimonial-split.json",
+      "is_premium": false,
+      "is_new": true,
+      "popularity": 57
+    },
+    {
+      "id": "catalog_dynamic_integration",
+      "name": "Smart Catalog Dynamic",
+      "category": "Courses & Categories",
+      "image": "https://images.unsplash.com/photo-1516321497487-e288fb19713f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      "smartlearn_section": true,
+      "preview_image": "",
+      "download_url": "/sections/catalog_dynamic_integration.json",
+      "is_premium": true,
+      "is_new": true,
+      "popularity": 100
+    }
+  ]
+}

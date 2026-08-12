@@ -18,19 +18,19 @@ function saveSection(section) {
     console.log(`Saved ${filename}`);
     
     // Update catalog.json
-    let catalog = [];
+    let catalog = { version: "1.0", updated: new Date().toISOString().split('T')[0], sections: [] };
     if (fs.existsSync(catalogPath)) {
         try {
             catalog = JSON.parse(fs.readFileSync(catalogPath, 'utf8'));
-            if (!Array.isArray(catalog)) catalog = [];
+            if (!catalog.sections) catalog.sections = [];
         } catch (e) {
             console.error("Error reading catalog.json", e);
-            catalog = [];
+            catalog = { version: "1.0", updated: new Date().toISOString().split('T')[0], sections: [] };
         }
     }
     
     // Check if section already exists in catalog
-    const existingIndex = catalog.findIndex(item => item.id === section.id);
+    const existingIndex = catalog.sections.findIndex(item => item.id === section.id);
     
     // Create catalog entry (without full html/css/js content to keep catalog lightweight)
     const catalogEntry = {
@@ -38,13 +38,18 @@ function saveSection(section) {
         name: section.name,
         category: section.category,
         image: section.image,
-        smartlearn_section: true
+        smartlearn_section: true,
+        preview_image: "",
+        download_url: '/sections/' + section.id + '.json',
+        is_premium: true,
+        is_new: true,
+        popularity: 100
     };
     
     if (existingIndex >= 0) {
-        catalog[existingIndex] = catalogEntry;
+        catalog.sections[existingIndex] = catalogEntry;
     } else {
-        catalog.push(catalogEntry);
+        catalog.sections.push(catalogEntry);
     }
     
     fs.writeFileSync(catalogPath, JSON.stringify(catalog, null, 2));
