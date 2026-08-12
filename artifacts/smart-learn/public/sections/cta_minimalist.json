@@ -1,0 +1,30 @@
+{
+  "id": "cta_minimalist",
+  "name": "Minimalist Statement",
+  "category": "Call to Action",
+  "subcategory": "Typography",
+  "description": "Pure, distraction-free typography with a single button.",
+  "schema": {
+    "settings": [
+      {
+        "id": "statement",
+        "type": "textarea",
+        "label": "Statement",
+        "default": "Your next chapter starts here."
+      },
+      {
+        "id": "primary_cta_text",
+        "type": "text",
+        "label": "Button Text",
+        "default": "Explore Courses →"
+      },
+      {
+        "id": "primary_cta_url",
+        "type": "url",
+        "label": "Button Link",
+        "default": "#"
+      }
+    ]
+  },
+  "template": "\n        <div class=\"sl-cta-minimal py-7 py-md-9 text-center\" style=\"background-color: var(--sl-bg-card);\">\n            <div class=\"container\">\n                <div class=\"row justify-content-center\">\n                    <div class=\"col-lg-8\">\n                        <h2 class=\"display-4 fw-black mb-5\" style=\"color: var(--sl-text-primary); letter-spacing: -0.03em;\">{{statement}}</h2>\n                        <a href=\"{{primary_cta_url}}\" class=\"sl-btn-minimal d-inline-block fw-bold fs-5 text-decoration-none\">\n                            {{primary_cta_text}}\n                            <span class=\"sl-btn-minimal-underline\"></span>\n                        </a>\n                    </div>\n                </div>\n            </div>\n            \n            <style>\n                .fw-black { font-weight: 900; }\n                .sl-btn-minimal {\n                    color: var(--sl-color-primary);\n                    position: relative;\n                    padding-bottom: 5px;\n                    transition: color 0.3s ease;\n                }\n                .sl-btn-minimal-underline {\n                    position: absolute;\n                    bottom: 0;\n                    left: 0;\n                    width: 100%;\n                    height: 2px;\n                    background-color: var(--sl-color-primary);\n                    transform-origin: right;\n                    transform: scaleX(0);\n                    transition: transform 0.3s ease;\n                }\n                .sl-btn-minimal:hover .sl-btn-minimal-underline {\n                    transform-origin: left;\n                    transform: scaleX(1);\n                }\n                .sl-btn-minimal:hover {\n                    color: var(--sl-color-primary-hover);\n                }\n                @media (prefers-reduced-motion: reduce) {\n                    .sl-btn-minimal-underline { transition: none; display: none; }\n                    .sl-btn-minimal:hover { text-decoration: underline !important; }\n                }\n            </style>\n        </div>\n    "
+}

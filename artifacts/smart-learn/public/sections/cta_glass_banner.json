@@ -1,0 +1,48 @@
+{
+  "id": "cta_glass_banner",
+  "name": "Glassmorphism Banner",
+  "category": "Call to Action",
+  "subcategory": "Premium",
+  "description": "A compact floating glass card over a gradient background.",
+  "schema": {
+    "settings": [
+      {
+        "id": "heading",
+        "type": "text",
+        "label": "Heading",
+        "default": "Ready to elevate your skills?"
+      },
+      {
+        "id": "subheading",
+        "type": "textarea",
+        "label": "Subheading",
+        "default": "Get unlimited access to thousands of courses."
+      },
+      {
+        "id": "primary_cta_text",
+        "type": "text",
+        "label": "Button Text",
+        "default": "Start Learning"
+      },
+      {
+        "id": "primary_cta_url",
+        "type": "url",
+        "label": "Button Link",
+        "default": "#"
+      },
+      {
+        "id": "bg_color_1",
+        "type": "color",
+        "label": "Gradient Color 1",
+        "default": "#4f46e5"
+      },
+      {
+        "id": "bg_color_2",
+        "type": "color",
+        "label": "Gradient Color 2",
+        "default": "#06b6d4"
+      }
+    ]
+  },
+  "template": "\n        <div class=\"sl-cta-glass-wrap py-6 py-md-8 px-3\" style=\"background: linear-gradient(135deg, {{bg_color_1}}, {{bg_color_2}});\">\n            <div class=\"container\">\n                <div class=\"row justify-content-center\">\n                    <div class=\"col-lg-10\">\n                        <div class=\"sl-glass-card rounded-4 p-5 p-md-6 text-center position-relative overflow-hidden shadow-lg border border-white border-opacity-25\">\n                            <div class=\"position-relative z-1\">\n                                <h3 class=\"display-5 fw-bold mb-3 sl-text-heading\">{{heading}}</h3>\n                                {{#subheading}}<p class=\"lead mb-5 sl-text-body opacity-75\">{{subheading}}</p>{{/subheading}}\n                                <a href=\"{{primary_cta_url}}\" class=\"btn btn-dark btn-lg px-5 py-3 rounded-pill fw-semibold shadow-sm sl-btn-glass-cta\">{{primary_cta_text}}</a>\n                            </div>\n                        </div>\n                    </div>\n                </div>\n            </div>\n            \n            <style>\n                .sl-glass-card {\n                    background: rgba(255, 255, 255, 0.15);\n                    backdrop-filter: blur(20px);\n                    -webkit-backdrop-filter: blur(20px);\n                }\n                .sl-btn-glass-cta {\n                    background-color: var(--sl-color-primary);\n                    color: var(--sl-text-on-primary);\n                    border: none;\n                    transition: transform 0.3s ease;\n                }\n                .sl-btn-glass-cta:hover {\n                    transform: translateY(-2px);\n                    background-color: var(--sl-color-primary-hover);\n                }\n                [data-bs-theme=\"dark\"] .sl-glass-card {\n                    background: rgba(0, 0, 0, 0.25);\n                    border-color: rgba(255, 255, 255, 0.1) !important;\n                }\n                [data-bs-theme=\"dark\"] .sl-text-heading, [data-bs-theme=\"dark\"] .sl-text-body {\n                    color: #fff;\n                }\n                @media (prefers-reduced-motion: reduce) {\n                    .sl-btn-glass-cta { transition: none; }\n                }\n            </style>\n        </div>\n    "
+}

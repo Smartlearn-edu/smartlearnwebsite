@@ -1276,6 +1276,54 @@
       "is_premium": true,
       "is_new": true,
       "popularity": 88
+    },
+    {
+      "id": "cta_immersive_hero",
+      "name": "Immersive Hero CTA",
+      "category": "Call to Action",
+      "subcategory": "High-Impact"
+    },
+    {
+      "id": "cta_glass_banner",
+      "name": "Glassmorphism Banner",
+      "category": "Call to Action",
+      "subcategory": "Premium"
+    },
+    {
+      "id": "cta_minimalist",
+      "name": "Minimalist Statement",
+      "category": "Call to Action",
+      "subcategory": "Typography"
+    },
+    {
+      "id": "cta_split_action",
+      "name": "Split-Action",
+      "category": "Call to Action",
+      "subcategory": "Multi-Audience"
+    },
+    {
+      "id": "cta_bento_grid",
+      "name": "Bento Action Grid",
+      "category": "Call to Action",
+      "subcategory": "Multi-Action"
+    },
+    {
+      "id": "cta_app_download",
+      "name": "App Store Download",
+      "category": "Call to Action",
+      "subcategory": "Mobile Conversion"
+    },
+    {
+      "id": "cta_course_enrollment",
+      "name": "Course Enrollment CTA",
+      "category": "Call to Action",
+      "subcategory": "LMS specific"
+    },
+    {
+      "id": "cta_dynamic_floating",
+      "name": "Dynamic Floating Elements",
+      "category": "Call to Action",
+      "subcategory": "Community"
     }
   ]
 }

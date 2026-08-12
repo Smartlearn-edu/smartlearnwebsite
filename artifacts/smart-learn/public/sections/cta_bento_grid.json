@@ -1,0 +1,90 @@
+{
+  "id": "cta_bento_grid",
+  "name": "Bento Action Grid",
+  "category": "Call to Action",
+  "subcategory": "Multi-Action",
+  "description": "An asymmetrical grid highlighting a primary action and supporting secondary actions.",
+  "schema": {
+    "settings": [
+      {
+        "id": "main_heading",
+        "type": "text",
+        "label": "Main Heading",
+        "default": "Ready to Apply?"
+      },
+      {
+        "id": "main_desc",
+        "type": "textarea",
+        "label": "Main Description",
+        "default": "Join the next cohort and accelerate your career."
+      },
+      {
+        "id": "main_cta_text",
+        "type": "text",
+        "label": "Main CTA Text",
+        "default": "Apply Now"
+      },
+      {
+        "id": "main_cta_url",
+        "type": "url",
+        "label": "Main CTA URL",
+        "default": "#"
+      },
+      {
+        "id": "card1_title",
+        "type": "text",
+        "label": "Card 1 Title",
+        "default": "Explore Courses"
+      },
+      {
+        "id": "card1_url",
+        "type": "url",
+        "label": "Card 1 URL",
+        "default": "#"
+      },
+      {
+        "id": "card1_icon",
+        "type": "icon",
+        "label": "Card 1 Icon",
+        "default": "fa-book"
+      },
+      {
+        "id": "card2_title",
+        "type": "text",
+        "label": "Card 2 Title",
+        "default": "Download Syllabus"
+      },
+      {
+        "id": "card2_url",
+        "type": "url",
+        "label": "Card 2 URL",
+        "default": "#"
+      },
+      {
+        "id": "card2_icon",
+        "type": "icon",
+        "label": "Card 2 Icon",
+        "default": "fa-download"
+      },
+      {
+        "id": "card3_title",
+        "type": "text",
+        "label": "Card 3 Title",
+        "default": "Talk to an Advisor"
+      },
+      {
+        "id": "card3_url",
+        "type": "url",
+        "label": "Card 3 URL",
+        "default": "#"
+      },
+      {
+        "id": "card3_icon",
+        "type": "icon",
+        "label": "Card 3 Icon",
+        "default": "fa-comments"
+      }
+    ]
+  },
+  "template": "\n        <div class=\"sl-cta-bento py-6 py-md-8 sl-bg-secondary\">\n            <div class=\"container\">\n                <div class=\"row g-4 justify-content-center\">\n                    <!-- Main Card -->\n                    <div class=\"col-lg-6 col-xl-5\">\n                        <div class=\"sl-bento-card main h-100 p-5 rounded-4 d-flex flex-column justify-content-between sl-bg-primary position-relative overflow-hidden shadow-sm\">\n                            <div class=\"position-relative z-1\">\n                                <h3 class=\"display-6 fw-bold text-white mb-3\">{{main_heading}}</h3>\n                                {{#main_desc}}<p class=\"fs-5 text-white-50 mb-5\">{{main_desc}}</p>{{/main_desc}}\n                            </div>\n                            <div class=\"position-relative z-1 mt-auto\">\n                                <a href=\"{{main_cta_url}}\" class=\"btn btn-light btn-lg px-4 py-3 rounded-pill fw-semibold text-primary w-100 sl-bento-main-btn\">{{main_cta_text}}</a>\n                            </div>\n                            <!-- Subtle decorative circle -->\n                            <div class=\"position-absolute sl-bento-deco bg-white opacity-10 rounded-circle\" style=\"width: 300px; height: 300px; top: -100px; right: -100px;\"></div>\n                        </div>\n                    </div>\n                    <!-- Secondary Cards -->\n                    <div class=\"col-lg-6 col-xl-5\">\n                        <div class=\"row g-4 h-100\">\n                            <!-- Card 1 -->\n                            <div class=\"col-12\">\n                                <a href=\"{{card1_url}}\" class=\"sl-bento-card secondary h-100 p-4 rounded-4 text-decoration-none d-flex align-items-center bg-white shadow-sm sl-hover-lift\">\n                                    <div class=\"sl-bento-icon-wrap rounded-circle sl-bg-primary-subtle text-primary d-flex align-items-center justify-content-center me-4\" style=\"width: 56px; height: 56px;\">\n                                        <i class=\"fa {{card1_icon}} fs-4\"></i>\n                                    </div>\n                                    <div>\n                                        <h4 class=\"fs-5 fw-bold mb-0 text-dark\">{{card1_title}}</h4>\n                                        <span class=\"text-muted small\">Learn more &rarr;</span>\n                                    </div>\n                                </a>\n                            </div>\n                            <!-- Card 2 & 3 -->\n                            <div class=\"col-md-6\">\n                                <a href=\"{{card2_url}}\" class=\"sl-bento-card secondary h-100 p-4 rounded-4 text-decoration-none d-flex flex-column bg-white shadow-sm sl-hover-lift text-center\">\n                                    <div class=\"sl-bento-icon-wrap rounded-circle bg-light text-secondary d-flex align-items-center justify-content-center mx-auto mb-3\" style=\"width: 48px; height: 48px;\">\n                                        <i class=\"fa {{card2_icon}} fs-5\"></i>\n                                    </div>\n                                    <h4 class=\"fs-6 fw-bold mb-0 text-dark\">{{card2_title}}</h4>\n                                </a>\n                            </div>\n                            <div class=\"col-md-6\">\n                                <a href=\"{{card3_url}}\" class=\"sl-bento-card secondary h-100 p-4 rounded-4 text-decoration-none d-flex flex-column bg-white shadow-sm sl-hover-lift text-center\">\n                                    <div class=\"sl-bento-icon-wrap rounded-circle bg-light text-secondary d-flex align-items-center justify-content-center mx-auto mb-3\" style=\"width: 48px; height: 48px;\">\n                                        <i class=\"fa {{card3_icon}} fs-5\"></i>\n                                    </div>\n                                    <h4 class=\"fs-6 fw-bold mb-0 text-dark\">{{card3_title}}</h4>\n                                </a>\n                            </div>\n                        </div>\n                    </div>\n                </div>\n            </div>\n            \n            <style>\n                .sl-bento-main-btn { transition: transform 0.2s ease, box-shadow 0.2s ease; color: var(--sl-color-primary) !important; }\n                .sl-bento-main-btn:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,0,0,0.1); }\n                .sl-hover-lift { transition: transform 0.2s ease, box-shadow 0.2s ease; border: 1px solid var(--sl-border-color); }\n                .sl-hover-lift:hover { transform: translateY(-4px); box-shadow: 0 10px 25px rgba(0,0,0,0.05) !important; border-color: var(--sl-color-primary); }\n                .sl-bg-primary-subtle { background-color: rgba(var(--sl-color-primary-rgb), 0.1); }\n                \n                [data-bs-theme=\"dark\"] .sl-bento-card.secondary { background-color: var(--sl-bg-card) !important; }\n                [data-bs-theme=\"dark\"] .sl-bento-card.secondary h4 { color: var(--sl-text-primary) !important; }\n                \n                @media (prefers-reduced-motion: reduce) {\n                    .sl-bento-main-btn, .sl-hover-lift { transition: none; }\n                    .sl-bento-main-btn:hover, .sl-hover-lift:hover { transform: none; }\n                }\n            </style>\n        </div>\n    "
+}
