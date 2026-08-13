@@ -1583,6 +1583,137 @@
       "image_count": 0,
       "preview_image": "",
       "download_url": "/sections/stats-fast-facts.json"
+    },
+    {
+      "id": "gallery-cinematic",
+      "name": "Cinematic Course Trailer",
+      "category": "Gallery",
+      "variant": "Course Conversion",
+      "description": "Full-width cinematic composition with floating course information.",
+      "tags": [
+        "gallery",
+        "video",
+        "cinematic",
+        "trailer",
+        "course"
+      ],
+      "image_count": 1,
+      "preview_image": "",
+      "download_url": "/sections/gallery-cinematic.json"
+    },
+    {
+      "id": "gallery-chapters",
+      "name": "Interactive Video Chapters",
+      "category": "Gallery",
+      "variant": "Educational Exploration",
+      "description": "Educational video exploration with interactive chapters.",
+      "tags": [
+        "gallery",
+        "video",
+        "chapters",
+        "learning"
+      ],
+      "image_count": 3,
+      "preview_image": "",
+      "download_url": "/sections/gallery-chapters.json"
+    },
+    {
+      "id": "gallery-floating-wall",
+      "name": "Floating Media Wall",
+      "category": "Gallery",
+      "variant": "Premium Showcase",
+      "description": "Premium visual showcase with overlapping depth and hover transforms.",
+      "tags": [
+        "gallery",
+        "floating",
+        "wall",
+        "premium",
+        "showcase"
+      ],
+      "image_count": 3,
+      "preview_image": "",
+      "download_url": "/sections/gallery-floating-wall.json"
+    },
+    {
+      "id": "gallery-filmstrip",
+      "name": "Scroll-Reveal Filmstrip",
+      "category": "Gallery",
+      "variant": "Storytelling",
+      "description": "Horizontal scrolling storytelling filmstrip with native scroll snapping.",
+      "tags": [
+        "gallery",
+        "filmstrip",
+        "scroll",
+        "story"
+      ],
+      "image_count": 3,
+      "preview_image": "",
+      "download_url": "/sections/gallery-filmstrip.json"
+    },
+    {
+      "id": "gallery-before-after",
+      "name": "Before / After Journey",
+      "category": "Gallery",
+      "variant": "Student Transformation",
+      "description": "Interactive visual slider showing transformation.",
+      "tags": [
+        "gallery",
+        "before",
+        "after",
+        "slider",
+        "transformation"
+      ],
+      "image_count": 2,
+      "preview_image": "",
+      "download_url": "/sections/gallery-before-after.json"
+    },
+    {
+      "id": "gallery-3d-stage",
+      "name": "3D Media Stage",
+      "category": "Gallery",
+      "variant": "Premium Visual Centerpiece",
+      "description": "Showcase-quality 3D carousel stage.",
+      "tags": [
+        "gallery",
+        "3d",
+        "stage",
+        "premium"
+      ],
+      "image_count": 3,
+      "preview_image": "",
+      "download_url": "/sections/gallery-3d-stage.json"
+    },
+    {
+      "id": "gallery-interactive-map",
+      "name": "Interactive Explorer",
+      "category": "Gallery",
+      "variant": "Campus/Ecosystem Map",
+      "description": "Explore physical campus or online ecosystem visually.",
+      "tags": [
+        "gallery",
+        "map",
+        "interactive",
+        "explorer"
+      ],
+      "image_count": 1,
+      "preview_image": "",
+      "download_url": "/sections/gallery-interactive-map.json"
+    },
+    {
+      "id": "gallery-scrapbook",
+      "name": "Media Collage",
+      "category": "Gallery",
+      "variant": "Editorial Storytelling",
+      "description": "Magazine-style layered collage of media and quotes.",
+      "tags": [
+        "gallery",
+        "collage",
+        "scrapbook",
+        "editorial"
+      ],
+      "image_count": 3,
+      "preview_image": "",
+      "download_url": "/sections/gallery-scrapbook.json"
     }
   ]
 }
