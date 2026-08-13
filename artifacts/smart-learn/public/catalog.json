@@ -1531,6 +1531,58 @@
       "image_count": 4,
       "preview_image": "",
       "download_url": "/sections/team-courses.json"
+    },
+    {
+      "id": "stats-animated",
+      "name": "Impact Stats",
+      "category": "Facts",
+      "variant": "Animated Counters",
+      "description": "A classic social-proof section showing big numbers that animate when scrolled into view. Handles robust formatting.",
+      "tags": [
+        "stats",
+        "counters",
+        "numbers",
+        "impact",
+        "animated"
+      ],
+      "image_count": 0,
+      "preview_image": "",
+      "download_url": "/sections/stats-animated.json"
+    },
+    {
+      "id": "stats-countdown",
+      "name": "Registration Countdown",
+      "category": "Facts",
+      "variant": "Event Timer",
+      "description": "A focused banner with a configurable countdown timer, handling active and expired states gracefully.",
+      "tags": [
+        "stats",
+        "countdown",
+        "timer",
+        "event",
+        "registration",
+        "urgency"
+      ],
+      "image_count": 0,
+      "preview_image": "",
+      "download_url": "/sections/stats-countdown.json"
+    },
+    {
+      "id": "stats-fast-facts",
+      "name": "Fast Facts",
+      "category": "Facts",
+      "variant": "Asymmetric Icon Grid",
+      "description": "Mix qualitative facts with quantitative data in an elegant, asymmetric premium layout.",
+      "tags": [
+        "stats",
+        "facts",
+        "grid",
+        "icons",
+        "asymmetric"
+      ],
+      "image_count": 0,
+      "preview_image": "",
+      "download_url": "/sections/stats-fast-facts.json"
     }
   ]
 }
