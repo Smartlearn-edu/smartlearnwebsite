@@ -1463,6 +1463,74 @@
       "image_count": 0,
       "preview_image": "",
       "download_url": "/sections/pricing-premium.json"
+    },
+    {
+      "id": "team-grid",
+      "name": "Faculty Grid",
+      "category": "People",
+      "variant": "Institutional Roster",
+      "description": "A dependable, polished grid layout for universities, schools, academies, and corporate Moodle installations.",
+      "tags": [
+        "team",
+        "faculty",
+        "teachers",
+        "grid",
+        "profiles"
+      ],
+      "image_count": 4,
+      "preview_image": "",
+      "download_url": "/sections/team-grid.json"
+    },
+    {
+      "id": "team-featured",
+      "name": "Featured Instructor",
+      "category": "People",
+      "variant": "Editorial Profile",
+      "description": "A premium profile layout for highlighting an important instructor with detailed biography and credentials.",
+      "tags": [
+        "team",
+        "featured",
+        "instructor",
+        "profile",
+        "editorial"
+      ],
+      "image_count": 1,
+      "preview_image": "",
+      "download_url": "/sections/team-featured.json"
+    },
+    {
+      "id": "team-showcase",
+      "name": "Instructor Showcase",
+      "category": "People",
+      "variant": "Immersive Interaction",
+      "description": "A visually dramatic teacher presentation for premium academies with accessible interactive tabs.",
+      "tags": [
+        "team",
+        "showcase",
+        "interactive",
+        "tabs",
+        "immersive"
+      ],
+      "image_count": 3,
+      "preview_image": "",
+      "download_url": "/sections/team-showcase.json"
+    },
+    {
+      "id": "team-courses",
+      "name": "Instructor + Courses",
+      "category": "People",
+      "variant": "Moodle Showcase",
+      "description": "A genuinely Moodle-specific teacher section that connects an instructor directly to their learning content.",
+      "tags": [
+        "team",
+        "courses",
+        "moodle",
+        "instructor",
+        "discovery"
+      ],
+      "image_count": 4,
+      "preview_image": "",
+      "download_url": "/sections/team-courses.json"
     }
   ]
 }
