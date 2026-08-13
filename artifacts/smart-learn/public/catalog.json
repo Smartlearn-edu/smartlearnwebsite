@@ -1,6 +1,6 @@
 {
   "version": "1.0",
-  "updated": "2026-08-12",
+  "updated": "2026-08-13",
   "sections": [
     {
       "id": "article-immersive-reader",
@@ -1412,6 +1412,57 @@
       "is_premium": true,
       "is_new": true,
       "popularity": 100
+    },
+    {
+      "id": "pricing-classic",
+      "name": "Classic Grid",
+      "category": "Pricing",
+      "variant": "3-Tier Classic",
+      "description": "A reliable, professional 3-tier pricing table. Perfectly aligned features and a configurable featured plan.",
+      "tags": [
+        "pricing",
+        "grid",
+        "saas",
+        "classic",
+        "tiers"
+      ],
+      "image_count": 0,
+      "preview_image": "",
+      "download_url": "/sections/pricing-classic.json"
+    },
+    {
+      "id": "pricing-toggle",
+      "name": "Glassmorphism Toggle",
+      "category": "Pricing",
+      "variant": "Monthly/Yearly Switch",
+      "description": "An interactive pricing section featuring a toggle switch for billing periods and glassmorphism cards.",
+      "tags": [
+        "pricing",
+        "interactive",
+        "toggle",
+        "glassmorphism",
+        "subscriptions"
+      ],
+      "image_count": 0,
+      "preview_image": "",
+      "download_url": "/sections/pricing-toggle.json"
+    },
+    {
+      "id": "pricing-premium",
+      "name": "Premium Accent",
+      "category": "Pricing",
+      "variant": "High-Impact Emphasis",
+      "description": "A striking layout that uses dynamic gradients based on theme variables to highly accentuate a premium tier.",
+      "tags": [
+        "pricing",
+        "premium",
+        "accent",
+        "gradient",
+        "high-conversion"
+      ],
+      "image_count": 0,
+      "preview_image": "",
+      "download_url": "/sections/pricing-premium.json"
     }
   ]
 }
