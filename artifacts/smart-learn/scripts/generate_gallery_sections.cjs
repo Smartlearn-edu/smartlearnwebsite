@@ -28,19 +28,23 @@ const sections = [
 <div class="sl-gallery-cinematic sl-py-20">
     <div class="container sl-cinematic-container">
         <!-- Media Fallback / Poster -->
-        <div class="sl-cinematic-media">
-            <div class="sl-media-embed" data-sl-edit="html">
-                <!-- Fallback Image if no iframe is provided -->
-                <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" alt="Course Trailer" class="sl-cinematic-poster" data-sl-edit="image" />
+        <div class="sl-cinematic-media" id="sl-cine-media-area">
+            <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" alt="Course Trailer" class="sl-cinematic-poster" data-sl-edit="image" id="sl-cine-poster" />
+            <div class="sl-play-overlay sl-cine-play" id="sl-cine-play-btn">
+                <svg width="48" height="48" fill="var(--smartlearn-primary)" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
             </div>
-            <div class="sl-cinematic-overlay"></div>
+            <div class="sl-cinematic-overlay" id="sl-cine-overlay"></div>
         </div>
         
         <!-- Floating Course Info -->
-        <div class="sl-cinematic-info">
+        <div class="sl-cinematic-info" id="sl-cine-info">
             <span class="sl-badge" data-sl-edit="text">Featured Course</span>
             <h2 class="sl-cinematic-title" data-sl-edit="text">Advanced Machine Learning</h2>
             <p class="sl-cinematic-desc" data-sl-edit="text">Master the algorithms of tomorrow with our comprehensive, industry-led curriculum. Watch the trailer to see what you'll build.</p>
+            
+            <!-- Editable Video URL (Subtle) -->
+            <div class="sl-cinematic-video-url" data-sl-edit="text" style="font-size:11px; opacity:0.6; margin-bottom:1.5rem; word-break:break-all;">https://www.youtube.com/embed/dQw4w9WgXcQ</div>
+            
             <div class="sl-cinematic-actions">
                 <a href="#" class="sl-btn sl-btn-primary" data-sl-edit="link" data-sl-edit-text="Enroll Now">Enroll Now</a>
                 <a href="#" class="sl-btn sl-btn-outline" data-sl-edit="link" data-sl-edit-text="View Syllabus">View Syllabus</a>
@@ -77,7 +81,75 @@ const sections = [
     .sl-btn-outline:hover { background-color: var(--smartlearn-text); color: var(--smartlearn-bg); }
 }
     `),
-    js: ""
+    css: clean(`
+.sl-gallery-cinematic { padding: 4rem 0; background-color: var(--smartlearn-bg); }
+.sl-cinematic-container { position: relative; border-radius: 1.5rem; overflow: hidden; min-height: 600px; display: flex; align-items: flex-end; padding: 3rem; }
+.sl-cinematic-media { position: absolute; top: 0; left: 0; right: 0; bottom: 0; z-index: 0; background-color: var(--smartlearn-card-bg); }
+.sl-media-embed { width: 100%; height: 100%; }
+.sl-cinematic-poster { width: 100%; height: 100%; object-fit: cover; border: none; }
+.sl-cinematic-overlay { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0.1) 100%); pointer-events: none; transition: opacity 0.3s ease; }
+.sl-cinematic-info { position: relative; z-index: 1; max-width: 600px; color: #fff; transition: opacity 0.3s ease; }
+.sl-play-overlay { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 80px; height: 80px; background: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 25px rgba(0,0,0,0.2); cursor: pointer; transition: transform 0.2s ease; z-index: 5; }
+.sl-play-overlay:hover { transform: translate(-50%, -50%) scale(1.1); }
+.sl-badge { display: inline-block; padding: 0.25rem 0.75rem; background-color: var(--smartlearn-primary); color: #fff; border-radius: 1rem; font-size: 0.875rem; font-weight: 700; text-transform: uppercase; margin-bottom: 1rem; }
+.sl-cinematic-title { font-size: 3rem; font-weight: 800; margin-bottom: 1rem; color: #fff; }
+.sl-cinematic-desc { font-size: 1.25rem; line-height: 1.6; margin-bottom: 1rem; color: rgba(255,255,255,0.9); }
+.sl-cinematic-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+.sl-btn { padding: 0.875rem 2rem; border-radius: 0.5rem; font-weight: 700; text-decoration: none; transition: all 0.2s ease; }
+.sl-btn-primary { background-color: var(--smartlearn-primary); color: #fff; border: 2px solid var(--smartlearn-primary); }
+.sl-btn-outline { background-color: transparent; color: #fff; border: 2px solid #fff; }
+.sl-btn-primary:hover { filter: brightness(1.1); }
+.sl-btn-outline:hover { background-color: #fff; color: #000; }
+@media (max-width: 767px) {
+    .sl-cinematic-container { flex-direction: column; padding: 0; border-radius: 0; min-height: auto; }
+    .sl-cinematic-media { position: relative; height: 300px; width: 100%; }
+    .sl-cinematic-info { padding: 2rem; background-color: var(--smartlearn-card-bg); color: var(--smartlearn-text); }
+    .sl-cinematic-title { color: var(--smartlearn-text); font-size: 2rem; }
+    .sl-cinematic-desc { color: var(--smartlearn-text-muted); }
+    .sl-cinematic-overlay { display: none; }
+    .sl-btn-outline { border-color: var(--smartlearn-text); color: var(--smartlearn-text); }
+    .sl-btn-outline:hover { background-color: var(--smartlearn-text); color: var(--smartlearn-bg); }
+}
+    `),
+    js: clean(`
+(function() {
+    const root = document.querySelector('.sl-gallery-cinematic');
+    if (!root) return;
+    const playBtn = root.querySelector('#sl-cine-play-btn');
+    const mediaArea = root.querySelector('#sl-cine-media-area');
+    const poster = root.querySelector('#sl-cine-poster');
+    const overlay = root.querySelector('#sl-cine-overlay');
+    const info = root.querySelector('#sl-cine-info');
+    const urlEl = root.querySelector('.sl-cinematic-video-url');
+    
+    if(!playBtn || !mediaArea || !urlEl) return;
+    
+    playBtn.addEventListener('click', () => {
+        if(document.body.classList.contains('sl-editor-mode')) return;
+        const videoUrl = urlEl.innerText.trim();
+        if(!videoUrl) return;
+        
+        poster.style.display = 'none';
+        playBtn.style.display = 'none';
+        if(overlay) overlay.style.opacity = '0';
+        // info.style.opacity = '0'; // Optional: hide info when playing
+        
+        const iframe = document.createElement('iframe');
+        iframe.src = videoUrl + (videoUrl.includes('?') ? '&' : '?') + 'autoplay=1';
+        iframe.style.position = 'absolute';
+        iframe.style.top = '0';
+        iframe.style.left = '0';
+        iframe.style.width = '100%';
+        iframe.style.height = '100%';
+        iframe.style.border = 'none';
+        iframe.style.zIndex = '10';
+        iframe.setAttribute('allow', 'autoplay; fullscreen; encrypted-media');
+        iframe.setAttribute('allowfullscreen', 'true');
+        
+        mediaArea.appendChild(iframe);
+    });
+})();
+    `)
   },
 
   // 2. Interactive Video Chapters
@@ -101,10 +173,9 @@ const sections = [
         <div class="sl-chapters-layout">
             <!-- Active Video Area -->
             <div class="sl-chapters-media">
-                <div class="sl-media-ratio">
-                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Video Placeholder" class="sl-chapters-poster" id="sl-chapter-active-img" />
-                    <!-- In a real scenario, this could be an iframe whose src is updated by JS -->
-                    <div class="sl-play-overlay">
+                <div class="sl-media-ratio" id="sl-chapters-media-area">
+                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Video Poster" class="sl-chapters-poster" id="sl-chapter-active-img" />
+                    <div class="sl-play-overlay" id="sl-chapter-play-btn">
                         <svg width="48" height="48" fill="var(--smartlearn-primary)" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
                     </div>
                 </div>
@@ -120,6 +191,7 @@ const sections = [
                     <div class="sl-chapter-info">
                         <span class="sl-chapter-num" data-sl-edit="text">Chapter 1</span>
                         <h4 class="sl-chapter-title" data-sl-edit="text">Introduction to the Ecosystem</h4>
+                        <div class="sl-chapter-video-url" data-sl-edit="text" style="font-size:11px; opacity:0.6; margin-top:5px; word-break:break-all;">https://www.youtube.com/embed/dQw4w9WgXcQ</div>
                     </div>
                 </button>
                 
@@ -130,6 +202,7 @@ const sections = [
                     <div class="sl-chapter-info">
                         <span class="sl-chapter-num" data-sl-edit="text">Chapter 2</span>
                         <h4 class="sl-chapter-title" data-sl-edit="text">Core Architectures</h4>
+                        <div class="sl-chapter-video-url" data-sl-edit="text" style="font-size:11px; opacity:0.6; margin-top:5px; word-break:break-all;">https://www.youtube.com/embed/M7lc1UVf-VE</div>
                     </div>
                 </button>
                 
@@ -140,6 +213,7 @@ const sections = [
                     <div class="sl-chapter-info">
                         <span class="sl-chapter-num" data-sl-edit="text">Chapter 3</span>
                         <h4 class="sl-chapter-title" data-sl-edit="text">Advanced Methodologies</h4>
+                        <div class="sl-chapter-video-url" data-sl-edit="text" style="font-size:11px; opacity:0.6; margin-top:5px; word-break:break-all;">https://www.youtube.com/embed/LXb3EKWsInQ</div>
                     </div>
                 </button>
 
@@ -178,17 +252,61 @@ const sections = [
     if (!root) return;
     const chapters = root.querySelectorAll('.sl-chapter-item');
     const activeImg = root.querySelector('#sl-chapter-active-img');
-    if(!chapters.length || !activeImg) return;
+    const playBtn = root.querySelector('#sl-chapter-play-btn');
+    const mediaArea = root.querySelector('#sl-chapters-media-area');
+    if(!chapters.length || !activeImg || !playBtn || !mediaArea) return;
+    
+    let currentVideoUrl = "";
+
+    function updateActiveChapter(btn) {
+        if(document.body.classList.contains('sl-editor-mode')) return;
+        
+        const existingIframe = mediaArea.querySelector('iframe');
+        if(existingIframe) existingIframe.remove();
+        
+        activeImg.style.display = 'block';
+        playBtn.style.display = 'flex';
+        
+        chapters.forEach(c => c.classList.remove('sl-active'));
+        btn.classList.add('sl-active');
+        
+        const poster = btn.getAttribute('data-poster');
+        if(poster) activeImg.src = poster;
+        
+        const urlEl = btn.querySelector('.sl-chapter-video-url');
+        if(urlEl) {
+            currentVideoUrl = urlEl.innerText.trim();
+        }
+    }
 
     chapters.forEach(btn => {
-        btn.addEventListener('click', (e) => {
-            if(document.body.classList.contains('sl-editor-mode')) return; // Prevent in editor
-            chapters.forEach(c => c.classList.remove('sl-active'));
-            btn.classList.add('sl-active');
-            const poster = btn.getAttribute('data-poster');
-            if(poster) activeImg.src = poster;
-        });
+        btn.addEventListener('click', () => updateActiveChapter(btn));
     });
+    
+    playBtn.addEventListener('click', () => {
+        if(document.body.classList.contains('sl-editor-mode') || !currentVideoUrl) return;
+        
+        activeImg.style.display = 'none';
+        playBtn.style.display = 'none';
+        
+        const iframe = document.createElement('iframe');
+        iframe.src = currentVideoUrl + (currentVideoUrl.includes('?') ? '&' : '?') + 'autoplay=1';
+        iframe.style.position = 'absolute';
+        iframe.style.top = '0';
+        iframe.style.left = '0';
+        iframe.style.width = '100%';
+        iframe.style.height = '100%';
+        iframe.style.border = 'none';
+        iframe.setAttribute('allow', 'autoplay; fullscreen; encrypted-media');
+        iframe.setAttribute('allowfullscreen', 'true');
+        
+        mediaArea.appendChild(iframe);
+    });
+    
+    // Init first chapter
+    const firstActive = root.querySelector('.sl-chapter-item.sl-active') || chapters[0];
+    const urlEl = firstActive.querySelector('.sl-chapter-video-url');
+    if(urlEl) currentVideoUrl = urlEl.innerText.trim();
 })();
     `)
   },
