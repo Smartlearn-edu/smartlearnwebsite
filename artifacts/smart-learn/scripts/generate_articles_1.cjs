@@ -215,7 +215,7 @@ const sections = [
                 <div class="sl-media-fallback w-100 h-100 position-absolute z-0">
                     <i class="fa fa-picture-o fs-1 opacity-25"></i>
                 </div>
-                <img src="https://picsum.photos/seed/sledit1/800/1200" alt="Editorial Image" class="w-100 h-100 object-fit-cover position-relative z-1 sl-editorial-img" loading="lazy">
+                <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80" alt="Editorial Image" class="w-100 h-100 object-fit-cover position-relative z-1 sl-editorial-img" loading="lazy">
             </div>
         </div>
 
@@ -225,7 +225,7 @@ const sections = [
             <!-- Mobile Media Fallback (only visible on small screens) -->
             <div class="d-lg-none w-100 position-relative" style="height: 40vh; min-height: 300px;">
                 <div class="sl-media-fallback w-100 h-100 position-absolute z-0"></div>
-                <img src="https://picsum.photos/seed/sledit1/800/600" alt="Editorial Image Mobile" class="w-100 h-100 object-fit-cover position-relative z-1" loading="lazy">
+                <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80" alt="Editorial Image Mobile" class="w-100 h-100 object-fit-cover position-relative z-1" loading="lazy">
             </div>
 
             <!-- Text Content Container -->
@@ -529,7 +529,7 @@ const sections = [
     <!-- Top Background Image -->
     <div class="position-absolute top-0 start-0 w-100" style="height: 60vh; min-height: 400px; max-height: 600px;">
         <div class="sl-media-fallback w-100 h-100 position-absolute z-0"></div>
-        <img src="https://picsum.photos/seed/slintersect1/1920/800" alt="Creative Studio" class="w-100 h-100 object-fit-cover position-relative z-1" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80" alt="Creative Studio" class="w-100 h-100 object-fit-cover position-relative z-1" loading="lazy">
         <!-- Gradient overlay to ensure text readability if glass fails -->
         <div class="position-absolute top-0 start-0 w-100 h-100 z-2 sl-gradient-overlay"></div>
     </div>
@@ -563,7 +563,7 @@ const sections = [
             <div class="col-lg-7 offset-lg-5 position-lg-absolute order-1 order-lg-2" style="right: 0; z-index: 1;">
                 <div class="rounded-4 overflow-hidden shadow-lg sl-border position-relative" style="aspect-ratio: 4/3;">
                     <div class="sl-media-fallback w-100 h-100 position-absolute z-0"></div>
-                    <img src="https://picsum.photos/seed/slintersect2/800/600" alt="Students collaborating" class="w-100 h-100 object-fit-cover position-relative z-1 sl-hover-zoom" loading="lazy">
+                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80" alt="Students collaborating" class="w-100 h-100 object-fit-cover position-relative z-1 sl-hover-zoom" loading="lazy">
                 </div>
             </div>
         </div>

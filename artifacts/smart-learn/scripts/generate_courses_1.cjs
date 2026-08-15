@@ -86,7 +86,7 @@ const sections = [
                     <!-- Image Area -->
                     <div class="position-relative" style="height: 220px;">
                         <div class="sl-media-fallback w-100 h-100 position-absolute z-0"></div>
-                        <img src="https://picsum.photos/seed/slc1/600/400" alt="Course Image" class="w-100 h-100 object-fit-cover position-relative z-1 sl-hover-zoom" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80" alt="Course Image" class="w-100 h-100 object-fit-cover position-relative z-1 sl-hover-zoom" loading="lazy">
                         <div class="position-absolute top-0 end-0 p-3 z-2">
                             <span class="badge bg-white text-dark rounded-pill fw-bold shadow-sm">Intermediate</span>
                         </div>
@@ -119,7 +119,7 @@ const sections = [
                 <a href="#" class="card h-100 sl-bg-card sl-border rounded-4 overflow-hidden text-decoration-none sl-hover-card sl-focus-ring d-flex flex-column">
                     <div class="position-relative" style="height: 220px;">
                         <div class="sl-media-fallback w-100 h-100 position-absolute z-0"></div>
-                        <img src="https://picsum.photos/seed/slc2/600/400" alt="Course Image" class="w-100 h-100 object-fit-cover position-relative z-1 sl-hover-zoom" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80" alt="Course Image" class="w-100 h-100 object-fit-cover position-relative z-1 sl-hover-zoom" loading="lazy">
                         <div class="position-absolute top-0 end-0 p-3 z-2">
                             <span class="badge bg-white text-dark rounded-pill fw-bold shadow-sm">Beginner</span>
                         </div>
@@ -151,7 +151,7 @@ const sections = [
                 <a href="#" class="card h-100 sl-bg-card sl-border rounded-4 overflow-hidden text-decoration-none sl-hover-card sl-focus-ring d-flex flex-column">
                     <div class="position-relative" style="height: 220px;">
                         <div class="sl-media-fallback w-100 h-100 position-absolute z-0"></div>
-                        <img src="https://picsum.photos/seed/slc3/600/400" alt="Course Image" class="w-100 h-100 object-fit-cover position-relative z-1 sl-hover-zoom" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80" alt="Course Image" class="w-100 h-100 object-fit-cover position-relative z-1 sl-hover-zoom" loading="lazy">
                         <div class="position-absolute top-0 end-0 p-3 z-2">
                             <span class="badge sl-bg-primary text-white rounded-pill fw-bold shadow-sm">Advanced</span>
                         </div>
@@ -230,7 +230,7 @@ const sections = [
                     <div class="row g-0 h-100">
                         <div class="col-md-6 col-lg-7 position-relative" style="min-height: 250px;">
                             <div class="sl-media-fallback w-100 h-100 position-absolute z-0"></div>
-                            <img src="https://picsum.photos/seed/slcar1/800/600" alt="Course" class="w-100 h-100 object-fit-cover position-absolute z-1 sl-hover-zoom" loading="lazy">
+                            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80" alt="Course" class="w-100 h-100 object-fit-cover position-absolute z-1 sl-hover-zoom" loading="lazy">
                             <!-- Gradient for cinematic feel -->
                             <div class="position-absolute top-0 start-0 w-100 h-100 z-2 d-none d-md-block" style="background: linear-gradient(to right, transparent, var(--smartlearn-card-bg));"></div>
                         </div>
@@ -256,7 +256,7 @@ const sections = [
                     <div class="row g-0 h-100">
                         <div class="col-md-6 col-lg-7 position-relative" style="min-height: 250px;">
                             <div class="sl-media-fallback w-100 h-100 position-absolute z-0"></div>
-                            <img src="https://picsum.photos/seed/slcar2/800/600" alt="Course" class="w-100 h-100 object-fit-cover position-absolute z-1 sl-hover-zoom" loading="lazy">
+                            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80" alt="Course" class="w-100 h-100 object-fit-cover position-absolute z-1 sl-hover-zoom" loading="lazy">
                             <div class="position-absolute top-0 start-0 w-100 h-100 z-2 d-none d-md-block" style="background: linear-gradient(to right, transparent, var(--smartlearn-card-bg));"></div>
                         </div>
                         <div class="col-md-6 col-lg-5 p-4 p-lg-5 d-flex flex-column justify-content-center position-relative z-3 sl-bg-card">
@@ -281,7 +281,7 @@ const sections = [
                     <div class="row g-0 h-100">
                         <div class="col-md-6 col-lg-7 position-relative" style="min-height: 250px;">
                             <div class="sl-media-fallback w-100 h-100 position-absolute z-0"></div>
-                            <img src="https://picsum.photos/seed/slcar3/800/600" alt="Course" class="w-100 h-100 object-fit-cover position-absolute z-1 sl-hover-zoom" loading="lazy">
+                            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80" alt="Course" class="w-100 h-100 object-fit-cover position-absolute z-1 sl-hover-zoom" loading="lazy">
                             <div class="position-absolute top-0 start-0 w-100 h-100 z-2 d-none d-md-block" style="background: linear-gradient(to right, transparent, var(--smartlearn-card-bg));"></div>
                         </div>
                         <div class="col-md-6 col-lg-5 p-4 p-lg-5 d-flex flex-column justify-content-center position-relative z-3 sl-bg-card">
@@ -385,7 +385,7 @@ const sections = [
                 <a href="#" class="card h-100 sl-bg-card sl-border rounded-4 overflow-hidden text-decoration-none sl-hover-card sl-focus-ring d-flex flex-column">
                     <div class="position-relative" style="height: 180px;">
                         <div class="sl-media-fallback w-100 h-100 position-absolute z-0"></div>
-                        <img src="https://picsum.photos/seed/slfilt1/400/300" alt="Tech" class="w-100 h-100 object-fit-cover position-relative z-1 sl-hover-zoom" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80" alt="Tech" class="w-100 h-100 object-fit-cover position-relative z-1 sl-hover-zoom" loading="lazy">
                     </div>
                     <div class="card-body p-4 d-flex flex-column flex-grow-1">
                         <div class="small fw-bold text-uppercase sl-text-primary tracking-wide mb-2" data-sl-edit="text">Tech</div>
@@ -403,7 +403,7 @@ const sections = [
                 <a href="#" class="card h-100 sl-bg-card sl-border rounded-4 overflow-hidden text-decoration-none sl-hover-card sl-focus-ring d-flex flex-column">
                     <div class="position-relative" style="height: 180px;">
                         <div class="sl-media-fallback w-100 h-100 position-absolute z-0"></div>
-                        <img src="https://picsum.photos/seed/slfilt2/400/300" alt="Business" class="w-100 h-100 object-fit-cover position-relative z-1 sl-hover-zoom" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80" alt="Business" class="w-100 h-100 object-fit-cover position-relative z-1 sl-hover-zoom" loading="lazy">
                     </div>
                     <div class="card-body p-4 d-flex flex-column flex-grow-1">
                         <div class="small fw-bold text-uppercase sl-text-primary tracking-wide mb-2" data-sl-edit="text">Business</div>
@@ -421,7 +421,7 @@ const sections = [
                 <a href="#" class="card h-100 sl-bg-card sl-border rounded-4 overflow-hidden text-decoration-none sl-hover-card sl-focus-ring d-flex flex-column">
                     <div class="position-relative" style="height: 180px;">
                         <div class="sl-media-fallback w-100 h-100 position-absolute z-0"></div>
-                        <img src="https://picsum.photos/seed/slfilt3/400/300" alt="Design" class="w-100 h-100 object-fit-cover position-relative z-1 sl-hover-zoom" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80" alt="Design" class="w-100 h-100 object-fit-cover position-relative z-1 sl-hover-zoom" loading="lazy">
                     </div>
                     <div class="card-body p-4 d-flex flex-column flex-grow-1">
                         <div class="small fw-bold text-uppercase sl-text-primary tracking-wide mb-2" data-sl-edit="text">Design</div>
@@ -439,7 +439,7 @@ const sections = [
                 <a href="#" class="card h-100 sl-bg-card sl-border rounded-4 overflow-hidden text-decoration-none sl-hover-card sl-focus-ring d-flex flex-column">
                     <div class="position-relative" style="height: 180px;">
                         <div class="sl-media-fallback w-100 h-100 position-absolute z-0"></div>
-                        <img src="https://picsum.photos/seed/slfilt4/400/300" alt="Tech" class="w-100 h-100 object-fit-cover position-relative z-1 sl-hover-zoom" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80" alt="Tech" class="w-100 h-100 object-fit-cover position-relative z-1 sl-hover-zoom" loading="lazy">
                     </div>
                     <div class="card-body p-4 d-flex flex-column flex-grow-1">
                         <div class="small fw-bold text-uppercase sl-text-primary tracking-wide mb-2" data-sl-edit="text">Tech</div>
@@ -538,7 +538,7 @@ const sections = [
                 <a href="#" class="card h-100 border-0 sl-bg-card sl-border rounded-4 overflow-hidden text-decoration-none sl-hover-card sl-focus-ring position-relative">
                     <div class="position-absolute top-0 start-0 w-100 h-100 z-0">
                         <div class="sl-media-fallback w-100 h-100 position-absolute z-0"></div>
-                        <img src="https://picsum.photos/seed/slbentohero/800/800" alt="Hero Course" class="w-100 h-100 object-fit-cover position-relative z-1 sl-hover-zoom" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80" alt="Hero Course" class="w-100 h-100 object-fit-cover position-relative z-1 sl-hover-zoom" loading="lazy">
                         <div class="position-absolute top-0 start-0 w-100 h-100 z-2" style="background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, transparent 80%);"></div>
                     </div>
                     
@@ -570,7 +570,7 @@ const sections = [
                         <a href="#" class="card h-100 sl-bg-card sl-border rounded-4 overflow-hidden text-decoration-none sl-hover-card sl-focus-ring d-flex flex-column">
                             <div class="position-relative" style="height: 140px;">
                                 <div class="sl-media-fallback w-100 h-100 position-absolute z-0"></div>
-                                <img src="https://picsum.photos/seed/slbento1/400/300" alt="Course" class="w-100 h-100 object-fit-cover position-relative z-1 sl-hover-zoom" loading="lazy">
+                                <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80" alt="Course" class="w-100 h-100 object-fit-cover position-relative z-1 sl-hover-zoom" loading="lazy">
                             </div>
                             <div class="card-body p-3 d-flex flex-column">
                                 <h4 class="h6 fw-bold sl-text-emphasis mb-2 lh-base" data-sl-edit="text">React Patterns</h4>
@@ -584,7 +584,7 @@ const sections = [
                         <a href="#" class="card h-100 sl-bg-card sl-border rounded-4 overflow-hidden text-decoration-none sl-hover-card sl-focus-ring d-flex flex-column">
                             <div class="position-relative" style="height: 140px;">
                                 <div class="sl-media-fallback w-100 h-100 position-absolute z-0"></div>
-                                <img src="https://picsum.photos/seed/slbento2/400/300" alt="Course" class="w-100 h-100 object-fit-cover position-relative z-1 sl-hover-zoom" loading="lazy">
+                                <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80" alt="Course" class="w-100 h-100 object-fit-cover position-relative z-1 sl-hover-zoom" loading="lazy">
                             </div>
                             <div class="card-body p-3 d-flex flex-column">
                                 <h4 class="h6 fw-bold sl-text-emphasis mb-2 lh-base" data-sl-edit="text">Node.js APIs</h4>
@@ -598,7 +598,7 @@ const sections = [
                         <a href="#" class="card h-100 sl-bg-card sl-border rounded-4 overflow-hidden text-decoration-none sl-hover-card sl-focus-ring d-flex flex-column">
                             <div class="position-relative" style="height: 140px;">
                                 <div class="sl-media-fallback w-100 h-100 position-absolute z-0"></div>
-                                <img src="https://picsum.photos/seed/slbento3/400/300" alt="Course" class="w-100 h-100 object-fit-cover position-relative z-1 sl-hover-zoom" loading="lazy">
+                                <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80" alt="Course" class="w-100 h-100 object-fit-cover position-relative z-1 sl-hover-zoom" loading="lazy">
                             </div>
                             <div class="card-body p-3 d-flex flex-column">
                                 <h4 class="h6 fw-bold sl-text-emphasis mb-2 lh-base" data-sl-edit="text">Docker Mastery</h4>
@@ -612,7 +612,7 @@ const sections = [
                         <a href="#" class="card h-100 sl-bg-card sl-border rounded-4 overflow-hidden text-decoration-none sl-hover-card sl-focus-ring d-flex flex-column">
                             <div class="position-relative" style="height: 140px;">
                                 <div class="sl-media-fallback w-100 h-100 position-absolute z-0"></div>
-                                <img src="https://picsum.photos/seed/slbento4/400/300" alt="Course" class="w-100 h-100 object-fit-cover position-relative z-1 sl-hover-zoom" loading="lazy">
+                                <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80" alt="Course" class="w-100 h-100 object-fit-cover position-relative z-1 sl-hover-zoom" loading="lazy">
                             </div>
                             <div class="card-body p-3 d-flex flex-column">
                                 <h4 class="h6 fw-bold sl-text-emphasis mb-2 lh-base" data-sl-edit="text">CI/CD Pipelines</h4>

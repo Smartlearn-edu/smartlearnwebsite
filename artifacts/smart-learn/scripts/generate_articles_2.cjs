@@ -71,7 +71,7 @@ const sections = [
             <div class="sl-grid-item sl-item-large sl-bg-card rounded-4 overflow-hidden sl-border d-flex flex-column">
                 <div class="position-relative" style="height: 350px;">
                     <div class="sl-media-fallback w-100 h-100 position-absolute z-0"></div>
-                    <img src="https://picsum.photos/seed/slgrid1/1000/600" alt="Main Story Image" class="w-100 h-100 object-fit-cover position-relative z-1 sl-hover-zoom" loading="lazy">
+                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80" alt="Main Story Image" class="w-100 h-100 object-fit-cover position-relative z-1 sl-hover-zoom" loading="lazy">
                     <div class="position-absolute bottom-0 start-0 w-100 p-4 z-2 sl-gradient-overlay-bottom">
                         <span class="badge sl-bg-primary text-white fw-bold mb-2">FEATURED</span>
                         <h3 class="h2 fw-bold text-white mb-0" data-sl-edit="text">The Future of AI in Modern Classrooms</h3>
@@ -87,7 +87,7 @@ const sections = [
             <div class="sl-grid-item sl-bg-card rounded-4 overflow-hidden sl-border d-flex flex-column">
                 <div class="position-relative" style="height: 200px;">
                     <div class="sl-media-fallback w-100 h-100 position-absolute z-0"></div>
-                    <img src="https://picsum.photos/seed/slgrid2/600/400" alt="Story 1 Image" class="w-100 h-100 object-fit-cover position-relative z-1 sl-hover-zoom" loading="lazy">
+                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80" alt="Story 1 Image" class="w-100 h-100 object-fit-cover position-relative z-1 sl-hover-zoom" loading="lazy">
                 </div>
                 <div class="p-4 flex-grow-1">
                     <div class="small sl-text-muted fw-bold mb-2">ALUMNI SPOTLIGHT</div>
@@ -100,7 +100,7 @@ const sections = [
             <div class="sl-grid-item sl-bg-card rounded-4 overflow-hidden sl-border d-flex flex-column">
                 <div class="position-relative" style="height: 200px;">
                     <div class="sl-media-fallback w-100 h-100 position-absolute z-0"></div>
-                    <img src="https://picsum.photos/seed/slgrid3/600/400" alt="Story 2 Image" class="w-100 h-100 object-fit-cover position-relative z-1 sl-hover-zoom" loading="lazy">
+                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80" alt="Story 2 Image" class="w-100 h-100 object-fit-cover position-relative z-1 sl-hover-zoom" loading="lazy">
                 </div>
                 <div class="p-4 flex-grow-1">
                     <div class="small sl-text-muted fw-bold mb-2">RESEARCH</div>
@@ -347,10 +347,10 @@ const sections = [
                     
                     <div class="sl-media-fallback w-100 h-100 position-absolute z-0"></div>
                     
-                    <img src="https://picsum.photos/seed/slstep1/1000/800" alt="Create Account" class="sl-step-media w-100 h-100 object-fit-cover position-absolute top-0 start-0 active" data-step="1" loading="lazy">
-                    <img src="https://picsum.photos/seed/slstep2/1000/800" alt="Choose Course" class="sl-step-media w-100 h-100 object-fit-cover position-absolute top-0 start-0" data-step="2" loading="lazy">
-                    <img src="https://picsum.photos/seed/slstep3/1000/800" alt="Complete Enrollment" class="sl-step-media w-100 h-100 object-fit-cover position-absolute top-0 start-0" data-step="3" loading="lazy">
-                    <img src="https://picsum.photos/seed/slstep4/1000/800" alt="Start Learning" class="sl-step-media w-100 h-100 object-fit-cover position-absolute top-0 start-0" data-step="4" loading="lazy">
+                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80" alt="Create Account" class="sl-step-media w-100 h-100 object-fit-cover position-absolute top-0 start-0 active" data-step="1" loading="lazy">
+                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80" alt="Choose Course" class="sl-step-media w-100 h-100 object-fit-cover position-absolute top-0 start-0" data-step="2" loading="lazy">
+                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80" alt="Complete Enrollment" class="sl-step-media w-100 h-100 object-fit-cover position-absolute top-0 start-0" data-step="3" loading="lazy">
+                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80" alt="Start Learning" class="sl-step-media w-100 h-100 object-fit-cover position-absolute top-0 start-0" data-step="4" loading="lazy">
                     
                 </div>
             </div>
@@ -545,7 +545,7 @@ const sections = [
                 <div class="position-sticky" style="top: 2rem;">
                     <div class="rounded-4 overflow-hidden sl-border shadow-lg sl-bg-card position-relative" style="aspect-ratio: 3/4;">
                         <div class="sl-media-fallback w-100 h-100 position-absolute z-0"></div>
-                        <img src="https://picsum.photos/seed/slcourse1/800/1000" alt="Course Environment" class="w-100 h-100 object-fit-cover position-relative z-1" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80" alt="Course Environment" class="w-100 h-100 object-fit-cover position-relative z-1" loading="lazy">
                         
                         <!-- Overlay CTA inside image -->
                         <div class="position-absolute bottom-0 start-0 w-100 p-4 z-2" style="background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);">

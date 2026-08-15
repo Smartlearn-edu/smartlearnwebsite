@@ -86,7 +86,7 @@ const sections = [
                     <!-- Image -->
                     <div class="col-md-5 position-relative" style="min-height: 200px;">
                         <div class="sl-media-fallback w-100 h-100 position-absolute z-0"></div>
-                        <img src="https://picsum.photos/seed/slcont1/600/600" alt="Course" class="w-100 h-100 object-fit-cover position-absolute z-1" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80" alt="Course" class="w-100 h-100 object-fit-cover position-absolute z-1" loading="lazy">
                         <!-- Resume Play Icon overlay -->
                         <div class="position-absolute top-50 start-50 translate-middle z-2 bg-white rounded-circle d-flex align-items-center justify-content-center shadow" style="width: 60px; height: 60px;">
                             <i class="fa fa-play sl-text-primary fs-4 ms-1"></i>
@@ -123,7 +123,7 @@ const sections = [
                     <!-- Item 1 -->
                     <a href="#" class="d-flex gap-3 mb-4 text-decoration-none sl-focus-ring sl-hover-row rounded-3 p-2 transition-all">
                         <div class="rounded-3 overflow-hidden flex-shrink-0" style="width: 60px; height: 60px;">
-                            <img src="https://picsum.photos/seed/slcont2/100/100" class="w-100 h-100 object-fit-cover" alt="Course" loading="lazy">
+                            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80" class="w-100 h-100 object-fit-cover" alt="Course" loading="lazy">
                         </div>
                         <div class="d-flex flex-column justify-content-center">
                             <h5 class="h6 fw-bold sl-text-emphasis mb-1 lh-sm" data-sl-edit="text">Statistics 101</h5>
@@ -290,7 +290,7 @@ const sections = [
                 <a href="#" class="card h-100 border-0 rounded-4 overflow-hidden text-decoration-none sl-hover-card sl-focus-ring position-relative" style="min-height: 280px;">
                     <div class="position-absolute top-0 start-0 w-100 h-100 z-0">
                         <div class="sl-media-fallback w-100 h-100 position-absolute z-0"></div>
-                        <img src="https://picsum.photos/seed/slcat1/400/500" alt="Tech" class="w-100 h-100 object-fit-cover position-relative z-1 sl-hover-zoom" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80" alt="Tech" class="w-100 h-100 object-fit-cover position-relative z-1 sl-hover-zoom" loading="lazy">
                         <div class="position-absolute top-0 start-0 w-100 h-100 z-2" style="background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0.1));"></div>
                     </div>
                     
@@ -312,7 +312,7 @@ const sections = [
                 <a href="#" class="card h-100 border-0 rounded-4 overflow-hidden text-decoration-none sl-hover-card sl-focus-ring position-relative" style="min-height: 280px;">
                     <div class="position-absolute top-0 start-0 w-100 h-100 z-0">
                         <div class="sl-media-fallback w-100 h-100 position-absolute z-0"></div>
-                        <img src="https://picsum.photos/seed/slcat2/400/500" alt="Business" class="w-100 h-100 object-fit-cover position-relative z-1 sl-hover-zoom" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80" alt="Business" class="w-100 h-100 object-fit-cover position-relative z-1 sl-hover-zoom" loading="lazy">
                         <div class="position-absolute top-0 start-0 w-100 h-100 z-2" style="background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0.1));"></div>
                     </div>
                     
@@ -334,7 +334,7 @@ const sections = [
                 <a href="#" class="card h-100 border-0 rounded-4 overflow-hidden text-decoration-none sl-hover-card sl-focus-ring position-relative" style="min-height: 280px;">
                     <div class="position-absolute top-0 start-0 w-100 h-100 z-0">
                         <div class="sl-media-fallback w-100 h-100 position-absolute z-0"></div>
-                        <img src="https://picsum.photos/seed/slcat3/400/500" alt="Design" class="w-100 h-100 object-fit-cover position-relative z-1 sl-hover-zoom" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80" alt="Design" class="w-100 h-100 object-fit-cover position-relative z-1 sl-hover-zoom" loading="lazy">
                         <div class="position-absolute top-0 start-0 w-100 h-100 z-2" style="background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0.1));"></div>
                     </div>
                     
@@ -356,7 +356,7 @@ const sections = [
                 <a href="#" class="card h-100 border-0 rounded-4 overflow-hidden text-decoration-none sl-hover-card sl-focus-ring position-relative" style="min-height: 280px;">
                     <div class="position-absolute top-0 start-0 w-100 h-100 z-0">
                         <div class="sl-media-fallback w-100 h-100 position-absolute z-0"></div>
-                        <img src="https://picsum.photos/seed/slcat4/400/500" alt="Science" class="w-100 h-100 object-fit-cover position-relative z-1 sl-hover-zoom" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80" alt="Science" class="w-100 h-100 object-fit-cover position-relative z-1 sl-hover-zoom" loading="lazy">
                         <div class="position-absolute top-0 start-0 w-100 h-100 z-2" style="background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0.1));"></div>
                     </div>
                     
@@ -414,7 +414,7 @@ const sections = [
                     </h2>
                     <div id="slAcc1" class="accordion-collapse collapse" data-bs-parent="#slCategoryAccordion">
                         <div class="accordion-body p-4">
-                            <img src="https://picsum.photos/seed/slstory1/600/400" alt="Tech" class="w-100 rounded-3 mb-3 object-fit-cover" style="height: 200px;" loading="lazy">
+                            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80" alt="Tech" class="w-100 rounded-3 mb-3 object-fit-cover" style="height: 200px;" loading="lazy">
                             <p class="sl-text-muted mb-4">Explore programming, AI, cybersecurity and data science.</p>
                             <a href="#" class="btn btn-outline-dark sl-text-emphasis sl-border rounded-pill px-4 fw-bold w-100">Explore 128 Courses</a>
                         </div>
@@ -430,7 +430,7 @@ const sections = [
                     </h2>
                     <div id="slAcc2" class="accordion-collapse collapse" data-bs-parent="#slCategoryAccordion">
                         <div class="accordion-body p-4">
-                            <img src="https://picsum.photos/seed/slstory2/600/400" alt="Business" class="w-100 rounded-3 mb-3 object-fit-cover" style="height: 200px;" loading="lazy">
+                            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80" alt="Business" class="w-100 rounded-3 mb-3 object-fit-cover" style="height: 200px;" loading="lazy">
                             <p class="sl-text-muted mb-4">Master finance, team management, and corporate strategy.</p>
                             <a href="#" class="btn btn-outline-dark sl-text-emphasis sl-border rounded-pill px-4 fw-bold w-100">Explore 84 Courses</a>
                         </div>
@@ -446,7 +446,7 @@ const sections = [
                     </h2>
                     <div id="slAcc3" class="accordion-collapse collapse" data-bs-parent="#slCategoryAccordion">
                         <div class="accordion-body p-4">
-                            <img src="https://picsum.photos/seed/slstory3/600/400" alt="Design" class="w-100 rounded-3 mb-3 object-fit-cover" style="height: 200px;" loading="lazy">
+                            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80" alt="Design" class="w-100 rounded-3 mb-3 object-fit-cover" style="height: 200px;" loading="lazy">
                             <p class="sl-text-muted mb-4">Create stunning interfaces, brand identities, and user experiences.</p>
                             <a href="#" class="btn btn-outline-dark sl-text-emphasis sl-border rounded-pill px-4 fw-bold w-100">Explore 42 Courses</a>
                         </div>
@@ -464,7 +464,7 @@ const sections = [
                 <div class="rounded-4 overflow-hidden position-relative shadow-sm sl-border" style="height: 600px; border: 1px solid var(--smartlearn-card-border);">
                     <div class="sl-media-fallback w-100 h-100 position-absolute z-0"></div>
                     <!-- The active image -->
-                    <img id="slStoryImage" src="https://picsum.photos/seed/slstory1/800/800" alt="Category Image" class="w-100 h-100 object-fit-cover position-relative z-1 sl-fade-transition" loading="lazy">
+                    <img id="slStoryImage" src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80" alt="Category Image" class="w-100 h-100 object-fit-cover position-relative z-1 sl-fade-transition" loading="lazy">
                 </div>
             </div>
 
@@ -476,7 +476,7 @@ const sections = [
                     
                     <!-- Item 1 -->
                     <div class="sl-story-item p-4 rounded-4 cursor-pointer sl-bg-card border sl-border active transition-all" 
-                         data-image="https://picsum.photos/seed/slstory1/800/800" tabindex="0" role="button">
+                         data-image="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80" tabindex="0" role="button">
                         <div class="d-flex justify-content-between align-items-center mb-2">
                             <h3 class="h3 fw-bold sl-text-emphasis mb-0">Technology</h3>
                             <span class="badge sl-bg-primary-subtle sl-text-primary rounded-pill fw-bold">128 Courses</span>
@@ -487,7 +487,7 @@ const sections = [
 
                     <!-- Item 2 -->
                     <div class="sl-story-item p-4 rounded-4 cursor-pointer bg-transparent border border-transparent transition-all" 
-                         data-image="https://picsum.photos/seed/slstory2/800/800" tabindex="0" role="button">
+                         data-image="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80" tabindex="0" role="button">
                         <div class="d-flex justify-content-between align-items-center mb-2">
                             <h3 class="h3 fw-bold sl-text-emphasis mb-0 opacity-75 sl-story-title">Business</h3>
                             <span class="badge sl-bg-main sl-border sl-text-muted rounded-pill fw-bold opacity-75 sl-story-badge">84 Courses</span>
@@ -499,7 +499,7 @@ const sections = [
 
                     <!-- Item 3 -->
                     <div class="sl-story-item p-4 rounded-4 cursor-pointer bg-transparent border border-transparent transition-all" 
-                         data-image="https://picsum.photos/seed/slstory3/800/800" tabindex="0" role="button">
+                         data-image="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80" tabindex="0" role="button">
                         <div class="d-flex justify-content-between align-items-center mb-2">
                             <h3 class="h3 fw-bold sl-text-emphasis mb-0 opacity-75 sl-story-title">Design</h3>
                             <span class="badge sl-bg-main sl-border sl-text-muted rounded-pill fw-bold opacity-75 sl-story-badge">42 Courses</span>
@@ -636,7 +636,7 @@ const sections = [
         <div class="sl-typo-list d-flex flex-column">
             
             <!-- Item 1 -->
-            <a href="#" class="sl-typo-item text-decoration-none py-4 border-bottom sl-border d-flex align-items-center justify-content-between position-relative sl-focus-ring" data-image="https://picsum.photos/seed/sltypo1/600/400">
+            <a href="#" class="sl-typo-item text-decoration-none py-4 border-bottom sl-border d-flex align-items-center justify-content-between position-relative sl-focus-ring" data-image="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80">
                 <div class="d-flex align-items-baseline gap-3 gap-md-5 position-relative z-1">
                     <span class="fs-5 fw-bold sl-text-muted sl-typo-num transition-all">01</span>
                     <h3 class="display-4 fw-bold sl-text-emphasis mb-0 sl-typo-title transition-all">Business</h3>
@@ -648,7 +648,7 @@ const sections = [
             </a>
 
             <!-- Item 2 -->
-            <a href="#" class="sl-typo-item text-decoration-none py-4 border-bottom sl-border d-flex align-items-center justify-content-between position-relative sl-focus-ring" data-image="https://picsum.photos/seed/sltypo2/600/400">
+            <a href="#" class="sl-typo-item text-decoration-none py-4 border-bottom sl-border d-flex align-items-center justify-content-between position-relative sl-focus-ring" data-image="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80">
                 <div class="d-flex align-items-baseline gap-3 gap-md-5 position-relative z-1">
                     <span class="fs-5 fw-bold sl-text-muted sl-typo-num transition-all">02</span>
                     <h3 class="display-4 fw-bold sl-text-emphasis mb-0 sl-typo-title transition-all">Technology</h3>
@@ -660,7 +660,7 @@ const sections = [
             </a>
 
             <!-- Item 3 -->
-            <a href="#" class="sl-typo-item text-decoration-none py-4 border-bottom sl-border d-flex align-items-center justify-content-between position-relative sl-focus-ring" data-image="https://picsum.photos/seed/sltypo3/600/400">
+            <a href="#" class="sl-typo-item text-decoration-none py-4 border-bottom sl-border d-flex align-items-center justify-content-between position-relative sl-focus-ring" data-image="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80">
                 <div class="d-flex align-items-baseline gap-3 gap-md-5 position-relative z-1">
                     <span class="fs-5 fw-bold sl-text-muted sl-typo-num transition-all">03</span>
                     <h3 class="display-4 fw-bold sl-text-emphasis mb-0 sl-typo-title transition-all">Design</h3>
@@ -672,7 +672,7 @@ const sections = [
             </a>
 
             <!-- Item 4 -->
-            <a href="#" class="sl-typo-item text-decoration-none py-4 border-bottom sl-border d-flex align-items-center justify-content-between position-relative sl-focus-ring" data-image="https://picsum.photos/seed/sltypo4/600/400">
+            <a href="#" class="sl-typo-item text-decoration-none py-4 border-bottom sl-border d-flex align-items-center justify-content-between position-relative sl-focus-ring" data-image="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80">
                 <div class="d-flex align-items-baseline gap-3 gap-md-5 position-relative z-1">
                     <span class="fs-5 fw-bold sl-text-muted sl-typo-num transition-all">04</span>
                     <h3 class="display-4 fw-bold sl-text-emphasis mb-0 sl-typo-title transition-all">Languages</h3>
@@ -684,7 +684,7 @@ const sections = [
             </a>
             
              <!-- Item 5 -->
-            <a href="#" class="sl-typo-item text-decoration-none py-4 border-bottom sl-border d-flex align-items-center justify-content-between position-relative sl-focus-ring" data-image="https://picsum.photos/seed/sltypo5/600/400">
+            <a href="#" class="sl-typo-item text-decoration-none py-4 border-bottom sl-border d-flex align-items-center justify-content-between position-relative sl-focus-ring" data-image="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80">
                 <div class="d-flex align-items-baseline gap-3 gap-md-5 position-relative z-1">
                     <span class="fs-5 fw-bold sl-text-muted sl-typo-num transition-all">05</span>
                     <h3 class="display-4 fw-bold sl-text-emphasis mb-0 sl-typo-title transition-all">Science</h3>

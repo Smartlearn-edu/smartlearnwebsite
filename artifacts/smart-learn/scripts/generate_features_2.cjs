@@ -68,7 +68,7 @@ const sections = [
             <div class="sl-hub-center position-absolute top-50 start-50 translate-middle rounded-circle sl-bg-card shadow-lg sl-border d-flex align-items-center justify-content-center z-2 p-3" style="width: 200px; height: 200px;">
                 <div class="rounded-circle overflow-hidden w-100 h-100 position-relative">
                     <div class="sl-media-fallback w-100 h-100 position-absolute z-0"></div>
-                    <img src="https://picsum.photos/seed/slhubcenter/200/200" alt="Central Hub" class="w-100 h-100 object-fit-cover position-relative z-1">
+                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80" alt="Central Hub" class="w-100 h-100 object-fit-cover position-relative z-1">
                 </div>
             </div>
 
@@ -77,25 +77,25 @@ const sections = [
                 
                 <!-- Node 1 (Inner Track) -->
                 <div class="sl-node sl-node-inner position-absolute sl-bg-card sl-border p-2 rounded-pill shadow-sm d-flex align-items-center gap-2 pointer-events-auto" style="animation-delay: -2s;" tabindex="0">
-                    <img src="https://picsum.photos/seed/slhubn1/40/40" class="rounded-circle" style="width:32px; height:32px;">
+                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80" class="rounded-circle" style="width:32px; height:32px;">
                     <span class="fw-bold small pe-2 sl-text-emphasis" data-sl-edit="text">AI Grading</span>
                 </div>
 
                 <!-- Node 2 (Inner Track) -->
                 <div class="sl-node sl-node-inner position-absolute sl-bg-card sl-border p-2 rounded-pill shadow-sm d-flex align-items-center gap-2 pointer-events-auto" style="animation-delay: -6s;" tabindex="0">
-                    <img src="https://picsum.photos/seed/slhubn2/40/40" class="rounded-circle" style="width:32px; height:32px;">
+                    <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&w=120&q=80" class="rounded-circle" style="width:32px; height:32px;">
                     <span class="fw-bold small pe-2 sl-text-emphasis" data-sl-edit="text">Live Forums</span>
                 </div>
 
                 <!-- Node 3 (Outer Track) -->
                 <div class="sl-node sl-node-outer position-absolute sl-bg-card sl-border p-2 rounded-pill shadow-sm d-flex align-items-center gap-2 pointer-events-auto" style="animation-delay: -4s;" tabindex="0">
-                    <img src="https://picsum.photos/seed/slhubn3/40/40" class="rounded-circle" style="width:32px; height:32px;">
+                    <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=120&q=80" class="rounded-circle" style="width:32px; height:32px;">
                     <span class="fw-bold small pe-2 sl-text-emphasis" data-sl-edit="text">Analytics Engine</span>
                 </div>
 
                 <!-- Node 4 (Outer Track) -->
                 <div class="sl-node sl-node-outer position-absolute sl-bg-card sl-border p-2 rounded-pill shadow-sm d-flex align-items-center gap-2 pointer-events-auto" style="animation-delay: -10s;" tabindex="0">
-                    <img src="https://picsum.photos/seed/slhubn4/40/40" class="rounded-circle" style="width:32px; height:32px;">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=120&q=80" class="rounded-circle" style="width:32px; height:32px;">
                     <span class="fw-bold small pe-2 sl-text-emphasis" data-sl-edit="text">Secure Exams</span>
                 </div>
 
@@ -201,7 +201,7 @@ const sections = [
                 <!-- Media Reveal -->
                 <div class="sl-typo-media position-absolute end-0 top-50 translate-middle-y me-5 rounded-4 overflow-hidden shadow-lg d-none d-xl-block pointer-events-none z-3 sl-border" style="width: 350px; height: 220px;">
                     <div class="sl-media-fallback w-100 h-100 position-absolute z-0"></div>
-                    <img src="https://picsum.photos/seed/sltypo1/700/440" class="w-100 h-100 object-fit-cover position-relative z-1" loading="lazy">
+                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80" class="w-100 h-100 object-fit-cover position-relative z-1" loading="lazy">
                 </div>
             </a>
 
@@ -222,7 +222,7 @@ const sections = [
                 <!-- Media Reveal -->
                 <div class="sl-typo-media position-absolute end-0 top-50 translate-middle-y me-5 rounded-4 overflow-hidden shadow-lg d-none d-xl-block pointer-events-none z-3 sl-border" style="width: 350px; height: 220px;">
                     <div class="sl-media-fallback w-100 h-100 position-absolute z-0"></div>
-                    <video class="w-100 h-100 object-fit-cover position-relative z-1" poster="https://picsum.photos/seed/sltypo2/700/440" autoplay muted loop playsinline><source src="" type="video/mp4"></video>
+                    <video class="w-100 h-100 object-fit-cover position-relative z-1" poster="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80" autoplay muted loop playsinline><source src="" type="video/mp4"></video>
                 </div>
             </a>
 
@@ -243,7 +243,7 @@ const sections = [
                 <!-- Media Reveal -->
                 <div class="sl-typo-media position-absolute end-0 top-50 translate-middle-y me-5 rounded-4 overflow-hidden shadow-lg d-none d-xl-block pointer-events-none z-3 sl-border" style="width: 350px; height: 220px;">
                     <div class="sl-media-fallback w-100 h-100 position-absolute z-0"></div>
-                    <img src="https://picsum.photos/seed/sltypo3/700/440" class="w-100 h-100 object-fit-cover position-relative z-1" loading="lazy">
+                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80" class="w-100 h-100 object-fit-cover position-relative z-1" loading="lazy">
                 </div>
             </a>
 
@@ -315,7 +315,7 @@ const sections = [
                 <div class="text-center px-3">
                     <div class="sl-step-media mx-auto rounded-circle overflow-hidden sl-border sl-bg-card mb-4 position-relative shadow-sm" style="width: 140px; height: 140px; border-width: 4px !important;">
                         <div class="sl-media-fallback w-100 h-100 position-absolute z-0"></div>
-                        <img src="https://picsum.photos/seed/slstep1/300/300" class="w-100 h-100 object-fit-cover position-relative z-1 sl-step-img" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80" class="w-100 h-100 object-fit-cover position-relative z-1 sl-step-img" loading="lazy">
                         <div class="position-absolute top-50 start-50 translate-middle z-2 sl-step-number bg-white text-dark rounded-circle d-flex align-items-center justify-content-center fw-bold shadow" style="width: 32px; height: 32px;">1</div>
                     </div>
                     <h5 class="fw-bold sl-text-emphasis mb-2" data-sl-edit="text">Discover & Enroll</h5>
@@ -328,7 +328,7 @@ const sections = [
                 <div class="text-center px-3">
                     <div class="sl-step-media mx-auto rounded-circle overflow-hidden sl-border sl-bg-card mb-4 position-relative shadow-sm" style="width: 140px; height: 140px; border-width: 4px !important; margin-top: 40px;">
                         <div class="sl-media-fallback w-100 h-100 position-absolute z-0"></div>
-                        <img src="https://picsum.photos/seed/slstep2/300/300" class="w-100 h-100 object-fit-cover position-relative z-1 sl-step-img" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80" class="w-100 h-100 object-fit-cover position-relative z-1 sl-step-img" loading="lazy">
                         <div class="position-absolute top-50 start-50 translate-middle z-2 sl-step-number bg-white text-dark rounded-circle d-flex align-items-center justify-content-center fw-bold shadow" style="width: 32px; height: 32px;">2</div>
                     </div>
                     <h5 class="fw-bold sl-text-emphasis mb-2" data-sl-edit="text">Learn & Engage</h5>
@@ -341,7 +341,7 @@ const sections = [
                 <div class="text-center px-3">
                     <div class="sl-step-media mx-auto rounded-circle overflow-hidden sl-border sl-bg-card mb-4 position-relative shadow-sm" style="width: 140px; height: 140px; border-width: 4px !important;">
                         <div class="sl-media-fallback w-100 h-100 position-absolute z-0"></div>
-                        <img src="https://picsum.photos/seed/slstep3/300/300" class="w-100 h-100 object-fit-cover position-relative z-1 sl-step-img" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80" class="w-100 h-100 object-fit-cover position-relative z-1 sl-step-img" loading="lazy">
                         <div class="position-absolute top-50 start-50 translate-middle z-2 sl-step-number bg-white text-dark rounded-circle d-flex align-items-center justify-content-center fw-bold shadow" style="width: 32px; height: 32px;">3</div>
                     </div>
                     <h5 class="fw-bold sl-text-emphasis mb-2" data-sl-edit="text">Practice & Assess</h5>
@@ -354,7 +354,7 @@ const sections = [
                 <div class="text-center px-3">
                     <div class="sl-step-media mx-auto rounded-circle overflow-hidden border-primary sl-bg-primary-subtle mb-4 position-relative shadow-sm" style="width: 140px; height: 140px; border-width: 4px !important; margin-top: 40px; border-style: solid;">
                         <div class="sl-media-fallback w-100 h-100 position-absolute z-0"></div>
-                        <img src="https://picsum.photos/seed/slstep4/300/300" class="w-100 h-100 object-fit-cover position-relative z-1 sl-step-img opacity-75" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80" class="w-100 h-100 object-fit-cover position-relative z-1 sl-step-img opacity-75" loading="lazy">
                         <div class="position-absolute top-50 start-50 translate-middle z-2 sl-step-number sl-bg-primary text-white rounded-circle d-flex align-items-center justify-content-center fw-bold shadow" style="width: 32px; height: 32px;"><i class="fa fa-trophy small"></i></div>
                     </div>
                     <h5 class="fw-bold sl-text-emphasis mb-2" data-sl-edit="text">Certify & Graduate</h5>
@@ -439,7 +439,7 @@ const sections = [
                         </div>
                     </div>
                     <!-- High-res dashboard screenshot -->
-                    <img src="https://picsum.photos/seed/sldashboard/1600/900" alt="Student Dashboard Interface" class="w-100 h-100 object-fit-cover position-relative z-1" loading="lazy">
+                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80" alt="Student Dashboard Interface" class="w-100 h-100 object-fit-cover position-relative z-1" loading="lazy">
                     
                     <!-- Floating overlay widgets -->
                     <div class="position-absolute sl-floating-widget sl-bg-card shadow-lg rounded-3 p-3 sl-border z-2 d-none d-md-flex align-items-center gap-3" style="bottom: -20px; left: -20px; animation-delay: 0s;">

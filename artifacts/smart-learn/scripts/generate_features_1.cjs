@@ -72,7 +72,7 @@ const sections = [
                     </div>
                     <div class="sl-media-container mt-auto position-relative" style="height: 250px;">
                         <div class="sl-media-fallback w-100 h-100 position-absolute top-0 start-0"></div>
-                        <img src="https://picsum.photos/seed/slbento1/800/400" alt="AI Dashboard Mockup" class="w-100 h-100 object-fit-cover position-relative z-1 sl-bento-img" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80" alt="AI Dashboard Mockup" class="w-100 h-100 object-fit-cover position-relative z-1 sl-bento-img" loading="lazy">
                         <!-- Glassmorphism overlay for UI fragment -->
                         <div class="position-absolute bottom-0 end-0 m-4 p-3 rounded-3 sl-glass-panel z-2 d-none d-md-block shadow">
                             <div class="d-flex align-items-center gap-3">
@@ -138,7 +138,7 @@ const sections = [
                     </div>
                     <div class="col-md-6 position-relative p-0 m-0">
                         <div class="sl-media-fallback w-100 h-100 position-absolute top-0 start-0"></div>
-                        <img src="https://picsum.photos/seed/slbento2/600/600" alt="Certificate Demo" class="w-100 h-100 object-fit-cover sl-bento-img" loading="lazy" style="min-height: 250px;">
+                        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80" alt="Certificate Demo" class="w-100 h-100 object-fit-cover sl-bento-img" loading="lazy" style="min-height: 250px;">
                     </div>
                 </div>
             </div>
@@ -226,20 +226,20 @@ const sections = [
                     <!-- Pane 1 -->
                     <div id="sl-tab-pane-1" class="sl-tab-pane active position-absolute top-0 start-0 w-100 h-100">
                         <div class="sl-media-fallback w-100 h-100 position-absolute z-0"></div>
-                        <img src="https://picsum.photos/seed/sltab1/1200/900" alt="Course Builder" class="w-100 h-100 object-fit-cover position-relative z-1" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80" alt="Course Builder" class="w-100 h-100 object-fit-cover position-relative z-1" loading="lazy">
                     </div>
                     
                     <!-- Pane 2 -->
                     <div id="sl-tab-pane-2" class="sl-tab-pane position-absolute top-0 start-0 w-100 h-100">
                         <div class="sl-media-fallback w-100 h-100 position-absolute z-0"></div>
-                        <img src="https://picsum.photos/seed/sltab2/1200/900" alt="Engagement" class="w-100 h-100 object-fit-cover position-relative z-1" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80" alt="Engagement" class="w-100 h-100 object-fit-cover position-relative z-1" loading="lazy">
                     </div>
                     
                     <!-- Pane 3 -->
                     <div id="sl-tab-pane-3" class="sl-tab-pane position-absolute top-0 start-0 w-100 h-100">
                         <!-- Video Fallback structure -->
                         <div class="sl-media-fallback w-100 h-100 position-absolute z-0"></div>
-                        <video class="w-100 h-100 object-fit-cover position-relative z-1" poster="https://picsum.photos/seed/sltab3/1200/900" autoplay muted loop playsinline>
+                        <video class="w-100 h-100 object-fit-cover position-relative z-1" poster="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80" autoplay muted loop playsinline>
                             <!-- Empty src since we don't have a reliable generic video, relies on poster -->
                             <source src="" type="video/mp4">
                         </video>
@@ -339,7 +339,7 @@ const sections = [
             <!-- Panel 1 -->
             <div class="sl-panel sl-border-primary position-relative overflow-hidden flex-grow-1 active" tabindex="0" role="button" aria-expanded="true">
                 <div class="sl-media-fallback w-100 h-100 position-absolute z-0"></div>
-                <img src="https://picsum.photos/seed/slpanel1/800/1000" alt="Virtual Labs" class="sl-panel-bg position-absolute w-100 h-100 object-fit-cover z-1">
+                <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80" alt="Virtual Labs" class="sl-panel-bg position-absolute w-100 h-100 object-fit-cover z-1">
                 <div class="sl-panel-overlay position-absolute top-0 start-0 w-100 h-100 z-2"></div>
                 <div class="sl-panel-content position-absolute bottom-0 start-0 w-100 p-4 z-3 text-white d-flex flex-column justify-content-end h-100">
                     <div class="d-flex align-items-center gap-3 mb-3 sl-panel-header">
@@ -357,7 +357,7 @@ const sections = [
             <!-- Panel 2 -->
             <div class="sl-panel position-relative overflow-hidden" tabindex="0" role="button" aria-expanded="false">
                 <div class="sl-media-fallback w-100 h-100 position-absolute z-0"></div>
-                <img src="https://picsum.photos/seed/slpanel2/800/1000" alt="Live Seminars" class="sl-panel-bg position-absolute w-100 h-100 object-fit-cover z-1">
+                <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80" alt="Live Seminars" class="sl-panel-bg position-absolute w-100 h-100 object-fit-cover z-1">
                 <div class="sl-panel-overlay position-absolute top-0 start-0 w-100 h-100 z-2"></div>
                 <div class="sl-panel-content position-absolute bottom-0 start-0 w-100 p-4 z-3 text-white d-flex flex-column justify-content-end h-100">
                     <div class="d-flex align-items-center gap-3 mb-3 sl-panel-header">
@@ -375,7 +375,7 @@ const sections = [
             <!-- Panel 3 -->
             <div class="sl-panel position-relative overflow-hidden" tabindex="0" role="button" aria-expanded="false">
                 <div class="sl-media-fallback w-100 h-100 position-absolute z-0"></div>
-                <img src="https://picsum.photos/seed/slpanel3/800/1000" alt="Code Sandbox" class="sl-panel-bg position-absolute w-100 h-100 object-fit-cover z-1">
+                <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80" alt="Code Sandbox" class="sl-panel-bg position-absolute w-100 h-100 object-fit-cover z-1">
                 <div class="sl-panel-overlay position-absolute top-0 start-0 w-100 h-100 z-2"></div>
                 <div class="sl-panel-content position-absolute bottom-0 start-0 w-100 p-4 z-3 text-white d-flex flex-column justify-content-end h-100">
                     <div class="d-flex align-items-center gap-3 mb-3 sl-panel-header">
@@ -393,7 +393,7 @@ const sections = [
             <!-- Panel 4 -->
             <div class="sl-panel position-relative overflow-hidden" tabindex="0" role="button" aria-expanded="false">
                 <div class="sl-media-fallback w-100 h-100 position-absolute z-0"></div>
-                <img src="https://picsum.photos/seed/slpanel4/800/1000" alt="Peer Review" class="sl-panel-bg position-absolute w-100 h-100 object-fit-cover z-1">
+                <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80" alt="Peer Review" class="sl-panel-bg position-absolute w-100 h-100 object-fit-cover z-1">
                 <div class="sl-panel-overlay position-absolute top-0 start-0 w-100 h-100 z-2"></div>
                 <div class="sl-panel-content position-absolute bottom-0 start-0 w-100 p-4 z-3 text-white d-flex flex-column justify-content-end h-100">
                     <div class="d-flex align-items-center gap-3 mb-3 sl-panel-header">
@@ -528,7 +528,7 @@ const sections = [
                 <div class="sl-grid-card h-100 sl-bg-card rounded-4 overflow-hidden sl-border d-flex flex-column">
                     <div class="sl-card-img-wrapper position-relative overflow-hidden" style="height: 200px;">
                         <div class="sl-media-fallback w-100 h-100 position-absolute z-0"></div>
-                        <img src="https://picsum.photos/seed/slgrid1/600/400" alt="Plagiarism Prevention" class="w-100 h-100 object-fit-cover position-relative z-1 sl-zoom-img">
+                        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80" alt="Plagiarism Prevention" class="w-100 h-100 object-fit-cover position-relative z-1 sl-zoom-img">
                     </div>
                     <div class="p-4 d-flex flex-column flex-grow-1">
                         <div class="sl-icon-wrapper sl-bg-primary-subtle sl-text-primary rounded-circle d-flex align-items-center justify-content-center mb-3" style="width: 48px; height: 48px; margin-top: -40px; position: relative; z-index: 2; border: 4px solid var(--smartlearn-card-bg);">
@@ -545,7 +545,7 @@ const sections = [
                 <div class="sl-grid-card h-100 sl-bg-card rounded-4 overflow-hidden sl-border d-flex flex-column">
                     <div class="sl-card-img-wrapper position-relative overflow-hidden" style="height: 200px;">
                         <div class="sl-media-fallback w-100 h-100 position-absolute z-0"></div>
-                        <img src="https://picsum.photos/seed/slgrid2/600/400" alt="Advanced Rubrics" class="w-100 h-100 object-fit-cover position-relative z-1 sl-zoom-img">
+                        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80" alt="Advanced Rubrics" class="w-100 h-100 object-fit-cover position-relative z-1 sl-zoom-img">
                     </div>
                     <div class="p-4 d-flex flex-column flex-grow-1">
                         <div class="sl-icon-wrapper sl-bg-primary-subtle sl-text-primary rounded-circle d-flex align-items-center justify-content-center mb-3" style="width: 48px; height: 48px; margin-top: -40px; position: relative; z-index: 2; border: 4px solid var(--smartlearn-card-bg);">
@@ -562,7 +562,7 @@ const sections = [
                 <div class="sl-grid-card h-100 sl-bg-card rounded-4 overflow-hidden sl-border d-flex flex-column">
                     <div class="sl-card-img-wrapper position-relative overflow-hidden" style="height: 200px;">
                         <div class="sl-media-fallback w-100 h-100 position-absolute z-0"></div>
-                        <img src="https://picsum.photos/seed/slgrid3/600/400" alt="SCORM Support" class="w-100 h-100 object-fit-cover position-relative z-1 sl-zoom-img">
+                        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80" alt="SCORM Support" class="w-100 h-100 object-fit-cover position-relative z-1 sl-zoom-img">
                     </div>
                     <div class="p-4 d-flex flex-column flex-grow-1">
                         <div class="sl-icon-wrapper sl-bg-primary-subtle sl-text-primary rounded-circle d-flex align-items-center justify-content-center mb-3" style="width: 48px; height: 48px; margin-top: -40px; position: relative; z-index: 2; border: 4px solid var(--smartlearn-card-bg);">
@@ -579,7 +579,7 @@ const sections = [
                 <div class="sl-grid-card h-100 sl-bg-card rounded-4 overflow-hidden sl-border d-flex flex-column">
                     <div class="sl-card-img-wrapper position-relative overflow-hidden" style="height: 200px;">
                         <div class="sl-media-fallback w-100 h-100 position-absolute z-0"></div>
-                        <img src="https://picsum.photos/seed/slgrid4/600/400" alt="Attendance Tracking" class="w-100 h-100 object-fit-cover position-relative z-1 sl-zoom-img">
+                        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80" alt="Attendance Tracking" class="w-100 h-100 object-fit-cover position-relative z-1 sl-zoom-img">
                     </div>
                     <div class="p-4 d-flex flex-column flex-grow-1">
                         <div class="sl-icon-wrapper sl-bg-primary-subtle sl-text-primary rounded-circle d-flex align-items-center justify-content-center mb-3" style="width: 48px; height: 48px; margin-top: -40px; position: relative; z-index: 2; border: 4px solid var(--smartlearn-card-bg);">
@@ -596,7 +596,7 @@ const sections = [
                 <div class="sl-grid-card h-100 sl-bg-card rounded-4 overflow-hidden sl-border d-flex flex-column">
                     <div class="sl-card-img-wrapper position-relative overflow-hidden" style="height: 200px;">
                         <div class="sl-media-fallback w-100 h-100 position-absolute z-0"></div>
-                        <img src="https://picsum.photos/seed/slgrid5/600/400" alt="Accessible Design" class="w-100 h-100 object-fit-cover position-relative z-1 sl-zoom-img">
+                        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80" alt="Accessible Design" class="w-100 h-100 object-fit-cover position-relative z-1 sl-zoom-img">
                     </div>
                     <div class="p-4 d-flex flex-column flex-grow-1">
                         <div class="sl-icon-wrapper sl-bg-primary-subtle sl-text-primary rounded-circle d-flex align-items-center justify-content-center mb-3" style="width: 48px; height: 48px; margin-top: -40px; position: relative; z-index: 2; border: 4px solid var(--smartlearn-card-bg);">
@@ -613,7 +613,7 @@ const sections = [
                 <div class="sl-grid-card h-100 sl-bg-card rounded-4 overflow-hidden sl-border d-flex flex-column">
                     <div class="sl-card-img-wrapper position-relative overflow-hidden" style="height: 200px;">
                         <div class="sl-media-fallback w-100 h-100 position-absolute z-0"></div>
-                        <img src="https://picsum.photos/seed/slgrid6/600/400" alt="Secure Data" class="w-100 h-100 object-fit-cover position-relative z-1 sl-zoom-img">
+                        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80" alt="Secure Data" class="w-100 h-100 object-fit-cover position-relative z-1 sl-zoom-img">
                     </div>
                     <div class="p-4 d-flex flex-column flex-grow-1">
                         <div class="sl-icon-wrapper sl-bg-primary-subtle sl-text-primary rounded-circle d-flex align-items-center justify-content-center mb-3" style="width: 48px; height: 48px; margin-top: -40px; position: relative; z-index: 2; border: 4px solid var(--smartlearn-card-bg);">
@@ -708,7 +708,7 @@ const sections = [
                     <div class="sl-scroll-card sl-bg-card rounded-4 p-4 p-md-5 sl-border shadow-sm">
                         <div class="rounded-3 overflow-hidden mb-4 position-relative sl-border" style="aspect-ratio: 16/9;">
                             <div class="sl-media-fallback w-100 h-100 position-absolute z-0"></div>
-                            <img src="https://picsum.photos/seed/slscroll1/800/450" alt="Drag and drop builder" class="w-100 h-100 object-fit-cover position-relative z-1" loading="lazy">
+                            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80" alt="Drag and drop builder" class="w-100 h-100 object-fit-cover position-relative z-1" loading="lazy">
                         </div>
                         <h3 class="fw-bold sl-text-emphasis mb-3" data-sl-edit="text">Intuitive Course Builder</h3>
                         <p class="sl-text-muted mb-0" data-sl-edit="text">Construct beautiful courses in minutes using our visual drag-and-drop editor. No coding required. Just layout your modules, upload content, and publish instantly.</p>
@@ -719,7 +719,7 @@ const sections = [
                         <div class="rounded-3 overflow-hidden mb-4 position-relative sl-border" style="aspect-ratio: 16/9;">
                             <div class="sl-media-fallback w-100 h-100 position-absolute z-0"></div>
                             <!-- Video fallback demonstration -->
-                            <video class="w-100 h-100 object-fit-cover position-relative z-1" poster="https://picsum.photos/seed/slscroll2/800/450" autoplay muted loop playsinline>
+                            <video class="w-100 h-100 object-fit-cover position-relative z-1" poster="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80" autoplay muted loop playsinline>
                                 <source src="" type="video/mp4">
                             </video>
                         </div>
@@ -731,7 +731,7 @@ const sections = [
                     <div class="sl-scroll-card sl-bg-card rounded-4 p-4 p-md-5 sl-border shadow-sm">
                         <div class="rounded-3 overflow-hidden mb-4 position-relative sl-border" style="aspect-ratio: 16/9;">
                             <div class="sl-media-fallback w-100 h-100 position-absolute z-0"></div>
-                            <img src="https://picsum.photos/seed/slscroll3/800/450" alt="Communication tools" class="w-100 h-100 object-fit-cover position-relative z-1" loading="lazy">
+                            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80" alt="Communication tools" class="w-100 h-100 object-fit-cover position-relative z-1" loading="lazy">
                         </div>
                         <h3 class="fw-bold sl-text-emphasis mb-3" data-sl-edit="text">Unified Communications</h3>
                         <p class="sl-text-muted mb-0" data-sl-edit="text">Keep all student-teacher interactions in one place. Centralized messaging, forum threads, and assignment feedback built right into the dashboard.</p>
