@@ -96,7 +96,7 @@ export function AboutSection() {
 
               <div className="flex flex-wrap gap-3">
                 <a
-                  href="https://mostaql.com"
+                  href="https://mostaql.com/u/m_nabil_riad/reviews"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-1.5 text-sm font-bold px-3.5 py-2 rounded-lg transition-all duration-200 hover:opacity-80"
@@ -111,7 +111,7 @@ export function AboutSection() {
                   <ExternalLink size={13} />
                 </a>
                 <a
-                  href="https://khamsat.com"
+                  href="https://khamsat.com/user/mohammadnabilriad/reviews"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-1.5 text-sm font-bold px-3.5 py-2 rounded-lg transition-all duration-200 hover:opacity-80"

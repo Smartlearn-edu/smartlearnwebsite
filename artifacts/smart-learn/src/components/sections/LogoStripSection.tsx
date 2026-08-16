@@ -5,14 +5,14 @@ import { useT } from "@/i18n";
 const font: React.CSSProperties = { fontFamily: "'Cairo', sans-serif" };
 
 const LOGOS: { initials: string; name: string; color: string; src?: string }[] = [
-  { initials: "AOU", name: "Arab Open University", color: "#6900A3" },
-  { initials: "EKB", name: "Egyptian Knowledge Bank", color: "#7c3aed" },
-  { initials: "GA", name: "Gulf Academy", color: "#0369a1" },
-  { initials: "MQ", name: "Mostaql", color: "#0891b2" },
-  { initials: "NC", name: "Nile Campus", color: "#059669" },
-  { initials: "SEL", name: "Saudi E-Learn", color: "#b45309" },
-  { initials: "EDA", name: "Edraak", color: "#be185d" },
-  { initials: "TEU", name: "Tech E-University", color: "#4338ca" },
+  { initials: "AA", name: "Apex Academy", color: "#6900A3" },
+  { initials: "NIT", name: "Nova Institute", color: "#7c3aed" },
+  { initials: "HGC", name: "Horizon Global College", color: "#0369a1" },
+  { initials: "NLH", name: "Nexus Learning Hub", color: "#0891b2" },
+  { initials: "BIS", name: "Beacon International", color: "#059669" },
+  { initials: "VA", name: "Vanguard Academy", color: "#b45309" },
+  { initials: "LSU", name: "Lumina University", color: "#be185d" },
+  { initials: "QDI", name: "Quantum Digital Institute", color: "#4338ca" },
 ];
 
 const SECTION_TEXT = {
