@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Award, ExternalLink } from "lucide-react";
+import { LinkedInBadge } from "@/components/LinkedInBadge";
 import { useT } from "@/i18n";
 
 export function AboutSection() {
@@ -174,15 +175,16 @@ export function AboutSection() {
             </div>
           </motion.div>
 
-          {/* Right column: Profile photo placeholder */}
+          {/* Right column: LinkedIn Badge */}
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
+            className="flex flex-col items-center justify-center w-full"
           >
             <div
-              className="rounded-2xl overflow-hidden flex flex-col items-center justify-center"
+              className="rounded-2xl overflow-hidden p-6 w-full flex flex-col items-center justify-center"
               style={{
                 background:
                   "linear-gradient(145deg, rgba(105,0,163,0.18) 0%, rgba(168,85,247,0.08) 50%, rgba(105,0,163,0.12) 100%)",
@@ -190,47 +192,7 @@ export function AboutSection() {
                 minHeight: "420px",
               }}
             >
-              <div
-                className="w-36 h-36 rounded-full flex items-center justify-center text-4xl font-black text-white mb-5 shadow-lg overflow-hidden border-2 border-purple-400/30"
-                style={{
-                  background: "linear-gradient(135deg, #6900A3 0%, #a855f7 60%, #c084fc 100%)",
-                  boxShadow: "0 0 40px rgba(168,85,247,0.35)",
-                }}
-              >
-                {!photoError ? (
-                  <img
-                    src={photoUrl}
-                    alt={t.about.name}
-                    className="w-full h-full object-cover"
-                    onError={() => setPhotoError(true)}
-                  />
-                ) : (
-                  "MN"
-                )}
-              </div>
-              {photoError ? (
-                <p
-                  className="text-slate-500 text-sm"
-                  style={{ fontFamily: "'Cairo', sans-serif" }}
-                >
-                  {t.about.photoPlaceholder}
-                </p>
-              ) : (
-                <div className="text-center">
-                  <h4
-                    className="text-lg font-bold text-white mb-1"
-                    style={{ fontFamily: "'Cairo', sans-serif" }}
-                  >
-                    {t.about.name}
-                  </h4>
-                  <p
-                    className="text-xs text-purple-300"
-                    style={{ fontFamily: "'Cairo', sans-serif" }}
-                  >
-                    {t.about.role}
-                  </p>
-                </div>
-              )}
+              <LinkedInBadge size="medium" theme="dark" className="w-full" />
             </div>
           </motion.div>
         </div>

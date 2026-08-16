@@ -13,7 +13,7 @@ const socials = [
   },
   {
     name: "LinkedIn",
-    url: "https://www.linkedin.com/in/mohammad-nabil-6185431b3/",
+    url: "https://www.linkedin.com/in/m-n-riad/",
     color: "#0A66C2",
     icon: (
       <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
