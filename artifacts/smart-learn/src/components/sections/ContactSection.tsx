@@ -151,7 +151,13 @@ export function ContactSection() {
                 </div>
                 <div>
                   <p className="text-xs text-slate-500 uppercase tracking-widest mb-1" style={font}>{t.contact.emailLabel}</p>
-                  <p className="text-white font-semibold text-sm" style={font}>contact@smartlearn.education</p>
+                  <a
+                    href="mailto:support@smartlearn.education"
+                    className="text-white font-semibold text-sm hover:text-purple-400 transition-colors"
+                    style={font}
+                  >
+                    support@smartlearn.education
+                  </a>
                 </div>
               </div>
               <div className="flex items-start gap-4">

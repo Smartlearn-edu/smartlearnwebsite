@@ -100,7 +100,7 @@ const sections = [
                 <ul class="list-unstyled d-flex flex-column gap-3 sl-text-muted">
                     <li><i class="fa fa-map-marker sl-text-primary me-2"></i> <span data-sl-edit="text">123 University Ave, Boston, MA</span></li>
                     <li><i class="fa fa-phone sl-text-primary me-2"></i> <span data-sl-edit="text">+1 (800) 555-0199</span></li>
-                    <li><i class="fa fa-envelope sl-text-primary me-2"></i> <span data-sl-edit="text">admissions@smartlearn.edu</span></li>
+                    <li><i class="fa fa-envelope sl-text-primary me-2"></i> <span data-sl-edit="text">support@smartlearn.education</span></li>
                 </ul>
             </div>
         </div>

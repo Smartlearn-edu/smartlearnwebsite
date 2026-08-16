@@ -40,7 +40,7 @@ const sections = [
                 <div class="card border-0 h-100 p-4 contact-card email-card">
                     <div class="icon-wrap mx-auto mb-3"><i class="fa fa-envelope fa-2x"></i></div>
                     <h5 class="fw-bold" data-sl-edit="text">Email Us</h5>
-                    <p class="text-muted small mb-3" data-sl-edit="text">support@smartlearn.edu</p>
+                    <p class="text-muted small mb-3" data-sl-edit="text">support@smartlearn.education</p>
                     <div class="badge rounded-pill bg-light text-primary mt-auto" data-sl-edit="text"><i class="fa fa-clock-o me-1"></i> We reply within 24h</div>
                 </div>
             </div>
@@ -183,7 +183,7 @@ const sections = [
                         <div class="contact-icon bg-light text-primary rounded-circle me-3"><i class="fa fa-envelope fs-5"></i></div>
                         <div>
                             <h6 class="fw-bold mb-1" data-sl-edit="text">Email Address</h6>
-                            <p class="text-muted mb-0" data-sl-edit="text">hello@smartlearn.edu</p>
+                            <p class="text-muted mb-0" data-sl-edit="text">support@smartlearn.education</p>
                         </div>
                     </div>
                     <div class="d-flex align-items-start mb-5">

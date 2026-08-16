@@ -271,7 +271,7 @@ const sections = [
                             </div>
                             <div>
                                 <h6 class="fw-bold sl-text-emphasis mb-1">Email Support</h6>
-                                <a href="mailto:support@smartlearn.edu" class="text-decoration-none sl-text-muted sl-footer-link" data-sl-edit="link">support@smartlearn.edu</a>
+                                <a href="mailto:support@smartlearn.education" class="text-decoration-none sl-text-muted sl-footer-link" data-sl-edit="link">support@smartlearn.education</a>
                             </div>
                         </div>
                         <div class="d-flex align-items-start">

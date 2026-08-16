@@ -178,7 +178,7 @@ const sections = [
       <div class="sl-card">
         <div class="sl-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg></div>
         <h3 class="sl-q" data-sl-edit="text">Where can I find support?</h3>
-        <p class="sl-a" data-sl-edit="text">Our support team is available 24/7 via the live chat widget in the bottom right corner, or you can email support@smartlearn.edu.</p>
+        <p class="sl-a" data-sl-edit="text">Our support team is available 24/7 via the live chat widget in the bottom right corner, or you can email support@smartlearn.education.</p>
       </div>
       <div class="sl-card">
         <div class="sl-icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg></div>

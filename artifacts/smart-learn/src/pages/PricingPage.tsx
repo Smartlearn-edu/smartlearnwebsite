@@ -6,7 +6,7 @@ import { SocialLinks } from "@/components/SocialLinks";
 import { useT } from "@/i18n";
 
 const WA_URL = "https://wa.me/201005822858";
-const MAIL = "info@smartlearn.education";
+const MAIL = "support@smartlearn.education";
 
 const font: React.CSSProperties = { fontFamily: "'Cairo', sans-serif" };
 
