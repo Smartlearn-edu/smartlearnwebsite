@@ -181,19 +181,9 @@ export function AboutSection() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
-            className="flex flex-col items-center justify-center w-full"
+            className="flex flex-col items-center justify-center w-full h-full"
           >
-            <div
-              className="rounded-2xl overflow-hidden p-6 w-full flex flex-col items-center justify-center"
-              style={{
-                background:
-                  "linear-gradient(145deg, rgba(105,0,163,0.18) 0%, rgba(168,85,247,0.08) 50%, rgba(105,0,163,0.12) 100%)",
-                border: "1px solid rgba(168,85,247,0.2)",
-                minHeight: "420px",
-              }}
-            >
-              <LinkedInBadge size="medium" theme="dark" className="w-full" />
-            </div>
+            <LinkedInBadge className="w-full" />
           </motion.div>
         </div>
 
