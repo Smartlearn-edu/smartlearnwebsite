@@ -452,6 +452,15 @@ type HeroStrings = {
   getPlugin: string; contactPricing: string; learnMore: string;
 };
 
+const titleThemes = [
+  { text: "#fde047", border: "rgba(253, 224, 71, 0.35)", dot: "#facc15", badgeBg: "rgba(250, 204, 21, 0.15)", badgeText: "#fef08a" }, // Vibrant Yellow
+  { text: "#f472b6", border: "rgba(244, 114, 182, 0.35)", dot: "#ec4899", badgeBg: "rgba(236, 72, 153, 0.15)", badgeText: "#fbcfe8" }, // Electric Pink
+  { text: "#38bdf8", border: "rgba(56, 189, 248, 0.35)", dot: "#0ea5e9", badgeBg: "rgba(14, 165, 233, 0.15)", badgeText: "#bae6fd" }, // Sky Cyan
+  { text: "#4ade80", border: "rgba(74, 222, 128, 0.35)", dot: "#22c55e", badgeBg: "rgba(34, 197, 94, 0.15)", badgeText: "#bbf7d0" }, // Neon Emerald
+  { text: "#fb923c", border: "rgba(251, 146, 60, 0.35)", dot: "#f97316", badgeBg: "rgba(249, 115, 22, 0.15)", badgeText: "#fed7aa" }, // Warm Amber
+  { text: "#c084fc", border: "rgba(192, 132, 252, 0.35)", dot: "#a855f7", badgeBg: "rgba(168, 85, 247, 0.15)", badgeText: "#e9d5ff" }, // Vibrant Purple
+];
+
 function PluginCard({
   plugin, i, lang, hero, isCompared, onToggleCompare,
 }: {
@@ -467,6 +476,7 @@ function PluginCard({
   const features = lang === "en" ? plugin.features : plugin.featuresAr;
   const thumbnail = plugin.images?.[0];
   const compareLabel = lang === "ar" ? "قارن" : "Compare";
+  const theme = titleThemes[i % titleThemes.length];
 
   return (
     <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
@@ -521,22 +531,37 @@ function PluginCard({
       </div>
 
       <div className="p-6 flex flex-col flex-1">
-        {/* Title Button Box with Background & Border */}
+        {/* Title Button Box with Dark Background & Vibrant Border/Text */}
         <div className="mb-3.5">
           <Link
             href={`/services/plugins/${plugin.slug}`}
-            className="group/title flex items-center justify-between gap-3 p-3 rounded-xl border border-purple-500/30 bg-gradient-to-r from-purple-950/60 via-purple-900/30 to-purple-950/40 hover:from-purple-900/70 hover:to-purple-800/50 hover:border-purple-400/80 hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300 cursor-pointer"
+            className="group/title flex items-center justify-between gap-3 p-3 rounded-xl transition-all duration-300 cursor-pointer hover:scale-[1.02]"
+            style={{
+              background: "rgba(6, 6, 12, 0.95)",
+              border: `1px solid ${theme.border}`,
+              boxShadow: "0 4px 14px rgba(0, 0, 0, 0.45)",
+            }}
           >
             <div className="flex items-center gap-2.5 min-w-0">
-              <span className="w-2 h-2 rounded-full bg-purple-400 group-hover/title:bg-emerald-400 group-hover/title:scale-125 transition-all flex-shrink-0" />
+              <span
+                className="w-2.5 h-2.5 rounded-full flex-shrink-0 transition-transform duration-200 group-hover/title:scale-125"
+                style={{ backgroundColor: theme.dot, boxShadow: `0 0 8px ${theme.dot}` }}
+              />
               <h3
-                className="text-base md:text-lg font-black tracking-tight text-white group-hover/title:text-purple-200 transition-colors truncate"
-                style={font}
+                className="text-base md:text-lg font-black tracking-tight truncate transition-all duration-200"
+                style={{ color: theme.text, ...font }}
               >
                 {name}
               </h3>
             </div>
-            <div className="w-7 h-7 rounded-lg bg-purple-500/20 border border-purple-500/30 flex items-center justify-center text-purple-300 group-hover/title:bg-purple-500 group-hover/title:text-white group-hover/title:border-purple-400 group-hover/title:scale-105 transition-all flex-shrink-0">
+            <div
+              className="w-7 h-7 rounded-lg flex items-center justify-center transition-all duration-200 group-hover/title:scale-110 flex-shrink-0"
+              style={{
+                background: theme.badgeBg,
+                border: `1px solid ${theme.border}`,
+                color: theme.badgeText,
+              }}
+            >
               <ArrowUpRight size={14} />
             </div>
           </Link>
