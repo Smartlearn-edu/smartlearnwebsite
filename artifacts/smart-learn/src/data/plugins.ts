@@ -211,19 +211,85 @@ export const plugins: Plugin[] = [
     freemiusPlanId: "62947",
     freemiusPublicKey: "pk_8f8f2b4359f532f4c425c4ae30edb",
     images: [],
-    description: "**Smart Dashboard** (`local_smartdashboard`) is an all-in-one analytics hub for Moodle teachers, managers, and administrators. It surfaces student progress, grading queues, enrollment statistics, payment analytics, and system-wide data in a single dark-mode interface with responsive sidebar navigation.\n\n### Dashboard Sections\n\n- **Overview**: Course cards with student counts, admin category browser with enrollment stats, hierarchical navigation with recursive counts\n- **Student Progress**: Cross-course completion tracking, per-student activity drill-down, filters by course/category/status, CSV export\n- **Grading**: Pending submissions across all courses with assignment breakdown and due dates\n- **Analytics**: System-wide enrollment statistics, category breakdown charts, student-to-teacher ratio visualisation, CSV export\n- **Payment Analytics**: Revenue tracking (actual vs estimated), per-category charts, time-range and date filtering, currency toggle, CSV export\n- **Settings**: Payment calculation mode, currency display toggle, per-site persistent configuration\n\n### Role-Based Access\n\nTeachers see their own courses, student progress, and grading queue. Managers gain category analytics and system stats. Administrators unlock the full dashboard including payment analytics and global settings.",
-    descriptionAr: "**Smart Dashboard** (`local_smartdashboard`) مركز تحليلات شامل لمعلمي Moodle ومديريه ومسؤوليه. يعرض تقدم الطلاب وقوائم التصحيح وإحصائيات التسجيل وتحليلات المدفوعات والبيانات على مستوى النظام في واجهة واحدة بوضع داكن مع تنقل بشريط جانبي متجاوب.\n\n### أقسام لوحة التحكم\n\n- **نظرة عامة**: بطاقات المقررات مع أعداد الطلاب، متصفح فئات للمسؤولين، تنقل هرمي\n- **تقدم الطلاب**: تتبع إكمال متعدد المقررات، تعمق في أنشطة كل طالب، فلاتر، تصدير CSV\n- **التصحيح**: التقديمات المعلقة عبر جميع المقررات مع تفصيل المهام والمواعيد النهائية\n- **التحليلات**: إحصائيات التسجيل، مخططات الفئات، تصور نسبة الطالب للمعلم، تصدير CSV\n- **تحليلات المدفوعات**: تتبع الإيرادات، مخططات لكل فئة، تصفية نطاق الوقت، تبديل العملة\n- **الإعدادات**: وضع حساب المدفوعات، عرض العملة، تهيئة مستمرة لكل موقع\n\n### الوصول حسب الدور\n\nيرى المعلمون مقرراتهم وتقدم الطلاب وقائمة التصحيح. يحصل المديرون على تحليلات الفئات. يفتح المسؤولون لوحة التحكم الكاملة بما في ذلك تحليلات المدفوعات والإعدادات العامة.",
+    description: `> Transform your Moodle from a passive repository into an intelligent, real-time command center.
+
+### 🌟 All-in-One Executive Intelligence
+**Smart Dashboard** (\`local_smartdashboard\`) aggregates critical data across courses, submissions, grades, student risk metrics, and financial records into a unified, responsive interface with native dark and light mode support.
+
+### 🎓 For Students: Personalized Academic Command Center
+- **Personalized Welcome Banner**: Custom avatar, active courses, and quick greeting
+- **Customizable Quick Shortcuts**: Up to 10 admin-configured one-click shortcuts to key resources
+- **Color-Coded Deadline Timeline**: Visual urgency badges (🔴 Critical, 🟡 Due Soon, 🔵 Upcoming) with direct submission links
+- **My Grades Summary & Drill-Down**: Interactive modal breakdown with individual assignment grades, weightings, feedback, and HTML/CSV export
+- **Today's Agenda**: Daily task pacing integrated directly with Adaptive Study Plans (\`mod_adaptiveplan\`)
+- **AI Performance Analysis**: Instant academic insights and actionable study recommendations
+
+### 👩‍🏫 For Teachers: Zero-Friction Workflow
+- **Cross-Course Grading Queue**: Consolidates all pending submissions across all your courses for instant speed grading
+- **Student Progress & Completion Tracking**: Real-time completion percentages and student cohort tracking
+- **Modular At-Risk Early Warning System**: Dynamic 0–100% risk score with automated warning badges (🟢 On Track, 🟡 Monitor, 🔴 At Risk)
+- **Activity Completion Drill-Down**: Inspect activity-by-activity criteria and submission milestones
+
+### 👨‍👩‍👧 For Parents & Mentors: 360° Mentee Oversight
+- **Mentee Switcher**: Seamlessly toggle between multiple assigned students or children
+- **Grade Progression Analytics**: Multi-axis charts tracking academic performance over time
+- **Subject Mastery Radar**: Multi-dimensional radar charts visualizing strengths across subjects
+- **Weekly Engagement Heatmaps & Study Streaks**: Visual activity density and daily streak counters
+- **KPI At-Risk Alerts**: Real-time notifications on missed deadlines or declining performance
+
+### 👑 For Administrators & Managers: Total Institutional Control
+- **AI Magic Reports & SQL Insights Hub**: Ask questions in plain English to automatically generate SQL queries and dynamic interactive charts (Bar, Line, Pie, Radar)
+- **Modular Risk Rule Engine**: 6 configurable subplugin rules (\`loginrecency\`, \`coursecompletion\`, \`grades\`, \`safetynet70\`, \`overdue\`, \`adaptiveplan\`)
+- **n8n Automation Webhooks**: Automated JSON risk alerts dispatched to Slack, SMS, WhatsApp, or Teams
+- **Revenue & Payment Analytics**: Track actual vs. estimated revenue, category ROI, and multi-currency metrics
+- **Dashboard Replacement**: Seamlessly replace Moodle's default \`/my/\` page for designated roles`,
+    descriptionAr: `> حول موودل من مجرد مستودع تقليدي للملفات إلى مركز قيادة وتحكم ذكي ولحظي لكافة المستخدمين.
+
+### 🌟 مركز تحليلات متكامل وشامل
+**لوحة التحكم الذكية** (\`local_smartdashboard\`) تجمع البيانات الحيوية من المقررات والتسليمات والدرجات ومقاييس مخاطر الطلاب والسجلات المالية في واجهة تفاعلية موحدة تدعم الوضعين الداكن والفاتح.
+
+### 🎓 للطلاب: مركز قيادة أكاديمي مخصص
+- **لافتة ترحيب مخصصة**: صورة شخصية ومقررات نشطة مع تحية ذكية
+- **شبكة اختصارات سريعة**: حتى 10 أزرار قابلة للتخصيص للوصول السريع للموارد
+- **جدول زمني مرمز بالألوان للمواعيد النهائية**: شارات استعجال (🔴 حرج، 🟡 يستحق قريبًا، 🔵 قادم) مع روابط تسليم مباشرة
+- **ملخص الدرجات والتعمق الأكاديمي**: نافذة تحليلية تفاعلية لتفاصيل الدرجات والأوزان والتعليقات مع تصدير HTML/CSV
+- **جدول أعمال اليوم**: مزامنة مهام الدراسة اليومية مع الخطط التكيفية (\`mod_adaptiveplan\`)
+- **تحليل الأداء بالذكاء الاصطناعي**: رؤى أكاديمية فورية وتوصيات دراسية عملية
+
+### 👩‍🏫 للمعلمين: سير عمل فائق السرعة
+- **طابور تصحيح مركزي**: تجميع كافة التقديمات المعلقة عبر جميع المقررات للتصحيح الفوري بنقرة واحدة
+- **تتبع تقدم وإكمال الطلاب**: نسب إكمال لحظية ومراقبة وتيرة الطلاب
+- **نظام إنذار مبكر للطلاب المعرضين للخطر**: احتساب درجة المخاطر (0–100%) مع شارات تنبيه تلقائية (🟢 على المسار، 🟡 تحت المراقبة، 🔴 معرض للخطر)
+- **تعمق في إكمال الأنشطة**: فحص معايير إكمال كل نشاط وتواريخ التسليم
+
+### 👨‍👩‍👧 لأولياء الأمور والموجهين: إشراف شامل 360 درجة
+- **مبدل المتدربين**: التنقل السهل بين الأبناء أو الطلاب المخصصين
+- **مخططات تقدم الدرجات**: رسوم بيانية متعددة المحاور لتتبع الأداء عبر الفصول
+- **رادار إتقان المواد**: مخططات رادار ثلاثية الأبعاد لإبراز نقاط القوة والكفاءات
+- **الخرائط الحرارية للتفاعل الأسبوعي وعداد الاستمرارية**: تتبع كثافة النشاط اليومي وأيام الدراسة المتتالية
+- **تنبيهات مؤشرات الأداء (KPIs)**: إشعارات فورية بالمهام المتأخرة وتراجع الدرجات
+
+### 👑 للمسؤولين والمديرين: تحكم مؤسسي كامل
+- **التقارير السحرية بالذكاء الاصطناعي (AI Magic Reports)**: طرح الأسئلة باللغة الطبيعية وتوليد استعلامات SQL ورسوم بيانية تفاعلية تلقائيًا
+- **محرك قواعد المخاطر المعياري**: 6 قواعد فرعية قابلة للتخصيص (\`loginrecency\`, \`coursecompletion\`, \`grades\`, \`safetynet70\`, \`overdue\`, \`adaptiveplan\`)
+- **أتمتة خطافات n8n Webhooks**: إرسال تنبيهات المخاطر فورًا إلى Slack أو WhatsApp أو البريد الإلكتروني
+- **تحليلات الإيرادات والمدفوعات**: تتبع الإيرادات الفعلية مقابل التقديرية وعائد الاستثمار ROI وتعدد العملات
+- **استبدال لوحة التحكم الافتراضية**: استبدال صفحة \`/my/\` تلقائيًا للأدوار المحددة`,
     features: [
-      "All-in-one analytics: student progress, grading, payments",
-      "Cross-course completion tracking with per-student drill-down",
-      "Revenue analytics with category breakdown charts",
-      "CSV export for all data sections, dark UI with sidebar",
+      "AI Magic Reports: Natural language to SQL queries and interactive dynamic charts",
+      "Modular At-Risk early warning system (0–100% score) with n8n automated webhooks",
+      "Parent & Mentor 360° portal with mentee switcher, mastery radar & engagement heatmaps",
+      "Student command center: Color-coded deadlines, daily agenda & grade drill-down",
+      "Teacher grading queue across all courses with one-click speed grading",
+      "Revenue analytics, category ROI, CSV exports, and full RTL/multilingual support",
     ],
     featuresAr: [
-      "تحليلات شاملة: تقدم الطلاب والتصحيح والمدفوعات",
-      "تتبع إكمال متعدد المقررات مع تعمق لكل طالب",
-      "تحليلات الإيرادات مع مخططات تفصيل الفئات",
-      "تصدير CSV لجميع أقسام البيانات وواجهة داكنة بشريط جانبي",
+      "التقارير السحرية بالذكاء الاصطناعي: تحويل اللغة الطبيعية لاستعلامات SQL ورسوم بيانية",
+      "نظام إنذار مبكر للطلاب المعرضين للخطر (0–100%) مع تكامل خطافات n8n التلقائية",
+      "بوابة أولياء الأمور والموجهين 360° مع رادار إتقان المواد والخرائط الحرارية للتفاعل",
+      "مركز قيادة الطالب: مواعيد نهائية ملونة، جدول أعمال يومي، وتفصيل معمق للدرجات",
+      "طابور تصحيح مركزي للمعلمين عبر كافة المقررات مع تصحيح سريع بنقرة واحدة",
+      "تحليلات الإيرادات وعائد الاستثمار وتصدير CSV ودعم كامل للغة العربية والوضع الداكن",
     ],
   },
   {
