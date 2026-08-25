@@ -21,6 +21,9 @@ export interface Plugin {
   requiresSetup?: boolean;
   setupPrice?: number;
   images: string[];
+  freemiusProductId?: string | number;
+  freemiusPlanId?: string | number;
+  freemiusPublicKey?: string;
   description: string;
   descriptionAr: string;
 }
@@ -82,6 +85,9 @@ export const plugins: Plugin[] = [
     free: false,
     price: 50,
     buyUrl: `${WA}?text=Hi! I'm interested in the Chat with Assignment plugin for Moodle.`,
+    freemiusProductId: "36817",
+    freemiusPlanId: "61043",
+    freemiusPublicKey: "pk_e57440f6ab76cb6f6bdcd63ec7419",
     images: [],
     description: "**Chat with Assignment AI** (`local_chatwithassignment`) transforms how students engage with feedback. An intelligent AI tutor is embedded directly into the Moodle assignment grading interface — students can have a dynamic conversation about their grade, rubric scores, and teacher comments without navigating away.\n\n### Key Features\n\n- **Interactive Grade Discussions**: Students ask specific questions about their submission, feedback, or rubric criteria via a modern chat panel\n- **5 Context Levels**: Teachers control exactly what data the AI sees — from grade-only (Level 2) to full submission text (Level 5)\n- **Cost-Saving Mode**: Assignment context is sent only on the first message; follow-ups skip re-sending the full data\n- **Custom AI Instructions**: Teachers configure the AI's persona per assignment (e.g., \"Be a constructive tutor\" or \"Encourage reflection\")\n- **GDPR Compliant**: Students can view and clear their chat history at any time under Moodle's Privacy API\n\n### Context Levels\n\n- **Level 1 — None**: Only the student's question (very low cost)\n- **Level 2 — Minimal**: Final assignment grade\n- **Level 3 — Summary**: Grade + rubric criterion scores\n- **Level 4 — Standard**: Full rubric details + teacher feedback and comments\n- **Level 5 — Full**: Everything above plus the student's full submission text",
     descriptionAr: "**Chat with Assignment AI** (`local_chatwithassignment`) يحول طريقة تفاعل الطلاب مع التغذية الراجعة. يُدمج مرشد ذكاء اصطناعي ذكي مباشرة في واجهة تصحيح المهام في Moodle — يمكن للطلاب إجراء محادثة ديناميكية حول درجتهم ودرجات الروبريك وتعليقات المعلم دون التنقل بعيداً.\n\n### المميزات الرئيسية\n\n- **مناقشات درجات تفاعلية**: يطرح الطلاب أسئلة محددة حول تقديمهم أو تغذيتهم الراجعة أو معايير الروبريك عبر لوحة محادثة حديثة\n- **5 مستويات سياق**: يتحكم المعلمون بدقة في ما يراه الذكاء الاصطناعي — من الدرجة فقط إلى نص التقديم الكامل\n- **وضع توفير التكلفة**: سياق المهمة مرسل مع الرسالة الأولى فقط؛ الرسائل اللاحقة لا تعيد إرسال البيانات\n- **تعليمات ذكاء اصطناعي مخصصة**: يهيئ المعلمون شخصية الذكاء الاصطناعي لكل مهمة (مثلاً: \"كن مرشداً بنّاء\")\n- **متوافق مع GDPR**: يمكن للطلاب عرض سجل محادثتهم ومسحه في أي وقت\n\n### مستويات السياق\n\n- **المستوى 1 — لا شيء**: سؤال الطالب فقط (تكلفة منخفضة جداً)\n- **المستوى 2 — أدنى حد**: الدرجة النهائية للمهمة\n- **المستوى 3 — ملخص**: الدرجة + درجات معايير الروبريك\n- **المستوى 4 — قياسي**: تفاصيل الروبريك الكاملة + تغذية المعلم الراجعة وتعليقاته\n- **المستوى 5 — كامل**: كل ما سبق + نص تقديم الطالب الكامل",

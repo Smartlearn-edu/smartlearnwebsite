@@ -3,15 +3,16 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useParams } from "wouter";
 import { Helmet } from "react-helmet-async";
 import {
-  Check, ArrowLeft, ArrowRight, Download, MessageCircle,ShoppingCart,
+  Check, ArrowLeft, ArrowRight, Download, MessageCircle, ShoppingCart,
   Tag, Cpu, Wrench, ExternalLink, ImageIcon,
-  ChevronLeft, ChevronRight, Sparkles
+  ChevronLeft, ChevronRight, Sparkles, Copy, CheckCheck, X
 } from "lucide-react";
 import { Navbar } from "@/components/Navbar";
 import { usePlugins } from "@/hooks/usePlugins";
 import { useT } from "@/i18n";
 import { SocialLinks } from "@/components/SocialLinks";
 import { Link } from "wouter";
+import { openFreemiusCheckout, type FreemiusPurchaseResponse } from "@/lib/freemius";
 
 const font: React.CSSProperties = { fontFamily: "var(--site-font)" };
 
@@ -33,7 +34,7 @@ const ui = {
     freeSupportBadge: "Free + Support",
     freeDesc: "Download this plugin for free on Moodle.org",
     downloadBtn: "Download on Moodle.org",
-    buyBtn: "Buy This Plugin ",
+    buyBtn: "Buy This Plugin",
     paidSupportTitle: "Need Professional Setup?",
     paidSupportDesc: "This plugin is free to download, but professional installation, configuration, and ongoing support is available. Contact me for a tailored setup.",
     paidSupportBtn: "Contact Me for Support",
@@ -48,6 +49,13 @@ const ui = {
     usd: "USD",
     oneTime: "one-time",
     of: "of",
+    purchaseSuccessTitle: "Purchase Completed Successfully! 🎉",
+    purchaseSuccessDesc: "Thank you for your order. Your license key and confirmation details are shown below:",
+    licenseKey: "Your License Key",
+    buyerEmail: "Registered Email",
+    copyKey: "Copy License Key",
+    keyCopied: "Key Copied!",
+    close: "Close",
   },
   ar: {
     back: "العودة إلى الإضافات",
@@ -59,7 +67,7 @@ const ui = {
     freeSupportBadge: "مجاني + دعم",
     freeDesc: "حمّل هذه الإضافة مجاناً من Moodle.org",
     downloadBtn: "تنزيل من Moodle.org",
-    buyBtn: "اشتر  الإضافة  ",
+    buyBtn: "شراء الإضافة الآن",
     paidSupportTitle: "هل تحتاج إعداداً احترافياً؟",
     paidSupportDesc: "هذه الإضافة مجانية للتنزيل، لكن الإعداد الاحترافي والتهيئة والدعم المستمر متاح. تواصل معي للحصول على إعداد مخصص.",
     paidSupportBtn: "تواصل للحصول على الدعم",
@@ -74,6 +82,13 @@ const ui = {
     usd: "دولار",
     oneTime: "مرة واحدة",
     of: "من",
+    purchaseSuccessTitle: "تمت عملية الشراء بنجاح! 🎉",
+    purchaseSuccessDesc: "شكراً لطلبك. مفتاح الترخيص وبيانات التأكيد موضحة أدناه:",
+    licenseKey: "مفتاح الترخيص الخاص بك",
+    buyerEmail: "البريد الإلكتروني المسجل",
+    copyKey: "نسخ مفتاح الترخيص",
+    keyCopied: "تم النسخ بنجاح!",
+    close: "إغلاق",
   },
 };
 
@@ -212,6 +227,36 @@ export function PluginDetailPage() {
   const isPaid = !plugin.free;
   const isSetupPlugin = plugin.requiresSetup;
 
+  const [purchasedInfo, setPurchasedInfo] = useState<FreemiusPurchaseResponse | null>(null);
+  const [copied, setCopied] = useState(false);
+
+  const hasFreemius = Boolean(plugin.freemiusProductId && plugin.freemiusPublicKey);
+
+  const handleFreemiusBuy = (e: React.MouseEvent) => {
+    e.preventDefault();
+    if (!hasFreemius) return;
+
+    openFreemiusCheckout({
+      productId: plugin.freemiusProductId!,
+      planId: plugin.freemiusPlanId,
+      publicKey: plugin.freemiusPublicKey!,
+      name: isRTL ? plugin.nameAr : plugin.name,
+      image: plugin.images?.[0] || "https://services.smartlearn.education/logo.png",
+      onPurchaseCompleted: (res) => {
+        setPurchasedInfo(res);
+      },
+      onSuccess: (res) => {
+        setPurchasedInfo(res);
+      },
+    });
+  };
+
+  const copyLicenseKey = (key: string) => {
+    navigator.clipboard.writeText(key);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2500);
+  };
+
   return (
     <>
       <Helmet>
@@ -296,12 +341,25 @@ export function PluginDetailPage() {
                     </div>
                     <p className="text-slate-200 text-base">{t.oneTime}</p>
                   </div>
-                  <a href={plugin.buyUrl} target="_blank" rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl font-black text-white text-sm transition-all hover:opacity-90 hover:scale-105"
-                    style={{ background: "linear-gradient(135deg, #6900A3, #a855f7)", boxShadow: "0 0 36px rgba(105,0,163,0.4)", ...font }}>
-                    <ShoppingCart size={18} />
-                    {t.buyBtn}
-                  </a>
+                  {hasFreemius ? (
+                    <button
+                      type="button"
+                      onClick={handleFreemiusBuy}
+                      className="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl font-black text-white text-sm transition-all hover:opacity-90 hover:scale-105 cursor-pointer shadow-lg"
+                      style={{ background: "linear-gradient(135deg, #6900A3, #a855f7)", boxShadow: "0 0 36px rgba(105,0,163,0.4)", ...font }}
+                    >
+                      <ShoppingCart size={18} />
+                      {t.buyBtn}
+                    </button>
+                  ) : (
+                    <a href={plugin.buyUrl} target="_blank" rel="noopener noreferrer"
+                      className="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl font-black text-white text-sm transition-all hover:opacity-90 hover:scale-105"
+                      style={{ background: "linear-gradient(135deg, #6900A3, #a855f7)", boxShadow: "0 0 36px rgba(105,0,163,0.4)", ...font }}
+                    >
+                      <ShoppingCart size={18} />
+                      {t.buyBtn}
+                    </a>
+                  )}
                 </div>
               </motion.div>
             )}
@@ -488,6 +546,68 @@ export function PluginDetailPage() {
           </div>
         </footer>
       </div>
+
+      {/* ── PURCHASE SUCCESS MODAL ── */}
+      <AnimatePresence>
+        {purchasedInfo && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4" style={{ backgroundColor: "rgba(0,0,0,0.8)", backdropFilter: "blur(8px)" }}>
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.9, y: 20 }}
+              className="relative w-full max-w-lg rounded-3xl p-8 border border-purple-500/40 shadow-2xl"
+              style={{ background: "linear-gradient(135deg, #100a20 0%, #170d30 100%)", ...font }}
+            >
+              <button
+                onClick={() => setPurchasedInfo(null)}
+                className="absolute top-5 right-5 w-8 h-8 rounded-full flex items-center justify-center bg-white/10 hover:bg-white/20 text-white transition-colors cursor-pointer"
+              >
+                <X size={18} />
+              </button>
+
+              <div className="text-center mb-6">
+                <div className="w-16 h-16 rounded-2xl mx-auto mb-4 flex items-center justify-center bg-gradient-to-tr from-emerald-500 to-teal-400 shadow-lg shadow-emerald-500/30">
+                  <CheckCheck size={32} className="text-white" />
+                </div>
+                <h3 className="text-2xl font-black text-white mb-2" style={font}>{t.purchaseSuccessTitle}</h3>
+                <p className="text-slate-300 text-sm">{t.purchaseSuccessDesc}</p>
+              </div>
+
+              {purchasedInfo.license?.key && (
+                <div className="mb-6 p-4 rounded-2xl border border-purple-500/30 bg-purple-950/40">
+                  <div className="text-xs text-purple-300 font-bold uppercase tracking-wider mb-2">{t.licenseKey}</div>
+                  <div className="flex items-center justify-between gap-3 bg-black/50 p-3 rounded-xl border border-white/10">
+                    <code className="text-emerald-400 font-mono font-bold text-sm tracking-wide break-all">
+                      {purchasedInfo.license.key}
+                    </code>
+                    <button
+                      onClick={() => copyLicenseKey(purchasedInfo.license?.key || "")}
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold text-white bg-purple-600 hover:bg-purple-500 transition-colors flex-shrink-0 cursor-pointer"
+                    >
+                      {copied ? <CheckCheck size={14} /> : <Copy size={14} />}
+                      {copied ? t.keyCopied : t.copyKey}
+                    </button>
+                  </div>
+                </div>
+              )}
+
+              {purchasedInfo.user?.email && (
+                <div className="mb-6 text-sm text-slate-300 flex items-center justify-between px-2">
+                  <span className="text-slate-400">{t.buyerEmail}:</span>
+                  <span className="font-semibold text-white">{purchasedInfo.user.email}</span>
+                </div>
+              )}
+
+              <button
+                onClick={() => setPurchasedInfo(null)}
+                className="w-full py-3.5 rounded-xl font-bold text-white text-sm bg-gradient-to-r from-purple-600 to-indigo-600 hover:opacity-95 transition-opacity cursor-pointer"
+              >
+                {t.close}
+              </button>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
     </>
   );
 }

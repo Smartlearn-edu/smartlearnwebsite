@@ -34,6 +34,9 @@ function rowToPlugin(row: Record<string, unknown>): DbPlugin {
     features: Array.isArray(row.features) ? (row.features as string[]) : [],
     featuresAr: Array.isArray(row.featuresAr) ? (row.featuresAr as string[]) : [],
     images: Array.isArray(row.images) ? (row.images as string[]) : [],
+    freemiusProductId: row.freemiusProductId ? String(row.freemiusProductId) : undefined,
+    freemiusPlanId: row.freemiusPlanId ? String(row.freemiusPlanId) : undefined,
+    freemiusPublicKey: row.freemiusPublicKey ? String(row.freemiusPublicKey) : undefined,
     description: String(row.description ?? ""),
     descriptionAr: String(row.descriptionAr ?? ""),
   };
@@ -44,6 +47,7 @@ const EMPTY_FORM: Partial<DbPlugin> = {
   category: "AI-Powered", categoryAr: "مدعوم بالذكاء الاصطناعي",
   free: false, paidSupport: false, placeholder: false,
   price: 50, features: [], featuresAr: [], images: [],
+  freemiusProductId: "", freemiusPlanId: "", freemiusPublicKey: "",
   description: "", descriptionAr: "",
 };
 
@@ -286,8 +290,22 @@ function PluginForm({
         <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 14, marginBottom: 14 }}>
           <div>{row("Price (USD, null if free)", <input type="number" value={form.price ?? ""} onChange={(e) => set("price", e.target.value ? Number(e.target.value) : null)} style={s.input} />)}</div>
           <div>{row("Setup Price (USD)", <input type="number" value={form.setupPrice ?? ""} onChange={(e) => set("setupPrice", e.target.value ? Number(e.target.value) : undefined)} style={s.input} />)}</div>
-          <div>{row("Buy URL", inp("buyUrl", "https://wa.me/..."))}</div>
-          <div>{row("Download URL", inp("downloadUrl", "https://moodle.org/plugins/..."))}</div>
+          <div>{row("Buy URL (WhatsApp or Custom)", inp("buyUrl", "https://wa.me/..."))}</div>
+          <div>{row("Download URL (Moodle.org)", inp("downloadUrl", "https://moodle.org/plugins/..."))}</div>
+        </div>
+
+        <div style={{ padding: "12px 14px", background: "rgba(168,85,247,0.06)", border: "1px solid rgba(168,85,247,0.25)", borderRadius: 10, marginBottom: 14 }}>
+          <div style={{ fontSize: 12, fontWeight: 700, color: "#c084fc", marginBottom: 8, display: "flex", alignItems: "center", gap: 6 }}>
+            <span>⚡</span> Freemius Monetization &amp; Embedded Checkout (Optional)
+          </div>
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1.5fr", gap: 10 }}>
+            <div>{row("Product ID", inp("freemiusProductId", "e.g. 36817"))}</div>
+            <div>{row("Plan ID", inp("freemiusPlanId", "e.g. 61043"))}</div>
+            <div>{row("Public Key", inp("freemiusPublicKey", "pk_..."))}</div>
+          </div>
+          <div style={{ fontSize: 11, color: "#94a3b8", marginTop: 6 }}>
+            If provided, clicking "Buy" will open the native Freemius popup. If left empty, it uses the Buy URL above.
+          </div>
         </div>
 
         <div style={{ marginBottom: 14 }}>
