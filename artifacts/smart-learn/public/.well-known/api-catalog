@@ -1,16 +1,16 @@
 {
   "linkset": [
     {
-      "anchor": "https://home.smartlearn.education/api",
+      "anchor": "https://services.smartlearn.education/api",
       "service-desc": [
         {
-          "href": "https://home.smartlearn.education/openapi.json",
+          "href": "https://services.smartlearn.education/openapi.json",
           "type": "application/vnd.oai.openapi+json;version=3.0"
         }
       ],
       "status": [
         {
-          "href": "https://home.smartlearn.education/api/healthz"
+          "href": "https://services.smartlearn.education/api/healthz"
         }
       ]
     }

@@ -171,7 +171,7 @@ export function AiPage() {
       <Helmet>
         <title>AI Integration for Moodle — Smart Learn</title>
         <meta name="description" content="Embed AI chatbots, RAG systems, automated grading, and LLM admin tools directly into your Moodle platform. Arabic and English support." />
-        <link rel="canonical" href="https://home.smartlearn.education/services/ai" />
+        <link rel="canonical" href="https://services.smartlearn.education/services/ai" />
       </Helmet>
 
       <div className="min-h-screen" style={{ backgroundColor: "#07070f" }}>

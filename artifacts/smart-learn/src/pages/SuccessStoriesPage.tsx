@@ -174,7 +174,7 @@ export function SuccessStoriesPage() {
       <Helmet>
         <title>{txt.title}</title>
         <meta name="description" content={txt.description} />
-        <link rel="canonical" href="https://home.smartlearn.education/success-stories" />
+        <link rel="canonical" href="https://services.smartlearn.education/success-stories" />
       </Helmet>
 
       <div className="min-h-screen" style={{ backgroundColor: "#07070f" }}>

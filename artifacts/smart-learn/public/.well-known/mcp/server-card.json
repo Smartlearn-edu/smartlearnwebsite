@@ -6,7 +6,7 @@
   "endpoints": [
     {
       "type": "sse",
-      "url": "https://home.smartlearn.education/api/mcp"
+      "url": "https://services.smartlearn.education/api/mcp"
     }
   ],
   "capabilities": {

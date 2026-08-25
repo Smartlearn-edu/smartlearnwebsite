@@ -1,5 +1,5 @@
 # 🌟 Master AI Text-to-Video Generation Guide
-**Brand:** Smart Learn (https://home.smartlearn.education)  
+**Brand:** Smart Learn (https://services.smartlearn.education)  
 **Goal:** Generate a stunning 1–2 minute cinematic motion-graphics video purely from text prompts (no reference images required) focusing on **Smart Learn's Core Services**, **Our Flagship & 18 Moodle Plugins Ecosystem**, and **Enterprise n8n Automation Services**.  
 **Important Rule:** Do not show any personal photos or focus the video on an individual until the **very end**, where **Mohammad Nabil** is mentioned **ONLY at the end of the video** as the Founder of Smart Learn.
 

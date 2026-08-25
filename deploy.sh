@@ -13,7 +13,7 @@ API_PORT="${PORT:-8080}"
 FRONTEND_BUILD_DIR="$DEPLOY_DIR/artifacts/smart-learn/dist/public"
 API_BUILD_DIR="$DEPLOY_DIR/artifacts/api-server/dist"
 PM2_APP_NAME="smartlearn-api"
-NGINX_FRONTEND="/www/wwwroot/home.smartlearn.education/frontend"
+NGINX_FRONTEND="/www/wwwroot/services.smartlearn.education/frontend"
 
 # Load .env if present so DATABASE_URL etc. are available
 if [ -f "$DEPLOY_DIR/.env" ]; then

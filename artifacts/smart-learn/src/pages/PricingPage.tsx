@@ -347,7 +347,7 @@ export function PricingPage() {
           name="description"
           content="Transparent pricing for Moodle setup, AI integration, plugin development, n8n automation, training, and branded mobile apps. Contact for a custom quote."
         />
-        <link rel="canonical" href="https://home.smartlearn.education/pricing" />
+        <link rel="canonical" href="https://services.smartlearn.education/pricing" />
       </Helmet>
 
       <div className="min-h-screen" style={{ backgroundColor: "#07070f" }}>
