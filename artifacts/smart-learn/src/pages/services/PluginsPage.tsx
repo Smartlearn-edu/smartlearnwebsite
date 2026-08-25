@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Puzzle, Check, Search, X, BarChart2 } from "lucide-react";
+import { Puzzle, Check, Search, X, BarChart2, ArrowUpRight } from "lucide-react";
 import { Helmet } from "react-helmet-async";
 import { Link } from "wouter";
 import { Navbar } from "@/components/Navbar";
@@ -424,10 +424,10 @@ function PluginCardSkeleton() {
         {/* Title + badges row */}
         <div className="flex items-start justify-between gap-3">
           <div className="flex-1 space-y-2">
-            <div className="h-4 rounded-lg" style={{ background: "rgba(255,255,255,0.08)", width: "75%" }} />
+            <div className="h-5 rounded-lg" style={{ background: "rgba(255,255,255,0.08)", width: "75%" }} />
             <div className="flex gap-2">
-              <div className="h-3 w-14 rounded-md" style={{ background: "rgba(255,255,255,0.06)" }} />
-              <div className="h-3 w-20 rounded-md" style={{ background: "rgba(255,255,255,0.06)" }} />
+              <div className="h-3.5 w-14 rounded-md" style={{ background: "rgba(255,255,255,0.06)" }} />
+              <div className="h-3.5 w-20 rounded-md" style={{ background: "rgba(255,255,255,0.06)" }} />
             </div>
           </div>
           <div className="h-6 w-16 rounded-full flex-shrink-0" style={{ background: "rgba(255,255,255,0.07)" }} />
@@ -442,9 +442,6 @@ function PluginCardSkeleton() {
             </div>
           ))}
         </div>
-
-        {/* Button */}
-        <div className="h-10 rounded-xl mt-1" style={{ background: "rgba(168,85,247,0.12)" }} />
       </div>
     </div>
   );
@@ -474,39 +471,40 @@ function PluginCard({
   return (
     <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.35, delay: Math.min(i * 0.05, 0.4) }}
-      className="rounded-2xl flex flex-col overflow-hidden"
+      className="group rounded-2xl flex flex-col overflow-hidden transition-all duration-300 hover:border-purple-500/40 hover:-translate-y-1 hover:shadow-xl hover:shadow-purple-950/20"
       style={{
         background: "rgba(255,255,255,0.03)",
-        border: isCompared ? "1px solid rgba(168,85,247,0.5)" : "1px solid rgba(255,255,255,0.07)",
-        transition: "border-color 0.2s ease",
+        border: isCompared ? "1px solid rgba(168,85,247,0.6)" : "1px solid rgba(255,255,255,0.07)",
       }}>
 
-      {/* Thumbnail */}
+      {/* Clickable Thumbnail */}
       <div className="relative w-full overflow-hidden flex-shrink-0"
         style={{ height: 160, background: "rgba(105,0,163,0.08)" }}>
-        {thumbnail ? (
-          <img
-            src={`/plugins/${plugin.slug}/${thumbnail}`}
-            alt={name}
-            className="w-full h-full object-cover"
-            style={{ display: "block" }}
-            onError={(e) => {
-              (e.currentTarget as HTMLImageElement).style.display = "none";
-              (e.currentTarget.parentElement as HTMLElement).style.background =
-                "linear-gradient(135deg, rgba(105,0,163,0.15), rgba(168,85,247,0.08))";
-            }}
-          />
-        ) : (
-          <div className="w-full h-full flex items-center justify-center"
-            style={{ background: "linear-gradient(135deg, rgba(105,0,163,0.15), rgba(168,85,247,0.08))" }}>
-            <span className="text-3xl opacity-30">🔌</span>
-          </div>
-        )}
+        <Link href={`/services/plugins/${plugin.slug}`} className="block w-full h-full cursor-pointer">
+          {thumbnail ? (
+            <img
+              src={`/plugins/${plugin.slug}/${thumbnail}`}
+              alt={name}
+              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              style={{ display: "block" }}
+              onError={(e) => {
+                (e.currentTarget as HTMLImageElement).style.display = "none";
+                (e.currentTarget.parentElement as HTMLElement).style.background =
+                  "linear-gradient(135deg, rgba(105,0,163,0.15), rgba(168,85,247,0.08))";
+              }}
+            />
+          ) : (
+            <div className="w-full h-full flex items-center justify-center transition-transform duration-500 group-hover:scale-105"
+              style={{ background: "linear-gradient(135deg, rgba(105,0,163,0.15), rgba(168,85,247,0.08))" }}>
+              <span className="text-3xl opacity-30">🔌</span>
+            </div>
+          )}
+        </Link>
 
         {/* Compare toggle button */}
         <button
           onClick={(e) => { e.preventDefault(); onToggleCompare(plugin.slug); }}
-          className="absolute top-2 start-2 flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-xs font-bold transition-all duration-200 hover:scale-105"
+          className="absolute top-2 start-2 flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-xs font-bold transition-all duration-200 hover:scale-105 z-10"
           style={{
             background: isCompared ? "rgba(168,85,247,0.9)" : "rgba(13,13,26,0.75)",
             border: isCompared ? "1px solid rgba(168,85,247,0.8)" : "1px solid rgba(255,255,255,0.15)",
@@ -523,63 +521,81 @@ function PluginCard({
       </div>
 
       <div className="p-6 flex flex-col flex-1">
-      <div className="flex items-start justify-between gap-3 mb-4">
-        <div className="flex-1 min-w-0">
-          <h3 className="text-base font-black text-white leading-snug mb-2" style={font}>{name}</h3>
-          <div className="flex flex-wrap items-center gap-1.5">
-            <span className="text-xs font-bold px-2 py-0.5 rounded-md"
-              style={{ background: typeStyle.bg, color: typeStyle.text, fontFamily: "monospace" }}>
-              {plugin.type}
+        {/* Title as an interactive link button + Badge */}
+        <div className="flex items-start justify-between gap-3 mb-3">
+          <Link
+            href={`/services/plugins/${plugin.slug}`}
+            className="flex-1 min-w-0 group/title block"
+          >
+            <h3
+              className="text-xl md:text-[22px] font-black leading-tight tracking-tight flex items-center gap-1.5 transition-all duration-200"
+              style={{
+                background: "linear-gradient(135deg, #ffffff 10%, #e9d5ff 60%, #c084fc 100%)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                backgroundClip: "text",
+                ...font,
+              }}
+            >
+              <span className="group-hover/title:opacity-80 transition-opacity">
+                {name}
+              </span>
+              <ArrowUpRight
+                size={18}
+                className="text-purple-400 opacity-60 group-hover/title:opacity-100 group-hover/title:translate-x-0.5 group-hover/title:-translate-y-0.5 transition-all flex-shrink-0"
+              />
+            </h3>
+          </Link>
+
+          {!plugin.free ? (
+            <span className="flex-shrink-0 text-xs font-black px-2.5 py-1 rounded-full"
+              style={{ background: "rgba(105,0,163,0.2)", border: "1px solid rgba(168,85,247,0.4)", color: "#c084fc", ...font }}>
+              {hero.premiumBadge}
             </span>
-            <span className="text-xs font-semibold px-2 py-0.5 rounded-md"
-              style={{ background: "rgba(255,255,255,0.05)", color: "#64748b", ...font }}>
-              {plugin.moodle}
+          ) : plugin.paidSupport ? (
+            <span className="flex-shrink-0 text-xs font-black px-2.5 py-1 rounded-full"
+              style={{ background: "rgba(245,158,11,0.12)", border: "1px solid rgba(245,158,11,0.35)", color: "#fbbf24", ...font }}>
+              {hero.freeSupportBadge}
             </span>
-          </div>
+          ) : (
+            <span className="flex-shrink-0 text-xs font-black px-2.5 py-1 rounded-full"
+              style={{ background: "rgba(34,197,94,0.12)", border: "1px solid rgba(34,197,94,0.3)", color: "#4ade80", ...font }}>
+              {hero.freeBadge}
+            </span>
+          )}
         </div>
-        {!plugin.free ? (
-          <span className="flex-shrink-0 text-xs font-black px-2.5 py-1 rounded-full"
-            style={{ background: "rgba(105,0,163,0.2)", border: "1px solid rgba(168,85,247,0.4)", color: "#c084fc", ...font }}>
-            {hero.premiumBadge}
-          </span>
-        ) : plugin.paidSupport ? (
-          <span className="flex-shrink-0 text-xs font-black px-2.5 py-1 rounded-full"
-            style={{ background: "rgba(245,158,11,0.12)", border: "1px solid rgba(245,158,11,0.35)", color: "#fbbf24", ...font }}>
-            {hero.freeSupportBadge}
-          </span>
-        ) : (
-          <span className="flex-shrink-0 text-xs font-black px-2.5 py-1 rounded-full"
-            style={{ background: "rgba(34,197,94,0.12)", border: "1px solid rgba(34,197,94,0.3)", color: "#4ade80", ...font }}>
-            {hero.freeBadge}
-          </span>
-        )}
-      </div>
 
-      <div className="flex-1 mb-5">
-        {plugin.placeholder && (!features || features.length === 0) ? (
-          <div className="flex items-center gap-2 px-3 py-2.5 rounded-xl text-xs"
-            style={{ background: "rgba(105,0,163,0.08)", border: "1px solid rgba(168,85,247,0.15)", color: "#7c3aed", ...font }}>
-            <span className="w-1.5 h-1.5 rounded-full bg-purple-500 animate-pulse inline-block flex-shrink-0" />
-            <span style={{ color: "#94a3b8" }}>{hero.comingSoon}</span>
-          </div>
-        ) : (
-          <ul className="space-y-2">
-            {features.map((feat) => (
-              <li key={feat} className="flex items-start gap-2">
-                <Check size={13} className="flex-shrink-0 mt-0.5" style={{ color: "#a855f7" }} />
-                <span className="text-sm text-slate-200 leading-relaxed" style={font}>{feat}</span>
-              </li>
-            ))}
-          </ul>
-        )}
-      </div>
+        {/* Badges (type + moodle) */}
+        <div className="flex flex-wrap items-center gap-1.5 mb-4">
+          <span className="text-xs font-bold px-2 py-0.5 rounded-md"
+            style={{ background: typeStyle.bg, color: typeStyle.text, fontFamily: "monospace" }}>
+            {plugin.type}
+          </span>
+          <span className="text-xs font-semibold px-2 py-0.5 rounded-md"
+            style={{ background: "rgba(255,255,255,0.05)", color: "#94a3b8", ...font }}>
+            {plugin.moodle}
+          </span>
+        </div>
 
-      <Link href={`/services/plugins/${plugin.slug}`}
-        className="inline-flex items-center justify-center gap-1.5 w-full py-2.5 rounded-xl text-sm font-bold text-white transition-all duration-200 hover:opacity-90"
-        style={{ background: "linear-gradient(135deg, #6900A3, #a855f7)", ...font }}>
-        {hero.learnMore}
-        <DirectionalArrow size={13} />
-      </Link>
+        {/* Feature List */}
+        <div className="flex-1">
+          {plugin.placeholder && (!features || features.length === 0) ? (
+            <div className="flex items-center gap-2 px-3 py-2.5 rounded-xl text-xs"
+              style={{ background: "rgba(105,0,163,0.08)", border: "1px solid rgba(168,85,247,0.15)", color: "#7c3aed", ...font }}>
+              <span className="w-1.5 h-1.5 rounded-full bg-purple-500 animate-pulse inline-block flex-shrink-0" />
+              <span style={{ color: "#94a3b8" }}>{hero.comingSoon}</span>
+            </div>
+          ) : (
+            <ul className="space-y-2">
+              {features.map((feat) => (
+                <li key={feat} className="flex items-start gap-2">
+                  <Check size={13} className="flex-shrink-0 mt-1" style={{ color: "#a855f7" }} />
+                  <span className="text-sm text-slate-300 leading-relaxed" style={font}>{feat}</span>
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
       </div>
     </motion.div>
   );
