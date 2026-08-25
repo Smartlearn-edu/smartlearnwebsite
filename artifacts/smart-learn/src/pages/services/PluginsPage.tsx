@@ -521,31 +521,39 @@ function PluginCard({
       </div>
 
       <div className="p-6 flex flex-col flex-1">
-        {/* Title as an interactive link button + Badge */}
-        <div className="flex items-start justify-between gap-3 mb-3">
+        {/* Title Button Box with Background & Border */}
+        <div className="mb-3.5">
           <Link
             href={`/services/plugins/${plugin.slug}`}
-            className="flex-1 min-w-0 group/title block"
+            className="group/title flex items-center justify-between gap-3 p-3 rounded-xl border border-purple-500/30 bg-gradient-to-r from-purple-950/60 via-purple-900/30 to-purple-950/40 hover:from-purple-900/70 hover:to-purple-800/50 hover:border-purple-400/80 hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300 cursor-pointer"
           >
-            <h3
-              className="text-xl md:text-[22px] font-black leading-tight tracking-tight flex items-center gap-1.5 transition-all duration-200"
-              style={{
-                background: "linear-gradient(135deg, #ffffff 10%, #e9d5ff 60%, #c084fc 100%)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-                backgroundClip: "text",
-                ...font,
-              }}
-            >
-              <span className="group-hover/title:opacity-80 transition-opacity">
+            <div className="flex items-center gap-2.5 min-w-0">
+              <span className="w-2 h-2 rounded-full bg-purple-400 group-hover/title:bg-emerald-400 group-hover/title:scale-125 transition-all flex-shrink-0" />
+              <h3
+                className="text-base md:text-lg font-black tracking-tight text-white group-hover/title:text-purple-200 transition-colors truncate"
+                style={font}
+              >
                 {name}
-              </span>
-              <ArrowUpRight
-                size={18}
-                className="text-purple-400 opacity-60 group-hover/title:opacity-100 group-hover/title:translate-x-0.5 group-hover/title:-translate-y-0.5 transition-all flex-shrink-0"
-              />
-            </h3>
+              </h3>
+            </div>
+            <div className="w-7 h-7 rounded-lg bg-purple-500/20 border border-purple-500/30 flex items-center justify-center text-purple-300 group-hover/title:bg-purple-500 group-hover/title:text-white group-hover/title:border-purple-400 group-hover/title:scale-105 transition-all flex-shrink-0">
+              <ArrowUpRight size={14} />
+            </div>
           </Link>
+        </div>
+
+        {/* Badges row: Type + Moodle + Price status */}
+        <div className="flex items-center justify-between gap-2 mb-4">
+          <div className="flex flex-wrap items-center gap-1.5">
+            <span className="text-xs font-bold px-2 py-0.5 rounded-md"
+              style={{ background: typeStyle.bg, color: typeStyle.text, fontFamily: "monospace" }}>
+              {plugin.type}
+            </span>
+            <span className="text-xs font-semibold px-2 py-0.5 rounded-md"
+              style={{ background: "rgba(255,255,255,0.05)", color: "#94a3b8", ...font }}>
+              {plugin.moodle}
+            </span>
+          </div>
 
           {!plugin.free ? (
             <span className="flex-shrink-0 text-xs font-black px-2.5 py-1 rounded-full"
@@ -563,18 +571,6 @@ function PluginCard({
               {hero.freeBadge}
             </span>
           )}
-        </div>
-
-        {/* Badges (type + moodle) */}
-        <div className="flex flex-wrap items-center gap-1.5 mb-4">
-          <span className="text-xs font-bold px-2 py-0.5 rounded-md"
-            style={{ background: typeStyle.bg, color: typeStyle.text, fontFamily: "monospace" }}>
-            {plugin.type}
-          </span>
-          <span className="text-xs font-semibold px-2 py-0.5 rounded-md"
-            style={{ background: "rgba(255,255,255,0.05)", color: "#94a3b8", ...font }}>
-            {plugin.moodle}
-          </span>
         </div>
 
         {/* Feature List */}
