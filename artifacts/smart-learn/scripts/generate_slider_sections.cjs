@@ -46,12 +46,12 @@ const sections = [
             <!-- Slide 1 -->
             <div class="carousel-item active">
                 <div class="sl-hero-bg">
-                    <img src="https://images.unsplash.com/photo-1516321497487-e288fb19713f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" class="d-block w-100" alt="Slide 1" data-sl-edit="image" />
+                    <img src="https://images.unsplash.com/photo-1516321497487-e288fb19713f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" class="d-block w-100" alt="Slide 1" data-sl-edit="image" data-sl-label="Slide 1 Image" />
                     <div class="sl-hero-overlay"></div>
                 </div>
                 <div class="carousel-caption sl-hero-caption">
-                    <h2 class="sl-hero-title" data-sl-edit="text">Access Online Learning Anywhere Easily</h2>
-                    <p class="sl-hero-subtitle" data-sl-edit="text">A solution for easy and flexible online learning, you can study anywhere through this platform.</p>
+                    <h2 class="sl-hero-title" data-sl-edit="text" data-sl-label="Slide 1 Title">Access Online Learning Anywhere Easily</h2>
+                    <p class="sl-hero-subtitle" data-sl-edit="text" data-sl-label="Slide 1 Subtitle">A solution for easy and flexible online learning, you can study anywhere through this platform.</p>
                     <div class="sl-hero-actions">
                         <a href="#" class="btn btn-primary sl-btn-hero" data-sl-edit="link" data-sl-edit-text="Get Started">Get Started</a>
                         <a href="#" class="btn btn-outline-light sl-btn-hero-outline" data-sl-edit="link" data-sl-edit-text="Learn More">Learn More</a>
@@ -62,12 +62,12 @@ const sections = [
             <!-- Slide 2 -->
             <div class="carousel-item">
                 <div class="sl-hero-bg">
-                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" class="d-block w-100" alt="Slide 2" data-sl-edit="image" />
+                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" class="d-block w-100" alt="Slide 2" data-sl-edit="image" data-sl-label="Slide 2 Image" />
                     <div class="sl-hero-overlay"></div>
                 </div>
                 <div class="carousel-caption sl-hero-caption">
-                    <h2 class="sl-hero-title" data-sl-edit="text">Empower Your Future</h2>
-                    <p class="sl-hero-subtitle" data-sl-edit="text">Join a vibrant community of learners and educators shaping tomorrow.</p>
+                    <h2 class="sl-hero-title" data-sl-edit="text" data-sl-label="Slide 2 Title">Empower Your Future</h2>
+                    <p class="sl-hero-subtitle" data-sl-edit="text" data-sl-label="Slide 2 Subtitle">Join a vibrant community of learners and educators shaping tomorrow.</p>
                     <div class="sl-hero-actions">
                         <a href="#" class="btn btn-primary sl-btn-hero" data-sl-edit="link" data-sl-edit-text="View Courses">View Courses</a>
                     </div>
@@ -77,12 +77,12 @@ const sections = [
             <!-- Slide 3 -->
             <div class="carousel-item">
                 <div class="sl-hero-bg">
-                    <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" class="d-block w-100" alt="Slide 3" data-sl-edit="image" />
+                    <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" class="d-block w-100" alt="Slide 3" data-sl-edit="image" data-sl-label="Slide 3 Image" />
                     <div class="sl-hero-overlay"></div>
                 </div>
                 <div class="carousel-caption sl-hero-caption">
-                    <h2 class="sl-hero-title" data-sl-edit="text">Achieve Your Goals</h2>
-                    <p class="sl-hero-subtitle" data-sl-edit="text">Step-by-step guidance from industry experts to accelerate your career.</p>
+                    <h2 class="sl-hero-title" data-sl-edit="text" data-sl-label="Slide 3 Title">Achieve Your Goals</h2>
+                    <p class="sl-hero-subtitle" data-sl-edit="text" data-sl-label="Slide 3 Subtitle">Step-by-step guidance from industry experts to accelerate your career.</p>
                     <div class="sl-hero-actions">
                         <a href="#" class="btn btn-primary sl-btn-hero" data-sl-edit="link" data-sl-edit-text="Join Now">Join Now</a>
                     </div>
@@ -129,7 +129,7 @@ const sections = [
     .sl-hero-actions { flex-direction: column; width: 100%; max-width: 300px; margin: 0 auto; }
 }
     `),
-    js: clean(``)
+    js: clean(`\n(function() {\n    var carousels = document.querySelectorAll('.carousel');\n    if (typeof bootstrap !== 'undefined') {\n        carousels.forEach(c => new bootstrap.Carousel(c));\n    }\n})();\n`)
   },
 
   // 2. Split-Screen Content Slider
@@ -158,7 +158,7 @@ const sections = [
                         </div>
                     </div>
                     <div class="sl-split-image">
-                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Slide 1" data-sl-edit="image" />
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Slide 1" data-sl-edit="image" data-sl-label="Slide 1 Image" />
                     </div>
                 </div>
             </div>
@@ -174,7 +174,7 @@ const sections = [
                         </div>
                     </div>
                     <div class="sl-split-image">
-                        <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Slide 2" data-sl-edit="image" />
+                        <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Slide 2" data-sl-edit="image" data-sl-label="Slide 2 Image" />
                     </div>
                 </div>
             </div>
@@ -213,7 +213,7 @@ const sections = [
 .carousel-item.active .sl-split-inner { animation: slSplitFadeIn 0.8s ease forwards; }
 .carousel-item.active .sl-split-image img { animation: slSplitZoom 10s linear forwards; }
     `),
-    js: clean(``)
+    js: clean(`\n(function() {\n    var carousels = document.querySelectorAll('.carousel');\n    if (typeof bootstrap !== 'undefined') {\n        carousels.forEach(c => new bootstrap.Carousel(c));\n    }\n})();\n`)
   },
 
   // 3. Glassmorphism Floating Card Slider
@@ -234,7 +234,7 @@ const sections = [
             <!-- Slide 1 -->
             <div class="carousel-item active">
                 <div class="sl-glass-bg">
-                    <img src="https://images.unsplash.com/photo-1542744094-3a31f272c490?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" alt="Slide 1" data-sl-edit="image" />
+                    <img src="https://images.unsplash.com/photo-1542744094-3a31f272c490?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" alt="Slide 1" data-sl-edit="image" data-sl-label="Slide 1 Image" />
                 </div>
                 <div class="container sl-glass-container">
                     <div class="sl-glass-card">
@@ -249,7 +249,7 @@ const sections = [
             <!-- Slide 2 -->
             <div class="carousel-item">
                 <div class="sl-glass-bg">
-                    <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" alt="Slide 2" data-sl-edit="image" />
+                    <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" alt="Slide 2" data-sl-edit="image" data-sl-label="Slide 2 Image" />
                 </div>
                 <div class="container sl-glass-container">
                     <div class="sl-glass-card">
@@ -543,7 +543,7 @@ const sections = [
 .sl-twocol-ctrl:hover { opacity: 1 !important; }
 .sl-twocol-indicators { margin-bottom: 1rem; }
     `),
-    js: clean(``)
+    js: clean(`\n(function() {\n    var carousels = document.querySelectorAll('.carousel');\n    if (typeof bootstrap !== 'undefined') {\n        carousels.forEach(c => new bootstrap.Carousel(c));\n    }\n})();\n`)
   }
 ];
 
