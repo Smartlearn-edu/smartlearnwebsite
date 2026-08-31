@@ -13,6 +13,8 @@ function ensureDir(filePath) {
   }
 }
 
+const publicPath = path.resolve(__dirname, '../public');
+
 function writeMarkdown(urlPath, content) {
   const filePath = urlPath === '/' 
     ? path.join(distPath, 'index.md') 
@@ -20,6 +22,11 @@ function writeMarkdown(urlPath, content) {
   
   ensureDir(filePath);
   fs.writeFileSync(filePath, content.trim() + '\n', 'utf-8');
+
+  // Also write to public folder for static persistence
+  if (urlPath === '/') {
+    fs.writeFileSync(path.join(publicPath, 'index.md'), content.trim() + '\n', 'utf-8');
+  }
   console.log(`Generated markdown: ${urlPath} -> ${filePath}`);
 }
 

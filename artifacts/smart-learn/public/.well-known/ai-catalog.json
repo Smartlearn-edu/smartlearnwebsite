@@ -1,0 +1,60 @@
+{
+  "specVersion": "0.1.0",
+  "host": {
+    "name": "Smart Learn",
+    "url": "https://services.smartlearn.education"
+  },
+  "entries": [
+    {
+      "id": "urn:air:smartlearn.education:mcp:server-card",
+      "displayName": "Smart Learn MCP Server Card",
+      "type": "application/json",
+      "url": "https://services.smartlearn.education/.well-known/mcp/server-card.json",
+      "description": "Model Context Protocol (MCP) server providing access to Smart Learn course tools, services, and plugins.",
+      "representativeQueries": [
+        "Smart Learn MCP server",
+        "Moodle MCP tools",
+        "Moodle development AI tools",
+        "AI agents for Moodle LMS"
+      ]
+    },
+    {
+      "id": "urn:air:smartlearn.education:skills:index",
+      "displayName": "Smart Learn Agent Skills Index",
+      "type": "application/json",
+      "url": "https://services.smartlearn.education/.well-known/agent-skills/index.json",
+      "description": "Agent Skills discovery index for automated Moodle inquiries, plugin discovery, and service requests.",
+      "representativeQueries": [
+        "Moodle agent skills",
+        "Contact Smart Learn Moodle team",
+        "Smart Learn skills catalog",
+        "Moodle automation skills"
+      ]
+    },
+    {
+      "id": "urn:air:smartlearn.education:openapi:services",
+      "displayName": "Smart Learn REST API Specification",
+      "type": "application/vnd.oai.openapi+json;version=3.0",
+      "url": "https://services.smartlearn.education/openapi.json",
+      "description": "OpenAPI 3.0 specification for Smart Learn API endpoints including plugin catalog and health checks.",
+      "representativeQueries": [
+        "Smart Learn API documentation",
+        "Moodle plugins API",
+        "Smart Learn OpenAPI schema",
+        "Moodle catalog REST API"
+      ]
+    },
+    {
+      "id": "urn:air:smartlearn.education:linkset:api-catalog",
+      "displayName": "Smart Learn API Catalog (RFC 9727)",
+      "type": "application/linkset+json",
+      "url": "https://services.smartlearn.education/.well-known/api-catalog",
+      "description": "RFC 9727 compliant API catalog advertising public service endpoints and health status.",
+      "representativeQueries": [
+        "Smart Learn API catalog",
+        "API service discovery",
+        "RFC 9727 linkset"
+      ]
+    }
+  ]
+}
