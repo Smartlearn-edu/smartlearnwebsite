@@ -32,13 +32,13 @@ const sections = [
     html: clean(`
 <!-- sl-section: slider-hero | v1.0 -->
 <div class="sl-slider-hero">
-    <div id="slHeroCarousel" class="carousel slide" data-bs-ride="carousel">
+    <div id="slHeroCarousel" class="carousel slide" data-sl-ride="carousel">
         
         <!-- Indicators -->
         <div class="carousel-indicators sl-hero-indicators">
-            <button type="button" data-bs-target="#slHeroCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#slHeroCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-            <button type="button" data-bs-target="#slHeroCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            <button type="button" data-sl-target="#slHeroCarousel" data-sl-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-sl-target="#slHeroCarousel" data-sl-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-sl-target="#slHeroCarousel" data-sl-slide-to="2" aria-label="Slide 3"></button>
         </div>
         
         <!-- Slides -->
@@ -91,11 +91,11 @@ const sections = [
         </div>
         
         <!-- Controls -->
-        <button class="carousel-control-prev sl-hero-control" type="button" data-bs-target="#slHeroCarousel" data-bs-slide="prev">
+        <button class="carousel-control-prev sl-hero-control" type="button" data-sl-target="#slHeroCarousel" data-sl-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Previous</span>
         </button>
-        <button class="carousel-control-next sl-hero-control" type="button" data-bs-target="#slHeroCarousel" data-bs-slide="next">
+        <button class="carousel-control-next sl-hero-control" type="button" data-sl-target="#slHeroCarousel" data-sl-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Next</span>
         </button>
@@ -129,7 +129,135 @@ const sections = [
     .sl-hero-actions { flex-direction: column; width: 100%; max-width: 300px; margin: 0 auto; }
 }
     `),
-    js: clean(`\n(function() {\n    var carousels = document.querySelectorAll('.carousel');\n    if (typeof bootstrap !== 'undefined') {\n        carousels.forEach(c => new bootstrap.Carousel(c));\n    }\n})();\n`)
+    js: clean(`
+(function() {
+    function initSLCarousels() {
+        const carousels = document.querySelectorAll('.carousel[data-sl-ride="carousel"]');
+        carousels.forEach(carousel => {
+            if (carousel.dataset.slInit) return;
+            carousel.dataset.slInit = 'true';
+
+            const items = carousel.querySelectorAll('.carousel-item');
+            const indicators = carousel.querySelectorAll('[data-sl-slide-to]');
+            const prevBtns = carousel.querySelectorAll('[data-sl-slide="prev"]');
+            const nextBtns = carousel.querySelectorAll('[data-sl-slide="next"]');
+            
+            if (items.length <= 1) return;
+
+            // Apply custom fade CSS to bypass Bootstrap's complex transition requirements
+            items.forEach(item => {
+                item.style.transition = 'opacity 0.6s ease-in-out';
+                if (!item.classList.contains('active')) {
+                    item.style.opacity = '0';
+                    item.style.display = 'block';
+                    item.style.position = 'absolute';
+                    item.style.top = '0';
+                    item.style.left = '0';
+                    item.style.zIndex = '1';
+                } else {
+                    item.style.opacity = '1';
+                    item.style.position = 'relative';
+                    item.style.zIndex = '2';
+                }
+            });
+
+            let currentIndex = 0;
+            items.forEach((item, index) => {
+                if (item.classList.contains('active')) currentIndex = index;
+            });
+
+            let isAnimating = false;
+
+            function goToSlide(index) {
+                if (isAnimating || index === currentIndex) return;
+                isAnimating = true;
+
+                const currentItem = items[currentIndex];
+                const nextItem = items[index];
+
+                // Prepare next item
+                nextItem.style.position = 'absolute';
+                nextItem.style.top = '0';
+                nextItem.style.left = '0';
+                nextItem.style.zIndex = '2';
+                nextItem.style.opacity = '0';
+                nextItem.classList.add('active');
+
+                // Current item goes behind
+                currentItem.style.zIndex = '1';
+
+                // Trigger reflow
+                void nextItem.offsetWidth;
+
+                // Fade in next
+                nextItem.style.opacity = '1';
+                
+                // Update indicators
+                indicators.forEach(ind => ind.classList.remove('active'));
+                const targetInd = carousel.querySelector('[data-sl-slide-to="' + index + '"]');
+                if (targetInd) targetInd.classList.add('active');
+
+                // Custom event for extensions (like slider-glass)
+                carousel.dispatchEvent(new CustomEvent('sl-slide-changed', { detail: { index: index } }));
+
+                setTimeout(() => {
+                    currentItem.classList.remove('active');
+                    currentItem.style.opacity = '0';
+                    
+                    nextItem.style.position = 'relative';
+                    
+                    currentIndex = index;
+                    isAnimating = false;
+                }, 600);
+            }
+
+            prevBtns.forEach(btn => btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                let next = currentIndex - 1;
+                if (next < 0) next = items.length - 1;
+                goToSlide(next);
+            }));
+
+            nextBtns.forEach(btn => btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                let next = currentIndex + 1;
+                if (next >= items.length) next = 0;
+                goToSlide(next);
+            }));
+
+            indicators.forEach(ind => {
+                ind.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const target = parseInt(ind.getAttribute('data-sl-slide-to'));
+                    if (!isNaN(target)) goToSlide(target);
+                });
+            });
+
+            let autoplayTimer;
+            function startAutoplay() {
+                if (!document.body.classList.contains('sl-editor-mode')) {
+                    autoplayTimer = setInterval(() => {
+                        let next = currentIndex + 1;
+                        if (next >= items.length) next = 0;
+                        goToSlide(next);
+                    }, 5000);
+                }
+            }
+            function stopAutoplay() {
+                clearInterval(autoplayTimer);
+            }
+
+            startAutoplay();
+            carousel.addEventListener('mouseenter', stopAutoplay);
+            carousel.addEventListener('mouseleave', startAutoplay);
+        });
+    }
+
+    // Run immediately and also on DOMContentLoaded
+    initSLCarousels();
+    document.addEventListener('DOMContentLoaded', initSLCarousels);
+})();
+`)
   },
 
   // 2. Split-Screen Content Slider
@@ -144,7 +272,7 @@ const sections = [
     html: clean(`
 <!-- sl-section: slider-split | v1.0 -->
 <div class="sl-slider-split">
-    <div id="slSplitCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
+    <div id="slSplitCarousel" class="carousel slide carousel-fade" data-sl-ride="carousel">
         <div class="carousel-inner">
             <!-- Slide 1 -->
             <div class="carousel-item active">
@@ -182,10 +310,10 @@ const sections = [
         
         <!-- Custom Controls placed inside content area via CSS/HTML structure -->
         <div class="sl-split-controls">
-            <button class="sl-split-ctrl-btn" type="button" data-bs-target="#slSplitCarousel" data-bs-slide="prev" aria-label="Previous">
+            <button class="sl-split-ctrl-btn" type="button" data-sl-target="#slSplitCarousel" data-sl-slide="prev" aria-label="Previous">
                 <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z"/></svg>
             </button>
-            <button class="sl-split-ctrl-btn" type="button" data-bs-target="#slSplitCarousel" data-bs-slide="next" aria-label="Next">
+            <button class="sl-split-ctrl-btn" type="button" data-sl-target="#slSplitCarousel" data-sl-slide="next" aria-label="Next">
                 <svg width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
             </button>
         </div>
@@ -213,7 +341,135 @@ const sections = [
 .carousel-item.active .sl-split-inner { animation: slSplitFadeIn 0.8s ease forwards; }
 .carousel-item.active .sl-split-image img { animation: slSplitZoom 10s linear forwards; }
     `),
-    js: clean(`\n(function() {\n    var carousels = document.querySelectorAll('.carousel');\n    if (typeof bootstrap !== 'undefined') {\n        carousels.forEach(c => new bootstrap.Carousel(c));\n    }\n})();\n`)
+    js: clean(`
+(function() {
+    function initSLCarousels() {
+        const carousels = document.querySelectorAll('.carousel[data-sl-ride="carousel"]');
+        carousels.forEach(carousel => {
+            if (carousel.dataset.slInit) return;
+            carousel.dataset.slInit = 'true';
+
+            const items = carousel.querySelectorAll('.carousel-item');
+            const indicators = carousel.querySelectorAll('[data-sl-slide-to]');
+            const prevBtns = carousel.querySelectorAll('[data-sl-slide="prev"]');
+            const nextBtns = carousel.querySelectorAll('[data-sl-slide="next"]');
+            
+            if (items.length <= 1) return;
+
+            // Apply custom fade CSS to bypass Bootstrap's complex transition requirements
+            items.forEach(item => {
+                item.style.transition = 'opacity 0.6s ease-in-out';
+                if (!item.classList.contains('active')) {
+                    item.style.opacity = '0';
+                    item.style.display = 'block';
+                    item.style.position = 'absolute';
+                    item.style.top = '0';
+                    item.style.left = '0';
+                    item.style.zIndex = '1';
+                } else {
+                    item.style.opacity = '1';
+                    item.style.position = 'relative';
+                    item.style.zIndex = '2';
+                }
+            });
+
+            let currentIndex = 0;
+            items.forEach((item, index) => {
+                if (item.classList.contains('active')) currentIndex = index;
+            });
+
+            let isAnimating = false;
+
+            function goToSlide(index) {
+                if (isAnimating || index === currentIndex) return;
+                isAnimating = true;
+
+                const currentItem = items[currentIndex];
+                const nextItem = items[index];
+
+                // Prepare next item
+                nextItem.style.position = 'absolute';
+                nextItem.style.top = '0';
+                nextItem.style.left = '0';
+                nextItem.style.zIndex = '2';
+                nextItem.style.opacity = '0';
+                nextItem.classList.add('active');
+
+                // Current item goes behind
+                currentItem.style.zIndex = '1';
+
+                // Trigger reflow
+                void nextItem.offsetWidth;
+
+                // Fade in next
+                nextItem.style.opacity = '1';
+                
+                // Update indicators
+                indicators.forEach(ind => ind.classList.remove('active'));
+                const targetInd = carousel.querySelector('[data-sl-slide-to="' + index + '"]');
+                if (targetInd) targetInd.classList.add('active');
+
+                // Custom event for extensions (like slider-glass)
+                carousel.dispatchEvent(new CustomEvent('sl-slide-changed', { detail: { index: index } }));
+
+                setTimeout(() => {
+                    currentItem.classList.remove('active');
+                    currentItem.style.opacity = '0';
+                    
+                    nextItem.style.position = 'relative';
+                    
+                    currentIndex = index;
+                    isAnimating = false;
+                }, 600);
+            }
+
+            prevBtns.forEach(btn => btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                let next = currentIndex - 1;
+                if (next < 0) next = items.length - 1;
+                goToSlide(next);
+            }));
+
+            nextBtns.forEach(btn => btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                let next = currentIndex + 1;
+                if (next >= items.length) next = 0;
+                goToSlide(next);
+            }));
+
+            indicators.forEach(ind => {
+                ind.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const target = parseInt(ind.getAttribute('data-sl-slide-to'));
+                    if (!isNaN(target)) goToSlide(target);
+                });
+            });
+
+            let autoplayTimer;
+            function startAutoplay() {
+                if (!document.body.classList.contains('sl-editor-mode')) {
+                    autoplayTimer = setInterval(() => {
+                        let next = currentIndex + 1;
+                        if (next >= items.length) next = 0;
+                        goToSlide(next);
+                    }, 5000);
+                }
+            }
+            function stopAutoplay() {
+                clearInterval(autoplayTimer);
+            }
+
+            startAutoplay();
+            carousel.addEventListener('mouseenter', stopAutoplay);
+            carousel.addEventListener('mouseleave', startAutoplay);
+        });
+    }
+
+    // Run immediately and also on DOMContentLoaded
+    initSLCarousels();
+    document.addEventListener('DOMContentLoaded', initSLCarousels);
+})();
+`)
   },
 
   // 3. Glassmorphism Floating Card Slider
@@ -228,7 +484,7 @@ const sections = [
     html: clean(`
 <!-- sl-section: slider-glass | v1.0 -->
 <div class="sl-slider-glass">
-    <div id="slGlassCarousel" class="carousel slide" data-bs-ride="carousel">
+    <div id="slGlassCarousel" class="carousel slide" data-sl-ride="carousel">
         <div class="carousel-inner">
             
             <!-- Slide 1 -->
@@ -270,10 +526,10 @@ const sections = [
                     <span id="sl-glass-current">01</span><span class="sl-glass-divider">/</span><span id="sl-glass-total">02</span>
                 </div>
                 <div class="sl-glass-arrows">
-                    <button type="button" data-bs-target="#slGlassCarousel" data-bs-slide="prev" aria-label="Previous">
+                    <button type="button" data-sl-target="#slGlassCarousel" data-sl-slide="prev" aria-label="Previous">
                         <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z"/></svg>
                     </button>
-                    <button type="button" data-bs-target="#slGlassCarousel" data-bs-slide="next" aria-label="Next">
+                    <button type="button" data-sl-target="#slGlassCarousel" data-sl-slide="next" aria-label="Next">
                         <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
                     </button>
                 </div>
@@ -312,18 +568,133 @@ const sections = [
     `),
     js: clean(`
 (function() {
-    const root = document.querySelector('.sl-slider-glass');
-    if (!root) return;
-    const carouselEl = root.querySelector('#slGlassCarousel');
-    const currentEl = root.querySelector('#sl-glass-current');
-    if(!carouselEl || !currentEl) return;
-    
-    carouselEl.addEventListener('slide.bs.carousel', function (e) {
-        let index = e.to + 1;
-        currentEl.textContent = index < 10 ? '0' + index : index;
-    });
+    function initSLCarousels() {
+        const carousels = document.querySelectorAll('.carousel[data-sl-ride="carousel"]');
+        carousels.forEach(carousel => {
+            if (carousel.dataset.slInit) return;
+            carousel.dataset.slInit = 'true';
+
+            const items = carousel.querySelectorAll('.carousel-item');
+            const indicators = carousel.querySelectorAll('[data-sl-slide-to]');
+            const prevBtns = carousel.querySelectorAll('[data-sl-slide="prev"]');
+            const nextBtns = carousel.querySelectorAll('[data-sl-slide="next"]');
+            
+            if (items.length <= 1) return;
+
+            // Apply custom fade CSS to bypass Bootstrap's complex transition requirements
+            items.forEach(item => {
+                item.style.transition = 'opacity 0.6s ease-in-out';
+                if (!item.classList.contains('active')) {
+                    item.style.opacity = '0';
+                    item.style.display = 'block';
+                    item.style.position = 'absolute';
+                    item.style.top = '0';
+                    item.style.left = '0';
+                    item.style.zIndex = '1';
+                } else {
+                    item.style.opacity = '1';
+                    item.style.position = 'relative';
+                    item.style.zIndex = '2';
+                }
+            });
+
+            let currentIndex = 0;
+            items.forEach((item, index) => {
+                if (item.classList.contains('active')) currentIndex = index;
+            });
+
+            let isAnimating = false;
+
+            function goToSlide(index) {
+                if (isAnimating || index === currentIndex) return;
+                isAnimating = true;
+
+                const currentItem = items[currentIndex];
+                const nextItem = items[index];
+
+                // Prepare next item
+                nextItem.style.position = 'absolute';
+                nextItem.style.top = '0';
+                nextItem.style.left = '0';
+                nextItem.style.zIndex = '2';
+                nextItem.style.opacity = '0';
+                nextItem.classList.add('active');
+
+                // Current item goes behind
+                currentItem.style.zIndex = '1';
+
+                // Trigger reflow
+                void nextItem.offsetWidth;
+
+                // Fade in next
+                nextItem.style.opacity = '1';
+                
+                // Update indicators
+                indicators.forEach(ind => ind.classList.remove('active'));
+                const targetInd = carousel.querySelector('[data-sl-slide-to="' + index + '"]');
+                if (targetInd) targetInd.classList.add('active');
+
+                // Custom event for extensions (like slider-glass)
+                carousel.dispatchEvent(new CustomEvent('sl-slide-changed', { detail: { index: index } }));
+
+                setTimeout(() => {
+                    currentItem.classList.remove('active');
+                    currentItem.style.opacity = '0';
+                    
+                    nextItem.style.position = 'relative';
+                    
+                    currentIndex = index;
+                    isAnimating = false;
+                }, 600);
+            }
+
+            prevBtns.forEach(btn => btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                let next = currentIndex - 1;
+                if (next < 0) next = items.length - 1;
+                goToSlide(next);
+            }));
+
+            nextBtns.forEach(btn => btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                let next = currentIndex + 1;
+                if (next >= items.length) next = 0;
+                goToSlide(next);
+            }));
+
+            indicators.forEach(ind => {
+                ind.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const target = parseInt(ind.getAttribute('data-sl-slide-to'));
+                    if (!isNaN(target)) goToSlide(target);
+                });
+            });
+
+            let autoplayTimer;
+            function startAutoplay() {
+                if (!document.body.classList.contains('sl-editor-mode')) {
+                    autoplayTimer = setInterval(() => {
+                        let next = currentIndex + 1;
+                        if (next >= items.length) next = 0;
+                        goToSlide(next);
+                    }, 5000);
+                }
+            }
+            function stopAutoplay() {
+                clearInterval(autoplayTimer);
+            }
+
+            startAutoplay();
+            carousel.addEventListener('mouseenter', stopAutoplay);
+            carousel.addEventListener('mouseleave', startAutoplay);
+        });
+    }
+
+    // Run immediately and also on DOMContentLoaded
+    initSLCarousels();
+    document.addEventListener('DOMContentLoaded', initSLCarousels);
 })();
-    `)
+`)
   },
 
   // 4. Interactive Carousel Card Slider
@@ -457,7 +828,7 @@ const sections = [
         track.scrollBy({ left: scrollAmount, behavior: 'smooth' });
     });
 })();
-    `)
+`)
   },
 
   // 5. 2-Column Section (Slider + Text)
@@ -491,11 +862,11 @@ const sections = [
             <!-- Slider Column -->
             <div class="col-lg-7 mt-5 mt-lg-0">
                 <div class="sl-twocol-carousel-wrap">
-                    <div id="slTwoColCarousel" class="carousel slide" data-bs-ride="carousel">
+                    <div id="slTwoColCarousel" class="carousel slide" data-sl-ride="carousel">
                         <div class="carousel-indicators sl-twocol-indicators">
-                            <button type="button" data-bs-target="#slTwoColCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                            <button type="button" data-bs-target="#slTwoColCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                            <button type="button" data-bs-target="#slTwoColCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                            <button type="button" data-sl-target="#slTwoColCarousel" data-sl-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                            <button type="button" data-sl-target="#slTwoColCarousel" data-sl-slide-to="1" aria-label="Slide 2"></button>
+                            <button type="button" data-sl-target="#slTwoColCarousel" data-sl-slide-to="2" aria-label="Slide 3"></button>
                         </div>
                         <div class="carousel-inner sl-twocol-inner">
                             <div class="carousel-item active">
@@ -508,11 +879,11 @@ const sections = [
                                 <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" class="d-block w-100" alt="Facility 3" data-sl-edit="image" />
                             </div>
                         </div>
-                        <button class="carousel-control-prev sl-twocol-ctrl" type="button" data-bs-target="#slTwoColCarousel" data-bs-slide="prev">
+                        <button class="carousel-control-prev sl-twocol-ctrl" type="button" data-sl-target="#slTwoColCarousel" data-sl-slide="prev">
                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                             <span class="visually-hidden">Previous</span>
                         </button>
-                        <button class="carousel-control-next sl-twocol-ctrl" type="button" data-bs-target="#slTwoColCarousel" data-bs-slide="next">
+                        <button class="carousel-control-next sl-twocol-ctrl" type="button" data-sl-target="#slTwoColCarousel" data-sl-slide="next">
                             <span class="carousel-control-next-icon" aria-hidden="true"></span>
                             <span class="visually-hidden">Next</span>
                         </button>
@@ -543,7 +914,135 @@ const sections = [
 .sl-twocol-ctrl:hover { opacity: 1 !important; }
 .sl-twocol-indicators { margin-bottom: 1rem; }
     `),
-    js: clean(`\n(function() {\n    var carousels = document.querySelectorAll('.carousel');\n    if (typeof bootstrap !== 'undefined') {\n        carousels.forEach(c => new bootstrap.Carousel(c));\n    }\n})();\n`)
+    js: clean(`
+(function() {
+    function initSLCarousels() {
+        const carousels = document.querySelectorAll('.carousel[data-sl-ride="carousel"]');
+        carousels.forEach(carousel => {
+            if (carousel.dataset.slInit) return;
+            carousel.dataset.slInit = 'true';
+
+            const items = carousel.querySelectorAll('.carousel-item');
+            const indicators = carousel.querySelectorAll('[data-sl-slide-to]');
+            const prevBtns = carousel.querySelectorAll('[data-sl-slide="prev"]');
+            const nextBtns = carousel.querySelectorAll('[data-sl-slide="next"]');
+            
+            if (items.length <= 1) return;
+
+            // Apply custom fade CSS to bypass Bootstrap's complex transition requirements
+            items.forEach(item => {
+                item.style.transition = 'opacity 0.6s ease-in-out';
+                if (!item.classList.contains('active')) {
+                    item.style.opacity = '0';
+                    item.style.display = 'block';
+                    item.style.position = 'absolute';
+                    item.style.top = '0';
+                    item.style.left = '0';
+                    item.style.zIndex = '1';
+                } else {
+                    item.style.opacity = '1';
+                    item.style.position = 'relative';
+                    item.style.zIndex = '2';
+                }
+            });
+
+            let currentIndex = 0;
+            items.forEach((item, index) => {
+                if (item.classList.contains('active')) currentIndex = index;
+            });
+
+            let isAnimating = false;
+
+            function goToSlide(index) {
+                if (isAnimating || index === currentIndex) return;
+                isAnimating = true;
+
+                const currentItem = items[currentIndex];
+                const nextItem = items[index];
+
+                // Prepare next item
+                nextItem.style.position = 'absolute';
+                nextItem.style.top = '0';
+                nextItem.style.left = '0';
+                nextItem.style.zIndex = '2';
+                nextItem.style.opacity = '0';
+                nextItem.classList.add('active');
+
+                // Current item goes behind
+                currentItem.style.zIndex = '1';
+
+                // Trigger reflow
+                void nextItem.offsetWidth;
+
+                // Fade in next
+                nextItem.style.opacity = '1';
+                
+                // Update indicators
+                indicators.forEach(ind => ind.classList.remove('active'));
+                const targetInd = carousel.querySelector('[data-sl-slide-to="' + index + '"]');
+                if (targetInd) targetInd.classList.add('active');
+
+                // Custom event for extensions (like slider-glass)
+                carousel.dispatchEvent(new CustomEvent('sl-slide-changed', { detail: { index: index } }));
+
+                setTimeout(() => {
+                    currentItem.classList.remove('active');
+                    currentItem.style.opacity = '0';
+                    
+                    nextItem.style.position = 'relative';
+                    
+                    currentIndex = index;
+                    isAnimating = false;
+                }, 600);
+            }
+
+            prevBtns.forEach(btn => btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                let next = currentIndex - 1;
+                if (next < 0) next = items.length - 1;
+                goToSlide(next);
+            }));
+
+            nextBtns.forEach(btn => btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                let next = currentIndex + 1;
+                if (next >= items.length) next = 0;
+                goToSlide(next);
+            }));
+
+            indicators.forEach(ind => {
+                ind.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const target = parseInt(ind.getAttribute('data-sl-slide-to'));
+                    if (!isNaN(target)) goToSlide(target);
+                });
+            });
+
+            let autoplayTimer;
+            function startAutoplay() {
+                if (!document.body.classList.contains('sl-editor-mode')) {
+                    autoplayTimer = setInterval(() => {
+                        let next = currentIndex + 1;
+                        if (next >= items.length) next = 0;
+                        goToSlide(next);
+                    }, 5000);
+                }
+            }
+            function stopAutoplay() {
+                clearInterval(autoplayTimer);
+            }
+
+            startAutoplay();
+            carousel.addEventListener('mouseenter', stopAutoplay);
+            carousel.addEventListener('mouseleave', startAutoplay);
+        });
+    }
+
+    // Run immediately and also on DOMContentLoaded
+    initSLCarousels();
+    document.addEventListener('DOMContentLoaded', initSLCarousels);
+})();
+`)
   }
 ];
 
