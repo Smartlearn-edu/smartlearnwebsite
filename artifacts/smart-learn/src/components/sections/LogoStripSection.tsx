@@ -5,26 +5,26 @@ import { useT } from "@/i18n";
 const font: React.CSSProperties = { fontFamily: "'Cairo', sans-serif" };
 
 const LOGOS: { initials: string; name: string; color: string; src?: string }[] = [
-  { initials: "AA", name: "Apex Academy", color: "#6900A3" },
-  { initials: "NIT", name: "Nova Institute", color: "#7c3aed" },
-  { initials: "HGC", name: "Horizon Global College", color: "#0369a1" },
-  { initials: "NLH", name: "Nexus Learning Hub", color: "#0891b2" },
-  { initials: "BIS", name: "Beacon International", color: "#059669" },
-  { initials: "VA", name: "Vanguard Academy", color: "#b45309" },
-  { initials: "LSU", name: "Lumina University", color: "#be185d" },
-  { initials: "QDI", name: "Quantum Digital Institute", color: "#4338ca" },
+  { initials: "MDL", name: "Moodle 4.x / 5.x", color: "#f97316" },
+  { initials: "PHP", name: "PHP 8.1 - 8.3", color: "#8b5cf6" },
+  { initials: "AI", name: "OpenAI & Claude", color: "#10b981" },
+  { initials: "N8N", name: "n8n Automation", color: "#ec4899" },
+  { initials: "SQL", name: "MariaDB / MySQL", color: "#0284c7" },
+  { initials: "RDS", name: "Redis Caching", color: "#dc2626" },
+  { initials: "NGX", name: "NGINX & Linux", color: "#16a34a" },
+  { initials: "RCT", name: "React & TypeScript", color: "#06b6d4" },
 ];
 
 const SECTION_TEXT = {
   en: {
-    badge: "🤝 Trusted By",
-    heading: "Institutions That",
-    headingGradient: "Trust Smart Learn",
+    badge: "⚡ Tech Stack",
+    heading: "Technologies &",
+    headingGradient: "Ecosystem",
   },
   ar: {
-    badge: "🤝 يثق بنا",
-    heading: "مؤسسات تثق",
-    headingGradient: "بـ Smart Learn",
+    badge: "⚡ بيئة العمل والتقنيات",
+    heading: "التقنيات و",
+    headingGradient: "بيئة العمل المعتمدة",
   },
 };
 
