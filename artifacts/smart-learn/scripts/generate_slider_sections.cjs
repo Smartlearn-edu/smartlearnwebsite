@@ -46,7 +46,7 @@ const sections = [
             <!-- Slide 1 -->
             <div class="carousel-item active">
                 <div class="sl-hero-bg">
-                    <img src="https://images.unsplash.com/photo-1516321497487-e288fb19713f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" class="d-block w-100" alt="Slide 1" data-sl-edit="image" data-sl-label="Slide 1 Image" />
+                    <img src="{{image1}}" class="d-block w-100" alt="Slide 1" data-sl-edit="image" data-sl-label="Slide 1 Image" />
                     <div class="sl-hero-overlay"></div>
                 </div>
                 <div class="carousel-caption sl-hero-caption">
@@ -62,7 +62,7 @@ const sections = [
             <!-- Slide 2 -->
             <div class="carousel-item">
                 <div class="sl-hero-bg">
-                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" class="d-block w-100" alt="Slide 2" data-sl-edit="image" data-sl-label="Slide 2 Image" />
+                    <img src="{{image2}}" class="d-block w-100" alt="Slide 2" data-sl-edit="image" data-sl-label="Slide 2 Image" />
                     <div class="sl-hero-overlay"></div>
                 </div>
                 <div class="carousel-caption sl-hero-caption">
@@ -77,7 +77,7 @@ const sections = [
             <!-- Slide 3 -->
             <div class="carousel-item">
                 <div class="sl-hero-bg">
-                    <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" class="d-block w-100" alt="Slide 3" data-sl-edit="image" data-sl-label="Slide 3 Image" />
+                    <img src="{{image3}}" class="d-block w-100" alt="Slide 3" data-sl-edit="image" data-sl-label="Slide 3 Image" />
                     <div class="sl-hero-overlay"></div>
                 </div>
                 <div class="carousel-caption sl-hero-caption">
@@ -286,7 +286,7 @@ const sections = [
                         </div>
                     </div>
                     <div class="sl-split-image">
-                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Slide 1" data-sl-edit="image" data-sl-label="Slide 1 Image" />
+                        <img src="{{image1}}" alt="Slide 1" data-sl-edit="image" data-sl-label="Slide 1 Image" />
                     </div>
                 </div>
             </div>
@@ -302,7 +302,7 @@ const sections = [
                         </div>
                     </div>
                     <div class="sl-split-image">
-                        <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Slide 2" data-sl-edit="image" data-sl-label="Slide 2 Image" />
+                        <img src="{{image2}}" alt="Slide 2" data-sl-edit="image" data-sl-label="Slide 2 Image" />
                     </div>
                 </div>
             </div>
@@ -490,7 +490,7 @@ const sections = [
             <!-- Slide 1 -->
             <div class="carousel-item active">
                 <div class="sl-glass-bg">
-                    <img src="https://images.unsplash.com/photo-1542744094-3a31f272c490?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" alt="Slide 1" data-sl-edit="image" data-sl-label="Slide 1 Image" />
+                    <img src="{{image1}}" alt="Slide 1" data-sl-edit="image" data-sl-label="Slide 1 Image" />
                 </div>
                 <div class="container sl-glass-container">
                     <div class="sl-glass-card">
@@ -505,7 +505,7 @@ const sections = [
             <!-- Slide 2 -->
             <div class="carousel-item">
                 <div class="sl-glass-bg">
-                    <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" alt="Slide 2" data-sl-edit="image" data-sl-label="Slide 2 Image" />
+                    <img src="{{image2}}" alt="Slide 2" data-sl-edit="image" data-sl-label="Slide 2 Image" />
                 </div>
                 <div class="container sl-glass-container">
                     <div class="sl-glass-card">
@@ -732,7 +732,7 @@ const sections = [
             <!-- Card 1 -->
             <div class="sl-c-card">
                 <div class="sl-c-img">
-                    <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Program 1" data-sl-edit="image" />
+                    <img src="{{image1}}" alt="Program 1" data-sl-edit="image" />
                     <span class="sl-c-badge" data-sl-edit="text">Business</span>
                 </div>
                 <div class="sl-c-body">
@@ -745,7 +745,7 @@ const sections = [
             <!-- Card 2 -->
             <div class="sl-c-card">
                 <div class="sl-c-img">
-                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Program 2" data-sl-edit="image" />
+                    <img src="{{image2}}" alt="Program 2" data-sl-edit="image" />
                     <span class="sl-c-badge" data-sl-edit="text">Technology</span>
                 </div>
                 <div class="sl-c-body">
@@ -758,7 +758,7 @@ const sections = [
             <!-- Card 3 -->
             <div class="sl-c-card">
                 <div class="sl-c-img">
-                    <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Program 3" data-sl-edit="image" />
+                    <img src="{{image3}}" alt="Program 3" data-sl-edit="image" />
                     <span class="sl-c-badge" data-sl-edit="text">Design</span>
                 </div>
                 <div class="sl-c-body">
@@ -771,7 +771,7 @@ const sections = [
             <!-- Card 4 -->
             <div class="sl-c-card">
                 <div class="sl-c-img">
-                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Program 4" data-sl-edit="image" />
+                    <img src="{{image4}}" alt="Program 4" data-sl-edit="image" />
                     <span class="sl-c-badge" data-sl-edit="text">Marketing</span>
                 </div>
                 <div class="sl-c-body">
@@ -870,13 +870,13 @@ const sections = [
                         </div>
                         <div class="carousel-inner sl-twocol-inner">
                             <div class="carousel-item active">
-                                <img src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" class="d-block w-100" alt="Facility 1" data-sl-edit="image" />
+                                <img src="{{image1}}" class="d-block w-100" alt="Facility 1" data-sl-edit="image" />
                             </div>
                             <div class="carousel-item">
-                                <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" class="d-block w-100" alt="Facility 2" data-sl-edit="image" />
+                                <img src="{{image2}}" class="d-block w-100" alt="Facility 2" data-sl-edit="image" />
                             </div>
                             <div class="carousel-item">
-                                <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" class="d-block w-100" alt="Facility 3" data-sl-edit="image" />
+                                <img src="{{image3}}" class="d-block w-100" alt="Facility 3" data-sl-edit="image" />
                             </div>
                         </div>
                         <button class="carousel-control-prev sl-twocol-ctrl" type="button" data-sl-target="#slTwoColCarousel" data-sl-slide="prev">
