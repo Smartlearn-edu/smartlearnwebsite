@@ -22,39 +22,176 @@
     <link rel="api-catalog" href="/.well-known/api-catalog" type="application/linkset+json" />
     <link rel="agent-skills" href="/.well-known/agent-skills/index.json" type="application/json" />
 
-    <!-- JSON-LD Structured Data for AI Agents -->
+    <!-- JSON-LD Structured Data for AI Agents & Search Engines -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@graph": [
         {
-          "@type": "Person",
-          "name": "Mohammad Nabil",
-          "jobTitle": "LMS Architect and Developer",
+          "@type": "ProfessionalService",
+          "@id": "https://services.smartlearn.education/#organization",
+          "name": "Smart Learn",
           "url": "https://services.smartlearn.education",
+          "logo": "https://services.smartlearn.education/img/mohammad-nabil.jpg",
+          "image": "https://services.smartlearn.education/opengraph.jpg",
+          "description": "Professional Moodle LMS architecture, bespoke plugin development, AI integrations (RAG/chatbots), n8n workflow automations, and branded mobile apps for educational institutions.",
+          "founder": {
+            "@id": "https://services.smartlearn.education/#founder"
+          },
           "address": {
             "@type": "PostalAddress",
-            "addressCountry": "Egypt"
+            "addressCountry": "EG"
           },
-          "knowsAbout": ["Moodle", "LMS", "Plugin Development", "AI Integration", "n8n Automation"]
+          "areaServed": "Worldwide",
+          "sameAs": [
+            "https://github.com/Smartlearn-edu",
+            "https://www.linkedin.com/in/m-n-riad/",
+            "https://www.youtube.com/@smartlearn.education-lms",
+            "https://www.facebook.com/smartlearn.edu",
+            "https://mostaql.com/u/m_nabil_riad/reviews",
+            "https://khamsat.com/user/mohammadnabilriad/reviews",
+            "https://moodle.org"
+          ]
+        },
+        {
+          "@type": "Person",
+          "@id": "https://services.smartlearn.education/#founder",
+          "name": "Mohammad Nabil",
+          "jobTitle": "Moodle LMS Architect & AI Specialist",
+          "worksFor": {
+            "@id": "https://services.smartlearn.education/#organization"
+          },
+          "url": "https://services.smartlearn.education",
+          "award": "Particularly Helpful Moodle Badge 2020–2025 (awarded by Moodle.org)",
+          "sameAs": [
+            "https://www.linkedin.com/in/m-n-riad/",
+            "https://github.com/Smartlearn-edu",
+            "https://mostaql.com/u/m_nabil_riad/reviews",
+            "https://khamsat.com/user/mohammadnabilriad/reviews",
+            "https://moodle.org"
+          ],
+          "knowsAbout": [
+            "Moodle LMS Architecture",
+            "Moodle Plugin Development",
+            "PHP & Moodle DB API",
+            "RAG (Retrieval-Augmented Generation)",
+            "AI Chatbots for Education",
+            "n8n Workflow Automation",
+            "Moodle REST API",
+            "LMS Server Migration & Performance Tuning",
+            "Branded Moodle Mobile Apps"
+          ]
         },
         {
           "@type": "Service",
           "name": "Moodle Installation, Migration & Maintenance",
-          "provider": {
-            "@type": "Person",
-            "name": "Mohammad Nabil"
-          },
-          "description": "Full lifecycle Moodle management: fresh installations, version upgrades, server migrations, performance tuning, and ongoing maintenance."
+          "url": "https://services.smartlearn.education/services/moodle-core",
+          "provider": { "@id": "https://services.smartlearn.education/#founder" },
+          "description": "Full lifecycle Moodle management: fresh installations on Linux/Nginx/MySQL, version upgrades (3.9 to 5.x), server migrations, performance tuning, and ongoing retainer maintenance."
+        },
+        {
+          "@type": "Service",
+          "name": "Custom Moodle Plugin Development",
+          "url": "https://services.smartlearn.education/services/plugins",
+          "provider": { "@id": "https://services.smartlearn.education/#founder" },
+          "description": "Custom Moodle plugin development tailored to your exact requirements: Activity modules (mod_), local plugins (local_), blocks, custom gradebook reports, and payment gateways."
         },
         {
           "@type": "Service",
           "name": "AI Integration for Moodle",
-          "provider": {
-            "@type": "Person",
-            "name": "Mohammad Nabil"
-          },
-          "description": "Embed AI directly into your Moodle platform: RAG-powered chatbots, Video-to-Text pipelines, and AI-assisted grading."
+          "url": "https://services.smartlearn.education/services/ai",
+          "provider": { "@id": "https://services.smartlearn.education/#founder" },
+          "description": "Embed AI directly into Moodle: RAG-powered course chatbots, Video-to-Text lecture pipelines, and AI-assisted grading without touching core code."
+        },
+        {
+          "@type": "Service",
+          "name": "n8n Automation for Moodle",
+          "url": "https://services.smartlearn.education/services/n8n",
+          "provider": { "@id": "https://services.smartlearn.education/#founder" },
+          "description": "End-to-end automation using n8n and Moodle REST API: automated grading workflows, instant enrollment triggers, and WhatsApp/Email notification pipelines."
+        },
+        {
+          "@type": "Service",
+          "name": "Moodle Training & Technical Support",
+          "url": "https://services.smartlearn.education/services/training",
+          "provider": { "@id": "https://services.smartlearn.education/#founder" },
+          "description": "Practical training programs for Moodle administrators and teachers, ongoing support retainers, documentation, and troubleshooting."
+        },
+        {
+          "@type": "Service",
+          "name": "Branded Moodle Mobile App",
+          "url": "https://services.smartlearn.education/services/mobile-app",
+          "provider": { "@id": "https://services.smartlearn.education/#founder" },
+          "description": "Fully branded iOS and Android mobile applications with your logo, colors, pre-configured LMS domain login, push notifications, and App Store submission."
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "What Moodle versions do you support?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "I work with Moodle 3.9 through the latest Moodle 4.5 and 5.x. All plugins and setups are tested on Moodle 4.0+ and actively maintained for every major release."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How long does a typical Moodle setup take?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "A fresh installation takes 1–3 days. Complex setups with AI integration, custom plugins, or data migration typically take 1–4 weeks depending on scope and existing infrastructure."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Do you offer ongoing support after the project?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. I offer monthly support retainer packages covering Moodle maintenance, plugin updates, bug fixes, and technical consulting."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Are your plugins compatible with all Moodle hosting providers?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. My plugins follow Moodle's standard coding guidelines and work on any installation — shared hosting, VPS, cloud, or MoodleCloud — as long as minimum PHP and database requirements are met."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can you build a custom plugin for my specific needs?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Absolutely. I've built custom activity modules, blocks, local plugins, enrolment plugins, and payment gateways. Share your requirements and I'll provide a detailed scope and quote."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How does Moodle AI integration work?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "I integrate large language models (OpenAI, local LLMs) with Moodle through a RAG pipeline — the AI answers course-specific questions, assists with grading, and analyzes learning data without touching Moodle's core code."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What is your pricing model?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "I work on a fixed-price basis for well-defined projects and an hourly rate for consulting, support, or open-ended work."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Do you work with institutions outside Egypt?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes — all my work is remote-first. I've delivered projects for institutions across Egypt, UAE, Saudi Arabia, Kuwait, and the UK."
+              }
+            }
+          ]
         }
       ]
     }
