@@ -6,7 +6,7 @@
   },
   "entries": [
     {
-      "id": "urn:air:smartlearn.education:mcp:server-card",
+      "identifier": "urn:air:smartlearn.education:mcp:server-card",
       "displayName": "Smart Learn MCP Server Card",
       "type": "application/json",
       "url": "https://services.smartlearn.education/.well-known/mcp/server-card.json",
@@ -19,7 +19,7 @@
       ]
     },
     {
-      "id": "urn:air:smartlearn.education:skills:index",
+      "identifier": "urn:air:smartlearn.education:skills:index",
       "displayName": "Smart Learn Agent Skills Index",
       "type": "application/json",
       "url": "https://services.smartlearn.education/.well-known/agent-skills/index.json",
@@ -32,7 +32,7 @@
       ]
     },
     {
-      "id": "urn:air:smartlearn.education:openapi:services",
+      "identifier": "urn:air:smartlearn.education:openapi:services",
       "displayName": "Smart Learn REST API Specification",
       "type": "application/vnd.oai.openapi+json;version=3.0",
       "url": "https://services.smartlearn.education/openapi.json",
@@ -45,7 +45,7 @@
       ]
     },
     {
-      "id": "urn:air:smartlearn.education:linkset:api-catalog",
+      "identifier": "urn:air:smartlearn.education:linkset:api-catalog",
       "displayName": "Smart Learn API Catalog (RFC 9727)",
       "type": "application/linkset+json",
       "url": "https://services.smartlearn.education/.well-known/api-catalog",
