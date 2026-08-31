@@ -1,6 +1,6 @@
 {
   "version": "1.0",
-  "updated": "2026-08-13",
+  "updated": "2026-08-31",
   "sections": [
     {
       "id": "article-chaptered-scroll",
@@ -411,7 +411,7 @@
       "name": "Continue Learning",
       "category": "Courses & Categories",
       "variant": "Dashboard",
-      "description": "A personalized dashboard-style section showing the student\u2019s current progress and recently accessed materials.",
+      "description": "A personalized dashboard-style section showing the student’s current progress and recently accessed materials.",
       "tags": [
         "courses",
         "dashboard",
@@ -1784,6 +1784,85 @@
       "is_premium": false,
       "is_new": true,
       "popularity": 100
+    },
+    {
+      "id": "slider-hero",
+      "name": "Classic Hero Slider",
+      "category": "Sliders",
+      "variant": "Hero Banner",
+      "description": "Edge-to-edge background images with centered text and dots.",
+      "tags": [
+        "slider",
+        "hero",
+        "banner",
+        "carousel"
+      ],
+      "image_count": 3,
+      "preview_image": "",
+      "download_url": "/sections/slider-hero.json"
+    },
+    {
+      "id": "slider-split",
+      "name": "Split-Screen Slider",
+      "category": "Sliders",
+      "variant": "Content Presentation",
+      "description": "A 50/50 split layout. The left side has text/buttons, right side image.",
+      "tags": [
+        "slider",
+        "split",
+        "presentation"
+      ],
+      "image_count": 2,
+      "preview_image": "",
+      "download_url": "/sections/slider-split.json"
+    },
+    {
+      "id": "slider-glass",
+      "name": "Glassmorphism Slider",
+      "category": "Sliders",
+      "variant": "Premium",
+      "description": "Full-width images with a translucent glass floating card.",
+      "tags": [
+        "slider",
+        "glass",
+        "premium",
+        "card"
+      ],
+      "image_count": 2,
+      "preview_image": "",
+      "download_url": "/sections/slider-glass.json"
+    },
+    {
+      "id": "slider-carousel",
+      "name": "Card Carousel",
+      "category": "Sliders",
+      "variant": "Multi-Item",
+      "description": "Horizontal track showing multiple cards at once using scroll snapping.",
+      "tags": [
+        "slider",
+        "carousel",
+        "cards",
+        "multi-item"
+      ],
+      "image_count": 4,
+      "preview_image": "",
+      "download_url": "/sections/slider-carousel.json"
+    },
+    {
+      "id": "slider-twocol",
+      "name": "2-Column Slider + Text",
+      "category": "Sliders",
+      "variant": "Feature Presentation",
+      "description": "A practical 2-column layout with static text on one side and an image carousel on the other.",
+      "tags": [
+        "slider",
+        "carousel",
+        "2-column",
+        "split"
+      ],
+      "image_count": 3,
+      "preview_image": "",
+      "download_url": "/sections/slider-twocol.json"
     }
   ],
   "total_count": 92
