@@ -74,9 +74,9 @@ async function build() {
     try {
       const appHtml = render(url);
       
-      // Replace the <div id="root"></div> with the rendered HTML
+      // Replace the <div id="root">...</div> (including static fallback content) with SSR-rendered HTML
       const html = template.replace(
-        /<div id="root"><\/div>/,
+        /<div id="root">[\s\S]*?<\/div>/,
         `<div id="root">${appHtml}</div>`
       );
 
