@@ -109,8 +109,8 @@ const sections = [
 .sl-hero-bg img { width: 100%; height: 100%; object-fit: cover; }
 .sl-hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 2; }
 .sl-hero-caption { z-index: 3; top: 50%; bottom: auto; transform: translateY(-50%); padding-left: 10%; padding-right: 10%; text-align: center; }
-.sl-hero-title { font-size: 3.5rem; font-weight: 800; color: #fff; margin-bottom: 1.5rem; line-height: 1.2; text-shadow: 0 2px 10px rgba(0,0,0,0.3); animation: slFadeInUp 0.8s ease forwards; }
-.sl-hero-subtitle { font-size: 1.25rem; font-weight: 500; color: #f8f9fa; margin-bottom: 2.5rem; text-shadow: 0 1px 5px rgba(0,0,0,0.3); animation: slFadeInUp 1s ease forwards; }
+.sl-hero-title { font-size: 3.5rem; font-weight: 800; color: #fff !important; margin-bottom: 1.5rem; line-height: 1.2; text-shadow: 0 2px 10px rgba(0,0,0,0.3); animation: slFadeInUp 0.8s ease forwards; }
+.sl-hero-subtitle { font-size: 1.25rem; font-weight: 500; color: #f8f9fa !important; margin-bottom: 2.5rem; text-shadow: 0 1px 5px rgba(0,0,0,0.3); animation: slFadeInUp 1s ease forwards; }
 .sl-hero-actions { display: flex; gap: 1rem; justify-content: center; animation: slFadeInUp 1.2s ease forwards; }
 .sl-btn-hero { padding: 0.875rem 2rem; font-weight: 700; border-radius: 0.5rem; font-size: 1.125rem; }
 .sl-btn-hero-outline { padding: 0.875rem 2rem; font-weight: 700; border-radius: 0.5rem; font-size: 1.125rem; border-width: 2px; }
@@ -335,7 +335,7 @@ const sections = [
 .sl-split-controls { position: absolute; bottom: 2rem; left: 2rem; z-index: 10; display: flex; gap: 0.5rem; }
 @media (min-width: 992px) { .sl-split-controls { left: max(2rem, calc((50vw - 450px)/2)); } }
 .sl-split-ctrl-btn { background: var(--smartlearn-card-bg); border: 1px solid var(--smartlearn-card-border, rgba(0,0,0,0.1)); color: var(--smartlearn-text); width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.2s ease; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
-.sl-split-ctrl-btn:hover { background: var(--smartlearn-primary); color: #fff; border-color: var(--smartlearn-primary); }
+.sl-split-ctrl-btn:hover { background: var(--smartlearn-primary); color: #fff !important; border-color: var(--smartlearn-primary); }
 @keyframes slSplitFadeIn { from { opacity: 0; transform: translateX(-20px); } to { opacity: 1; transform: translateX(0); } }
 @keyframes slSplitZoom { from { transform: scale(1); } to { transform: scale(1.1); } }
 .carousel-item.active .sl-split-inner { animation: slSplitFadeIn 0.8s ease forwards; }
@@ -545,18 +545,18 @@ const sections = [
 .sl-glass-bg { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; }
 .sl-glass-bg img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.85); }
 .sl-glass-container { position: relative; height: 100%; z-index: 2; display: flex; align-items: center; }
-.sl-glass-card { background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.2); padding: 3rem; border-radius: 1rem; max-width: 500px; color: #fff; box-shadow: 0 20px 40px rgba(0,0,0,0.2); animation: slGlassSlideUp 0.8s ease forwards; opacity: 0; }
-.sl-glass-tag { display: inline-block; padding: 0.25rem 0.75rem; background: rgba(0,0,0,0.3); color: #fff; border-radius: 1rem; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; margin-bottom: 1rem; letter-spacing: 0.05em; }
-.sl-glass-title { font-size: 2.5rem; font-weight: 700; color: #fff; margin-bottom: 1rem; line-height: 1.2; text-shadow: 0 2px 4px rgba(0,0,0,0.2); }
+.sl-glass-card { background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.2); padding: 3rem; border-radius: 1rem; max-width: 500px; color: #fff !important; box-shadow: 0 20px 40px rgba(0,0,0,0.2); animation: slGlassSlideUp 0.8s ease forwards; opacity: 0; }
+.sl-glass-tag { display: inline-block; padding: 0.25rem 0.75rem; background: rgba(0,0,0,0.3); color: #fff !important; border-radius: 1rem; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; margin-bottom: 1rem; letter-spacing: 0.05em; }
+.sl-glass-title { font-size: 2.5rem; font-weight: 700; color: #fff !important; margin-bottom: 1rem; line-height: 1.2; text-shadow: 0 2px 4px rgba(0,0,0,0.2); }
 .sl-glass-desc { font-size: 1.125rem; color: rgba(255,255,255,0.9); margin-bottom: 2rem; line-height: 1.6; text-shadow: 0 1px 3px rgba(0,0,0,0.2); }
-.sl-btn-glass { background-color: #fff; color: #000; border: none; font-weight: 700; padding: 0.75rem 2rem; border-radius: 0.5rem; transition: all 0.2s; }
-.sl-btn-glass:hover { background-color: var(--smartlearn-primary); color: #fff; transform: translateY(-2px); }
+.sl-btn-glass { background-color: #fff !important; color: #000; border: none; font-weight: 700; padding: 0.75rem 2rem; border-radius: 0.5rem; transition: all 0.2s; }
+.sl-btn-glass:hover { background-color: var(--smartlearn-primary); color: #fff !important; transform: translateY(-2px); }
 .sl-glass-nav-container { position: absolute; bottom: 3rem; left: 0; right: 0; z-index: 10; display: flex; }
-.sl-glass-nav { display: flex; align-items: center; gap: 2rem; background: rgba(0,0,0,0.4); backdrop-filter: blur(8px); padding: 0.75rem 1.5rem; border-radius: 2rem; border: 1px solid rgba(255,255,255,0.1); color: #fff; }
+.sl-glass-nav { display: flex; align-items: center; gap: 2rem; background: rgba(0,0,0,0.4); backdrop-filter: blur(8px); padding: 0.75rem 1.5rem; border-radius: 2rem; border: 1px solid rgba(255,255,255,0.1); color: #fff !important; }
 .sl-glass-counter { font-family: monospace; font-size: 1.125rem; letter-spacing: 2px; }
 .sl-glass-divider { opacity: 0.5; margin: 0 0.25rem; }
 .sl-glass-arrows { display: flex; gap: 0.5rem; }
-.sl-glass-arrows button { background: none; border: 1px solid rgba(255,255,255,0.3); color: #fff; width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.2s; }
+.sl-glass-arrows button { background: none; border: 1px solid rgba(255,255,255,0.3); color: #fff !important; width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.2s; }
 .sl-glass-arrows button:hover { background: #fff; color: #000; }
 @keyframes slGlassSlideUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
 .carousel-item.active .sl-glass-card { animation: slGlassSlideUp 0.8s ease forwards; }
@@ -792,7 +792,7 @@ const sections = [
 .sl-carousel-header .sl-section-subtitle { font-size: 1.125rem; color: var(--smartlearn-text-muted); margin: 0; }
 .sl-carousel-arrows { display: flex; gap: 0.5rem; }
 .sl-c-btn { background: var(--smartlearn-card-bg); border: 1px solid var(--smartlearn-card-border, #e5e7eb); color: var(--smartlearn-text); width: 44px; height: 44px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.2s ease; }
-.sl-c-btn:hover { background: var(--smartlearn-primary); color: #fff; border-color: var(--smartlearn-primary); }
+.sl-c-btn:hover { background: var(--smartlearn-primary); color: #fff !important; border-color: var(--smartlearn-primary); }
 .sl-carousel-track-container { width: 100%; max-width: 100vw; }
 .sl-carousel-track { display: flex; gap: 1.5rem; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; -ms-overflow-style: none; padding: 0 1rem 2rem 1rem; }
 .sl-carousel-track::-webkit-scrollbar { display: none; }
@@ -904,7 +904,7 @@ const sections = [
 .sl-slider-twocol .sl-section-subtitle { font-size: 1.125rem; color: var(--smartlearn-text-muted); margin-bottom: 2rem; line-height: 1.6; }
 .sl-twocol-list { list-style: none; padding: 0; margin: 0 0 2rem 0; }
 .sl-twocol-list li { font-size: 1.125rem; color: var(--smartlearn-text); margin-bottom: 1rem; display: flex; align-items: center; gap: 0.75rem; }
-.sl-check { display: flex; align-items: center; justify-content: center; width: 24px; height: 24px; background-color: var(--smartlearn-primary); color: #fff; border-radius: 50%; font-size: 12px; font-weight: bold; }
+.sl-check { display: flex; align-items: center; justify-content: center; width: 24px; height: 24px; background-color: var(--smartlearn-primary); color: #fff !important; border-radius: 50%; font-size: 12px; font-weight: bold; }
 .sl-btn-twocol { padding: 0.75rem 2rem; font-weight: 600; border-radius: 0.5rem; }
 .sl-twocol-carousel-wrap { border-radius: 1.5rem; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.1); border: 1px solid var(--smartlearn-card-border, #e5e7eb); }
 .sl-twocol-inner { aspect-ratio: 4/3; background-color: var(--smartlearn-card-bg); }
