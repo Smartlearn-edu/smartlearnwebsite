@@ -3,18 +3,20 @@ import { motion } from "framer-motion";
 import { useT } from "@/i18n";
 
 const STATS = [
-  { target: 6, suffix: "+", labelKey: "yearsExp" as const },
-  { target: 19, suffix: "+", labelKey: "pluginsBuilt" as const },
-  { target: 50, suffix: "+", labelKey: "clients" as const },
-  { target: 3, suffix: "", labelKey: "countries" as const },
+  { target: 5, suffix: "+", labelKey: "yearsExp" as const },
+  { target: 18, suffix: "+", labelKey: "pluginsBuilt" as const },
+  { target: 70, suffix: "+", labelKey: "clients" as const },
+  { target: 5, suffix: "+", labelKey: "countries" as const },
 ];
 
 function CountUp({ target, suffix, active }: { target: number; suffix: string; active: boolean }) {
-  const [count, setCount] = useState(0);
+  // Initialize to target so SSR/crawlers see the real value, not 0
+  const [count, setCount] = useState(target);
   const rafRef = useRef<number | null>(null);
 
   useEffect(() => {
     if (!active) return;
+    setCount(0);
     const duration = 1400;
     const start = performance.now();
 
