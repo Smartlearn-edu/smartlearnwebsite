@@ -25,6 +25,7 @@ const typeColors: Record<string, { bg: string; text: string }> = {
   gradereport:  { bg: "rgba(245,158,11,0.12)",  text: "#fcd34d" },
   paygw:        { bg: "rgba(236,72,153,0.12)",  text: "#f9a8d4" },
   enrol:        { bg: "rgba(168,85,247,0.12)",  text: "#c084fc" },
+  theme:        { bg: "rgba(14,165,233,0.12)",  text: "#38bdf8" },
 };
 
 export function PluginsPage() {
