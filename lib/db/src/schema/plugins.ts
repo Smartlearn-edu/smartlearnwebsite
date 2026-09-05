@@ -29,6 +29,8 @@ export const pluginsTable = pgTable("plugins", {
   setupPrice: integer("setup_price"),
   features: jsonb("features").notNull().$type<string[]>().default([]),
   featuresAr: jsonb("features_ar").notNull().$type<string[]>().default([]),
+  tags: jsonb("tags").notNull().$type<string[]>().default([]),
+  tagsAr: jsonb("tags_ar").notNull().$type<string[]>().default([]),
   images: jsonb("images").notNull().$type<string[]>().default([]),
   freemiusProductId: text("freemius_product_id"),
   freemiusPlanId: text("freemius_plan_id"),

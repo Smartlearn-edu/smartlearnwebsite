@@ -44,7 +44,7 @@ function rowToPlugin(row: Record<string, unknown>): DbPlugin {
 
 const EMPTY_FORM: Partial<DbPlugin> = {
   name: "", nameAr: "", slug: "", type: "local", moodle: "Moodle 4.0+",
-  category: "AI-Powered", categoryAr: "مدعوم بالذكاء الاصطناعي",
+  category: "Theme & Smart Pages", categoryAr: "القالب والصفحات الذكية",
   free: false, paidSupport: false, placeholder: false,
   price: 50, features: [], featuresAr: [], images: [],
   freemiusProductId: "", freemiusPlanId: "", freemiusPublicKey: "",
@@ -52,13 +52,22 @@ const EMPTY_FORM: Partial<DbPlugin> = {
 };
 
 const CATEGORY_OPTIONS: Plugin["category"][] = [
-  "AI-Powered", "Analytics & Reporting", "Course Tools", "Platform & Admin",
+  "Theme & Smart Pages",
+  "Assignment & Quiz Tools",
+  "Moodle Activities",
+  "Enrollment",
+  "Reporting",
+  "Payment Gateways",
+  "Others",
 ];
 const CATEGORY_AR_MAP: Record<Plugin["category"], Plugin["categoryAr"]> = {
-  "AI-Powered": "مدعوم بالذكاء الاصطناعي",
-  "Analytics & Reporting": "التحليلات والتقارير",
-  "Course Tools": "أدوات المقرر",
-  "Platform & Admin": "المنصة والإدارة",
+  "Theme & Smart Pages": "القالب والصفحات الذكية",
+  "Assignment & Quiz Tools": "أدوات الواجبات والاختبارات",
+  "Moodle Activities": "أنشطة Moodle",
+  "Enrollment": "التسجيل والالتحاق",
+  "Reporting": "التقارير والتحليلات",
+  "Payment Gateways": "بوابات الدفع",
+  "Others": "أدوات أخرى",
 };
 const TYPE_OPTIONS = ["local", "mod", "report", "gradereport", "enrol", "paygw", "theme", "block"];
 

@@ -1,6 +1,9 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Puzzle, Check, Search, X, BarChart2, ArrowUpRight } from "lucide-react";
+import {
+  Puzzle, Check, Search, X, BarChart2, ArrowUpRight,
+  Tag as TagIcon, Coins, RotateCcw, Filter
+} from "lucide-react";
 import { Helmet } from "react-helmet-async";
 import { Link } from "wouter";
 import { Navbar } from "@/components/Navbar";
@@ -28,6 +31,66 @@ const typeColors: Record<string, { bg: string; text: string }> = {
   theme:        { bg: "rgba(14,165,233,0.12)",  text: "#38bdf8" },
 };
 
+const FILTER_TAGS = [
+  { id: "All", en: "All Tags", ar: "الكل" },
+  { id: "AI", en: "AI", ar: "ذكاء اصطناعي" },
+  { id: "Grade", en: "Grade", ar: "درجات" },
+  { id: "Reporting", en: "Reporting", ar: "تقارير" },
+  { id: "Profile", en: "Profile", ar: "الملف الشخصي" },
+  { id: "Quiz", en: "Quiz", ar: "اختبارات" },
+  { id: "Question", en: "Question", ar: "أسئلة" },
+  { id: "Assignment", en: "Assignment", ar: "واجبات" },
+  { id: "Auto-Grading", en: "Auto-Grading", ar: "تصحيح آلي" },
+  { id: "Courses", en: "Courses", ar: "مقررات" },
+  { id: "Enrollment", en: "Enrollment", ar: "تسجيل" },
+  { id: "Payment", en: "Payment", ar: "دفع" },
+  { id: "Security", en: "Security", ar: "أمان" },
+  { id: "Analytics", en: "Analytics", ar: "تحليلات" },
+  { id: "Theme & UI", en: "Theme & UI", ar: "قوالب وتصميم" },
+];
+
+const PRICE_RANGES = [
+  { id: "all", en: "All Prices", ar: "جميع الأسعار" },
+  { id: "free", en: "Free", ar: "مجاني" },
+  { id: "0-20", en: "$0 – $20", ar: "0 – 20 $" },
+  { id: "20-50", en: "$20 – $50", ar: "20 – 50 $" },
+  { id: "50-100", en: "$50 – $100", ar: "50 – 100 $" },
+  { id: "100-200", en: "$100 – $200", ar: "100 – 200 $" },
+  { id: "200+", en: "> $200", ar: "أكثر من 200 $" },
+];
+
+function matchPrice(p: Plugin, rangeId: string): boolean {
+  if (rangeId === "all") return true;
+  if (rangeId === "free") {
+    return p.free || p.price === null || p.price === 0;
+  }
+  const price = p.price ?? 0;
+  if (rangeId === "0-20") {
+    return !p.free && price > 0 && price <= 20;
+  }
+  if (rangeId === "20-50") {
+    return !p.free && price >= 20 && price <= 50;
+  }
+  if (rangeId === "50-100") {
+    return !p.free && price >= 50 && price <= 100;
+  }
+  if (rangeId === "100-200") {
+    return !p.free && price >= 100 && price <= 200;
+  }
+  if (rangeId === "200+") {
+    return !p.free && price > 200;
+  }
+  return true;
+}
+
+function matchTag(p: Plugin, tagId: string): boolean {
+  if (tagId === "All") return true;
+  const target = tagId.toLowerCase();
+  const inEn = (p.tags ?? []).some((t) => t.toLowerCase() === target);
+  const inAr = (p.tagsAr ?? []).some((t) => t.toLowerCase() === target);
+  return inEn || inAr;
+}
+
 export function PluginsPage() {
   const { lang, t } = useT();
   const { data: plugins = [], isPlaceholderData: isLoading } = usePlugins();
@@ -42,7 +105,7 @@ export function PluginsPage() {
       badge: "Smart Learn · Plugins",
       title: "Moodle ",
       titleGradient: "Plugin Library",
-      subtitle: `${plugins.length} plugins across AI, analytics, content tools, and platform management — built to production standards for Moodle 4.0+.`,
+      subtitle: `${plugins.length} plugins across theme pages, quiz tools, activities, enrollment, and platform management — built to production standards for Moodle 4.0+.`,
       freePlugins: `${purelyFreeCount} Free Plugins`,
       freeSupportPlugins: `${freeSupportCount} Free + Support`,
       premiumPlugins: `${premiumCount} Premium Plugins`,
@@ -56,12 +119,21 @@ export function PluginsPage() {
       getPlugin: "Get Plugin",
       contactPricing: "Contact for Pricing",
       learnMore: "Learn More",
+      filterByPrice: "Price Range",
+      filterByTag: "Filter by Tag",
+      allTags: "All Tags",
+      allPrices: "All Prices",
+      clearFilters: "Reset All Filters",
+      showing: "Showing",
+      of: "of",
+      pluginsCount: "plugins",
+      noMatches: "No plugins match your search criteria.",
     },
     ar: {
       badge: "Smart Learn · الإضافات",
       title: "مكتبة إضافات ",
       titleGradient: "Moodle",
-      subtitle: `${plugins.length} إضافة في مجالات الذكاء الاصطناعي والتحليلات وأدوات المحتوى وإدارة المنصة — مبنية بمعايير إنتاجية لـMoodle 4.0+.`,
+      subtitle: `${plugins.length} إضافة متقدمة تشمل القالب والصفحات الذكية، أدوات الواجبات والاختبارات، أنشطة التعلم، التسجيل وإدارة المنصة — مبنية بمعايير إنتاجية لـMoodle 4.0+.`,
       freePlugins: `${purelyFreeCount} إضافة مجانية`,
       freeSupportPlugins: `${freeSupportCount} مجاني مع دعم`,
       premiumPlugins: `${premiumCount} إضافة مميزة`,
@@ -75,6 +147,15 @@ export function PluginsPage() {
       getPlugin: "احصل على الإضافة",
       contactPricing: "تواصل للتسعير",
       learnMore: "اعرف المزيد",
+      filterByPrice: "نطاق السعر",
+      filterByTag: "تصفية بالوسم",
+      allTags: "جميع الوسوم",
+      allPrices: "جميع الأسعار",
+      clearFilters: "إعادة ضبط الفلاتر",
+      showing: "عرض",
+      of: "من إجمالي",
+      pluginsCount: "إضافات",
+      noMatches: "لا توجد إضافات تطابق معايير الفلترة المحددة.",
     },
   };
 
@@ -82,6 +163,9 @@ export function PluginsPage() {
 
   const [activeEn, setActiveEn] = useState<Category>("All");
   const [activeAr, setActiveAr] = useState<CategoryAr>("الكل");
+  const [activePriceRange, setActivePriceRange] = useState<string>("all");
+  const [activeTag, setActiveTag] = useState<string>("All");
+
   const [showFree, setShowFree] = useState(true);
   const [showFreeSupport, setShowFreeSupport] = useState(true);
   const [showPaid, setShowPaid] = useState(true);
@@ -120,11 +204,21 @@ export function PluginsPage() {
       });
 
   const q = searchQuery.trim().toLowerCase();
-  const filtered = q
-    ? byType.filter((p) =>
-        (lang === "en" ? p.name : p.nameAr).toLowerCase().includes(q)
-      )
-    : byType;
+
+  const filtered = byType.filter((p) => {
+    if (!matchPrice(p, activePriceRange)) return false;
+    if (!matchTag(p, activeTag)) return false;
+    if (q) {
+      const name = (lang === "en" ? p.name : p.nameAr).toLowerCase();
+      const desc = (lang === "en" ? p.description : p.descriptionAr).toLowerCase();
+      const feats = (lang === "en" ? p.features : p.featuresAr).join(" ").toLowerCase();
+      const tags = ((p.tags ?? []).join(" ") + " " + (p.tagsAr ?? []).join(" ")).toLowerCase();
+      if (!name.includes(q) && !desc.includes(q) && !feats.includes(q) && !tags.includes(q)) {
+        return false;
+      }
+    }
+    return true;
+  });
 
   const categories = lang === "en" ? CATEGORIES : CATEGORIES_AR;
 
@@ -134,6 +228,27 @@ export function PluginsPage() {
   }
 
   const activeValue = lang === "en" ? activeEn : activeAr;
+
+  const isFiltered =
+    activeEn !== "All" ||
+    activeAr !== "الكل" ||
+    activePriceRange !== "all" ||
+    activeTag !== "All" ||
+    searchQuery.trim() !== "" ||
+    !showFree ||
+    !showFreeSupport ||
+    !showPaid;
+
+  const resetAllFilters = () => {
+    setActiveEn("All");
+    setActiveAr("الكل");
+    setActivePriceRange("all");
+    setActiveTag("All");
+    setSearchQuery("");
+    setShowFree(true);
+    setShowFreeSupport(true);
+    setShowPaid(true);
+  };
 
   return (
     <>
@@ -252,56 +367,11 @@ export function PluginsPage() {
           </div>
         </section>
 
-        {/* Search input */}
-        <div className="px-6 pb-4 -mt-4">
-          <div className="max-w-6xl mx-auto">
-            <div className="relative max-w-md">
-              <Search
-                size={16}
-                className="absolute top-1/2 -translate-y-1/2 pointer-events-none"
-                style={{ color: "#64748b", [lang === "ar" ? "right" : "left"]: "1rem" }}
-              />
-              <input
-                type="text"
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder={lang === "ar" ? "ابحث عن إضافة..." : "Search plugins..."}
-                className="w-full py-2.5 rounded-xl text-sm text-white outline-none transition-all duration-200"
-                style={{
-                  background: "rgba(255,255,255,0.05)",
-                  border: "1px solid rgba(255,255,255,0.09)",
-                  fontFamily: "'Cairo', sans-serif",
-                  paddingLeft: lang === "ar" ? "1rem" : "2.75rem",
-                  paddingRight: lang === "ar" ? "2.75rem" : "1rem",
-                  direction: lang === "ar" ? "rtl" : "ltr",
-                }}
-                onFocus={(e) => {
-                  e.currentTarget.style.borderColor = "rgba(168,85,247,0.5)";
-                  e.currentTarget.style.background = "rgba(255,255,255,0.07)";
-                }}
-                onBlur={(e) => {
-                  e.currentTarget.style.borderColor = "rgba(255,255,255,0.09)";
-                  e.currentTarget.style.background = "rgba(255,255,255,0.05)";
-                }}
-              />
-              {searchQuery && (
-                <button
-                  onClick={() => setSearchQuery("")}
-                  className="absolute top-1/2 -translate-y-1/2 transition-opacity hover:opacity-80"
-                  style={{ [lang === "ar" ? "left" : "right"]: "0.75rem" }}
-                  aria-label={lang === "ar" ? "مسح البحث" : "Clear search"}
-                >
-                  <X size={15} style={{ color: "#64748b" }} />
-                </button>
-              )}
-            </div>
-          </div>
-        </div>
-
+        {/* Sticky Categories Bar */}
         <div className="sticky top-16 z-40 px-6 py-3"
-          style={{ backgroundColor: "rgba(7,7,15,0.9)", backdropFilter: "blur(16px)", borderBottom: "1px solid rgba(255,255,255,0.05)" }}>
+          style={{ backgroundColor: "rgba(7,7,15,0.92)", backdropFilter: "blur(16px)", borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
           <div className="max-w-6xl mx-auto">
-            <div className="flex items-center gap-2 overflow-x-auto pb-0.5">
+            <div className="flex items-center gap-2 overflow-x-auto pb-1 scrollbar-none">
               {categories.map((cat) => {
                 const isActive = activeValue === cat;
                 const count =
@@ -310,16 +380,17 @@ export function PluginsPage() {
                     : (cat === "الكل" ? plugins.length : plugins.filter((p) => p.categoryAr === cat).length);
                 return (
                   <button key={cat} onClick={() => setActive(cat)}
-                    className="flex-shrink-0 flex items-center gap-1.5 px-4 py-2 rounded-xl text-sm font-bold transition-all duration-200"
+                    className="flex-shrink-0 flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-bold transition-all duration-200 cursor-pointer"
                     style={{
                       background: isActive ? "linear-gradient(135deg, #6900A3, #a855f7)" : "rgba(255,255,255,0.04)",
-                      border: isActive ? "1px solid transparent" : "1px solid rgba(255,255,255,0.07)",
+                      border: isActive ? "1px solid rgba(168,85,247,0.4)" : "1px solid rgba(255,255,255,0.07)",
                       color: isActive ? "#fff" : "#94a3b8",
+                      boxShadow: isActive ? "0 0 16px rgba(168,85,247,0.3)" : "none",
                       ...font,
                     }}>
                     {cat}
-                    <span className="text-xs px-1.5 py-0.5 rounded-full"
-                      style={{ background: isActive ? "rgba(255,255,255,0.2)" : "rgba(255,255,255,0.07)", color: isActive ? "#fff" : "#64748b" }}>
+                    <span className="text-xs px-2 py-0.5 rounded-full"
+                      style={{ background: isActive ? "rgba(255,255,255,0.22)" : "rgba(255,255,255,0.07)", color: isActive ? "#fff" : "#64748b" }}>
                       {count}
                     </span>
                   </button>
@@ -329,7 +400,176 @@ export function PluginsPage() {
           </div>
         </div>
 
-        <section className="py-12 px-6">
+        {/* Enhanced Filter Toolbar: Search, Price Range, and Tags */}
+        <div className="px-6 pt-6 pb-2">
+          <div className="max-w-6xl mx-auto space-y-4">
+            {/* Top Toolbar Row: Search + Price Filter + Reset */}
+            <div className="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-3">
+              {/* Search input */}
+              <div className="relative flex-1 max-w-md">
+                <Search
+                  size={16}
+                  className="absolute top-1/2 -translate-y-1/2 pointer-events-none"
+                  style={{ color: "#64748b", [lang === "ar" ? "right" : "left"]: "1rem" }}
+                />
+                <input
+                  type="text"
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  placeholder={lang === "ar" ? "ابحث بالاسم، الوصف، أو الوسم..." : "Search by name, feature, or tag..."}
+                  className="w-full py-2.5 rounded-xl text-sm text-white outline-none transition-all duration-200"
+                  style={{
+                    background: "rgba(255,255,255,0.05)",
+                    border: "1px solid rgba(255,255,255,0.09)",
+                    fontFamily: "'Cairo', sans-serif",
+                    paddingLeft: lang === "ar" ? "1rem" : "2.75rem",
+                    paddingRight: lang === "ar" ? "2.75rem" : "1rem",
+                    direction: lang === "ar" ? "rtl" : "ltr",
+                  }}
+                  onFocus={(e) => {
+                    e.currentTarget.style.borderColor = "rgba(168,85,247,0.5)";
+                    e.currentTarget.style.background = "rgba(255,255,255,0.07)";
+                  }}
+                  onBlur={(e) => {
+                    e.currentTarget.style.borderColor = "rgba(255,255,255,0.09)";
+                    e.currentTarget.style.background = "rgba(255,255,255,0.05)";
+                  }}
+                />
+                {searchQuery && (
+                  <button
+                    onClick={() => setSearchQuery("")}
+                    className="absolute top-1/2 -translate-y-1/2 transition-opacity hover:opacity-80"
+                    style={{ [lang === "ar" ? "left" : "right"]: "0.75rem" }}
+                    aria-label={lang === "ar" ? "مسح البحث" : "Clear search"}
+                  >
+                    <X size={15} style={{ color: "#64748b" }} />
+                  </button>
+                )}
+              </div>
+
+              {/* Price Range Filter Pills */}
+              <div className="flex items-center gap-1.5 overflow-x-auto pb-1 scrollbar-none">
+                <span className="text-xs font-semibold text-slate-400 flex items-center gap-1 flex-shrink-0 me-1" style={font}>
+                  <Coins size={14} className="text-purple-400" />
+                  {hero.filterByPrice}:
+                </span>
+                {PRICE_RANGES.map((pr) => {
+                  const isSelected = activePriceRange === pr.id;
+                  return (
+                    <button
+                      key={pr.id}
+                      onClick={() => setActivePriceRange(pr.id)}
+                      className="flex-shrink-0 px-3 py-1.5 rounded-lg text-xs font-bold transition-all duration-200 cursor-pointer"
+                      style={{
+                        background: isSelected ? "rgba(168,85,247,0.25)" : "rgba(255,255,255,0.04)",
+                        border: isSelected ? "1px solid rgba(168,85,247,0.6)" : "1px solid rgba(255,255,255,0.08)",
+                        color: isSelected ? "#e9d5ff" : "#94a3b8",
+                        ...font,
+                      }}
+                    >
+                      {lang === "ar" ? pr.ar : pr.en}
+                    </button>
+                  );
+                })}
+              </div>
+
+              {/* Clear all filters button */}
+              {isFiltered && (
+                <button
+                  onClick={resetAllFilters}
+                  className="flex-shrink-0 inline-flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl text-xs font-bold transition-all duration-200 cursor-pointer hover:bg-purple-950/40"
+                  style={{
+                    background: "rgba(239,68,68,0.1)",
+                    border: "1px solid rgba(239,68,68,0.25)",
+                    color: "#f87171",
+                    ...font,
+                  }}
+                >
+                  <RotateCcw size={12} />
+                  {hero.clearFilters}
+                </button>
+              )}
+            </div>
+
+            {/* Bottom Toolbar Row: Filter by Tag Chips */}
+            <div className="pt-2 border-t border-white/[0.05] flex items-center gap-2 overflow-x-auto pb-1.5 scrollbar-none">
+              <span className="text-xs font-semibold text-slate-400 flex items-center gap-1 flex-shrink-0 me-1" style={font}>
+                <TagIcon size={13} className="text-purple-400" />
+                {hero.filterByTag}:
+              </span>
+              {FILTER_TAGS.map((tItem) => {
+                const isSelected = activeTag === tItem.id;
+                const tagCount = tItem.id === "All"
+                  ? byCat.length
+                  : byCat.filter((p) => matchTag(p, tItem.id)).length;
+
+                return (
+                  <button
+                    key={tItem.id}
+                    onClick={() => setActiveTag((prev) => (prev === tItem.id ? "All" : tItem.id))}
+                    className="flex-shrink-0 flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold transition-all duration-200 cursor-pointer"
+                    style={{
+                      background: isSelected ? "linear-gradient(135deg, #6900A3, #a855f7)" : "rgba(255,255,255,0.03)",
+                      border: isSelected ? "1px solid rgba(168,85,247,0.5)" : "1px solid rgba(255,255,255,0.07)",
+                      color: isSelected ? "#ffffff" : "#94a3b8",
+                      boxShadow: isSelected ? "0 0 12px rgba(168,85,247,0.35)" : "none",
+                      ...font,
+                    }}
+                  >
+                    <span>{tItem.id !== "All" ? `#${lang === "ar" ? tItem.ar : tItem.en}` : (lang === "ar" ? tItem.ar : tItem.en)}</span>
+                    <span
+                      className="text-[10px] px-1.5 py-0.2 rounded-full"
+                      style={{
+                        background: isSelected ? "rgba(255,255,255,0.25)" : "rgba(255,255,255,0.06)",
+                        color: isSelected ? "#fff" : "#64748b",
+                      }}
+                    >
+                      {tagCount}
+                    </span>
+                  </button>
+                );
+              })}
+            </div>
+
+            {/* Active filter summary pill bar */}
+            {isFiltered && (
+              <div className="flex items-center justify-between gap-2 pt-1 text-xs text-slate-400" style={font}>
+                <div className="flex items-center gap-2 flex-wrap">
+                  <span className="font-semibold text-slate-300">
+                    {hero.showing} <strong className="text-purple-400 font-bold">{filtered.length}</strong> {hero.of} {plugins.length} {hero.pluginsCount}
+                  </span>
+                  {activeTag !== "All" && (
+                    <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-md bg-purple-500/15 border border-purple-500/30 text-purple-300 font-medium">
+                      #{activeTag}
+                      <button onClick={() => setActiveTag("All")} className="hover:text-white ms-1 cursor-pointer">×</button>
+                    </span>
+                  )}
+                  {activePriceRange !== "all" && (
+                    <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-md bg-purple-500/15 border border-purple-500/30 text-purple-300 font-medium">
+                      {PRICE_RANGES.find((pr) => pr.id === activePriceRange)?.[lang === "ar" ? "ar" : "en"]}
+                      <button onClick={() => setActivePriceRange("all")} className="hover:text-white ms-1 cursor-pointer">×</button>
+                    </span>
+                  )}
+                  {activeValue !== (lang === "en" ? "All" : "الكل") && (
+                    <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-md bg-purple-500/15 border border-purple-500/30 text-purple-300 font-medium">
+                      {activeValue}
+                      <button onClick={() => setActive(lang === "en" ? "All" : "الكل")} className="hover:text-white ms-1 cursor-pointer">×</button>
+                    </span>
+                  )}
+                  {searchQuery && (
+                    <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-md bg-purple-500/15 border border-purple-500/30 text-purple-300 font-medium">
+                      "{searchQuery}"
+                      <button onClick={() => setSearchQuery("")} className="hover:text-white ms-1 cursor-pointer">×</button>
+                    </span>
+                  )}
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+
+        {/* Plugin Cards Grid */}
+        <section className="py-10 px-6">
           <div className="max-w-6xl mx-auto">
             {isLoading ? (
               <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -338,22 +578,33 @@ export function PluginsPage() {
                 ))}
               </div>
             ) : filtered.length === 0 ? (
-              <div className="text-center py-24">
-                <p className="text-slate-500 text-lg" style={font}>
-                  {lang === "ar" ? "لا توجد إضافات تطابق بحثك." : "No plugins match your search."}
+              <div className="text-center py-24 rounded-2xl border border-white/[0.05]" style={{ background: "rgba(255,255,255,0.02)" }}>
+                <p className="text-slate-400 text-lg mb-4" style={font}>
+                  {hero.noMatches}
                 </p>
                 <button
-                  onClick={() => setSearchQuery("")}
-                  className="mt-4 text-sm font-semibold"
-                  style={{ color: "#a855f7", fontFamily: "'Cairo', sans-serif" }}
+                  onClick={resetAllFilters}
+                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-bold text-white transition-all duration-200 hover:scale-105 cursor-pointer"
+                  style={{
+                    background: "linear-gradient(135deg, #6900A3, #a855f7)",
+                    boxShadow: "0 0 20px rgba(168,85,247,0.3)",
+                    ...font,
+                  }}
                 >
-                  {lang === "ar" ? "مسح البحث" : "Clear search"}
+                  <RotateCcw size={14} />
+                  {hero.clearFilters}
                 </button>
               </div>
             ) : (
               <AnimatePresence mode="wait">
-                <motion.div key={activeValue + lang + q} initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }}
-                  transition={{ duration: 0.25 }} className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+                <motion.div
+                  key={activeValue + activePriceRange + activeTag + lang + q}
+                  initial={{ opacity: 0, y: 12 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -8 }}
+                  transition={{ duration: 0.25 }}
+                  className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5"
+                >
                   {filtered.map((plugin, i) => (
                     <PluginCard
                       key={plugin.slug}
@@ -363,6 +614,10 @@ export function PluginsPage() {
                       hero={hero}
                       isCompared={compareIds.includes(plugin.slug)}
                       onToggleCompare={toggleCompare}
+                      activeTag={activeTag}
+                      onSelectTag={(clickedTag) => {
+                        setActiveTag((prev) => (prev === clickedTag ? "All" : clickedTag));
+                      }}
                     />
                   ))}
                 </motion.div>
@@ -415,14 +670,11 @@ function PluginCardSkeleton() {
       className="rounded-2xl flex flex-col overflow-hidden animate-pulse"
       style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.07)" }}
     >
-      {/* Thumbnail */}
       <div
         className="w-full flex-shrink-0"
         style={{ height: 160, background: "rgba(255,255,255,0.06)" }}
       />
-
       <div className="p-6 flex flex-col flex-1 gap-4">
-        {/* Title + badges row */}
         <div className="flex items-start justify-between gap-3">
           <div className="flex-1 space-y-2">
             <div className="h-5 rounded-lg" style={{ background: "rgba(255,255,255,0.08)", width: "75%" }} />
@@ -433,8 +685,6 @@ function PluginCardSkeleton() {
           </div>
           <div className="h-6 w-16 rounded-full flex-shrink-0" style={{ background: "rgba(255,255,255,0.07)" }} />
         </div>
-
-        {/* Feature list */}
         <div className="flex-1 space-y-2.5">
           {[80, 65, 72, 55].map((w, i) => (
             <div key={i} className="flex items-center gap-2">
@@ -454,16 +704,16 @@ type HeroStrings = {
 };
 
 const titleThemes = [
-  { text: "#fde047", border: "rgba(253, 224, 71, 0.35)", dot: "#facc15", badgeBg: "rgba(250, 204, 21, 0.15)", badgeText: "#fef08a" }, // Vibrant Yellow
-  { text: "#f472b6", border: "rgba(244, 114, 182, 0.35)", dot: "#ec4899", badgeBg: "rgba(236, 72, 153, 0.15)", badgeText: "#fbcfe8" }, // Electric Pink
-  { text: "#38bdf8", border: "rgba(56, 189, 248, 0.35)", dot: "#0ea5e9", badgeBg: "rgba(14, 165, 233, 0.15)", badgeText: "#bae6fd" }, // Sky Cyan
-  { text: "#4ade80", border: "rgba(74, 222, 128, 0.35)", dot: "#22c55e", badgeBg: "rgba(34, 197, 94, 0.15)", badgeText: "#bbf7d0" }, // Neon Emerald
-  { text: "#fb923c", border: "rgba(251, 146, 60, 0.35)", dot: "#f97316", badgeBg: "rgba(249, 115, 22, 0.15)", badgeText: "#fed7aa" }, // Warm Amber
-  { text: "#c084fc", border: "rgba(192, 132, 252, 0.35)", dot: "#a855f7", badgeBg: "rgba(168, 85, 247, 0.15)", badgeText: "#e9d5ff" }, // Vibrant Purple
+  { text: "#fde047", border: "rgba(253, 224, 71, 0.35)", dot: "#facc15", badgeBg: "rgba(250, 204, 21, 0.15)", badgeText: "#fef08a" },
+  { text: "#f472b6", border: "rgba(244, 114, 182, 0.35)", dot: "#ec4899", badgeBg: "rgba(236, 72, 153, 0.15)", badgeText: "#fbcfe8" },
+  { text: "#38bdf8", border: "rgba(56, 189, 248, 0.35)", dot: "#0ea5e9", badgeBg: "rgba(14, 165, 233, 0.15)", badgeText: "#bae6fd" },
+  { text: "#4ade80", border: "rgba(74, 222, 128, 0.35)", dot: "#22c55e", badgeBg: "rgba(34, 197, 94, 0.15)", badgeText: "#bbf7d0" },
+  { text: "#fb923c", border: "rgba(251, 146, 60, 0.35)", dot: "#f97316", badgeBg: "rgba(249, 115, 22, 0.15)", badgeText: "#fed7aa" },
+  { text: "#c084fc", border: "rgba(192, 132, 252, 0.35)", dot: "#a855f7", badgeBg: "rgba(168, 85, 247, 0.15)", badgeText: "#e9d5ff" },
 ];
 
 function PluginCard({
-  plugin, i, lang, hero, isCompared, onToggleCompare,
+  plugin, i, lang, hero, isCompared, onToggleCompare, activeTag, onSelectTag,
 }: {
   plugin: Plugin;
   i: number;
@@ -471,6 +721,8 @@ function PluginCard({
   hero: HeroStrings;
   isCompared: boolean;
   onToggleCompare: (slug: string) => void;
+  activeTag?: string;
+  onSelectTag?: (tag: string) => void;
 }) {
   const typeStyle = typeColors[plugin.type] ?? { bg: "rgba(168,85,247,0.1)", text: "#c084fc" };
   const name = lang === "en" ? plugin.name : plugin.nameAr;
@@ -515,7 +767,7 @@ function PluginCard({
         {/* Compare toggle button */}
         <button
           onClick={(e) => { e.preventDefault(); onToggleCompare(plugin.slug); }}
-          className="absolute top-2 start-2 flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-xs font-bold transition-all duration-200 hover:scale-105 z-10"
+          className="absolute top-2 start-2 flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-xs font-bold transition-all duration-200 hover:scale-105 z-10 cursor-pointer"
           style={{
             background: isCompared ? "rgba(168,85,247,0.9)" : "rgba(13,13,26,0.75)",
             border: isCompared ? "1px solid rgba(168,85,247,0.8)" : "1px solid rgba(255,255,255,0.15)",
@@ -569,7 +821,7 @@ function PluginCard({
         </div>
 
         {/* Badges row: Type + Moodle + Price status */}
-        <div className="flex items-center justify-between gap-2 mb-4">
+        <div className="flex items-center justify-between gap-2 mb-3">
           <div className="flex flex-wrap items-center gap-1.5">
             <span className="text-xs font-bold px-2 py-0.5 rounded-md"
               style={{ background: typeStyle.bg, color: typeStyle.text, fontFamily: "monospace" }}>
@@ -579,6 +831,12 @@ function PluginCard({
               style={{ background: "rgba(255,255,255,0.05)", color: "#94a3b8", ...font }}>
               {plugin.moodle}
             </span>
+            {plugin.price !== null && plugin.price > 0 && !plugin.free && (
+              <span className="text-xs font-bold px-2 py-0.5 rounded-md"
+                style={{ background: "rgba(168,85,247,0.12)", color: "#d8b4fe", ...font }}>
+                ${plugin.price}
+              </span>
+            )}
           </div>
 
           {!plugin.free ? (
@@ -598,6 +856,36 @@ function PluginCard({
             </span>
           )}
         </div>
+
+        {/* Clickable Tag Badges */}
+        {plugin.tags && plugin.tags.length > 0 && (
+          <div className="flex flex-wrap items-center gap-1.5 mb-3.5">
+            {plugin.tags.map((t, tidx) => {
+              const tAr = plugin.tagsAr?.[tidx] ?? t;
+              const displayTag = lang === "ar" ? tAr : t;
+              const isSelected = activeTag === t;
+              return (
+                <button
+                  key={t}
+                  type="button"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    onSelectTag?.(t);
+                  }}
+                  className="text-[11px] font-semibold px-2 py-0.5 rounded-md transition-all duration-150 cursor-pointer"
+                  style={{
+                    background: isSelected ? "rgba(168,85,247,0.3)" : "rgba(255,255,255,0.04)",
+                    border: `1px solid ${isSelected ? "rgba(168,85,247,0.6)" : "rgba(255,255,255,0.08)"}`,
+                    color: isSelected ? "#e9d5ff" : "#94a3b8",
+                    ...font,
+                  }}
+                >
+                  #{displayTag}
+                </button>
+              );
+            })}
+          </div>
+        )}
 
         {/* Feature List */}
         <div className="flex-1">

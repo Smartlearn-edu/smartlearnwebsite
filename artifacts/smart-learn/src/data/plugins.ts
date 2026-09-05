@@ -1,6 +1,22 @@
-export type Category = "All" | "AI-Powered" | "Analytics & Reporting" | "Course Tools" | "Platform & Admin";
+export type Category =
+  | "All"
+  | "Theme & Smart Pages"
+  | "Assignment & Quiz Tools"
+  | "Moodle Activities"
+  | "Enrollment"
+  | "Reporting"
+  | "Payment Gateways"
+  | "Others";
 
-export type CategoryAr = "الكل" | "مدعوم بالذكاء الاصطناعي" | "التحليلات والتقارير" | "أدوات المقرر" | "المنصة والإدارة";
+export type CategoryAr =
+  | "الكل"
+  | "القالب والصفحات الذكية"
+  | "أدوات الواجبات والاختبارات"
+  | "أنشطة Moodle"
+  | "التسجيل والالتحاق"
+  | "التقارير والتحليلات"
+  | "بوابات الدفع"
+  | "أدوات أخرى";
 
 export interface Plugin {
   name: string;
@@ -26,24 +42,32 @@ export interface Plugin {
   freemiusPublicKey?: string;
   description: string;
   descriptionAr: string;
+  tags?: string[];
+  tagsAr?: string[];
 }
 
 const WA = "https://wa.me/201005822858";
 
 export const CATEGORIES: Category[] = [
   "All",
-  "AI-Powered",
-  "Analytics & Reporting",
-  "Course Tools",
-  "Platform & Admin",
+  "Theme & Smart Pages",
+  "Assignment & Quiz Tools",
+  "Moodle Activities",
+  "Enrollment",
+  "Reporting",
+  "Payment Gateways",
+  "Others",
 ];
 
 export const CATEGORIES_AR: CategoryAr[] = [
   "الكل",
-  "مدعوم بالذكاء الاصطناعي",
-  "التحليلات والتقارير",
-  "أدوات المقرر",
-  "المنصة والإدارة",
+  "القالب والصفحات الذكية",
+  "أدوات الواجبات والاختبارات",
+  "أنشطة Moodle",
+  "التسجيل والالتحاق",
+  "التقارير والتحليلات",
+  "بوابات الدفع",
+  "أدوات أخرى",
 ];
 
 export const plugins: Plugin[] = [
@@ -53,8 +77,10 @@ export const plugins: Plugin[] = [
     slug: "theme_smartlearn",
     type: "theme",
     moodle: "Moodle 4.5+ & 5.1+",
-    category: "Platform & Admin",
-    categoryAr: "المنصة والإدارة",
+    category: "Theme & Smart Pages",
+    categoryAr: "القالب والصفحات الذكية",
+    tags: ["Theme & UI", "AI", "Courses"],
+    tagsAr: ["القوالب والتصميم", "ذكاء اصطناعي", "المقررات"],
     free: false,
     price: 200,
     buyUrl: `${WA}?text=Hi! I'm interested in the SmartLearn Moodle Theme.`,
@@ -103,8 +129,10 @@ export const plugins: Plugin[] = [
     slug: "local_qai",
     type: "local",
     moodle: "Moodle 4.0+",
-    category: "AI-Powered",
-    categoryAr: "مدعوم بالذكاء الاصطناعي",
+    category: "Assignment & Quiz Tools",
+    categoryAr: "أدوات الواجبات والاختبارات",
+    tags: ["AI", "Quiz", "Question"],
+    tagsAr: ["ذكاء اصطناعي", "اختبارات", "أسئلة"],
     free: false,
     price: 50,
     buyUrl: `${WA}?text=Hi! I'm interested in the Quiz AI Chat plugin for Moodle.`,
@@ -130,8 +158,10 @@ export const plugins: Plugin[] = [
     slug: "local_chatwithassignment",
     type: "local",
     moodle: "Moodle 4.0+",
-    category: "AI-Powered",
-    categoryAr: "مدعوم بالذكاء الاصطناعي",
+    category: "Assignment & Quiz Tools",
+    categoryAr: "أدوات الواجبات والاختبارات",
+    tags: ["AI", "Assignment", "Grade"],
+    tagsAr: ["ذكاء اصطناعي", "واجبات", "درجات"],
     free: false,
     price: 50,
     buyUrl: `${WA}?text=Hi! I'm interested in the Chat with Assignment plugin for Moodle.`,
@@ -160,8 +190,10 @@ export const plugins: Plugin[] = [
     slug: "local_smartgradeai",
     type: "local",
     moodle: "Moodle 4.0+",
-    category: "AI-Powered",
-    categoryAr: "مدعوم بالذكاء الاصطناعي",
+    category: "Assignment & Quiz Tools",
+    categoryAr: "أدوات الواجبات والاختبارات",
+    tags: ["AI", "Auto-Grading", "Grade", "Assignment"],
+    tagsAr: ["ذكاء اصطناعي", "تصحيح آلي", "درجات", "واجبات"],
     free: true,
     price: null,
     downloadUrl: "https://moodle.org/plugins/local_smartgradeai",
@@ -198,8 +230,10 @@ export const plugins: Plugin[] = [
     slug: "local_airubricgenerator",
     type: "local",
     moodle: "Moodle 4.5+",
-    category: "AI-Powered",
-    categoryAr: "مدعوم بالذكاء الاصطناعي",
+    category: "Assignment & Quiz Tools",
+    categoryAr: "أدوات الواجبات والاختبارات",
+    tags: ["AI", "Assignment", "Grade"],
+    tagsAr: ["ذكاء اصطناعي", "واجبات", "درجات"],
     free: false,
     price: 50,
     buyUrl: `${WA}?text=Hi! I'm interested in the AI Rubric Generator plugin for Moodle.`,
@@ -225,8 +259,10 @@ export const plugins: Plugin[] = [
     slug: "mod_adaptiveplan",
     type: "mod",
     moodle: "Moodle 4.0+",
-    category: "AI-Powered",
-    categoryAr: "مدعوم بالذكاء الاصطناعي",
+    category: "Moodle Activities",
+    categoryAr: "أنشطة Moodle",
+    tags: ["AI", "Courses", "Analytics"],
+    tagsAr: ["ذكاء اصطناعي", "المقررات", "تحليلات"],
     free: false,
     price: 50,
     buyUrl: `${WA}?text=Hi! I'm interested in the Adaptive Study Plan plugin for Moodle.`,
@@ -252,8 +288,10 @@ export const plugins: Plugin[] = [
     slug: "local_smartdashboard",
     type: "local",
     moodle: "Moodle 4.0+",
-    category: "Analytics & Reporting",
-    categoryAr: "التحليلات والتقارير",
+    category: "Theme & Smart Pages",
+    categoryAr: "القالب والصفحات الذكية",
+    tags: ["Analytics", "Reporting", "Grade", "Courses", "AI"],
+    tagsAr: ["تحليلات", "تقارير", "درجات", "المقررات", "ذكاء اصطناعي"],
     free: false,
     price: 50,
     buyUrl: `${WA}?text=Hi! I'm interested in the Smart Dashboard plugin for Moodle.`,
@@ -348,8 +386,10 @@ export const plugins: Plugin[] = [
     slug: "report_studentgrades",
     type: "report",
     moodle: "Moodle 4.0+",
-    category: "Analytics & Reporting",
-    categoryAr: "التحليلات والتقارير",
+    category: "Reporting",
+    categoryAr: "التقارير والتحليلات",
+    tags: ["Reporting", "Grade", "Courses"],
+    tagsAr: ["تقارير", "درجات", "المقررات"],
     free: true,
     paidSupport: true,
     price: null,
@@ -376,8 +416,10 @@ export const plugins: Plugin[] = [
     slug: "gradereport_htmlexport",
     type: "gradereport",
     moodle: "Moodle 4.0+",
-    category: "Analytics & Reporting",
-    categoryAr: "التحليلات والتقارير",
+    category: "Reporting",
+    categoryAr: "التقارير والتحليلات",
+    tags: ["Reporting", "Grade"],
+    tagsAr: ["تقارير", "درجات"],
     free: true,
     price: null,
     downloadUrl: "https://moodle.org/plugins/gradereport_htmlexport",
@@ -403,8 +445,10 @@ export const plugins: Plugin[] = [
     slug: "mod_gapclose",
     type: "mod",
     moodle: "Moodle 4.0+",
-    category: "Course Tools",
-    categoryAr: "أدوات المقرر",
+    category: "Moodle Activities",
+    categoryAr: "أنشطة Moodle",
+    tags: ["Quiz", "Question", "Auto-Grading"],
+    tagsAr: ["اختبارات", "أسئلة", "تصحيح آلي"],
     free: false,
     price: 50,
     buyUrl: `${WA}?text=Hi! I'm interested in the Gap Close plugin for Moodle.`,
@@ -430,8 +474,10 @@ export const plugins: Plugin[] = [
     slug: "mod_protectedpdf",
     type: "mod",
     moodle: "Moodle 3.10+",
-    category: "Course Tools",
-    categoryAr: "أدوات المقرر",
+    category: "Moodle Activities",
+    categoryAr: "أنشطة Moodle",
+    tags: ["Security", "Courses"],
+    tagsAr: ["أمان", "المقررات"],
     free: false,
     price: 50,
     buyUrl: `${WA}?text=Hi! I'm interested in the Protected PDF plugin for Moodle.`,
@@ -457,8 +503,10 @@ export const plugins: Plugin[] = [
     slug: "mod_privateyoutube",
     type: "mod",
     moodle: "Moodle 4.0+",
-    category: "Course Tools",
-    categoryAr: "أدوات المقرر",
+    category: "Moodle Activities",
+    categoryAr: "أنشطة Moodle",
+    tags: ["Security", "Courses"],
+    tagsAr: ["أمان", "المقررات"],
     free: false,
     price: 50,
     buyUrl: `${WA}?text=Hi! I'm interested in the Private YouTube plugin for Moodle.`,
@@ -475,8 +523,10 @@ export const plugins: Plugin[] = [
     slug: "local_smartcatalog",
     type: "local",
     moodle: "Moodle 4.0+",
-    category: "Course Tools",
-    categoryAr: "أدوات المقرر",
+    category: "Theme & Smart Pages",
+    categoryAr: "القالب والصفحات الذكية",
+    tags: ["Courses", "Theme & UI"],
+    tagsAr: ["المقررات", "القوالب والتصميم"],
     free: false,
     price: 50,
     buyUrl: `${WA}?text=Hi! I'm interested in the Smart Catalog plugin for Moodle.`,
@@ -493,8 +543,10 @@ export const plugins: Plugin[] = [
     slug: "enrol_credit",
     type: "enrol",
     moodle: "Moodle 4.0+",
-    category: "Course Tools",
-    categoryAr: "أدوات المقرر",
+    category: "Enrollment",
+    categoryAr: "التسجيل والالتحاق",
+    tags: ["Enrollment", "Courses", "Payment"],
+    tagsAr: ["تسجيل", "المقررات", "دفع"],
     free: false,
     price: 50,
     buyUrl: `${WA}?text=Hi! I'm interested in the Credit Enrollment plugin for Moodle.`,
@@ -520,8 +572,10 @@ export const plugins: Plugin[] = [
     slug: "local_customhome",
     type: "local",
     moodle: "Moodle 4.0+",
-    category: "Platform & Admin",
-    categoryAr: "المنصة والإدارة",
+    category: "Theme & Smart Pages",
+    categoryAr: "القالب والصفحات الذكية",
+    tags: ["Theme & UI", "AI"],
+    tagsAr: ["القوالب والتصميم", "ذكاء اصطناعي"],
     free: true,
     paidSupport: true,
     price: null,
@@ -548,8 +602,10 @@ export const plugins: Plugin[] = [
     slug: "local_parentassign",
     type: "local",
     moodle: "Moodle 4.1+",
-    category: "Platform & Admin",
-    categoryAr: "المنصة والإدارة",
+    category: "Others",
+    categoryAr: "أدوات أخرى",
+    tags: ["Others", "Courses"],
+    tagsAr: ["أخرى", "المقررات"],
     free: true,
     price: null,
     downloadUrl: "https://moodle.org/plugins/local_parentassign",
@@ -575,8 +631,10 @@ export const plugins: Plugin[] = [
     slug: "local_qlogin",
     type: "local",
     moodle: "Moodle 4.0+",
-    category: "Platform & Admin",
-    categoryAr: "المنصة والإدارة",
+    category: "Others",
+    categoryAr: "أدوات أخرى",
+    tags: ["Others"],
+    tagsAr: ["أخرى"],
     free: false,
     price: 50,
     buyUrl: `${WA}?text=Hi! I'm interested in the Quick Login plugin for Moodle.`,
@@ -593,8 +651,10 @@ export const plugins: Plugin[] = [
     slug: "local_balanceupdater",
     type: "local",
     moodle: "Moodle 4.0+",
-    category: "Platform & Admin",
-    categoryAr: "المنصة والإدارة",
+    category: "Enrollment",
+    categoryAr: "التسجيل والالتحاق",
+    tags: ["Enrollment", "Payment"],
+    tagsAr: ["تسجيل", "دفع"],
     free: false,
     price: 50,
     buyUrl: `${WA}?text=Hi! I'm interested in the Balance Updater plugin for Moodle.`,
@@ -611,8 +671,10 @@ export const plugins: Plugin[] = [
     slug: "paygw_kashier",
     type: "paygw",
     moodle: "Moodle 4.0+",
-    category: "Platform & Admin",
-    categoryAr: "المنصة والإدارة",
+    category: "Payment Gateways",
+    categoryAr: "بوابات الدفع",
+    tags: ["Payment"],
+    tagsAr: ["دفع"],
     free: false,
     price: 50,
     buyUrl: `${WA}?text=Hi! I'm interested in the Kashier Payment Gateway plugin for Moodle.`,
@@ -631,5 +693,110 @@ export const plugins: Plugin[] = [
       "دعم عملات EGP وUSD وEUR وGBP",
       "وضع بيئة اختبار مدمجة لاختبار التكامل بأمان",
     ],
+  },
+  {
+    name: "Trophy-based Enrolment",
+    nameAr: "التسجيل بالكؤوس والنقاط",
+    slug: "enrol_trophy",
+    type: "enrol",
+    moodle: "Moodle 4.5+ & 5.0+",
+    category: "Enrollment",
+    categoryAr: "التسجيل والالتحاق",
+    tags: ["Enrollment", "Courses", "Grade"],
+    tagsAr: ["تسجيل", "المقررات", "درجات"],
+    free: false,
+    paidSupport: true,
+    price: 50,
+    buyUrl: `${WA}?text=Hi! I'm interested in the Trophy-based Enrolment plugin for Moodle.`,
+    downloadUrl: "https://moodle.org/plugins/enrol_trophy",
+    images: [],
+    features: [
+      "Gamified points & trophies self-enrolment economy",
+      "Automated rewards & points upon course completion",
+      "Category-scoped student wallets with inheritance",
+      "Bulk points & trophies manager for site administrators",
+    ],
+    featuresAr: [
+      "اقتصاد تسجيل ذاتي محفز بالألعاب عبر الكؤوس والنقاط",
+      "مكافآت ونقاط تلقائية فور إكمال المقررات الدراسية",
+      "محافظ نقاط للطلاب مخصصة لكل فئة مع وراثة الفئات",
+      "إدارة جماعية لرصيد الكؤوس والنقاط لمسؤولي المنصة",
+    ],
+    description: `**Trophy-based Enrolment** (\`enrol_trophy\`) enables learners to earn points and trophies by completing courses, then spend those points to unlock and self-enroll in new learning opportunities across categories.
+
+### Key Features
+
+- **Points Economy**: Continuous integer credits for gamified course progression
+- **Course Completion Rewards**: Automatically award points to learners upon course completion
+- **Category-Scoped Wallets**: Balances compartmentalized by course categories with parent-to-child inheritance option
+- **Student Points Wallet**: Personal dashboard showing total points, category breakdown, and earning history
+- **Bulk Points Manager**: Administrator tool to search users and batch-adjust or set points balances`,
+    descriptionAr: `**التسجيل بالكؤوس والنقاط** (\`enrol_trophy\`) يتيح للمتعلمين كسب النقاط والكؤوس عند إكمال المقررات، ثم إنفاق تلك النقاط لفتح والتسجيل الذاتي في مقررات جديدة.
+
+### المميزات الرئيسية
+
+- **اقتصاد النقاط**: رصيد متكامل لمسار تعلم محفز بالألعاب
+- **مكافآت إكمال المقرر**: منح النقاط تلقائياً للمتعلمين عند استكمال المقررات
+- **محافظ مخصصة للفئات**: رصيد مجزأ حسب فئات المقررات مع ميزة الوراثة
+- **محفظة نقاط الطالب**: لوحة مخصصة توضح رصيد النقاط وتفصيل الفئات وسجل المكافآت
+- **إدارة جماعية للنقاط**: أداة مسؤول للبحث عن المستخدمين وتعديل الأرصدة دفعة واحدة`,
+  },
+  {
+    name: "Smart Course Page",
+    nameAr: "صفحة المقرر الذكية",
+    slug: "local_smartcoursepage",
+    type: "local",
+    moodle: "Moodle 4.0+",
+    category: "Theme & Smart Pages",
+    categoryAr: "القالب والصفحات الذكية",
+    tags: ["Courses", "Theme & UI"],
+    tagsAr: ["المقررات", "القوالب والتصميم"],
+    free: false,
+    price: 50,
+    buyUrl: `${WA}?text=Hi! I'm interested in the Smart Course Page plugin for Moodle.`,
+    images: [],
+    features: [
+      "Modern, card-based single course study portal",
+      "Section navigation with visual progress indicators",
+      "Instant dark and light mode compatibility",
+      "One-click enrollment call-to-action integration",
+    ],
+    featuresAr: [
+      "بوابة دراسة عصرية للمقرر الفردي بتصميم بطاقات أنيق",
+      "تنقل بين أقسام المقرر مع مؤشرات تقدم مرئية",
+      "توافق كامل مع الوضعين الليلي والنهاري",
+      "تكامل مباشر مع أزرار الحث على التسجيل بالمقرر",
+    ],
+    description: "**Smart Course Page** (`local_smartcoursepage`) redesigns the traditional Moodle course view into a high-converting, immersive learning hub with interactive section cards, streamlined navigation, and live progress bars.",
+    descriptionAr: "**صفحة المقرر الذكية** (`local_smartcoursepage`) تعيد تصميم صفحة المقرر التقليدية في موودل إلى مركز تعلم عصري وجذاب ببطاقات أقسام تفاعلية وتنقل سلس وشريط تقدم لحظي.",
+  },
+  {
+    name: "Smart Profile",
+    nameAr: "الملف الشخصي الذكي",
+    slug: "local_smartprofile",
+    type: "local",
+    moodle: "Moodle 4.0+",
+    category: "Theme & Smart Pages",
+    categoryAr: "القالب والصفحات الذكية",
+    tags: ["Profile", "Theme & UI", "Courses"],
+    tagsAr: ["الملف الشخصي", "القوالب والتصميم", "المقررات"],
+    free: false,
+    price: 50,
+    buyUrl: `${WA}?text=Hi! I'm interested in the Smart Profile plugin for Moodle.`,
+    images: [],
+    features: [
+      "Unified learner profile with badge & certificate showcase",
+      "Enrolled courses progress and recent activity streams",
+      "Custom avatar uploader and editable bio fields",
+      "Responsive dark glassmorphism styling",
+    ],
+    featuresAr: [
+      "ملف شخصي موحد للمتعلم مع استعراض الأوسمة والشهادات",
+      "متابعة تقدم المقررات المسجلة وتدفق الأنشطة الأخيرة",
+      "رفع الصورة الشخصية وتعديل النبذة التعريفية",
+      "تصميم زجاجي عصري متجاوب مع كافة الشاشات",
+    ],
+    description: "**Smart Profile** (`local_smartprofile`) replaces the default Moodle user profile with an engaging command center showcasing achievements, certificates, enrolled courses, and activity milestones.",
+    descriptionAr: "**الملف الشخصي الذكي** (`local_smartprofile`) يستبدل صفحة الملف الشخصي الافتراضية في موودل بلوحة تحكم تفاعلية للمستخدم تستعرض إنجازاته وشهاداته ومقرراته المسجلة ومراحل تقدمه.",
   },
 ];

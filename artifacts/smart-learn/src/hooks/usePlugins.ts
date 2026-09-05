@@ -43,6 +43,8 @@ function rowToPlugin(row: Record<string, unknown>): Plugin {
     freemiusPublicKey: row.freemiusPublicKey ? String(row.freemiusPublicKey) : staticMatch?.freemiusPublicKey,
     description: String(row.description ?? staticMatch?.description ?? ""),
     descriptionAr: String(row.descriptionAr ?? staticMatch?.descriptionAr ?? ""),
+    tags: Array.isArray(row.tags) && row.tags.length > 0 ? (row.tags as string[]) : (staticMatch?.tags ?? []),
+    tagsAr: Array.isArray(row.tagsAr) && row.tagsAr.length > 0 ? (row.tagsAr as string[]) : (staticMatch?.tagsAr ?? []),
   };
 }
 
