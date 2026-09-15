@@ -420,7 +420,7 @@
       "name": "Continue Learning",
       "category": "Courses & Categories",
       "variant": "Dashboard",
-      "description": "A personalized dashboard-style section showing the student’s current progress and recently accessed materials.",
+      "description": "A personalized dashboard-style section showing the student\u2019s current progress and recently accessed materials.",
       "tags": [
         "courses",
         "dashboard",
@@ -1537,6 +1537,87 @@
       "popularity": 100
     },
     {
+      "id": "method-interactive-circles",
+      "name": "Interactive Method \u2014 Keyword & Stat Orbs",
+      "category": "Features",
+      "variant": "Accordion with Floating Circles",
+      "description": "2-column layout with interactive animated floating keyword and stat orbs paired with pill accordions.",
+      "tags": [
+        "methodology",
+        "accordion",
+        "animation",
+        "circles",
+        "features",
+        "keywords"
+      ],
+      "image_count": 0,
+      "preview_image": "previews/method-interactive-circles.webp",
+      "download_url": "/sections/method-interactive-circles.json",
+      "is_premium": false,
+      "is_new": true,
+      "popularity": 100
+    },
+    {
+      "id": "method-interactive-image",
+      "name": "Interactive Method \u2014 Visual Showcase",
+      "category": "Features",
+      "variant": "Accordion with Image",
+      "description": "2-column layout with high-definition rounded showcase image, glassmorphism rating badge, and interactive pill accordions.",
+      "tags": [
+        "methodology",
+        "accordion",
+        "image",
+        "features",
+        "visual"
+      ],
+      "image_count": 1,
+      "preview_image": "previews/method-interactive-image.webp",
+      "download_url": "/sections/method-interactive-image.json",
+      "is_premium": false,
+      "is_new": true,
+      "popularity": 100
+    },
+    {
+      "id": "method-interactive-text",
+      "name": "Interactive Method \u2014 Text & Stats",
+      "category": "Features",
+      "variant": "Accordion with Stats",
+      "description": "2-column methodology showcase with large headline, narrative body, dual circular progress rings, and pill accordion tabs.",
+      "tags": [
+        "methodology",
+        "accordion",
+        "stats",
+        "features",
+        "interactive"
+      ],
+      "image_count": 0,
+      "preview_image": "previews/method-interactive-text.webp",
+      "download_url": "/sections/method-interactive-text.json",
+      "is_premium": false,
+      "is_new": true,
+      "popularity": 100
+    },
+    {
+      "id": "method-interactive-video",
+      "name": "Interactive Method \u2014 Video Spotlight",
+      "category": "Features",
+      "variant": "Accordion with Video",
+      "description": "2-column layout pairing an autoplaying video overview box with interactive pill accordions.",
+      "tags": [
+        "methodology",
+        "accordion",
+        "video",
+        "features",
+        "player"
+      ],
+      "image_count": 1,
+      "preview_image": "previews/method-interactive-video.webp",
+      "download_url": "/sections/method-interactive-video.json",
+      "is_premium": false,
+      "is_new": true,
+      "popularity": 100
+    },
+    {
       "id": "pricing-classic",
       "name": "Classic Grid",
       "category": "Pricing",
@@ -1592,6 +1673,100 @@
       "image_count": 0,
       "preview_image": "previews/pricing-toggle.webp",
       "download_url": "/sections/pricing-toggle.json",
+      "is_premium": false,
+      "is_new": true,
+      "popularity": 100
+    },
+    {
+      "id": "slider-carousel",
+      "name": "Card Carousel",
+      "category": "Sliders",
+      "variant": "Multi-Item",
+      "description": "Horizontal track showing multiple cards at once using scroll snapping.",
+      "tags": [
+        "slider",
+        "carousel",
+        "cards",
+        "multi-item"
+      ],
+      "image_count": 4,
+      "preview_image": "previews/slider-carousel.webp",
+      "download_url": "/sections/slider-carousel.json",
+      "is_premium": false,
+      "is_new": true,
+      "popularity": 100
+    },
+    {
+      "id": "slider-glass",
+      "name": "Glassmorphism Slider",
+      "category": "Sliders",
+      "variant": "Premium",
+      "description": "Full-width images with a translucent glass floating card.",
+      "tags": [
+        "slider",
+        "glass",
+        "premium",
+        "card"
+      ],
+      "image_count": 2,
+      "preview_image": "previews/slider-glass.webp",
+      "download_url": "/sections/slider-glass.json",
+      "is_premium": false,
+      "is_new": true,
+      "popularity": 100
+    },
+    {
+      "id": "slider-hero",
+      "name": "Classic Hero Slider",
+      "category": "Sliders",
+      "variant": "Hero Banner",
+      "description": "Edge-to-edge background images with centered text and dots.",
+      "tags": [
+        "slider",
+        "hero",
+        "banner",
+        "carousel"
+      ],
+      "image_count": 3,
+      "preview_image": "previews/slider-hero.webp",
+      "download_url": "/sections/slider-hero.json",
+      "is_premium": false,
+      "is_new": true,
+      "popularity": 100
+    },
+    {
+      "id": "slider-split",
+      "name": "Split-Screen Slider",
+      "category": "Sliders",
+      "variant": "Content Presentation",
+      "description": "A 50/50 split layout. The left side has text/buttons, right side image.",
+      "tags": [
+        "slider",
+        "split",
+        "presentation"
+      ],
+      "image_count": 2,
+      "preview_image": "previews/slider-split.webp",
+      "download_url": "/sections/slider-split.json",
+      "is_premium": false,
+      "is_new": true,
+      "popularity": 100
+    },
+    {
+      "id": "slider-twocol",
+      "name": "2-Column Slider + Text",
+      "category": "Sliders",
+      "variant": "Feature Presentation",
+      "description": "A practical 2-column layout with static text on one side and an image carousel on the other.",
+      "tags": [
+        "slider",
+        "carousel",
+        "2-column",
+        "split"
+      ],
+      "image_count": 3,
+      "preview_image": "previews/slider-twocol.webp",
+      "download_url": "/sections/slider-twocol.json",
       "is_premium": false,
       "is_new": true,
       "popularity": 100
@@ -1793,86 +1968,7 @@
       "is_premium": false,
       "is_new": true,
       "popularity": 100
-    },
-    {
-      "id": "slider-hero",
-      "name": "Classic Hero Slider",
-      "category": "Sliders",
-      "variant": "Hero Banner",
-      "description": "Edge-to-edge background images with centered text and dots.",
-      "tags": [
-        "slider",
-        "hero",
-        "banner",
-        "carousel"
-      ],
-      "image_count": 3,
-      "preview_image": "",
-      "download_url": "/sections/slider-hero.json"
-    },
-    {
-      "id": "slider-split",
-      "name": "Split-Screen Slider",
-      "category": "Sliders",
-      "variant": "Content Presentation",
-      "description": "A 50/50 split layout. The left side has text/buttons, right side image.",
-      "tags": [
-        "slider",
-        "split",
-        "presentation"
-      ],
-      "image_count": 2,
-      "preview_image": "",
-      "download_url": "/sections/slider-split.json"
-    },
-    {
-      "id": "slider-glass",
-      "name": "Glassmorphism Slider",
-      "category": "Sliders",
-      "variant": "Premium",
-      "description": "Full-width images with a translucent glass floating card.",
-      "tags": [
-        "slider",
-        "glass",
-        "premium",
-        "card"
-      ],
-      "image_count": 2,
-      "preview_image": "",
-      "download_url": "/sections/slider-glass.json"
-    },
-    {
-      "id": "slider-carousel",
-      "name": "Card Carousel",
-      "category": "Sliders",
-      "variant": "Multi-Item",
-      "description": "Horizontal track showing multiple cards at once using scroll snapping.",
-      "tags": [
-        "slider",
-        "carousel",
-        "cards",
-        "multi-item"
-      ],
-      "image_count": 4,
-      "preview_image": "",
-      "download_url": "/sections/slider-carousel.json"
-    },
-    {
-      "id": "slider-twocol",
-      "name": "2-Column Slider + Text",
-      "category": "Sliders",
-      "variant": "Feature Presentation",
-      "description": "A practical 2-column layout with static text on one side and an image carousel on the other.",
-      "tags": [
-        "slider",
-        "carousel",
-        "2-column",
-        "split"
-      ],
-      "image_count": 3,
-      "preview_image": "",
-      "download_url": "/sections/slider-twocol.json"
     }
   ],
-  "total_count": 92
+  "total_count": 101
 }
