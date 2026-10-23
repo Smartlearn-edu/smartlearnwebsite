@@ -94,6 +94,22 @@ pm2 save
 echo "✓ PM2 process '$PM2_APP_NAME' started with fresh env"
 echo ""
 
+# ─── 6. Sync & reload Nginx configuration (if vhost exists) ──────────────────
+NGINX_VHOST_CONF="/www/server/panel/vhost/nginx/services.smartlearn.education.conf"
+if [ -f "$NGINX_VHOST_CONF" ] && [ -f "$DEPLOY_DIR/nginx-vps.conf" ]; then
+  echo "▶ Updating Nginx configuration..."
+  cp "$NGINX_VHOST_CONF" "${NGINX_VHOST_CONF}.bak"
+  cp "$DEPLOY_DIR/nginx-vps.conf" "$NGINX_VHOST_CONF"
+  if nginx -t 2>/dev/null; then
+    nginx -s reload
+    echo "✓ Nginx reloaded with hardened config"
+  else
+    echo "⚠ Nginx config test failed — restoring previous config"
+    cp "${NGINX_VHOST_CONF}.bak" "$NGINX_VHOST_CONF"
+  fi
+  echo ""
+fi
+
 echo "========================================"
 echo "  ✅ Deploy complete!"
 echo "  Frontend: $NGINX_FRONTEND"

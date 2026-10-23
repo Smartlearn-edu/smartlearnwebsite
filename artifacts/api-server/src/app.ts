@@ -6,6 +6,9 @@ import { logger } from "./lib/logger";
 
 const app: Express = express();
 
+// Trust the local Nginx reverse proxy so rate limiters use the real client IP
+app.set("trust proxy", 1);
+
 // Disable X-Powered-By header to prevent server fingerprinting
 app.disable("x-powered-by");
 
