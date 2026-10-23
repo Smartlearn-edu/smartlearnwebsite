@@ -41,4 +41,7 @@ onlyBuiltDependencies:
   - msw
   - unrs-resolver
 
+overrides:
+  proxy-addr: ^2.0.8
+
 

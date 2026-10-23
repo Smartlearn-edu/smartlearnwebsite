@@ -15,10 +15,5 @@
   },
   "dependencies": {
     "puppeteer": "^25.2.1"
-  },
-  "pnpm": {
-    "overrides": {
-      "proxy-addr": "^2.0.8"
-    }
   }
 }
