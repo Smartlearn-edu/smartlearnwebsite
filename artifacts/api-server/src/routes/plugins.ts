@@ -1,12 +1,12 @@
 import { Router, type IRouter } from "express";
 import { db, pluginsTable } from "@workspace/db";
 import { eq } from "drizzle-orm";
-import { requireAdmin, adminLogin } from "../middlewares/auth";
+import { requireAdmin, adminLogin, loginRateLimiter } from "../middlewares/auth";
 import { insertPluginSchema, updatePluginSchema } from "@workspace/db";
 
 const router: IRouter = Router();
 
-router.post("/admin/login", adminLogin);
+router.post("/admin/login", loginRateLimiter, adminLogin);
 
 router.get("/plugins", async (_req, res) => {
   try {
