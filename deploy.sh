@@ -38,6 +38,7 @@ echo ""
 
 # ─── 2. Install / update dependencies ────────────────────────────────────────
 echo "▶ Installing dependencies..."
+pnpm approve-builds --all 2>/dev/null || true
 pnpm install --frozen-lockfile || pnpm install --no-frozen-lockfile
 echo "✓ Dependencies ready"
 echo ""
