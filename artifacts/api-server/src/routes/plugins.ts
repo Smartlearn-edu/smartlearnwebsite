@@ -1,15 +1,27 @@
 import { Router, type IRouter } from "express";
-import { db, pluginsTable } from "@workspace/db";
+import { db, pool, pluginsTable } from "@workspace/db";
 import { eq } from "drizzle-orm";
 import { requireAdmin, adminLogin, loginRateLimiter } from "../middlewares/auth";
 import { insertPluginSchema, updatePluginSchema } from "@workspace/db";
 
 const router: IRouter = Router();
 
+let videoColumnEnsured = false;
+async function ensureVideoColumn() {
+  if (videoColumnEnsured) return;
+  try {
+    await pool.query("ALTER TABLE IF EXISTS plugins ADD COLUMN IF NOT EXISTS video_url text");
+    videoColumnEnsured = true;
+  } catch {
+    // Ignore here; the subsequent Drizzle query will surface real connection errors.
+  }
+}
+
 router.post("/admin/login", loginRateLimiter, adminLogin);
 
 router.get("/plugins", async (_req, res) => {
   try {
+    await ensureVideoColumn();
     const rows = await db
       .select()
       .from(pluginsTable)
@@ -22,6 +34,7 @@ router.get("/plugins", async (_req, res) => {
 
 router.get("/plugins/:slug", async (req, res) => {
   try {
+    await ensureVideoColumn();
     const [row] = await db
       .select()
       .from(pluginsTable)
@@ -38,6 +51,7 @@ router.get("/plugins/:slug", async (req, res) => {
 
 router.post("/plugins", requireAdmin, async (req, res) => {
   try {
+    await ensureVideoColumn();
     const data = insertPluginSchema.parse(req.body);
     const normalized = {
       ...data,
@@ -56,6 +70,7 @@ router.post("/plugins", requireAdmin, async (req, res) => {
 
 router.patch("/plugins/:id", requireAdmin, async (req, res) => {
   try {
+    await ensureVideoColumn();
     const id = Number(req.params.id);
     if (isNaN(id)) {
       res.status(400).json({ error: "Invalid id" });

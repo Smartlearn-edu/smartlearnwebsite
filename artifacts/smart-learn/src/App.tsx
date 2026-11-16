@@ -32,8 +32,11 @@ function App({ ssrPath }: { ssrPath?: string }) {
     <HelmetProvider>
       <LanguageProvider>
         <Router base={base} ssrPath={ssrPath}>
+          <a href="#main-content" className="skip-link visually-hidden">
+            Skip to main content
+          </a>
           <ScrollToTop />
-          <main>
+          <main id="main-content" tabIndex={-1}>
             <Switch>
               <Route path="/demo-video" component={DemoVideoPage} />
               <Route path="/admin" component={AdminPage} />

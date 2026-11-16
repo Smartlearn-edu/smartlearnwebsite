@@ -1,24 +1,6 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
-/* Self-hosted Righteous (English) — single weight file covers all weights cleanly */
-@font-face {
-  font-family: 'Righteous';
-  font-style: normal;
-  font-weight: 100 900;
-  font-display: swap;
-  src: url('/fonts/righteous-latin-ext.woff2') format('woff2');
-  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
-}
-@font-face {
-  font-family: 'Righteous';
-  font-style: normal;
-  font-weight: 100 900;
-  font-display: swap;
-  src: url('/fonts/righteous-latin.woff2') format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-
 /* Self-hosted Tajawal (Arabic) — guaranteed to load without external network dependency */
 @font-face {
   font-family: 'Tajawal';
@@ -56,49 +38,199 @@
   src: url('/fonts/tajawal-900-arabic.woff2') format('woff2');
 }
 
-@custom-variant dark (&:is(.dark *));
+:root {
+  color-scheme: light;
+  --bg-canvas: #faf8f4;
+  --bg-surface: #ffffff;
+  --bg-subtle: #f2eee6;
+  --bg-muted: #e8e2d7;
+  --ink-primary: #18181b;
+  --ink-secondary: #3f3f46;
+  --ink-muted: #52525b;
+  --accent-primary: #c2410c;
+  --accent-primary-hover: #9a3412;
+  --accent-brand: #581c87;
+  --accent-soft: #fff3eb;
+  --accent-brand-soft: #f5effa;
+  --border-hairline: #e2dbd0;
+  --border-strong: #c9c0b2;
+  --success: #15803d;
+  --success-soft: #ecfdf3;
+
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-body: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  --site-font: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+}
 
 @theme inline {
-  --font-display: 'Righteous', sans-serif;
-  --font-body: 'Righteous', sans-serif;
-  --font-sans: 'Righteous', sans-serif;
+  --font-display: var(--font-display);
+  --font-body: var(--font-body);
+  --font-sans: var(--font-body);
+  --font-mono: var(--font-mono);
 }
 
 @layer base {
   html {
     scroll-behavior: smooth;
-    --site-font: 'Righteous', sans-serif;
+    background-color: var(--bg-canvas);
+    color: var(--ink-primary);
+    accent-color: var(--accent-primary);
   }
 
   body {
-    background-color: #07070f;
-    color: #b0b8cc;
+    background-color: var(--bg-canvas);
+    color: var(--ink-secondary);
+    font-family: var(--site-font);
+    line-height: 1.6;
+    text-align: start;
+    overflow-wrap: break-word;
     -webkit-font-smoothing: antialiased;
-    font-family: var(--site-font);
   }
 
-  h1, h2, h3, h4, h5, h6 {
-    font-family: var(--site-font);
+  h1, h2, h3, h4 {
+    color: var(--ink-primary);
+    text-wrap: balance;
+    line-height: 1.16;
+  }
+
+  h1, h2 {
+    font-family: var(--font-display);
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  :where(a:any-link, button, summary, input, select, textarea, [tabindex]):focus-visible {
+    outline: 3px solid var(--accent-primary);
+    outline-offset: 3px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
   }
 }
 
-@layer utilities {
-  .gradient-text {
-    background: linear-gradient(135deg, #a855f7 0%, #c084fc 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+/* Arabic RTL typography pairing: crisp Tajawal for display & body, preserving monospace for technical slugs */
+[dir="rtl"] {
+  --font-display: 'Tajawal', sans-serif;
+  --font-body: 'Tajawal', sans-serif;
+  --site-font: 'Tajawal', sans-serif;
+}
+
+[dir="rtl"] body,
+[dir="rtl"] h1,
+[dir="rtl"] h2,
+[dir="rtl"] h3,
+[dir="rtl"] h4,
+[dir="rtl"] p,
+[dir="rtl"] a,
+[dir="rtl"] button,
+[dir="rtl"] input,
+[dir="rtl"] textarea,
+[dir="rtl"] select {
+  font-family: 'Tajawal', sans-serif;
+}
+
+.font-mono-slug {
+  font-family: var(--font-mono) !important;
+  direction: ltr;
+  unicode-bidi: isolate;
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+/* Visually hidden utility per accessible skip-link & SR patterns */
+.visually-hidden:where(:not(:focus-within, :active)) {
+  position: absolute !important;
+  clip-path: inset(50%) !important;
+  overflow: hidden !important;
+  width: 1px !important;
+  height: 1px !important;
+  margin: -1px !important;
+  padding: 0 !important;
+  border: 0 !important;
+  white-space: nowrap !important;
+}
+
+.skip-link:focus-visible {
+  position: fixed;
+  inset-block-start: 1rem;
+  inset-inline-start: 1rem;
+  z-index: 100;
+  padding: 0.75rem 1.25rem;
+  border-radius: 0.75rem;
+  background-color: var(--ink-primary);
+  color: #ffffff;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+/* Subtle paper surface accent without noisy AI glows */
+.workbench-grid-bg {
+  background-image:
+    linear-gradient(to right, rgba(24, 24, 27, 0.035) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(24, 24, 27, 0.035) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+/* Accessible tablist & selection indicator (never color alone; forced-colors safe) */
+.workbench-tablist {
+  display: flex;
+  overflow-x: auto;
+  scrollbar-width: none;
+  gap: 0.25rem;
+  border-block-end: 1px solid var(--border-hairline);
+}
+
+.workbench-tablist::-webkit-scrollbar {
+  display: none;
+}
+
+.workbench-tab {
+  position: relative;
+  flex: none;
+  padding-block: 0.75rem;
+  padding-inline: 0.875rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--ink-muted);
+  white-space: nowrap;
+  cursor: pointer;
+  transition: color 150ms ease;
+}
+
+.workbench-tab:hover {
+  color: var(--ink-primary);
+}
+
+.workbench-tab[aria-selected="true"] {
+  color: var(--accent-primary);
+}
+
+.workbench-tab[aria-selected="true"]::after {
+  content: "";
+  position: absolute;
+  inset-block-end: 0;
+  inset-inline: 0;
+  border-block-end: 3px solid var(--accent-primary);
+}
+
+@media (forced-colors: active) {
+  .workbench-tab[aria-selected="true"] {
+    color: Highlight;
+  }
+  .workbench-tab[aria-selected="true"]::after {
+    border-block-end-color: Highlight;
   }
 }
 
-/* Force Righteous for all elements in English/LTR mode — overrides inline styles */
-[dir="ltr"],
-[dir="ltr"] * {
-  font-family: 'Righteous', sans-serif !important;
-}
-
-/* Force Tajawal for all elements in Arabic/RTL mode — overrides inline styles */
-[dir="rtl"],
-[dir="rtl"] * {
-  font-family: 'Tajawal', sans-serif !important;
+/* Kept as readable warm editorial highlight for secondary pages still referencing .gradient-text */
+.gradient-text {
+  color: var(--accent-primary);
 }

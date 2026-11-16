@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import { Server, Puzzle, Bot, Workflow, GraduationCap, Smartphone } from "lucide-react";
 import { Link } from "wouter";
 import { useT } from "@/i18n";
@@ -6,186 +5,101 @@ import { DirectionalArrow } from "@/components/DirectionalArrow";
 
 const slugs = ["moodle-core", "plugins", "ai", "n8n", "training", "mobile-app"] as const;
 const icons = [Server, Puzzle, Bot, Workflow, GraduationCap, Smartphone];
-const highlights = [false, true, false, false, false, false];
 
 export function ServicesSection() {
-  const { t } = useT();
+  const { t, isRTL } = useT();
 
   const services = t.services.items.map((item, i) => ({
     ...item,
     slug: slugs[i],
     icon: icons[i],
-    iconColor: i % 2 === 0 ? "#c084fc" : "#a855f7",
-    iconBg: "rgba(168,85,247,0.12)",
-    highlight: highlights[i],
-    image: `/img/service-${slugs[i] === "moodle-core" ? "moodle" : slugs[i]}.png`,
+    isPrimary: slugs[i] === "plugins",
   }));
 
   return (
-    <section id="services" className="py-24 px-6">
+    <section
+      id="services"
+      className="py-16 sm:py-20 px-5 sm:px-6 bg-[#F2EEE6] border-y border-[#E2DBD0]"
+      dir={isRTL ? "rtl" : "ltr"}
+    >
       <div className="max-w-6xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, ease: "easeOut" }}
-          className="text-center mb-16"
-        >
-          <div
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-bold uppercase tracking-widest mb-6"
-            style={{
-              background: "rgba(105,0,163,0.15)",
-              border: "1px solid rgba(168,85,247,0.3)",
-              color: "#c084fc",
-              fontFamily: "'Cairo', sans-serif",
-            }}
-          >
+        <div className="max-w-2xl mb-12">
+          <p className="text-xs font-bold uppercase tracking-widest text-[#C2410C] mb-2">
             {t.services.badge}
-          </div>
-          <h2
-            className="text-4xl md:text-5xl font-black text-white mb-4"
-            style={{ fontFamily: "'Cairo', sans-serif" }}
-          >
-            {t.services.heading} <span className="gradient-text">{t.services.headingGradient}</span>
+          </p>
+          <h2 className="font-display text-3xl sm:text-4xl font-bold text-[#18181B] mb-3">
+            {t.services.heading}{" "}
+            <span className="text-[#C2410C]">{t.services.headingGradient}</span>
           </h2>
-          <p
-            className="text-slate-200 max-w-xl mx-auto text-lg leading-relaxed mb-6"
-            style={{ fontFamily: "'Cairo', sans-serif" }}
-          >
+          <p className="text-base text-[#3F3F46] leading-relaxed">
             {t.services.subtitle}
           </p>
-        </motion.div>
+        </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {services.map((svc, i) => (
-            <ServiceCard key={svc.slug} svc={svc} i={i} learnMore={t.services.learnMore} featured={t.services.featured} />
-          ))}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+          {services.map((svc) => {
+            const Icon = svc.icon;
+            return (
+              <article
+                key={svc.slug}
+                className={`rounded-2xl p-6 flex flex-col border transition-all duration-150 ${
+                  svc.isPrimary
+                    ? "bg-[#FFF3EB] border-[#FDBA74] shadow-xs"
+                    : "bg-white border-[#E2DBD0] hover:border-[#C9C0B2]"
+                }`}
+              >
+                <div className="flex items-center justify-between gap-3 mb-4">
+                  <div
+                    className={`w-10 h-10 rounded-xl flex items-center justify-center border ${
+                      svc.isPrimary
+                        ? "bg-[#C2410C] border-[#C2410C] text-white"
+                        : "bg-[#FAF8F4] border-[#E2DBD0] text-[#581C87]"
+                    }`}
+                  >
+                    <Icon size={20} aria-hidden="true" />
+                  </div>
+                  {svc.isPrimary && (
+                    <span className="text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-white text-[#C2410C] border border-[#FED7AA]">
+                      {t.services.featured}
+                    </span>
+                  )}
+                </div>
+
+                <h3 className="font-sans text-lg font-bold text-[#18181B] mb-2 leading-snug">
+                  {svc.title}
+                </h3>
+
+                <p className="text-sm text-[#3F3F46] leading-relaxed mb-4 flex-1">
+                  {svc.description}
+                </p>
+
+                <div className="flex flex-wrap gap-1.5 mb-5">
+                  {svc.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="text-xs px-2.5 py-0.5 rounded-md font-medium bg-[#FAF8F4] text-[#3F3F46] border border-[#E2DBD0]"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+
+                <Link
+                  href={`/services/${svc.slug}`}
+                  className={`inline-flex items-center justify-between gap-2 w-full px-4 py-2.5 rounded-xl font-bold text-sm transition-colors ${
+                    svc.isPrimary
+                      ? "bg-[#C2410C] text-white hover:bg-[#9A3412]"
+                      : "bg-[#FAF8F4] text-[#18181B] border border-[#E2DBD0] hover:bg-[#F2EEE6]"
+                  }`}
+                >
+                  <span>{t.services.learnMore}</span>
+                  <DirectionalArrow size={15} />
+                </Link>
+              </article>
+            );
+          })}
         </div>
       </div>
     </section>
   );
 }
-
-type SvcItem = {
-  title: string;
-  description: string;
-  tags: string[];
-  slug: (typeof slugs)[number];
-  icon: typeof Server;
-  iconColor: string;
-  iconBg: string;
-  highlight: boolean;
-  image: string;
-};
-
-function ServiceCard({
-  svc,
-  i,
-  learnMore,
-  featured,
-}: {
-  svc: SvcItem;
-  i: number;
-  learnMore: string;
-  featured: string;
-}) {
-  const Icon = svc.icon;
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 24 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.5, delay: i * 0.08, ease: "easeOut" }}
-      whileHover={{ y: -5, transition: { type: "spring", stiffness: 300, damping: 20 } }}
-      className="group relative rounded-2xl overflow-hidden flex flex-col"
-      style={{
-        background: svc.highlight
-          ? "linear-gradient(160deg, rgba(105,0,163,0.2) 0%, rgba(168,85,247,0.08) 100%)"
-          : "rgba(255,255,255,0.03)",
-        border: svc.highlight
-          ? "1px solid rgba(168,85,247,0.35)"
-          : "1px solid rgba(255,255,255,0.06)",
-      }}
-    >
-      {svc.highlight && (
-        <div
-          className="absolute top-3 end-3 z-10 text-xs font-bold px-2.5 py-1 rounded-full"
-          style={{
-            background: "linear-gradient(135deg, #6900A3, #a855f7)",
-            color: "#fff",
-            fontFamily: "'Cairo', sans-serif",
-          }}
-        >
-          {featured}
-        </div>
-      )}
-
-      <div className="relative h-40 overflow-hidden">
-        <img
-          src={svc.image}
-          alt={svc.title}
-          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-        />
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-              "linear-gradient(to bottom, rgba(7,7,15,0) 30%, rgba(7,7,15,0.95) 100%)",
-          }}
-        />
-        <div
-          className="absolute bottom-3 start-4 w-10 h-10 rounded-xl flex items-center justify-center"
-          style={{ background: svc.iconBg, backdropFilter: "blur(8px)" }}
-        >
-          <Icon size={20} style={{ color: svc.iconColor }} />
-        </div>
-      </div>
-
-      <div className="p-6 flex flex-col flex-1">
-        <h3
-          className="text-lg font-black text-white mb-2.5 leading-snug"
-          style={{ fontFamily: "'Cairo', sans-serif" }}
-        >
-          {svc.title}
-        </h3>
-        <p
-          className="text-slate-200 leading-relaxed text-base mb-4 flex-1"
-          style={{ fontFamily: "'Cairo', sans-serif" }}
-        >
-          {svc.description}
-        </p>
-
-        <div className="flex flex-wrap gap-1.5 mb-5">
-          {svc.tags.map((tag) => (
-            <span
-              key={tag}
-              className="text-xs px-2.5 py-1 rounded-full font-semibold"
-              style={{
-                background: "rgba(168,85,247,0.1)",
-                color: "#c084fc",
-                border: "1px solid rgba(168,85,247,0.2)",
-                fontFamily: "'Cairo', sans-serif",
-              }}
-            >
-              {tag}
-            </span>
-          ))}
-        </div>
-
-        <Link
-          href={`/services/${svc.slug}`}
-          className="inline-flex items-center justify-center gap-2 w-full py-2.5 rounded-xl font-bold text-sm text-white transition-all duration-200 hover:opacity-90"
-          style={{
-            background: "linear-gradient(135deg, #6900A3, #a855f7)",
-            fontFamily: "'Cairo', sans-serif",
-          }}
-        >
-          <span>{learnMore}</span>
-          <span className="sr-only"> about {svc.title}</span>
-          <DirectionalArrow size={15} />
-        </Link>
-      </div>
-    </motion.div>
-  );
-}
-

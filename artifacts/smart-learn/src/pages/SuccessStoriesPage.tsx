@@ -1,35 +1,34 @@
-import { motion } from "framer-motion";
 import { Helmet } from "react-helmet-async";
-import { Quote, TrendingUp, Link as LinkIcon } from "lucide-react";
+import { Quote, TrendingUp, Link as LinkIcon, ExternalLink } from "lucide-react";
 import { Navbar } from "@/components/Navbar";
 import { useT } from "@/i18n";
 import { useTestimonials } from "@/hooks/useTestimonials";
 import type { Testimonial } from "@/hooks/useTestimonials";
-
-const font: React.CSSProperties = { fontFamily: "'Cairo', sans-serif" };
+import { SocialLinks } from "@/components/SocialLinks";
+import React from "react";
 
 const PAGE_TEXT = {
   en: {
     title: "Success Stories — Smart Learn",
     description: "Read real success stories from institutions that transformed their Moodle platforms with Smart Learn.",
-    badge: "Smart Learn · Success Stories",
-    heading: "Real Results,",
-    headingGradient: "Real Clients",
-    sub: "From small training centres to university campuses — here's what clients achieved.",
+    badge: "Client Case Studies",
+    heading: "Real results from",
+    headingGradient: "real institutions",
+    sub: "From private academies to university campuses — verified Moodle outcomes across Egypt, the Gulf, and beyond.",
     outcome: "Key Outcome",
     readMore: "Related Service",
-    empty: "Success stories coming soon.",
+    empty: "Institutional case studies are loaded from the live database. You can also browse verified client reviews directly on Mostaql and Khamsat.",
   },
   ar: {
     title: "قصص النجاح — Smart Learn",
-    description: "اقرأ قصص نجاح حقيقية من مؤسسات حوّلت منصات Moodle مع Smart Learn.",
-    badge: "Smart Learn · قصص النجاح",
-    heading: "نتائج حقيقية،",
-    headingGradient: "عملاء حقيقيون",
-    sub: "من مراكز التدريب الصغيرة إلى حرم الجامعات — إليك ما حققه العملاء.",
+    description: "اقرأ قصص نجاح حقيقية من مؤسسات طوّرت منصات موودل مع Smart Learn.",
+    badge: "دراسات حالة",
+    heading: "نتائج حقيقية مع",
+    headingGradient: "مؤسسات حقيقية",
+    sub: "من الأكاديميات الخاصة إلى الجامعات — نتائج موثقة لمنصات موودل في مصر والخليج.",
     outcome: "النتيجة الرئيسية",
     readMore: "الخدمة ذات الصلة",
-    empty: "قصص النجاح قادمة قريباً.",
+    empty: "قصص النجاح التفصيلية تُحمَّل من قاعدة البيانات الحية، ويمكنك أيضاً الاطلاع على تقييمات العملاء الموثقة مباشرة على مستقل وخمسات.",
   },
 };
 
@@ -43,6 +42,7 @@ const SERVICE_LABELS: Record<string, { en: string; ar: string }> = {
 };
 
 function Avatar({ src, name }: { src: string; name: string }) {
+  const [failed, setFailed] = React.useState(false);
   const initials = name
     .split(" ")
     .slice(0, 2)
@@ -52,27 +52,15 @@ function Avatar({ src, name }: { src: string; name: string }) {
 
   return (
     <div className="relative flex-shrink-0">
-      {src ? (
+      {src && !failed ? (
         <img
           src={src}
           alt={name}
-          className="w-16 h-16 rounded-full object-cover"
-          style={{ border: "2px solid rgba(168,85,247,0.4)" }}
-          onError={(e) => {
-            const el = e.currentTarget as HTMLImageElement;
-            el.style.display = "none";
-            const fallback = document.createElement("div");
-            fallback.className = "w-16 h-16 rounded-full flex items-center justify-center font-black text-white";
-            fallback.style.background = "linear-gradient(135deg,#6900A3,#a855f7)";
-            fallback.textContent = initials;
-            el.parentElement?.appendChild(fallback);
-          }}
+          className="w-14 h-14 rounded-full object-cover border border-[#E2DBD0]"
+          onError={() => setFailed(true)}
         />
       ) : (
-        <div
-          className="w-16 h-16 rounded-full flex items-center justify-center font-black text-white text-lg"
-          style={{ background: "linear-gradient(135deg, #6900A3, #a855f7)" }}
-        >
+        <div className="w-14 h-14 rounded-full flex items-center justify-center font-bold text-white text-base bg-[#581C87]">
           {initials}
         </div>
       )}
@@ -90,84 +78,55 @@ function StoryCard({ item, lang, txt }: { item: Testimonial; lang: "en" | "ar"; 
   const svcLabel = item.serviceSlug ? SERVICE_LABELS[item.serviceSlug]?.[lang] : null;
 
   return (
-    <motion.article
-      initial={{ opacity: 0, y: 28 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.55 }}
-      className="rounded-2xl overflow-hidden"
-      style={{
-        background: "rgba(255,255,255,0.03)",
-        border: "1px solid rgba(168,85,247,0.15)",
-      }}
-    >
-      <div className="p-8">
-        <div className="flex items-start gap-5 mb-6">
-          <Avatar src={item.image} name={name} />
-          <div className="flex-1">
-            <h3 className="text-white font-black text-lg" style={font}>{name}</h3>
-            <p className="text-slate-200 text-base" style={font}>
-              {role}{role && company ? " · " : ""}{company}
-            </p>
-            {svcLabel && (
-              <span
-                className="inline-flex items-center gap-1.5 mt-2 text-xs font-bold px-3 py-1 rounded-full"
-                style={{
-                  background: "rgba(168,85,247,0.1)",
-                  border: "1px solid rgba(168,85,247,0.25)",
-                  color: "#c084fc",
-                  ...font,
-                }}
-              >
-                <LinkIcon size={11} /> {txt.readMore}: {svcLabel}
-              </span>
-            )}
-          </div>
-        </div>
-
-        <div className="mb-6">
-          <Quote size={18} style={{ color: "#6900A3", marginBottom: 10 }} />
-          <blockquote className="text-slate-300 text-base leading-relaxed italic" style={font}>
-            "{quote}"
-          </blockquote>
-        </div>
-
-        {story && (
-          <p className="text-slate-200 text-base leading-relaxed mb-6" style={font}>
-            {story}
+    <article className="rounded-2xl overflow-hidden bg-white border border-[#E2DBD0] shadow-2xs p-6 sm:p-8">
+      <div className="flex items-start gap-4 mb-5">
+        <Avatar src={item.image} name={name} />
+        <div className="flex-1">
+          <h3 className="font-sans text-lg font-bold text-[#18181B]">{name}</h3>
+          <p className="text-sm text-[#52525B]">
+            {role}
+            {role && company ? " · " : ""}
+            {company}
           </p>
-        )}
-
-        {outcome && (
-          <div
-            className="flex items-start gap-3 p-4 rounded-xl"
-            style={{ background: "rgba(105,0,163,0.1)", border: "1px solid rgba(168,85,247,0.2)" }}
-          >
-            <TrendingUp size={16} style={{ color: "#a855f7", flexShrink: 0, marginTop: 2 }} />
-            <div>
-              <p className="text-xs font-black text-purple-400 uppercase tracking-widest mb-1" style={font}>
-                {txt.outcome}
-              </p>
-              <p className="text-white text-sm font-semibold" style={font}>{outcome}</p>
-            </div>
-          </div>
-        )}
+          {svcLabel && (
+            <span className="inline-flex items-center gap-1.5 mt-2 text-xs font-semibold px-2.5 py-0.5 rounded-full bg-[#F2EEE6] border border-[#E2DBD0] text-[#581C87]">
+              <LinkIcon size={11} aria-hidden="true" />
+              <span>
+                {txt.readMore}: {svcLabel}
+              </span>
+            </span>
+          )}
+        </div>
       </div>
-    </motion.article>
+
+      <div className="mb-5">
+        <Quote size={18} className="text-[#C2410C] mb-2" aria-hidden="true" />
+        <blockquote className="text-[#18181B] text-base leading-relaxed font-medium">
+          "{quote}"
+        </blockquote>
+      </div>
+
+      {story && <p className="text-[#3F3F46] text-sm sm:text-base leading-relaxed mb-5">{story}</p>}
+
+      {outcome && (
+        <div className="flex items-start gap-3 p-4 rounded-xl bg-[#ECFDF3] border border-[#BBF7D0]">
+          <TrendingUp size={16} className="text-[#15803D] flex-shrink-0 mt-0.5" aria-hidden="true" />
+          <div>
+            <p className="text-xs font-bold text-[#15803D] uppercase tracking-wider mb-0.5">
+              {txt.outcome}
+            </p>
+            <p className="text-[#18181B] text-sm font-semibold">{outcome}</p>
+          </div>
+        </div>
+      )}
+    </article>
   );
 }
 
 export function SuccessStoriesPage() {
-  const { lang, isRTL } = useT();
+  const { lang, isRTL, t } = useT();
   const { data: testimonials, isLoading } = useTestimonials();
   const txt = PAGE_TEXT[lang];
-
-  const gradientText: React.CSSProperties = {
-    background: "linear-gradient(135deg, #a855f7, #c084fc)",
-    WebkitBackgroundClip: "text",
-    WebkitTextFillColor: "transparent",
-    backgroundClip: "text",
-  };
 
   return (
     <>
@@ -177,42 +136,27 @@ export function SuccessStoriesPage() {
         <link rel="canonical" href="https://services.smartlearn.education/success-stories" />
       </Helmet>
 
-      <div className="min-h-screen" style={{ backgroundColor: "#07070f" }}>
+      <div className="min-h-screen bg-[#FAF8F4] text-[#18181B]" dir={isRTL ? "rtl" : "ltr"}>
         <Navbar />
 
-        <section className="relative pt-32 pb-16 px-6 text-center" dir={isRTL ? "rtl" : "ltr"}>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="max-w-2xl mx-auto"
-          >
-            <span
-              className="inline-block text-xs font-black tracking-widest uppercase mb-6 px-4 py-1.5 rounded-full"
-              style={{
-                color: "#a855f7",
-                background: "rgba(168,85,247,0.08)",
-                border: "1px solid rgba(168,85,247,0.2)",
-                ...font,
-              }}
-            >
+        <section className="pt-28 pb-12 px-5 sm:px-6 text-center">
+          <div className="max-w-2xl mx-auto">
+            <p className="text-xs font-bold tracking-widest uppercase text-[#C2410C] mb-3">
               {txt.badge}
-            </span>
-            <h1 className="text-4xl md:text-5xl font-black text-white mb-5 leading-tight" style={font}>
-              {txt.heading}{" "}
-              <span style={gradientText}>{txt.headingGradient}</span>
+            </p>
+            <h1 className="font-display text-4xl md:text-5xl font-bold text-[#18181B] mb-4 leading-tight">
+              {txt.heading} <span className="text-[#581C87]">{txt.headingGradient}</span>
             </h1>
-            <p className="text-slate-200 text-lg leading-relaxed" style={font}>{txt.sub}</p>
-          </motion.div>
+            <p className="text-[#3F3F46] text-base sm:text-lg leading-relaxed">{txt.sub}</p>
+          </div>
         </section>
 
-        <section className="pb-24 px-6" dir={isRTL ? "rtl" : "ltr"}>
+        <section className="pb-20 px-5 sm:px-6">
           <div className="max-w-4xl mx-auto">
             {isLoading ? (
-              <div className="space-y-6">
-                {[...Array(3)].map((_, i) => (
-                  <div key={i} className="h-64 rounded-2xl animate-pulse"
-                    style={{ background: "rgba(255,255,255,0.04)" }} />
+              <div className="space-y-5">
+                {[0, 1, 2].map((i) => (
+                  <div key={i} className="h-52 rounded-2xl bg-[#F2EEE6] border border-[#E2DBD0]" />
                 ))}
               </div>
             ) : testimonials && testimonials.length > 0 ? (
@@ -222,15 +166,38 @@ export function SuccessStoriesPage() {
                 ))}
               </div>
             ) : (
-              <p className="text-center text-slate-500 py-16" style={font}>{txt.empty}</p>
+              <div className="rounded-2xl border border-[#E2DBD0] bg-white p-8 text-center">
+                <p className="text-[#3F3F46] mb-5">{txt.empty}</p>
+                <div className="flex flex-wrap justify-center gap-3">
+                  <a
+                    href="https://mostaql.com/u/m_nabil_riad/reviews"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-[#C2410C] text-white text-sm font-bold"
+                  >
+                    <span>{lang === "ar" ? "تقييمات مستقل" : "Mostaql Reviews"}</span>
+                    <ExternalLink size={14} aria-hidden="true" />
+                  </a>
+                  <a
+                    href="https://khamsat.com/user/mohammadnabilriad/reviews"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-[#F2EEE6] border border-[#C9C0B2] text-[#18181B] text-sm font-bold"
+                  >
+                    <span>{lang === "ar" ? "تقييمات خمسات" : "Khamsat Reviews"}</span>
+                    <ExternalLink size={14} aria-hidden="true" />
+                  </a>
+                </div>
+              </div>
             )}
           </div>
         </section>
 
-        <footer className="py-8 px-6 text-center border-t border-white/[0.04]">
-          <p className="text-sm text-slate-600" style={font}>
-            © {new Date().getFullYear()} Smart Learn · Mohammad Nabil · Egypt
-          </p>
+        <footer className="pt-8 pb-24 px-5 sm:px-6 border-t border-[#E2DBD0] bg-[#F2EEE6]">
+          <div className="max-w-4xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p className="text-sm text-[#52525B]">© {new Date().getFullYear()} {t.footer}</p>
+            <SocialLinks size="sm" />
+          </div>
         </footer>
       </div>
     </>

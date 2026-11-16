@@ -19,50 +19,48 @@ const allDocs = Object.entries(modules).map(([path, module]) => {
 
 export default function DocsPost() {
   const [match, params] = useRoute("/docs/:slug");
-  const { t, lang: currentLang, lok } = useT();
-  const font: React.CSSProperties = { fontFamily: "'Cairo', sans-serif" };
-  if (!match || !params?.slug) return null;
+  const { t, lang: currentLang, lok, isRTL } = useT();
+  const [headings, setHeadings] = useState<{ id: string; text: string; level: number }[]>([]);
 
-  let modulePath = `../content/docs/${currentLang}/${params.slug}.mdx`;
-  let postModule = modules[modulePath];
-  
-  if (!postModule && currentLang !== 'en') {
-    // Fallback to English if translation is missing
-    modulePath = `../content/docs/en/${params.slug}.mdx`;
-    postModule = modules[modulePath];
-  }
+  const modulePathEn = params?.slug ? `../content/docs/en/${params.slug}.mdx` : "";
+  const modulePathCur = params?.slug ? `../content/docs/${currentLang}/${params.slug}.mdx` : "";
+  const postModule = modules[modulePathCur] ?? (currentLang !== "en" ? modules[modulePathEn] : undefined);
 
-  const [headings, setHeadings] = useState<{id: string, text: string, level: number}[]>([]);
-  
   useEffect(() => {
-    const article = document.querySelector('article');
+    const article = document.querySelector("article");
     if (!article) return;
-    
-    // Slight delay to ensure MDX has rendered
-    setTimeout(() => {
-      const headingElements = article.querySelectorAll('h2, h3');
-      const extractedHeadings: {id: string, text: string, level: number}[] = [];
-      
+
+    const timer = setTimeout(() => {
+      const headingElements = article.querySelectorAll("h2, h3");
+      const extractedHeadings: { id: string; text: string; level: number }[] = [];
+
       headingElements.forEach((el, index) => {
         if (!el.id) {
-          el.id = (el.textContent || '').toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, '') || `heading-${index}`;
+          el.id =
+            (el.textContent || "")
+              .toLowerCase()
+              .replace(/\s+/g, "-")
+              .replace(/[^\w-]/g, "") || `heading-${index}`;
         }
         extractedHeadings.push({
           id: el.id,
-          text: el.textContent || '',
-          level: el.tagName === 'H2' ? 2 : 3
+          text: el.textContent || "",
+          level: el.tagName === "H2" ? 2 : 3,
         });
       });
-      
+
       setHeadings(extractedHeadings);
     }, 100);
+
+    return () => clearTimeout(timer);
   }, [params?.slug, currentLang, postModule]);
 
-  // Filter docs for sidebar (current language, or English fallback)
-  const sidebarLinks = allDocs.filter(d => {
+  if (!match || !params?.slug) return null;
+
+  const sidebarLinks = allDocs.filter((d) => {
     if (d.lang === currentLang) return true;
-    if (d.lang === 'en') {
-      const hasTranslation = allDocs.some(other => other.slug === d.slug && other.lang === currentLang);
+    if (d.lang === "en") {
+      const hasTranslation = allDocs.some((other) => other.slug === d.slug && other.lang === currentLang);
       return !hasTranslation;
     }
     return false;
@@ -70,11 +68,13 @@ export default function DocsPost() {
 
   if (!postModule) {
     return (
-      <div className="min-h-screen flex flex-col" style={{ backgroundColor: "#07070f" }}>
+      <div className="min-h-screen flex flex-col bg-[#FAF8F4] text-[#18181B]" dir={isRTL ? "rtl" : "ltr"}>
         <Navbar />
-        <div className="container mx-auto px-4 pt-48 pb-32 text-center flex-1">
-          <h1 className="text-3xl font-bold text-white mb-4">404 - Document Not Found</h1>
-          <p className="text-gray-400">The documentation you are looking for does not exist.</p>
+        <div className="container mx-auto px-4 pt-36 pb-24 text-center flex-1">
+          <h1 className="font-display text-3xl font-bold text-[#18181B] mb-3">
+            404 - Document Not Found
+          </h1>
+          <p className="text-[#52525B]">The documentation you are looking for does not exist.</p>
         </div>
       </div>
     );
@@ -84,22 +84,23 @@ export default function DocsPost() {
   const frontmatter = postModule.frontmatter;
 
   return (
-    <div className="min-h-screen" style={{ backgroundColor: "#07070f" }}>
+    <div className="min-h-screen bg-[#FAF8F4] text-[#18181B]" dir={isRTL ? "rtl" : "ltr"}>
       <Navbar />
-      <div className="pt-28 pb-20 px-6">
+      <div className="pt-28 pb-20 px-5 sm:px-6">
         <div className="container mx-auto max-w-7xl flex flex-col md:flex-row gap-8 lg:gap-12">
-          
-          {/* Right Sidebar (Table of Contents) -> Renders on Left in English, Right in Arabic */}
           {headings.length > 0 && (
-            <aside className="hidden lg:block w-56 shrink-0 border-b md:border-b-0 border-white/10 pb-6 md:pb-0">
+            <aside className="hidden lg:block w-56 shrink-0 pb-6 md:pb-0">
               <div className="sticky top-28">
-                <h3 className="text-sm font-bold text-white mb-4 uppercase tracking-wider">
+                <h3 className="text-xs font-bold text-[#52525B] mb-4 uppercase tracking-wider">
                   {lok({ en: "ON THIS PAGE", ar: "في هذه الصفحة" })}
                 </h3>
-                <ul className="space-y-3 border-l border-white/10 pl-4">
-                  {headings.map(h => (
-                    <li key={h.id} className={h.level === 3 ? "pl-4" : ""}>
-                      <a href={`#${h.id}`} className="text-sm text-gray-400 hover:text-primary transition-colors block leading-tight">
+                <ul className="space-y-2.5 border-s border-[#E2DBD0] ps-4">
+                  {headings.map((h) => (
+                    <li key={h.id} className={h.level === 3 ? "ps-3" : ""}>
+                      <a
+                        href={`#${h.id}`}
+                        className="text-sm text-[#3F3F46] hover:text-[#C2410C] transition-colors block leading-snug"
+                      >
                         {h.text}
                       </a>
                     </li>
@@ -109,30 +110,38 @@ export default function DocsPost() {
             </aside>
           )}
 
-          {/* Main Content */}
-          <main className="flex-1 min-w-0">
+          <div className="flex-1 min-w-0">
             {frontmatter && (
-              <div className="mb-10 pb-6 border-b border-white/10">
-                <h1 className="text-4xl font-bold mb-3 text-white">{frontmatter.title}</h1>
-                {frontmatter.description && <p className="text-lg text-gray-400">{frontmatter.description}</p>}
+              <div className="mb-8 pb-6 border-b border-[#E2DBD0]">
+                <h1 className="font-display text-3xl sm:text-4xl font-bold mb-2 text-[#18181B]">
+                  {frontmatter.title}
+                </h1>
+                {frontmatter.description && (
+                  <p className="text-base sm:text-lg text-[#3F3F46]">{frontmatter.description}</p>
+                )}
               </div>
             )}
-            <article className="prose prose-invert prose-lg max-w-none prose-headings:text-white prose-a:text-primary hover:prose-a:text-primary/80 prose-pre:bg-[#0d0d17] prose-pre:border prose-pre:border-white/10">
+            <article className="prose prose-zinc prose-lg max-w-none prose-headings:font-display prose-headings:text-[#18181B] prose-a:text-[#C2410C] hover:prose-a:text-[#9A3412] prose-pre:bg-[#18181B] prose-pre:text-[#FAF8F4]">
               <PostComponent />
             </article>
-          </main>
+          </div>
 
-          {/* Left Sidebar (Navigation) -> Renders on Right in English, Left in Arabic */}
           <aside className="md:w-60 lg:w-64 shrink-0">
-            <div className="sticky top-28">
-              <h3 className="text-lg font-bold text-white mb-4 border-b border-white/10 pb-2">
+            <div className="sticky top-28 rounded-2xl border border-[#E2DBD0] bg-white p-5">
+              <h3 className="font-sans text-sm font-bold text-[#18181B] mb-3 border-b border-[#E2DBD0] pb-2">
                 {lok({ en: "All Documentation", ar: "جميع الوثائق" })}
               </h3>
               <ul className="space-y-2">
-                {sidebarLinks.map(link => (
+                {sidebarLinks.map((link) => (
                   <li key={link.slug}>
                     <Link href={`/docs/${link.slug}`}>
-                      <span className={`block cursor-pointer text-sm hover:text-primary transition-colors ${params.slug === link.slug ? 'text-primary font-bold' : 'text-gray-400'}`}>
+                      <span
+                        className={`block cursor-pointer text-sm transition-colors ${
+                          params.slug === link.slug
+                            ? "text-[#C2410C] font-bold"
+                            : "text-[#3F3F46] hover:text-[#C2410C]"
+                        }`}
+                      >
                         {link.title}
                       </span>
                     </Link>
@@ -141,15 +150,12 @@ export default function DocsPost() {
               </ul>
             </div>
           </aside>
-
         </div>
       </div>
-      <footer className="py-10 px-6 border-t border-white/[0.04]">
-        <div className="max-w-6xl mx-auto flex flex-col items-center gap-4">
+      <footer className="pt-8 pb-24 px-5 sm:px-6 border-t border-[#E2DBD0] bg-[#F2EEE6]">
+        <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p className="text-sm text-[#52525B]">© {new Date().getFullYear()} {t.footer}</p>
           <SocialLinks size="sm" />
-          <p className="text-sm text-slate-600" style={font}>
-            © {new Date().getFullYear()} {t.footer}
-          </p>
         </div>
       </footer>
     </div>

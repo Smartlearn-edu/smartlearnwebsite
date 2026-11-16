@@ -33,25 +33,17 @@ export function ServiceRouter() {
     const txt = notFound[lang];
     return (
       <div
-        className="min-h-screen flex flex-col items-center justify-center"
-        style={{ backgroundColor: "#07070f" }}
+        className="min-h-screen flex flex-col items-center justify-center bg-[#FAF8F4] text-[#18181B]"
       >
         <Navbar />
         <div className="text-center px-6">
-          <p className="text-6xl mb-6">404</p>
-          <h1
-            className="text-2xl font-black text-white mb-4"
-            style={{ fontFamily: "'Cairo', sans-serif" }}
-          >
+          <p className="font-display text-6xl font-bold text-[#C2410C] mb-4">404</p>
+          <h1 className="text-2xl font-bold mb-4">
             {txt.heading}
           </h1>
           <Link
             href="/"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-bold text-sm text-white"
-            style={{
-              background: "linear-gradient(135deg, #6900A3, #a855f7)",
-              fontFamily: "'Cairo', sans-serif",
-            }}
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-bold text-sm text-white bg-[#C2410C] hover:bg-[#9A3412]"
           >
             <DirectionalArrow size={16} />
             {txt.back}

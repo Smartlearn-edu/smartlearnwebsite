@@ -1,68 +1,37 @@
 import { useState } from "react";
-import { motion } from "framer-motion";
-import { Award, ExternalLink } from "lucide-react";
-import { LinkedInBadge } from "@/components/LinkedInBadge";
+import { Award, ExternalLink, ShieldCheck } from "lucide-react";
 import { useT } from "@/i18n";
 
 export function AboutSection() {
-  const { t } = useT();
+  const { t, lang, isRTL } = useT();
   const [photoError, setPhotoError] = useState(false);
-  const photoUrl = "/img/mohammad-nabil.jpg";
 
   return (
-    <section id="about" className="py-24 px-6">
+    <section
+      id="about"
+      className="py-16 sm:py-20 px-5 sm:px-6 bg-[#FAF8F4]"
+      dir={isRTL ? "rtl" : "ltr"}
+    >
       <div className="max-w-6xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, ease: "easeOut" }}
-          className="text-center mb-16"
-        >
-          <div
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-bold uppercase tracking-widest mb-6"
-            style={{
-              background: "rgba(105,0,163,0.15)",
-              border: "1px solid rgba(168,85,247,0.3)",
-              color: "#c084fc",
-              fontFamily: "'Cairo', sans-serif",
-            }}
-          >
+        <div className="max-w-2xl mb-12">
+          <p className="text-xs font-bold uppercase tracking-widest text-[#C2410C] mb-2">
             {t.about.badge}
-          </div>
-          <h2
-            className="text-4xl md:text-5xl font-black text-white mb-4"
-            style={{ fontFamily: "'Cairo', sans-serif" }}
-          >
-            {t.about.heading} <span className="gradient-text">{t.about.headingGradient}</span>
+          </p>
+          <h2 className="font-display text-3xl sm:text-4xl font-bold text-[#18181B]">
+            {t.about.heading}{" "}
+            <span className="text-[#581C87]">{t.about.headingGradient}</span>
           </h2>
-        </motion.div>
+        </div>
 
-        <div className="grid md:grid-cols-2 gap-8 items-start">
-          {/* Left column: Bio card + Community Expert card stacked */}
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-            className="flex flex-col gap-5"
-          >
-            {/* Bio card */}
-            <div
-              className="rounded-2xl p-8"
-              style={{
-                background: "rgba(255,255,255,0.03)",
-                border: "1px solid rgba(255,255,255,0.07)",
-              }}
-            >
-              <div className="flex items-center gap-4 mb-6">
-                <div
-                  className="w-16 h-16 rounded-2xl flex items-center justify-center text-xl font-black text-white flex-shrink-0 overflow-hidden relative"
-                  style={{ background: "linear-gradient(135deg, #6900A3, #c084fc)" }}
-                >
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          {/* Left column: Real founder portrait, bio & verified platforms */}
+          <div className="lg:col-span-6 space-y-5">
+            <div className="rounded-2xl border border-[#E2DBD0] bg-white p-6 sm:p-8 shadow-2xs">
+              <div className="flex items-center gap-4 mb-5">
+                <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl overflow-hidden border border-[#E2DBD0] bg-[#F2EEE6] flex items-center justify-center font-display text-xl font-bold text-[#18181B] flex-shrink-0">
                   {!photoError ? (
                     <img
-                      src={photoUrl}
+                      src="/img/mohammad-nabil.jpg"
                       alt={t.about.name}
                       className="w-full h-full object-cover"
                       onError={() => setPhotoError(true)}
@@ -72,154 +41,114 @@ export function AboutSection() {
                   )}
                 </div>
                 <div>
-                  <h3
-                    className="text-xl font-black text-white"
-                    style={{ fontFamily: "'Cairo', sans-serif" }}
-                  >
+                  <h3 className="font-sans text-xl font-bold text-[#18181B]">
                     {t.about.name}
                   </h3>
-                  <p
-                    className="text-sm text-slate-500"
-                    style={{ fontFamily: "'Cairo', sans-serif" }}
-                  >
-                    {t.about.role}
-                  </p>
+                  <p className="text-sm font-medium text-[#52525B]">{t.about.role}</p>
                 </div>
               </div>
 
-              <p
-                className="text-slate-200 leading-relaxed mb-6"
-                style={{ fontFamily: "'Cairo', sans-serif" }}
-              >
+              <p className="text-base text-[#3F3F46] leading-relaxed mb-6">
                 {t.about.bio}
               </p>
 
-              <div className="flex flex-wrap gap-3">
+              <div className="flex flex-wrap gap-2.5">
                 <a
                   href="https://mostaql.com/u/m_nabil_riad/reviews"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 text-sm font-bold px-3.5 py-2 rounded-lg transition-all duration-200 hover:opacity-80"
-                  style={{
-                    background: "rgba(105,0,163,0.15)",
-                    color: "#c084fc",
-                    border: "1px solid rgba(168,85,247,0.25)",
-                    fontFamily: "'Cairo', sans-serif",
-                  }}
+                  className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold px-3.5 py-2 rounded-lg border border-[#E2DBD0] bg-[#FAF8F4] text-[#18181B] hover:border-[#C9C0B2] transition-colors"
                 >
-                  {t.about.mostaql}
-                  <ExternalLink size={13} />
+                  <span>{t.about.mostaql}</span>
+                  <ExternalLink size={13} aria-hidden="true" />
                 </a>
                 <a
                   href="https://khamsat.com/user/mohammadnabilriad/reviews"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 text-sm font-bold px-3.5 py-2 rounded-lg transition-all duration-200 hover:opacity-80"
-                  style={{
-                    background: "rgba(105,0,163,0.15)",
-                    color: "#c084fc",
-                    border: "1px solid rgba(168,85,247,0.25)",
-                    fontFamily: "'Cairo', sans-serif",
-                  }}
+                  className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold px-3.5 py-2 rounded-lg border border-[#E2DBD0] bg-[#FAF8F4] text-[#18181B] hover:border-[#C9C0B2] transition-colors"
                 >
-                  {t.about.khamsat}
-                  <ExternalLink size={13} />
+                  <span>{t.about.khamsat}</span>
+                  <ExternalLink size={13} aria-hidden="true" />
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/m-n-riad/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold px-3.5 py-2 rounded-lg border border-[#E2DBD0] bg-[#FAF8F4] text-[#18181B] hover:border-[#C9C0B2] transition-colors"
+                >
+                  <span>LinkedIn</span>
+                  <ExternalLink size={13} aria-hidden="true" />
                 </a>
               </div>
             </div>
 
-            {/* Moodle Community Expert card */}
-            <div
-              className="rounded-2xl p-6"
-              style={{
-                background:
-                  "linear-gradient(135deg, rgba(105,0,163,0.12) 0%, rgba(168,85,247,0.06) 100%)",
-                border: "1px solid rgba(168,85,247,0.25)",
-              }}
-            >
-              <div className="flex items-start gap-4">
-                <div
-                  className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 mt-0.5"
-                  style={{ background: "rgba(168,85,247,0.15)" }}
+            {/* Official Moodle.org Community Recognition */}
+            <div className="rounded-2xl border border-[#FED7AA] bg-[#FFF3EB] p-6 flex items-start gap-4">
+              <div className="w-10 h-10 rounded-xl bg-white border border-[#FED7AA] flex items-center justify-center text-[#C2410C] flex-shrink-0">
+                <Award size={20} aria-hidden="true" />
+              </div>
+              <div>
+                <h4 className="font-sans text-base font-bold text-[#18181B] mb-1">
+                  {t.about.communityExpert}
+                </h4>
+                <p className="text-sm text-[#3F3F46] leading-relaxed mb-2.5">
+                  {t.about.badgeDesc}
+                </p>
+                <a
+                  href="https://moodle.org"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1 text-sm font-bold text-[#C2410C] hover:text-[#9A3412]"
                 >
-                  <Award size={18} style={{ color: "#c084fc" }} />
-                </div>
-                <div>
-                  <h4
-                    className="font-black text-white mb-1"
-                    style={{ fontFamily: "'Cairo', sans-serif" }}
-                  >
-                    {t.about.communityExpert}
-                  </h4>
-                  <p
-                    className="text-base text-slate-200 leading-relaxed"
-                    style={{ fontFamily: "'Cairo', sans-serif" }}
-                  >
-                    {t.about.badgeDesc.split(t.about.badgeHighlight)[0]}
-                    <span style={{ color: "#c084fc", fontWeight: 700 }}>
-                      {t.about.badgeHighlight}
-                    </span>
-                    {t.about.badgeDesc.split(t.about.badgeHighlight)[1]}
-                  </p>
-                  <a
-                    href="https://moodle.org"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1 text-sm mt-3 font-bold"
-                    style={{ color: "#a855f7", fontFamily: "'Cairo', sans-serif" }}
-                  >
-                    {t.about.viewMoodle}
-                  </a>
-                </div>
+                  <span>{t.about.viewMoodle}</span>
+                  <ExternalLink size={13} aria-hidden="true" />
+                </a>
               </div>
             </div>
-          </motion.div>
+          </div>
 
-          {/* Right column: LinkedIn Badge */}
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
-            className="flex flex-col items-center justify-center w-full h-full"
-          >
-            <LinkedInBadge className="w-full" />
-          </motion.div>
+          {/* Right column: Engineering Principles Ledger */}
+          <div className="lg:col-span-6 rounded-2xl border border-[#E2DBD0] bg-white p-6 sm:p-8 shadow-2xs">
+            <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#581C87] mb-5">
+              <ShieldCheck size={16} aria-hidden="true" />
+              <span>{t.about.principlesTitle}</span>
+            </div>
+
+            <ol className="divide-y divide-[#E2DBD0]">
+              {t.about.principles.map((item, idx) => (
+                <li key={item.title} className="py-5 first:pt-0 last:pb-0 flex gap-4">
+                  <span className="font-mono-slug text-xs font-bold text-[#C2410C] bg-[#FFF3EB] border border-[#FED7AA] w-7 h-7 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
+                    0{idx + 1}
+                  </span>
+                  <div>
+                    <h4 className="font-sans text-base font-bold text-[#18181B] mb-1">
+                      {item.title}
+                    </h4>
+                    <p className="text-sm text-[#3F3F46] leading-relaxed">{item.desc}</p>
+                  </div>
+                </li>
+              ))}
+            </ol>
+
+            <div className="mt-6 pt-5 border-t border-[#E2DBD0] flex flex-wrap items-center justify-between gap-3 text-xs text-[#52525B]">
+              <span>
+                {lang === "ar"
+                  ? "أكثر من ٧٠ مؤسسة تعليمية في مصر والخليج وبريطانيا"
+                  : "70+ institutions across Egypt, the Gulf & the UK"}
+              </span>
+              <a
+                href="https://github.com/Smartlearn-edu"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-semibold text-[#18181B] hover:text-[#C2410C] inline-flex items-center gap-1"
+              >
+                <span>GitHub</span>
+                <ExternalLink size={12} aria-hidden="true" />
+              </a>
+            </div>
+          </div>
         </div>
-
-        {/* Full-width stats row below both columns */}
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" }}
-          className="grid grid-cols-3 gap-4 rounded-2xl p-6 mt-8"
-          style={{
-            background: "rgba(255,255,255,0.03)",
-            border: "1px solid rgba(255,255,255,0.07)",
-          }}
-        >
-          {[
-            { value: "100,000+", label: t.about.stat1Label },
-            { value: "70+", label: t.about.stat2Label },
-            { value: "5+", label: t.about.stat3Label },
-          ].map((stat) => (
-            <div key={stat.label} className="text-center">
-              <div
-                className="text-2xl font-black gradient-text mb-0.5"
-                style={{ fontFamily: "'Cairo', sans-serif" }}
-              >
-                {stat.value}
-              </div>
-              <div
-                className="text-xs text-slate-500 uppercase tracking-wide"
-                style={{ fontFamily: "'Cairo', sans-serif" }}
-              >
-                {stat.label}
-              </div>
-            </div>
-          ))}
-        </motion.div>
       </div>
     </section>
   );

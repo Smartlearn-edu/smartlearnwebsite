@@ -1,6 +1,6 @@
 import { Helmet } from "react-helmet-async";
-import { motion } from "framer-motion";
-import { Check, MessageCircle, Mail, ArrowRight, ArrowLeft } from "lucide-react";
+import { Check, MessageCircle, Mail, ArrowRight, ArrowLeft, Layers } from "lucide-react";
+import { Link } from "wouter";
 import { Navbar } from "@/components/Navbar";
 import { SocialLinks } from "@/components/SocialLinks";
 import { useT } from "@/i18n";
@@ -8,72 +8,66 @@ import { useT } from "@/i18n";
 const WA_URL = "https://wa.me/201005822858";
 const MAIL = "support@smartlearn.education";
 
-const font: React.CSSProperties = { fontFamily: "'Cairo', sans-serif" };
-
-const gradientText: React.CSSProperties = {
-  background: "linear-gradient(135deg, #a855f7, #c084fc)",
-  WebkitBackgroundClip: "text",
-  WebkitTextFillColor: "transparent",
-  backgroundClip: "text",
-};
-
 const SERVICES = [
   {
-    icon: "🏗️",
+    slug: "plugins",
+    name: { en: "Plugin Development", ar: "تطوير إضافات موودل" },
+    price: { en: "From $50 / Custom", ar: "من $50 / حسب النطاق" },
+    priceNote: { en: "ready-made licenses or bespoke builds", ar: "تراخيص جاهزة أو تطوير مخصص" },
+    featured: true,
+    inclusions: {
+      en: [
+        "Requirements analysis & technical spec",
+        "100% Moodle-standard compliant source code",
+        "Activity modules, blocks, local plugins, themes",
+        "Full Arabic RTL & English support",
+        "Code walkthrough & installation guide",
+        "60-day post-launch bug warranty",
+      ],
+      ar: [
+        "تحليل المتطلبات والمواصفات التقنية",
+        "كود نظيف متوافق 100% مع معايير موودل",
+        "وحدات أنشطة، إضافات محلية، قوالب، تقارير",
+        "دعم كامل للغة العربية RTL والإنجليزية",
+        "شرح الاستخدام ودليل التثبيت الكامل",
+        "ضمان إصلاح الأخطاء لمدة ٦٠ يوماً",
+      ],
+    },
+    waMsg: {
+      en: "Hi, I need a custom Moodle plugin built or customized. Let me share the requirements.",
+      ar: "مرحباً، أحتاج بناء أو تخصيص إضافة Moodle. دعني أشارك المتطلبات.",
+    },
+  },
+  {
     slug: "moodle-core",
-    name: { en: "Moodle Setup & Maintenance", ar: "إعداد وصيانة Moodle" },
+    name: { en: "Moodle Setup & Maintenance", ar: "إعداد وصيانة موودل" },
     price: { en: "From $150", ar: "يبدأ من $150" },
     priceNote: { en: "per project", ar: "لكل مشروع" },
     featured: false,
     inclusions: {
       en: [
         "Fresh Moodle installation on your server",
-        "PHP / MySQL / NGINX server configuration",
-        "Custom theme + branding setup",
-        "Essential plugin installation & config",
-        "SSL, caching & performance tuning",
-        "30-day post-launch bug fix support",
+        "PHP / MariaDB / NGINX configuration",
+        "Theme & institutional branding setup",
+        "Essential plugin installation & tuning",
+        "SSL, Redis caching & performance tuning",
+        "30-day post-launch support",
       ],
       ar: [
-        "تثبيت Moodle الجديد على خادمك",
-        "إعداد خادم PHP / MySQL / NGINX",
-        "ضبط القالب والهوية البصرية",
-        "تثبيت الإضافات الأساسية وضبطها",
-        "SSL والتخزين المؤقت وضبط الأداء",
-        "دعم إصلاح الأخطاء 30 يوماً بعد الإطلاق",
+        "تثبيت موودل النظيف على خادمك",
+        "ضبط خادم PHP / MariaDB / NGINX",
+        "إعداد القالب والهوية البصرية للمؤسسة",
+        "تثبيت الإضافات الأساسية وتهيئتها",
+        "SSL وRedis وضبط سرعة المنصة",
+        "دعم فني 30 يوماً بعد الإطلاق",
       ],
     },
-    waMsg: { en: "Hi, I'm interested in Moodle Setup & Maintenance service.", ar: "مرحباً، أريد الاستفسار عن خدمة إعداد وصيانة Moodle." },
-  },
-  {
-    icon: "🧩",
-    slug: "plugins",
-    name: { en: "Plugin Development", ar: "تطوير الإضافات" },
-    price: { en: "Contact for pricing", ar: "تواصل للتسعير" },
-    priceNote: { en: "based on scope", ar: "حسب النطاق" },
-    featured: true,
-    inclusions: {
-      en: [
-        "Requirements analysis & technical spec",
-        "Full Moodle-standard compliant source code",
-        "Activity modules, blocks, local plugins, themes",
-        "Code walkthrough & installation guide",
-        "Bug fix warranty for 60 days",
-        "Option to publish on Moodle.org",
-      ],
-      ar: [
-        "تحليل المتطلبات والمواصفات التقنية",
-        "كود كامل وفق معايير Moodle",
-        "وحدات أنشطة، بلوكات، إضافات محلية، قوالب",
-        "شرح الكود ودليل التثبيت",
-        "ضمان إصلاح الأخطاء 60 يوماً",
-        "خيار النشر على Moodle.org",
-      ],
+    waMsg: {
+      en: "Hi, I'm interested in Moodle Setup & Maintenance service.",
+      ar: "مرحباً، أريد الاستفسار عن خدمة إعداد وصيانة موودل.",
     },
-    waMsg: { en: "Hi, I need a custom Moodle plugin built. Let me share the requirements.", ar: "مرحباً، أحتاج بناء إضافة Moodle مخصصة. دعني أشارك المتطلبات." },
   },
   {
-    icon: "🤖",
     slug: "ai",
     name: { en: "AI Integration for Moodle", ar: "تكامل الذكاء الاصطناعي" },
     price: { en: "Contact for pricing", ar: "تواصل للتسعير" },
@@ -81,28 +75,30 @@ const SERVICES = [
     featured: false,
     inclusions: {
       en: [
-        "RAG pipeline setup (OpenAI / local LLM)",
-        "Course-specific AI chatbot deployment",
-        "Video-to-Text lecture pipeline",
-        "AI-assisted grading integration",
-        "Admin analytics dashboard",
-        "Team training & handoff documentation",
+        "Course-scoped RAG pipeline (OpenAI / Claude / local)",
+        "Quiz & Assignment AI tutor deployment",
+        "Video-to-Text lecture indexing",
+        "Teacher-approved AI rubric grading",
+        "Token-saving context controls",
+        "Team training & documentation",
       ],
       ar: [
-        "إعداد خط أنابيب RAG (OpenAI / LLM محلي)",
-        "نشر روبوت محادثة خاص بكل مقرر",
-        "خط معالجة الفيديو إلى نص",
-        "تكامل التصحيح بمساعدة الذكاء الاصطناعي",
-        "لوحة تحليلات للمسؤولين",
+        "بناء خط RAG خاص بالمقررات",
+        "تفعيل مساعد ذكي داخل الاختبارات والواجبات",
+        "تحويل المحاضرات المرئية إلى نصوص قابلة للبحث",
+        "تصحيح مقترح بالذكاء الاصطناعي باعتماد المعلم",
+        "تحكم ذكي في استهلاك التوكن",
         "تدريب الفريق وتوثيق التسليم",
       ],
     },
-    waMsg: { en: "Hi, I'm interested in AI integration for my Moodle platform.", ar: "مرحباً، أريد الاستفسار عن تكامل الذكاء الاصطناعي مع منصة Moodle لدي." },
+    waMsg: {
+      en: "Hi, I'm interested in AI integration for my Moodle platform.",
+      ar: "مرحباً، أريد الاستفسار عن تكامل الذكاء الاصطناعي مع منصة موودل لدي.",
+    },
   },
   {
-    icon: "⚡",
     slug: "n8n",
-    name: { en: "n8n Automation", ar: "أتمتة n8n" },
+    name: { en: "n8n Automation", ar: "أتمتة العمليات بـ n8n" },
     price: { en: "Contact for pricing", ar: "تواصل للتسعير" },
     priceNote: { en: "based on scope", ar: "حسب النطاق" },
     featured: false,
@@ -110,24 +106,26 @@ const SERVICES = [
       en: [
         "n8n server setup & configuration",
         "Moodle REST API integration",
-        "Auto-grading & enrollment workflows",
-        "Notification & reporting pipelines",
-        "RAG system automation builds",
+        "Auto-grading & enrolment workflows",
+        "WhatsApp & email notification pipelines",
+        "CRM & payment webhook sync",
         "Full workflow documentation",
       ],
       ar: [
         "إعداد وتهيئة خادم n8n",
-        "تكامل Moodle REST API",
+        "ربط واجهة Moodle REST API",
         "سير عمل التصحيح والتسجيل التلقائي",
-        "خطوط الإشعارات والتقارير",
-        "بناء أتمتة أنظمة RAG",
+        "إشعارات واتساب والبريد التلقائية",
+        "ربط أنظمة المبيعات وبوابات الدفع",
         "توثيق كامل لسير العمل",
       ],
     },
-    waMsg: { en: "Hi, I'd like to discuss n8n automation for my Moodle platform.", ar: "مرحباً، أريد مناقشة أتمتة n8n لمنصة Moodle لدي." },
+    waMsg: {
+      en: "Hi, I'd like to discuss n8n automation for my Moodle platform.",
+      ar: "مرحباً، أريد مناقشة أتمتة n8n لمنصة موودل لدي.",
+    },
   },
   {
-    icon: "🎓",
     slug: "training",
     name: { en: "Training & Technical Support", ar: "التدريب والدعم الفني" },
     price: { en: "From $50", ar: "يبدأ من $50" },
@@ -139,24 +137,26 @@ const SERVICES = [
         "Live online training sessions",
         "Session recordings provided",
         "Admin & teacher-track programs",
-        "Q&A + follow-up resources",
+        "Q&A + follow-up documentation",
         "Ongoing monthly support retainers available",
       ],
       ar: [
-        "منهج مخصص لفريقك",
+        "منهج عملي مخصص لفريقك",
         "جلسات تدريبية مباشرة عبر الإنترنت",
-        "تسجيلات الجلسات مضمّنة",
-        "برامج مسار المسؤولين والمعلمين",
-        "أسئلة وأجوبة + موارد متابعة",
-        "خطط دعم شهرية مستمرة متاحة",
+        "تسجيلات الجلسات محفوظة لفريقك",
+        "مسار خاص للمديرين ومسار للمعلمين",
+        "إجابات ومتابعة مستمرة",
+        "باقات دعم شهرية اختيارية",
       ],
     },
-    waMsg: { en: "Hi, I'm interested in Moodle training for my team.", ar: "مرحباً، أريد الاستفسار عن تدريب Moodle لفريقي." },
+    waMsg: {
+      en: "Hi, I'm interested in Moodle training for my team.",
+      ar: "مرحباً، أريد الاستفسار عن تدريب موودل لفريقي.",
+    },
   },
   {
-    icon: "📱",
     slug: "mobile-app",
-    name: { en: "Branded Moodle Mobile App", ar: "تطبيق Moodle بهويتك" },
+    name: { en: "Branded Moodle Mobile App", ar: "تطبيق موودل بهويتك" },
     price: { en: "From $300", ar: "يبدأ من $300" },
     priceNote: { en: "one-time setup", ar: "رسوم إعداد لمرة واحدة" },
     featured: false,
@@ -164,56 +164,59 @@ const SERVICES = [
       en: [
         "Android + iOS app with your branding",
         "Your logo, colors & custom login screen",
-        "Direct LMS sign-in for your students",
+        "Pre-configured LMS domain sign-in",
         "Push notification configuration",
-        "App store submission (Google Play + App Store)",
+        "Google Play + App Store submission",
         "30-day post-launch support",
       ],
       ar: [
-        "تطبيق Android + iOS بهويتك البصرية",
+        "تطبيق Android + iOS بهوية مؤسستك",
         "شعارك وألوانك وشاشة تسجيل دخول مخصصة",
-        "تسجيل دخول مباشر لطلابك إلى منصتك",
-        "إعداد الإشعارات الفورية",
-        "نشر على المتاجر (Google Play + App Store)",
-        "دعم 30 يوماً بعد الإطلاق",
+        "ربط مسبق بعنوان منصتك للدخول السريع",
+        "إعداد الإشعارات الفورية للطلاب",
+        "الرفع على Google Play وApp Store",
+        "دعم فني 30 يوماً بعد الإطلاق",
       ],
     },
-    waMsg: { en: "Hi, I'm interested in a branded Moodle mobile app for my institution.", ar: "مرحباً، أريد الاستفسار عن تطبيق Moodle بهوية مؤسستي." },
+    waMsg: {
+      en: "Hi, I'm interested in a branded Moodle mobile app for my institution.",
+      ar: "مرحباً، أريد الاستفسار عن تطبيق موودل بهوية مؤسستي.",
+    },
   },
 ];
 
 const PAGE_TEXT = {
   en: {
-    badge: "💰 Pricing",
-    heading: "Simple, Transparent",
-    headingGradient: "Pricing",
-    subtitle: "Each service is scoped and quoted based on your specific requirements. Starting prices are shown where applicable — complex or custom work is quoted after a free discovery call.",
+    badge: "Transparent Pricing",
+    heading: "Clear scopes,",
+    headingGradient: "honest pricing",
+    subtitle: "Starting prices are listed where fixed scopes apply. Ready-made plugins have flat one-time licenses, and custom builds are scoped within 24 hours.",
     contactPrice: "Contact for pricing",
-    getQuote: "Get a Quote",
+    getQuote: "Request a Quote",
     chatWA: "Chat on WhatsApp",
-    ctaHeading: "Have a custom project in mind?",
-    ctaHeadingGradient: "Let's talk.",
-    ctaDesc: "Not sure which service fits? Describe your platform and goals — I'll put together a scope and quote within 24 hours. No commitment required.",
+    ctaHeading: "Have a custom plugin or LMS project?",
+    ctaHeadingGradient: "Let's scope it.",
+    ctaDesc: "Describe your Moodle version, learner count, and goal — I will reply with a realistic plan and timeline within 24 hours.",
     ctaWA: "Chat on WhatsApp",
     ctaMail: "Send an Email",
-    pluginsNote: "Looking for individual plugin prices?",
-    pluginsLink: "Browse the Plugins catalogue →",
+    pluginsNote: "Looking for individual ready-made Moodle plugins?",
+    pluginsLink: "Browse all 22 plugins",
   },
   ar: {
-    badge: "💰 الأسعار",
-    heading: "أسعار بسيطة",
-    headingGradient: "وشفافة",
-    subtitle: "يُحدَّد كل مشروع ويُسعَّر بناءً على متطلباتك الخاصة. الأسعار المبدئية معروضة عند توفرها — المشاريع المعقدة أو المخصصة تُسعَّر بعد مكالمة استكشافية مجانية.",
+    badge: "تسعير واضح",
+    heading: "نطاق عمل واضح،",
+    headingGradient: "وأسعار شفافة",
+    subtitle: "الإضافات الجاهزة لها ترخيص واضح لمرة واحدة، والخدمات الأساسية لها أسعار بداية محددة، والمشاريع المخصصة تُسعَّر خلال 24 ساعة.",
     contactPrice: "تواصل للتسعير",
-    getQuote: "احصل على سعر",
+    getQuote: "اطلب عرض سعر",
     chatWA: "تحدث على واتساب",
-    ctaHeading: "هل لديك مشروع مخصص؟",
-    ctaHeadingGradient: "لنتحدث.",
-    ctaDesc: "غير متأكد من الخدمة المناسبة؟ صف منصتك وأهدافك — سأُعدّ النطاق والتسعير خلال 24 ساعة. لا يلزمك أي التزام.",
+    ctaHeading: "لديك إضافة مخصصة أو مشروع لمنصتك؟",
+    ctaHeadingGradient: "دعنا نرتب الخطة.",
+    ctaDesc: "اذكر إصدار موودل لديك وعدد الطلاب والهدف — وسأرد عليك بخطة عملية وتقدير واضح خلال 24 ساعة.",
     ctaWA: "تحدث على واتساب",
     ctaMail: "راسلني بالبريد",
-    pluginsNote: "تبحث عن أسعار الإضافات الفردية؟",
-    pluginsLink: "← تصفّح كتالوج الإضافات",
+    pluginsNote: "تبحث عن أسعار الإضافات الجاهزة؟",
+    pluginsLink: "تصفّح كل الإضافات (٢٢)",
   },
 };
 
@@ -229,79 +232,45 @@ function PricingCard({
   const txt = PAGE_TEXT[lang];
   const ArrowIcon = isRTL ? ArrowLeft : ArrowRight;
   const isContact = service.price[lang] === PAGE_TEXT[lang].contactPrice || service.price.en === "Contact for pricing";
-
   const waLink = `${WA_URL}?text=${encodeURIComponent(service.waMsg[lang])}`;
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 24 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.5 }}
-      className="relative flex flex-col rounded-2xl overflow-hidden"
-      style={{
-        background: service.featured
-          ? "linear-gradient(135deg, rgba(105,0,163,0.18) 0%, rgba(168,85,247,0.08) 100%)"
-          : "rgba(255,255,255,0.03)",
-        border: service.featured
-          ? "1px solid rgba(168,85,247,0.4)"
-          : "1px solid rgba(255,255,255,0.07)",
-      }}
+    <article
+      className={`relative flex flex-col rounded-2xl overflow-hidden border transition-shadow ${
+        service.featured
+          ? "bg-[#FFF3EB] border-[#FDBA74] shadow-sm"
+          : "bg-white border-[#E2DBD0]"
+      }`}
     >
-      {service.featured && (
-        <div
-          className="absolute top-0 inset-x-0 h-0.5"
-          style={{ background: "linear-gradient(90deg, #6900A3, #a855f7, #c084fc)" }}
-        />
-      )}
-
       <div className="p-6 flex-1 flex flex-col">
         <div className="flex items-start justify-between gap-3 mb-4">
-          <div className="flex items-center gap-3">
-            <span className="text-2xl">{service.icon}</span>
-            <h3 className="text-base font-black text-white leading-snug" style={font}>
+          <div className="flex items-center gap-2.5">
+            <span className="w-8 h-8 rounded-lg bg-[#FAF8F4] border border-[#E2DBD0] flex items-center justify-center text-[#C2410C] flex-shrink-0">
+              <Layers size={16} aria-hidden="true" />
+            </span>
+            <h3 className="font-sans text-lg font-bold text-[#18181B] leading-snug">
               {service.name[lang]}
             </h3>
           </div>
           {service.featured && (
-            <span
-              className="flex-shrink-0 text-xs font-black px-2.5 py-1 rounded-full"
-              style={{
-                background: "rgba(168,85,247,0.15)",
-                border: "1px solid rgba(168,85,247,0.3)",
-                color: "#c084fc",
-                ...font,
-              }}
-            >
-              {lang === "en" ? "Popular" : "الأكثر طلباً"}
+            <span className="flex-shrink-0 text-xs font-bold px-2.5 py-0.5 rounded-full bg-white border border-[#FED7AA] text-[#C2410C]">
+              {lang === "en" ? "Core Focus" : "الطلب الأعلى"}
             </span>
           )}
         </div>
 
-        <div className="mb-5">
-          <div className="text-2xl font-black text-white" style={font}>
-            {isContact ? (
-              <span style={{ color: "#a855f7" }}>{txt.contactPrice}</span>
-            ) : (
-              service.price[lang]
-            )}
+        <div className="mb-5 pb-4 border-b border-[#E2DBD0]">
+          <div className="font-display text-2xl font-bold text-[#18181B]">
+            {isContact ? <span className="text-[#581C87]">{txt.contactPrice}</span> : service.price[lang]}
           </div>
-          <div className="text-xs text-slate-500 mt-0.5" style={font}>
-            {service.priceNote[lang]}
-          </div>
+          <div className="text-xs text-[#52525B] mt-0.5">{service.priceNote[lang]}</div>
         </div>
 
-        <ul className="space-y-2 flex-1 mb-6">
+        <ul className="space-y-2.5 flex-1 mb-6">
           {service.inclusions[lang].map((item, i) => (
             <li key={i} className="flex items-start gap-2.5">
-              <Check
-                size={14}
-                className="flex-shrink-0 mt-0.5"
-                style={{ color: "#a855f7" }}
-              />
-              <span className="text-base text-slate-200 leading-snug" style={font}>
-                {item}
-              </span>
+              <Check size={15} className="flex-shrink-0 mt-0.5 text-[#15803D]" aria-hidden="true" />
+              <span className="text-sm text-[#3F3F46] leading-snug">{item}</span>
             </li>
           ))}
         </ul>
@@ -310,21 +279,18 @@ function PricingCard({
           href={waLink}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center justify-center gap-2 w-full py-3 rounded-xl font-black text-sm text-white transition-all duration-200 hover:opacity-90 hover:scale-[1.02]"
-          style={{
-            background: service.featured
-              ? "linear-gradient(135deg, #6900A3, #a855f7)"
-              : "rgba(255,255,255,0.05)",
-            border: service.featured ? "none" : "1px solid rgba(168,85,247,0.25)",
-            ...font,
-          }}
+          className={`inline-flex items-center justify-center gap-2 w-full py-3 rounded-xl font-bold text-sm transition-colors ${
+            service.featured
+              ? "bg-[#C2410C] text-white hover:bg-[#9A3412]"
+              : "bg-[#FAF8F4] text-[#18181B] border border-[#C9C0B2] hover:bg-[#F2EEE6]"
+          }`}
         >
-          <MessageCircle size={15} />
-          {isContact ? txt.getQuote : txt.chatWA}
-          <ArrowIcon size={14} />
+          <MessageCircle size={15} aria-hidden="true" />
+          <span>{isContact ? txt.getQuote : txt.chatWA}</span>
+          <ArrowIcon size={14} aria-hidden="true" />
         </a>
       </div>
-    </motion.div>
+    </article>
   );
 }
 
@@ -345,127 +311,78 @@ export function PricingPage() {
         <title>Pricing — Smart Learn | Mohammad Nabil Moodle Expert</title>
         <meta
           name="description"
-          content="Transparent pricing for Moodle setup, AI integration, plugin development, n8n automation, training, and branded mobile apps. Contact for a custom quote."
+          content="Transparent pricing for Moodle plugins, setup, AI integration, n8n automation, training, and branded mobile apps."
         />
         <link rel="canonical" href="https://services.smartlearn.education/pricing" />
       </Helmet>
 
-      <div className="min-h-screen" style={{ backgroundColor: "#07070f" }}>
+      <div className="min-h-screen bg-[#FAF8F4] text-[#18181B]" dir={isRTL ? "rtl" : "ltr"}>
         <Navbar />
 
-        <div className="pt-28 pb-20 px-6" dir={isRTL ? "rtl" : "ltr"}>
+        <div className="pt-28 pb-16 px-5 sm:px-6">
           <div className="max-w-6xl mx-auto">
-            <motion.div
-              initial={{ opacity: 0, y: 24 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="text-center mb-14"
-            >
-              <span
-                className="inline-block text-xs font-black tracking-widest uppercase mb-5 px-4 py-1.5 rounded-full"
-                style={{
-                  color: "#a855f7",
-                  background: "rgba(168,85,247,0.08)",
-                  border: "1px solid rgba(168,85,247,0.2)",
-                  ...font,
-                }}
-              >
+            <div className="text-center mb-12">
+              <p className="text-xs font-bold uppercase tracking-widest text-[#C2410C] mb-3">
                 {txt.badge}
-              </span>
-              <h1 className="text-4xl md:text-5xl font-black text-white mb-5" style={font}>
-                {txt.heading}{" "}
-                <span style={gradientText}>{txt.headingGradient}</span>
+              </p>
+              <h1 className="font-display text-4xl md:text-5xl font-bold text-[#18181B] mb-4">
+                {txt.heading} <span className="text-[#C2410C]">{txt.headingGradient}</span>
               </h1>
-              <p className="text-slate-200 max-w-2xl mx-auto leading-relaxed" style={font}>
+              <p className="text-[#3F3F46] max-w-2xl mx-auto leading-relaxed mb-5">
                 {txt.subtitle}
               </p>
 
-              <div className="mt-5">
-                <a
-                  href="/services/plugins"
-                  className="text-sm text-purple-400 hover:text-purple-300 transition-colors"
-                  style={font}
-                >
-                  {txt.pluginsNote}{" "}
-                  <span className="underline underline-offset-2">{txt.pluginsLink}</span>
-                </a>
-              </div>
-            </motion.div>
+              <Link
+                href="/services/plugins"
+                className="inline-flex items-center gap-1.5 text-sm font-bold text-[#581C87] hover:text-[#C2410C] transition-colors"
+              >
+                <span>{txt.pluginsNote}</span>
+                <span className="underline underline-offset-4">{txt.pluginsLink}</span>
+                <ArrowIcon size={14} aria-hidden="true" />
+              </Link>
+            </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-14">
               {SERVICES.map((svc) => (
                 <PricingCard key={svc.slug} service={svc} lang={lang} isRTL={isRTL} />
               ))}
             </div>
 
-            <div
-              className="max-w-6xl mx-auto mb-16"
-              style={{
-                height: "1px",
-                background: "linear-gradient(90deg, transparent, rgba(255,255,255,0.06), transparent)",
-              }}
-            />
-
-            <motion.div
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-              className="rounded-3xl p-10 md:p-14 text-center"
-              style={{
-                background: "linear-gradient(135deg, rgba(105,0,163,0.14) 0%, rgba(168,85,247,0.06) 100%)",
-                border: "1px solid rgba(168,85,247,0.2)",
-              }}
-            >
-              <div
-                className="w-14 h-14 rounded-2xl flex items-center justify-center text-2xl mx-auto mb-6"
-                style={{ background: "rgba(168,85,247,0.12)", border: "1px solid rgba(168,85,247,0.2)" }}
-              >
-                💬
-              </div>
-              <h2 className="text-3xl md:text-4xl font-black text-white mb-3" style={font}>
-                {txt.ctaHeading}{" "}
-                <span style={gradientText}>{txt.ctaHeadingGradient}</span>
+            <div className="rounded-2xl p-8 sm:p-12 text-center bg-[#F2EEE6] border border-[#E2DBD0]">
+              <h2 className="font-display text-2xl sm:text-3xl font-bold text-[#18181B] mb-2.5">
+                {txt.ctaHeading} <span className="text-[#C2410C]">{txt.ctaHeadingGradient}</span>
               </h2>
-              <p className="text-slate-200 max-w-xl mx-auto mb-8 leading-relaxed" style={font}>
+              <p className="text-[#3F3F46] max-w-xl mx-auto mb-7 leading-relaxed">
                 {txt.ctaDesc}
               </p>
 
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
                 <a
                   href={waCustomLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-black text-sm text-white transition-all duration-200 hover:opacity-90 hover:scale-105"
-                  style={{ background: "linear-gradient(135deg, #6900A3, #a855f7)", ...font }}
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-bold text-sm text-white bg-[#15803D] hover:bg-[#166534] transition-colors"
                 >
-                  <MessageCircle size={16} />
-                  {txt.ctaWA}
-                  <ArrowIcon size={14} />
+                  <MessageCircle size={16} aria-hidden="true" />
+                  <span>{txt.ctaWA}</span>
+                  <ArrowIcon size={14} aria-hidden="true" />
                 </a>
                 <a
                   href={`mailto:${MAIL}`}
-                  className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-black text-sm text-white transition-all duration-200 hover:opacity-90 hover:scale-105"
-                  style={{
-                    background: "rgba(255,255,255,0.05)",
-                    border: "1px solid rgba(255,255,255,0.12)",
-                    ...font,
-                  }}
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-bold text-sm text-[#18181B] bg-white border border-[#C9C0B2] hover:bg-[#FAF8F4] transition-colors"
                 >
-                  <Mail size={16} />
-                  {txt.ctaMail}
+                  <Mail size={16} aria-hidden="true" />
+                  <span>{txt.ctaMail}</span>
                 </a>
               </div>
-            </motion.div>
+            </div>
           </div>
         </div>
 
-        <footer className="py-10 px-6 border-t border-white/[0.04]">
-          <div className="max-w-6xl mx-auto flex flex-col items-center gap-4">
+        <footer className="pt-8 pb-24 px-5 sm:px-6 border-t border-[#E2DBD0] bg-[#F2EEE6]">
+          <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p className="text-sm text-[#52525B]">© {new Date().getFullYear()} {t.footer}</p>
             <SocialLinks size="sm" />
-            <p className="text-sm text-slate-600" style={font}>
-              © {new Date().getFullYear()} {t.footer}
-            </p>
           </div>
         </footer>
       </div>

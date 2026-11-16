@@ -35,7 +35,7 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
     document.documentElement.lang = lang;
     document.documentElement.style.setProperty(
       "--site-font",
-      isRTL ? "'Tajawal', sans-serif" : "'Righteous', sans-serif"
+      isRTL ? "'Tajawal', sans-serif" : "'Plus Jakarta Sans', system-ui, -apple-system, sans-serif"
     );
     try {
       localStorage.setItem("sl-lang", lang);

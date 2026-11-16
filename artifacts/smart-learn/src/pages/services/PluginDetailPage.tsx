@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { useParams } from "wouter";
+import { useParams, Link } from "wouter";
 import { Helmet } from "react-helmet-async";
 import {
   Check, ArrowLeft, ArrowRight, Download, MessageCircle, ShoppingCart,
@@ -12,36 +12,26 @@ import { usePlugins } from "@/hooks/usePlugins";
 import { useT } from "@/i18n";
 import { SocialLinks } from "@/components/SocialLinks";
 import { PluginVideoEmbed } from "@/components/PluginVideoEmbed";
-import { Link } from "wouter";
 import { openFreemiusCheckout, type FreemiusPurchaseResponse } from "@/lib/freemius";
 import { extractYouTubeId, getYouTubeWatchUrl } from "@/lib/youtube";
 
-const font: React.CSSProperties = { fontFamily: "var(--site-font)" };
-
-const gradientText: React.CSSProperties = {
-  background: "linear-gradient(135deg, #a855f7 0%, #c084fc 100%)",
-  WebkitBackgroundClip: "text",
-  WebkitTextFillColor: "transparent",
-  backgroundClip: "text",
-};
-
 const ui = {
   en: {
-    back: "Back to Plugins",
-    about: "About This Plugin",
-    images: "Screenshots",
-    pricing: "Pricing",
+    back: "Back to All Plugins",
+    about: "Technical Overview & Details",
+    images: "Real Moodle Screenshots",
+    pricing: "Licensing & Support",
     free: "Free & Open Source",
     freeSupport: "Free + Paid Support",
     freeSupportBadge: "Free + Support",
-    freeDesc: "Download this plugin for free on Moodle.org",
+    freeDesc: "Download this plugin for free directly from Moodle.org",
     downloadBtn: "Download on Moodle.org",
     buyBtn: "Buy This Plugin",
     paidSupportTitle: "Need Professional Setup?",
-    paidSupportDesc: "This plugin is free to download, but professional installation, configuration, and ongoing support is available. Contact me for a tailored setup.",
-    paidSupportBtn: "Contact Me for Support",
+    paidSupportDesc: "This plugin is free to download, and you can hire me for server installation, configuration, and ongoing support.",
+    paidSupportBtn: "Contact Me for Setup",
     setupTitle: "Need the n8n Workflow?",
-    setupDesc: "This plugin requires an n8n workflow to handle AI grading. You can build it yourself — or hire me to set it up, configure the LLM connections, and test it on your Moodle instance.",
+    setupDesc: "This plugin connects to an n8n workflow for AI grading. You can self-host your own flow — or hire me to configure the LLM pipeline and test it on your Moodle.",
     setupPrice: "Setup starts at",
     setupBtn: "Hire Me for n8n Setup",
     moodle: "Requires",
@@ -49,9 +39,9 @@ const ui = {
     backHome: "Back to Plugins",
     placeholderImg: "Screenshots coming soon",
     usd: "USD",
-    oneTime: "one-time",
+    oneTime: "one-time license",
     of: "of",
-    purchaseSuccessTitle: "Purchase Completed Successfully! 🎉",
+    purchaseSuccessTitle: "Purchase Completed",
     purchaseSuccessDesc: "Thank you for your order. Your license key and confirmation details are shown below:",
     licenseKey: "Your License Key",
     buyerEmail: "Registered Email",
@@ -60,31 +50,31 @@ const ui = {
     close: "Close",
   },
   ar: {
-    back: "العودة إلى الإضافات",
-    about: "حول هذه الإضافة",
-    images: "لقطات الشاشة",
-    pricing: "التسعير",
+    back: "العودة إلى كل الإضافات",
+    about: "التفاصيل والمواصفات التقنية",
+    images: "لقطات شاشة حقيقية من موودل",
+    pricing: "الترخيص والدعم",
     free: "مجاني ومفتوح المصدر",
     freeSupport: "مجاني مع دعم مدفوع",
     freeSupportBadge: "مجاني + دعم",
-    freeDesc: "حمّل هذه الإضافة مجاناً من Moodle.org",
+    freeDesc: "حمّل هذه الإضافة مجاناً من دليل Moodle.org",
     downloadBtn: "تنزيل من Moodle.org",
     buyBtn: "شراء الإضافة الآن",
     paidSupportTitle: "هل تحتاج إعداداً احترافياً؟",
-    paidSupportDesc: "هذه الإضافة مجانية للتنزيل، لكن الإعداد الاحترافي والتهيئة والدعم المستمر متاح. تواصل معي للحصول على إعداد مخصص.",
-    paidSupportBtn: "تواصل للحصول على الدعم",
+    paidSupportDesc: "هذه الإضافة مجانية للتنزيل، ويمكنك توظيفي للتركيب والتهيئة والدعم المستمر على منصتك.",
+    paidSupportBtn: "تواصل لطلب الإعداد",
     setupTitle: "هل تحتاج سير عمل n8n؟",
-    setupDesc: "تتطلب هذه الإضافة سير عمل n8n للتعامل مع التصحيح بالذكاء الاصطناعي. يمكنك بناؤه بنفسك — أو توظيفي لإعداده وتهيئة اتصالات LLM واختباره على Moodle الخاص بك.",
+    setupDesc: "تعتمد هذه الإضافة على سير عمل n8n للتصحيح الذكي. يمكنك بناؤه بنفسك — أو توظيفي لإعداده وربطه بـ LLM واختباره على منصتك.",
     setupPrice: "يبدأ الإعداد من",
-    setupBtn: "وظّفني لإعداد n8n",
+    setupBtn: "اطلب إعداد n8n",
     moodle: "يتطلب",
     notFound: "الإضافة غير موجودة",
     backHome: "العودة إلى الإضافات",
     placeholderImg: "لقطات الشاشة قريباً",
     usd: "دولار",
-    oneTime: "مرة واحدة",
+    oneTime: "ترخيص لمرة واحدة",
     of: "من",
-    purchaseSuccessTitle: "تمت عملية الشراء بنجاح! 🎉",
+    purchaseSuccessTitle: "تمت عملية الشراء بنجاح",
     purchaseSuccessDesc: "شكراً لطلبك. مفتاح الترخيص وبيانات التأكيد موضحة أدناه:",
     licenseKey: "مفتاح الترخيص الخاص بك",
     buyerEmail: "البريد الإلكتروني المسجل",
@@ -96,10 +86,8 @@ const ui = {
 
 function ImageSlider({ images, slug, name }: { images: string[]; slug: string; name: string }) {
   const [current, setCurrent] = useState(0);
-  const [direction, setDirection] = useState(0);
 
   function go(next: number) {
-    setDirection(next > current ? 1 : -1);
     setCurrent(next);
   }
 
@@ -113,74 +101,57 @@ function ImageSlider({ images, slug, name }: { images: string[]; slug: string; n
 
   if (images.length === 0) return null;
 
-  const variants = {
-    enter: (d: number) => ({ x: d > 0 ? 60 : -60, opacity: 0 }),
-    center: { x: 0, opacity: 1 },
-    exit: (d: number) => ({ x: d > 0 ? -60 : 60, opacity: 0 }),
-  };
-
   return (
     <div>
-      {/* Main image with arrows */}
-      <div className="relative rounded-2xl overflow-hidden bg-white/[0.02] border border-white/[0.06]"
-        style={{ minHeight: 240 }}>
-        <AnimatePresence custom={direction} mode="wait">
-          <motion.img
-            key={current}
-            custom={direction}
-            variants={variants}
-            initial="enter"
-            animate="center"
-            exit="exit"
-            transition={{ duration: 0.25, ease: "easeInOut" }}
-            src={`/plugins/${slug}/${images[current]}`}
-            alt={`${name} screenshot ${current + 1}`}
-            className="w-full h-auto block"
-            style={{ maxHeight: 520, objectFit: "contain", backgroundColor: "#f8fafc" }}
-          />
-        </AnimatePresence>
+      <div className="relative rounded-2xl overflow-hidden bg-white border border-[#E2DBD0] shadow-xs">
+        <img
+          src={`/plugins/${slug}/${images[current]}`}
+          alt={`${name} screenshot ${current + 1}`}
+          className="w-full h-auto block max-h-[520px] object-contain bg-[#F2EEE6]"
+        />
 
-        {/* Left arrow */}
         {images.length > 1 && (
-          <button onClick={prev}
-            className="absolute left-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full flex items-center justify-center transition-all hover:scale-110"
-            style={{ background: "rgba(105,0,163,0.75)", backdropFilter: "blur(8px)" }}>
-            <ChevronLeft size={18} className="text-white" />
-          </button>
+          <>
+            <button
+              type="button"
+              onClick={prev}
+              aria-label="Previous screenshot"
+              className="absolute left-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full flex items-center justify-center bg-[#18181B]/80 hover:bg-[#C2410C] text-white transition-colors cursor-pointer"
+            >
+              <ChevronLeft size={18} aria-hidden="true" />
+            </button>
+            <button
+              type="button"
+              onClick={next}
+              aria-label="Next screenshot"
+              className="absolute right-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full flex items-center justify-center bg-[#18181B]/80 hover:bg-[#C2410C] text-white transition-colors cursor-pointer"
+            >
+              <ChevronRight size={18} aria-hidden="true" />
+            </button>
+          </>
         )}
 
-        {/* Right arrow */}
-        {images.length > 1 && (
-          <button onClick={next}
-            className="absolute right-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full flex items-center justify-center transition-all hover:scale-110"
-            style={{ background: "rgba(105,0,163,0.75)", backdropFilter: "blur(8px)" }}>
-            <ChevronRight size={18} className="text-white" />
-          </button>
-        )}
-
-        {/* Counter badge */}
-        <div className="absolute bottom-3 right-3 px-2.5 py-1 rounded-full text-xs font-bold text-white"
-          style={{ background: "rgba(0,0,0,0.55)", backdropFilter: "blur(6px)" }}>
+        <div className="absolute bottom-3 end-3 px-2.5 py-1 rounded-full text-xs font-bold text-white bg-[#18181B]/80">
           {current + 1} / {images.length}
         </div>
       </div>
 
-      {/* Thumbnail strip */}
       {images.length > 1 && (
-        <div className="flex gap-2 mt-3 overflow-x-auto pb-1" style={{ scrollbarWidth: "none" }}>
+        <div className="flex gap-2 mt-3 overflow-x-auto pb-1">
           {images.map((img, i) => (
-            <button key={i} onClick={() => go(i)}
-              className="flex-shrink-0 rounded-lg overflow-hidden transition-all duration-200"
-              style={{
-                border: i === current
-                  ? "2px solid #a855f7"
-                  : "2px solid rgba(255,255,255,0.08)",
-                opacity: i === current ? 1 : 0.55,
-              }}>
+            <button
+              key={i}
+              type="button"
+              onClick={() => go(i)}
+              aria-label={`View screenshot ${i + 1}`}
+              className={`flex-shrink-0 rounded-lg overflow-hidden border-2 transition-opacity cursor-pointer ${
+                i === current ? "border-[#C2410C] opacity-100" : "border-[#E2DBD0] opacity-60 hover:opacity-100"
+              }`}
+            >
               <img
                 src={`/plugins/${slug}/${img}`}
-                alt={`thumbnail ${i + 1}`}
-                style={{ width: 80, height: 52, objectFit: "cover", display: "block", backgroundColor: "#f8fafc" }}
+                alt=""
+                className="w-20 h-13 object-cover block bg-[#F2EEE6]"
               />
             </button>
           ))}
@@ -202,20 +173,21 @@ export function PluginDetailPage() {
   if (!plugin) {
     if (isFetching) {
       return (
-        <div className="min-h-screen flex items-center justify-center" style={{ backgroundColor: "#07070f" }}>
+        <div className="min-h-screen flex items-center justify-center bg-[#FAF8F4]">
           <Navbar />
         </div>
       );
     }
     return (
-      <div className="min-h-screen flex flex-col items-center justify-center" style={{ backgroundColor: "#07070f" }}>
+      <div className="min-h-screen flex flex-col items-center justify-center bg-[#FAF8F4] text-[#18181B]">
         <Navbar />
         <div className="text-center px-6">
-          <p className="text-6xl mb-6">404</p>
-          <h1 className="text-2xl font-black text-white mb-4" style={font}>{t.notFound}</h1>
-          <Link href="/services/plugins"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-bold text-sm text-white"
-            style={{ background: "linear-gradient(135deg, #6900A3, #a855f7)", ...font }}>
+          <p className="font-display text-6xl font-bold mb-4 text-[#C2410C]">404</p>
+          <h1 className="text-2xl font-bold mb-4">{t.notFound}</h1>
+          <Link
+            href="/services/plugins"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-bold text-sm text-white bg-[#C2410C] hover:bg-[#9A3412]"
+          >
             {t.backHome}
           </Link>
         </div>
@@ -231,7 +203,6 @@ export function PluginDetailPage() {
   const isPaid = !plugin.free;
   const isSetupPlugin = plugin.requiresSetup;
   const videoId = extractYouTubeId(plugin.videoUrl);
-
   const hasFreemius = Boolean(plugin.freemiusProductId && plugin.freemiusPublicKey);
 
   const handleFreemiusBuy = (e: React.MouseEvent) => {
@@ -243,13 +214,9 @@ export function PluginDetailPage() {
       planId: plugin.freemiusPlanId,
       publicKey: plugin.freemiusPublicKey!,
       name: isRTL ? plugin.nameAr : plugin.name,
-      image: plugin.images?.[0] || "https://services.smartlearn.education/logo.png",
-      onPurchaseCompleted: (res) => {
-        setPurchasedInfo(res);
-      },
-      onSuccess: (res) => {
-        setPurchasedInfo(res);
-      },
+      image: plugin.images?.[0] || "https://services.smartlearn.education/opengraph.jpg",
+      onPurchaseCompleted: (res) => setPurchasedInfo(res),
+      onSuccess: (res) => setPurchasedInfo(res),
     });
   };
 
@@ -267,160 +234,146 @@ export function PluginDetailPage() {
         {videoId && <meta property="og:video" content={getYouTubeWatchUrl(videoId)} />}
       </Helmet>
 
-      <div className="min-h-screen" style={{ backgroundColor: "#07070f", ...font }}>
+      <div className="min-h-screen bg-[#FAF8F4] text-[#18181B]" dir={isRTL ? "rtl" : "ltr"}>
         <Navbar />
 
-        {/* Back link */}
-        <div className="max-w-5xl mx-auto px-6 pt-28 pb-4">
-          <Link href="/services/plugins"
-            className="inline-flex items-center gap-2 text-base text-slate-200 hover:text-purple-400 transition-colors">
-            {isRTL ? <ArrowRight size={15} /> : <ArrowLeft size={15} />}
-            {t.back}
+        <div className="max-w-5xl mx-auto px-5 sm:px-6 pt-24 pb-4">
+          <Link
+            href="/services/plugins"
+            className="inline-flex items-center gap-2 text-sm font-semibold text-[#52525B] hover:text-[#C2410C] transition-colors"
+          >
+            {isRTL ? <ArrowRight size={15} aria-hidden="true" /> : <ArrowLeft size={15} aria-hidden="true" />}
+            <span>{t.back}</span>
           </Link>
         </div>
 
-        {/* ── 1. HERO: badges + name + features ── */}
-        <section className="max-w-5xl mx-auto px-6 py-8">
-          <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
-            {/* Badges row */}
-            <div className="flex flex-wrap items-center gap-2 mb-5">
-              <span className="px-3 py-1 rounded-full text-xs font-bold border border-purple-500/30 text-purple-300 bg-purple-900/20">
-                {categoryLabel}
+        {/* 1. Header & Highlights */}
+        <section className="max-w-5xl mx-auto px-5 sm:px-6 py-6">
+          <div className="flex flex-wrap items-center gap-2 mb-4">
+            <span className="px-3 py-1 rounded-full text-xs font-bold border border-[#E2DBD0] bg-white text-[#581C87]">
+              {categoryLabel}
+            </span>
+            <span className="px-3 py-1 rounded-full text-xs font-semibold border border-[#E2DBD0] bg-[#F2EEE6] text-[#18181B] inline-flex items-center gap-1.5">
+              <Cpu size={12} aria-hidden="true" /> {t.moodle}: {plugin.moodle}
+            </span>
+            <span className="font-mono-slug px-3 py-1 rounded-full text-xs font-semibold border border-[#E2DBD0] bg-white text-[#3F3F46] inline-flex items-center gap-1.5">
+              <Tag size={12} aria-hidden="true" /> {plugin.slug}
+            </span>
+            {!plugin.free ? (
+              <span className="px-3 py-1 rounded-full text-xs font-bold border border-[#FED7AA] text-[#C2410C] bg-[#FFF3EB]">
+                ${plugin.price} {t.usd}
               </span>
-              <span className="px-3 py-1 rounded-full text-sm font-bold border border-slate-600/30 text-slate-200 bg-slate-900/40 flex items-center gap-1">
-                <Cpu size={11} /> {t.moodle}: {plugin.moodle}
+            ) : plugin.paidSupport ? (
+              <span className="px-3 py-1 rounded-full text-xs font-bold border border-[#FDE68A] text-[#B45309] bg-[#FFFBEB]">
+                {t.freeSupportBadge}
               </span>
-              <span className="px-3 py-1 rounded-full text-sm font-bold border border-slate-600/30 text-slate-200 bg-slate-900/40 flex items-center gap-1">
-                <Tag size={11} /> {plugin.type}
+            ) : (
+              <span className="px-3 py-1 rounded-full text-xs font-bold border border-[#BBF7D0] text-[#15803D] bg-[#ECFDF3]">
+                {t.free}
               </span>
-              {!plugin.free ? (
-                <span className="px-3 py-1 rounded-full text-xs font-bold border border-purple-500/40 text-purple-300 bg-purple-900/20">
-                  ${plugin.price} {t.usd}
-                </span>
-              ) : plugin.paidSupport ? (
-                <span className="px-3 py-1 rounded-full text-xs font-bold" style={{ border: "1px solid rgba(245,158,11,0.4)", color: "#fbbf24", background: "rgba(245,158,11,0.1)" }}>
-                  {t.freeSupportBadge}
-                </span>
-              ) : (
-                <span className="px-3 py-1 rounded-full text-xs font-bold border border-emerald-500/40 text-emerald-300 bg-emerald-900/20">
-                  {t.free}
-                </span>
-              )}
+            )}
+          </div>
+
+          <h1 className="font-display text-3xl sm:text-5xl font-bold text-[#18181B] mb-6 leading-tight">
+            {name}
+          </h1>
+
+          {videoId && (
+            <div className="mb-8">
+              <PluginVideoEmbed
+                videoId={videoId}
+                pluginName={name}
+                slug={plugin.slug}
+                lang={lang}
+                showTheaterLink
+              />
             </div>
+          )}
 
-            {/* Plugin name */}
-            <h1 className="text-4xl md:text-5xl font-black text-white mb-6 leading-tight" style={font}>
-              <span style={gradientText}>{name}</span>
-            </h1>
-
-            {/* Video showcase at top of plugin page */}
-            {videoId && (
-              <div className="mb-8">
-                <PluginVideoEmbed
-                  videoId={videoId}
-                  pluginName={name}
-                  slug={plugin.slug}
-                  lang={lang}
-                  showTheaterLink
-                />
-              </div>
-            )}
-
-            {/* Features quick grid */}
-            {features.length > 0 && (
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                {features.map((f, i) => (
-                  <div key={i} className="flex items-start gap-3 p-3 rounded-xl border border-white/[0.05] bg-white/[0.02]">
-                    <span className="mt-0.5 flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center bg-purple-600/30">
-                      <Check size={11} className="text-purple-300" />
-                    </span>
-                    <span className="text-sm text-slate-300">{f}</span>
-                  </div>
-                ))}
-              </div>
-            )}
-          </motion.div>
+          {features.length > 0 && (
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              {features.map((f, i) => (
+                <div key={i} className="flex items-start gap-3 p-3.5 rounded-xl border border-[#E2DBD0] bg-white">
+                  <span className="mt-0.5 flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center bg-[#ECFDF3]">
+                    <Check size={12} className="text-[#15803D]" aria-hidden="true" />
+                  </span>
+                  <span className="text-sm text-[#3F3F46] leading-snug">{f}</span>
+                </div>
+              ))}
+            </div>
+          )}
         </section>
 
-        {/* ── 2. PRICING ── */}
-        <section className="max-w-5xl mx-auto px-6 py-8">
-          <h2 className="text-lg font-black text-white mb-5" style={font}>{t.pricing}</h2>
+        {/* 2. Pricing & Licensing */}
+        <section className="max-w-5xl mx-auto px-5 sm:px-6 py-6">
+          <h2 className="font-sans text-lg font-bold text-[#18181B] mb-4">{t.pricing}</h2>
           <div className="grid grid-cols-1 gap-4">
-
             {isPaid && !isSetupPlugin && (
-              <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4 }}
-                className="rounded-2xl border border-purple-500/30 bg-gradient-to-br from-purple-900/20 to-purple-800/10 p-8">
-                <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
-                  <div>
-                    <div className="text-5xl font-black text-white mb-2" style={font}>
-                      ${plugin.price} <span className="text-2xl text-slate-200">{t.usd}</span>
-                    </div>
-                    <p className="text-slate-200 text-base">{t.oneTime}</p>
+              <div className="rounded-2xl border border-[#FED7AA] bg-[#FFF3EB] p-6 sm:p-8 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+                <div>
+                  <div className="font-display text-4xl sm:text-5xl font-bold text-[#18181B] mb-1">
+                    ${plugin.price} <span className="text-xl text-[#52525B] font-sans">{t.usd}</span>
                   </div>
-                  {hasFreemius ? (
-                    <button
-                      type="button"
-                      onClick={handleFreemiusBuy}
-                      className="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl font-black text-white text-sm transition-all hover:opacity-90 hover:scale-105 cursor-pointer shadow-lg"
-                      style={{ background: "linear-gradient(135deg, #6900A3, #a855f7)", boxShadow: "0 0 36px rgba(105,0,163,0.4)", ...font }}
-                    >
-                      <ShoppingCart size={18} />
-                      {t.buyBtn}
-                    </button>
-                  ) : (
-                    <a href={plugin.buyUrl} target="_blank" rel="noopener noreferrer"
-                      className="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl font-black text-white text-sm transition-all hover:opacity-90 hover:scale-105"
-                      style={{ background: "linear-gradient(135deg, #6900A3, #a855f7)", boxShadow: "0 0 36px rgba(105,0,163,0.4)", ...font }}
-                    >
-                      <ShoppingCart size={18} />
-                      {t.buyBtn}
-                    </a>
-                  )}
+                  <p className="text-[#3F3F46] text-sm font-medium">{t.oneTime}</p>
                 </div>
-              </motion.div>
+                {hasFreemius ? (
+                  <button
+                    type="button"
+                    onClick={handleFreemiusBuy}
+                    className="inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-xl font-bold text-white text-sm bg-[#C2410C] hover:bg-[#9A3412] transition-colors cursor-pointer"
+                  >
+                    <ShoppingCart size={17} aria-hidden="true" />
+                    <span>{t.buyBtn}</span>
+                  </button>
+                ) : (
+                  <a
+                    href={plugin.buyUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-xl font-bold text-white text-sm bg-[#C2410C] hover:bg-[#9A3412] transition-colors"
+                  >
+                    <ShoppingCart size={17} aria-hidden="true" />
+                    <span>{t.buyBtn}</span>
+                  </a>
+                )}
+              </div>
             )}
 
             {plugin.free && !isSetupPlugin && plugin.downloadUrl && (
               <>
-                <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4 }}
-                  className="rounded-2xl p-8"
-                  style={{ border: "1px solid rgba(16,185,129,0.3)", background: "linear-gradient(135deg, rgba(6,95,70,0.1) 0%, rgba(16,185,129,0.05) 100%)" }}>
-                  <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
-                    <div>
-                      <div className="text-4xl font-black text-emerald-300 mb-2" style={font}>{t.free}</div>
-                      <p className="text-slate-200 text-base">{t.freeDesc}</p>
-                    </div>
-                    <a href={plugin.downloadUrl} target="_blank" rel="noopener noreferrer"
-                      className="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl font-black text-white text-sm transition-all hover:opacity-90 hover:scale-105"
-                      style={{ background: "linear-gradient(135deg, #065f46, #10b981)", boxShadow: "0 0 36px rgba(16,185,129,0.2)", ...font }}>
-                      <Download size={18} />
-                      {t.downloadBtn}
-                      <ExternalLink size={14} />
-                    </a>
+                <div className="rounded-2xl p-6 sm:p-8 border border-[#BBF7D0] bg-[#ECFDF3] flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+                  <div>
+                    <div className="font-display text-3xl font-bold text-[#15803D] mb-1">{t.free}</div>
+                    <p className="text-[#3F3F46] text-sm">{t.freeDesc}</p>
                   </div>
-                </motion.div>
+                  <a
+                    href={plugin.downloadUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-bold text-white text-sm bg-[#15803D] hover:bg-[#166534] transition-colors"
+                  >
+                    <Download size={17} aria-hidden="true" />
+                    <span>{t.downloadBtn}</span>
+                    <ExternalLink size={14} aria-hidden="true" />
+                  </a>
+                </div>
 
                 {plugin.paidSupport && (
-                  <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1, duration: 0.4 }}
-                    className="rounded-2xl p-8"
-                    style={{ border: "1px solid rgba(245,158,11,0.3)", background: "linear-gradient(135deg, rgba(120,53,15,0.12) 0%, rgba(245,158,11,0.06) 100%)" }}>
-                    <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-6">
-                      <div className="flex-1">
-                        <div className="flex items-center gap-2 mb-3">
-                          <span className="w-8 h-8 rounded-lg flex items-center justify-center text-base" style={{ background: "rgba(245,158,11,0.2)" }}>🛠️</span>
-                          <h3 className="text-xl font-black text-white" style={font}>{t.paidSupportTitle}</h3>
-                        </div>
-                        <p className="text-slate-200 text-base leading-relaxed">{t.paidSupportDesc}</p>
-                      </div>
-                      <a href="https://wa.me/201005822858"
-                        target="_blank" rel="noopener noreferrer"
-                        className="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl font-black text-white text-sm transition-all hover:opacity-90 hover:scale-105 self-end md:self-center"
-                        style={{ background: "linear-gradient(135deg, #92400e, #f59e0b)", boxShadow: "0 0 36px rgba(245,158,11,0.25)", ...font }}>
-                        <MessageCircle size={18} />
-                        {t.paidSupportBtn}
-                      </a>
+                  <div className="rounded-2xl p-6 sm:p-8 border border-[#FDE68A] bg-[#FFFBEB] flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+                    <div className="flex-1">
+                      <h3 className="font-sans text-lg font-bold text-[#18181B] mb-1">{t.paidSupportTitle}</h3>
+                      <p className="text-[#3F3F46] text-sm leading-relaxed">{t.paidSupportDesc}</p>
                     </div>
-                  </motion.div>
+                    <a
+                      href="https://wa.me/201005822858"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-bold text-white text-sm bg-[#B45309] hover:bg-[#92400E] transition-colors"
+                    >
+                      <MessageCircle size={17} aria-hidden="true" />
+                      <span>{t.paidSupportBtn}</span>
+                    </a>
+                  </div>
                 )}
               </>
             )}
@@ -428,70 +381,77 @@ export function PluginDetailPage() {
             {isSetupPlugin && (
               <>
                 {plugin.downloadUrl && (
-                  <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4 }}
-                    className="rounded-2xl border border-emerald-500/30 bg-gradient-to-br from-emerald-900/10 to-emerald-800/5 p-8">
-                    <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
-                      <div>
-                        <div className="text-4xl font-black text-emerald-300 mb-2" style={font}>{t.free}</div>
-                        <p className="text-slate-200 text-base">{t.freeDesc}</p>
-                      </div>
-                      <a href={plugin.downloadUrl} target="_blank" rel="noopener noreferrer"
-                        className="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl font-black text-white text-sm transition-all hover:opacity-90 hover:scale-105"
-                        style={{ background: "linear-gradient(135deg, #065f46, #10b981)", boxShadow: "0 0 36px rgba(16,185,129,0.2)", ...font }}>
-                        <Download size={18} />
-                        {t.downloadBtn}
-                        <ExternalLink size={14} />
-                      </a>
+                  <div className="rounded-2xl border border-[#BBF7D0] bg-[#ECFDF3] p-6 sm:p-8 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+                    <div>
+                      <div className="font-display text-3xl font-bold text-[#15803D] mb-1">{t.free}</div>
+                      <p className="text-[#3F3F46] text-sm">{t.freeDesc}</p>
                     </div>
-                  </motion.div>
-                )}
-
-                <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1, duration: 0.4 }}
-                  className="rounded-2xl border border-purple-500/30 bg-gradient-to-br from-purple-900/20 to-purple-800/10 p-8">
-                  <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-6">
-                    <div className="flex-1">
-                      <div className="flex items-center gap-2 mb-3">
-                        <span className="w-8 h-8 rounded-lg bg-purple-600/30 flex items-center justify-center text-base">⚙️</span>
-                        <h3 className="text-xl font-black text-white" style={font}>{t.setupTitle}</h3>
-                      </div>
-                      <p className="text-slate-200 text-base leading-relaxed mb-4">{t.setupDesc}</p>
-                      <div className="text-3xl font-black text-white" style={font}>
-                        {t.setupPrice} <span className="text-purple-300">${plugin.setupPrice} {t.usd}</span>
-                      </div>
-                    </div>
-                    <a href="https://wa.me/201005822858?text=Hi! I need the n8n workflow setup for the Smart Grade AI plugin."
-                      target="_blank" rel="noopener noreferrer"
-                      className="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-xl font-black text-white text-sm transition-all hover:opacity-90 hover:scale-105 self-end md:self-center"
-                      style={{ background: "linear-gradient(135deg, #6900A3, #a855f7)", boxShadow: "0 0 36px rgba(105,0,163,0.4)", ...font }}>
-                      <MessageCircle size={18} />
-                      {t.setupBtn}
+                    <a
+                      href={plugin.downloadUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-bold text-white text-sm bg-[#15803D] hover:bg-[#166534] transition-colors"
+                    >
+                      <Download size={17} aria-hidden="true" />
+                      <span>{t.downloadBtn}</span>
+                      <ExternalLink size={14} aria-hidden="true" />
                     </a>
                   </div>
-                </motion.div>
+                )}
+
+                <div className="rounded-2xl border border-[#E2DBD0] bg-white p-6 sm:p-8 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+                  <div className="flex-1">
+                    <h3 className="font-sans text-lg font-bold text-[#18181B] mb-1">{t.setupTitle}</h3>
+                    <p className="text-[#3F3F46] text-sm leading-relaxed mb-3">{t.setupDesc}</p>
+                    <div className="text-xl font-bold text-[#18181B]">
+                      {t.setupPrice}{" "}
+                      <span className="text-[#C2410C]">
+                        ${plugin.setupPrice} {t.usd}
+                      </span>
+                    </div>
+                  </div>
+                  <a
+                    href="https://wa.me/201005822858?text=Hi! I need the n8n workflow setup for the Smart Grade AI plugin."
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-bold text-white text-sm bg-[#C2410C] hover:bg-[#9A3412] transition-colors"
+                  >
+                    <MessageCircle size={17} aria-hidden="true" />
+                    <span>{t.setupBtn}</span>
+                  </a>
+                </div>
               </>
             )}
           </div>
         </section>
 
-        {/* ── 3. DESCRIPTION ── */}
-        <section className="max-w-5xl mx-auto px-6 py-8">
-          <div className="rounded-2xl border border-white/[0.06] bg-white/[0.02] p-8">
-            <h2 className="text-lg font-black text-white mb-6 flex items-center gap-2" style={font}>
-              <Wrench size={18} className="text-purple-400" />
-              {t.about}
+        {/* 3. Screenshots */}
+        {plugin.images.length > 0 && (
+          <section className="max-w-5xl mx-auto px-5 sm:px-6 py-6">
+            <h2 className="font-sans text-lg font-bold text-[#18181B] mb-4">{t.images}</h2>
+            <ImageSlider images={plugin.images} slug={plugin.slug} name={name} />
+          </section>
+        )}
+
+        {/* 4. Rich Description */}
+        <section className="max-w-5xl mx-auto px-5 sm:px-6 py-6">
+          <div className="rounded-2xl border border-[#E2DBD0] bg-white p-6 sm:p-8">
+            <h2 className="font-sans text-lg font-bold text-[#18181B] mb-5 flex items-center gap-2">
+              <Wrench size={18} className="text-[#C2410C]" aria-hidden="true" />
+              <span>{t.about}</span>
             </h2>
             <div className="space-y-4">
               {description.split("\n\n").map((block, i) => {
                 if (block.startsWith("###")) {
                   return (
-                    <h3 key={i} className="text-base font-black text-purple-300 mt-6 mb-2" style={font}>
+                    <h3 key={i} className="font-sans text-base font-bold text-[#581C87] mt-6 mb-2">
                       {block.replace(/^###\s*/, "")}
                     </h3>
                   );
                 }
                 if (block.startsWith("**") && block.endsWith("**")) {
                   return (
-                    <p key={i} className="text-white font-bold text-sm" style={font}>
+                    <p key={i} className="text-[#18181B] font-bold text-sm">
                       {block.replace(/\*\*/g, "")}
                     </p>
                   );
@@ -499,124 +459,149 @@ export function PluginDetailPage() {
                 const imgMatch = block.match(/^!\[(.*?)\]\((.*?)\)$/);
                 if (imgMatch) {
                   return (
-                    <div key={i} className="my-6">
-                      <img src={imgMatch[2]} alt={imgMatch[1]} className="w-full h-auto rounded-2xl border border-white/[0.08] shadow-xl shadow-black/40" />
+                    <div key={i} className="my-5">
+                      <img
+                        src={imgMatch[2]}
+                        alt={imgMatch[1]}
+                        className="w-full h-auto rounded-xl border border-[#E2DBD0]"
+                      />
                     </div>
                   );
                 }
                 if (block.startsWith("> ")) {
                   return (
-                    <div key={i} className="p-5 my-2 rounded-2xl border border-purple-500/30 bg-gradient-to-br from-purple-900/20 to-purple-800/5 text-slate-200 text-sm md:text-base leading-relaxed flex items-start gap-4 shadow-lg shadow-purple-900/10">
-                      <div className="mt-0.5 flex-shrink-0 w-8 h-8 rounded-full bg-purple-600/30 flex items-center justify-center">
-                        <Sparkles size={14} className="text-purple-300" />
-                      </div>
-                      <div dangerouslySetInnerHTML={{ __html: block.replace(/^>\s*/, "").replace(/\n>\s*/g, "<br/>").replace(/\*\*(.+?)\*\*/g, "<strong class='text-white font-bold'>$1</strong>") }} />
-                    </div>
+                    <blockquote
+                      key={i}
+                      className="p-4 my-2 rounded-xl border border-[#FED7AA] bg-[#FFF3EB] text-[#18181B] text-sm sm:text-base leading-relaxed flex items-start gap-3"
+                    >
+                      <Sparkles size={16} className="text-[#C2410C] mt-1 flex-shrink-0" aria-hidden="true" />
+                      <div
+                        dangerouslySetInnerHTML={{
+                          __html: block
+                            .replace(/^>\s*/, "")
+                            .replace(/\n>\s*/g, "<br/>")
+                            .replace(/\*\*(.+?)\*\*/g, "<strong class='font-bold'>$1</strong>"),
+                        }}
+                      />
+                    </blockquote>
                   );
                 }
                 if (block.startsWith("- ") || block.includes("\n- ")) {
-                  const items = block.split("\n").filter(l => l.trim().startsWith("- "));
+                  const items = block.split("\n").filter((l) => l.trim().startsWith("- "));
                   return (
                     <ul key={i} className="space-y-2">
                       {items.map((item, j) => (
-                        <li key={j} className="flex items-start gap-2 text-sm text-slate-300">
-                          <span className="mt-1 flex-shrink-0 w-4 h-4 rounded-full bg-purple-600/30 flex items-center justify-center">
-                            <Check size={9} className="text-purple-300" />
-                          </span>
-                          <span dangerouslySetInnerHTML={{ __html: item.replace(/^-\s*/, "").replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>") }} />
+                        <li key={j} className="flex items-start gap-2.5 text-sm text-[#3F3F46]">
+                          <Check size={14} className="mt-1 flex-shrink-0 text-[#15803D]" aria-hidden="true" />
+                          <span
+                            dangerouslySetInnerHTML={{
+                              __html: item.replace(/^-\s*/, "").replace(/\*\*(.+?)\*\*/g, "<strong class='text-[#18181B]'>$1</strong>"),
+                            }}
+                          />
                         </li>
                       ))}
                     </ul>
                   );
                 }
                 return (
-                  <p key={i} className="text-slate-300 leading-relaxed text-sm md:text-base"
-                    dangerouslySetInnerHTML={{ __html: block.replace(/\*\*(.+?)\*\*/g, "<strong style='color:#e2e8f0'>$1</strong>") }} />
+                  <p
+                    key={i}
+                    className="text-[#3F3F46] leading-relaxed text-sm sm:text-base"
+                    dangerouslySetInnerHTML={{
+                      __html: block.replace(/\*\*(.+?)\*\*/g, "<strong class='text-[#18181B]'>$1</strong>"),
+                    }}
+                  />
                 );
               })}
             </div>
           </div>
         </section>
 
-        {/* ── 4. SCREENSHOTS (slider) ── */}
-        <section className="max-w-5xl mx-auto px-6 py-8">
-          <h2 className="text-lg font-black text-white mb-5" style={font}>{t.images}</h2>
-          {plugin.images.length > 0 ? (
-            <ImageSlider images={plugin.images} slug={plugin.slug} name={name} />
-          ) : (
-            <div className="rounded-2xl border border-dashed border-white/10 bg-white/[0.01] flex flex-col items-center justify-center py-16 gap-3 text-slate-600">
-              <ImageIcon size={40} strokeWidth={1} />
-              <p className="text-sm" style={font}>{t.placeholderImg}</p>
+        {plugin.images.length === 0 && (
+          <section className="max-w-5xl mx-auto px-5 sm:px-6 pb-8">
+            <div className="rounded-2xl border border-dashed border-[#C9C0B2] bg-[#F2EEE6] flex flex-col items-center justify-center py-12 gap-2 text-[#52525B]">
+              <ImageIcon size={32} strokeWidth={1.5} aria-hidden="true" />
+              <p className="text-sm">{t.placeholderImg}</p>
             </div>
-          )}
-        </section>
+          </section>
+        )}
 
-        <footer className="py-10 px-6 border-t border-white/[0.04]">
-          <div className="max-w-5xl mx-auto flex flex-col items-center gap-4">
-            <SocialLinks size="sm" />
-            <p className="text-sm text-slate-600" style={font}>
+        <footer className="pt-8 pb-24 px-5 sm:px-6 border-t border-[#E2DBD0] bg-[#F2EEE6]">
+          <div className="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p className="text-sm text-[#52525B]">
               {lang === "ar"
                 ? `© ${new Date().getFullYear()} سمارت ليرن · محمد نبيل · مصر`
                 : `© ${new Date().getFullYear()} Smart Learn · Mohammad Nabil · Egypt`}
             </p>
+            <SocialLinks size="sm" />
           </div>
         </footer>
       </div>
 
-      {/* ── PURCHASE SUCCESS MODAL ── */}
+      {/* Purchase Success Modal */}
       <AnimatePresence>
         {purchasedInfo && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-4" style={{ backgroundColor: "rgba(0,0,0,0.8)", backdropFilter: "blur(8px)" }}>
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/55 backdrop-blur-xs">
             <motion.div
-              initial={{ opacity: 0, scale: 0.9, y: 20 }}
+              role="dialog"
+              aria-modal="true"
+              aria-label={t.purchaseSuccessTitle}
+              initial={{ opacity: 0, scale: 0.95, y: 16 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.9, y: 20 }}
-              className="relative w-full max-w-lg rounded-3xl p-8 border border-purple-500/40 shadow-2xl"
-              style={{ background: "linear-gradient(135deg, #100a20 0%, #170d30 100%)", ...font }}
+              exit={{ opacity: 0, scale: 0.95, y: 16 }}
+              className="relative w-full max-w-lg rounded-3xl p-8 bg-white border border-[#E2DBD0] shadow-2xl"
             >
               <button
+                type="button"
                 onClick={() => setPurchasedInfo(null)}
-                className="absolute top-5 right-5 w-8 h-8 rounded-full flex items-center justify-center bg-white/10 hover:bg-white/20 text-white transition-colors cursor-pointer"
+                aria-label={t.close}
+                className="absolute top-5 end-5 w-8 h-8 rounded-full flex items-center justify-center bg-[#F2EEE6] hover:bg-[#E8E2D7] text-[#18181B] cursor-pointer"
               >
-                <X size={18} />
+                <X size={18} aria-hidden="true" />
               </button>
 
               <div className="text-center mb-6">
-                <div className="w-16 h-16 rounded-2xl mx-auto mb-4 flex items-center justify-center bg-gradient-to-tr from-emerald-500 to-teal-400 shadow-lg shadow-emerald-500/30">
-                  <CheckCheck size={32} className="text-white" />
+                <div className="w-14 h-14 rounded-2xl mx-auto mb-4 flex items-center justify-center bg-[#ECFDF3] border border-[#BBF7D0] text-[#15803D]">
+                  <CheckCheck size={28} aria-hidden="true" />
                 </div>
-                <h3 className="text-2xl font-black text-white mb-2" style={font}>{t.purchaseSuccessTitle}</h3>
-                <p className="text-slate-300 text-sm">{t.purchaseSuccessDesc}</p>
+                <h3 className="font-display text-2xl font-bold text-[#18181B] mb-2">
+                  {t.purchaseSuccessTitle}
+                </h3>
+                <p className="text-[#3F3F46] text-sm">{t.purchaseSuccessDesc}</p>
               </div>
 
               {purchasedInfo.license?.key && (
-                <div className="mb-6 p-4 rounded-2xl border border-purple-500/30 bg-purple-950/40">
-                  <div className="text-xs text-purple-300 font-bold uppercase tracking-wider mb-2">{t.licenseKey}</div>
-                  <div className="flex items-center justify-between gap-3 bg-black/50 p-3 rounded-xl border border-white/10">
-                    <code className="text-emerald-400 font-mono font-bold text-sm tracking-wide break-all">
+                <div className="mb-6 p-4 rounded-2xl border border-[#E2DBD0] bg-[#FAF8F4]">
+                  <div className="text-xs text-[#52525B] font-bold uppercase tracking-wider mb-2">
+                    {t.licenseKey}
+                  </div>
+                  <div className="flex items-center justify-between gap-3 bg-white p-3 rounded-xl border border-[#E2DBD0]">
+                    <code className="font-mono-slug text-[#15803D] font-bold text-sm break-all">
                       {purchasedInfo.license.key}
                     </code>
                     <button
+                      type="button"
                       onClick={() => copyLicenseKey(purchasedInfo.license?.key || "")}
-                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold text-white bg-purple-600 hover:bg-purple-500 transition-colors flex-shrink-0 cursor-pointer"
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold text-white bg-[#C2410C] hover:bg-[#9A3412] flex-shrink-0 cursor-pointer"
                     >
-                      {copied ? <CheckCheck size={14} /> : <Copy size={14} />}
-                      {copied ? t.keyCopied : t.copyKey}
+                      {copied ? <CheckCheck size={14} aria-hidden="true" /> : <Copy size={14} aria-hidden="true" />}
+                      <span>{copied ? t.keyCopied : t.copyKey}</span>
                     </button>
                   </div>
                 </div>
               )}
 
               {purchasedInfo.user?.email && (
-                <div className="mb-6 text-sm text-slate-300 flex items-center justify-between px-2">
-                  <span className="text-slate-400">{t.buyerEmail}:</span>
-                  <span className="font-semibold text-white">{purchasedInfo.user.email}</span>
+                <div className="mb-6 text-sm text-[#3F3F46] flex items-center justify-between px-2">
+                  <span className="text-[#52525B]">{t.buyerEmail}:</span>
+                  <span className="font-semibold text-[#18181B]">{purchasedInfo.user.email}</span>
                 </div>
               )}
 
               <button
+                type="button"
                 onClick={() => setPurchasedInfo(null)}
-                className="w-full py-3.5 rounded-xl font-bold text-white text-sm bg-gradient-to-r from-purple-600 to-indigo-600 hover:opacity-95 transition-opacity cursor-pointer"
+                className="w-full py-3 rounded-xl font-bold text-white text-sm bg-[#18181B] hover:bg-[#3F3F46] transition-colors cursor-pointer"
               >
                 {t.close}
               </button>

@@ -1,7 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import { Navbar } from "@/components/Navbar";
 import { HeroSection } from "@/components/sections/HeroSection";
-import { StatsSection } from "@/components/sections/StatsSection";
+import { FeaturedPluginsSection } from "@/components/sections/FeaturedPluginsSection";
 import { ServicesSection } from "@/components/sections/ServicesSection";
 import { AboutSection } from "@/components/sections/AboutSection";
 import { LogoStripSection } from "@/components/sections/LogoStripSection";
@@ -12,25 +12,25 @@ import { SocialLinks } from "@/components/SocialLinks";
 import { useT } from "@/i18n";
 
 export default function Home() {
-  const { t } = useT();
+  const { t, isRTL } = useT();
 
   return (
     <>
       <Helmet>
-        <title>Mohammad Nabil | Moodle Expert &amp; AI Automation — Smart Learn</title>
+        <title>Mohammad Nabil | Moodle Plugins &amp; LMS Engineering — Smart Learn</title>
         <meta
           name="description"
-          content="Expert Moodle engineering, AI-RAG systems, n8n automation, and LMS plugin development. Serving education institutions worldwide from Egypt."
+          content="Production Moodle plugins, custom LMS development, AI grading & tutoring tools, and n8n automation built for real schools, academies, and universities."
         />
         <meta
           name="keywords"
-          content="Moodle RAG System, Automated Moodle Grading, n8n Moodle Expert Egypt, Mohammad Nabil Moodle, Moodle AI chatbot, LMS automation Egypt, Moodle plugin developer"
+          content="Moodle Plugins, SmartLearn Moodle Theme, Moodle AI Grading, Moodle RAG System, n8n Moodle Expert Egypt, Mohammad Nabil Moodle, Moodle plugin developer"
         />
         <link rel="canonical" href="https://services.smartlearn.education/" />
-        <meta property="og:title" content="Mohammad Nabil | Moodle Expert &amp; AI Automation — Smart Learn" />
+        <meta property="og:title" content="Mohammad Nabil | Moodle Plugins & LMS Engineering — Smart Learn" />
         <meta
           property="og:description"
-          content="Expert Moodle engineering, AI-RAG systems, n8n automation, and LMS plugin development. Serving education institutions worldwide from Egypt."
+          content="Production Moodle plugins, custom LMS development, AI grading & tutoring tools, and n8n automation built for real schools, academies, and universities."
         />
         <meta property="og:url" content="https://services.smartlearn.education/" />
         <meta property="og:site_name" content="Smart Learn" />
@@ -40,91 +40,31 @@ export default function Home() {
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Mohammad Nabil | Moodle Expert &amp; AI Automation — Smart Learn" />
-        <meta name="twitter:description" content="Expert Moodle engineering, AI-RAG systems, n8n automation, and LMS plugin development. Serving education institutions worldwide from Egypt." />
+        <meta name="twitter:title" content="Mohammad Nabil | Moodle Plugins & LMS Engineering — Smart Learn" />
+        <meta
+          name="twitter:description"
+          content="Production Moodle plugins, custom LMS development, AI grading & tutoring tools, and n8n automation built for real schools, academies, and universities."
+        />
         <meta name="twitter:image" content="https://services.smartlearn.education/opengraph.jpg" />
       </Helmet>
 
-      <div className="min-h-screen" style={{ backgroundColor: "#07070f" }}>
+      <div className="min-h-screen bg-[#FAF8F4] text-[#18181B]" dir={isRTL ? "rtl" : "ltr"}>
         <Navbar />
         <HeroSection />
-
-        <div
-          className="max-w-6xl mx-auto"
-          style={{
-            height: "1px",
-            background: "linear-gradient(90deg, transparent, rgba(255,255,255,0.06), transparent)",
-          }}
-        />
-
-        <StatsSection />
-
-        <div
-          className="max-w-6xl mx-auto"
-          style={{
-            height: "1px",
-            background: "linear-gradient(90deg, transparent, rgba(255,255,255,0.06), transparent)",
-          }}
-        />
-
+        <FeaturedPluginsSection />
         <ServicesSection />
-
-        <div
-          className="max-w-6xl mx-auto"
-          style={{
-            height: "1px",
-            background: "linear-gradient(90deg, transparent, rgba(255,255,255,0.06), transparent)",
-          }}
-        />
-
         <AboutSection />
-
-        <div
-          className="max-w-6xl mx-auto"
-          style={{
-            height: "1px",
-            background: "linear-gradient(90deg, transparent, rgba(255,255,255,0.06), transparent)",
-          }}
-        />
-
         <LogoStripSection />
-
-        <div
-          className="max-w-6xl mx-auto"
-          style={{
-            height: "1px",
-            background: "linear-gradient(90deg, transparent, rgba(255,255,255,0.06), transparent)",
-          }}
-        />
-
         <TestimonialsSection />
-
-        <div
-          className="max-w-6xl mx-auto"
-          style={{
-            height: "1px",
-            background: "linear-gradient(90deg, transparent, rgba(255,255,255,0.06), transparent)",
-          }}
-        />
-
         <FAQSection />
-
-        <div
-          className="max-w-6xl mx-auto"
-          style={{
-            height: "1px",
-            background: "linear-gradient(90deg, transparent, rgba(255,255,255,0.06), transparent)",
-          }}
-        />
-
         <ContactSection />
 
-        <footer className="py-10 px-6 border-t border-white/[0.04]">
-          <div className="max-w-6xl mx-auto flex flex-col items-center gap-4">
-            <SocialLinks size="sm" />
-            <p className="text-sm text-slate-600" style={{ fontFamily: "'Cairo', sans-serif" }}>
+        <footer className="pt-10 pb-20 px-5 sm:px-6 bg-[#F2EEE6] border-t border-[#E2DBD0]">
+          <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p className="text-sm text-[#52525B]">
               © {new Date().getFullYear()} {t.footer}
             </p>
+            <SocialLinks size="sm" />
           </div>
         </footer>
       </div>

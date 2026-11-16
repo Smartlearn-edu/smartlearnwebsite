@@ -5,16 +5,26 @@ import type { Plugin } from "@/data/plugins";
 const API = "/api/plugins";
 
 async function fetchPlugins(): Promise<Plugin[]> {
-  const res = await fetch(API);
-  if (!res.ok) throw new Error("Failed to fetch");
-  const rows = await res.json();
-  return rows.map(rowToPlugin);
+  try {
+    const res = await fetch(API);
+    if (!res.ok) return staticPlugins;
+    const rows = await res.json();
+    return Array.isArray(rows) && rows.length > 0 ? rows.map(rowToPlugin) : staticPlugins;
+  } catch {
+    return staticPlugins;
+  }
 }
 
 async function fetchPlugin(slug: string): Promise<Plugin> {
-  const res = await fetch(`${API}/${slug}`);
-  if (!res.ok) throw new Error("Not found");
-  return rowToPlugin(await res.json());
+  try {
+    const res = await fetch(`${API}/${slug}`);
+    if (res.ok) return rowToPlugin(await res.json());
+  } catch {
+    // Fall back to static catalog if API is unavailable
+  }
+  const fallback = staticPlugins.find((p) => p.slug === slug);
+  if (fallback) return fallback;
+  throw new Error("Not found");
 }
 
 function rowToPlugin(row: Record<string, unknown>): Plugin {

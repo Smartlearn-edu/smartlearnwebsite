@@ -1,41 +1,40 @@
-import { motion } from "framer-motion";
-import { useState } from "react";
+import { useId, useState } from "react";
 import { Send, CheckCircle, Mail, MapPin, MessageCircle, Loader2, AlertCircle } from "lucide-react";
 import { useT } from "@/i18n";
 import { SocialLinks } from "@/components/SocialLinks";
 
 const WA_NUMBER = "201005822858";
-const font: React.CSSProperties = { fontFamily: "'Cairo', sans-serif" };
 
 const SERVICE_WA_MESSAGES: Record<string, { en: string; ar: string }> = {
-  "moodle-core": {
-    en: "Hi! I'd like to discuss Moodle installation / migration services.",
-    ar: "مرحباً! أريد مناقشة خدمات تثبيت / نقل Moodle.",
-  },
   plugins: {
-    en: "Hi! I'd like to discuss custom Moodle plugin development.",
-    ar: "مرحباً! أريد مناقشة تطوير إضافات Moodle مخصصة.",
+    en: "Hi Mohammad! I'd like to discuss buying or customizing a Moodle plugin.",
+    ar: "مرحباً محمد! أريد مناقشة شراء أو تخصيص إضافة لموودل.",
+  },
+  "moodle-core": {
+    en: "Hi Mohammad! I'd like to discuss Moodle installation, upgrade, or migration.",
+    ar: "مرحباً محمد! أريد مناقشة تثبيت أو ترقية أو نقل منصة موودل.",
   },
   ai: {
-    en: "Hi! I'd like to discuss AI integration for Moodle (chatbot / RAG).",
-    ar: "مرحباً! أريد مناقشة تكامل الذكاء الاصطناعي مع Moodle.",
+    en: "Hi Mohammad! I'd like to discuss AI grading or tutoring tools for Moodle.",
+    ar: "مرحباً محمد! أريد مناقشة أدوات الذكاء الاصطناعي للمقررات والتصحيح في موودل.",
   },
   n8n: {
-    en: "Hi! I'd like to discuss n8n automation for Moodle.",
-    ar: "مرحباً! أريد مناقشة أتمتة n8n لـ Moodle.",
+    en: "Hi Mohammad! I'd like to discuss n8n workflow automation for Moodle.",
+    ar: "مرحباً محمد! أريد مناقشة أتمتة عمليات موودل عبر n8n.",
   },
   training: {
-    en: "Hi! I'd like to book a Moodle training session.",
-    ar: "مرحباً! أريد حجز جلسة تدريب Moodle.",
+    en: "Hi Mohammad! I'd like to book Moodle training or ongoing support.",
+    ar: "مرحباً محمد! أريد حجز تدريب أو باقة دعم لمنصة موودل.",
   },
   "mobile-app": {
-    en: "Hi! I'd like to get a branded Moodle mobile app.",
-    ar: "مرحباً! أريد الحصول على تطبيق Moodle بهويتي.",
+    en: "Hi Mohammad! I'd like to get a branded Moodle mobile app.",
+    ar: "مرحباً محمد! أريد الحصول على تطبيق موودل بهوية مؤسستنا.",
   },
 };
 
 export function ContactSection() {
-  const { t, lang } = useT();
+  const { t, lang, isRTL } = useT();
+  const baseId = useId();
   const [activeTab, setActiveTab] = useState<"email" | "whatsapp">("email");
   const [fields, setFields] = useState({ name: "", email: "", service: "", message: "" });
   const [errors, setErrors] = useState<Record<string, string>>({});
@@ -55,7 +54,10 @@ export function ContactSection() {
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     const errs = validate();
-    if (Object.keys(errs).length) { setErrors(errs); return; }
+    if (Object.keys(errs).length) {
+      setErrors(errs);
+      return;
+    }
     setErrors({});
     setSendError("");
     setSending(true);
@@ -66,15 +68,10 @@ export function ContactSection() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(fields),
       });
-      
-      if (!res.ok) {
-        throw new Error("Failed to send email");
-      }
-      
+      if (!res.ok) throw new Error("Failed to send email");
       setSubmitted(true);
       setFields({ name: "", email: "", service: "", message: "" });
-    } catch (err) {
-      console.error("[ContactSection] Error sending email:", err);
+    } catch {
       setSendError(t.contact.sendError);
     } finally {
       setSending(false);
@@ -83,322 +80,308 @@ export function ContactSection() {
 
   function getWaUrl() {
     const serviceMsg = fields.service
-      ? (SERVICE_WA_MESSAGES[fields.service]?.[lang] ?? t.contact.waMsgDefault)
+      ? SERVICE_WA_MESSAGES[fields.service]?.[lang] ?? t.contact.waMsgDefault
       : t.contact.waMsgDefault;
     return `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(serviceMsg)}`;
   }
 
-  const inputStyle = (hasError: boolean): React.CSSProperties => ({
-    background: "rgba(255,255,255,0.04)",
-    border: hasError ? "1px solid rgba(239,68,68,0.5)" : "1px solid rgba(168,85,247,0.15)",
-    outline: "none",
-    ...font,
-  });
-
-  const tabBase: React.CSSProperties = {
-    flex: 1, padding: "10px 0", borderRadius: 10, border: "none", cursor: "pointer",
-    fontSize: 13, fontWeight: 700, transition: "all 0.2s", ...font,
-  };
+  const inputBaseClass =
+    "w-full rounded-xl px-4 py-3 text-sm text-[#18181B] bg-[#FAF8F4] placeholder:text-[#71717A] border transition-colors";
 
   return (
-    <section id="contact" className="py-24 px-6">
-      <div className="max-w-6xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, ease: "easeOut" }}
-          className="text-center mb-16"
-        >
-          <div
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-bold uppercase tracking-widest mb-6"
-            style={{
-              background: "rgba(105,0,163,0.15)",
-              border: "1px solid rgba(168,85,247,0.3)",
-              color: "#c084fc",
-              ...font,
-            }}
-          >
+    <section
+      id="contact"
+      className="py-16 sm:py-20 px-5 sm:px-6 bg-[#FAF8F4] border-t border-[#E2DBD0]"
+      dir={isRTL ? "rtl" : "ltr"}
+    >
+      <div className="max-w-5xl mx-auto">
+        <div className="max-w-2xl mb-10">
+          <p className="text-xs font-bold uppercase tracking-widest text-[#C2410C] mb-2">
             {t.contact.badge}
-          </div>
-          <h2
-            className="text-4xl md:text-5xl font-black text-white mb-4"
-            style={font}
-          >
-            {t.contact.heading} <span className="gradient-text">{t.contact.headingGradient}</span>
-          </h2>
-          <p className="text-slate-200 max-w-md mx-auto text-lg" style={font}>
-            {t.contact.subtitle}
           </p>
-        </motion.div>
+          <h2 className="font-display text-3xl sm:text-4xl font-bold text-[#18181B] mb-2">
+            {t.contact.heading}{" "}
+            <span className="text-[#C2410C]">{t.contact.headingGradient}</span>
+          </h2>
+          <p className="text-base text-[#3F3F46]">{t.contact.subtitle}</p>
+        </div>
 
-        <div className="grid md:grid-cols-5 gap-8 items-start max-w-5xl mx-auto">
-          {/* Left info column */}
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-            className="md:col-span-2 flex flex-col gap-5"
-          >
-            <div
-              className="rounded-2xl p-6"
-              style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.07)" }}
-            >
-              <div className="flex items-start gap-4 mb-6">
-                <div className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style={{ background: "rgba(168,85,247,0.12)" }}>
-                  <Mail size={18} style={{ color: "#a855f7" }} />
+        <div className="grid md:grid-cols-5 gap-6 items-start">
+          {/* Contact Info Column */}
+          <div className="md:col-span-2 flex flex-col gap-4">
+            <div className="rounded-2xl p-6 bg-white border border-[#E2DBD0] space-y-5">
+              <div className="flex items-start gap-3.5">
+                <div className="w-10 h-10 rounded-xl bg-[#FFF3EB] border border-[#FED7AA] flex items-center justify-center text-[#C2410C] flex-shrink-0">
+                  <Mail size={18} aria-hidden="true" />
                 </div>
-                <div>
-                  <p className="text-xs text-slate-500 uppercase tracking-widest mb-1" style={font}>{t.contact.emailLabel}</p>
+                <div className="min-w-0">
+                  <p className="text-xs font-semibold uppercase tracking-wider text-[#52525B] mb-0.5">
+                    {t.contact.emailLabel}
+                  </p>
                   <a
                     href="mailto:support@smartlearn.education"
-                    className="text-white font-semibold text-sm hover:text-purple-400 transition-colors"
-                    style={font}
+                    className="text-sm font-bold text-[#18181B] hover:text-[#C2410C] break-all"
                   >
                     support@smartlearn.education
                   </a>
                 </div>
               </div>
-              <div className="flex items-start gap-4">
-                <div className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style={{ background: "rgba(168,85,247,0.12)" }}>
-                  <MapPin size={18} style={{ color: "#a855f7" }} />
+
+              <div className="flex items-start gap-3.5">
+                <div className="w-10 h-10 rounded-xl bg-[#F2EEE6] border border-[#E2DBD0] flex items-center justify-center text-[#581C87] flex-shrink-0">
+                  <MapPin size={18} aria-hidden="true" />
                 </div>
                 <div>
-                  <p className="text-xs text-slate-500 uppercase tracking-widest mb-1" style={font}>{t.contact.locationLabel}</p>
-                  <p className="text-white font-semibold text-sm" style={font}>{t.contact.locationValue}</p>
-                  <p className="text-slate-500 text-xs mt-0.5" style={font}>{t.contact.locationRemote}</p>
+                  <p className="text-xs font-semibold uppercase tracking-wider text-[#52525B] mb-0.5">
+                    {t.contact.locationLabel}
+                  </p>
+                  <p className="text-sm font-bold text-[#18181B]">{t.contact.locationValue}</p>
+                  <p className="text-xs text-[#52525B] mt-0.5">{t.contact.locationRemote}</p>
                 </div>
               </div>
             </div>
 
-            <div
-              className="rounded-2xl p-5"
-              style={{
-                background: "linear-gradient(135deg, rgba(105,0,163,0.15) 0%, rgba(168,85,247,0.08) 100%)",
-                border: "1px solid rgba(168,85,247,0.25)",
-              }}
-            >
-              <p className="text-sm text-slate-300 font-semibold mb-2" style={font}>{t.contact.responseLabel}</p>
-              <p className="text-2xl font-black gradient-text" style={font}>{t.contact.responseValue}</p>
-              <p className="text-xs text-slate-500 mt-1" style={font}>{t.contact.responseDays}</p>
+            <div className="rounded-2xl p-5 bg-[#FFF3EB] border border-[#FED7AA]">
+              <p className="text-xs font-bold uppercase tracking-wider text-[#9A3412] mb-1">
+                {t.contact.responseLabel}
+              </p>
+              <p className="font-display text-2xl font-bold text-[#18181B]">
+                {t.contact.responseValue}
+              </p>
+              <p className="text-xs text-[#52525B] mt-0.5">{t.contact.responseDays}</p>
             </div>
 
-            <div
-              className="rounded-2xl p-5"
-              style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.07)" }}
-            >
+            <div className="rounded-2xl p-5 bg-white border border-[#E2DBD0]">
               <SocialLinks label size="md" />
             </div>
-          </motion.div>
+          </div>
 
-          {/* Right form column */}
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
-            className="md:col-span-3 rounded-2xl p-8"
-            style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.07)" }}
-          >
+          {/* Form / WhatsApp Column */}
+          <div className="md:col-span-3 rounded-2xl p-6 sm:p-8 bg-white border border-[#E2DBD0] shadow-2xs">
             {submitted ? (
-              <div className="flex flex-col items-center justify-center py-12 text-center gap-4">
-                <CheckCircle size={48} style={{ color: "#a855f7" }} />
-                <h3 className="text-xl font-black text-white" style={font}>{t.contact.successTitle}</h3>
-                <p className="text-slate-200 text-base max-w-xs" style={font}>{t.contact.successDesc}</p>
+              <div className="flex flex-col items-center justify-center py-10 text-center gap-3">
+                <CheckCircle size={44} className="text-[#15803D]" aria-hidden="true" />
+                <h3 className="font-sans text-xl font-bold text-[#18181B]">
+                  {t.contact.successTitle}
+                </h3>
+                <p className="text-sm text-[#3F3F46] max-w-sm">{t.contact.successDesc}</p>
                 <button
+                  type="button"
                   onClick={() => setSubmitted(false)}
-                  className="text-sm font-semibold transition-colors mt-2"
-                  style={{ color: "#a855f7", ...font }}
+                  className="text-sm font-bold text-[#C2410C] hover:text-[#9A3412] mt-2 cursor-pointer"
                 >
                   {t.contact.sendAnother}
                 </button>
               </div>
             ) : (
               <>
-                {/* Tab Toggle */}
                 <div
-                  className="flex gap-2 mb-6 p-1 rounded-xl"
-                  style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(168,85,247,0.12)" }}
+                  role="tablist"
+                  aria-label={lang === "ar" ? "طريقة التواصل" : "Contact channel"}
+                  className="workbench-tablist mb-6"
                 >
                   <button
+                    type="button"
+                    role="tab"
+                    aria-selected={activeTab === "email"}
                     onClick={() => setActiveTab("email")}
-                    style={{
-                      ...tabBase,
-                      background: activeTab === "email" ? "linear-gradient(135deg,#6900A3,#a855f7)" : "transparent",
-                      color: activeTab === "email" ? "#fff" : "#64748b",
-                      boxShadow: activeTab === "email" ? "0 0 20px rgba(105,0,163,0.3)" : "none",
-                    }}
+                    className="workbench-tab inline-flex items-center gap-2"
                   >
-                    <span className="inline-flex items-center justify-center gap-1.5">
-                      <Mail size={13} /> {t.contact.tabEmail}
-                    </span>
+                    <Mail size={15} aria-hidden="true" />
+                    <span>{t.contact.tabEmail}</span>
                   </button>
                   <button
+                    type="button"
+                    role="tab"
+                    aria-selected={activeTab === "whatsapp"}
                     onClick={() => setActiveTab("whatsapp")}
-                    style={{
-                      ...tabBase,
-                      background: activeTab === "whatsapp" ? "linear-gradient(135deg,#16a34a,#22c55e)" : "transparent",
-                      color: activeTab === "whatsapp" ? "#fff" : "#64748b",
-                      boxShadow: activeTab === "whatsapp" ? "0 0 20px rgba(22,163,74,0.25)" : "none",
-                    }}
+                    className="workbench-tab inline-flex items-center gap-2"
                   >
-                    <span className="inline-flex items-center justify-center gap-1.5">
-                      <MessageCircle size={13} /> {t.contact.tabWhatsApp}
-                    </span>
+                    <MessageCircle size={15} aria-hidden="true" />
+                    <span>{t.contact.tabWhatsApp}</span>
                   </button>
                 </div>
 
                 {activeTab === "email" ? (
                   <form onSubmit={handleSubmit} className="flex flex-col gap-5" noValidate>
-                    <div className="grid sm:grid-cols-2 gap-5">
+                    <div className="grid sm:grid-cols-2 gap-4">
                       <div>
-                        <label className="text-xs text-slate-500 uppercase tracking-widest mb-2 block" style={font}>
+                        <label
+                          htmlFor={`${baseId}-name`}
+                          className="text-xs font-bold uppercase tracking-wider text-[#3F3F46] mb-1.5 block"
+                        >
                           {t.contact.nameLabel}
                         </label>
                         <input
+                          id={`${baseId}-name`}
                           type="text"
+                          required
+                          autoComplete="name"
                           value={fields.name}
+                          aria-invalid={!!errors.name}
+                          aria-describedby={errors.name ? `${baseId}-name-err` : undefined}
                           onChange={(e) => setFields({ ...fields, name: e.target.value })}
                           placeholder={t.contact.namePlaceholder}
-                          className="w-full rounded-xl px-4 py-3 text-sm text-white placeholder-slate-600 transition-all duration-200"
-                          style={inputStyle(!!errors.name)}
+                          className={`${inputBaseClass} ${
+                            errors.name ? "border-red-600" : "border-[#C9C0B2] focus:border-[#C2410C]"
+                          }`}
                         />
-                        {errors.name && <p className="text-xs text-red-400 mt-1.5" style={font}>{errors.name}</p>}
+                        {errors.name && (
+                          <p id={`${baseId}-name-err`} className="text-xs text-red-700 font-medium mt-1.5">
+                            {errors.name}
+                          </p>
+                        )}
                       </div>
+
                       <div>
-                        <label className="text-xs text-slate-500 uppercase tracking-widest mb-2 block" style={font}>
+                        <label
+                          htmlFor={`${baseId}-email`}
+                          className="text-xs font-bold uppercase tracking-wider text-[#3F3F46] mb-1.5 block"
+                        >
                           {t.contact.emailFieldLabel}
                         </label>
                         <input
+                          id={`${baseId}-email`}
                           type="email"
+                          required
+                          autoComplete="email"
                           value={fields.email}
+                          aria-invalid={!!errors.email}
+                          aria-describedby={errors.email ? `${baseId}-email-err` : undefined}
                           onChange={(e) => setFields({ ...fields, email: e.target.value })}
                           placeholder={t.contact.emailPlaceholder}
-                          className="w-full rounded-xl px-4 py-3 text-sm text-white placeholder-slate-600 transition-all duration-200"
-                          style={inputStyle(!!errors.email)}
+                          className={`${inputBaseClass} ${
+                            errors.email ? "border-red-600" : "border-[#C9C0B2] focus:border-[#C2410C]"
+                          }`}
                         />
-                        {errors.email && <p className="text-xs text-red-400 mt-1.5" style={font}>{errors.email}</p>}
+                        {errors.email && (
+                          <p id={`${baseId}-email-err`} className="text-xs text-red-700 font-medium mt-1.5">
+                            {errors.email}
+                          </p>
+                        )}
                       </div>
                     </div>
 
                     <div>
-                      <label className="text-xs text-slate-500 uppercase tracking-widest mb-2 block" style={font}>
+                      <label
+                        htmlFor={`${baseId}-service`}
+                        className="text-xs font-bold uppercase tracking-wider text-[#3F3F46] mb-1.5 block"
+                      >
                         {t.contact.serviceLabel}
                       </label>
                       <select
-                        aria-label={t.contact.serviceLabel}
+                        id={`${baseId}-service`}
                         value={fields.service}
                         onChange={(e) => setFields({ ...fields, service: e.target.value })}
-                        className="w-full rounded-xl px-4 py-3 text-sm text-white transition-all duration-200"
-                        style={{
-                          background: "rgba(255,255,255,0.04)",
-                          border: "1px solid rgba(168,85,247,0.15)",
-                          ...font,
-                        }}
+                        className={`${inputBaseClass} border-[#C9C0B2] focus:border-[#C2410C]`}
                       >
-                        <option value="" style={{ background: "#0d0d1a" }}>{t.contact.servicePlaceholder}</option>
+                        <option value="">{t.contact.servicePlaceholder}</option>
                         {t.contact.serviceOptions.map((opt) => (
-                          <option key={opt.value} value={opt.value} style={{ background: "#0d0d1a" }}>{opt.label}</option>
+                          <option key={opt.value} value={opt.value}>
+                            {opt.label}
+                          </option>
                         ))}
                       </select>
                     </div>
 
                     <div>
-                      <label className="text-xs text-slate-500 uppercase tracking-widest mb-2 block" style={font}>
+                      <label
+                        htmlFor={`${baseId}-message`}
+                        className="text-xs font-bold uppercase tracking-wider text-[#3F3F46] mb-1.5 block"
+                      >
                         {t.contact.messageLabel}
                       </label>
                       <textarea
+                        id={`${baseId}-message`}
+                        required
+                        rows={4}
                         value={fields.message}
+                        aria-invalid={!!errors.message}
+                        aria-describedby={errors.message ? `${baseId}-msg-err` : undefined}
                         onChange={(e) => setFields({ ...fields, message: e.target.value })}
                         placeholder={t.contact.messagePlaceholder}
-                        rows={4}
-                        className="w-full rounded-xl px-4 py-3 text-sm text-white placeholder-slate-600 resize-none transition-all duration-200"
-                        style={inputStyle(!!errors.message)}
+                        className={`${inputBaseClass} resize-y ${
+                          errors.message ? "border-red-600" : "border-[#C9C0B2] focus:border-[#C2410C]"
+                        }`}
                       />
-                      {errors.message && <p className="text-xs text-red-400 mt-1.5" style={font}>{errors.message}</p>}
+                      {errors.message && (
+                        <p id={`${baseId}-msg-err`} className="text-xs text-red-700 font-medium mt-1.5">
+                          {errors.message}
+                        </p>
+                      )}
                     </div>
 
                     {sendError && (
-                      <div className="flex items-center gap-2 text-red-400 text-sm" style={font}>
-                        <AlertCircle size={14} /> {sendError}
+                      <div role="alert" className="flex items-start gap-2 text-red-700 text-sm font-medium bg-red-50 border border-red-200 rounded-xl p-3">
+                        <AlertCircle size={16} className="mt-0.5 flex-shrink-0" aria-hidden="true" />
+                        <span>{sendError}</span>
                       </div>
                     )}
 
                     <button
                       type="submit"
                       disabled={sending}
-                      className="inline-flex items-center justify-center gap-2 py-3.5 rounded-xl font-black text-sm text-white transition-all duration-200 hover:opacity-90 hover:scale-[1.01] disabled:opacity-60"
-                      style={{
-                        background: "linear-gradient(135deg, #6900A3, #a855f7)",
-                        boxShadow: "0 0 30px rgba(105,0,163,0.35)",
-                        ...font,
-                      }}
+                      className="inline-flex items-center justify-center gap-2 py-3.5 px-6 rounded-xl font-bold text-sm text-white bg-[#C2410C] hover:bg-[#9A3412] transition-colors disabled:opacity-60 cursor-pointer"
                     >
-                      {sending ? <Loader2 size={15} className="animate-spin" /> : <Send size={15} />}
-                      {sending ? t.contact.sendingBtn : t.contact.submitBtn}
+                      {sending ? (
+                        <Loader2 size={16} className="animate-spin" aria-hidden="true" />
+                      ) : (
+                        <Send size={16} aria-hidden="true" />
+                      )}
+                      <span>{sending ? t.contact.sendingBtn : t.contact.submitBtn}</span>
                     </button>
                   </form>
                 ) : (
-                  /* WhatsApp Tab */
                   <div className="flex flex-col gap-5">
                     <div>
-                      <label className="text-xs text-slate-500 uppercase tracking-widest mb-2 block" style={font}>
+                      <label
+                        htmlFor={`${baseId}-wa-service`}
+                        className="text-xs font-bold uppercase tracking-wider text-[#3F3F46] mb-1.5 block"
+                      >
                         {t.contact.serviceLabel}
                       </label>
                       <select
-                        aria-label={t.contact.serviceLabel}
+                        id={`${baseId}-wa-service`}
                         value={fields.service}
                         onChange={(e) => setFields({ ...fields, service: e.target.value })}
-                        className="w-full rounded-xl px-4 py-3 text-sm text-white transition-all duration-200"
-                        style={{
-                          background: "rgba(255,255,255,0.04)",
-                          border: "1px solid rgba(168,85,247,0.15)",
-                          ...font,
-                        }}
+                        className={`${inputBaseClass} border-[#C9C0B2]`}
                       >
-                        <option value="" style={{ background: "#0d0d1a" }}>{t.contact.servicePlaceholder}</option>
+                        <option value="">{t.contact.servicePlaceholder}</option>
                         {t.contact.serviceOptions.map((opt) => (
-                          <option key={opt.value} value={opt.value} style={{ background: "#0d0d1a" }}>{opt.label}</option>
+                          <option key={opt.value} value={opt.value}>
+                            {opt.label}
+                          </option>
                         ))}
                       </select>
                     </div>
 
-                    <div
-                      className="rounded-xl p-5"
-                      style={{ background: "rgba(34,197,94,0.06)", border: "1px solid rgba(34,197,94,0.2)" }}
-                    >
-                      <p className="text-xs text-slate-500 uppercase tracking-widest mb-2" style={font}>
-                        {lang === "ar" ? "الرسالة المرسلة" : "Message Preview"}
+                    <div className="rounded-xl p-4 bg-[#ECFDF3] border border-[#BBF7D0]">
+                      <p className="text-xs font-bold uppercase tracking-wider text-[#15803D] mb-1.5">
+                        {lang === "ar" ? "نص الرسالة الجاهزة" : "Message Preview"}
                       </p>
-                      <p className="text-sm text-slate-300 leading-relaxed" style={font}>
+                      <p className="text-sm text-[#18181B] leading-relaxed">
                         {fields.service
-                          ? (SERVICE_WA_MESSAGES[fields.service]?.[lang] ?? t.contact.waMsgDefault)
+                          ? SERVICE_WA_MESSAGES[fields.service]?.[lang] ?? t.contact.waMsgDefault
                           : t.contact.waMsgDefault}
                       </p>
                     </div>
 
-                    <p className="text-base text-slate-200 leading-relaxed" style={font}>{t.contact.waDesc}</p>
+                    <p className="text-sm text-[#3F3F46] leading-relaxed">{t.contact.waDesc}</p>
 
                     <a
                       href={getWaUrl()}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center justify-center gap-2 py-3.5 rounded-xl font-black text-sm text-white transition-all duration-200 hover:opacity-90 hover:scale-[1.01]"
-                      style={{
-                        background: "linear-gradient(135deg, #16a34a, #22c55e)",
-                        boxShadow: "0 0 30px rgba(22,163,74,0.3)",
-                        ...font,
-                      }}
+                      className="inline-flex items-center justify-center gap-2 py-3.5 px-6 rounded-xl font-bold text-sm text-white bg-[#15803D] hover:bg-[#166534] transition-colors"
                     >
-                      <MessageCircle size={15} />
-                      {t.contact.waBtn}
+                      <MessageCircle size={16} aria-hidden="true" />
+                      <span>{t.contact.waBtn}</span>
                     </a>
                   </div>
                 )}
               </>
             )}
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>
