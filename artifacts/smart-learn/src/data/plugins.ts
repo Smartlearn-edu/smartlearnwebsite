@@ -37,6 +37,7 @@ export interface Plugin {
   requiresSetup?: boolean;
   setupPrice?: number;
   images: string[];
+  videoUrl?: string | null;
   freemiusProductId?: string | number;
   freemiusPlanId?: string | number;
   freemiusPublicKey?: string;

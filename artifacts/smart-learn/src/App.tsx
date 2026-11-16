@@ -5,6 +5,7 @@ import { LanguageProvider } from "@/i18n";
 import Home from "@/pages/Home";
 import { ServiceRouter } from "@/pages/services/ServiceRouter";
 import { PluginDetailPage } from "@/pages/services/PluginDetailPage";
+import { PluginVideoPage } from "@/pages/services/PluginVideoPage";
 import { AdminPage } from "@/pages/AdminPage";
 import { SuccessStoriesPage } from "@/pages/SuccessStoriesPage";
 import { PricingPage } from "@/pages/PricingPage";
@@ -38,6 +39,7 @@ function App({ ssrPath }: { ssrPath?: string }) {
               <Route path="/admin" component={AdminPage} />
               <Route path="/pricing" component={PricingPage} />
               <Route path="/success-stories" component={SuccessStoriesPage} />
+              <Route path="/services/plugins/:pluginSlug/video" component={PluginVideoPage} />
               <Route path="/services/plugins/:pluginSlug" component={PluginDetailPage} />
               <Route path="/services/:slug" component={ServiceRouter} />
               <Route path="/blog" component={BlogList} />

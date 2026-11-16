@@ -32,6 +32,7 @@ export const pluginsTable = pgTable("plugins", {
   tags: jsonb("tags").notNull().$type<string[]>().default([]),
   tagsAr: jsonb("tags_ar").notNull().$type<string[]>().default([]),
   images: jsonb("images").notNull().$type<string[]>().default([]),
+  videoUrl: text("video_url"),
   freemiusProductId: text("freemius_product_id"),
   freemiusPlanId: text("freemius_plan_id"),
   freemiusPublicKey: text("freemius_public_key"),

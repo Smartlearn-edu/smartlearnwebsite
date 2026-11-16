@@ -8,6 +8,7 @@ import { useT } from "@/i18n";
 import { Navbar } from "@/components/Navbar";
 import type { Plugin } from "@/data/plugins";
 import type { Testimonial } from "@/hooks/useTestimonials";
+import { extractYouTubeId } from "@/lib/youtube";
 
 const BASE = "/api";
 
@@ -34,6 +35,7 @@ function rowToPlugin(row: Record<string, unknown>): DbPlugin {
     features: Array.isArray(row.features) ? (row.features as string[]) : [],
     featuresAr: Array.isArray(row.featuresAr) ? (row.featuresAr as string[]) : [],
     images: Array.isArray(row.images) ? (row.images as string[]) : [],
+    videoUrl: row.videoUrl ? String(row.videoUrl) : undefined,
     freemiusProductId: row.freemiusProductId ? String(row.freemiusProductId) : undefined,
     freemiusPlanId: row.freemiusPlanId ? String(row.freemiusPlanId) : undefined,
     freemiusPublicKey: row.freemiusPublicKey ? String(row.freemiusPublicKey) : undefined,
@@ -46,7 +48,7 @@ const EMPTY_FORM: Partial<DbPlugin> = {
   name: "", nameAr: "", slug: "", type: "local", moodle: "Moodle 4.0+",
   category: "Theme & Smart Pages", categoryAr: "القالب والصفحات الذكية",
   free: false, paidSupport: false, placeholder: false,
-  price: 50, features: [], featuresAr: [], images: [],
+  price: 50, features: [], featuresAr: [], images: [], videoUrl: "",
   freemiusProductId: "", freemiusPlanId: "", freemiusPublicKey: "",
   description: "", descriptionAr: "",
 };
@@ -219,8 +221,10 @@ function PluginForm({
   };
 
   const submit = () => {
+    const trimmedVideo = form.videoUrl?.trim();
     const data = {
       ...form,
+      videoUrl: trimmedVideo ? trimmedVideo : null,
       features: featStr.split("\n").filter(Boolean),
       featuresAr: featArStr.split("\n").filter(Boolean),
       images: imgStr.split("\n").map((s) => s.trim()).filter(Boolean),
@@ -301,6 +305,34 @@ function PluginForm({
           <div>{row("Setup Price (USD)", <input type="number" value={form.setupPrice ?? ""} onChange={(e) => set("setupPrice", e.target.value ? Number(e.target.value) : undefined)} style={s.input} />)}</div>
           <div>{row("Buy URL (WhatsApp or Custom)", inp("buyUrl", "https://wa.me/..."))}</div>
           <div>{row("Download URL (Moodle.org)", inp("downloadUrl", "https://moodle.org/plugins/..."))}</div>
+        </div>
+
+        <div style={{ marginBottom: 14 }}>
+          {row(
+            "YouTube Video URL (Optional)",
+            <div>
+              {inp("videoUrl", "https://www.youtube.com/watch?v=...")}
+              <div style={{ fontSize: 11, color: "#94a3b8", marginTop: 4 }}>
+                {form.videoUrl?.trim() ? (
+                  extractYouTubeId(form.videoUrl) ? (
+                    <span style={{ color: "#4ade80" }}>
+                      ✓ YouTube ID: <code>{extractYouTubeId(form.videoUrl)}</code> · Direct link:{" "}
+                      <code>/services/plugins/{form.slug || "<slug>"}/video</code>
+                    </span>
+                  ) : (
+                    <span style={{ color: "#f87171" }}>
+                      Could not detect a valid YouTube video ID from this URL.
+                    </span>
+                  )
+                ) : (
+                  <span>
+                    Paste a YouTube link (watch, youtu.be, shorts, or embed). Appears at the top of the plugin page and at{" "}
+                    <code style={{ color: "#a855f7" }}>/services/plugins/{form.slug || "{slug}"}/video</code>.
+                  </span>
+                )}
+              </div>
+            </div>
+          )}
         </div>
 
         <div style={{ padding: "12px 14px", background: "rgba(168,85,247,0.06)", border: "1px solid rgba(168,85,247,0.25)", borderRadius: 10, marginBottom: 14 }}>
@@ -428,6 +460,7 @@ function PluginRow({ plugin, onEdit, onDelete }: {
             {plugin.free ? badge("#4ade80", "Free") : badge("#a855f7", `$${plugin.price ?? "?"}`)}
             {plugin.paidSupport && badge("#f59e0b", "+Support")}
             {plugin.placeholder && badge("#64748b", "WIP")}
+            {extractYouTubeId(plugin.videoUrl) && badge("#38bdf8", "Video")}
           </div>
         </td>
         <td style={{ padding: "12px 16px" }}>

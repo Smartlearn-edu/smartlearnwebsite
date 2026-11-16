@@ -39,7 +39,11 @@ router.get("/plugins/:slug", async (req, res) => {
 router.post("/plugins", requireAdmin, async (req, res) => {
   try {
     const data = insertPluginSchema.parse(req.body);
-    const [row] = await db.insert(pluginsTable).values(data).returning();
+    const normalized = {
+      ...data,
+      videoUrl: data.videoUrl?.trim() ? data.videoUrl.trim() : null,
+    };
+    const [row] = await db.insert(pluginsTable).values(normalized).returning();
     res.status(201).json(row);
   } catch (err: unknown) {
     if (err && typeof err === "object" && "issues" in err) {
@@ -58,9 +62,16 @@ router.patch("/plugins/:id", requireAdmin, async (req, res) => {
       return;
     }
     const data = updatePluginSchema.parse(req.body);
+    const normalized = {
+      ...data,
+      ...(data.videoUrl !== undefined
+        ? { videoUrl: data.videoUrl?.trim() ? data.videoUrl.trim() : null }
+        : {}),
+      updatedAt: new Date(),
+    };
     const [row] = await db
       .update(pluginsTable)
-      .set({ ...data, updatedAt: new Date() })
+      .set(normalized)
       .where(eq(pluginsTable.id, id))
       .returning();
     if (!row) {

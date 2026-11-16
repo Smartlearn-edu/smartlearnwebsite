@@ -2,7 +2,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Puzzle, Check, Search, X, BarChart2, ArrowUpRight,
-  Tag as TagIcon, Coins, RotateCcw, Filter
+  Tag as TagIcon, Coins, RotateCcw, Filter, PlayCircle
 } from "lucide-react";
 import { Helmet } from "react-helmet-async";
 import { Link } from "wouter";
@@ -12,6 +12,7 @@ import { usePlugins } from "@/hooks/usePlugins";
 import { useT } from "@/i18n";
 import { DirectionalArrow } from "@/components/DirectionalArrow";
 import { ComparisonBar, ComparisonModal } from "@/components/PluginCompare";
+import { extractYouTubeId } from "@/lib/youtube";
 
 const font: React.CSSProperties = { fontFamily: "'Cairo', sans-serif" };
 const gradientText: React.CSSProperties = {
@@ -728,7 +729,9 @@ function PluginCard({
   const name = lang === "en" ? plugin.name : plugin.nameAr;
   const features = lang === "en" ? plugin.features : plugin.featuresAr;
   const thumbnail = plugin.images?.[0];
+  const hasVideo = Boolean(extractYouTubeId(plugin.videoUrl));
   const compareLabel = lang === "ar" ? "قارن" : "Compare";
+  const videoLabel = lang === "ar" ? "فيديو" : "Video";
   const theme = titleThemes[i % titleThemes.length];
 
   return (
@@ -781,6 +784,25 @@ function PluginCard({
           <BarChart2 size={11} />
           {compareLabel}
         </button>
+
+        {hasVideo && (
+          <Link
+            href={`/services/plugins/${plugin.slug}/video`}
+            onClick={(e) => e.stopPropagation()}
+            className="absolute top-2 end-2 flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-xs font-bold transition-all duration-200 hover:scale-105 z-10 cursor-pointer"
+            style={{
+              background: "rgba(105,0,163,0.85)",
+              border: "1px solid rgba(192,132,252,0.5)",
+              color: "#fff",
+              backdropFilter: "blur(8px)",
+              ...font,
+            }}
+            aria-label={`${videoLabel} — ${name}`}
+          >
+            <PlayCircle size={12} aria-hidden="true" />
+            {videoLabel}
+          </Link>
+        )}
       </div>
 
       <div className="p-6 flex flex-col flex-1">

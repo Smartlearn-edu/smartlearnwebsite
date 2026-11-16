@@ -38,6 +38,7 @@ function rowToPlugin(row: Record<string, unknown>): Plugin {
     features: Array.isArray(row.features) && row.features.length > 0 ? (row.features as string[]) : (staticMatch?.features ?? []),
     featuresAr: Array.isArray(row.featuresAr) && row.featuresAr.length > 0 ? (row.featuresAr as string[]) : (staticMatch?.featuresAr ?? []),
     images: Array.isArray(row.images) && row.images.length > 0 ? (row.images as string[]) : (staticMatch?.images ?? []),
+    videoUrl: typeof row.videoUrl === "string" && row.videoUrl.trim() ? row.videoUrl.trim() : staticMatch?.videoUrl,
     freemiusProductId: row.freemiusProductId ? String(row.freemiusProductId) : staticMatch?.freemiusProductId,
     freemiusPlanId: row.freemiusPlanId ? String(row.freemiusPlanId) : staticMatch?.freemiusPlanId,
     freemiusPublicKey: row.freemiusPublicKey ? String(row.freemiusPublicKey) : staticMatch?.freemiusPublicKey,

@@ -11,8 +11,10 @@ import { Navbar } from "@/components/Navbar";
 import { usePlugins } from "@/hooks/usePlugins";
 import { useT } from "@/i18n";
 import { SocialLinks } from "@/components/SocialLinks";
+import { PluginVideoEmbed } from "@/components/PluginVideoEmbed";
 import { Link } from "wouter";
 import { openFreemiusCheckout, type FreemiusPurchaseResponse } from "@/lib/freemius";
+import { extractYouTubeId, getYouTubeWatchUrl } from "@/lib/youtube";
 
 const font: React.CSSProperties = { fontFamily: "var(--site-font)" };
 
@@ -228,6 +230,7 @@ export function PluginDetailPage() {
 
   const isPaid = !plugin.free;
   const isSetupPlugin = plugin.requiresSetup;
+  const videoId = extractYouTubeId(plugin.videoUrl);
 
   const hasFreemius = Boolean(plugin.freemiusProductId && plugin.freemiusPublicKey);
 
@@ -261,6 +264,7 @@ export function PluginDetailPage() {
       <Helmet>
         <title>{name} — Smart Learn Moodle Plugins</title>
         <meta name="description" content={description.slice(0, 155)} />
+        {videoId && <meta property="og:video" content={getYouTubeWatchUrl(videoId)} />}
       </Helmet>
 
       <div className="min-h-screen" style={{ backgroundColor: "#07070f", ...font }}>
@@ -308,6 +312,19 @@ export function PluginDetailPage() {
             <h1 className="text-4xl md:text-5xl font-black text-white mb-6 leading-tight" style={font}>
               <span style={gradientText}>{name}</span>
             </h1>
+
+            {/* Video showcase at top of plugin page */}
+            {videoId && (
+              <div className="mb-8">
+                <PluginVideoEmbed
+                  videoId={videoId}
+                  pluginName={name}
+                  slug={plugin.slug}
+                  lang={lang}
+                  showTheaterLink
+                />
+              </div>
+            )}
 
             {/* Features quick grid */}
             {features.length > 0 && (
