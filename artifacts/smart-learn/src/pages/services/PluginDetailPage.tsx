@@ -193,6 +193,8 @@ export function PluginDetailPage() {
   const { lang, isRTL } = useT();
   const t = ui[lang];
   const { data: plugins = [], isFetching } = usePlugins();
+  const [purchasedInfo, setPurchasedInfo] = useState<FreemiusPurchaseResponse | null>(null);
+  const [copied, setCopied] = useState(false);
   const plugin = plugins.find((p) => p.slug === pluginSlug);
 
   if (!plugin) {
@@ -226,9 +228,6 @@ export function PluginDetailPage() {
 
   const isPaid = !plugin.free;
   const isSetupPlugin = plugin.requiresSetup;
-
-  const [purchasedInfo, setPurchasedInfo] = useState<FreemiusPurchaseResponse | null>(null);
-  const [copied, setCopied] = useState(false);
 
   const hasFreemius = Boolean(plugin.freemiusProductId && plugin.freemiusPublicKey);
 
