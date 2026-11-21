@@ -420,7 +420,7 @@
       "name": "Continue Learning",
       "category": "Courses & Categories",
       "variant": "Dashboard",
-      "description": "A personalized dashboard-style section showing the student\u2019s current progress and recently accessed materials.",
+      "description": "A personalized dashboard-style section showing the student’s current progress and recently accessed materials.",
       "tags": [
         "courses",
         "dashboard",
@@ -1249,12 +1249,12 @@
       "name": "Abstract Innovator Hero",
       "category": "Hero",
       "variant": "Abstract",
-      "description": "Friendly, organic layout using morphing SVG blob shapes to mask images.",
+      "description": "Friendly, organic layout using morphing blob shapes to mask hero media.",
       "tags": [
         "hero",
         "abstract",
-        "svg",
         "blob",
+        "creative",
         "friendly"
       ],
       "image_count": 1,
@@ -1269,7 +1269,7 @@
       "name": "Bento Learning Hero",
       "category": "Hero",
       "variant": "Bento Grid",
-      "description": "Trendy Apple-style bento grid layout organizing different hero elements into distinct cards.",
+      "description": "Apple-style bento grid layout organizing hero headline, CTA, metrics, video preview, and course search into distinct cards.",
       "tags": [
         "hero",
         "bento",
@@ -1289,7 +1289,7 @@
       "name": "Corporate Search Hub",
       "category": "Hero",
       "variant": "Search Hub",
-      "description": "Neumorphic soft UI focused on a prominent search bar for large course libraries.",
+      "description": "Clean soft-elevated UI focused on a prominent course search bar for large course libraries.",
       "tags": [
         "hero",
         "search",
@@ -1309,7 +1309,7 @@
       "name": "Creator Masterclass Hero",
       "category": "Hero",
       "variant": "Video",
-      "description": "Cinematic full-screen video background with a floating glass course rating card.",
+      "description": "Cinematic full-screen hero backdrop with an interactive trailer modal and floating glass course rating card.",
       "tags": [
         "hero",
         "video",
@@ -1329,7 +1329,7 @@
       "name": "Dynamic Academy Hero",
       "category": "Hero",
       "variant": "Dynamic",
-      "description": "High-energy layout with a diagonal split and fast-paced animations.",
+      "description": "High-energy layout with a diagonal split, crisp scrim contrast, and RTL-aware motion.",
       "tags": [
         "hero",
         "dynamic",
@@ -1349,7 +1349,7 @@
       "name": "Floating Universe Hero",
       "category": "Hero",
       "variant": "Floating",
-      "description": "3D parallax environment with floating course cards on a clean light background.",
+      "description": "3D parallax environment with floating course cards and a working course search bar.",
       "tags": [
         "hero",
         "floating",
@@ -1369,7 +1369,7 @@
       "name": "Glass Box Hero",
       "category": "Hero",
       "variant": "Premium Glass",
-      "description": "Center-aligned frosted glass panel over a blurred full-width background image.",
+      "description": "Center-aligned frosted glass panel over a blurred full-width background image with working application form.",
       "tags": [
         "hero",
         "glassmorphism",
@@ -1388,7 +1388,7 @@
       "name": "Instructor Spotlight Hero",
       "category": "Hero",
       "variant": "Instructor",
-      "description": "Focuses on the instructor with a large cut-out portrait and orbiting UI badges.",
+      "description": "Focuses on the instructor with a large portrait and orbiting credential badges.",
       "tags": [
         "hero",
         "instructor",
@@ -1407,7 +1407,7 @@
       "name": "Learning Path Hero",
       "category": "Hero",
       "variant": "Curriculum",
-      "description": "Illustrates a journey with a connected visual timeline of courses.",
+      "description": "Illustrates a structured learning journey with a connected visual timeline of courses.",
       "tags": [
         "hero",
         "path",
@@ -1447,7 +1447,7 @@
       "name": "Product Reveal Hero",
       "category": "Hero",
       "variant": "Dashboard Mockup",
-      "description": "Shows off the actual student dashboard UI with a stylized 3D CSS mockup.",
+      "description": "Showcases the student dashboard UI with a stylized 3D CSS mockup.",
       "tags": [
         "hero",
         "product",
@@ -1488,7 +1488,7 @@
       "name": "Student Journey Hero",
       "category": "Hero",
       "variant": "Personalized",
-      "description": "Logged-in dashboard hero for returning students showing actual Moodle functionality and progress.",
+      "description": "Logged-in dashboard hero for returning students showing course progress and next recommendations.",
       "tags": [
         "hero",
         "student",
@@ -1508,7 +1508,7 @@
       "name": "Tech Bootcamp Hero",
       "category": "Hero",
       "variant": "Tech",
-      "description": "Dark mode hero with an animated mesh gradient background and terminal-like typography.",
+      "description": "Developer-focused hero with subtle radial mesh backdrop, monospace cohort badge, and dual CTAs.",
       "tags": [
         "hero",
         "tech",
@@ -1528,7 +1528,7 @@
       "name": "Video Gallery Hero",
       "category": "Hero",
       "variant": "Video Platform",
-      "description": "A comprehensive hero section featuring a multi-video gallery player, text content, and feature highlights at the bottom.",
+      "description": "Comprehensive hero featuring a multi-video gallery player, interactive thumbnail switcher, and bottom feature highlights.",
       "tags": [
         "hero",
         "video",
@@ -1545,7 +1545,7 @@
     },
     {
       "id": "method-interactive-circles",
-      "name": "Interactive Method \u2014 Keyword & Stat Orbs",
+      "name": "Interactive Method — Keyword & Stat Orbs",
       "category": "Features",
       "variant": "Accordion with Floating Circles",
       "description": "2-column layout with interactive animated floating keyword and stat orbs paired with pill accordions.",
@@ -1566,7 +1566,7 @@
     },
     {
       "id": "method-interactive-image",
-      "name": "Interactive Method \u2014 Visual Showcase",
+      "name": "Interactive Method — Visual Showcase",
       "category": "Features",
       "variant": "Accordion with Image",
       "description": "2-column layout with high-definition rounded showcase image, glassmorphism rating badge, and interactive pill accordions.",
@@ -1586,7 +1586,7 @@
     },
     {
       "id": "method-interactive-text",
-      "name": "Interactive Method \u2014 Text & Stats",
+      "name": "Interactive Method — Text & Stats",
       "category": "Features",
       "variant": "Accordion with Stats",
       "description": "2-column methodology showcase with large headline, narrative body, dual circular progress rings, and pill accordion tabs.",
@@ -1606,7 +1606,7 @@
     },
     {
       "id": "method-interactive-video",
-      "name": "Interactive Method \u2014 Video Spotlight",
+      "name": "Interactive Method — Video Spotlight",
       "category": "Features",
       "variant": "Accordion with Video",
       "description": "2-column layout pairing an autoplaying video overview box with interactive pill accordions.",
