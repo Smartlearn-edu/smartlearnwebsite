@@ -218,7 +218,7 @@
         "story",
         "hover"
       ],
-      "image_count": 4,
+      "image_count": 3,
       "preview_image": "previews/category-split-story.webp",
       "download_url": "/sections/category-split-story.json",
       "is_premium": false,
@@ -389,7 +389,7 @@
         "featured",
         "cinematic"
       ],
-      "image_count": 4,
+      "image_count": 3,
       "preview_image": "previews/course-cinematic-carousel.webp",
       "download_url": "/sections/course-cinematic-carousel.json",
       "is_premium": false,
@@ -747,7 +747,7 @@
         "modern",
         "lms"
       ],
-      "image_count": 3,
+      "image_count": 2,
       "preview_image": "previews/feature-bento.webp",
       "download_url": "/sections/feature-bento.json",
       "is_premium": false,
@@ -907,7 +907,7 @@
         "editorial",
         "media"
       ],
-      "image_count": 4,
+      "image_count": 3,
       "preview_image": "previews/feature-typography-media.webp",
       "download_url": "/sections/feature-typography-media.json",
       "is_premium": false,
@@ -1609,7 +1609,7 @@
       "name": "Interactive Method — Video Spotlight",
       "category": "Features",
       "variant": "Accordion with Video",
-      "description": "2-column layout pairing an autoplaying video overview box with interactive pill accordions.",
+      "description": "2-column layout pairing a click-to-play video overview box with interactive pill accordions.",
       "tags": [
         "methodology",
         "accordion",
